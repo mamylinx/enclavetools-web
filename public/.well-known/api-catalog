@@ -1,0 +1,147 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://enclavetools.com",
+      "service-doc": [
+        {
+          "href": "https://enclavetools.com/llms.txt",
+          "type": "text/plain",
+          "title": "LLM-friendly site overview (llms.txt)"
+        },
+        {
+          "href": "https://enclavetools.com/sitemap-index.xml",
+          "type": "application/xml",
+          "title": "XML Sitemap index"
+        }
+      ],
+      "describedby": [
+        {
+          "href": "https://enclavetools.com/robots.txt",
+          "type": "text/plain",
+          "title": "Crawl policy and Content Signals"
+        }
+      ],
+      "status": [
+        {
+          "href": "https://enclavetools.com",
+          "title": "Homepage availability"
+        }
+      ]
+    },
+    {
+      "anchor": "https://enclavetools.com/art",
+      "service-doc": [{ "href": "https://enclavetools.com/llms.txt", "type": "text/plain" }],
+      "type": [{ "href": "https://schema.org/ItemList" }]
+    },
+    {
+      "anchor": "https://enclavetools.com/audio",
+      "service-doc": [{ "href": "https://enclavetools.com/llms.txt", "type": "text/plain" }],
+      "type": [{ "href": "https://schema.org/ItemList" }]
+    },
+    {
+      "anchor": "https://enclavetools.com/code",
+      "service-doc": [{ "href": "https://enclavetools.com/llms.txt", "type": "text/plain" }],
+      "type": [{ "href": "https://schema.org/ItemList" }]
+    },
+    {
+      "anchor": "https://enclavetools.com/copywriting",
+      "service-doc": [{ "href": "https://enclavetools.com/llms.txt", "type": "text/plain" }],
+      "type": [{ "href": "https://schema.org/ItemList" }]
+    },
+    {
+      "anchor": "https://enclavetools.com/design",
+      "service-doc": [{ "href": "https://enclavetools.com/llms.txt", "type": "text/plain" }],
+      "type": [{ "href": "https://schema.org/ItemList" }]
+    },
+    {
+      "anchor": "https://enclavetools.com/developer",
+      "service-doc": [{ "href": "https://enclavetools.com/llms.txt", "type": "text/plain" }],
+      "type": [{ "href": "https://schema.org/ItemList" }]
+    },
+    {
+      "anchor": "https://enclavetools.com/education",
+      "service-doc": [{ "href": "https://enclavetools.com/llms.txt", "type": "text/plain" }],
+      "type": [{ "href": "https://schema.org/ItemList" }]
+    },
+    {
+      "anchor": "https://enclavetools.com/enterprise",
+      "service-doc": [{ "href": "https://enclavetools.com/llms.txt", "type": "text/plain" }],
+      "type": [{ "href": "https://schema.org/ItemList" }]
+    },
+    {
+      "anchor": "https://enclavetools.com/fashion",
+      "service-doc": [{ "href": "https://enclavetools.com/llms.txt", "type": "text/plain" }],
+      "type": [{ "href": "https://schema.org/ItemList" }]
+    },
+    {
+      "anchor": "https://enclavetools.com/gaming",
+      "service-doc": [{ "href": "https://enclavetools.com/llms.txt", "type": "text/plain" }],
+      "type": [{ "href": "https://schema.org/ItemList" }]
+    },
+    {
+      "anchor": "https://enclavetools.com/health",
+      "service-doc": [{ "href": "https://enclavetools.com/llms.txt", "type": "text/plain" }],
+      "type": [{ "href": "https://schema.org/ItemList" }]
+    },
+    {
+      "anchor": "https://enclavetools.com/legal",
+      "service-doc": [{ "href": "https://enclavetools.com/llms.txt", "type": "text/plain" }],
+      "type": [{ "href": "https://schema.org/ItemList" }]
+    },
+    {
+      "anchor": "https://enclavetools.com/llm",
+      "service-doc": [{ "href": "https://enclavetools.com/llms.txt", "type": "text/plain" }],
+      "type": [{ "href": "https://schema.org/ItemList" }]
+    },
+    {
+      "anchor": "https://enclavetools.com/music",
+      "service-doc": [{ "href": "https://enclavetools.com/llms.txt", "type": "text/plain" }],
+      "type": [{ "href": "https://schema.org/ItemList" }]
+    },
+    {
+      "anchor": "https://enclavetools.com/nocode",
+      "service-doc": [{ "href": "https://enclavetools.com/llms.txt", "type": "text/plain" }],
+      "type": [{ "href": "https://schema.org/ItemList" }]
+    },
+    {
+      "anchor": "https://enclavetools.com/photos",
+      "service-doc": [{ "href": "https://enclavetools.com/llms.txt", "type": "text/plain" }],
+      "type": [{ "href": "https://schema.org/ItemList" }]
+    },
+    {
+      "anchor": "https://enclavetools.com/productivity",
+      "service-doc": [{ "href": "https://enclavetools.com/llms.txt", "type": "text/plain" }],
+      "type": [{ "href": "https://schema.org/ItemList" }]
+    },
+    {
+      "anchor": "https://enclavetools.com/prompts",
+      "service-doc": [{ "href": "https://enclavetools.com/llms.txt", "type": "text/plain" }],
+      "type": [{ "href": "https://schema.org/ItemList" }]
+    },
+    {
+      "anchor": "https://enclavetools.com/research",
+      "service-doc": [{ "href": "https://enclavetools.com/llms.txt", "type": "text/plain" }],
+      "type": [{ "href": "https://schema.org/ItemList" }]
+    },
+    {
+      "anchor": "https://enclavetools.com/seo",
+      "service-doc": [{ "href": "https://enclavetools.com/llms.txt", "type": "text/plain" }],
+      "type": [{ "href": "https://schema.org/ItemList" }]
+    },
+    {
+      "anchor": "https://enclavetools.com/social",
+      "service-doc": [{ "href": "https://enclavetools.com/llms.txt", "type": "text/plain" }],
+      "type": [{ "href": "https://schema.org/ItemList" }]
+    },
+    {
+      "anchor": "https://enclavetools.com/video",
+      "service-doc": [{ "href": "https://enclavetools.com/llms.txt", "type": "text/plain" }],
+      "type": [{ "href": "https://schema.org/ItemList" }]
+    },
+    {
+      "anchor": "https://enclavetools.com/xtras",
+      "service-doc": [{ "href": "https://enclavetools.com/llms.txt", "type": "text/plain" }],
+      "type": [{ "href": "https://schema.org/ItemList" }]
+    }
+  ]
+}

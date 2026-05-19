@@ -1,0 +1,90 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Dashboard from "../components/Dashboard";
+import ItemListSchema from "../components/schema/ItemListSchema.astro";
+import BreadcrumbSchema from "../components/schema/BreadcrumbSchema.astro";
+import { supabase } from "../lib/supabase";
+
+export const prerender = false;
+
+const { category } = Astro.params;
+
+let ssrTools: any[] = [];
+let categoryTitle = category || '';
+
+const catNames: Record<string, string> = {
+    'llm-inference': 'LLM Inference',
+    'llm-models': 'LLM Models',
+    'vector-databases': 'Vector Databases',
+    'agent-frameworks': 'Agent Frameworks',
+    'chat-interfaces': 'Chat Interfaces',
+    'rag-document': 'RAG & Document Processing',
+    'speech-to-text': 'Speech to Text',
+    'text-to-speech': 'Text to Speech',
+    'image-generation': 'Image Generation',
+    'fine-tuning-training': 'Fine-tuning & Training',
+    'monitoring-observability': 'Monitoring & Observability',
+    'privacy-security': 'Privacy & Security',
+    'embedding-models': 'Embedding Models',
+    'deployment': 'Deployment',
+    'workflow-automation': 'Workflow Automation',
+    'video-generation': 'Video Generation',
+    'vision-multimodal': 'Vision & Multimodal',
+    'code-assistants': 'Code Assistants',
+    'data-utilities': 'Data Utilities',
+};
+
+try {
+    const { data } = await supabase
+        .from('tools')
+        .select('*')
+        .contains('category', [category]);
+    ssrTools = (data || []).map((t: any) => ({
+        title: t.name,
+        body: t.description,
+        'date-added': t.date_added,
+        slug: t.slug,
+        tag: t.tag,
+        url: t.url,
+        category: t.category,
+        license: t.license,
+        language: t.language,
+        hardware: t.hardware,
+        deployment: t.deployment,
+        model_format: t.model_format,
+        maturity: t.maturity,
+        last_updated: t.last_updated,
+        popularity_score: t.popularity_score,
+        featured: t.featured,
+    }));
+
+    if (ssrTools.length > 0) {
+        categoryTitle = catNames[category] || category;
+    }
+} catch (err) {
+    console.error('SSR fetch failed:', err);
+}
+
+const breadcrumbs = [
+    { name: "Home", url: "https://enclavetools.mamyrkt.xyz" },
+    { name: categoryTitle },
+];
+---
+
+<Layout
+    site={`Enclavetools - ${category}`}
+    title="Enclavetools"
+    tagline="Stop paying for AI APIs. Everything here runs on your hardware."
+    showSearch={true}
+    searchPlaceholder={`Search in ${categoryTitle}...`}
+>
+    <ItemListSchema items={ssrTools} listName={`${categoryTitle} Tools`} />
+    <BreadcrumbSchema items={breadcrumbs} />
+    <Dashboard
+        client:load
+        category={category}
+        transition:persist
+        ssr-tools={ssrTools}
+        ssr-total={ssrTools.length}
+    />
+</Layout>

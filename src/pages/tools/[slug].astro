@@ -1,0 +1,370 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { supabase } from "../../lib/supabase";
+import SoftwareApplicationSchema from "../../components/schema/SoftwareApplicationSchema.astro";
+import BreadcrumbSchema from "../../components/schema/BreadcrumbSchema.astro";
+import BookmarkButton from "../../components/BookmarkButton";
+
+export const prerender = false;
+
+const { slug } = Astro.params;
+
+if (!slug) {
+  return Astro.redirect("/404");
+}
+
+let tool: any = null;
+let relatedTools: any[] = [];
+let category = "";
+
+try {
+  const { data: toolData, error: toolError } = await supabase
+    .from('tools')
+    .select('*')
+    .eq('slug', slug)
+    .single();
+  if (toolError || !toolData) {
+    return Astro.redirect("/404");
+  }
+
+  tool = {
+    title: toolData.name,
+    body: toolData.description,
+    'date-added': toolData.date_added,
+    slug: toolData.slug,
+    tag: toolData.tag,
+    url: toolData.url,
+    category: toolData.category,
+    license: toolData.license,
+    language: toolData.language,
+    hardware: toolData.hardware,
+    deployment: toolData.deployment,
+    model_format: toolData.model_format,
+    maturity: toolData.maturity,
+    last_updated: toolData.last_updated,
+    popularity_score: toolData.popularity_score,
+    featured: toolData.featured,
+  };
+
+  category = tool.category?.[0] || "";
+
+  const { data: relatedData } = await supabase
+    .from('tools')
+    .select('*')
+    .contains('category', [category])
+    .neq('slug', slug)
+    .limit(10);
+
+  relatedTools = (relatedData || []).map((t: any) => ({
+    title: t.name,
+    slug: t.slug,
+    url: t.url,
+    body: t.description,
+    license: t.license,
+  }));
+
+  relatedTools = relatedTools.sort(() => Math.random() - 0.5).slice(0, 4);
+} catch (err) {
+  console.error('SSR fetch failed:', err);
+}
+
+if (!tool) {
+  return Astro.redirect("/404");
+}
+
+const formatDate = (dateStr: string) => {
+  try {
+    return new Date(dateStr).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+    });
+  } catch {
+    return dateStr;
+  }
+};
+
+const formattedDate = formatDate(tool["date-added"]);
+const canonicalUrl = `https://enclavetools.com/tools/${tool.slug}`;
+const faviconUrl = `/favicons/${slug}.png`;
+
+const seoTitle = tool.title;
+const seoDescription = tool.body;
+
+const categoryTitle = category.charAt(0).toUpperCase() + category.slice(1);
+const breadcrumbs = [
+  { name: "Home", url: "https://enclavetools.com" },
+  { name: categoryTitle, url: `https://enclavetools.com/${category}` },
+  { name: tool.title },
+];
+
+const encodedShareText = encodeURIComponent(`Check out ${tool.title} - ${tool.body}`);
+const encodedCanonicalUrl = encodeURIComponent(canonicalUrl);
+const xShareUrl = `https://x.com/intent/post?text=${encodedShareText}&url=${encodedCanonicalUrl}&via=planetabhi`;
+const linkedinShareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodedCanonicalUrl}`;
+---
+
+<Layout
+  site={`Enclavetools - ${tool.title}`}
+  title={tool.title}
+  tagline={tool.body}
+  pageTitle={seoTitle}
+  pageDescription={seoDescription}
+  canonicalUrl={canonicalUrl}
+  ogTitle={seoTitle}
+  ogDescription={seoDescription}
+  ogUrl={canonicalUrl}
+  ogImage={faviconUrl}
+  ogType="website"
+  ogSiteName="Enclavetools"
+  twitterCard="summary"
+  twitterTitle={seoTitle}
+  twitterDescription={seoDescription}
+  twitterImage={faviconUrl}
+  pageFavicon={faviconUrl}
+  showSearch={true}
+>
+  <SoftwareApplicationSchema
+    name={tool.title}
+    description={tool.body}
+    url={tool.url}
+    tag={tool.tag}
+    dateAdded={tool["date-added"]}
+    category={category}
+  />
+  <BreadcrumbSchema items={breadcrumbs} />
+
+  <main id="main-content">
+    <div class="detail-container">
+      <nav class="detail-breadcrumb">
+        <a href="/">Home</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href={`/${category}`}>{categoryTitle}</a>
+        <span class="breadcrumb-sep">/</span>
+        <span class="breadcrumb-current">{tool.title}</span>
+      </nav>
+
+      <article class="detail-card">
+        <div class="detail-header">
+          <div class="detail-icon-wrap">
+            <img src={faviconUrl} alt="" class="detail-icon" onerror="this.style.display='none'" />
+          </div>
+          <div class="detail-info">
+            <h1 class="detail-title">{tool.title}</h1>
+            <div class="detail-meta">
+              <a href={`/${category}`} class="detail-category">{categoryTitle}</a>
+              <span class="meta-sep">·</span>
+              <span class="detail-date">Added {formattedDate}</span>
+            </div>
+          </div>
+          <div class="detail-actions">
+            {tool.url ? (
+              <a href={tool.url} target="_blank" rel="noopener noreferrer" class="btn-visit">Visit Website ↗</a>
+            ) : null}
+            <BookmarkButton client:load slug={slug} title={tool.title} body={tool.body} url={tool.url} category={category} variant="default" />
+          </div>
+        </div>
+
+        <div class="detail-body">
+          <div class="detail-section">
+            <h2 class="section-title">About</h2>
+            <p class="detail-desc">{tool.body}</p>
+          </div>
+
+          <div class="detail-fields">
+            {tool.license && (
+              <div class="field-item"><span class="field-label">License</span><span class="field-value">{tool.license}</span></div>
+            )}
+            {tool.language && tool.language.length > 0 && (
+              <div class="field-item">
+                <span class="field-label">Language</span>
+                <span class="field-value-array">
+                  {tool.language.map((lang: string) => <span class="field-tag">{lang}</span>)}
+                </span>
+              </div>
+            )}
+            {tool.hardware && tool.hardware.length > 0 && (
+              <div class="field-item">
+                <span class="field-label">Hardware</span>
+                <span class="field-value-array">
+                  {tool.hardware.map((hw: string) => <span class="field-tag">{hw}</span>)}
+                </span>
+              </div>
+            )}
+            {tool.deployment && tool.deployment.length > 0 && (
+              <div class="field-item">
+                <span class="field-label">Deployment</span>
+                <span class="field-value-array">
+                  {tool.deployment.map((dep: string) => <span class="field-tag">{dep}</span>)}
+                </span>
+              </div>
+            )}
+            {tool.model_format && tool.model_format.length > 0 && (
+              <div class="field-item">
+                <span class="field-label">Model Format</span>
+                <span class="field-value-array">
+                  {tool.model_format.map((fmt: string) => <span class="field-tag">{fmt}</span>)}
+                </span>
+              </div>
+            )}
+            {tool.maturity && (
+              <div class="field-item"><span class="field-label">Maturity</span><span class="field-value">{tool.maturity}</span></div>
+            )}
+          </div>
+        </div>
+
+        <div class="detail-footer">
+          <div class="share-box">
+            <span class="share-label">Share:</span>
+            <a href={xShareUrl} target="_blank" rel="noopener noreferrer" class="share-link">X</a>
+            <a href={linkedinShareUrl} target="_blank" rel="noopener noreferrer" class="share-link">LinkedIn</a>
+            <button class="share-copy" id="copyLinkBtn">Copy Link</button>
+          </div>
+          <a href={category === "all" ? "/" : `/${category}`} class="back-link">← Back to {categoryTitle}</a>
+        </div>
+      </article>
+
+      {relatedTools.length > 0 && (
+        <section class="related-section">
+          <h2 class="related-heading">Similar Tools</h2>
+          <div class="related-grid">
+            {relatedTools.map((t: any) => (
+              <a href={`/tools/${t.slug}`} class="related-card">
+                <img src={`/favicons/${t.slug}.png`} alt="" class="related-icon" onerror="this.style.display='none'" />
+                <div class="related-info">
+                  <span class="related-name">{t.title}</span>
+                  <span class="related-desc">{t.body?.slice(0, 50)}...</span>
+                </div>
+              </a>
+            ))}
+          </div>
+        </section>
+      )}
+    </div>
+  </main>
+
+  <script type="module">
+    const copyBtn = document.getElementById('copyLinkBtn');
+    if (copyBtn) {
+      copyBtn.addEventListener('click', () => {
+        navigator.clipboard.writeText(window.location.href);
+        copyBtn.textContent = 'Copied!';
+        setTimeout(() => copyBtn.textContent = 'Copy Link', 2000);
+      });
+    }
+  </script>
+
+  <style>
+    .detail-container { max-width: 960px; margin: 0 auto; padding: 24px; }
+    .detail-breadcrumb { display: flex; gap: 8px; font-size: 13px; margin-bottom: 20px; }
+    .detail-breadcrumb a { color: #888; text-decoration: none; }
+    .detail-breadcrumb a:hover { color: #0066FF; }
+    .breadcrumb-sep { color: #e0e0e0; }
+    .breadcrumb-current { color: #121212; }
+
+    .detail-card {
+      background: #fff;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .detail-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .detail-icon-wrap { flex-shrink: 0; }
+    .detail-icon { width: 40px; height: 40px; border-radius: 8px; border: 1px solid #e0e0e0; }
+    .detail-info { flex: 1; }
+    .detail-title { margin: 0 0 4px 0; font-size: 15px; font-weight: 600; color: #121212; letter-spacing: -0.2px; font-family: Inter, sans-serif; }
+    .detail-meta { display: flex; align-items: center; gap: 6px; }
+    .detail-category { font-size: 12px; color: #0066FF; text-decoration: none; }
+    .detail-category:hover { text-decoration: underline; }
+    .meta-sep { color: #888; font-size: 12px; }
+    .detail-date { font-size: 12px; color: #888; }
+    .detail-actions { display: flex; align-items: center; gap: 8px; }
+
+    .btn-visit {
+      display: inline-block;
+      padding: 8px 16px;
+      background: #0066FF;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 8px;
+      font-family: Inter, sans-serif;
+    }
+    .btn-visit:hover { background: #0052CC; }
+
+    .detail-body { display: flex; flex-direction: column; gap: 16px; }
+    .section-title { margin: 0 0 8px 0; font-size: 12px; color: #888; text-transform: uppercase; letter-spacing: 0.05em; font-family: Inter, sans-serif; }
+    .detail-desc { margin: 0; font-size: 13px; line-height: 1.5; color: #555; font-family: Inter, sans-serif; }
+
+    .detail-fields { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .field-item { display: flex; flex-direction: column; gap: 2px; }
+    .field-label { font-size: 11px; color: #888; text-transform: uppercase; }
+    .field-value { font-size: 13px; color: #121212; font-weight: 500; }
+    .field-value-array { display: flex; flex-wrap: wrap; gap: 4px; }
+    .field-tag {
+      display: inline-block;
+      padding: 2px 6px;
+      font-size: 11px;
+      color: #121212;
+      background: #f5f5f5;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+
+    .detail-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 16px;
+      border-top: 1px solid #e0e0e0;
+    }
+
+    .share-box { display: flex; align-items: center; gap: 8px; font-size: 12px; }
+    .share-label { color: #888; }
+    .share-link { color: #0066FF; text-decoration: none; }
+    .share-link:hover { text-decoration: underline; }
+    .share-copy { background: none; border: none; color: #0066FF; cursor: pointer; font-size: 12px; font-family: Inter, sans-serif; }
+
+    .back-link { font-size: 12px; color: #888; text-decoration: none; font-family: Inter, sans-serif; }
+    .back-link:hover { color: #0066FF; }
+
+    .related-section { margin-top: 32px; }
+    .related-heading { margin: 0 0 16px 0; font-size: 15px; font-weight: 600; color: #121212; font-family: Inter, sans-serif; }
+
+    .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .related-card {
+      display: flex; align-items: center; gap: 10px;
+      padding: 14px;
+      background: #fff;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+    .related-card:hover { border-color: #0066FF; box-shadow: 0 4px 16px rgba(0, 102, 255, 0.12); transform: translateY(-2px); }
+    .related-icon { width: 32px; height: 32px; border-radius: 6px; border: 1px solid #e0e0e0; flex-shrink: 0; }
+    .related-info { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+    .related-name { font-size: 13px; font-weight: 600; color: #121212; }
+    .related-desc { font-size: 12px; color: #888; overflow: hidden; text-overflow: ellipsis; }
+
+    @media (max-width: 768px) {
+      .detail-container { padding: 16px; }
+      .detail-header { flex-wrap: wrap; }
+      .detail-actions { width: 100%; }
+      .btn-visit { flex: 1; text-align: center; }
+      .detail-fields { grid-template-columns: repeat(2, 1fr); }
+      .related-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</Layout>

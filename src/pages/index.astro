@@ -1,0 +1,56 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Dashboard from "../components/Dashboard";
+import OrganizationSchema from "../components/schema/OrganizationSchema.astro";
+import ItemListSchema from "../components/schema/ItemListSchema.astro";
+import { supabase } from "../lib/supabase";
+
+export const prerender = false;
+
+let ssrTools: any[] = [];
+
+try {
+    const { data } = await supabase
+        .from('tools')
+        .select('*')
+        .order('popularity_score', { ascending: false });
+    ssrTools = (data || []).map((t: any) => ({
+        title: t.name,
+        body: t.description,
+        'date-added': t.date_added,
+        slug: t.slug,
+        tag: t.tag,
+        url: t.url,
+        category: t.category,
+        license: t.license,
+        language: t.language,
+        hardware: t.hardware,
+        deployment: t.deployment,
+        model_format: t.model_format,
+        maturity: t.maturity,
+        last_updated: t.last_updated,
+        popularity_score: t.popularity_score,
+        featured: t.featured,
+    }));
+} catch (err) {
+    console.error('SSR fetch failed:', err);
+}
+---
+
+<Layout
+    site="Enclavetools"
+    title="Enclavetools"
+    tagline="Stop paying for AI APIs. Everything here runs on your hardware."
+    showSearch={true}
+    showHero={false}
+>
+    <OrganizationSchema />
+    <ItemListSchema items={ssrTools} listName="AI Tools Directory - All Tools" />
+    <Dashboard
+        client:load
+        category="all"
+        transition:persist
+        ssr-tools={ssrTools}
+        ssr-total={ssrTools.length}
+    />
+</Layout>
