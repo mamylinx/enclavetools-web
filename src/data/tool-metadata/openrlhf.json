@@ -1,0 +1,9 @@
+{
+  "title": "OpenRLHF",
+  "description": "High-performance RLHF framework with Ray-based distributed training for aligning LLMs with human preferences offline.",
+  "category": "fine-tuning-training",
+  "url": "https://github.com/OpenRLHF/OpenRLHF",
+  "tag": "Free",
+  "date-added": "2026-05-17",
+  "slug": "openrlhf"
+}

@@ -1,0 +1,9 @@
+{
+  "title": "Nomic Embed",
+  "description": "Open-source 8192-token embedding model with 768 dimensions, trained on diverse datasets for robust semantic search.",
+  "category": "embedding-models",
+  "url": "https://huggingface.co/nomic-ai/nomic-embed-text-v2-moe",
+  "tag": "Free",
+  "date-added": "2026-05-17",
+  "slug": "nomic-embed"
+}

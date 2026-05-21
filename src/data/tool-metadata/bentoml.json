@@ -1,0 +1,9 @@
+{
+  "title": "BentoML",
+  "description": "Unified model serving framework supporting any model with optimized inference, batching, and auto-scaling for production.",
+  "category": "deployment",
+  "url": "https://github.com/bentoml/BentoML",
+  "tag": "Free",
+  "date-added": "2026-05-17",
+  "slug": "bentoml"
+}

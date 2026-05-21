@@ -1,0 +1,9 @@
+{
+  "title": "SpeechBrain",
+  "description": "PyTorch-based speech toolkit supporting ASR, speaker recognition, and audio classification for offline audio pipelines.",
+  "category": "speech-to-text",
+  "url": "https://speechbrain.github.io/",
+  "tag": "Free",
+  "date-added": "2026-05-17",
+  "slug": "speechbrain"
+}

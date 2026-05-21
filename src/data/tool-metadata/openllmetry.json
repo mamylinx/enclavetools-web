@@ -1,0 +1,9 @@
+{
+  "title": "OpenLLMetry (Traceloop)",
+  "description": "OpenTelemetry instrumentation for LLM applications enabling vendor-neutral tracing across any observability backend.",
+  "category": "monitoring-observability",
+  "url": "https://github.com/traceloop/openllmetry",
+  "tag": "Free",
+  "date-added": "2026-05-17",
+  "slug": "openllmetry"
+}

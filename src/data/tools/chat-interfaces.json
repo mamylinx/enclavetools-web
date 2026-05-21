@@ -1,0 +1,244 @@
+[
+  {
+    "title": "AnythingLLM",
+    "body": "The all-in-one AI productivity accelerator. On device and privacy first with no annoying setup or configuration.",
+    "tag": "Free",
+    "url": "https://anythingllm.com/",
+    "date-added": "2026-05-17",
+    "slug": "anythingllm",
+    "license": "MIT",
+    "language": [
+      "JavaScript"
+    ],
+    "hardware": [
+      "CPU Only"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-05-17",
+    "github_stars": 60171,
+    "featured": true
+  },
+  {
+    "title": "Chatbox AI",
+    "body": "Powerful AI Client.",
+    "tag": "Free",
+    "url": "https://github.com/chatboxai/chatbox",
+    "date-added": "2026-05-17",
+    "slug": "chatbox-ai",
+    "license": "GPL 3.0",
+    "language": [
+      "TypeScript"
+    ],
+    "hardware": [
+      "CPU Only"
+    ],
+    "deployment": [
+      "Bare Metal"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-05-17",
+    "github_stars": 39988,
+    "featured": false
+  },
+  {
+    "title": "GPT4All",
+    "body": "GPT4All: Run Local LLMs on Any Device. Open-source and available for commercial use.",
+    "tag": "Free",
+    "url": "https://www.nomic.ai/gpt4all",
+    "date-added": "2026-05-17",
+    "slug": "gpt4all",
+    "license": "MIT",
+    "language": [
+      "C++"
+    ],
+    "hardware": [
+      "CPU Only",
+      "Low-resource (< 8GB RAM)"
+    ],
+    "deployment": [
+      "Bare Metal"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-05-17",
+    "github_stars": 77367,
+    "featured": true
+  },
+  {
+    "title": "Hugging Face Chat UI",
+    "body": "The open source codebase powering HuggingChat.",
+    "tag": "Free",
+    "url": "https://github.com/huggingface/chat-ui",
+    "date-added": "2026-05-17",
+    "slug": "huggingface-chat-ui",
+    "license": "Apache 2.0",
+    "language": [
+      "TypeScript"
+    ],
+    "hardware": [
+      "CPU Only"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-05-17",
+    "github_stars": 10711,
+    "featured": false
+  },
+  {
+    "title": "Jan",
+    "body": "Jan is an open source alternative to ChatGPT that runs 100% offline on your computer.",
+    "tag": "Free",
+    "url": "https://jan.ai/",
+    "date-added": "2026-05-17",
+    "slug": "jan",
+    "license": "Other",
+    "language": [
+      "TypeScript"
+    ],
+    "hardware": [
+      "CPU Only",
+      "NVIDIA GPU (CUDA)",
+      "Apple Silicon (Metal)"
+    ],
+    "deployment": [
+      "Bare Metal"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-05-17",
+    "github_stars": 42558,
+    "featured": false
+  },
+  {
+    "title": "LibreChat",
+    "body": "Enhanced ChatGPT Clone: Features Agents, MCP, DeepSeek, Anthropic, AWS, OpenAI, Responses API, Azure, Groq, o1, GPT-5, Mistral, OpenRouter, Vertex AI, Gemini, Artifacts, AI model switching, message search, Code Interpreter, langchain, DALL-E-3, OpenAPI Actions, Functions, Secure Multi-User Auth, Presets, open-source for self-hosting. Active.",
+    "tag": "Free",
+    "url": "https://www.librechat.ai/",
+    "date-added": "2026-05-17",
+    "slug": "librechat",
+    "license": "MIT",
+    "language": [
+      "TypeScript"
+    ],
+    "hardware": [
+      "CPU Only"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-05-17",
+    "github_stars": 37120,
+    "featured": false
+  },
+  {
+    "title": "LobeChat",
+    "body": "LobeHub organizes your agents into 7×24 operation. It hires, schedules, reports on your entire AI team. You stay in charge — without staying online.",
+    "tag": "Free",
+    "url": "https://github.com/lobehub/lobehub",
+    "date-added": "2026-05-17",
+    "slug": "lobechat",
+    "license": "Other",
+    "language": [
+      "TypeScript"
+    ],
+    "hardware": [
+      "CPU Only"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-05-17",
+    "github_stars": 77193,
+    "featured": true
+  },
+  {
+    "title": "Open WebUI",
+    "body": "User-friendly AI Interface (Supports Ollama, OpenAI API, ...).",
+    "tag": "Free",
+    "url": "https://openwebui.com/",
+    "date-added": "2026-05-17",
+    "slug": "open-webui",
+    "license": "Other",
+    "language": [
+      "Python"
+    ],
+    "hardware": [
+      "CPU Only"
+    ],
+    "deployment": [
+      "Docker",
+      "Kubernetes"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-05-17",
+    "github_stars": 137456,
+    "featured": true
+  },
+  {
+    "title": "SillyTavern",
+    "body": "LLM Frontend for Power Users.",
+    "tag": "Free",
+    "url": "https://github.com/SillyTavern/SillyTavern",
+    "date-added": "2026-05-17",
+    "slug": "sillytavern",
+    "license": "AGPL 3.0",
+    "language": [
+      "JavaScript"
+    ],
+    "hardware": [
+      "CPU Only"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-05-17",
+    "github_stars": 27743,
+    "featured": false
+  },
+  {
+    "title": "Text Generation WebUI (Oobabooga)",
+    "body": "Open-source desktop app for local LLMs. Text, vision, tool-calling, OpenAI/Anthropic-compatible API. 100% private.",
+    "tag": "Free",
+    "url": "https://github.com/oobabooga/textgen",
+    "date-added": "2026-05-17",
+    "slug": "text-generation-webui",
+    "license": "AGPL 3.0",
+    "language": [
+      "Python"
+    ],
+    "hardware": [
+      "CPU Only",
+      "NVIDIA GPU (CUDA)",
+      "Apple Silicon (Metal)"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-05-17",
+    "github_stars": 47148,
+    "featured": true
+  }
+]

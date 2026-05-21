@@ -1,19 +1,16 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue';
 import sponsorsData from '../data/sponsors.json';
-import trendingData from '../data/trending.json';
 import featuredData from '../data/featured.json';
 import newsletterData from '../data/newsletter.json';
-import type { Sponsor, TrendingItem, FeaturedConfig, NewsletterData } from '../types';
+import type { Sponsor, FeaturedConfig, NewsletterData } from '../types';
 
 const props = defineProps<{
   showSponsor?: boolean;
   showNewsletter?: boolean;
-  showTrending?: boolean;
 }>();
 
 const sponsors = ref<Sponsor[]>(sponsorsData.sponsors);
-const trending = ref<TrendingItem[]>(trendingData.items);
 const featured = ref<FeaturedConfig>(featuredData);
 const newsletter = ref<NewsletterData>(newsletterData);
 </script>

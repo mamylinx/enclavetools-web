@@ -1,0 +1,308 @@
+[
+  {
+    "title": "ExLlamaV2",
+    "body": "A fast inference library for running LLMs locally on modern consumer-class GPUs.",
+    "tag": "Free",
+    "url": "https://github.com/turboderp-org/exllamav2",
+    "date-added": "2026-05-17",
+    "slug": "exllamav2",
+    "license": "MIT",
+    "language": [
+      "Python"
+    ],
+    "hardware": [
+      "NVIDIA GPU (CUDA)"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-05-16",
+    "github_stars": 4522,
+    "featured": false
+  },
+  {
+    "title": "KoboldCpp",
+    "body": "Run GGUF models easily with a KoboldAI UI. One File. Zero Install.",
+    "tag": "Free",
+    "url": "https://github.com/LostRuins/koboldcpp",
+    "date-added": "2026-05-17",
+    "slug": "koboldcpp",
+    "license": "AGPL 3.0",
+    "language": [
+      "C++"
+    ],
+    "hardware": [
+      "CPU Only",
+      "NVIDIA GPU (CUDA)",
+      "Apple Silicon (Metal)",
+      "Low-resource (< 8GB RAM)"
+    ],
+    "deployment": [
+      "Bare Metal"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-05-17",
+    "github_stars": 10534,
+    "featured": false
+  },
+  {
+    "title": "llama.cpp",
+    "body": "LLM inference in C/C++.",
+    "tag": "Free",
+    "url": "https://github.com/ggml-org/llama.cpp",
+    "date-added": "2026-05-17",
+    "slug": "llama-cpp",
+    "license": "MIT",
+    "language": [
+      "C++"
+    ],
+    "hardware": [
+      "CPU Only",
+      "NVIDIA GPU (CUDA)",
+      "Apple Silicon (Metal)",
+      "Low-resource (< 8GB RAM)"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal",
+      "Embedded / Edge"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-05-17",
+    "github_stars": 110574,
+    "featured": true
+  },
+  {
+    "title": "LocalAI",
+    "body": "LocalAI is the open-source AI engine. Run any model - LLMs, vision, voice, image, video - on any hardware. No GPU required.",
+    "tag": "Free",
+    "url": "https://localai.io/",
+    "date-added": "2026-05-17",
+    "slug": "localai",
+    "license": "MIT",
+    "language": [
+      "Go"
+    ],
+    "hardware": [
+      "CPU Only",
+      "NVIDIA GPU (CUDA)",
+      "Low-resource (< 8GB RAM)"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal",
+      "Kubernetes",
+      "Systemd / Linux Service"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-05-17",
+    "github_stars": 46301,
+    "featured": false
+  },
+  {
+    "title": "MLC LLM",
+    "body": "Universal LLM Deployment Engine with ML Compilation.",
+    "tag": "Free",
+    "url": "https://github.com/mlc-ai/mlc-llm",
+    "date-added": "2026-05-17",
+    "slug": "mlc-llm",
+    "license": "Apache 2.0",
+    "language": [
+      "Python"
+    ],
+    "hardware": [
+      "NVIDIA GPU (CUDA)",
+      "Apple Silicon (Metal)",
+      "Low-resource (< 8GB RAM)"
+    ],
+    "deployment": [
+      "Bare Metal",
+      "Embedded / Edge"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-05-16",
+    "github_stars": 22646,
+    "featured": false
+  },
+  {
+    "title": "MLX (Apple)",
+    "body": "MLX: An array framework for Apple silicon.",
+    "tag": "Free",
+    "url": "https://github.com/ml-explore/mlx",
+    "date-added": "2026-05-17",
+    "slug": "mlx-apple",
+    "license": "MIT",
+    "language": [
+      "C++"
+    ],
+    "hardware": [
+      "Apple Silicon (Metal)"
+    ],
+    "deployment": [
+      "Bare Metal"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-05-17",
+    "github_stars": 26275,
+    "featured": false
+  },
+  {
+    "title": "Ollama",
+    "body": "Get up and running with Kimi-K2.5, GLM-5, MiniMax, DeepSeek, gpt-oss, Qwen, Gemma and other models.",
+    "tag": "Free",
+    "url": "https://ollama.com/",
+    "date-added": "2026-05-17",
+    "slug": "ollama",
+    "license": "MIT",
+    "language": [
+      "Go"
+    ],
+    "hardware": [
+      "CPU Only",
+      "NVIDIA GPU (CUDA)",
+      "Apple Silicon (Metal)"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-05-17",
+    "github_stars": 171605,
+    "featured": true
+  },
+  {
+    "title": "SGLang",
+    "body": "SGLang is a high-performance serving framework for large language models and multimodal models.",
+    "tag": "Free",
+    "url": "https://github.com/sgl-project/sglang",
+    "date-added": "2026-05-17",
+    "slug": "sglang",
+    "license": "Apache 2.0",
+    "language": [
+      "Python"
+    ],
+    "hardware": [
+      "NVIDIA GPU (CUDA)",
+      "AMD GPU (ROCm)"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-05-17",
+    "github_stars": 27918,
+    "featured": false
+  },
+  {
+    "title": "TabbyAPI",
+    "body": "The official API server for Exllama. OAI compatible, lightweight, and fast.",
+    "tag": "Free",
+    "url": "https://github.com/theroyallab/tabbyAPI",
+    "date-added": "2026-05-17",
+    "slug": "tabbyapi",
+    "license": "AGPL 3.0",
+    "language": [
+      "Python"
+    ],
+    "hardware": [
+      "NVIDIA GPU (CUDA)"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-05-17",
+    "github_stars": 1219,
+    "featured": false
+  },
+  {
+    "title": "TensorRT-LLM (NVIDIA)",
+    "body": "TensorRT LLM provides users with an easy-to-use Python API to define Large Language Models (LLMs) and supports state-of-the-art optimizations to perform inference efficiently on NVIDIA GPUs. TensorRT LLM also contains components to create Python and C++ runtimes that orchestrate the inference execution in a performant way.",
+    "tag": "Free",
+    "url": "https://github.com/NVIDIA/TensorRT-LLM",
+    "date-added": "2026-05-17",
+    "slug": "tensorrt-llm",
+    "license": "Other",
+    "language": [
+      "Python"
+    ],
+    "hardware": [
+      "NVIDIA GPU (CUDA)"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal",
+      "Kubernetes"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-05-17",
+    "github_stars": 13662,
+    "featured": false
+  },
+  {
+    "title": "Text Generation Inference (Hugging Face)",
+    "body": "Large Language Model Text Generation Inference.",
+    "tag": "Free",
+    "url": "https://github.com/huggingface/text-generation-inference",
+    "date-added": "2026-05-17",
+    "slug": "text-generation-inference",
+    "license": "Apache 2.0",
+    "language": [
+      "Python"
+    ],
+    "hardware": [
+      "NVIDIA GPU (CUDA)"
+    ],
+    "deployment": [
+      "Docker",
+      "Kubernetes",
+      "Bare Metal"
+    ],
+    "model_format": [],
+    "maturity": "Archived / Unmaintained",
+    "last_updated": "2026-05-17",
+    "github_stars": 10854,
+    "featured": false
+  },
+  {
+    "title": "vLLM",
+    "body": "A high-throughput and memory-efficient inference and serving engine for LLMs.",
+    "tag": "Free",
+    "url": "https://github.com/vllm-project/vllm",
+    "date-added": "2026-05-17",
+    "slug": "vllm",
+    "license": "Apache 2.0",
+    "language": [
+      "Python"
+    ],
+    "hardware": [
+      "NVIDIA GPU (CUDA)",
+      "AMD GPU (ROCm)"
+    ],
+    "deployment": [
+      "Docker",
+      "Kubernetes",
+      "Bare Metal"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-05-17",
+    "github_stars": 80245,
+    "featured": true
+  }
+]

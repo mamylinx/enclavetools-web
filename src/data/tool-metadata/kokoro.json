@@ -1,0 +1,9 @@
+{
+  "title": "Kokoro",
+  "description": "Compact 82M parameter TTS model with 860+ community voices, fast generation, and Apache 2.0 license.",
+  "category": "text-to-speech",
+  "url": "https://github.com/hexgrad/kokoro",
+  "tag": "Free",
+  "date-added": "2026-05-17",
+  "slug": "kokoro"
+}

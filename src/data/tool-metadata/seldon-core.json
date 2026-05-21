@@ -1,0 +1,9 @@
+{
+  "title": "Seldon Core",
+  "description": "Enterprise-grade Kubernetes platform for deploying, monitoring, and managing ML models at scale with built-in explainability.",
+  "category": "deployment",
+  "url": "https://github.com/SeldonIO/seldon-core",
+  "tag": "Free",
+  "date-added": "2026-05-17",
+  "slug": "seldon-core"
+}

@@ -1,0 +1,9 @@
+{
+  "title": "CogVideoX (THUDM)",
+  "description": "Open-source video generation model supporting text-to-video and image-to-video with diffusion transformer architecture.",
+  "category": "video-generation",
+  "url": "https://github.com/THUDM/CogVideo",
+  "tag": "Free",
+  "date-added": "2026-05-17",
+  "slug": "cogvideox"
+}

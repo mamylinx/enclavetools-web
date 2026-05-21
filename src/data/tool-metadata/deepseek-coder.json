@@ -1,0 +1,9 @@
+{
+  "title": "DeepSeek-Coder",
+  "description": "Open-source code model trained on 2 trillion tokens supporting 80+ programming languages for offline code generation.",
+  "category": "code-generation",
+  "url": "https://github.com/deepseek-ai/DeepSeek-Coder",
+  "tag": "Free",
+  "date-added": "2026-05-17",
+  "slug": "deepseek-coder"
+}

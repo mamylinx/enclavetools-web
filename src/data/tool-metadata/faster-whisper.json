@@ -1,0 +1,9 @@
+{
+  "title": "faster-whisper",
+  "description": "CTranslate2-based Whisper reimplementation up to 4x faster with less memory, enabling efficient offline transcription.",
+  "category": "speech-to-text",
+  "url": "https://github.com/SYSTRAN/faster-whisper",
+  "tag": "Free",
+  "date-added": "2026-05-17",
+  "slug": "faster-whisper"
+}

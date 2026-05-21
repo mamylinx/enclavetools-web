@@ -1,0 +1,9 @@
+{
+  "title": "DVC (Data Version Control)",
+  "description": "Version control system for ML datasets and models enabling reproducible data pipelines in air-gapped environments.",
+  "category": "data-processing",
+  "url": "https://dvc.org/",
+  "tag": "Free",
+  "date-added": "2026-05-17",
+  "slug": "dvc"
+}

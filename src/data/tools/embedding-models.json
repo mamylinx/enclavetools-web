@@ -1,0 +1,163 @@
+[
+  {
+    "title": "BGE-M3 (BAAI)",
+    "body": "Multilingual embedding model supporting 100+ languages with dense, sparse, and multi-vector retrieval for RAG pipelines.",
+    "tag": "Free",
+    "url": "https://huggingface.co/BAAI/bge-m3",
+    "date-added": "2026-05-17",
+    "slug": "bge-m3",
+    "license": "MIT",
+    "language": [
+      "Python"
+    ],
+    "hardware": [
+      "CPU Only",
+      "NVIDIA GPU (CUDA)"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal"
+    ],
+    "model_format": [
+      "Safetensors"
+    ],
+    "maturity": "Production / Stable",
+    "last_updated": "2024-07-03",
+    "github_stars": 3006,
+    "featured": true
+  },
+  {
+    "title": "E5 (Microsoft)",
+    "body": "Microsoft multilingual text embedding model with instruction tuning for superior retrieval across 16 languages.",
+    "tag": "Free",
+    "url": "https://huggingface.co/intfloat/multilingual-e5-large",
+    "date-added": "2026-05-17",
+    "slug": "e5-microsoft",
+    "license": "MIT",
+    "language": [
+      "Python"
+    ],
+    "hardware": [
+      "CPU Only",
+      "NVIDIA GPU (CUDA)"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal"
+    ],
+    "model_format": [
+      "Safetensors"
+    ],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-04-02",
+    "github_stars": 1191,
+    "featured": false
+  },
+  {
+    "title": "GTE-Qwen2 (Alibaba)",
+    "body": "Alibaba general text embedding model built on Qwen2 with strong multilingual and long-context retrieval performance.",
+    "tag": "Free",
+    "url": "https://huggingface.co/Alibaba-NLP/gte-Qwen2-7B-instruct",
+    "date-added": "2026-05-17",
+    "slug": "gte-qwen2",
+    "license": "Apache 2.0",
+    "language": [
+      "Python"
+    ],
+    "hardware": [
+      "NVIDIA GPU (CUDA)"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal"
+    ],
+    "model_format": [
+      "Safetensors"
+    ],
+    "maturity": "Production / Stable",
+    "last_updated": "2025-03-24",
+    "github_stars": 482,
+    "featured": false
+  },
+  {
+    "title": "Jina Embeddings v3",
+    "body": "Multilingual embedding model with on-the-fly dimension switching (512/1024/2048) under Apache 2.0 for flexible RAG.",
+    "tag": "Free",
+    "url": "https://huggingface.co/jinaai/jina-embeddings-v3",
+    "date-added": "2026-05-17",
+    "slug": "jina-embeddings-v3",
+    "license": "CC BY-NC 4.0",
+    "language": [
+      "Python"
+    ],
+    "hardware": [
+      "CPU Only",
+      "NVIDIA GPU (CUDA)"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal"
+    ],
+    "model_format": [
+      "Safetensors"
+    ],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-04-08",
+    "github_stars": 1142,
+    "featured": false
+  },
+  {
+    "title": "Nomic Embed",
+    "body": "Open-source 8192-token embedding model with 768 dimensions, trained on diverse datasets for robust semantic search.",
+    "tag": "Free",
+    "url": "https://huggingface.co/nomic-ai/nomic-embed-text-v2-moe",
+    "date-added": "2026-05-17",
+    "slug": "nomic-embed",
+    "license": "Apache 2.0",
+    "language": [
+      "Python"
+    ],
+    "hardware": [
+      "CPU Only",
+      "NVIDIA GPU (CUDA)"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal"
+    ],
+    "model_format": [
+      "Safetensors"
+    ],
+    "maturity": "Production / Stable",
+    "last_updated": "2025-04-01",
+    "github_stars": 477,
+    "featured": false
+  },
+  {
+    "title": "Snowflake Arctic Embed",
+    "body": "High-performance embedding model optimized for retrieval tasks with strong MTEB benchmark scores under Apache 2.0.",
+    "tag": "Free",
+    "url": "https://huggingface.co/Snowflake/snowflake-arctic-embed-l-v2.0",
+    "date-added": "2026-05-17",
+    "slug": "snowflake-arctic-embed",
+    "license": "Apache 2.0",
+    "language": [
+      "Python"
+    ],
+    "hardware": [
+      "CPU Only",
+      "NVIDIA GPU (CUDA)"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal"
+    ],
+    "model_format": [
+      "Safetensors"
+    ],
+    "maturity": "Production / Stable",
+    "last_updated": "2025-07-28",
+    "github_stars": 242,
+    "featured": false
+  }
+]

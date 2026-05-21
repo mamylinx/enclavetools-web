@@ -1,0 +1,9 @@
+{
+  "title": "Open-Sora (HPC-AI)",
+  "description": "Open-source initiative reproducing Sora-quality video generation with 11B parameter model for high-fidelity output.",
+  "category": "video-generation",
+  "url": "https://github.com/hpcaitech/Open-Sora",
+  "tag": "Free",
+  "date-added": "2026-05-17",
+  "slug": "open-sora"
+}

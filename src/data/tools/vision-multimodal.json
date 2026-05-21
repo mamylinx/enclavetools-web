@@ -1,0 +1,177 @@
+[
+  {
+    "title": "DeepSeek-VL2",
+    "body": "Efficient open-source vision-language model with MoE architecture for scientific reasoning and edge-ready deployment.",
+    "tag": "Free",
+    "url": "https://github.com/deepseek-ai/DeepSeek-VL2",
+    "date-added": "2026-05-17",
+    "slug": "deepseek-vl2",
+    "license": "MIT",
+    "language": [
+      "Python"
+    ],
+    "hardware": [
+      "CPU Only",
+      "NVIDIA GPU (CUDA)",
+      "Low-resource (< 8GB RAM)"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-04-15",
+    "github_stars": 4500,
+    "featured": false
+  },
+  {
+    "title": "Falcon 2 VLM",
+    "body": "Technology Innovation Institute open-source vision-language model with fine detail recognition and multilingual support.",
+    "tag": "Free",
+    "url": "https://github.com/tiiuae/falcon-2",
+    "date-added": "2026-05-17",
+    "slug": "falcon-2-vlm",
+    "license": "Apache 2.0",
+    "language": [
+      "Python"
+    ],
+    "hardware": [
+      "NVIDIA GPU (CUDA)"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-02-20",
+    "github_stars": 3800,
+    "featured": false
+  },
+  {
+    "title": "InternVL3 (Shanghai AI Lab)",
+    "body": "Open-source vision-language model with 3D reasoning and top multimodal benchmark scores for complex visual tasks.",
+    "tag": "Free",
+    "url": "https://github.com/OpenGVLab/InternVL",
+    "date-added": "2026-05-17",
+    "slug": "internvl3",
+    "license": "Apache 2.0",
+    "language": [
+      "Python"
+    ],
+    "hardware": [
+      "NVIDIA GPU (CUDA)"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-05-12",
+    "github_stars": 8500,
+    "featured": false
+  },
+  {
+    "title": "LLaVA (Large Language-and-Vision Assistant)",
+    "body": "Pioneering open-source vision-language model enabling visual question answering and image captioning with local LLMs.",
+    "tag": "Free",
+    "url": "https://github.com/haotian-liu/LLaVA",
+    "date-added": "2026-05-17",
+    "slug": "llava",
+    "license": "Apache 2.0",
+    "language": [
+      "Python"
+    ],
+    "hardware": [
+      "CPU Only",
+      "NVIDIA GPU (CUDA)"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-04-10",
+    "github_stars": 22000,
+    "featured": true
+  },
+  {
+    "title": "Phi-3-Vision (Microsoft)",
+    "body": "Microsoft compact multimodal model combining vision and language reasoning for edge device deployment.",
+    "tag": "Free",
+    "url": "https://huggingface.co/microsoft/Phi-3-vision-128k-instruct",
+    "date-added": "2026-05-17",
+    "slug": "phi-3-vision",
+    "license": "MIT",
+    "language": [
+      "Python"
+    ],
+    "hardware": [
+      "CPU Only",
+      "NVIDIA GPU (CUDA)",
+      "Low-resource (< 8GB RAM)"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2025-12-10",
+    "github_stars": 971,
+    "featured": false
+  },
+  {
+    "title": "Pixtral 12B (Mistral AI)",
+    "body": "Mistral open-weight vision-language model with multi-image input and native resolution processing under Apache 2.0.",
+    "tag": "Free",
+    "url": "https://huggingface.co/mistralai/Pixtral-12B-2409",
+    "date-added": "2026-05-17",
+    "slug": "pixtral-12b",
+    "license": "Apache 2.0",
+    "language": [
+      "Python"
+    ],
+    "hardware": [
+      "NVIDIA GPU (CUDA)"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2025-07-28",
+    "github_stars": 689,
+    "featured": false
+  },
+  {
+    "title": "Qwen2.5-VL (Alibaba)",
+    "body": "Open-source vision-language model with video support, object localization, and 29-language understanding under Apache 2.0.",
+    "tag": "Free",
+    "url": "https://github.com/QwenLM/Qwen2.5-VL",
+    "date-added": "2026-05-17",
+    "slug": "qwen2-5-vl",
+    "license": "Apache 2.0",
+    "language": [
+      "Python"
+    ],
+    "hardware": [
+      "CPU Only",
+      "NVIDIA GPU (CUDA)",
+      "Apple Silicon (Metal)"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-05-14",
+    "github_stars": 12000,
+    "featured": false
+  }
+]

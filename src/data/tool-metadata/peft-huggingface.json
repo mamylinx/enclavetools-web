@@ -1,0 +1,9 @@
+{
+  "title": "PEFT (Hugging Face)",
+  "description": "Parameter-efficient fine-tuning library implementing LoRA, AdaLoRA, and prefix tuning for memory-efficient adaptation.",
+  "category": "fine-tuning-training",
+  "url": "https://github.com/huggingface/peft",
+  "tag": "Free",
+  "date-added": "2026-05-17",
+  "slug": "peft-huggingface"
+}

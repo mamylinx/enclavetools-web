@@ -1,0 +1,146 @@
+[
+  {
+    "title": "Apache Spark",
+    "body": "Distributed data processing engine with MLlib for large-scale data transformation and feature engineering pipelines.",
+    "tag": "Free",
+    "url": "https://spark.apache.org/",
+    "date-added": "2026-05-17",
+    "slug": "apache-spark",
+    "license": "Apache 2.0",
+    "language": [
+      "Java / Kotlin",
+      "Python"
+    ],
+    "hardware": [
+      "CPU Only"
+    ],
+    "deployment": [
+      "Docker",
+      "Kubernetes",
+      "Bare Metal"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-05-14",
+    "github_stars": 40000,
+    "featured": true
+  },
+  {
+    "title": "DataCleaner",
+    "body": "Open-source data cleaning and preprocessing tool with automated detection of missing values, outliers, and duplicates.",
+    "tag": "Free",
+    "url": "https://github.com/datacleaner/DataCleaner",
+    "date-added": "2026-05-17",
+    "slug": "datacleaner",
+    "license": "MIT",
+    "language": [
+      "Python"
+    ],
+    "hardware": [
+      "CPU Only"
+    ],
+    "deployment": [
+      "Bare Metal"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-01-10",
+    "github_stars": 1200,
+    "featured": false
+  },
+  {
+    "title": "DuckDB",
+    "body": "In-process analytical database for fast SQL queries on local data files, ideal for offline data preparation pipelines.",
+    "tag": "Free",
+    "url": "https://duckdb.org/",
+    "date-added": "2026-05-17",
+    "slug": "duckdb",
+    "license": "MIT",
+    "language": [
+      "C / C++"
+    ],
+    "hardware": [
+      "CPU Only",
+      "Low-resource (< 8GB RAM)"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-05-15",
+    "github_stars": 7200,
+    "featured": false
+  },
+  {
+    "title": "DVC (Data Version Control)",
+    "body": "Version control system for ML datasets and models enabling reproducible data pipelines in air-gapped environments.",
+    "tag": "Free",
+    "url": "https://dvc.org/",
+    "date-added": "2026-05-17",
+    "slug": "dvc",
+    "license": "Apache 2.0",
+    "language": [
+      "Python"
+    ],
+    "hardware": [
+      "CPU Only"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-05-14",
+    "github_stars": 13000,
+    "featured": false
+  },
+  {
+    "title": "Pandas",
+    "body": "Essential Python data manipulation library for structured data cleaning, transformation, and analysis in offline pipelines.",
+    "tag": "Free",
+    "url": "https://pandas.pydata.org/",
+    "date-added": "2026-05-17",
+    "slug": "pandas",
+    "license": "BSD",
+    "language": [
+      "Python"
+    ],
+    "hardware": [
+      "CPU Only"
+    ],
+    "deployment": [
+      "Bare Metal"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-05-10",
+    "github_stars": 44000,
+    "featured": true
+  },
+  {
+    "title": "Polars",
+    "body": "Lightning-fast DataFrame library in Rust with lazy evaluation for efficient data preprocessing before model training.",
+    "tag": "Free",
+    "url": "https://github.com/pola-rs/polars",
+    "date-added": "2026-05-17",
+    "slug": "polars",
+    "license": "MIT",
+    "language": [
+      "Rust"
+    ],
+    "hardware": [
+      "CPU Only"
+    ],
+    "deployment": [
+      "Bare Metal"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-05-16",
+    "github_stars": 30000,
+    "featured": true
+  }
+]

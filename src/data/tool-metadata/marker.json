@@ -1,0 +1,9 @@
+{
+  "title": "Marker",
+  "description": "Fast document converter transforming PDFs, EPUBs, and MOBI files into accurate markdown for LLM ingestion.",
+  "category": "rag-document",
+  "url": "https://github.com/VikParuchuri/marker",
+  "tag": "Free",
+  "date-added": "2026-05-17",
+  "slug": "marker"
+}

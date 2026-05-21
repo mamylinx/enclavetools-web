@@ -1,0 +1,9 @@
+{
+  "title": "Aider",
+  "description": "AI pair programming tool that edits code in your local git repository using local or remote LLMs for offline development.",
+  "category": "code-generation",
+  "url": "https://aider.chat/",
+  "tag": "Free",
+  "date-added": "2026-05-17",
+  "slug": "aider"
+}

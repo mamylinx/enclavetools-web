@@ -1,0 +1,9 @@
+{
+  "title": "DuckDB",
+  "description": "In-process analytical database for fast SQL queries on local data files, ideal for offline data preparation pipelines.",
+  "category": "data-processing",
+  "url": "https://duckdb.org/",
+  "tag": "Free",
+  "date-added": "2026-05-17",
+  "slug": "duckdb"
+}

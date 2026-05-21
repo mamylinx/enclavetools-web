@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import type { FilterState } from '../types';
-import { /** CATEGORY_OPTIONS, **/ LICENSE_OPTIONS, LANGUAGE_OPTIONS, HARDWARE_OPTIONS, DEPLOYMENT_OPTIONS, MODEL_FORMAT_OPTIONS, MATURITY_OPTIONS, LAST_UPDATED_OPTIONS } from '../composables/filterConfig';
+import { LICENSE_OPTIONS, LANGUAGE_OPTIONS, HARDWARE_OPTIONS, DEPLOYMENT_OPTIONS, MODEL_FORMAT_OPTIONS, MATURITY_OPTIONS, LAST_UPDATED_OPTIONS } from '../composables/filterConfig';
 
 const props = defineProps<{
     state: FilterState;
@@ -29,7 +29,6 @@ function getGroupLabel(group: keyof FilterState): string {
 
 function getLabel(group: keyof FilterState, value: string): string {
     const maps: Record<string, Array<{ value: string | null; label: string }>> = {
-        // category: CATEGORY_OPTIONS,
         license: LICENSE_OPTIONS,
         language: LANGUAGE_OPTIONS,
         hardware: HARDWARE_OPTIONS,
@@ -49,7 +48,6 @@ const chips = computed(() => {
     if (props.state.sort !== 'featured') {
         result.push({ group: 'sort', value: props.state.sort, label: getLabel('sort', props.state.sort) });
     }
-    // props.state.category.forEach((v) => result.push({ group: 'category', value: v, label: getLabel('category', v) }));
     props.state.license.forEach((v) => result.push({ group: 'license', value: v, label: getLabel('license', v) }));
     props.state.language.forEach((v) => result.push({ group: 'language', value: v, label: getLabel('language', v) }));
     props.state.hardware.forEach((v) => result.push({ group: 'hardware', value: v, label: getLabel('hardware', v) }));

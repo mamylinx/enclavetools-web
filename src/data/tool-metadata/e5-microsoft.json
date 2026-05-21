@@ -1,0 +1,9 @@
+{
+  "title": "E5 (Microsoft)",
+  "description": "Microsoft multilingual text embedding model with instruction tuning for superior retrieval across 16 languages.",
+  "category": "embedding-models",
+  "url": "https://huggingface.co/intfloat/multilingual-e5-large",
+  "tag": "Free",
+  "date-added": "2026-05-17",
+  "slug": "e5-microsoft"
+}

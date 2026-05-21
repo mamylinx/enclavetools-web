@@ -1,0 +1,9 @@
+{
+  "title": "PrivateGPT",
+  "description": "Secure document Q&A system designed for sensitive data with no internet connection required for full operation.",
+  "category": "rag-document",
+  "url": "https://github.com/zylon-ai/private-gpt",
+  "tag": "Free",
+  "date-added": "2026-05-17",
+  "slug": "privategpt"
+}

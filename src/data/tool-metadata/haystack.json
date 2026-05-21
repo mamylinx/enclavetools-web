@@ -1,0 +1,9 @@
+{
+  "title": "Haystack (Deepset)",
+  "description": "Production-ready framework for building RAG and search systems with pipeline architecture and built-in evaluation tools.",
+  "category": "rag-document",
+  "url": "https://haystack.deepset.ai/",
+  "tag": "Free",
+  "date-added": "2026-05-17",
+  "slug": "haystack"
+}

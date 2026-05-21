@@ -1,0 +1,172 @@
+[
+  {
+    "title": "Axolotl",
+    "body": "YAML-driven fine-tuning framework supporting QLoRA, DPO, and ORPO with flash attention for efficient model training.",
+    "tag": "Free",
+    "url": "https://github.com/axolotl-ai-cloud/axolotl",
+    "date-added": "2026-05-17",
+    "slug": "axolotl",
+    "license": "Apache 2.0",
+    "language": [
+      "Python"
+    ],
+    "hardware": [
+      "NVIDIA GPU (CUDA)"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-05-14",
+    "github_stars": 9000,
+    "featured": false
+  },
+  {
+    "title": "LitGPT (Lightning AI)",
+    "body": "Hackable PyTorch Lightning implementation for pretraining and fine-tuning LLMs with minimal boilerplate code.",
+    "tag": "Free",
+    "url": "https://github.com/Lightning-AI/litgpt",
+    "date-added": "2026-05-17",
+    "slug": "litgpt",
+    "license": "Apache 2.0",
+    "language": [
+      "Python"
+    ],
+    "hardware": [
+      "NVIDIA GPU (CUDA)"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-05-10",
+    "github_stars": 12000,
+    "featured": false
+  },
+  {
+    "title": "LLaMA-Factory",
+    "body": "Unified fine-tuning platform with web UI supporting 100+ models and training methods for accessible model adaptation.",
+    "tag": "Free",
+    "url": "https://github.com/hiyouga/LLaMA-Factory",
+    "date-added": "2026-05-17",
+    "slug": "llama-factory",
+    "license": "Apache 2.0",
+    "language": [
+      "Python"
+    ],
+    "hardware": [
+      "NVIDIA GPU (CUDA)",
+      "AMD GPU (ROCm)"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-05-16",
+    "github_stars": 37000,
+    "featured": true
+  },
+  {
+    "title": "OpenRLHF",
+    "body": "High-performance RLHF framework with Ray-based distributed training for aligning LLMs with human preferences offline.",
+    "tag": "Free",
+    "url": "https://github.com/OpenRLHF/OpenRLHF",
+    "date-added": "2026-05-17",
+    "slug": "openrlhf",
+    "license": "Apache 2.0",
+    "language": [
+      "Python"
+    ],
+    "hardware": [
+      "NVIDIA GPU (CUDA)"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal",
+      "Kubernetes"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-05-12",
+    "github_stars": 5500,
+    "featured": false
+  },
+  {
+    "title": "PEFT (Hugging Face)",
+    "body": "Parameter-efficient fine-tuning library implementing LoRA, AdaLoRA, and prefix tuning for memory-efficient adaptation.",
+    "tag": "Free",
+    "url": "https://github.com/huggingface/peft",
+    "date-added": "2026-05-17",
+    "slug": "peft-huggingface",
+    "license": "Apache 2.0",
+    "language": [
+      "Python"
+    ],
+    "hardware": [
+      "NVIDIA GPU (CUDA)"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-05-14",
+    "github_stars": 18000,
+    "featured": false
+  },
+  {
+    "title": "TRL (Hugging Face)",
+    "body": "Hugging Face official RLHF library for PPO, DPO, and ORPO alignment training with native transformer support.",
+    "tag": "Free",
+    "url": "https://github.com/huggingface/trl",
+    "date-added": "2026-05-17",
+    "slug": "trl-huggingface",
+    "license": "Apache 2.0",
+    "language": [
+      "Python"
+    ],
+    "hardware": [
+      "NVIDIA GPU (CUDA)"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-05-15",
+    "github_stars": 10000,
+    "featured": false
+  },
+  {
+    "title": "Unsloth",
+    "body": "2-5x faster fine-tuning with 70% less memory using custom Triton kernels, enabling LoRA training on consumer GPUs.",
+    "tag": "Free",
+    "url": "https://github.com/unslothai/unsloth",
+    "date-added": "2026-05-17",
+    "slug": "unsloth",
+    "license": "Apache 2.0",
+    "language": [
+      "Python"
+    ],
+    "hardware": [
+      "NVIDIA GPU (CUDA)"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-05-15",
+    "github_stars": 53800,
+    "featured": true
+  }
+]

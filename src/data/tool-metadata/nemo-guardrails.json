@@ -1,0 +1,9 @@
+{
+  "title": "NeMo Guardrails (NVIDIA)",
+  "description": "Open-source toolkit for adding programmable guardrails to LLM applications with Colang for safety policy enforcement.",
+  "category": "privacy-security",
+  "url": "https://github.com/NVIDIA-NeMo/Guardrails",
+  "tag": "Free",
+  "date-added": "2026-05-17",
+  "slug": "nemo-guardrails"
+}

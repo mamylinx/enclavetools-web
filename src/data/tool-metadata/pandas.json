@@ -1,0 +1,9 @@
+{
+  "title": "Pandas",
+  "description": "Essential Python data manipulation library for structured data cleaning, transformation, and analysis in offline pipelines.",
+  "category": "data-processing",
+  "url": "https://pandas.pydata.org/",
+  "tag": "Free",
+  "date-added": "2026-05-17",
+  "slug": "pandas"
+}

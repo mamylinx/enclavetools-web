@@ -1,0 +1,9 @@
+{
+  "title": "Text Generation Inference (Hugging Face)",
+  "description": "Large Language Model Text Generation Inference.",
+  "category": "llm-inference",
+  "url": "https://github.com/huggingface/text-generation-inference",
+  "tag": "Free",
+  "date-added": "2026-05-17",
+  "slug": "text-generation-inference"
+}

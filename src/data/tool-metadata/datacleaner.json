@@ -1,0 +1,9 @@
+{
+  "title": "DataCleaner",
+  "description": "Open-source data cleaning and preprocessing tool with automated detection of missing values, outliers, and duplicates.",
+  "category": "data-processing",
+  "url": "https://github.com/datacleaner/DataCleaner",
+  "tag": "Free",
+  "date-added": "2026-05-17",
+  "slug": "datacleaner"
+}

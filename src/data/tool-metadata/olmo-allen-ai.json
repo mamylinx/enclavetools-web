@@ -1,0 +1,9 @@
+{
+  "title": "OLMo (Allen AI)",
+  "description": "Modeling, training, eval, and inference code for OLMo.",
+  "category": "llm-models",
+  "url": "https://allenai.org/olmo",
+  "tag": "Free",
+  "date-added": "2026-05-17",
+  "slug": "olmo-allen-ai"
+}

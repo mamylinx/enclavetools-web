@@ -1,0 +1,9 @@
+{
+  "title": "FAISS (Meta)",
+  "description": "A library for efficient similarity search and clustering of dense vectors.",
+  "category": "vector-databases",
+  "url": "https://github.com/facebookresearch/faiss",
+  "tag": "Free",
+  "date-added": "2026-05-17",
+  "slug": "faiss"
+}

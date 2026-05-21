@@ -1,0 +1,9 @@
+{
+  "title": "Fish Speech",
+  "description": "Multilingual TTS model with zero-shot voice cloning and high-quality speech synthesis under Apache 2.0 license.",
+  "category": "text-to-speech",
+  "url": "https://github.com/fishaudio/fish-speech",
+  "tag": "Free",
+  "date-added": "2026-05-17",
+  "slug": "fish-speech"
+}

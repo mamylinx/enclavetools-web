@@ -1,0 +1,9 @@
+{
+  "title": "Guardrails AI",
+  "description": "Python package for validating LLM outputs with pre-built validators for structure, quality, and safety enforcement.",
+  "category": "privacy-security",
+  "url": "https://github.com/guardrails-ai/guardrails",
+  "tag": "Free",
+  "date-added": "2026-05-17",
+  "slug": "guardrails-ai"
+}

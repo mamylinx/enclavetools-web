@@ -1,0 +1,9 @@
+{
+  "title": "LitGPT (Lightning AI)",
+  "description": "Hackable PyTorch Lightning implementation for pretraining and fine-tuning LLMs with minimal boilerplate code.",
+  "category": "fine-tuning-training",
+  "url": "https://github.com/Lightning-AI/litgpt",
+  "tag": "Free",
+  "date-added": "2026-05-17",
+  "slug": "litgpt"
+}

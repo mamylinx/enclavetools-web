@@ -1,0 +1,9 @@
+{
+  "title": "Presidio (Microsoft)",
+  "description": "Microsoft PII detection and anonymization toolkit for redacting sensitive data before LLM processing in air-gapped systems.",
+  "category": "privacy-security",
+  "url": "https://github.com/microsoft/presidio",
+  "tag": "Free",
+  "date-added": "2026-05-17",
+  "slug": "presidio"
+}

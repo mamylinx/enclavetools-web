@@ -1,0 +1,9 @@
+{
+  "title": "Silero VAD",
+  "description": "Lightweight voice activity detection model for filtering silence from audio before offline transcription processing.",
+  "category": "speech-to-text",
+  "url": "https://github.com/snakers4/silero-vad",
+  "tag": "Free",
+  "date-added": "2026-05-17",
+  "slug": "silero-vad"
+}

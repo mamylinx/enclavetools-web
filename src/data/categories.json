@@ -1,0 +1,21 @@
+[
+  { "title": "LLM Inference Engines", "category": "llm-inference" },
+  { "title": "LLM Models", "category": "llm-models" },
+  { "title": "Vector Databases", "category": "vector-databases" },
+  { "title": "Agent Frameworks", "category": "agent-frameworks" },
+  { "title": "Chat Interfaces", "category": "chat-interfaces" },
+  { "title": "RAG & Document Processing", "category": "rag-document" },
+  { "title": "Speech to Text", "category": "speech-to-text" },
+  { "title": "Text to Speech", "category": "text-to-speech" },
+  { "title": "Image Generation", "category": "image-generation" },
+  { "title": "Fine-tuning & Training", "category": "fine-tuning-training" },
+  { "title": "Monitoring & Observability", "category": "monitoring-observability" },
+  { "title": "Privacy & Security", "category": "privacy-security" },
+  { "title": "Embedding Models", "category": "embedding-models" },
+  { "title": "Deployment", "category": "deployment" },
+  { "title": "Workflow Automation", "category": "workflow-automation" },
+  { "title": "Video Generation", "category": "video-generation" },
+  { "title": "Vision & Multimodal", "category": "vision-multimodal" },
+  { "title": "Code Assistants", "category": "code-assistants" },
+  { "title": "Data Utilities", "category": "data-utilities" }
+]

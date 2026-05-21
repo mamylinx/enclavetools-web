@@ -54,11 +54,6 @@ export interface PromotedAd {
     url: string;
 }
 
-export interface TrendingItem {
-    name: string;
-    price: string;
-}
-
 export interface FeaturedCTA {
     title: string;
     description: string;
@@ -72,10 +67,6 @@ export interface SponsorsConfig {
 
 export interface PromotedConfig {
     ads: PromotedAd[];
-}
-
-export interface TrendingConfig {
-    items: TrendingItem[];
 }
 
 export interface FeaturedConfig {

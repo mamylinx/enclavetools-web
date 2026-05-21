@@ -1,0 +1,9 @@
+{
+  "title": "Unsloth",
+  "description": "2-5x faster fine-tuning with 70% less memory using custom Triton kernels, enabling LoRA training on consumer GPUs.",
+  "category": "fine-tuning-training",
+  "url": "https://github.com/unslothai/unsloth",
+  "tag": "Free",
+  "date-added": "2026-05-17",
+  "slug": "unsloth"
+}

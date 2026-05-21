@@ -1,0 +1,9 @@
+{
+  "title": "Axolotl",
+  "description": "YAML-driven fine-tuning framework supporting QLoRA, DPO, and ORPO with flash attention for efficient model training.",
+  "category": "fine-tuning-training",
+  "url": "https://github.com/axolotl-ai-cloud/axolotl",
+  "tag": "Free",
+  "date-added": "2026-05-17",
+  "slug": "axolotl"
+}

@@ -1,0 +1,152 @@
+[
+  {
+    "title": "Arize Phoenix",
+    "body": "Open-source observability platform for LLM tracing, evaluation, and RAG debugging with in-process deployment.",
+    "tag": "Free",
+    "url": "https://github.com/Arize-ai/phoenix",
+    "date-added": "2026-05-17",
+    "slug": "arize-phoenix",
+    "license": "Apache 2.0",
+    "language": [
+      "Python",
+      "TypeScript / JavaScript"
+    ],
+    "hardware": [
+      "CPU Only"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-05-15",
+    "github_stars": 7200,
+    "featured": false
+  },
+  {
+    "title": "Comet Opik",
+    "body": "Open-source platform for evaluating, testing, and monitoring LLM applications with automated scoring and tracing.",
+    "tag": "Free",
+    "url": "https://github.com/comet-ml/opik",
+    "date-added": "2026-05-17",
+    "slug": "comet-opik",
+    "license": "Apache 2.0",
+    "language": [
+      "Python",
+      "TypeScript / JavaScript"
+    ],
+    "hardware": [
+      "CPU Only"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-05-15",
+    "github_stars": 5200,
+    "featured": false
+  },
+  {
+    "title": "Langfuse",
+    "body": "Open-source LLM engineering platform with tracing, evaluations, prompt management, and datasets for debugging AI apps.",
+    "tag": "Free",
+    "url": "https://langfuse.com/",
+    "date-added": "2026-05-17",
+    "slug": "langfuse",
+    "license": "MIT",
+    "language": [
+      "TypeScript / JavaScript",
+      "Python"
+    ],
+    "hardware": [
+      "CPU Only"
+    ],
+    "deployment": [
+      "Docker",
+      "Kubernetes",
+      "Bare Metal"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-05-16",
+    "github_stars": 23300,
+    "featured": true
+  },
+  {
+    "title": "LangWatch",
+    "body": "Open-source LLM monitoring platform with automated quality evaluation, guardrails, and cost tracking for production AI.",
+    "tag": "Free",
+    "url": "https://github.com/langwatch/langwatch",
+    "date-added": "2026-05-17",
+    "slug": "langwatch",
+    "license": "AGPL 3.0",
+    "language": [
+      "Python",
+      "TypeScript / JavaScript"
+    ],
+    "hardware": [
+      "CPU Only"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-05-12",
+    "github_stars": 3200,
+    "featured": false
+  },
+  {
+    "title": "Lunary",
+    "body": "Open-source LLM observability with real-time tracing, prompt management, and user analytics for self-hosted AI apps.",
+    "tag": "Free",
+    "url": "https://github.com/lunary-ai/lunary",
+    "date-added": "2026-05-17",
+    "slug": "lunary",
+    "license": "MIT",
+    "language": [
+      "TypeScript / JavaScript"
+    ],
+    "hardware": [
+      "CPU Only"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-05-10",
+    "github_stars": 2800,
+    "featured": false
+  },
+  {
+    "title": "OpenLLMetry (Traceloop)",
+    "body": "OpenTelemetry instrumentation for LLM applications enabling vendor-neutral tracing across any observability backend.",
+    "tag": "Free",
+    "url": "https://github.com/traceloop/openllmetry",
+    "date-added": "2026-05-17",
+    "slug": "openllmetry",
+    "license": "Apache 2.0",
+    "language": [
+      "Python",
+      "TypeScript / JavaScript"
+    ],
+    "hardware": [
+      "CPU Only"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-05-14",
+    "github_stars": 4800,
+    "featured": false
+  }
+]

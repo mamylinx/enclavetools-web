@@ -1,0 +1,9 @@
+{
+  "title": "Stable Diffusion WebUI Forge",
+  "description": "Optimized fork of AUTOMATIC1111 using 30-50% less VRAM for the same image quality with full extension compatibility.",
+  "category": "image-generation",
+  "url": "https://github.com/lllyasviel/stable-diffusion-webui-forge",
+  "tag": "Free",
+  "date-added": "2026-05-17",
+  "slug": "sd-webui-forge"
+}

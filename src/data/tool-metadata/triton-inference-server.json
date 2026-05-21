@@ -1,0 +1,9 @@
+{
+  "title": "Triton Inference Server (NVIDIA)",
+  "description": "NVIDIA production inference server supporting any framework with concurrent model execution and GPU optimization.",
+  "category": "deployment",
+  "url": "https://github.com/triton-inference-server/server",
+  "tag": "Free",
+  "date-added": "2026-05-17",
+  "slug": "triton-inference-server"
+}

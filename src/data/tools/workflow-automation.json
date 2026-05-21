@@ -1,0 +1,150 @@
+[
+  {
+    "title": "ActivePieces",
+    "body": "No-code integration platform with 200+ pieces for building automated workflows with AI actions and self-hosted deployment.",
+    "tag": "Free",
+    "url": "https://www.activepieces.com/",
+    "date-added": "2026-05-17",
+    "slug": "activepieces",
+    "license": "MIT",
+    "language": [
+      "TypeScript / JavaScript"
+    ],
+    "hardware": [
+      "CPU Only"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-05-16",
+    "github_stars": 22100,
+    "featured": false
+  },
+  {
+    "title": "Dify",
+    "body": "Open-source LLMOps platform with visual workflow builder, RAG engine, and model management for production AI apps.",
+    "tag": "Free",
+    "url": "https://dify.ai/",
+    "date-added": "2026-05-17",
+    "slug": "dify",
+    "license": "Apache 2.0",
+    "language": [
+      "Python",
+      "TypeScript / JavaScript"
+    ],
+    "hardware": [
+      "CPU Only"
+    ],
+    "deployment": [
+      "Docker",
+      "Kubernetes"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-05-16",
+    "github_stars": 60000,
+    "featured": true
+  },
+  {
+    "title": "Flowise",
+    "body": "Drag-and-drop UI for building LangChain-based LLM workflows with visual node editor and self-hosted deployment.",
+    "tag": "Free",
+    "url": "https://flowiseai.com/",
+    "date-added": "2026-05-17",
+    "slug": "flowise",
+    "license": "Apache 2.0",
+    "language": [
+      "TypeScript / JavaScript"
+    ],
+    "hardware": [
+      "CPU Only"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-05-14",
+    "github_stars": 32000,
+    "featured": true
+  },
+  {
+    "title": "Kestra",
+    "body": "Declarative orchestration platform for data, AI, and automation pipelines with visual flow editor and self-hosted deployment.",
+    "tag": "Free",
+    "url": "https://kestra.io/",
+    "date-added": "2026-05-17",
+    "slug": "kestra",
+    "license": "Apache 2.0",
+    "language": [
+      "Java / Kotlin"
+    ],
+    "hardware": [
+      "CPU Only"
+    ],
+    "deployment": [
+      "Docker",
+      "Kubernetes",
+      "Bare Metal"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-05-16",
+    "github_stars": 14000,
+    "featured": false
+  },
+  {
+    "title": "n8n",
+    "body": "Open-source workflow automation with 500+ integrations, native AI nodes, and MCP support for self-hosted AI orchestration.",
+    "tag": "Free",
+    "url": "https://n8n.io/",
+    "date-added": "2026-05-17",
+    "slug": "n8n",
+    "license": "Sustainable Use License",
+    "language": [
+      "TypeScript / JavaScript"
+    ],
+    "hardware": [
+      "CPU Only"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal",
+      "Kubernetes"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-05-16",
+    "github_stars": 187500,
+    "featured": true
+  },
+  {
+    "title": "Windmill",
+    "body": "Open-source developer platform turning scripts into workflows and UIs with built-in scheduler and self-hosted execution.",
+    "tag": "Free",
+    "url": "https://www.windmill.dev/",
+    "date-added": "2026-05-17",
+    "slug": "windmill",
+    "license": "AGPL 3.0",
+    "language": [
+      "TypeScript / JavaScript",
+      "Python"
+    ],
+    "hardware": [
+      "CPU Only"
+    ],
+    "deployment": [
+      "Docker",
+      "Kubernetes"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-05-15",
+    "github_stars": 9200,
+    "featured": false
+  }
+]

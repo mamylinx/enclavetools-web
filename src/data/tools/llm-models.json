@@ -1,0 +1,202 @@
+[
+  {
+    "title": "DeepSeek V3 (DeepSeek AI)",
+    "body": "Open-weight Mixture-of-Experts model with MIT license, strong reasoning, and efficient inference for offline use.",
+    "tag": "Free",
+    "url": "https://deepseek.com/",
+    "date-added": "2026-05-17",
+    "slug": "deepseek-v3",
+    "license": "MIT",
+    "language": [
+      "Python"
+    ],
+    "hardware": [
+      "NVIDIA GPU (CUDA)",
+      "Apple Silicon (Metal)"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal"
+    ],
+    "model_format": [
+      "GGUF",
+      "Safetensors"
+    ],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-05-17",
+    "github_stars": 103555,
+    "featured": true
+  },
+  {
+    "title": "Gemma 3 (Google)",
+    "body": "Gemma open-weight LLM library, from Google DeepMind.",
+    "tag": "Free",
+    "url": "https://ai.google.dev/gemma/",
+    "date-added": "2026-05-17",
+    "slug": "gemma-3-google",
+    "license": "Gemma Terms of Use",
+    "language": [
+      "Python"
+    ],
+    "hardware": [
+      "CPU Only",
+      "NVIDIA GPU (CUDA)",
+      "Apple Silicon (Metal)",
+      "Low-resource (< 8GB RAM)"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal"
+    ],
+    "model_format": [
+      "GGUF",
+      "Safetensors"
+    ],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-05-17",
+    "github_stars": 5216,
+    "featured": false
+  },
+  {
+    "title": "Llama 3 (Meta)",
+    "body": "The official Meta Llama 3 GitHub site.",
+    "tag": "Free",
+    "url": "https://ai.meta.com/llama/",
+    "date-added": "2026-05-17",
+    "slug": "llama-3-meta",
+    "license": "Llama 3 Community License",
+    "language": [
+      "Python"
+    ],
+    "hardware": [
+      "CPU Only",
+      "NVIDIA GPU (CUDA)",
+      "Apple Silicon (Metal)"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal"
+    ],
+    "model_format": [
+      "GGUF",
+      "Safetensors"
+    ],
+    "maturity": "Archived / Unmaintained",
+    "last_updated": "2026-05-17",
+    "github_stars": 29289,
+    "featured": true
+  },
+  {
+    "title": "Mistral (Mistral AI)",
+    "body": "Official inference library for Mistral models.",
+    "tag": "Free",
+    "url": "https://mistral.ai/",
+    "date-added": "2026-05-17",
+    "slug": "mistral",
+    "license": "Apache 2.0",
+    "language": [
+      "Jupyter Notebook"
+    ],
+    "hardware": [
+      "CPU Only",
+      "NVIDIA GPU (CUDA)",
+      "Apple Silicon (Metal)"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal"
+    ],
+    "model_format": [
+      "GGUF",
+      "Safetensors"
+    ],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-05-17",
+    "github_stars": 10808,
+    "featured": true
+  },
+  {
+    "title": "OLMo (Allen AI)",
+    "body": "Modeling, training, eval, and inference code for OLMo.",
+    "tag": "Free",
+    "url": "https://allenai.org/olmo",
+    "date-added": "2026-05-17",
+    "slug": "olmo-allen-ai",
+    "license": "Apache 2.0",
+    "language": [
+      "Python"
+    ],
+    "hardware": [
+      "NVIDIA GPU (CUDA)"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal"
+    ],
+    "model_format": [
+      "Safetensors"
+    ],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-05-17",
+    "github_stars": 6509,
+    "featured": false
+  },
+  {
+    "title": "Phi-3 (Microsoft)",
+    "body": "Microsoft compact open-weight models delivering strong performance at small sizes, ideal for low-resource air-gapped systems.",
+    "tag": "Free",
+    "url": "https://huggingface.co/microsoft/Phi-3-mini-128k-instruct",
+    "date-added": "2026-05-17",
+    "slug": "phi-3-microsoft",
+    "license": "MIT",
+    "language": [
+      "Python"
+    ],
+    "hardware": [
+      "CPU Only",
+      "NVIDIA GPU (CUDA)",
+      "Low-resource (< 8GB RAM)"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal"
+    ],
+    "model_format": [
+      "GGUF",
+      "Safetensors"
+    ],
+    "maturity": "Production / Stable",
+    "last_updated": "2025-12-10",
+    "github_stars": 1700,
+    "featured": false
+  },
+  {
+    "title": "Qwen3 (Alibaba)",
+    "body": "Qwen3 is the large language model series developed by Qwen team, Alibaba Cloud.",
+    "tag": "Free",
+    "url": "https://qwenlm.github.io/",
+    "date-added": "2026-05-17",
+    "slug": "qwen3-alibaba",
+    "license": "Apache 2.0",
+    "language": [
+      "Python"
+    ],
+    "hardware": [
+      "CPU Only",
+      "NVIDIA GPU (CUDA)",
+      "Apple Silicon (Metal)"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal"
+    ],
+    "model_format": [
+      "GGUF",
+      "Safetensors"
+    ],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-05-17",
+    "github_stars": 27237,
+    "featured": true
+  }
+]

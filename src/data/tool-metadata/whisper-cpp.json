@@ -1,0 +1,9 @@
+{
+  "title": "whisper.cpp",
+  "description": "Lightweight C/C++ port of Whisper for efficient CPU-based transcription without Python dependencies.",
+  "category": "speech-to-text",
+  "url": "https://github.com/ggerganov/whisper.cpp",
+  "tag": "Free",
+  "date-added": "2026-05-17",
+  "slug": "whisper-cpp"
+}

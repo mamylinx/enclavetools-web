@@ -1,0 +1,9 @@
+{
+  "title": "BGE-M3 (BAAI)",
+  "description": "Multilingual embedding model supporting 100+ languages with dense, sparse, and multi-vector retrieval for RAG pipelines.",
+  "category": "embedding-models",
+  "url": "https://huggingface.co/BAAI/bge-m3",
+  "tag": "Free",
+  "date-added": "2026-05-17",
+  "slug": "bge-m3"
+}

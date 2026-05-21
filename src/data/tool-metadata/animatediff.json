@@ -1,0 +1,9 @@
+{
+  "title": "AnimateDiff",
+  "description": "Plug-and-play animation module for Stable Diffusion enabling text-to-video generation with existing SD checkpoints.",
+  "category": "video-generation",
+  "url": "https://github.com/guoyww/AnimateDiff",
+  "tag": "Free",
+  "date-added": "2026-05-17",
+  "slug": "animatediff"
+}

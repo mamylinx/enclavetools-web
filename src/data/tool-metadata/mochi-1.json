@@ -1,0 +1,9 @@
+{
+  "title": "Mochi 1 (Genmo)",
+  "description": "Open-source video generation model focused on high-fidelity short video with strong prompt alignment via diffusion.",
+  "category": "video-generation",
+  "url": "https://github.com/genmoai/models",
+  "tag": "Free",
+  "date-added": "2026-05-17",
+  "slug": "mochi-1"
+}

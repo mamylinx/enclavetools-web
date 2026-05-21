@@ -1,0 +1,9 @@
+{
+  "title": "SGLang",
+  "description": "SGLang is a high-performance serving framework for large language models and multimodal models.",
+  "category": "llm-inference",
+  "url": "https://github.com/sgl-project/sglang",
+  "tag": "Free",
+  "date-added": "2026-05-17",
+  "slug": "sglang"
+}

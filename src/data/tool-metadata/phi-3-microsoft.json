@@ -1,0 +1,9 @@
+{
+  "title": "Phi-3 (Microsoft)",
+  "description": "Microsoft compact open-weight models delivering strong performance at small sizes, ideal for low-resource air-gapped systems.",
+  "category": "llm-models",
+  "url": "https://huggingface.co/microsoft/Phi-3-mini-128k-instruct",
+  "tag": "Free",
+  "date-added": "2026-05-17",
+  "slug": "phi-3-microsoft"
+}

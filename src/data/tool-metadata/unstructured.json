@@ -1,0 +1,9 @@
+{
+  "title": "Unstructured",
+  "description": "Open-source document preprocessing library extracting and transforming 40+ file types for downstream LLM applications.",
+  "category": "rag-document",
+  "url": "https://unstructured.io/",
+  "tag": "Free",
+  "date-added": "2026-05-17",
+  "slug": "unstructured"
+}

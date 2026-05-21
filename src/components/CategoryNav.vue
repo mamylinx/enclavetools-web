@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
-import { categories } from '../data/categories';
+import categories from '../data/categories.json';
 
 interface NavItem {
   title: string;

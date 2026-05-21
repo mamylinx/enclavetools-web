@@ -1,0 +1,9 @@
+{
+  "title": "ComfyUI",
+  "description": "Node-based Stable Diffusion interface enabling complex image generation workflows with full offline control.",
+  "category": "image-generation",
+  "url": "https://github.com/comfyanonymous/ComfyUI",
+  "tag": "Free",
+  "date-added": "2026-05-17",
+  "slug": "comfyui"
+}

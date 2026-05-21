@@ -1,0 +1,9 @@
+{
+  "title": "KServe",
+  "description": "Kubernetes-native model serving platform with canary rollouts, auto-scaling, and multi-framework support for production AI.",
+  "category": "deployment",
+  "url": "https://github.com/kserve/kserve",
+  "tag": "Free",
+  "date-added": "2026-05-17",
+  "slug": "kserve"
+}

@@ -1,0 +1,148 @@
+[
+  {
+    "title": "Aider",
+    "body": "AI pair programming tool that edits code in your local git repository using local or remote LLMs for offline development.",
+    "tag": "Free",
+    "url": "https://aider.chat/",
+    "date-added": "2026-05-17",
+    "slug": "aider",
+    "license": "Apache 2.0",
+    "language": [
+      "Python"
+    ],
+    "hardware": [
+      "CPU Only"
+    ],
+    "deployment": [
+      "Bare Metal"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-05-16",
+    "github_stars": 21000,
+    "featured": false
+  },
+  {
+    "title": "CodeGeeX",
+    "body": "Open-source multilingual code generation model supporting 20+ programming languages for offline code assistance.",
+    "tag": "Free",
+    "url": "https://github.com/THUDM/CodeGeeX",
+    "date-added": "2026-05-17",
+    "slug": "codegeex",
+    "license": "Apache 2.0",
+    "language": [
+      "Python"
+    ],
+    "hardware": [
+      "NVIDIA GPU (CUDA)"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-04-10",
+    "github_stars": 5200,
+    "featured": false
+  },
+  {
+    "title": "Continue",
+    "body": "Open-source AI code assistant for VS Code and JetBrains with local model support for private, offline code completion.",
+    "tag": "Free",
+    "url": "https://continue.dev/",
+    "date-added": "2026-05-17",
+    "slug": "continue",
+    "license": "Apache 2.0",
+    "language": [
+      "TypeScript / JavaScript"
+    ],
+    "hardware": [
+      "CPU Only"
+    ],
+    "deployment": [
+      "Bare Metal"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-05-16",
+    "github_stars": 18000,
+    "featured": false
+  },
+  {
+    "title": "DeepSeek-Coder",
+    "body": "Open-source code model trained on 2 trillion tokens supporting 80+ programming languages for offline code generation.",
+    "tag": "Free",
+    "url": "https://github.com/deepseek-ai/DeepSeek-Coder",
+    "date-added": "2026-05-17",
+    "slug": "deepseek-coder",
+    "license": "MIT",
+    "language": [
+      "Python"
+    ],
+    "hardware": [
+      "CPU Only",
+      "NVIDIA GPU (CUDA)"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-02-20",
+    "github_stars": 8500,
+    "featured": false
+  },
+  {
+    "title": "StarCoder2 (Hugging Face)",
+    "body": "Open-source code generation model trained on 600+ programming languages with permissive license for offline use.",
+    "tag": "Free",
+    "url": "https://huggingface.co/bigcode/starcoder2-15b",
+    "date-added": "2026-05-17",
+    "slug": "starcoder2",
+    "license": "bigcode openrail m",
+    "language": [
+      "Python"
+    ],
+    "hardware": [
+      "CPU Only",
+      "NVIDIA GPU (CUDA)"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2024-06-05",
+    "github_stars": 670,
+    "featured": false
+  },
+  {
+    "title": "Tabby",
+    "body": "Self-hosted AI coding assistant providing code completion and chat with local model support for air-gapped development.",
+    "tag": "Free",
+    "url": "https://tabby.tabbyml.com/",
+    "date-added": "2026-05-17",
+    "slug": "tabby",
+    "license": "Apache 2.0",
+    "language": [
+      "Rust",
+      "TypeScript / JavaScript"
+    ],
+    "hardware": [
+      "CPU Only",
+      "NVIDIA GPU (CUDA)"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-05-15",
+    "github_stars": 20000,
+    "featured": false
+  }
+]

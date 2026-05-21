@@ -1,0 +1,9 @@
+{
+  "title": "GTE-Qwen2 (Alibaba)",
+  "description": "Alibaba general text embedding model built on Qwen2 with strong multilingual and long-context retrieval performance.",
+  "category": "embedding-models",
+  "url": "https://huggingface.co/Alibaba-NLP/gte-Qwen2-7B-instruct",
+  "tag": "Free",
+  "date-added": "2026-05-17",
+  "slug": "gte-qwen2"
+}

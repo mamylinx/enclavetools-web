@@ -1,0 +1,9 @@
+{
+  "title": "Qwen3 (Alibaba)",
+  "description": "Qwen3 is the large language model series developed by Qwen team, Alibaba Cloud.",
+  "category": "llm-models",
+  "url": "https://qwenlm.github.io/",
+  "tag": "Free",
+  "date-added": "2026-05-17",
+  "slug": "qwen3-alibaba"
+}

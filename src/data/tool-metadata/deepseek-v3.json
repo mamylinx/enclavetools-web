@@ -1,0 +1,9 @@
+{
+  "title": "DeepSeek V3 (DeepSeek AI)",
+  "description": "Open-weight Mixture-of-Experts model with MIT license, strong reasoning, and efficient inference for offline use.",
+  "category": "llm-models",
+  "url": "https://deepseek.com/",
+  "tag": "Free",
+  "date-added": "2026-05-17",
+  "slug": "deepseek-v3"
+}

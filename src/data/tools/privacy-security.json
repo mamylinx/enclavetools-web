@@ -1,0 +1,146 @@
+[
+  {
+    "title": "Garak",
+    "body": "NVIDIA open-source LLM vulnerability scanner probing for 17,000+ known jailbreak patterns and safety weaknesses.",
+    "tag": "Free",
+    "url": "https://github.com/leondz/garak",
+    "date-added": "2026-05-17",
+    "slug": "garak",
+    "license": "Apache 2.0",
+    "language": [
+      "Python"
+    ],
+    "hardware": [
+      "CPU Only"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-05-15",
+    "github_stars": 4200,
+    "featured": false
+  },
+  {
+    "title": "Guardrails AI",
+    "body": "Python package for validating LLM outputs with pre-built validators for structure, quality, and safety enforcement.",
+    "tag": "Free",
+    "url": "https://github.com/guardrails-ai/guardrails",
+    "date-added": "2026-05-17",
+    "slug": "guardrails-ai",
+    "license": "Apache 2.0",
+    "language": [
+      "Python"
+    ],
+    "hardware": [
+      "CPU Only"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-05-10",
+    "github_stars": 5200,
+    "featured": false
+  },
+  {
+    "title": "NeMo Guardrails (NVIDIA)",
+    "body": "Open-source toolkit for adding programmable guardrails to LLM applications with Colang for safety policy enforcement.",
+    "tag": "Free",
+    "url": "https://github.com/NVIDIA-NeMo/Guardrails",
+    "date-added": "2026-05-17",
+    "slug": "nemo-guardrails",
+    "license": "Apache 2.0",
+    "language": [
+      "Python"
+    ],
+    "hardware": [
+      "CPU Only"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-03-12",
+    "github_stars": 6100,
+    "featured": false
+  },
+  {
+    "title": "Presidio (Microsoft)",
+    "body": "Microsoft PII detection and anonymization toolkit for redacting sensitive data before LLM processing in air-gapped systems.",
+    "tag": "Free",
+    "url": "https://github.com/microsoft/presidio",
+    "date-added": "2026-05-17",
+    "slug": "presidio",
+    "license": "MIT",
+    "language": [
+      "Python"
+    ],
+    "hardware": [
+      "CPU Only"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-05-14",
+    "github_stars": 7200,
+    "featured": false
+  },
+  {
+    "title": "Promptfoo",
+    "body": "Open-source LLM security testing tool for evaluating prompt injection, jailbreak resistance, and output quality.",
+    "tag": "Free",
+    "url": "https://github.com/promptfoo/promptfoo",
+    "date-added": "2026-05-17",
+    "slug": "promptfoo",
+    "license": "MIT",
+    "language": [
+      "TypeScript / JavaScript"
+    ],
+    "hardware": [
+      "CPU Only"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-05-16",
+    "github_stars": 5800,
+    "featured": false
+  },
+  {
+    "title": "Rebuff",
+    "body": "Self-hardening prompt injection detection system using multiple defensive layers to protect LLM applications.",
+    "tag": "Free",
+    "url": "https://github.com/protectai/rebuff",
+    "date-added": "2026-05-17",
+    "slug": "rebuff",
+    "license": "Apache 2.0",
+    "language": [
+      "Python"
+    ],
+    "hardware": [
+      "CPU Only"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-04-10",
+    "github_stars": 2200,
+    "featured": false
+  }
+]

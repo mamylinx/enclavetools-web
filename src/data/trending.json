@@ -1,9 +1,0 @@
-{
-  "items": [
-    { "name": "SecureAI", "price": "From $99/mo" },
-    { "name": "VaultAI", "price": "From $149/mo" },
-    { "name": "PrivateLLM", "price": "Free" },
-    { "name": "EdgeInference", "price": "Freemium" },
-    { "name": "DataShield", "price": "From $79/mo" }
-  ]
-}

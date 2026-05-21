@@ -1,0 +1,9 @@
+{
+  "title": "Rebuff",
+  "description": "Self-hardening prompt injection detection system using multiple defensive layers to protect LLM applications.",
+  "category": "privacy-security",
+  "url": "https://github.com/protectai/rebuff",
+  "tag": "Free",
+  "date-added": "2026-05-17",
+  "slug": "rebuff"
+}

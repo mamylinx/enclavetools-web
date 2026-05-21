@@ -1,0 +1,172 @@
+[
+  {
+    "title": "ComfyUI",
+    "body": "Node-based Stable Diffusion interface enabling complex image generation workflows with full offline control.",
+    "tag": "Free",
+    "url": "https://github.com/comfyanonymous/ComfyUI",
+    "date-added": "2026-05-17",
+    "slug": "comfyui",
+    "license": "GPL 3.0",
+    "language": [
+      "Python"
+    ],
+    "hardware": [
+      "NVIDIA GPU (CUDA)",
+      "AMD GPU (ROCm)"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-05-16",
+    "github_stars": 62000,
+    "featured": true
+  },
+  {
+    "title": "DiffusionBee",
+    "body": "Simplest way to run Stable Diffusion on Apple Silicon Macs with one-click install and no configuration needed.",
+    "tag": "Free",
+    "url": "https://diffusionbee.com/",
+    "date-added": "2026-05-17",
+    "slug": "diffusionbee",
+    "license": "MIT",
+    "language": [
+      "C / C++"
+    ],
+    "hardware": [
+      "Apple Silicon (Metal)"
+    ],
+    "deployment": [
+      "Bare Metal"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-03-15",
+    "github_stars": 11000,
+    "featured": false
+  },
+  {
+    "title": "Draw Things",
+    "body": "Native macOS and iOS Stable Diffusion client running entirely on-device with Apple Metal acceleration.",
+    "tag": "Free",
+    "url": "https://drawthings.ai/",
+    "date-added": "2026-05-17",
+    "slug": "draw-things",
+    "license": "GPL 3.0",
+    "language": [
+      "TypeScript / JavaScript"
+    ],
+    "hardware": [
+      "Apple Silicon (Metal)"
+    ],
+    "deployment": [
+      "Bare Metal",
+      "Embedded / Edge"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-05-10",
+    "github_stars": 5200,
+    "featured": false
+  },
+  {
+    "title": "FLUX.1 (Black Forest Labs)",
+    "body": "Open-weight image generation model with superior prompt adherence and photorealistic output under Apache 2.0 license.",
+    "tag": "Free",
+    "url": "https://github.com/black-forest-labs/flux",
+    "date-added": "2026-05-17",
+    "slug": "flux-1",
+    "license": "Apache 2.0",
+    "language": [
+      "Python"
+    ],
+    "hardware": [
+      "NVIDIA GPU (CUDA)"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-05-12",
+    "github_stars": 24000,
+    "featured": true
+  },
+  {
+    "title": "Fooocus",
+    "body": "Simplified Stable Diffusion interface with proprietary inpainting and style controls for high-quality offline generation.",
+    "tag": "Free",
+    "url": "https://github.com/lllyasviel/Fooocus",
+    "date-added": "2026-05-17",
+    "slug": "fooocus",
+    "license": "GPL 3.0",
+    "language": [
+      "Python"
+    ],
+    "hardware": [
+      "NVIDIA GPU (CUDA)"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-04-25",
+    "github_stars": 42000,
+    "featured": true
+  },
+  {
+    "title": "InvokeAI",
+    "body": "Professional creative engine for Stable Diffusion with unified canvas, model management, and offline-first design.",
+    "tag": "Free",
+    "url": "https://invoke.ai/",
+    "date-added": "2026-05-17",
+    "slug": "invokeai",
+    "license": "Apache 2.0",
+    "language": [
+      "Python"
+    ],
+    "hardware": [
+      "NVIDIA GPU (CUDA)",
+      "Apple Silicon (Metal)"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-05-14",
+    "github_stars": 26000,
+    "featured": false
+  },
+  {
+    "title": "Stable Diffusion WebUI Forge",
+    "body": "Optimized fork of AUTOMATIC1111 using 30-50% less VRAM for the same image quality with full extension compatibility.",
+    "tag": "Free",
+    "url": "https://github.com/lllyasviel/stable-diffusion-webui-forge",
+    "date-added": "2026-05-17",
+    "slug": "sd-webui-forge",
+    "license": "AGPL 3.0",
+    "language": [
+      "Python"
+    ],
+    "hardware": [
+      "NVIDIA GPU (CUDA)",
+      "AMD GPU (ROCm)"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-05-10",
+    "github_stars": 28000,
+    "featured": true
+  }
+]

@@ -1,0 +1,9 @@
+{
+  "title": "Weaviate",
+  "description": "Weaviate is an open-source vector database that stores both objects and vectors, allowing for the combination of vector search with structured filtering with the fault tolerance and scalability of a cloud-native database​.",
+  "category": "vector-databases",
+  "url": "https://weaviate.io/",
+  "tag": "Free",
+  "date-added": "2026-05-17",
+  "slug": "weaviate"
+}

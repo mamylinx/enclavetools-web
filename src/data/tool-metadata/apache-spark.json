@@ -1,0 +1,9 @@
+{
+  "title": "Apache Spark",
+  "description": "Distributed data processing engine with MLlib for large-scale data transformation and feature engineering pipelines.",
+  "category": "data-processing",
+  "url": "https://spark.apache.org/",
+  "tag": "Free",
+  "date-added": "2026-05-17",
+  "slug": "apache-spark"
+}

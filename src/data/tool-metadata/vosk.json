@@ -1,0 +1,9 @@
+{
+  "title": "Vosk",
+  "description": "Offline speech recognition toolkit designed for edge devices, running on Raspberry Pi with real-time processing.",
+  "category": "speech-to-text",
+  "url": "https://github.com/alphacep/vosk-api",
+  "tag": "Free",
+  "date-added": "2026-05-17",
+  "slug": "vosk"
+}

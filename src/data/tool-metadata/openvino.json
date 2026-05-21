@@ -1,0 +1,9 @@
+{
+  "title": "OpenVINO (Intel)",
+  "description": "Intel toolkit for optimizing and deploying AI inference on CPU, GPU, and NPU hardware with low-latency execution.",
+  "category": "deployment",
+  "url": "https://github.com/openvinotoolkit/openvino",
+  "tag": "Free",
+  "date-added": "2026-05-17",
+  "slug": "openvino"
+}

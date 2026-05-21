@@ -1,0 +1,419 @@
+{
+  "exllamav2": [
+    "llm-inference"
+  ],
+  "koboldcpp": [
+    "llm-inference"
+  ],
+  "llama-cpp": [
+    "llm-inference"
+  ],
+  "localai": [
+    "llm-inference"
+  ],
+  "mlc-llm": [
+    "llm-inference"
+  ],
+  "mlx-apple": [
+    "llm-inference"
+  ],
+  "ollama": [
+    "llm-inference"
+  ],
+  "sglang": [
+    "llm-inference"
+  ],
+  "tabbyapi": [
+    "llm-inference"
+  ],
+  "tensorrt-llm": [
+    "llm-inference"
+  ],
+  "text-generation-inference": [
+    "llm-inference"
+  ],
+  "vllm": [
+    "llm-inference"
+  ],
+  "deepseek-v3": [
+    "llm-models"
+  ],
+  "gemma-3-google": [
+    "llm-models"
+  ],
+  "llama-3-meta": [
+    "llm-models"
+  ],
+  "mistral": [
+    "llm-models"
+  ],
+  "olmo-allen-ai": [
+    "llm-models"
+  ],
+  "phi-3-microsoft": [
+    "llm-models"
+  ],
+  "qwen3-alibaba": [
+    "llm-models"
+  ],
+  "chroma": [
+    "vector-databases"
+  ],
+  "faiss": [
+    "vector-databases"
+  ],
+  "lancedb": [
+    "vector-databases"
+  ],
+  "milvus": [
+    "vector-databases"
+  ],
+  "pgvector": [
+    "vector-databases"
+  ],
+  "qdrant": [
+    "vector-databases"
+  ],
+  "typesense": [
+    "vector-databases"
+  ],
+  "weaviate": [
+    "vector-databases"
+  ],
+  "autogen-microsoft": [
+    "agent-frameworks"
+  ],
+  "autogpt": [
+    "agent-frameworks"
+  ],
+  "crewai": [
+    "agent-frameworks"
+  ],
+  "langchain": [
+    "agent-frameworks"
+  ],
+  "langgraph": [
+    "agent-frameworks"
+  ],
+  "llamaindex": [
+    "agent-frameworks"
+  ],
+  "metagpt": [
+    "agent-frameworks"
+  ],
+  "open-interpreter": [
+    "agent-frameworks"
+  ],
+  "pydantic-ai": [
+    "agent-frameworks"
+  ],
+  "smolagents": [
+    "agent-frameworks"
+  ],
+  "anythingllm": [
+    "chat-interfaces"
+  ],
+  "chatbox-ai": [
+    "chat-interfaces"
+  ],
+  "gpt4all": [
+    "chat-interfaces"
+  ],
+  "huggingface-chat-ui": [
+    "chat-interfaces"
+  ],
+  "jan": [
+    "chat-interfaces"
+  ],
+  "librechat": [
+    "chat-interfaces"
+  ],
+  "lobechat": [
+    "chat-interfaces"
+  ],
+  "open-webui": [
+    "chat-interfaces"
+  ],
+  "sillytavern": [
+    "chat-interfaces"
+  ],
+  "text-generation-webui": [
+    "chat-interfaces"
+  ],
+  "danswer": [
+    "rag-document"
+  ],
+  "docling": [
+    "rag-document"
+  ],
+  "haystack": [
+    "rag-document"
+  ],
+  "marker": [
+    "rag-document"
+  ],
+  "privategpt": [
+    "rag-document"
+  ],
+  "ragflow": [
+    "rag-document"
+  ],
+  "txtai": [
+    "rag-document"
+  ],
+  "unstructured": [
+    "rag-document"
+  ],
+  "faster-whisper": [
+    "speech-to-text"
+  ],
+  "nemo-nvidia": [
+    "speech-to-text"
+  ],
+  "silero-vad": [
+    "speech-to-text"
+  ],
+  "speechbrain": [
+    "speech-to-text"
+  ],
+  "vosk": [
+    "speech-to-text"
+  ],
+  "whisper": [
+    "speech-to-text"
+  ],
+  "whisper-cpp": [
+    "speech-to-text"
+  ],
+  "bark": [
+    "text-to-speech"
+  ],
+  "chattts": [
+    "text-to-speech"
+  ],
+  "coqui-tts": [
+    "text-to-speech"
+  ],
+  "fish-speech": [
+    "text-to-speech"
+  ],
+  "kokoro": [
+    "text-to-speech"
+  ],
+  "openvoice": [
+    "text-to-speech"
+  ],
+  "piper": [
+    "text-to-speech"
+  ],
+  "comfyui": [
+    "image-generation"
+  ],
+  "diffusionbee": [
+    "image-generation"
+  ],
+  "draw-things": [
+    "image-generation"
+  ],
+  "flux-1": [
+    "image-generation"
+  ],
+  "fooocus": [
+    "image-generation"
+  ],
+  "invokeai": [
+    "image-generation"
+  ],
+  "sd-webui-forge": [
+    "image-generation"
+  ],
+  "axolotl": [
+    "fine-tuning-training"
+  ],
+  "litgpt": [
+    "fine-tuning-training"
+  ],
+  "llama-factory": [
+    "fine-tuning-training"
+  ],
+  "openrlhf": [
+    "fine-tuning-training"
+  ],
+  "peft-huggingface": [
+    "fine-tuning-training"
+  ],
+  "trl-huggingface": [
+    "fine-tuning-training"
+  ],
+  "unsloth": [
+    "fine-tuning-training"
+  ],
+  "arize-phoenix": [
+    "monitoring-observability"
+  ],
+  "comet-opik": [
+    "monitoring-observability"
+  ],
+  "langfuse": [
+    "monitoring-observability"
+  ],
+  "langwatch": [
+    "monitoring-observability"
+  ],
+  "lunary": [
+    "monitoring-observability"
+  ],
+  "openllmetry": [
+    "monitoring-observability"
+  ],
+  "garak": [
+    "privacy-security"
+  ],
+  "guardrails-ai": [
+    "privacy-security"
+  ],
+  "nemo-guardrails": [
+    "privacy-security"
+  ],
+  "presidio": [
+    "privacy-security"
+  ],
+  "promptfoo": [
+    "privacy-security"
+  ],
+  "rebuff": [
+    "privacy-security"
+  ],
+  "bge-m3": [
+    "embedding-models"
+  ],
+  "e5-microsoft": [
+    "embedding-models"
+  ],
+  "gte-qwen2": [
+    "embedding-models"
+  ],
+  "jina-embeddings-v3": [
+    "embedding-models"
+  ],
+  "nomic-embed": [
+    "embedding-models"
+  ],
+  "snowflake-arctic-embed": [
+    "embedding-models"
+  ],
+  "bentoml": [
+    "deployment"
+  ],
+  "kserve": [
+    "deployment"
+  ],
+  "openvino": [
+    "deployment"
+  ],
+  "ray-serve": [
+    "deployment"
+  ],
+  "seldon-core": [
+    "deployment"
+  ],
+  "triton-inference-server": [
+    "deployment"
+  ],
+  "activepieces": [
+    "workflow-automation"
+  ],
+  "dify": [
+    "workflow-automation"
+  ],
+  "flowise": [
+    "workflow-automation"
+  ],
+  "kestra": [
+    "workflow-automation"
+  ],
+  "n8n": [
+    "workflow-automation"
+  ],
+  "windmill": [
+    "workflow-automation"
+  ],
+  "animatediff": [
+    "video-generation"
+  ],
+  "cogvideox": [
+    "video-generation"
+  ],
+  "hunyuanvideo": [
+    "video-generation"
+  ],
+  "ltx-video": [
+    "video-generation"
+  ],
+  "mochi-1": [
+    "video-generation"
+  ],
+  "open-sora": [
+    "video-generation"
+  ],
+  "wan-2-1": [
+    "video-generation"
+  ],
+  "deepseek-vl2": [
+    "vision-multimodal"
+  ],
+  "falcon-2-vlm": [
+    "vision-multimodal"
+  ],
+  "internvl3": [
+    "vision-multimodal"
+  ],
+  "llava": [
+    "vision-multimodal"
+  ],
+  "phi-3-vision": [
+    "vision-multimodal"
+  ],
+  "pixtral-12b": [
+    "vision-multimodal"
+  ],
+  "qwen2-5-vl": [
+    "vision-multimodal"
+  ],
+  "aider": [
+    "code-generation"
+  ],
+  "codegeex": [
+    "code-generation"
+  ],
+  "continue": [
+    "code-generation"
+  ],
+  "deepseek-coder": [
+    "code-generation"
+  ],
+  "starcoder2": [
+    "code-generation"
+  ],
+  "tabby": [
+    "code-generation"
+  ],
+  "apache-spark": [
+    "data-processing"
+  ],
+  "datacleaner": [
+    "data-processing"
+  ],
+  "duckdb": [
+    "data-processing"
+  ],
+  "dvc": [
+    "data-processing"
+  ],
+  "pandas": [
+    "data-processing"
+  ],
+  "polars": [
+    "data-processing"
+  ]
+}

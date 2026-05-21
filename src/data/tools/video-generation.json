@@ -1,0 +1,170 @@
+[
+  {
+    "title": "AnimateDiff",
+    "body": "Plug-and-play animation module for Stable Diffusion enabling text-to-video generation with existing SD checkpoints.",
+    "tag": "Free",
+    "url": "https://github.com/guoyww/AnimateDiff",
+    "date-added": "2026-05-17",
+    "slug": "animatediff",
+    "license": "Apache 2.0",
+    "language": [
+      "Python"
+    ],
+    "hardware": [
+      "NVIDIA GPU (CUDA)"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-04-20",
+    "github_stars": 9800,
+    "featured": false
+  },
+  {
+    "title": "CogVideoX (THUDM)",
+    "body": "Open-source video generation model supporting text-to-video and image-to-video with diffusion transformer architecture.",
+    "tag": "Free",
+    "url": "https://github.com/THUDM/CogVideo",
+    "date-added": "2026-05-17",
+    "slug": "cogvideox",
+    "license": "Apache 2.0",
+    "language": [
+      "Python"
+    ],
+    "hardware": [
+      "NVIDIA GPU (CUDA)"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-05-10",
+    "github_stars": 8200,
+    "featured": false
+  },
+  {
+    "title": "HunyuanVideo (Tencent)",
+    "body": "High-quality open-source video generation model supporting 720P and 1080P output with cinematic motion coherence.",
+    "tag": "Free",
+    "url": "https://github.com/Tencent/HunyuanVideo",
+    "date-added": "2026-05-17",
+    "slug": "hunyuanvideo",
+    "license": "Apache 2.0",
+    "language": [
+      "Python"
+    ],
+    "hardware": [
+      "NVIDIA GPU (CUDA)"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-05-14",
+    "github_stars": 11900,
+    "featured": false
+  },
+  {
+    "title": "LTX-Video (Lightricks)",
+    "body": "Fast and efficient open-source video generation model with ComfyUI support for quick iteration on mid-range GPUs.",
+    "tag": "Free",
+    "url": "https://github.com/Lightricks/LTX-Video",
+    "date-added": "2026-05-17",
+    "slug": "ltx-video",
+    "license": "Apache 2.0",
+    "language": [
+      "Python"
+    ],
+    "hardware": [
+      "NVIDIA GPU (CUDA)"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-05-10",
+    "github_stars": 7500,
+    "featured": false
+  },
+  {
+    "title": "Mochi 1 (Genmo)",
+    "body": "Open-source video generation model focused on high-fidelity short video with strong prompt alignment via diffusion.",
+    "tag": "Free",
+    "url": "https://github.com/genmoai/models",
+    "date-added": "2026-05-17",
+    "slug": "mochi-1",
+    "license": "Apache 2.0",
+    "language": [
+      "Python"
+    ],
+    "hardware": [
+      "NVIDIA GPU (CUDA)"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-03-15",
+    "github_stars": 6200,
+    "featured": false
+  },
+  {
+    "title": "Open-Sora (HPC-AI)",
+    "body": "Open-source initiative reproducing Sora-quality video generation with 11B parameter model for high-fidelity output.",
+    "tag": "Free",
+    "url": "https://github.com/hpcaitech/Open-Sora",
+    "date-added": "2026-05-17",
+    "slug": "open-sora",
+    "license": "Apache 2.0",
+    "language": [
+      "Python"
+    ],
+    "hardware": [
+      "NVIDIA GPU (CUDA)"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal"
+    ],
+    "model_format": [],
+    "maturity": "Beta",
+    "last_updated": "2026-05-08",
+    "github_stars": 22000,
+    "featured": false
+  },
+  {
+    "title": "Wan 2.1 (Alibaba)",
+    "body": "Open-source video generation model with Mixture-of-Experts architecture for efficient text-to-video at 480P and 720P.",
+    "tag": "Free",
+    "url": "https://github.com/Wan-Video/Wan2.1",
+    "date-added": "2026-05-17",
+    "slug": "wan-2-1",
+    "license": "Apache 2.0",
+    "language": [
+      "Python"
+    ],
+    "hardware": [
+      "NVIDIA GPU (CUDA)"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal"
+    ],
+    "model_format": [],
+    "maturity": "Production / Stable",
+    "last_updated": "2026-05-12",
+    "github_stars": 15000,
+    "featured": false
+  }
+]

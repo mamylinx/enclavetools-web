@@ -1,0 +1,9 @@
+{
+  "title": "LTX-Video (Lightricks)",
+  "description": "Fast and efficient open-source video generation model with ComfyUI support for quick iteration on mid-range GPUs.",
+  "category": "video-generation",
+  "url": "https://github.com/Lightricks/LTX-Video",
+  "tag": "Free",
+  "date-added": "2026-05-17",
+  "slug": "ltx-video"
+}

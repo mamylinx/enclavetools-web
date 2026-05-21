@@ -125,7 +125,7 @@ onUnmounted(() => {
         </div>
 
         <aside class="sidebar desktop-only">
-            <Sidebar showSponsor showNewsletter showTrending />
+            <Sidebar showSponsor showNewsletter />
         </aside>
     </div>
 

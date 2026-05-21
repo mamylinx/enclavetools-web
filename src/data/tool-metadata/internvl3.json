@@ -1,0 +1,9 @@
+{
+  "title": "InternVL3 (Shanghai AI Lab)",
+  "description": "Open-source vision-language model with 3D reasoning and top multimodal benchmark scores for complex visual tasks.",
+  "category": "vision-multimodal",
+  "url": "https://github.com/OpenGVLab/InternVL",
+  "tag": "Free",
+  "date-added": "2026-05-17",
+  "slug": "internvl3"
+}

@@ -1,6 +1,5 @@
 import { defineConfig } from 'astro/config';
 import vue from "@astrojs/vue";
-import netlify from "@astrojs/netlify";
 import partytown from "@astrojs/partytown";
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from '@tailwindcss/vite';
@@ -20,7 +19,7 @@ export default defineConfig({
     ],
     vite: {
         plugins: [tailwindcss()],
-        envPrefix: ['VITE_', 'SUPABASE_'],
+        envPrefix: ['VITE_'],
         resolve: {
             extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.vue'],
         },

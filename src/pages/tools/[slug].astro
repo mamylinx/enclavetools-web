@@ -1,77 +1,50 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import { supabase } from "../../lib/supabase";
 import SoftwareApplicationSchema from "../../components/schema/SoftwareApplicationSchema.astro";
 import BreadcrumbSchema from "../../components/schema/BreadcrumbSchema.astro";
 import BookmarkButton from "../../components/BookmarkButton";
+import toolsData from "../../data/tools.json";
+import slugMap from "../../data/slug-map.json";
 
-export const prerender = false;
+// Generate all tool slugs for static paths
+export function getStaticPaths() {
+  const allTools = toolsData.tools.flatMap((cat: any) => 
+    cat.content.map((tool: any) => ({
+      ...tool,
+      category: cat.category,
+    }))
+  );
+  return allTools.map((tool: any) => ({
+    params: { slug: tool.slug }
+  }));
+}
 
 const { slug } = Astro.params;
 
-if (!slug) {
-  return Astro.redirect("/404");
-}
+// Flatten all tools with category info
+const allTools = toolsData.tools.flatMap((cat: any) => 
+  cat.content.map((tool: any) => ({
+    ...tool,
+    category: cat.category,
+  }))
+);
 
-let tool: any = null;
-let relatedTools: any[] = [];
-let category = "";
-
-try {
-  const { data: toolData, error: toolError } = await supabase
-    .from('tools')
-    .select('*')
-    .eq('slug', slug)
-    .single();
-  if (toolError || !toolData) {
-    return Astro.redirect("/404");
-  }
-
-  tool = {
-    title: toolData.name,
-    body: toolData.description,
-    'date-added': toolData.date_added,
-    slug: toolData.slug,
-    tag: toolData.tag,
-    url: toolData.url,
-    category: toolData.category,
-    license: toolData.license,
-    language: toolData.language,
-    hardware: toolData.hardware,
-    deployment: toolData.deployment,
-    model_format: toolData.model_format,
-    maturity: toolData.maturity,
-    last_updated: toolData.last_updated,
-    popularity_score: toolData.popularity_score,
-    featured: toolData.featured,
-  };
-
-  category = tool.category?.[0] || "";
-
-  const { data: relatedData } = await supabase
-    .from('tools')
-    .select('*')
-    .contains('category', [category])
-    .neq('slug', slug)
-    .limit(10);
-
-  relatedTools = (relatedData || []).map((t: any) => ({
-    title: t.name,
-    slug: t.slug,
-    url: t.url,
-    body: t.description,
-    license: t.license,
-  }));
-
-  relatedTools = relatedTools.sort(() => Math.random() - 0.5).slice(0, 4);
-} catch (err) {
-  console.error('SSR fetch failed:', err);
-}
-
+// Find the requested tool
+const tool = allTools.find((t: any) => t.slug === slug);
 if (!tool) {
   return Astro.redirect("/404");
 }
 
+// Get category (should exist since tool was found)
+const category = tool.category;
+
+// Get related tools (same category, different slug, limit 4 random)
+const relatedTools = allTools
+  .filter((t: any) => t.category === category && t.slug !== slug)
+  .sort(() => Math.random() - 0.5) // random order
+  .slice(0, 4);
+
+// Format date helper
 const formatDate = (dateStr: string) => {
   try {
     return new Date(dateStr).toLocaleDateString("en-US", {
@@ -91,7 +64,12 @@ const faviconUrl = `/favicons/${slug}.png`;
 const seoTitle = tool.title;
 const seoDescription = tool.body;
 
-const categoryTitle = category.charAt(0).toUpperCase() + category.slice(1);
+// Get category display name (capitalize first letter of each word)
+const categoryTitle = category
+  .split('-')
+  .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+  .join(' ');
+
 const breadcrumbs = [
   { name: "Home", url: "https://enclavetools.com" },
   { name: categoryTitle, url: `https://enclavetools.com/${category}` },
@@ -103,7 +81,6 @@ const encodedCanonicalUrl = encodeURIComponent(canonicalUrl);
 const xShareUrl = `https://x.com/intent/post?text=${encodedShareText}&url=${encodedCanonicalUrl}&via=planetabhi`;
 const linkedinShareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodedCanonicalUrl}`;
 ---
-
 <Layout
   site={`Enclavetools - ${tool.title}`}
   title={tool.title}
@@ -261,7 +238,7 @@ const linkedinShareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${
     .detail-breadcrumb a:hover { color: #0066FF; }
     .breadcrumb-sep { color: #e0e0e0; }
     .breadcrumb-current { color: #121212; }
-
+  
     .detail-card {
       background: #fff;
       border: 1px solid #e0e0e0;
@@ -271,7 +248,7 @@ const linkedinShareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${
       flex-direction: column;
       gap: 16px;
     }
-
+  
     .detail-header {
       display: flex;
       align-items: flex-start;
@@ -279,7 +256,7 @@ const linkedinShareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${
       padding-bottom: 16px;
       border-bottom: 1px solid #e0e0e0;
     }
-
+  
     .detail-icon-wrap { flex-shrink: 0; }
     .detail-icon { width: 40px; height: 40px; border-radius: 8px; border: 1px solid #e0e0e0; }
     .detail-info { flex: 1; }
@@ -290,7 +267,7 @@ const linkedinShareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${
     .meta-sep { color: #888; font-size: 12px; }
     .detail-date { font-size: 12px; color: #888; }
     .detail-actions { display: flex; align-items: center; gap: 8px; }
-
+  
     .btn-visit {
       display: inline-block;
       padding: 8px 16px;
@@ -303,11 +280,11 @@ const linkedinShareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${
       font-family: Inter, sans-serif;
     }
     .btn-visit:hover { background: #0052CC; }
-
+  
     .detail-body { display: flex; flex-direction: column; gap: 16px; }
     .section-title { margin: 0 0 8px 0; font-size: 12px; color: #888; text-transform: uppercase; letter-spacing: 0.05em; font-family: Inter, sans-serif; }
     .detail-desc { margin: 0; font-size: 13px; line-height: 1.5; color: #555; font-family: Inter, sans-serif; }
-
+  
     .detail-fields { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
     .field-item { display: flex; flex-direction: column; gap: 2px; }
     .field-label { font-size: 11px; color: #888; text-transform: uppercase; }
@@ -322,7 +299,7 @@ const linkedinShareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${
       border-radius: 4px;
       white-space: nowrap;
     }
-
+  
     .detail-footer {
       display: flex;
       justify-content: space-between;
@@ -330,19 +307,19 @@ const linkedinShareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${
       padding-top: 16px;
       border-top: 1px solid #e0e0e0;
     }
-
+  
     .share-box { display: flex; align-items: center; gap: 8px; font-size: 12px; }
     .share-label { color: #888; }
     .share-link { color: #0066FF; text-decoration: none; }
     .share-link:hover { text-decoration: underline; }
     .share-copy { background: none; border: none; color: #0066FF; cursor: pointer; font-size: 12px; font-family: Inter, sans-serif; }
-
+  
     .back-link { font-size: 12px; color: #888; text-decoration: none; font-family: Inter, sans-serif; }
     .back-link:hover { color: #0066FF; }
-
+  
     .related-section { margin-top: 32px; }
     .related-heading { margin: 0 0 16px 0; font-size: 15px; font-weight: 600; color: #121212; font-family: Inter, sans-serif; }
-
+  
     .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
     .related-card {
       display: flex; align-items: center; gap: 10px;
@@ -357,7 +334,7 @@ const linkedinShareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${
     .related-info { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
     .related-name { font-size: 13px; font-weight: 600; color: #121212; }
     .related-desc { font-size: 12px; color: #888; overflow: hidden; text-overflow: ellipsis; }
-
+  
     @media (max-width: 768px) {
       .detail-container { padding: 16px; }
       .detail-header { flex-wrap: wrap; }
@@ -367,4 +344,4 @@ const linkedinShareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${
       .related-grid { grid-template-columns: 1fr; }
     }
   </style>
-</Layout>
+---

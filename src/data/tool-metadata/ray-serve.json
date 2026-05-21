@@ -1,0 +1,9 @@
+{
+  "title": "Ray Serve",
+  "description": "Scalable model serving built on Ray with dynamic batching, GPU sharing, and multi-model composition for AI pipelines.",
+  "category": "deployment",
+  "url": "https://docs.ray.io/en/latest/serve/index.html",
+  "tag": "Free",
+  "date-added": "2026-05-17",
+  "slug": "ray-serve"
+}

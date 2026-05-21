@@ -1,0 +1,9 @@
+{
+  "title": "NeMo (NVIDIA)",
+  "description": "NVIDIA conversational AI toolkit for building custom ASR, TTS, and NLP models with enterprise-grade offline deployment.",
+  "category": "speech-to-text",
+  "url": "https://github.com/NVIDIA/NeMo",
+  "tag": "Free",
+  "date-added": "2026-05-17",
+  "slug": "nemo-nvidia"
+}
