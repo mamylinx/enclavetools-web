@@ -2,10 +2,10 @@
   {
     "title": "Axolotl",
     "body": "YAML-driven fine-tuning framework supporting QLoRA, DPO, and ORPO with flash attention for efficient model training.",
-    "tag": "Free",
-    "url": "https://github.com/axolotl-ai-cloud/axolotl",
-    "date-added": "2026-05-17",
     "slug": "axolotl",
+    "url": "https://github.com/axolotl-ai-cloud/axolotl",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "Apache 2.0",
     "language": [
       "Python"
@@ -26,10 +26,10 @@
   {
     "title": "LitGPT (Lightning AI)",
     "body": "Hackable PyTorch Lightning implementation for pretraining and fine-tuning LLMs with minimal boilerplate code.",
-    "tag": "Free",
-    "url": "https://github.com/Lightning-AI/litgpt",
-    "date-added": "2026-05-17",
     "slug": "litgpt",
+    "url": "https://github.com/Lightning-AI/litgpt",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "Apache 2.0",
     "language": [
       "Python"
@@ -50,10 +50,10 @@
   {
     "title": "LLaMA-Factory",
     "body": "Unified fine-tuning platform with web UI supporting 100+ models and training methods for accessible model adaptation.",
-    "tag": "Free",
-    "url": "https://github.com/hiyouga/LLaMA-Factory",
-    "date-added": "2026-05-17",
     "slug": "llama-factory",
+    "url": "https://github.com/hiyouga/LLaMA-Factory",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "Apache 2.0",
     "language": [
       "Python"
@@ -75,10 +75,10 @@
   {
     "title": "OpenRLHF",
     "body": "High-performance RLHF framework with Ray-based distributed training for aligning LLMs with human preferences offline.",
-    "tag": "Free",
-    "url": "https://github.com/OpenRLHF/OpenRLHF",
-    "date-added": "2026-05-17",
     "slug": "openrlhf",
+    "url": "https://github.com/OpenRLHF/OpenRLHF",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "Apache 2.0",
     "language": [
       "Python"
@@ -100,10 +100,10 @@
   {
     "title": "PEFT (Hugging Face)",
     "body": "Parameter-efficient fine-tuning library implementing LoRA, AdaLoRA, and prefix tuning for memory-efficient adaptation.",
-    "tag": "Free",
-    "url": "https://github.com/huggingface/peft",
-    "date-added": "2026-05-17",
     "slug": "peft-huggingface",
+    "url": "https://github.com/huggingface/peft",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "Apache 2.0",
     "language": [
       "Python"
@@ -124,10 +124,10 @@
   {
     "title": "TRL (Hugging Face)",
     "body": "Hugging Face official RLHF library for PPO, DPO, and ORPO alignment training with native transformer support.",
-    "tag": "Free",
-    "url": "https://github.com/huggingface/trl",
-    "date-added": "2026-05-17",
     "slug": "trl-huggingface",
+    "url": "https://github.com/huggingface/trl",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "Apache 2.0",
     "language": [
       "Python"
@@ -148,10 +148,10 @@
   {
     "title": "Unsloth",
     "body": "2-5x faster fine-tuning with 70% less memory using custom Triton kernels, enabling LoRA training on consumer GPUs.",
-    "tag": "Free",
-    "url": "https://github.com/unslothai/unsloth",
-    "date-added": "2026-05-17",
     "slug": "unsloth",
+    "url": "https://github.com/unslothai/unsloth",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "Apache 2.0",
     "language": [
       "Python"

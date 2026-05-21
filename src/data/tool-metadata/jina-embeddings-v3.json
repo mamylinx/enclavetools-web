@@ -3,7 +3,7 @@
   "description": "Multilingual embedding model with on-the-fly dimension switching (512/1024/2048) under Apache 2.0 for flexible RAG.",
   "category": "embedding-models",
   "url": "https://huggingface.co/jinaai/jina-embeddings-v3",
-  "tag": "Free",
+  "tag": "CC BY-NC 4.0",
   "date-added": "2026-05-17",
   "slug": "jina-embeddings-v3"
 }

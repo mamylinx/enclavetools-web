@@ -2,10 +2,10 @@
   {
     "title": "Aider",
     "body": "AI pair programming tool that edits code in your local git repository using local or remote LLMs for offline development.",
-    "tag": "Free",
-    "url": "https://aider.chat/",
-    "date-added": "2026-05-17",
     "slug": "aider",
+    "url": "https://aider.chat/",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "Apache 2.0",
     "language": [
       "Python"
@@ -25,10 +25,10 @@
   {
     "title": "CodeGeeX",
     "body": "Open-source multilingual code generation model supporting 20+ programming languages for offline code assistance.",
-    "tag": "Free",
-    "url": "https://github.com/THUDM/CodeGeeX",
-    "date-added": "2026-05-17",
     "slug": "codegeex",
+    "url": "https://github.com/THUDM/CodeGeeX",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "Apache 2.0",
     "language": [
       "Python"
@@ -49,10 +49,10 @@
   {
     "title": "Continue",
     "body": "Open-source AI code assistant for VS Code and JetBrains with local model support for private, offline code completion.",
-    "tag": "Free",
-    "url": "https://continue.dev/",
-    "date-added": "2026-05-17",
     "slug": "continue",
+    "url": "https://continue.dev/",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "Apache 2.0",
     "language": [
       "TypeScript / JavaScript"
@@ -72,10 +72,10 @@
   {
     "title": "DeepSeek-Coder",
     "body": "Open-source code model trained on 2 trillion tokens supporting 80+ programming languages for offline code generation.",
-    "tag": "Free",
-    "url": "https://github.com/deepseek-ai/DeepSeek-Coder",
-    "date-added": "2026-05-17",
     "slug": "deepseek-coder",
+    "url": "https://github.com/deepseek-ai/DeepSeek-Coder",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "MIT",
     "language": [
       "Python"
@@ -97,10 +97,10 @@
   {
     "title": "StarCoder2 (Hugging Face)",
     "body": "Open-source code generation model trained on 600+ programming languages with permissive license for offline use.",
-    "tag": "Free",
-    "url": "https://huggingface.co/bigcode/starcoder2-15b",
-    "date-added": "2026-05-17",
     "slug": "starcoder2",
+    "url": "https://huggingface.co/bigcode/starcoder2-15b",
+    "tag": "bigcode openrail m",
+    "date-added": "2026-05-17",
     "license": "bigcode openrail m",
     "language": [
       "Python"
@@ -122,10 +122,10 @@
   {
     "title": "Tabby",
     "body": "Self-hosted AI coding assistant providing code completion and chat with local model support for air-gapped development.",
-    "tag": "Free",
-    "url": "https://tabby.tabbyml.com/",
-    "date-added": "2026-05-17",
     "slug": "tabby",
+    "url": "https://tabby.tabbyml.com/",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "Apache 2.0",
     "language": [
       "Rust",

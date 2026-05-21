@@ -1,4 +1,37 @@
 {
+  "cognee-d927937d": [
+    "agent-frameworks"
+  ],
+  "autogen-microsoft": [
+    "agent-frameworks"
+  ],
+  "autogpt": [
+    "agent-frameworks"
+  ],
+  "crewai": [
+    "agent-frameworks"
+  ],
+  "langchain": [
+    "agent-frameworks"
+  ],
+  "langgraph": [
+    "agent-frameworks"
+  ],
+  "llamaindex": [
+    "agent-frameworks"
+  ],
+  "metagpt": [
+    "agent-frameworks"
+  ],
+  "open-interpreter": [
+    "agent-frameworks"
+  ],
+  "pydantic-ai": [
+    "agent-frameworks"
+  ],
+  "smolagents": [
+    "agent-frameworks"
+  ],
   "exllamav2": [
     "llm-inference"
   ],
@@ -79,36 +112,6 @@
   ],
   "weaviate": [
     "vector-databases"
-  ],
-  "autogen-microsoft": [
-    "agent-frameworks"
-  ],
-  "autogpt": [
-    "agent-frameworks"
-  ],
-  "crewai": [
-    "agent-frameworks"
-  ],
-  "langchain": [
-    "agent-frameworks"
-  ],
-  "langgraph": [
-    "agent-frameworks"
-  ],
-  "llamaindex": [
-    "agent-frameworks"
-  ],
-  "metagpt": [
-    "agent-frameworks"
-  ],
-  "open-interpreter": [
-    "agent-frameworks"
-  ],
-  "pydantic-ai": [
-    "agent-frameworks"
-  ],
-  "smolagents": [
-    "agent-frameworks"
   ],
   "anythingllm": [
     "chat-interfaces"

@@ -3,7 +3,7 @@
   "description": "Open-source vector similarity search for Postgres.",
   "category": "vector-databases",
   "url": "https://github.com/pgvector/pgvector",
-  "tag": "Free",
+  "tag": "Other",
   "date-added": "2026-05-17",
   "slug": "pgvector"
 }

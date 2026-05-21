@@ -18,7 +18,7 @@ Publisher → /submit → pending_tools (D1)
                                   ↓
                       Approve → tools (D1)
                                   ↓
-                  Build script → /public/favicons/ + src/data/tools.ts
+                  Build script → /public/favicons/ + src/data/tools.json
                                   ↓
                   Cloudflare Pages deploy → static site
 ```

@@ -2,10 +2,10 @@
   {
     "title": "ExLlamaV2",
     "body": "A fast inference library for running LLMs locally on modern consumer-class GPUs.",
-    "tag": "Free",
-    "url": "https://github.com/turboderp-org/exllamav2",
-    "date-added": "2026-05-17",
     "slug": "exllamav2",
+    "url": "https://github.com/turboderp-org/exllamav2",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "MIT",
     "language": [
       "Python"
@@ -26,10 +26,10 @@
   {
     "title": "KoboldCpp",
     "body": "Run GGUF models easily with a KoboldAI UI. One File. Zero Install.",
-    "tag": "Free",
-    "url": "https://github.com/LostRuins/koboldcpp",
-    "date-added": "2026-05-17",
     "slug": "koboldcpp",
+    "url": "https://github.com/LostRuins/koboldcpp",
+    "tag": "AGPL 3.0",
+    "date-added": "2026-05-17",
     "license": "AGPL 3.0",
     "language": [
       "C++"
@@ -52,10 +52,10 @@
   {
     "title": "llama.cpp",
     "body": "LLM inference in C/C++.",
-    "tag": "Free",
-    "url": "https://github.com/ggml-org/llama.cpp",
-    "date-added": "2026-05-17",
     "slug": "llama-cpp",
+    "url": "https://github.com/ggml-org/llama.cpp",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "MIT",
     "language": [
       "C++"
@@ -80,10 +80,10 @@
   {
     "title": "LocalAI",
     "body": "LocalAI is the open-source AI engine. Run any model - LLMs, vision, voice, image, video - on any hardware. No GPU required.",
-    "tag": "Free",
-    "url": "https://localai.io/",
-    "date-added": "2026-05-17",
     "slug": "localai",
+    "url": "https://localai.io/",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "MIT",
     "language": [
       "Go"
@@ -108,10 +108,10 @@
   {
     "title": "MLC LLM",
     "body": "Universal LLM Deployment Engine with ML Compilation.",
-    "tag": "Free",
-    "url": "https://github.com/mlc-ai/mlc-llm",
-    "date-added": "2026-05-17",
     "slug": "mlc-llm",
+    "url": "https://github.com/mlc-ai/mlc-llm",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "Apache 2.0",
     "language": [
       "Python"
@@ -134,10 +134,10 @@
   {
     "title": "MLX (Apple)",
     "body": "MLX: An array framework for Apple silicon.",
-    "tag": "Free",
-    "url": "https://github.com/ml-explore/mlx",
-    "date-added": "2026-05-17",
     "slug": "mlx-apple",
+    "url": "https://github.com/ml-explore/mlx",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "MIT",
     "language": [
       "C++"
@@ -157,10 +157,10 @@
   {
     "title": "Ollama",
     "body": "Get up and running with Kimi-K2.5, GLM-5, MiniMax, DeepSeek, gpt-oss, Qwen, Gemma and other models.",
-    "tag": "Free",
-    "url": "https://ollama.com/",
-    "date-added": "2026-05-17",
     "slug": "ollama",
+    "url": "https://ollama.com/",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "MIT",
     "language": [
       "Go"
@@ -183,10 +183,10 @@
   {
     "title": "SGLang",
     "body": "SGLang is a high-performance serving framework for large language models and multimodal models.",
-    "tag": "Free",
-    "url": "https://github.com/sgl-project/sglang",
-    "date-added": "2026-05-17",
     "slug": "sglang",
+    "url": "https://github.com/sgl-project/sglang",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "Apache 2.0",
     "language": [
       "Python"
@@ -208,10 +208,10 @@
   {
     "title": "TabbyAPI",
     "body": "The official API server for Exllama. OAI compatible, lightweight, and fast.",
-    "tag": "Free",
-    "url": "https://github.com/theroyallab/tabbyAPI",
-    "date-added": "2026-05-17",
     "slug": "tabbyapi",
+    "url": "https://github.com/theroyallab/tabbyAPI",
+    "tag": "AGPL 3.0",
+    "date-added": "2026-05-17",
     "license": "AGPL 3.0",
     "language": [
       "Python"
@@ -232,10 +232,10 @@
   {
     "title": "TensorRT-LLM (NVIDIA)",
     "body": "TensorRT LLM provides users with an easy-to-use Python API to define Large Language Models (LLMs) and supports state-of-the-art optimizations to perform inference efficiently on NVIDIA GPUs. TensorRT LLM also contains components to create Python and C++ runtimes that orchestrate the inference execution in a performant way.",
-    "tag": "Free",
-    "url": "https://github.com/NVIDIA/TensorRT-LLM",
-    "date-added": "2026-05-17",
     "slug": "tensorrt-llm",
+    "url": "https://github.com/NVIDIA/TensorRT-LLM",
+    "tag": "Other",
+    "date-added": "2026-05-17",
     "license": "Other",
     "language": [
       "Python"
@@ -257,10 +257,10 @@
   {
     "title": "Text Generation Inference (Hugging Face)",
     "body": "Large Language Model Text Generation Inference.",
-    "tag": "Free",
-    "url": "https://github.com/huggingface/text-generation-inference",
-    "date-added": "2026-05-17",
     "slug": "text-generation-inference",
+    "url": "https://github.com/huggingface/text-generation-inference",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "Apache 2.0",
     "language": [
       "Python"
@@ -282,10 +282,10 @@
   {
     "title": "vLLM",
     "body": "A high-throughput and memory-efficient inference and serving engine for LLMs.",
-    "tag": "Free",
-    "url": "https://github.com/vllm-project/vllm",
-    "date-added": "2026-05-17",
     "slug": "vllm",
+    "url": "https://github.com/vllm-project/vllm",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "Apache 2.0",
     "language": [
       "Python"

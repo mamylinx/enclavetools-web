@@ -2,10 +2,10 @@
   {
     "title": "DeepSeek V3 (DeepSeek AI)",
     "body": "Open-weight Mixture-of-Experts model with MIT license, strong reasoning, and efficient inference for offline use.",
-    "tag": "Free",
-    "url": "https://deepseek.com/",
-    "date-added": "2026-05-17",
     "slug": "deepseek-v3",
+    "url": "https://deepseek.com/",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "MIT",
     "language": [
       "Python"
@@ -30,10 +30,10 @@
   {
     "title": "Gemma 3 (Google)",
     "body": "Gemma open-weight LLM library, from Google DeepMind.",
-    "tag": "Free",
-    "url": "https://ai.google.dev/gemma/",
-    "date-added": "2026-05-17",
     "slug": "gemma-3-google",
+    "url": "https://ai.google.dev/gemma/",
+    "tag": "Gemma Terms of Use",
+    "date-added": "2026-05-17",
     "license": "Gemma Terms of Use",
     "language": [
       "Python"
@@ -60,10 +60,10 @@
   {
     "title": "Llama 3 (Meta)",
     "body": "The official Meta Llama 3 GitHub site.",
-    "tag": "Free",
-    "url": "https://ai.meta.com/llama/",
-    "date-added": "2026-05-17",
     "slug": "llama-3-meta",
+    "url": "https://ai.meta.com/llama/",
+    "tag": "Llama 3 Community License",
+    "date-added": "2026-05-17",
     "license": "Llama 3 Community License",
     "language": [
       "Python"
@@ -89,10 +89,10 @@
   {
     "title": "Mistral (Mistral AI)",
     "body": "Official inference library for Mistral models.",
-    "tag": "Free",
-    "url": "https://mistral.ai/",
-    "date-added": "2026-05-17",
     "slug": "mistral",
+    "url": "https://mistral.ai/",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "Apache 2.0",
     "language": [
       "Jupyter Notebook"
@@ -118,10 +118,10 @@
   {
     "title": "OLMo (Allen AI)",
     "body": "Modeling, training, eval, and inference code for OLMo.",
-    "tag": "Free",
-    "url": "https://allenai.org/olmo",
-    "date-added": "2026-05-17",
     "slug": "olmo-allen-ai",
+    "url": "https://allenai.org/olmo",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "Apache 2.0",
     "language": [
       "Python"
@@ -144,10 +144,10 @@
   {
     "title": "Phi-3 (Microsoft)",
     "body": "Microsoft compact open-weight models delivering strong performance at small sizes, ideal for low-resource air-gapped systems.",
-    "tag": "Free",
-    "url": "https://huggingface.co/microsoft/Phi-3-mini-128k-instruct",
-    "date-added": "2026-05-17",
     "slug": "phi-3-microsoft",
+    "url": "https://huggingface.co/microsoft/Phi-3-mini-128k-instruct",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "MIT",
     "language": [
       "Python"
@@ -173,10 +173,10 @@
   {
     "title": "Qwen3 (Alibaba)",
     "body": "Qwen3 is the large language model series developed by Qwen team, Alibaba Cloud.",
-    "tag": "Free",
-    "url": "https://qwenlm.github.io/",
-    "date-added": "2026-05-17",
     "slug": "qwen3-alibaba",
+    "url": "https://qwenlm.github.io/",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "Apache 2.0",
     "language": [
       "Python"

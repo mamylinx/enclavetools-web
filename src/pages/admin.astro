@@ -1,0 +1,22 @@
+---
+export const prerender = false;
+import Layout from '../layouts/Layout.astro';
+import AdminPanel from '../components/AdminPanel.vue';
+
+// Very basic server-side check to see if they might be logged in. 
+// The real validation is done in the API.
+const session = Astro.cookies.get('admin_session');
+const isLoggedIn = !!session?.value;
+---
+
+<Layout title="Admin Panel | Enclavetools">
+  <main class="page-layout" style="display: block; max-width: 800px; margin: 0 auto; padding-top: 40px;">
+    <div class="empty-state" style="padding: 0; text-align: left; margin-bottom: 24px;">
+      <h1 style="font-size: var(--desktop-heading-02); font-weight: 700; color: var(--text-primary);">
+        Admin Dashboard
+      </h1>
+    </div>
+
+    <AdminPanel client:only="vue" :initial-logged-in="isLoggedIn" />
+  </main>
+</Layout>

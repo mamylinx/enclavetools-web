@@ -2,10 +2,10 @@
   {
     "title": "AnythingLLM",
     "body": "The all-in-one AI productivity accelerator. On device and privacy first with no annoying setup or configuration.",
-    "tag": "Free",
-    "url": "https://anythingllm.com/",
-    "date-added": "2026-05-17",
     "slug": "anythingllm",
+    "url": "https://anythingllm.com/",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "MIT",
     "language": [
       "JavaScript"
@@ -26,10 +26,10 @@
   {
     "title": "Chatbox AI",
     "body": "Powerful AI Client.",
-    "tag": "Free",
-    "url": "https://github.com/chatboxai/chatbox",
-    "date-added": "2026-05-17",
     "slug": "chatbox-ai",
+    "url": "https://github.com/chatboxai/chatbox",
+    "tag": "GPL 3.0",
+    "date-added": "2026-05-17",
     "license": "GPL 3.0",
     "language": [
       "TypeScript"
@@ -49,10 +49,10 @@
   {
     "title": "GPT4All",
     "body": "GPT4All: Run Local LLMs on Any Device. Open-source and available for commercial use.",
-    "tag": "Free",
-    "url": "https://www.nomic.ai/gpt4all",
-    "date-added": "2026-05-17",
     "slug": "gpt4all",
+    "url": "https://www.nomic.ai/gpt4all",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "MIT",
     "language": [
       "C++"
@@ -73,10 +73,10 @@
   {
     "title": "Hugging Face Chat UI",
     "body": "The open source codebase powering HuggingChat.",
-    "tag": "Free",
-    "url": "https://github.com/huggingface/chat-ui",
-    "date-added": "2026-05-17",
     "slug": "huggingface-chat-ui",
+    "url": "https://github.com/huggingface/chat-ui",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "Apache 2.0",
     "language": [
       "TypeScript"
@@ -97,10 +97,10 @@
   {
     "title": "Jan",
     "body": "Jan is an open source alternative to ChatGPT that runs 100% offline on your computer.",
-    "tag": "Free",
-    "url": "https://jan.ai/",
-    "date-added": "2026-05-17",
     "slug": "jan",
+    "url": "https://jan.ai/",
+    "tag": "Other",
+    "date-added": "2026-05-17",
     "license": "Other",
     "language": [
       "TypeScript"
@@ -122,10 +122,10 @@
   {
     "title": "LibreChat",
     "body": "Enhanced ChatGPT Clone: Features Agents, MCP, DeepSeek, Anthropic, AWS, OpenAI, Responses API, Azure, Groq, o1, GPT-5, Mistral, OpenRouter, Vertex AI, Gemini, Artifacts, AI model switching, message search, Code Interpreter, langchain, DALL-E-3, OpenAPI Actions, Functions, Secure Multi-User Auth, Presets, open-source for self-hosting. Active.",
-    "tag": "Free",
-    "url": "https://www.librechat.ai/",
-    "date-added": "2026-05-17",
     "slug": "librechat",
+    "url": "https://www.librechat.ai/",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "MIT",
     "language": [
       "TypeScript"
@@ -146,10 +146,10 @@
   {
     "title": "LobeChat",
     "body": "LobeHub organizes your agents into 7×24 operation. It hires, schedules, reports on your entire AI team. You stay in charge — without staying online.",
-    "tag": "Free",
-    "url": "https://github.com/lobehub/lobehub",
-    "date-added": "2026-05-17",
     "slug": "lobechat",
+    "url": "https://github.com/lobehub/lobehub",
+    "tag": "Other",
+    "date-added": "2026-05-17",
     "license": "Other",
     "language": [
       "TypeScript"
@@ -170,10 +170,10 @@
   {
     "title": "Open WebUI",
     "body": "User-friendly AI Interface (Supports Ollama, OpenAI API, ...).",
-    "tag": "Free",
-    "url": "https://openwebui.com/",
-    "date-added": "2026-05-17",
     "slug": "open-webui",
+    "url": "https://openwebui.com/",
+    "tag": "Other",
+    "date-added": "2026-05-17",
     "license": "Other",
     "language": [
       "Python"
@@ -194,10 +194,10 @@
   {
     "title": "SillyTavern",
     "body": "LLM Frontend for Power Users.",
-    "tag": "Free",
-    "url": "https://github.com/SillyTavern/SillyTavern",
-    "date-added": "2026-05-17",
     "slug": "sillytavern",
+    "url": "https://github.com/SillyTavern/SillyTavern",
+    "tag": "AGPL 3.0",
+    "date-added": "2026-05-17",
     "license": "AGPL 3.0",
     "language": [
       "JavaScript"
@@ -218,10 +218,10 @@
   {
     "title": "Text Generation WebUI (Oobabooga)",
     "body": "Open-source desktop app for local LLMs. Text, vision, tool-calling, OpenAI/Anthropic-compatible API. 100% private.",
-    "tag": "Free",
-    "url": "https://github.com/oobabooga/textgen",
-    "date-added": "2026-05-17",
     "slug": "text-generation-webui",
+    "url": "https://github.com/oobabooga/textgen",
+    "tag": "AGPL 3.0",
+    "date-added": "2026-05-17",
     "license": "AGPL 3.0",
     "language": [
       "Python"

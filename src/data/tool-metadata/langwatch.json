@@ -3,7 +3,7 @@
   "description": "Open-source LLM monitoring platform with automated quality evaluation, guardrails, and cost tracking for production AI.",
   "category": "monitoring-observability",
   "url": "https://github.com/langwatch/langwatch",
-  "tag": "Free",
+  "tag": "AGPL 3.0",
   "date-added": "2026-05-17",
   "slug": "langwatch"
 }

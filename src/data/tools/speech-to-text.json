@@ -2,10 +2,10 @@
   {
     "title": "faster-whisper",
     "body": "CTranslate2-based Whisper reimplementation up to 4x faster with less memory, enabling efficient offline transcription.",
-    "tag": "Free",
-    "url": "https://github.com/SYSTRAN/faster-whisper",
-    "date-added": "2026-05-17",
     "slug": "faster-whisper",
+    "url": "https://github.com/SYSTRAN/faster-whisper",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "MIT",
     "language": [
       "Python"
@@ -27,10 +27,10 @@
   {
     "title": "NeMo (NVIDIA)",
     "body": "NVIDIA conversational AI toolkit for building custom ASR, TTS, and NLP models with enterprise-grade offline deployment.",
-    "tag": "Free",
-    "url": "https://github.com/NVIDIA/NeMo",
-    "date-added": "2026-05-17",
     "slug": "nemo-nvidia",
+    "url": "https://github.com/NVIDIA/NeMo",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "Apache 2.0",
     "language": [
       "Python"
@@ -52,10 +52,10 @@
   {
     "title": "Silero VAD",
     "body": "Lightweight voice activity detection model for filtering silence from audio before offline transcription processing.",
-    "tag": "Free",
-    "url": "https://github.com/snakers4/silero-vad",
-    "date-added": "2026-05-17",
     "slug": "silero-vad",
+    "url": "https://github.com/snakers4/silero-vad",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "MIT",
     "language": [
       "Python"
@@ -77,10 +77,10 @@
   {
     "title": "SpeechBrain",
     "body": "PyTorch-based speech toolkit supporting ASR, speaker recognition, and audio classification for offline audio pipelines.",
-    "tag": "Free",
-    "url": "https://speechbrain.github.io/",
-    "date-added": "2026-05-17",
     "slug": "speechbrain",
+    "url": "https://speechbrain.github.io/",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "Apache 2.0",
     "language": [
       "Python"
@@ -102,10 +102,10 @@
   {
     "title": "Vosk",
     "body": "Offline speech recognition toolkit designed for edge devices, running on Raspberry Pi with real-time processing.",
-    "tag": "Free",
-    "url": "https://github.com/alphacep/vosk-api",
-    "date-added": "2026-05-17",
     "slug": "vosk",
+    "url": "https://github.com/alphacep/vosk-api",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "Apache 2.0",
     "language": [
       "C / C++",
@@ -129,10 +129,10 @@
   {
     "title": "Whisper (OpenAI)",
     "body": "OpenAI robust speech recognition model supporting 99 languages with near-human accuracy for offline transcription.",
-    "tag": "Free",
-    "url": "https://github.com/openai/whisper",
-    "date-added": "2026-05-17",
     "slug": "whisper",
+    "url": "https://github.com/openai/whisper",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "MIT",
     "language": [
       "Python"
@@ -155,10 +155,10 @@
   {
     "title": "whisper.cpp",
     "body": "Lightweight C/C++ port of Whisper for efficient CPU-based transcription without Python dependencies.",
-    "tag": "Free",
-    "url": "https://github.com/ggerganov/whisper.cpp",
-    "date-added": "2026-05-17",
     "slug": "whisper-cpp",
+    "url": "https://github.com/ggerganov/whisper.cpp",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "MIT",
     "language": [
       "C / C++"

@@ -3,7 +3,7 @@
   "description": "Open-source developer platform turning scripts into workflows and UIs with built-in scheduler and self-hosted execution.",
   "category": "workflow-automation",
   "url": "https://www.windmill.dev/",
-  "tag": "Free",
+  "tag": "AGPL 3.0",
   "date-added": "2026-05-17",
   "slug": "windmill"
 }

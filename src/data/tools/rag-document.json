@@ -2,10 +2,10 @@
   {
     "title": "Danswer",
     "body": "Enterprise knowledge management tool connecting to data sources with AI-powered search and answer generation offline.",
-    "tag": "Free",
-    "url": "https://github.com/danswer-ai/danswer",
-    "date-added": "2026-05-17",
     "slug": "danswer",
+    "url": "https://github.com/danswer-ai/danswer",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "MIT",
     "language": [
       "Python",
@@ -27,10 +27,10 @@
   {
     "title": "Docling (IBM)",
     "body": "IBM open-source document parsing toolkit converting PDFs, DOCX, and HTML into structured markdown for RAG pipelines.",
-    "tag": "Free",
-    "url": "https://github.com/DS4SD/docling",
-    "date-added": "2026-05-17",
     "slug": "docling",
+    "url": "https://github.com/DS4SD/docling",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "MIT",
     "language": [
       "Python"
@@ -51,10 +51,10 @@
   {
     "title": "Haystack (Deepset)",
     "body": "Production-ready framework for building RAG and search systems with pipeline architecture and built-in evaluation tools.",
-    "tag": "Free",
-    "url": "https://haystack.deepset.ai/",
-    "date-added": "2026-05-17",
     "slug": "haystack",
+    "url": "https://haystack.deepset.ai/",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "Apache 2.0",
     "language": [
       "Python"
@@ -75,10 +75,10 @@
   {
     "title": "Marker",
     "body": "Fast document converter transforming PDFs, EPUBs, and MOBI files into accurate markdown for LLM ingestion.",
-    "tag": "Free",
-    "url": "https://github.com/VikParuchuri/marker",
-    "date-added": "2026-05-17",
     "slug": "marker",
+    "url": "https://github.com/VikParuchuri/marker",
+    "tag": "GPL / LGPL",
+    "date-added": "2026-05-17",
     "license": "GPL / LGPL",
     "language": [
       "Python"
@@ -100,10 +100,10 @@
   {
     "title": "PrivateGPT",
     "body": "Secure document Q&A system designed for sensitive data with no internet connection required for full operation.",
-    "tag": "Free",
-    "url": "https://github.com/zylon-ai/private-gpt",
-    "date-added": "2026-05-17",
     "slug": "privategpt",
+    "url": "https://github.com/zylon-ai/private-gpt",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "Apache 2.0",
     "language": [
       "Python"
@@ -124,10 +124,10 @@
   {
     "title": "RAGFlow",
     "body": "RAGFlow is a leading open-source Retrieval-Augmented Generation (RAG) engine that fuses cutting-edge RAG with Agent capabilities to create a superior context layer for LLMs.",
-    "tag": "Free",
-    "url": "https://ragflow.io/",
-    "date-added": "2026-05-17",
     "slug": "ragflow",
+    "url": "https://ragflow.io/",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "Apache 2.0",
     "language": [
       "Python"
@@ -149,10 +149,10 @@
   {
     "title": "txtai",
     "body": "Open-source vector database and search engine with built-in embeddings, ML pipelines, and RAG capabilities.",
-    "tag": "Free",
-    "url": "https://github.com/neuml/txtai",
-    "date-added": "2026-05-17",
     "slug": "txtai",
+    "url": "https://github.com/neuml/txtai",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "Apache 2.0",
     "language": [
       "Python"
@@ -174,10 +174,10 @@
   {
     "title": "Unstructured",
     "body": "Open-source document preprocessing library extracting and transforming 40+ file types for downstream LLM applications.",
-    "tag": "Free",
-    "url": "https://unstructured.io/",
-    "date-added": "2026-05-17",
     "slug": "unstructured",
+    "url": "https://unstructured.io/",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "Apache 2.0",
     "language": [
       "Python"

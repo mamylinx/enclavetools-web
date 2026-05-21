@@ -2,10 +2,10 @@
   {
     "title": "Chroma",
     "body": "Search infrastructure for AI.",
-    "tag": "Free",
-    "url": "https://www.trychroma.com/",
-    "date-added": "2026-05-17",
     "slug": "chroma",
+    "url": "https://www.trychroma.com/",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "Apache 2.0",
     "language": [
       "Rust"
@@ -27,10 +27,10 @@
   {
     "title": "FAISS (Meta)",
     "body": "A library for efficient similarity search and clustering of dense vectors.",
-    "tag": "Free",
-    "url": "https://github.com/facebookresearch/faiss",
-    "date-added": "2026-05-17",
     "slug": "faiss",
+    "url": "https://github.com/facebookresearch/faiss",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "MIT",
     "language": [
       "C++"
@@ -51,10 +51,10 @@
   {
     "title": "LanceDB",
     "body": "Developer-friendly OSS embedded retrieval library for multimodal AI. Search More; Manage Less.",
-    "tag": "Free",
-    "url": "https://www.lancedb.com/",
-    "date-added": "2026-05-17",
     "slug": "lancedb",
+    "url": "https://www.lancedb.com/",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "Apache 2.0",
     "language": [
       "HTML"
@@ -77,10 +77,10 @@
   {
     "title": "Milvus",
     "body": "Milvus is a high-performance, cloud-native vector database built for scalable vector ANN search.",
-    "tag": "Free",
-    "url": "https://milvus.io/",
-    "date-added": "2026-05-17",
     "slug": "milvus",
+    "url": "https://milvus.io/",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "Apache 2.0",
     "language": [
       "Go"
@@ -103,10 +103,10 @@
   {
     "title": "pgvector",
     "body": "Open-source vector similarity search for Postgres.",
-    "tag": "Free",
-    "url": "https://github.com/pgvector/pgvector",
-    "date-added": "2026-05-17",
     "slug": "pgvector",
+    "url": "https://github.com/pgvector/pgvector",
+    "tag": "Other",
+    "date-added": "2026-05-17",
     "license": "Other",
     "language": [
       "C"
@@ -128,10 +128,10 @@
   {
     "title": "Qdrant",
     "body": "Qdrant - High-performance, massive-scale Vector Database and Vector Search Engine for the next generation of AI. Also available in the cloud https://cloud.qdrant.io/.",
-    "tag": "Free",
-    "url": "https://qdrant.tech/",
-    "date-added": "2026-05-17",
     "slug": "qdrant",
+    "url": "https://qdrant.tech/",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "Apache 2.0",
     "language": [
       "Rust"
@@ -154,10 +154,10 @@
   {
     "title": "Typesense",
     "body": "Open Source alternative to Algolia + Pinecone and an Easier-to-Use alternative to ElasticSearch ⚡ 🔍 ✨ Fast, typo tolerant, in-memory fuzzy Search Engine for building delightful search experiences.",
-    "tag": "Free",
-    "url": "https://typesense.org/",
-    "date-added": "2026-05-17",
     "slug": "typesense",
+    "url": "https://typesense.org/",
+    "tag": "GPL 3.0",
+    "date-added": "2026-05-17",
     "license": "GPL 3.0",
     "language": [
       "C++"
@@ -179,10 +179,10 @@
   {
     "title": "Weaviate",
     "body": "Weaviate is an open-source vector database that stores both objects and vectors, allowing for the combination of vector search with structured filtering with the fault tolerance and scalability of a cloud-native database​.",
-    "tag": "Free",
-    "url": "https://weaviate.io/",
-    "date-added": "2026-05-17",
     "slug": "weaviate",
+    "url": "https://weaviate.io/",
+    "tag": "BSD 3 Clause",
+    "date-added": "2026-05-17",
     "license": "BSD 3 Clause",
     "language": [
       "Go"

@@ -3,7 +3,7 @@
   "description": "Native macOS and iOS Stable Diffusion client running entirely on-device with Apple Metal acceleration.",
   "category": "image-generation",
   "url": "https://drawthings.ai/",
-  "tag": "Free",
+  "tag": "GPL 3.0",
   "date-added": "2026-05-17",
   "slug": "draw-things"
 }

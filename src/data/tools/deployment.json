@@ -2,10 +2,10 @@
   {
     "title": "BentoML",
     "body": "Unified model serving framework supporting any model with optimized inference, batching, and auto-scaling for production.",
-    "tag": "Free",
-    "url": "https://github.com/bentoml/BentoML",
-    "date-added": "2026-05-17",
     "slug": "bentoml",
+    "url": "https://github.com/bentoml/BentoML",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "Apache 2.0",
     "language": [
       "Python"
@@ -28,10 +28,10 @@
   {
     "title": "KServe",
     "body": "Kubernetes-native model serving platform with canary rollouts, auto-scaling, and multi-framework support for production AI.",
-    "tag": "Free",
-    "url": "https://github.com/kserve/kserve",
-    "date-added": "2026-05-17",
     "slug": "kserve",
+    "url": "https://github.com/kserve/kserve",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "Apache 2.0",
     "language": [
       "Go",
@@ -52,10 +52,10 @@
   {
     "title": "OpenVINO (Intel)",
     "body": "Intel toolkit for optimizing and deploying AI inference on CPU, GPU, and NPU hardware with low-latency execution.",
-    "tag": "Free",
-    "url": "https://github.com/openvinotoolkit/openvino",
-    "date-added": "2026-05-17",
     "slug": "openvino",
+    "url": "https://github.com/openvinotoolkit/openvino",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "Apache 2.0",
     "language": [
       "C / C++",
@@ -79,10 +79,10 @@
   {
     "title": "Ray Serve",
     "body": "Scalable model serving built on Ray with dynamic batching, GPU sharing, and multi-model composition for AI pipelines.",
-    "tag": "Free",
-    "url": "https://docs.ray.io/en/latest/serve/index.html",
-    "date-added": "2026-05-17",
     "slug": "ray-serve",
+    "url": "https://docs.ray.io/en/latest/serve/index.html",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "Apache 2.0",
     "language": [
       "Python"
@@ -105,10 +105,10 @@
   {
     "title": "Seldon Core",
     "body": "Enterprise-grade Kubernetes platform for deploying, monitoring, and managing ML models at scale with built-in explainability.",
-    "tag": "Free",
-    "url": "https://github.com/SeldonIO/seldon-core",
-    "date-added": "2026-05-17",
     "slug": "seldon-core",
+    "url": "https://github.com/SeldonIO/seldon-core",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "Apache 2.0",
     "language": [
       "Python",
@@ -129,10 +129,10 @@
   {
     "title": "Triton Inference Server (NVIDIA)",
     "body": "NVIDIA production inference server supporting any framework with concurrent model execution and GPU optimization.",
-    "tag": "Free",
-    "url": "https://github.com/triton-inference-server/server",
-    "date-added": "2026-05-17",
     "slug": "triton-inference-server",
+    "url": "https://github.com/triton-inference-server/server",
+    "tag": "BSD",
+    "date-added": "2026-05-17",
     "license": "BSD",
     "language": [
       "C / C++",

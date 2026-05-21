@@ -3,7 +3,7 @@
   "description": "Deep learning TTS toolkit with voice cloning from 6 seconds of audio and cross-language voice transfer.",
   "category": "text-to-speech",
   "url": "https://github.com/coqui-ai/TTS",
-  "tag": "Free",
+  "tag": "GPL / LGPL",
   "date-added": "2026-05-17",
   "slug": "coqui-tts"
 }

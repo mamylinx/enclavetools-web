@@ -3,7 +3,7 @@
   "description": "Optimized fork of AUTOMATIC1111 using 30-50% less VRAM for the same image quality with full extension compatibility.",
   "category": "image-generation",
   "url": "https://github.com/lllyasviel/stable-diffusion-webui-forge",
-  "tag": "Free",
+  "tag": "AGPL 3.0",
   "date-added": "2026-05-17",
   "slug": "sd-webui-forge"
 }

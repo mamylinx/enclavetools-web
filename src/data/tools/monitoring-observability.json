@@ -2,10 +2,10 @@
   {
     "title": "Arize Phoenix",
     "body": "Open-source observability platform for LLM tracing, evaluation, and RAG debugging with in-process deployment.",
-    "tag": "Free",
-    "url": "https://github.com/Arize-ai/phoenix",
-    "date-added": "2026-05-17",
     "slug": "arize-phoenix",
+    "url": "https://github.com/Arize-ai/phoenix",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "Apache 2.0",
     "language": [
       "Python",
@@ -27,10 +27,10 @@
   {
     "title": "Comet Opik",
     "body": "Open-source platform for evaluating, testing, and monitoring LLM applications with automated scoring and tracing.",
-    "tag": "Free",
-    "url": "https://github.com/comet-ml/opik",
-    "date-added": "2026-05-17",
     "slug": "comet-opik",
+    "url": "https://github.com/comet-ml/opik",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "Apache 2.0",
     "language": [
       "Python",
@@ -52,10 +52,10 @@
   {
     "title": "Langfuse",
     "body": "Open-source LLM engineering platform with tracing, evaluations, prompt management, and datasets for debugging AI apps.",
-    "tag": "Free",
-    "url": "https://langfuse.com/",
-    "date-added": "2026-05-17",
     "slug": "langfuse",
+    "url": "https://langfuse.com/",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "MIT",
     "language": [
       "TypeScript / JavaScript",
@@ -78,10 +78,10 @@
   {
     "title": "LangWatch",
     "body": "Open-source LLM monitoring platform with automated quality evaluation, guardrails, and cost tracking for production AI.",
-    "tag": "Free",
-    "url": "https://github.com/langwatch/langwatch",
-    "date-added": "2026-05-17",
     "slug": "langwatch",
+    "url": "https://github.com/langwatch/langwatch",
+    "tag": "AGPL 3.0",
+    "date-added": "2026-05-17",
     "license": "AGPL 3.0",
     "language": [
       "Python",
@@ -103,10 +103,10 @@
   {
     "title": "Lunary",
     "body": "Open-source LLM observability with real-time tracing, prompt management, and user analytics for self-hosted AI apps.",
-    "tag": "Free",
-    "url": "https://github.com/lunary-ai/lunary",
-    "date-added": "2026-05-17",
     "slug": "lunary",
+    "url": "https://github.com/lunary-ai/lunary",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "MIT",
     "language": [
       "TypeScript / JavaScript"
@@ -127,10 +127,10 @@
   {
     "title": "OpenLLMetry (Traceloop)",
     "body": "OpenTelemetry instrumentation for LLM applications enabling vendor-neutral tracing across any observability backend.",
-    "tag": "Free",
-    "url": "https://github.com/traceloop/openllmetry",
-    "date-added": "2026-05-17",
     "slug": "openllmetry",
+    "url": "https://github.com/traceloop/openllmetry",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "Apache 2.0",
     "language": [
       "Python",

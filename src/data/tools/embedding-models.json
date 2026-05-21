@@ -2,10 +2,10 @@
   {
     "title": "BGE-M3 (BAAI)",
     "body": "Multilingual embedding model supporting 100+ languages with dense, sparse, and multi-vector retrieval for RAG pipelines.",
-    "tag": "Free",
-    "url": "https://huggingface.co/BAAI/bge-m3",
-    "date-added": "2026-05-17",
     "slug": "bge-m3",
+    "url": "https://huggingface.co/BAAI/bge-m3",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "MIT",
     "language": [
       "Python"
@@ -29,10 +29,10 @@
   {
     "title": "E5 (Microsoft)",
     "body": "Microsoft multilingual text embedding model with instruction tuning for superior retrieval across 16 languages.",
-    "tag": "Free",
-    "url": "https://huggingface.co/intfloat/multilingual-e5-large",
-    "date-added": "2026-05-17",
     "slug": "e5-microsoft",
+    "url": "https://huggingface.co/intfloat/multilingual-e5-large",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "MIT",
     "language": [
       "Python"
@@ -56,10 +56,10 @@
   {
     "title": "GTE-Qwen2 (Alibaba)",
     "body": "Alibaba general text embedding model built on Qwen2 with strong multilingual and long-context retrieval performance.",
-    "tag": "Free",
-    "url": "https://huggingface.co/Alibaba-NLP/gte-Qwen2-7B-instruct",
-    "date-added": "2026-05-17",
     "slug": "gte-qwen2",
+    "url": "https://huggingface.co/Alibaba-NLP/gte-Qwen2-7B-instruct",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "Apache 2.0",
     "language": [
       "Python"
@@ -82,10 +82,10 @@
   {
     "title": "Jina Embeddings v3",
     "body": "Multilingual embedding model with on-the-fly dimension switching (512/1024/2048) under Apache 2.0 for flexible RAG.",
-    "tag": "Free",
-    "url": "https://huggingface.co/jinaai/jina-embeddings-v3",
-    "date-added": "2026-05-17",
     "slug": "jina-embeddings-v3",
+    "url": "https://huggingface.co/jinaai/jina-embeddings-v3",
+    "tag": "CC BY-NC 4.0",
+    "date-added": "2026-05-17",
     "license": "CC BY-NC 4.0",
     "language": [
       "Python"
@@ -109,10 +109,10 @@
   {
     "title": "Nomic Embed",
     "body": "Open-source 8192-token embedding model with 768 dimensions, trained on diverse datasets for robust semantic search.",
-    "tag": "Free",
-    "url": "https://huggingface.co/nomic-ai/nomic-embed-text-v2-moe",
-    "date-added": "2026-05-17",
     "slug": "nomic-embed",
+    "url": "https://huggingface.co/nomic-ai/nomic-embed-text-v2-moe",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "Apache 2.0",
     "language": [
       "Python"
@@ -136,10 +136,10 @@
   {
     "title": "Snowflake Arctic Embed",
     "body": "High-performance embedding model optimized for retrieval tasks with strong MTEB benchmark scores under Apache 2.0.",
-    "tag": "Free",
-    "url": "https://huggingface.co/Snowflake/snowflake-arctic-embed-l-v2.0",
-    "date-added": "2026-05-17",
     "slug": "snowflake-arctic-embed",
+    "url": "https://huggingface.co/Snowflake/snowflake-arctic-embed-l-v2.0",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "Apache 2.0",
     "language": [
       "Python"

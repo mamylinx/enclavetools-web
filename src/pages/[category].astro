@@ -4,8 +4,6 @@ import Dashboard from "../components/Dashboard";
 import ItemListSchema from "../components/schema/ItemListSchema.astro";
 import BreadcrumbSchema from "../components/schema/BreadcrumbSchema.astro";
 import toolsData from "../data/tools.json";
-import categories from "../data/categories.json";
-const categoryMap = Object.fromEntries(categories.map(c => [c.category, c.title]));
 
 export function getStaticPaths() {
   return toolsData.tools.map((cat: any) => ({

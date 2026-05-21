@@ -2,10 +2,10 @@
   {
     "title": "Apache Spark",
     "body": "Distributed data processing engine with MLlib for large-scale data transformation and feature engineering pipelines.",
-    "tag": "Free",
-    "url": "https://spark.apache.org/",
-    "date-added": "2026-05-17",
     "slug": "apache-spark",
+    "url": "https://spark.apache.org/",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "Apache 2.0",
     "language": [
       "Java / Kotlin",
@@ -28,10 +28,10 @@
   {
     "title": "DataCleaner",
     "body": "Open-source data cleaning and preprocessing tool with automated detection of missing values, outliers, and duplicates.",
-    "tag": "Free",
-    "url": "https://github.com/datacleaner/DataCleaner",
-    "date-added": "2026-05-17",
     "slug": "datacleaner",
+    "url": "https://github.com/datacleaner/DataCleaner",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "MIT",
     "language": [
       "Python"
@@ -51,10 +51,10 @@
   {
     "title": "DuckDB",
     "body": "In-process analytical database for fast SQL queries on local data files, ideal for offline data preparation pipelines.",
-    "tag": "Free",
-    "url": "https://duckdb.org/",
-    "date-added": "2026-05-17",
     "slug": "duckdb",
+    "url": "https://duckdb.org/",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "MIT",
     "language": [
       "C / C++"
@@ -76,10 +76,10 @@
   {
     "title": "DVC (Data Version Control)",
     "body": "Version control system for ML datasets and models enabling reproducible data pipelines in air-gapped environments.",
-    "tag": "Free",
-    "url": "https://dvc.org/",
-    "date-added": "2026-05-17",
     "slug": "dvc",
+    "url": "https://dvc.org/",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "Apache 2.0",
     "language": [
       "Python"
@@ -100,10 +100,10 @@
   {
     "title": "Pandas",
     "body": "Essential Python data manipulation library for structured data cleaning, transformation, and analysis in offline pipelines.",
-    "tag": "Free",
-    "url": "https://pandas.pydata.org/",
-    "date-added": "2026-05-17",
     "slug": "pandas",
+    "url": "https://pandas.pydata.org/",
+    "tag": "BSD",
+    "date-added": "2026-05-17",
     "license": "BSD",
     "language": [
       "Python"
@@ -123,10 +123,10 @@
   {
     "title": "Polars",
     "body": "Lightning-fast DataFrame library in Rust with lazy evaluation for efficient data preprocessing before model training.",
-    "tag": "Free",
-    "url": "https://github.com/pola-rs/polars",
-    "date-added": "2026-05-17",
     "slug": "polars",
+    "url": "https://github.com/pola-rs/polars",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "MIT",
     "language": [
       "Rust"

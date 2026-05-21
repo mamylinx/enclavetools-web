@@ -1,11 +1,28 @@
 [
   {
+    "title": "cognee",
+    "body": "Memory control plane for AI Agents in 6 lines of code",
+    "slug": "cognee-d927937d",
+    "url": null,
+    "tag": "Free",
+    "date-added": "2026-05-21",
+    "license": "Apache-2.0",
+    "language": [],
+    "hardware": [],
+    "deployment": [],
+    "model_format": [],
+    "maturity": null,
+    "last_updated": "2026-05-21",
+    "github_stars": 0,
+    "featured": false
+  },
+  {
     "title": "AutoGen (Microsoft)",
     "body": "A programming framework for agentic AI.",
-    "tag": "Free",
-    "url": "https://github.com/microsoft/autogen",
-    "date-added": "2026-05-17",
     "slug": "autogen-microsoft",
+    "url": "https://github.com/microsoft/autogen",
+    "tag": "CC BY 4.0",
+    "date-added": "2026-05-17",
     "license": "CC BY 4.0",
     "language": [
       "Python"
@@ -26,10 +43,10 @@
   {
     "title": "AutoGPT",
     "body": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.",
-    "tag": "Free",
-    "url": "https://github.com/Significant-Gravitas/AutoGPT",
-    "date-added": "2026-05-17",
     "slug": "autogpt",
+    "url": "https://github.com/Significant-Gravitas/AutoGPT",
+    "tag": "Other",
+    "date-added": "2026-05-17",
     "license": "Other",
     "language": [
       "Python"
@@ -50,10 +67,10 @@
   {
     "title": "CrewAI",
     "body": "Framework for orchestrating role-playing, autonomous AI agents. By fostering collaborative intelligence, CrewAI empowers agents to work together seamlessly, tackling complex tasks.",
-    "tag": "Free",
-    "url": "https://www.crewai.com/open-source",
-    "date-added": "2026-05-17",
     "slug": "crewai",
+    "url": "https://www.crewai.com/open-source",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "MIT",
     "language": [
       "Python"
@@ -74,10 +91,10 @@
   {
     "title": "LangChain",
     "body": "The agent engineering platform.",
-    "tag": "Free",
-    "url": "https://python.langchain.com/",
-    "date-added": "2026-05-17",
     "slug": "langchain",
+    "url": "https://python.langchain.com/",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "MIT",
     "language": [
       "Python"
@@ -98,10 +115,10 @@
   {
     "title": "LangGraph",
     "body": "Build resilient agents.",
-    "tag": "Free",
-    "url": "https://github.com/langchain-ai/langgraph",
-    "date-added": "2026-05-17",
     "slug": "langgraph",
+    "url": "https://github.com/langchain-ai/langgraph",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "MIT",
     "language": [
       "Python"
@@ -122,10 +139,10 @@
   {
     "title": "LlamaIndex",
     "body": "LlamaIndex is the leading document agent and OCR platform.",
-    "tag": "Free",
-    "url": "https://www.llamaindex.ai/",
-    "date-added": "2026-05-17",
     "slug": "llamaindex",
+    "url": "https://www.llamaindex.ai/",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "MIT",
     "language": [
       "Python"
@@ -146,10 +163,10 @@
   {
     "title": "MetaGPT",
     "body": "🌟 The Multi-Agent Framework: First AI Software Company, Towards Natural Language Programming.",
-    "tag": "Free",
-    "url": "https://github.com/FoundationAgents/MetaGPT",
-    "date-added": "2026-05-17",
     "slug": "metagpt",
+    "url": "https://github.com/FoundationAgents/MetaGPT",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "MIT",
     "language": [
       "Python"
@@ -170,10 +187,10 @@
   {
     "title": "Open Interpreter",
     "body": "A natural language interface for computers.",
-    "tag": "Free",
-    "url": "https://github.com/openinterpreter/open-interpreter",
-    "date-added": "2026-05-17",
     "slug": "open-interpreter",
+    "url": "https://github.com/openinterpreter/open-interpreter",
+    "tag": "AGPL 3.0",
+    "date-added": "2026-05-17",
     "license": "AGPL 3.0",
     "language": [
       "Python"
@@ -194,10 +211,10 @@
   {
     "title": "Pydantic AI",
     "body": "AI Agent Framework, the Pydantic way.",
-    "tag": "Free",
-    "url": "https://ai.pydantic.dev/",
-    "date-added": "2026-05-17",
     "slug": "pydantic-ai",
+    "url": "https://ai.pydantic.dev/",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "MIT",
     "language": [
       "Python"
@@ -218,10 +235,10 @@
   {
     "title": "Smolagents (Hugging Face)",
     "body": "🤗 smolagents: a barebones library for agents that think in code.",
-    "tag": "Free",
-    "url": "https://github.com/huggingface/smolagents",
-    "date-added": "2026-05-17",
     "slug": "smolagents",
+    "url": "https://github.com/huggingface/smolagents",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "Apache 2.0",
     "language": [
       "Python"

@@ -2,10 +2,10 @@
   {
     "title": "ActivePieces",
     "body": "No-code integration platform with 200+ pieces for building automated workflows with AI actions and self-hosted deployment.",
-    "tag": "Free",
-    "url": "https://www.activepieces.com/",
-    "date-added": "2026-05-17",
     "slug": "activepieces",
+    "url": "https://www.activepieces.com/",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "MIT",
     "language": [
       "TypeScript / JavaScript"
@@ -26,10 +26,10 @@
   {
     "title": "Dify",
     "body": "Open-source LLMOps platform with visual workflow builder, RAG engine, and model management for production AI apps.",
-    "tag": "Free",
-    "url": "https://dify.ai/",
-    "date-added": "2026-05-17",
     "slug": "dify",
+    "url": "https://dify.ai/",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "Apache 2.0",
     "language": [
       "Python",
@@ -51,10 +51,10 @@
   {
     "title": "Flowise",
     "body": "Drag-and-drop UI for building LangChain-based LLM workflows with visual node editor and self-hosted deployment.",
-    "tag": "Free",
-    "url": "https://flowiseai.com/",
-    "date-added": "2026-05-17",
     "slug": "flowise",
+    "url": "https://flowiseai.com/",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "Apache 2.0",
     "language": [
       "TypeScript / JavaScript"
@@ -75,10 +75,10 @@
   {
     "title": "Kestra",
     "body": "Declarative orchestration platform for data, AI, and automation pipelines with visual flow editor and self-hosted deployment.",
-    "tag": "Free",
-    "url": "https://kestra.io/",
-    "date-added": "2026-05-17",
     "slug": "kestra",
+    "url": "https://kestra.io/",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "Apache 2.0",
     "language": [
       "Java / Kotlin"
@@ -100,10 +100,10 @@
   {
     "title": "n8n",
     "body": "Open-source workflow automation with 500+ integrations, native AI nodes, and MCP support for self-hosted AI orchestration.",
-    "tag": "Free",
-    "url": "https://n8n.io/",
-    "date-added": "2026-05-17",
     "slug": "n8n",
+    "url": "https://n8n.io/",
+    "tag": "Sustainable Use License",
+    "date-added": "2026-05-17",
     "license": "Sustainable Use License",
     "language": [
       "TypeScript / JavaScript"
@@ -125,10 +125,10 @@
   {
     "title": "Windmill",
     "body": "Open-source developer platform turning scripts into workflows and UIs with built-in scheduler and self-hosted execution.",
-    "tag": "Free",
-    "url": "https://www.windmill.dev/",
-    "date-added": "2026-05-17",
     "slug": "windmill",
+    "url": "https://www.windmill.dev/",
+    "tag": "AGPL 3.0",
+    "date-added": "2026-05-17",
     "license": "AGPL 3.0",
     "language": [
       "TypeScript / JavaScript",

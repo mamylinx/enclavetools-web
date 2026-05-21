@@ -2,10 +2,10 @@
   {
     "title": "ComfyUI",
     "body": "Node-based Stable Diffusion interface enabling complex image generation workflows with full offline control.",
-    "tag": "Free",
-    "url": "https://github.com/comfyanonymous/ComfyUI",
-    "date-added": "2026-05-17",
     "slug": "comfyui",
+    "url": "https://github.com/comfyanonymous/ComfyUI",
+    "tag": "GPL 3.0",
+    "date-added": "2026-05-17",
     "license": "GPL 3.0",
     "language": [
       "Python"
@@ -27,10 +27,10 @@
   {
     "title": "DiffusionBee",
     "body": "Simplest way to run Stable Diffusion on Apple Silicon Macs with one-click install and no configuration needed.",
-    "tag": "Free",
-    "url": "https://diffusionbee.com/",
-    "date-added": "2026-05-17",
     "slug": "diffusionbee",
+    "url": "https://diffusionbee.com/",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "MIT",
     "language": [
       "C / C++"
@@ -50,10 +50,10 @@
   {
     "title": "Draw Things",
     "body": "Native macOS and iOS Stable Diffusion client running entirely on-device with Apple Metal acceleration.",
-    "tag": "Free",
-    "url": "https://drawthings.ai/",
-    "date-added": "2026-05-17",
     "slug": "draw-things",
+    "url": "https://drawthings.ai/",
+    "tag": "GPL 3.0",
+    "date-added": "2026-05-17",
     "license": "GPL 3.0",
     "language": [
       "TypeScript / JavaScript"
@@ -74,10 +74,10 @@
   {
     "title": "FLUX.1 (Black Forest Labs)",
     "body": "Open-weight image generation model with superior prompt adherence and photorealistic output under Apache 2.0 license.",
-    "tag": "Free",
-    "url": "https://github.com/black-forest-labs/flux",
-    "date-added": "2026-05-17",
     "slug": "flux-1",
+    "url": "https://github.com/black-forest-labs/flux",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "Apache 2.0",
     "language": [
       "Python"
@@ -98,10 +98,10 @@
   {
     "title": "Fooocus",
     "body": "Simplified Stable Diffusion interface with proprietary inpainting and style controls for high-quality offline generation.",
-    "tag": "Free",
-    "url": "https://github.com/lllyasviel/Fooocus",
-    "date-added": "2026-05-17",
     "slug": "fooocus",
+    "url": "https://github.com/lllyasviel/Fooocus",
+    "tag": "GPL 3.0",
+    "date-added": "2026-05-17",
     "license": "GPL 3.0",
     "language": [
       "Python"
@@ -122,10 +122,10 @@
   {
     "title": "InvokeAI",
     "body": "Professional creative engine for Stable Diffusion with unified canvas, model management, and offline-first design.",
-    "tag": "Free",
-    "url": "https://invoke.ai/",
-    "date-added": "2026-05-17",
     "slug": "invokeai",
+    "url": "https://invoke.ai/",
+    "tag": "Free",
+    "date-added": "2026-05-17",
     "license": "Apache 2.0",
     "language": [
       "Python"
@@ -147,10 +147,10 @@
   {
     "title": "Stable Diffusion WebUI Forge",
     "body": "Optimized fork of AUTOMATIC1111 using 30-50% less VRAM for the same image quality with full extension compatibility.",
-    "tag": "Free",
-    "url": "https://github.com/lllyasviel/stable-diffusion-webui-forge",
-    "date-added": "2026-05-17",
     "slug": "sd-webui-forge",
+    "url": "https://github.com/lllyasviel/stable-diffusion-webui-forge",
+    "tag": "AGPL 3.0",
+    "date-added": "2026-05-17",
     "license": "AGPL 3.0",
     "language": [
       "Python"

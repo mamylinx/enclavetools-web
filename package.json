@@ -23,7 +23,7 @@
   "scripts": {
     "add-slugs": "bun run scripts/add-slugs.ts",
     "clean": "rm -rf dist .astro src/data/slug-map.json src/data/tool-metadata",
-    "prepare-data": "bun run add-slugs && bun run scripts/split-data.ts && bun run scripts/generate-slug-map.ts && bun run scripts/generate-tool-metadata.ts",
+    "prepare-data": "bun run scripts/build-data.ts && bun run scripts/split-data.ts && bun run scripts/generate-slug-map.ts && bun run scripts/generate-tool-metadata.ts",
     "prepublishOnly": "bun run prepare-data",
     "dev": "bun run prepare-data && astro dev",
     "start": "astro dev",
@@ -41,10 +41,13 @@
     "@astrojs/partytown": "^2.1.7",
     "@astrojs/sitemap": "^3.7.2",
     "@astrojs/vue": "^6.0.1",
+    "@aws-sdk/client-s3": "^3.1051.0",
     "@vueuse/core": "^14.2.1",
     "astro": "^6.1.10",
     "fuse.js": "^7.3.0",
-    "vue": "^3.5.33"
+    "sharp": "^0.34.5",
+    "vue": "^3.5.33",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.9",
@@ -61,13 +64,6 @@
     "typescript": "^6.0.3",
     "vitest": "^4.1.5",
     "wrangler": "^4.92.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/planetabhi/riseofmachine.git"
-  },
-  "bugs": {
-    "url": "https://github.com/planetabhi/riseofmachine/issues"
   },
   "keywords": [
     "directory",

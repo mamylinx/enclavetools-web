@@ -3,7 +3,7 @@
   "description": "NVIDIA production inference server supporting any framework with concurrent model execution and GPU optimization.",
   "category": "deployment",
   "url": "https://github.com/triton-inference-server/server",
-  "tag": "Free",
+  "tag": "BSD",
   "date-added": "2026-05-17",
   "slug": "triton-inference-server"
 }

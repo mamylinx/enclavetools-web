@@ -11,5 +11,28 @@
 	},
 	"observability": {
 		"enabled": true
-	}
+	},
+	"d1_databases": [
+		{
+			"binding": "enclavetools_db",
+			"database_name": "enclavetools-db",
+			"database_id": "2b6db083-4a2f-402f-a480-d1a2df48abdb",
+			"remote": true,
+			"migrations_dir": "wrangler/d1/migrations"
+		}
+	],
+	"r2_buckets": [
+		{
+			"bucket_name": "enclavetools-logos",
+			"binding": "enclavetools_logos",
+			"remote": true
+		}
+	],
+	"kv_namespaces": [
+		{
+			"binding": "RATE_LIMITER",
+			"id": "a69284f9e4094f7a8350948353bff849",
+			"remote": true
+		}
+	]
 }
