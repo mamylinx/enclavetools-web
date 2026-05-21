@@ -2,7 +2,7 @@
 
 ## Context
 
-**Goal**: Migrate from Supabase (PostgreSQL) to Cloudflare D1, add a public submission system with moderation, and drop Netlify deployment.
+**Goal**: Use Cloudflare D1 as storage of tools data and add a public submission system with moderation.
 
 **Tech stack**: Astro 6 + Cloudflare Pages (SSR) → Astro 6 + Cloudflare Pages (static pre-rendering) + D1
 
@@ -10,7 +10,7 @@
 - Logos: 128x128 PNG, max 50KB, stored in `/public/favicons/` (served from CDN, no extra cost)
 - Moderation queue: Just me (no login for publishers)
 - Rebuild trigger: "Rebuild Now" button in admin panel (calls Cloudflare Pages API)
-- GitHub auto-fetch: name, description, language, logo from GitHub if URL provided
+- GitHub auto-fetch: name, description, language, logo, license, programming languages, stargazers count from GitHub if URL provided
 - Logo upload fallback: publisher can upload PNG/JPG (resize to 128x128)
 
 ---
@@ -154,18 +154,13 @@ Run at every Cloudflare Pages build:
 
 | File | Change |
 |------|--------|
-| `src/pages/index.astro` | Use `tools.json`, `prerender = true` |
-| `src/pages/[category].astro` | Use `tools.json`, pre-render all categories |
-| `src/pages/tools/[slug].astro` | Use `tools.json`, pre-render all slugs |
-| `src/lib/supabase.ts` | Delete |
-| `netlify.toml` | Delete |
-| `.env` | Remove Supabase vars, add D1 + admin password |
+| `.env` | Add D1 + admin password |
 | `wrangler.jsonc` | Add D1 binding |
 | `astro.config.mjs` | Update as needed |
 
 ## Dependencies to Remove
 
-- `@supabase/supabase-js`
+- `@supabase/supabase-js` if exists
 
 ---
 
@@ -173,17 +168,10 @@ Run at every Cloudflare Pages build:
 
 | Phase | Tasks |
 |-------|-------|
-| **1. Setup** | Create D1 database, apply migrations, add D1 binding to wrangler.jsonc, remove Supabase client |
-| **2. Static data** | Create build-data.ts, update pages to use tools.json, switch to prerender=true |
+| **1. Setup** | Create D1 database, apply migrations, add D1 binding to wrangler.jsonc|
+| **2. Static data** | Create build-data.ts, update pages to switch to prerender=true |
 | **3. Submission** | GitHub fetch utility, /submit page, /api/submit endpoint |
 | **4. Admin** | /admin panel, approve/reject/rebuild API endpoints |
-| **5. Data migration** | Export from Supabase, import into D1 |
-| **6. Deploy** | Remove Netlify, push to GitHub, verify Cloudflare Pages build |
+| **6. Deploy** | verify Cloudflare Pages build |
 
 ---
-
-## Open Decisions
-
-1. **Slug generation**: Auto-generate from name, or let publisher choose?
-2. **Tool editing**: Can publishers edit their tool after approval? (or just you via admin?)
-3. **Pending queue public**: Should publishers see their submission status?

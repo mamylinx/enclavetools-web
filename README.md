@@ -126,24 +126,6 @@ npm run build
 npx wrangler pages deploy dist --project-name enclavetools
 ```
 
-## Data Migration from Supabase
-
-```bash
-# Export from Supabase (requires SUPABASE_URL and SUPABASE_SERVICE_KEY)
-SUPABASE_URL=... SUPABASE_SERVICE_KEY=... npx tsx scripts/migrate-supabase.ts
-
-# This creates supabase-to-d1-migration.sql
-# Import into D1:
-npx wrangler d1 execute enclavetools-db --remote --file ./supabase-to-d1-migration.sql
-
-# Then generate tools.ts
-npx tsx scripts/build-data.ts
-```
-
-Key schema differences:
-- Supabase uses PostgreSQL arrays (e.g., `category text[]`)
-- D1 uses comma-separated strings (e.g., `category text`) — the migration script handles this
-
 ## Admin Panel
 
 Access at `/admin` (requires password via HTTP Basic Auth).
@@ -170,7 +152,6 @@ Access at `/admin` (requires password via HTTP Basic Auth).
 | `npm run build:data` | Run build-data.ts only |
 | `npx wrangler d1 migrations apply enclavetools-db --local` | Apply local migrations |
 | `npx wrangler d1 migrations apply enclavetools-db --remote` | Apply remote migrations |
-| `npx tsx scripts/migrate-supabase.ts` | Migrate from Supabase |
 
 ## Environment Variables
 
@@ -213,8 +194,7 @@ enclavetools/
 │   ├── 001_tools.sql            # tools table schema
 │   └── 002_pending_tools.sql     # pending_tools table schema
 ├── scripts/
-│   ├── build-data.ts             # Build-time: D1 → tools.ts + logos
-│   └── migrate-supabase.ts       # Export Supabase → D1 SQL
+│   └── build-data.ts             # Build-time: D1 → tools.ts + logos
 ├── wrangler.jsonc                # D1 binding, observability
 ├── astro.config.mjs              # Cloudflare adapter, Vue, Tailwind
 └── package.json
