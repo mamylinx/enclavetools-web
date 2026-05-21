@@ -4,7 +4,7 @@ import FavoritesView from "../components/FavoritesView";
 import BreadcrumbSchema from "../components/schema/BreadcrumbSchema.astro";
 
 const breadcrumbs = [
-    { name: "Home", url: "https://enclavetools.mamyrkt.xyz" },
+    { name: "Home", url: "https://enclavetools.com" },
     { name: "Saved tools" },
 ];
 ---
@@ -18,7 +18,7 @@ const breadcrumbs = [
 >
     <BreadcrumbSchema items={breadcrumbs} />
     <main id="main-content">
-        <FavoritesView client:load />
+        <FavoritesView client:visible />
     </main>
     <style>
         #main-content {

@@ -22,7 +22,7 @@ const allTools = toolsData.tools.flatMap((cat: any) =>
     <OrganizationSchema />
     <ItemListSchema items={allTools} listName="AI Tools Directory - All Tools" />
     <Dashboard
-        client:load
+        client:visible
         category="all"
         transition:persist
         ssr-tools={allTools}

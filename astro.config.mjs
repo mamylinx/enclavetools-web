@@ -7,7 +7,7 @@ import tailwindcss from '@tailwindcss/vite';
 import cloudflare from '@astrojs/cloudflare';
 
 export default defineConfig({
-    site: 'https://enclavetools.come',
+    site: 'https://enclavetools.com',
     integrations: [
         vue(),
         partytown({
@@ -24,5 +24,6 @@ export default defineConfig({
             extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.vue'],
         },
     },
-    adapter: cloudflare()
+    adapter: cloudflare(),
+    output: 'static',
 });

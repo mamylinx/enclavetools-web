@@ -160,7 +160,7 @@ const {
             {
                 showSearch && (
                 <div class="center-search">
-                    <SearchInput client:load placeholder={searchPlaceholder} />
+                    <SearchInput client:visible placeholder={searchPlaceholder} />
                 </div>
                 )
             }
@@ -208,7 +208,7 @@ const {
                 </div>
             </div>
         </div>
-        <CategoryNav client:load />
+        <CategoryNav client:visible />
 
         {
             showHero && (

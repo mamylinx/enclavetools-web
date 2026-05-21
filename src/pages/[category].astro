@@ -30,11 +30,11 @@ const ssrTools = (categoryData?.content || []).map((tool: any) => ({
 >
     <ItemListSchema items={ssrTools} listName={`${categoryTitle} Tools`} />
     <BreadcrumbSchema items={[
-      { name: "Home", url: "https://enclavetools.mamyrkt.xyz" },
+      { name: "Home", url: "https://enclavetools.com" },
       { name: categoryTitle },
     ]} />
     <Dashboard
-        client:load
+        client:visible
         category={category}
         transition:persist
         ssr-tools={ssrTools}
