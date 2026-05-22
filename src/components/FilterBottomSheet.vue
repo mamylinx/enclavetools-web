@@ -55,25 +55,19 @@ onUnmounted(() => {
 
 <template>
     <Teleport to="body">
-        <div
-            class="bottom-sheet-overlay"
-            :class="{ show: isOpen }"
-            @click="handleOverlayClick"
-        >
+        <div class="bottom-sheet-overlay" :class="{ show: isOpen }" @click="handleOverlayClick">
             <div class="bottom-sheet-wrapper" :class="{ show: isOpen }">
                 <div class="bottom-sheet-header">
                     <span class="bottom-sheet-title">Filters</span>
                     <button class="bottom-sheet-close" @click="close" aria-label="Close filters">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
                             <path d="M18 6L6 18M6 6l12 12" />
                         </svg>
                     </button>
                 </div>
                 <div class="bottom-sheet-content">
-                    <FilterPanel
-                        :state="state"
-                        :show-model-format="showModelFormat"
-                        :active-count="activeCount"
+                    <FilterPanel :state="state" :show-model-format="showModelFormat" :active-count="activeCount"
                         @update:sort="(v) => emit('update:sort', v)"
                         @update:category="(v) => emit('update:category', v)"
                         @update:license="(v) => emit('update:license', v)"
@@ -83,10 +77,8 @@ onUnmounted(() => {
                         @update:model_format="(v) => emit('update:model_format', v)"
                         @update:maturity="(v) => emit('update:maturity', v)"
                         @update:last_updated="(v) => emit('update:last_updated', v)"
-                        @toggle="(k, v) => emit('toggle', k, v)"
-                        @clear="(k) => emit('clear', k)"
-                        @clear-all="emit('clear-all')"
-                    />
+                        @toggle="(k, v) => emit('toggle', k, v)" @clear="(k) => emit('clear', k)"
+                        @clear-all="emit('clear-all')" />
                 </div>
             </div>
         </div>

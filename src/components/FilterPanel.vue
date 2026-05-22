@@ -83,33 +83,18 @@ const visibleGroups = FILTER_GROUPS.filter(
                 Reset
             </button>
         </div>
-        <div
-            v-for="group in visibleGroups"
-            :key="group.key"
-            class="filter-group"
-        >
-            <button
-                class="filter-group-header"
-                @click="toggleGroup(group.key)"
-                :aria-expanded="expandedGroups[group.key]"
-            >
+        <div v-for="group in visibleGroups" :key="group.key" class="filter-group">
+            <button class="filter-group-header" @click="toggleGroup(group.key)"
+                :aria-expanded="expandedGroups[group.key]">
                 <span class="filter-group-label">
                     {{ group.label }}
                     <span v-if="groupCount(group.key as keyof FilterState) > 0" class="filter-badge">
                         {{ groupCount(group.key as keyof FilterState) }}
                     </span>
                 </span>
-                <svg
-                    class="filter-chevron"
-                    :class="{ 'is-expanded': expandedGroups[group.key] }"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                >
+                <svg class="filter-chevron" :class="{ 'is-expanded': expandedGroups[group.key] }"
+                    xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2">
                     <path d="m6 9 6 6 6-6" />
                 </svg>
             </button>
@@ -117,25 +102,17 @@ const visibleGroups = FILTER_GROUPS.filter(
             <div v-show="expandedGroups[group.key]" class="filter-group-content">
                 <div class="filter-buttons">
                     <template v-if="group.type === 'single'">
-                        <button
-                            v-for="opt in group.options"
-                            :key="opt.value"
-                            class="filter-btn"
+                        <button v-for="opt in group.options" :key="opt.value" class="filter-btn"
                             :class="{ 'is-selected': isOptionSelected(group.key, opt.value) }"
-                            @click="handleSingleSelect(group.key, opt.value)"
-                        >
+                            @click="handleSingleSelect(group.key, opt.value)">
                             {{ optionLabel(group.key, opt.value) }}
                         </button>
                     </template>
 
                     <template v-else>
-                        <button
-                            v-for="opt in group.options"
-                            :key="opt.value"
-                            class="filter-btn"
+                        <button v-for="opt in group.options" :key="opt.value" class="filter-btn"
                             :class="{ 'is-selected': isOptionSelected(group.key, opt.value) }"
-                            @click="handleToggle(group.key, opt.value)"
-                        >
+                            @click="handleToggle(group.key, opt.value)">
                             {{ opt.label }}
                         </button>
                     </template>

@@ -23,7 +23,7 @@
   "scripts": {
     "add-slugs": "bun run scripts/add-slugs.ts",
     "clean": "rm -rf dist .astro src/data/slug-map.json src/data/tool-metadata",
-    "prepare-data": "bun run scripts/build-data.ts && bun run scripts/split-data.ts && bun run scripts/generate-slug-map.ts && bun run scripts/generate-tool-metadata.ts",
+    "prepare-data": "bun run scripts/build-data.ts && bun run scripts/split-data.ts && bun run scripts/generate-slug-map.ts && bun run scripts/generate-tool-metadata.ts && bun run scripts/sync-logos.ts",
     "prepublishOnly": "bun run prepare-data",
     "dev": "bun run prepare-data && astro dev",
     "start": "astro dev",
@@ -45,6 +45,7 @@
     "@vueuse/core": "^14.2.1",
     "astro": "^6.1.10",
     "fuse.js": "^7.3.0",
+    "punycode": "^2.3.1",
     "sharp": "^0.34.5",
     "vue": "^3.5.33",
     "zod": "^4.4.3"
@@ -78,6 +79,9 @@
   "author": "@planetabhi",
   "license": "MIT",
   "overrides": {
-    "vite": "^7"
+    "vite": "^7",
+    "yaml-language-server": {
+      "yaml": "^2.7.0"
+    }
   }
 }

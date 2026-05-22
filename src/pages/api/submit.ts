@@ -28,12 +28,29 @@ export const POST: APIRoute = async (context) => {
     }
 
     const val = result.data;
+
+    console.log("Received submission:", val);
     
     // Generate an ID and slug
     const id = crypto.randomUUID();
     const rawSlug = val.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
     const slug = `${rawSlug}-${id.split('-')[0]}`; // Ensure uniqueness
     
+    const githubDataStr = formData.get('github_data') as string;
+    let ghData: any = null;
+    let popularity_score = 0;
+    let ghLanguage: string | null = null;
+    
+    if (githubDataStr) {
+      try {
+        ghData = JSON.parse(githubDataStr);
+        popularity_score = ghData.stargazers_count || ghData.stars || 0;
+        if (ghData.language) {
+          ghLanguage = JSON.stringify([ghData.language]);
+        }
+      } catch (e) {}
+    }
+
     // Handle logo upload
     let logo_r2_key = null;
     let logo_source = 'google';
@@ -46,18 +63,31 @@ export const POST: APIRoute = async (context) => {
       logo_r2_key = `pending/${id}.png`;
       logo_source = 'upload';
       await uploadLogo(env, logo_r2_key, logoFile);
+    } else if (val.github_url && ghData?.owner?.avatar_url) {
+      logo_source = 'github';
+      try {
+        const avatarRes = await fetch(ghData.owner.avatar_url);
+        if (avatarRes.ok) {
+          const blob = await avatarRes.blob();
+          if (blob.size > 0 && blob.size <= 1024 * 1024) { // 1MB limit
+            const file = new File([blob], 'avatar.png', { type: blob.type || 'image/png' });
+            logo_r2_key = `pending/${id}.png`;
+            await uploadLogo(env, logo_r2_key, file);
+          }
+        }
+      } catch (e) {
+        console.warn("Failed to fetch/upload github avatar", e);
+      }
     } else if (val.github_url) {
       logo_source = 'github';
     }
 
-    const githubDataStr = formData.get('github_data') as string;
-    let popularity_score = 0;
-    if (githubDataStr) {
-      try {
-        const ghData = JSON.parse(githubDataStr);
-        popularity_score = ghData.stars || 0;
-      } catch (e) {}
-    }
+    // Resolve array fields: prefer form data, fall back to GitHub data, then empty
+    const language = val.language || ghLanguage || '[]';
+    const hardware = val.hardware || '[]';
+    const deployment = val.deployment || '[]';
+    const model_format = val.model_format || '[]';
+    const maturity = val.maturity || null;
 
     // Insert into pending_tools
     const now = new Date().toISOString();
@@ -77,7 +107,7 @@ export const POST: APIRoute = async (context) => {
         )
       `).bind(
         id, val.name, slug, val.description, val.url || null, val.github_url || null, val.category, val.license || null,
-        val.language || '[]', val.hardware || '[]', val.deployment || '[]', val.model_format || '[]', val.maturity || null,
+        language, hardware, deployment, model_format, maturity,
         popularity_score, now.split('T')[0], now.split('T')[0], logo_source, logo_r2_key,
         githubDataStr || null, now
       ).run();

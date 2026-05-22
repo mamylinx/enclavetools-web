@@ -61,25 +61,15 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <button
-    class="bookmark-btn"
-    :class="[
-      `bookmark-btn--${props.variant || 'default'}`,
-      { bookmarked: bookmarked },
-      props.className
-    ]"
-    @click="handleClick"
-    :aria-label="bookmarked ? `Remove ${title} from saved list` : `Add ${title} to saved list`"
-    :title="bookmarked ? `Remove ${title} from saved list` : `Add ${title} to saved list`"
-    type="button"
-  >
+  <button class="bookmark-btn" :class="[
+    `bookmark-btn--${props.variant || 'default'}`,
+    { bookmarked: bookmarked },
+    props.className
+]" @click="handleClick" :aria-label="bookmarked ? `Remove ${title} from saved list` : `Add ${title} to saved list`"
+    :title="bookmarked ? `Remove ${title} from saved list` : `Add ${title} to saved list`" type="button">
     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-      <path
-        d="M15 19L9.80769 17.0435L5 19V1H15V19Z"
-        stroke="currentColor"
-        stroke-miterlimit="10"
-        :fill="bookmarked ? 'currentColor' : 'none'"
-      />
+      <path d="M15 19L9.80769 17.0435L5 19V1H15V19Z" stroke="currentColor" stroke-miterlimit="10"
+        :fill="bookmarked ? 'currentColor' : 'none'" />
     </svg>
     <span v-if="props.showLabel" class="bookmark-label">
       {{ bookmarked ? `Remove ${title} from saved list` : `Add ${title} to saved list` }}

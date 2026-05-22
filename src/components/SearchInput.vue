@@ -68,36 +68,17 @@ onUnmounted(() => {
 <template>
   <div class="search-container">
     <div class="search-input-wrapper">
-      <svg
-        class="search-icon"
-        xmlns="http://www.w3.org/2000/svg"
-        width="16"
-        height="16"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="1.5"
-      >
+      <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="1.5">
         <circle cx="11" cy="11" r="8" />
         <path d="m21 21-4.35-4.35" />
       </svg>
-      <input
-        ref="inputRef"
-        type="text"
-        class="search-input"
-        :placeholder="props.placeholder || 'Search by name, category, or feature...'"
-        :value="query"
-        @input="handleInput"
-        aria-label="Search AI tools"
-      />
-      <button
-        v-if="query"
-        class="search-clear"
-        @click="handleClear"
-        aria-label="Clear search"
-        type="button"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <input ref="inputRef" type="text" class="search-input"
+        :placeholder="props.placeholder || 'Search by name, category, or feature...'" :value="query"
+        @input="handleInput" aria-label="Search AI tools" />
+      <button v-if="query" class="search-clear" @click="handleClear" aria-label="Clear search" type="button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2">
           <path d="M18 6L6 18M6 6l12 12" />
         </svg>
       </button>

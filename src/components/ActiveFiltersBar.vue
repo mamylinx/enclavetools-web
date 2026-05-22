@@ -64,15 +64,13 @@ const chips = computed(() => {
 
 <template>
     <div v-if="chips.length > 0" class="active-filters-bar">
-        <div
-            v-for="(chip, i) in chips"
-            :key="`${chip.group}-${chip.value}-${i}`"
-            class="filter-chip"
-        >
+        <div v-for="(chip, i) in chips" :key="`${chip.group}-${chip.value}-${i}`" class="filter-chip">
             <span class="filter-chip-group">{{ getGroupLabel(chip.group) }}:</span>
             <span class="filter-chip-value">{{ chip.label }}</span>
-            <button class="filter-chip-remove" @click="emit('remove', chip.group, chip.value)" aria-label="Remove filter">
-                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <button class="filter-chip-remove" @click="emit('remove', chip.group, chip.value)"
+                aria-label="Remove filter">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2.5">
                     <path d="M18 6L6 18M6 6l12 12" />
                 </svg>
             </button>

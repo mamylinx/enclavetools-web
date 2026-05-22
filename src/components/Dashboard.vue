@@ -76,29 +76,21 @@ onUnmounted(() => {
 
 <template>
     <div class="page-layout">
-        <FilterSidebar
-            class="filter-sidebar desktop-only"
-            :state="filterState"
-            :show-model-format="showModelFormat"
-            :active-count="activeCount"
-            @update:sort="(v) => setFilter('sort', v)"
-            @update:category="(v) => setFilter('category', v)"
-            @update:license="(v) => setFilter('license', v)"
-            @update:language="(v) => setFilter('language', v)"
-            @update:hardware="(v) => setFilter('hardware', v)"
+        <FilterSidebar class="filter-sidebar desktop-only" :state="filterState" :show-model-format="showModelFormat"
+            :active-count="activeCount" @update:sort="(v) => setFilter('sort', v)"
+            @update:category="(v) => setFilter('category', v)" @update:license="(v) => setFilter('license', v)"
+            @update:language="(v) => setFilter('language', v)" @update:hardware="(v) => setFilter('hardware', v)"
             @update:deployment="(v) => setFilter('deployment', v)"
             @update:model_format="(v) => setFilter('model_format', v)"
             @update:maturity="(v) => setFilter('maturity', v)"
-            @update:last_updated="(v) => setFilter('last_updated', v)"
-            @toggle="handleToggle"
-            @clear="(k) => clearFilter(k)"
-            @clear-all="clearAll"
-        />
+            @update:last_updated="(v) => setFilter('last_updated', v)" @toggle="handleToggle"
+            @clear="(k) => clearFilter(k)" @clear-all="clearAll" />
 
         <div class="cards-container">
             <div class="mobile-filter-bar">
                 <button class="mobile-filter-trigger" @click="showFilterSheet = true">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
                         <path d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
                     Filters
@@ -106,22 +98,12 @@ onUnmounted(() => {
                 </button>
             </div>
 
-            <ActiveFiltersBar
-                :state="filterState"
-                :active-count="activeCount"
-                @remove="handleRemoveChip"
-                @clear-all="clearAll"
-            />
+            <ActiveFiltersBar :state="filterState" :active-count="activeCount" @remove="handleRemoveChip"
+                @clear-all="clearAll" />
 
-            <CardsContainer
-                :filter="props.category"
-                :search-query="searchQuery"
-                :filter-new="filterNew"
-                :filter-state="filterState"
-                :ssr-tools="props.ssrTools"
-                :ssr-total="props.ssrTotal"
-                @clear-all="clearAll"
-            />
+            <CardsContainer :filter="props.category" :search-query="searchQuery" :filter-new="filterNew"
+                :filter-state="filterState" :ssr-tools="props.ssrTools" :ssr-total="props.ssrTotal"
+                @clear-all="clearAll" />
         </div>
 
         <aside class="sidebar desktop-only">
@@ -129,23 +111,12 @@ onUnmounted(() => {
         </aside>
     </div>
 
-    <FilterBottomSheet
-        v-if="showFilterSheet"
-        :state="filterState"
-        :show-model-format="showModelFormat"
-        :active-count="activeCount"
-        @close="showFilterSheet = false"
-        @update:sort="(v) => setFilter('sort', v)"
-        @update:category="(v) => setFilter('category', v)"
-        @update:license="(v) => setFilter('license', v)"
-        @update:language="(v) => setFilter('language', v)"
-        @update:hardware="(v) => setFilter('hardware', v)"
+    <FilterBottomSheet v-if="showFilterSheet" :state="filterState" :show-model-format="showModelFormat"
+        :active-count="activeCount" @close="showFilterSheet = false" @update:sort="(v) => setFilter('sort', v)"
+        @update:category="(v) => setFilter('category', v)" @update:license="(v) => setFilter('license', v)"
+        @update:language="(v) => setFilter('language', v)" @update:hardware="(v) => setFilter('hardware', v)"
         @update:deployment="(v) => setFilter('deployment', v)"
-        @update:model_format="(v) => setFilter('model_format', v)"
-        @update:maturity="(v) => setFilter('maturity', v)"
-        @update:last_updated="(v) => setFilter('last_updated', v)"
-        @toggle="handleToggle"
-        @clear="(k) => clearFilter(k)"
-        @clear-all="clearAll"
-    />
+        @update:model_format="(v) => setFilter('model_format', v)" @update:maturity="(v) => setFilter('maturity', v)"
+        @update:last_updated="(v) => setFilter('last_updated', v)" @toggle="handleToggle" @clear="(k) => clearFilter(k)"
+        @clear-all="clearAll" />
 </template>

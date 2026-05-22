@@ -1,36 +1,27 @@
 {
-  "cognee-d927937d": [
-    "agent-frameworks"
+  "supertonic-0befb2f7": [
+    "llm-models"
   ],
-  "autogen-microsoft": [
-    "agent-frameworks"
+  "deepseek-v3": [
+    "llm-models"
   ],
-  "autogpt": [
-    "agent-frameworks"
+  "gemma-3-google": [
+    "llm-models"
   ],
-  "crewai": [
-    "agent-frameworks"
+  "llama-3-meta": [
+    "llm-models"
   ],
-  "langchain": [
-    "agent-frameworks"
+  "mistral": [
+    "llm-models"
   ],
-  "langgraph": [
-    "agent-frameworks"
+  "olmo-allen-ai": [
+    "llm-models"
   ],
-  "llamaindex": [
-    "agent-frameworks"
+  "phi-3-microsoft": [
+    "llm-models"
   ],
-  "metagpt": [
-    "agent-frameworks"
-  ],
-  "open-interpreter": [
-    "agent-frameworks"
-  ],
-  "pydantic-ai": [
-    "agent-frameworks"
-  ],
-  "smolagents": [
-    "agent-frameworks"
+  "qwen3-alibaba": [
+    "llm-models"
   ],
   "exllamav2": [
     "llm-inference"
@@ -68,27 +59,6 @@
   "vllm": [
     "llm-inference"
   ],
-  "deepseek-v3": [
-    "llm-models"
-  ],
-  "gemma-3-google": [
-    "llm-models"
-  ],
-  "llama-3-meta": [
-    "llm-models"
-  ],
-  "mistral": [
-    "llm-models"
-  ],
-  "olmo-allen-ai": [
-    "llm-models"
-  ],
-  "phi-3-microsoft": [
-    "llm-models"
-  ],
-  "qwen3-alibaba": [
-    "llm-models"
-  ],
   "chroma": [
     "vector-databases"
   ],
@@ -112,6 +82,36 @@
   ],
   "weaviate": [
     "vector-databases"
+  ],
+  "autogen-microsoft": [
+    "agent-frameworks"
+  ],
+  "autogpt": [
+    "agent-frameworks"
+  ],
+  "crewai": [
+    "agent-frameworks"
+  ],
+  "langchain": [
+    "agent-frameworks"
+  ],
+  "langgraph": [
+    "agent-frameworks"
+  ],
+  "llamaindex": [
+    "agent-frameworks"
+  ],
+  "metagpt": [
+    "agent-frameworks"
+  ],
+  "open-interpreter": [
+    "agent-frameworks"
+  ],
+  "pydantic-ai": [
+    "agent-frameworks"
+  ],
+  "smolagents": [
+    "agent-frameworks"
   ],
   "anythingllm": [
     "chat-interfaces"

@@ -1,22 +1,5 @@
 [
   {
-    "title": "cognee",
-    "body": "Memory control plane for AI Agents in 6 lines of code",
-    "slug": "cognee-d927937d",
-    "url": null,
-    "tag": "Free",
-    "date-added": "2026-05-21",
-    "license": "Apache-2.0",
-    "language": [],
-    "hardware": [],
-    "deployment": [],
-    "model_format": [],
-    "maturity": null,
-    "last_updated": "2026-05-21",
-    "github_stars": 0,
-    "featured": false
-  },
-  {
     "title": "AutoGen (Microsoft)",
     "body": "A programming framework for agentic AI.",
     "slug": "autogen-microsoft",

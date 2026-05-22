@@ -543,11 +543,16 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--text-tertiary);
 }
 
-.link-card p {
+.link-card p,
+.card-desc {
   color: var(--text-secondary);
   font-size: 13px;
   line-height: 1.5;
   margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .card-foot {

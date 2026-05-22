@@ -42,9 +42,7 @@ onUnmounted(() => {
   <section v-else-if="bookmarkedTools.length === 0">
     <EmptyState
       message="Start saving AI tools by clicking the bookmark icon on any tool card. Your saved tools will appear here for quick access."
-      action-text="Browse AI Tools"
-      action-href="/"
-    />
+      action-text="Browse AI Tools" action-href="/" />
   </section>
 
   <section v-else>
@@ -56,11 +54,8 @@ onUnmounted(() => {
       </div>
 
       <div class="favorites-controls">
-        <select
-          :value="sortBy"
-          @change="(e) => sortBy = (e.target as HTMLSelectElement).value as FavoritesSortKey"
-          class="sort-select"
-        >
+        <select :value="sortBy" @change="(e) => sortBy = (e.target as HTMLSelectElement).value as FavoritesSortKey"
+          class="sort-select">
           <option value="nameAsc">Name (A-Z)</option>
           <option value="nameDesc">Name (Z-A)</option>
           <option value="dateNewest">Newest First</option>
@@ -70,17 +65,9 @@ onUnmounted(() => {
     </div>
 
     <ul role="list" class="link-card-grid">
-      <Card
-        v-for="(tool, i) in sortedTools"
-        :key="`${tool.slug}-${i}`"
-        :href="tool.url"
-        :title="tool.title"
-        :body="tool.body"
-        :license="tool.license"
-        :date-added="tool['date-added']"
-        :slug="tool.slug"
-        :category="tool.category"
-      />
+      <Card v-for="(tool, i) in sortedTools" :key="`${tool.slug}-${i}`" :href="tool.url" :title="tool.title"
+        :body="tool.body" :license="tool.license" :date-added="tool['date-added']" :slug="tool.slug"
+        :category="tool.category" />
     </ul>
   </section>
 </template>

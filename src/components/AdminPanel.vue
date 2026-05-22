@@ -40,7 +40,7 @@
         <div v-if="pendingTools.length === 0" class="empty-list">
           <p>No pending tools to review.</p>
         </div>
-        
+
         <div v-for="tool in pendingTools" :key="tool.id" class="submission-card">
           <div class="sub-info">
             <h4>{{ tool.name }}</h4>
@@ -85,14 +85,14 @@ onMounted(() => {
 const login = async () => {
   isLoggingIn.value = true;
   loginError.value = '';
-  
+
   try {
     const res = await fetch('/api/admin/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ password: password.value })
     });
-    
+
     if (res.ok) {
       loggedIn.value = true;
       fetchTools();
@@ -152,7 +152,7 @@ const rejectTool = async (id) => {
 const rebuild = async () => {
   isRebuilding.value = true;
   rebuildMessage.value = '';
-  
+
   try {
     const res = await fetch('/api/admin/rebuild', { method: 'POST' });
     if (res.ok) {
@@ -177,7 +177,7 @@ const rebuild = async () => {
   border: 1px solid var(--border-light);
   border-radius: var(--radius-md);
   padding: 32px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.02);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
 }
 
 .login-card h2 {
@@ -328,9 +328,20 @@ const rebuild = async () => {
 }
 
 @keyframes pulse {
-  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 102, 255, 0.7); }
-  70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(0, 102, 255, 0); }
-  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 102, 255, 0); }
+  0% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(0, 102, 255, 0.7);
+    }
+  
+    70% {
+      transform: scale(1);
+      box-shadow: 0 0 0 6px rgba(0, 102, 255, 0);
+    }
+  
+    100% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(0, 102, 255, 0);
+    }
 }
 
 .message-banner {
@@ -420,13 +431,13 @@ const rebuild = async () => {
     align-items: flex-start;
     gap: 16px;
   }
-  
+
   .submission-card {
     flex-direction: column;
     align-items: flex-start;
     gap: 16px;
   }
-  
+
   .sub-actions {
     width: 100%;
     justify-content: flex-end;

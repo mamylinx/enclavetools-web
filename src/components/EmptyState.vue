@@ -82,18 +82,10 @@ const iconMap: Record<string, any> = {
             <component :is="iconComponent" />
         </div>
         <p v-if="props.message" class="empty-state-message">{{ props.message }}</p>
-        <a
-            v-if="props.actionText && props.actionHref"
-            :href="props.actionHref"
-            class="empty-state-action"
-        >
+        <a v-if="props.actionText && props.actionHref" :href="props.actionHref" class="empty-state-action">
             {{ props.actionText }}
         </a>
-        <button
-            v-else-if="props.actionText"
-            class="empty-state-action"
-            @click="emit('action')"
-        >
+        <button v-else-if="props.actionText" class="empty-state-action" @click="emit('action')">
             {{ props.actionText }}
         </button>
     </div>

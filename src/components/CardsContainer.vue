@@ -195,7 +195,7 @@ const tryRestore = () => {
             }, 50);
         }
         sessionStorage.removeItem('toolsState');
-    } catch (err) {}
+    } catch (err) { }
 };
 
 const handleSaveState = () => {
@@ -206,7 +206,7 @@ const handleSaveState = () => {
             scrollY: typeof window !== 'undefined' ? window.scrollY || window.pageYOffset : 0,
         };
         sessionStorage.setItem('toolsState', JSON.stringify(state));
-    } catch (err) {}
+    } catch (err) { }
 };
 
 const setSort = (sort: string) => {
@@ -255,21 +255,13 @@ onUnmounted(() => {
 
 <template>
     <div v-if="hasNoFilterResults">
-        <EmptyState
-            icon="filter"
-            :message="'No tools match your filters.'"
-            action-text="Clear all filters"
-            @action="emit('clear-all')"
-        />
+        <EmptyState icon="filter" :message="'No tools match your filters.'" action-text="Clear all filters"
+            @action="emit('clear-all')" />
     </div>
 
     <div v-else-if="hasNoSearchResults">
-        <EmptyState
-            icon="search"
-            :message="`No results found for &quot;${searchQuery}&quot; in this category.`"
-            action-text="Search All Tools"
-            action-href="/"
-        />
+        <EmptyState icon="search" :message="`No results found for &quot;${searchQuery}&quot; in this category.`"
+            action-text="Search All Tools" action-href="/" />
     </div>
 
     <div v-else>
@@ -279,8 +271,10 @@ onUnmounted(() => {
             </span>
             <div class="toolbar-sorts">
                 <button class="sort-btn" :class="{ active: activeSort === 'az' }" @click="setSort('az')">A–Z</button>
-                <button class="sort-btn" :class="{ active: activeSort === 'featured' }" @click="setSort('featured')">Featured</button>
-                <button class="sort-btn" :class="{ active: activeSort === 'most-popular' }" @click="setSort('most-popular')">Most Popular</button>
+                <button class="sort-btn" :class="{ active: activeSort === 'featured' }"
+                    @click="setSort('featured')">Featured</button>
+                <button class="sort-btn" :class="{ active: activeSort === 'most-popular' }"
+                    @click="setSort('most-popular')">Most Popular</button>
             </div>
         </div>
 
@@ -295,7 +289,8 @@ onUnmounted(() => {
                     <button class="ad-btn">{{ ad.cta }}</button>
                 </div>
 
-                <div class="mobile-sidebar-card" v-if="i === positions.sponsor" v-for="sponsor in sponsors" :key="'sponsor-' + sponsor.logo">
+                <div class="mobile-sidebar-card" v-if="i === positions.sponsor" v-for="sponsor in sponsors"
+                    :key="'sponsor-' + sponsor.logo">
                     <div class="scard">
                         <div class="scard-label">Sponsor</div>
                         <div class="sponsor-logo">{{ sponsor.logo }}</div>
@@ -323,16 +318,9 @@ onUnmounted(() => {
                     </div>
                 </div>
 
-                <Card
-                    :href="item.url"
-                    :title="item.title"
-                    :body="item.body"
-                    :license="item.license"
-                    :date-added="item['date-added']"
-                    :slug="item.slug"
-                    :featured="item.featured"
-                    :category="Array.isArray(item.category) ? item.category[0] : item.category"
-                />
+                <Card :href="item.url" :title="item.title" :body="item.body" :license="item.license"
+                    :date-added="item['date-added']" :slug="item.slug" :featured="item.featured"
+                    :category="Array.isArray(item.category) ? item.category[0] : item.category" />
             </template>
         </ul>
 

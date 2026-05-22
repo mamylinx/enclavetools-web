@@ -1,5 +1,38 @@
 [
   {
+    "title": "supertonic",
+    "body": "Lightning-Fast, On-Device, Multilingual TTS — running natively via ONNX.",
+    "slug": "supertonic-0befb2f7",
+    "url": "https://github.com/supertone-inc/supertonic",
+    "tag": "Free",
+    "date-added": "2026-05-22",
+    "license": "MIT",
+    "language": [
+      "Swift"
+    ],
+    "hardware": [
+      "CPU Only",
+      "NVIDIA GPU (CUDA)",
+      "AMD GPU (ROCm)",
+      "Apple Silicon (Metal)",
+      "Low-resource (< 8GB RAM)"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal",
+      "Kubernetes",
+      "Systemd / Linux Service",
+      "Embedded / Edge"
+    ],
+    "model_format": [
+      "ONNX"
+    ],
+    "maturity": null,
+    "last_updated": "2026-05-22",
+    "github_stars": 9219,
+    "featured": false
+  },
+  {
     "title": "DeepSeek V3 (DeepSeek AI)",
     "body": "Open-weight Mixture-of-Experts model with MIT license, strong reasoning, and efficient inference for offline use.",
     "slug": "deepseek-v3",

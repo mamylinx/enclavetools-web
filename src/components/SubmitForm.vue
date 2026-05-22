@@ -9,13 +9,14 @@
     </div>
 
     <form v-else @submit.prevent="submitForm" class="custom-form">
-      
+
       <!-- GitHub Autofill -->
       <div class="github-section">
         <h3>Have a GitHub Repo?</h3>
         <p>Paste the URL below to automatically fill in most of the details.</p>
         <div class="github-input-group">
-          <input type="url" v-model="githubUrl" id="githubUrl" class="custom-input" placeholder="https://github.com/owner/repo" />
+          <input type="url" v-model="githubUrl" id="githubUrl" class="custom-input"
+            placeholder="https://github.com/owner/repo" />
           <button type="button" @click="fetchGithubData" :disabled="isFetching" class="custom-btn secondary">
             {{ isFetching ? 'Fetching...' : 'Auto-fill' }}
           </button>
@@ -57,16 +58,52 @@
 
         <div class="form-group full-width">
           <label for="license">License</label>
-          <input type="text" id="license" v-model="form.license" placeholder="e.g. MIT, Apache 2.0" class="custom-input" />
+          <input type="text" id="license" v-model="form.license" placeholder="e.g. MIT, Apache 2.0"
+            class="custom-input" />
+        </div>
+
+        <div class="form-group half-width">
+          <label for="hardware">Hardware * (Ctrl+Click for multiple)</label>
+          <select id="hardware" v-model="form.hardware" multiple required class="custom-input">
+            <option value="CPU Only">CPU Only</option>
+            <option value="NVIDIA GPU (CUDA)">NVIDIA GPU (CUDA)</option>
+            <option value="AMD GPU (ROCm)">AMD GPU (ROCm)</option>
+            <option value="Apple Silicon (Metal)">Apple Silicon (Metal)</option>
+            <option value="Low-resource (< 8GB RAM)">Low-resource (&lt; 8GB RAM)</option>
+          </select>
+        </div>
+
+        <div class="form-group half-width">
+          <label for="deployment">Deployment * (Ctrl+Click for multiple)</label>
+          <select id="deployment" v-model="form.deployment" multiple required class="custom-input">
+            <option value="Docker">Docker</option>
+            <option value="Bare Metal">Bare Metal</option>
+            <option value="Kubernetes">Kubernetes</option>
+            <option value="Systemd / Linux Service">Systemd / Linux Service</option>
+            <option value="Embedded / Edge">Embedded / Edge</option>
+          </select>
+        </div>
+
+        <div v-if="form.category === 'llm-models'" class="form-group full-width">
+          <label for="model_format">Model Format * (Ctrl+Click for multiple)</label>
+          <select id="model_format" v-model="form.modelFormat" multiple required class="custom-input">
+            <option value="GGUF">GGUF</option>
+            <option value="GPTQ">GPTQ</option>
+            <option value="AWQ">AWQ</option>
+            <option value="Safetensors">Safetensors</option>
+            <option value="ONNX">ONNX</option>
+          </select>
         </div>
 
         <!-- Custom Logo -->
         <div class="form-group full-width">
           <label>Custom Logo (Optional)</label>
           <div class="logo-upload">
-            <img v-if="logoPreview || form.githubAvatarUrl" :src="logoPreview || form.githubAvatarUrl" class="logo-preview" />
+            <img v-if="logoPreview || form.githubAvatarUrl" :src="logoPreview || form.githubAvatarUrl"
+              class="logo-preview" />
             <div v-else class="logo-placeholder">Img</div>
-            <input type="file" ref="logoInput" accept="image/png, image/jpeg" @change="handleLogoChange" class="file-input" />
+            <input type="file" ref="logoInput" accept="image/png, image/jpeg" @change="handleLogoChange"
+              class="file-input" />
           </div>
         </div>
       </div>
@@ -107,7 +144,10 @@ const form = ref({
   githubUrl: '',
   category: '',
   license: '',
-  githubAvatarUrl: ''
+  githubAvatarUrl: '',
+  hardware: [],
+  deployment: [],
+  modelFormat: []
 });
 
 const handleLogoChange = (e) => {
@@ -126,22 +166,22 @@ const fetchGithubData = async () => {
   if (!githubUrl.value) return;
   isFetching.value = true;
   fetchError.value = '';
-  
+
   try {
     const res = await fetch(`/api/github/fetch?url=${encodeURIComponent(githubUrl.value)}`);
     const data = await res.json();
-    
+
     if (!res.ok) throw new Error(data.error || 'Failed to fetch');
-    
+
     form.value.name = data.name || form.value.name;
     form.value.description = data.description || form.value.description;
     form.value.license = data.license || form.value.license;
     form.value.githubUrl = githubUrl.value;
     form.value.githubAvatarUrl = data.avatar_url || '';
-    
+
     // Store raw data to send to server
     githubDataStr.value = JSON.stringify(data.raw);
-    
+
   } catch (err) {
     fetchError.value = err.message;
   } finally {
@@ -152,29 +192,38 @@ const fetchGithubData = async () => {
 const submitForm = async () => {
   isSubmitting.value = true;
   submitError.value = '';
-  
+
   try {
     const formData = new FormData();
     formData.append('name', form.value.name);
     formData.append('description', form.value.description);
-    formData.append('url', form.value.url);
+
+    const finalUrl = form.value.url || form.value.githubUrl;
+    if (finalUrl) formData.append('url', finalUrl);
+
     if (form.value.githubUrl) formData.append('github_url', form.value.githubUrl);
     formData.append('category', form.value.category);
     if (form.value.license) formData.append('license', form.value.license);
     if (githubDataStr.value) formData.append('github_data', githubDataStr.value);
-    
+
+    formData.append('hardware', JSON.stringify(form.value.hardware));
+    formData.append('deployment', JSON.stringify(form.value.deployment));
+    if (form.value.category === 'llm-models') {
+      formData.append('model_format', JSON.stringify(form.value.modelFormat));
+    }
+
     if (logoFile.value) {
       formData.append('logo', logoFile.value);
     }
-    
+
     const res = await fetch('/api/submit', {
       method: 'POST',
       body: formData
     });
-    
+
     const data = await res.json();
     if (!res.ok) throw new Error(data.error || 'Failed to submit');
-    
+
     success.value = true;
   } catch (err) {
     submitError.value = err.message;
@@ -245,6 +294,7 @@ const submitForm = async () => {
   .form-grid {
     grid-template-columns: 1fr;
   }
+
   .half-width {
     grid-column: 1 / -1;
   }

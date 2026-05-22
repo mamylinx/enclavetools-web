@@ -60,29 +60,21 @@ const closeBottomSheet = () => {
 <template>
   <div class="category-nav-container">
     <nav ref="navRef" class="category-nav" tabindex="-1" @scroll="checkScroll">
-      <a
-        v-for="item in navItems"
-        :key="item.category"
-        class="category-nav-item"
-        :class="{ active: activeFilter === item.category }"
-        :href="item.href"
-      >
+      <a v-for="item in navItems" :key="item.category" class="category-nav-item"
+        :class="{ active: activeFilter === item.category }" :href="item.href">
         {{ item.title }}
       </a>
     </nav>
 
-    <div
-      class="nav-fade nav-fade-right"
-      :class="{ show: showRightFade }"
-      @click="scrollRight"
-    >
+    <div class="nav-fade nav-fade-right" :class="{ show: showRightFade }" @click="scrollRight">
       <svg class="nav-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="m8 20 8-8-8-8" />
       </svg>
     </div>
 
     <button class="mobile-caret-btn" @click="toggleBottomSheet" aria-label="Show all categories">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
         <path d="m6 9 6 6 6-6" />
       </svg>
     </button>
@@ -93,20 +85,15 @@ const closeBottomSheet = () => {
       <div class="bottom-sheet-header">
         <span class="bottom-sheet-title">All Categories</span>
         <button class="bottom-sheet-close" @click="closeBottomSheet" aria-label="Close">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2">
             <path d="M18 6 6 18M6 6l12 12" stroke-linecap="round" />
           </svg>
         </button>
       </div>
       <div class="bottom-sheet-content">
-        <a
-          v-for="item in navItems"
-          :key="item.category"
-          class="bottom-sheet-item"
-          :class="{ active: activeFilter === item.category }"
-          :href="item.href"
-          @click="closeBottomSheet"
-        >
+        <a v-for="item in navItems" :key="item.category" class="bottom-sheet-item"
+          :class="{ active: activeFilter === item.category }" :href="item.href" @click="closeBottomSheet">
           <span>{{ item.title }}</span>
         </a>
       </div>

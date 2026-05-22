@@ -16,7 +16,8 @@
       </div>
     </a>
     <div v-if="slug" class="card-bookmark">
-      <BookmarkButton :slug="slug" :title="title" :body="body" :license="license" :url="href" :category="category || ''" :date-added="dateAdded" variant="small" />
+      <BookmarkButton :slug="slug" :title="title" :body="body" :license="license" :url="href" :category="category || ''"
+        :date-added="dateAdded" variant="small" />
     </div>
   </li>
 </template>
