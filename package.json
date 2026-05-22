@@ -37,34 +37,35 @@
     "generate-types": "wrangler types"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^13.5.1",
+    "@astrojs/cloudflare": "^13.5.4",
     "@astrojs/partytown": "^2.1.7",
     "@astrojs/sitemap": "^3.7.2",
     "@astrojs/vue": "^6.0.1",
-    "@aws-sdk/client-s3": "^3.1051.0",
-    "@vueuse/core": "^14.2.1",
-    "astro": "^6.1.10",
+    "@aws-sdk/client-s3": "^3.1052.0",
+    "@vueuse/core": "^14.3.0",
+    "astro": "^6.3.7",
     "fuse.js": "^7.3.0",
+    "@lucide/vue": "^1.16.0",
     "punycode": "^2.3.1",
     "sharp": "^0.34.5",
-    "vue": "^3.5.33",
+    "vue": "^3.5.34",
     "zod": "^4.4.3"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.9",
     "@tailwindcss/forms": "^0.5.11",
-    "@tailwindcss/vite": "^4.2.4",
+    "@tailwindcss/vite": "^4.3.0",
     "@testing-library/dom": "^10.4.1",
-    "@vue/test-utils": "^2.4.9",
+    "@vue/test-utils": "^2.4.10",
     "autoprefixer": "^10.5.0",
     "dotenv": "^17.4.2",
-    "jsdom": "^29.1.0",
+    "jsdom": "^29.1.1",
     "node-html-parser": "^7.1.0",
-    "tailwindcss": "^4.2.4",
-    "tsx": "^4.21.0",
+    "tailwindcss": "^4.3.0",
+    "tsx": "^4.22.3",
     "typescript": "^6.0.3",
-    "vitest": "^4.1.5",
-    "wrangler": "^4.92.0"
+    "vitest": "^4.1.7",
+    "wrangler": "^4.93.1"
   },
   "keywords": [
     "directory",
@@ -80,8 +81,15 @@
   "license": "MIT",
   "overrides": {
     "vite": "^7",
-    "yaml-language-server": {
-      "yaml": "^2.7.0"
-    }
+    "yaml": "^2.7.0",
+    "minimatch": "^10.0.0",
+    "picomatch": "^4.0.0",
+    "smol-toml": "^1.6.1",
+    "ajv": "^8.18.0",
+    "postcss": "^8.5.10",
+    "uuid": "^13.0.1",
+    "fast-uri": "^3.1.1",
+    "rollup": "^4.59.0",
+    "devalue": "^5.8.1"
   }
 }

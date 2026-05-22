@@ -63,37 +63,39 @@
         </div>
 
         <div class="form-group half-width">
-          <label for="hardware">Hardware * (Ctrl+Click for multiple)</label>
-          <select id="hardware" v-model="form.hardware" multiple required class="custom-input">
-            <option value="CPU Only">CPU Only</option>
-            <option value="NVIDIA GPU (CUDA)">NVIDIA GPU (CUDA)</option>
-            <option value="AMD GPU (ROCm)">AMD GPU (ROCm)</option>
-            <option value="Apple Silicon (Metal)">Apple Silicon (Metal)</option>
-            <option value="Low-resource (< 8GB RAM)">Low-resource (&lt; 8GB RAM)</option>
-          </select>
+          <label>Hardware *</label>
+          <div class="checkbox-group">
+            <label class="checkbox-label"><input type="checkbox" v-model="form.hardware" value="CPU Only"> CPU Only</label>
+            <label class="checkbox-label"><input type="checkbox" v-model="form.hardware" value="NVIDIA GPU (CUDA)"> NVIDIA GPU (CUDA)</label>
+            <label class="checkbox-label"><input type="checkbox" v-model="form.hardware" value="AMD GPU (ROCm)"> AMD GPU (ROCm)</label>
+            <label class="checkbox-label"><input type="checkbox" v-model="form.hardware" value="Apple Silicon (Metal)"> Apple Silicon (Metal)</label>
+            <label class="checkbox-label"><input type="checkbox" v-model="form.hardware" value="Low-resource (< 8GB RAM)"> Low-resource (&lt; 8GB RAM)</label>
+          </div>
         </div>
 
         <div class="form-group half-width">
-          <label for="deployment">Deployment * (Ctrl+Click for multiple)</label>
-          <select id="deployment" v-model="form.deployment" multiple required class="custom-input">
-            <option value="Docker">Docker</option>
-            <option value="Bare Metal">Bare Metal</option>
-            <option value="Kubernetes">Kubernetes</option>
-            <option value="Systemd / Linux Service">Systemd / Linux Service</option>
-            <option value="Embedded / Edge">Embedded / Edge</option>
-          </select>
+          <label>Deployment *</label>
+          <div class="checkbox-group">
+            <label class="checkbox-label"><input type="checkbox" v-model="form.deployment" value="Docker"> Docker</label>
+            <label class="checkbox-label"><input type="checkbox" v-model="form.deployment" value="Bare Metal"> Bare Metal</label>
+            <label class="checkbox-label"><input type="checkbox" v-model="form.deployment" value="Kubernetes"> Kubernetes</label>
+            <label class="checkbox-label"><input type="checkbox" v-model="form.deployment" value="Systemd / Linux Service"> Systemd / Linux Service</label>
+            <label class="checkbox-label"><input type="checkbox" v-model="form.deployment" value="Embedded / Edge"> Embedded / Edge</label>
+          </div>
         </div>
 
-        <div v-if="form.category === 'llm-models'" class="form-group full-width">
-          <label for="model_format">Model Format * (Ctrl+Click for multiple)</label>
-          <select id="model_format" v-model="form.modelFormat" multiple required class="custom-input">
-            <option value="GGUF">GGUF</option>
-            <option value="GPTQ">GPTQ</option>
-            <option value="AWQ">AWQ</option>
-            <option value="Safetensors">Safetensors</option>
-            <option value="ONNX">ONNX</option>
-          </select>
-        </div>
+        <Transition name="fade-slide">
+          <div v-if="form.category === 'llm-models'" class="form-group full-width">
+            <label>Model Format *</label>
+            <div class="checkbox-group horizontal-options">
+              <label class="checkbox-label"><input type="checkbox" v-model="form.modelFormat" value="GGUF"> GGUF</label>
+              <label class="checkbox-label"><input type="checkbox" v-model="form.modelFormat" value="GPTQ"> GPTQ</label>
+              <label class="checkbox-label"><input type="checkbox" v-model="form.modelFormat" value="AWQ"> AWQ</label>
+              <label class="checkbox-label"><input type="checkbox" v-model="form.modelFormat" value="Safetensors"> Safetensors</label>
+              <label class="checkbox-label"><input type="checkbox" v-model="form.modelFormat" value="ONNX"> ONNX</label>
+            </div>
+          </div>
+        </Transition>
 
         <!-- Custom Logo -->
         <div class="form-group full-width">
@@ -105,6 +107,7 @@
             <input type="file" ref="logoInput" accept="image/png, image/jpeg" @change="handleLogoChange"
               class="file-input" />
           </div>
+          <p v-if="fileError" class="error-text">{{ fileError }}</p>
         </div>
       </div>
 
@@ -135,6 +138,7 @@ const success = ref(false);
 const logoInput = ref(null);
 const logoFile = ref(null);
 const logoPreview = ref('');
+const fileError = ref('');
 const githubDataStr = ref('');
 
 const form = ref({
@@ -151,10 +155,11 @@ const form = ref({
 });
 
 const handleLogoChange = (e) => {
+  fileError.value = '';
   const file = e.target.files[0];
   if (!file) return;
   if (file.size > 1024 * 1024) {
-    alert("File is too large. Max 1MB.");
+    fileError.value = "File is too large. Max 1MB.";
     e.target.value = '';
     return;
   }
@@ -192,6 +197,22 @@ const fetchGithubData = async () => {
 const submitForm = async () => {
   isSubmitting.value = true;
   submitError.value = '';
+
+  if (form.value.hardware.length === 0) {
+    submitError.value = "Please select at least one hardware option.";
+    isSubmitting.value = false;
+    return;
+  }
+  if (form.value.deployment.length === 0) {
+    submitError.value = "Please select at least one deployment option.";
+    isSubmitting.value = false;
+    return;
+  }
+  if (form.value.category === 'llm-models' && form.value.modelFormat.length === 0) {
+    submitError.value = "Please select at least one model format.";
+    isSubmitting.value = false;
+    return;
+  }
 
   try {
     const formData = new FormData();
@@ -464,5 +485,51 @@ const submitForm = async () => {
 
 .success-message p {
   font-size: 13px;
+}
+
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: var(--white);
+  border: 1.5px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 12px;
+}
+
+.checkbox-group.horizontal-options {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--text-primary);
+  font-weight: 400 !important;
+  cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  border: 1.5px solid var(--border-light);
+  accent-color: var(--accent-blue);
+  cursor: pointer;
+}
+
+.fade-slide-enter-active,
+.fade-slide-leave-active {
+  transition: all 0.3s ease;
+}
+
+.fade-slide-enter-from,
+.fade-slide-leave-to {
+  opacity: 0;
+  transform: translateY(-10px);
 }
 </style>
