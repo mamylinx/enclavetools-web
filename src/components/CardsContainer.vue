@@ -11,6 +11,7 @@ import { randomSidebarPositions } from '../utils/randomSidebarPositions';
 import type { Tool, Category, PromotedAd, Sponsor, FeaturedConfig, NewsletterData, FilterState } from '../types';
 import { toolComparators, type SortKey } from '../utils/sorting';
 import { isRecentlyAdded } from '../utils/dates';
+import { enrichTool, type ToolWithCategory } from '../utils/toolModel';
 
 const promotedAds = ref<PromotedAd[]>(promotedData.ads);
 const sponsors = ref<Sponsor[]>(sponsorsData.sponsors);
@@ -18,10 +19,6 @@ const featured = ref<FeaturedConfig>(featuredData);
 const newsletter = ref<NewsletterData>(newsletterData);
 
 const ITEMS_PER_PAGE = 32;
-
-interface ToolWithCategory extends Tool {
-    category: string | string[];
-}
 
 const props = defineProps<{
     filter: string;
@@ -47,7 +44,12 @@ const fuseOptions = {
     keys: [
         { name: 'title', weight: 0.4 },
         { name: 'body', weight: 0.3 },
+        { name: 'plain_description', weight: 0.25 },
+        { name: 'technical_description', weight: 0.2 },
         { name: 'category', weight: 0.2 },
+        { name: 'use_cases', weight: 0.15 },
+        { name: 'personas', weight: 0.15 },
+        { name: 'features', weight: 0.15 },
         { name: 'tag', weight: 0.1 },
     ],
     threshold: 0.3,
@@ -58,7 +60,7 @@ const fuseOptions = {
 
 const baseTools = computed((): ToolWithCategory[] => {
     if (props.ssrTools && props.ssrTools.length > 0) {
-        return props.ssrTools;
+        return props.ssrTools.map(enrichTool);
     }
     return [];
 });
@@ -70,12 +72,19 @@ const hasActiveFilters = computed(() => {
     return (
         props.filterState.sort !== 'featured' ||
         props.filterState.category.length > 0 ||
+        props.filterState.use_case.length > 0 ||
+        props.filterState.persona.length > 0 ||
+        props.filterState.setup_difficulty.length > 0 ||
         props.filterState.license.length > 0 ||
         props.filterState.language.length > 0 ||
         props.filterState.hardware.length > 0 ||
         props.filterState.deployment.length > 0 ||
         props.filterState.model_format.length > 0 ||
         props.filterState.maturity.length > 0 ||
+        props.filterState.features.length > 0 ||
+        props.filterState.commercial_use !== null ||
+        props.filterState.offline_after_setup !== null ||
+        props.filterState.telemetry !== null ||
         props.filterState.last_updated !== null
     );
 });
@@ -85,6 +94,15 @@ function matchesFilter(tool: ToolWithCategory, filterState: FilterState): boolea
         const toolCats = Array.isArray(tool.category) ? tool.category : [tool.category];
         if (!filterState.category.some(c => toolCats.includes(c))) return false;
     }
+    if (filterState.use_case.length > 0) {
+        const useCases = tool.use_cases || [];
+        if (!filterState.use_case.some(u => useCases.includes(u))) return false;
+    }
+    if (filterState.persona.length > 0) {
+        const personas = tool.personas || [];
+        if (!filterState.persona.some(p => personas.includes(p))) return false;
+    }
+    if (filterState.setup_difficulty.length > 0 && !filterState.setup_difficulty.includes(tool.setup_difficulty || '')) return false;
     if (filterState.license.length > 0 && !filterState.license.includes(tool.license || '')) return false;
     if (filterState.language.length > 0) {
         const toolLangs = tool.language || [];
@@ -103,6 +121,12 @@ function matchesFilter(tool: ToolWithCategory, filterState: FilterState): boolea
         if (!filterState.model_format.some(f => toolFormats.includes(f))) return false;
     }
     if (filterState.maturity.length > 0 && !filterState.maturity.includes(tool.maturity || '')) return false;
+    if (filterState.features.length > 0) {
+        if (!filterState.features.every((feature) => Boolean((tool as Record<string, unknown>)[feature]))) return false;
+    }
+    if (filterState.commercial_use === 'yes' && !tool.commercial_use) return false;
+    if (filterState.offline_after_setup === 'yes' && !tool.offline_after_setup) return false;
+    if (filterState.telemetry === 'None' && tool.telemetry !== 'None') return false;
     if (filterState.last_updated) {
         const lastUpdated = tool.last_updated || tool['date-added'];
         if (!lastUpdated) return false;
@@ -175,6 +199,7 @@ watch(
     () => props.filterState,
     () => {
         displayedCount.value = ITEMS_PER_PAGE;
+        if (props.filterState?.sort) activeSort.value = props.filterState.sort;
     },
     { deep: true }
 );
@@ -211,6 +236,7 @@ const handleSaveState = () => {
 
 const setSort = (sort: string) => {
     activeSort.value = sort;
+    if (props.filterState) props.filterState.sort = sort;
 };
 
 let observer: IntersectionObserver | null = null;
@@ -273,8 +299,12 @@ onUnmounted(() => {
                 <button class="sort-btn" :class="{ active: activeSort === 'az' }" @click="setSort('az')">A–Z</button>
                 <button class="sort-btn" :class="{ active: activeSort === 'featured' }"
                     @click="setSort('featured')">Featured</button>
+                <button class="sort-btn" :class="{ active: activeSort === 'newest' }"
+                    @click="setSort('newest')">Recently added</button>
+                <button class="sort-btn" :class="{ active: activeSort === 'recently-updated' }"
+                    @click="setSort('recently-updated')">Last updated</button>
                 <button class="sort-btn" :class="{ active: activeSort === 'most-popular' }"
-                    @click="setSort('most-popular')">Most Popular</button>
+                    @click="setSort('most-popular')">Most stars</button>
             </div>
         </div>
 
@@ -320,6 +350,9 @@ onUnmounted(() => {
 
                 <Card :href="item.url" :title="item.title" :body="item.body" :license="item.license"
                     :date-added="item['date-added']" :slug="item.slug" :featured="item.featured"
+                    :github-stars="item.popularity_score" :last-updated="item.last_updated"
+                    :setup-difficulty="item.setup_difficulty" :features="item.features"
+                    :hardware="item.hardware" :commercial-use="item.commercial_use"
                     :category="Array.isArray(item.category) ? item.category[0] : item.category" />
             </template>
         </ul>

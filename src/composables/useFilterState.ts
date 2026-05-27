@@ -5,16 +5,23 @@ import { MODEL_FORMAT_CATEGORIES } from './filterConfig';
 const PARAM_MAP: Record<string, keyof FilterState> = {
     sort: 'sort',
     cat: 'category',
+    use: 'use_case',
+    persona: 'persona',
+    setup: 'setup_difficulty',
     license: 'license',
     lang: 'language',
     hw: 'hardware',
     deploy: 'deployment',
     format: 'model_format',
     mat: 'maturity',
+    feature: 'features',
+    commercial: 'commercial_use',
+    offline: 'offline_after_setup',
+    telemetry: 'telemetry',
     updated: 'last_updated',
 };
 
-const ARRAY_GROUPS: (keyof FilterState)[] = ['category', 'license', 'language', 'hardware', 'deployment', 'model_format', 'maturity'];
+const ARRAY_GROUPS: (keyof FilterState)[] = ['category', 'use_case', 'persona', 'setup_difficulty', 'license', 'language', 'hardware', 'deployment', 'model_format', 'maturity', 'features'];
 
 const STORAGE_KEY = 'enclavetools-filters';
 
@@ -22,12 +29,19 @@ function createDefaultState(): FilterState {
     return {
         sort: 'featured',
         category: [],
+        use_case: [],
+        persona: [],
+        setup_difficulty: [],
         license: [],
         language: [],
         hardware: [],
         deployment: [],
         model_format: [],
         maturity: [],
+        features: [],
+        commercial_use: null,
+        offline_after_setup: null,
+        telemetry: null,
         last_updated: null,
     };
 }
@@ -57,6 +71,12 @@ function parseFromUrl(): FilterState {
             (state[key] as string[]) = values;
         } else if (key === 'sort') {
             state.sort = values[0];
+        } else if (key === 'commercial_use') {
+            state.commercial_use = values[0] || null;
+        } else if (key === 'offline_after_setup') {
+            state.offline_after_setup = values[0] || null;
+        } else if (key === 'telemetry') {
+            state.telemetry = values[0] || null;
         } else if (key === 'last_updated') {
             state.last_updated = values[0] || null;
         }
@@ -75,6 +95,8 @@ function syncToUrl(state: FilterState) {
             const arr = value as string[];
             arr.forEach((v) => params.append(param, v));
         } else if (key === 'sort' && value !== 'featured') {
+            params.set(param, value as string);
+        } else if ((key === 'commercial_use' || key === 'offline_after_setup' || key === 'telemetry') && value) {
             params.set(param, value as string);
         } else if (key === 'last_updated' && value) {
             params.set(param, value as string);
@@ -97,12 +119,19 @@ function isModelFormatVisible(state: FilterState): boolean {
 function hasActiveFilters(state: FilterState): boolean {
     return state.sort !== 'featured' ||
         state.category.length > 0 ||
+        state.use_case.length > 0 ||
+        state.persona.length > 0 ||
+        state.setup_difficulty.length > 0 ||
         state.license.length > 0 ||
         state.language.length > 0 ||
         state.hardware.length > 0 ||
         state.deployment.length > 0 ||
         state.model_format.length > 0 ||
         state.maturity.length > 0 ||
+        state.features.length > 0 ||
+        state.commercial_use !== null ||
+        state.offline_after_setup !== null ||
+        state.telemetry !== null ||
         state.last_updated !== null;
 }
 
@@ -136,12 +165,19 @@ export function useFilterState() {
         let count = 0;
         if (state.sort !== 'featured') count++;
         count += state.category.length;
+        count += state.use_case.length;
+        count += state.persona.length;
+        count += state.setup_difficulty.length;
         count += state.license.length;
         count += state.language.length;
         count += state.hardware.length;
         count += state.deployment.length;
         count += state.model_format.length;
         count += state.maturity.length;
+        count += state.features.length;
+        if (state.commercial_use) count++;
+        if (state.offline_after_setup) count++;
+        if (state.telemetry) count++;
         if (state.last_updated) count++;
         return count;
     });
@@ -175,6 +211,12 @@ export function useFilterState() {
             (state[key] as string[]) = [];
         } else if (key === 'sort') {
             state.sort = 'featured';
+        } else if (key === 'commercial_use') {
+            state.commercial_use = null;
+        } else if (key === 'offline_after_setup') {
+            state.offline_after_setup = null;
+        } else if (key === 'telemetry') {
+            state.telemetry = null;
         } else if (key === 'last_updated') {
             state.last_updated = null;
         }
@@ -183,12 +225,19 @@ export function useFilterState() {
     function clearAll() {
         state.sort = 'featured';
         state.category = [];
+        state.use_case = [];
+        state.persona = [];
+        state.setup_difficulty = [];
         state.license = [];
         state.language = [];
         state.hardware = [];
         state.deployment = [];
         state.model_format = [];
         state.maturity = [];
+        state.features = [];
+        state.commercial_use = null;
+        state.offline_after_setup = null;
+        state.telemetry = null;
         state.last_updated = null;
 
         if (typeof window !== 'undefined') {
@@ -204,12 +253,19 @@ export function useFilterState() {
             result.push({ group: 'Sort', label: 'Sort', value: state.sort });
         }
         state.category.forEach((v) => result.push({ group: 'Category', label: 'Category', value: v }));
+        state.use_case.forEach((v) => result.push({ group: 'Use Case', label: 'Use Case', value: v }));
+        state.persona.forEach((v) => result.push({ group: 'Persona', label: 'Persona', value: v }));
+        state.setup_difficulty.forEach((v) => result.push({ group: 'Setup', label: 'Setup', value: v }));
         state.license.forEach((v) => result.push({ group: 'License', label: 'License', value: v }));
         state.language.forEach((v) => result.push({ group: 'Language', label: 'Language', value: v }));
         state.hardware.forEach((v) => result.push({ group: 'Hardware', label: 'Hardware', value: v }));
         state.deployment.forEach((v) => result.push({ group: 'Deployment', label: 'Deployment', value: v }));
         state.model_format.forEach((v) => result.push({ group: 'Model Format', label: 'Model Format', value: v }));
         state.maturity.forEach((v) => result.push({ group: 'Maturity', label: 'Maturity', value: v }));
+        state.features.forEach((v) => result.push({ group: 'Feature', label: 'Feature', value: v }));
+        if (state.commercial_use) result.push({ group: 'Commercial Use', label: 'Commercial Use', value: state.commercial_use });
+        if (state.offline_after_setup) result.push({ group: 'Offline', label: 'Offline', value: state.offline_after_setup });
+        if (state.telemetry) result.push({ group: 'Telemetry', label: 'Telemetry', value: state.telemetry });
         if (state.last_updated) {
             result.push({ group: 'Last Updated', label: 'Last Updated', value: state.last_updated });
         }
@@ -221,12 +277,19 @@ export function useFilterState() {
         const params = new URLSearchParams();
         if (state.sort !== 'featured') params.set('sort', state.sort);
         state.category.forEach((v) => params.append('cat', v));
+        state.use_case.forEach((v) => params.append('use', v));
+        state.persona.forEach((v) => params.append('persona', v));
+        state.setup_difficulty.forEach((v) => params.append('setup', v));
         state.license.forEach((v) => params.append('license', v));
         state.language.forEach((v) => params.append('lang', v));
         state.hardware.forEach((v) => params.append('hw', v));
         state.deployment.forEach((v) => params.append('deploy', v));
         state.model_format.forEach((v) => params.append('format', v));
         state.maturity.forEach((v) => params.append('mat', v));
+        state.features.forEach((v) => params.append('feature', v));
+        if (state.commercial_use) params.set('commercial', state.commercial_use);
+        if (state.offline_after_setup) params.set('offline', state.offline_after_setup);
+        if (state.telemetry) params.set('telemetry', state.telemetry);
         if (state.last_updated) params.set('updated', state.last_updated);
         return params;
     }

@@ -1,24 +1,43 @@
 import type { FilterGroupConfig, FilterOption } from '../types';
 
-// export const CATEGORY_OPTIONS: FilterOption[] = [
-//     { value: 'llm-models', label: 'LLM Models' },
-//     { value: 'embedding-models', label: 'Embedding Models' },
-//     { value: 'llm-inference', label: 'Inference Engines' },
-//     { value: 'vector-databases', label: 'Vector Databases' },
-//     { value: 'frameworks-orchestration', label: 'Frameworks & Orchestration' },
-//     { value: 'fine-tuning-training', label: 'Fine-tuning & Training' },
-//     { value: 'chat-interfaces', label: 'UI & Chat Interfaces' },
-//     { value: 'rag-document', label: 'RAG & Document Processing' },
-//     { value: 'agent-frameworks', label: 'Agents & Automation' },
-//     { value: 'monitoring-observability', label: 'Monitoring & Observability' },
-//     { value: 'privacy-security', label: 'Security & Access Control' },
-//     { value: 'deployment', label: 'Utilities & Dev Tools' },
-//     { value: 'speech-to-text', label: 'Speech to Text' },
-//     { value: 'text-to-speech', label: 'Text to Speech' },
-//     { value: 'image-generation', label: 'Image Generation' },
-//     { value: 'video-generation', label: 'Video Generation' },
-//     { value: 'vision-multimodal', label: 'Vision & Multimodal' },
-// ];
+export const CATEGORY_OPTIONS: FilterOption[] = [
+    { value: 'llm-inference', label: 'Inference Engines' },
+    { value: 'llm-models', label: 'LLM Models' },
+    { value: 'chat-interfaces', label: 'Chat Interfaces' },
+    { value: 'rag-document', label: 'Document Processing' },
+    { value: 'vector-databases', label: 'Vector Stores' },
+    { value: 'embedding-models', label: 'Embeddings' },
+    { value: 'fine-tuning-training', label: 'Fine-tuning' },
+    { value: 'agent-frameworks', label: 'Agents' },
+    { value: 'workflow-automation', label: 'Workflow Automation' },
+    { value: 'privacy-security', label: 'Privacy & Security' },
+    { value: 'speech-to-text', label: 'Speech to Text' },
+    { value: 'text-to-speech', label: 'Text to Speech' },
+    { value: 'deployment', label: 'Deployment' },
+];
+
+export const USE_CASE_OPTIONS: FilterOption[] = [
+    { value: 'Document Processing', label: 'Document Processing' },
+    { value: 'Internal Search', label: 'Internal Search' },
+    { value: 'Clinical Notes', label: 'Clinical Notes' },
+    { value: 'Contract Review', label: 'Contract Review' },
+    { value: 'Self-hosted Inference', label: 'Self-hosted Inference' },
+    { value: 'Workflow Automation', label: 'Workflow Automation' },
+];
+
+export const PERSONA_OPTIONS: FilterOption[] = [
+    { value: 'Developer', label: 'Developer' },
+    { value: 'Business Owner', label: 'Business Owner' },
+    { value: 'Healthcare', label: 'Healthcare' },
+    { value: 'Legal', label: 'Legal' },
+    { value: 'Indie Hacker', label: 'Indie Hacker' },
+];
+
+export const SETUP_OPTIONS: FilterOption[] = [
+    { value: 'Low', label: 'Low' },
+    { value: 'Medium', label: 'Medium' },
+    { value: 'High', label: 'High' },
+];
 
 export const LICENSE_OPTIONS: FilterOption[] = [
     { value: 'MIT', label: 'MIT' },
@@ -62,6 +81,26 @@ export const MODEL_FORMAT_OPTIONS: FilterOption[] = [
     { value: 'ONNX', label: 'ONNX' },
 ];
 
+export const FEATURE_OPTIONS: FilterOption[] = [
+    { value: 'openai_api', label: 'OpenAI-compatible API' },
+    { value: 'rest_api', label: 'REST API' },
+    { value: 'fine_tuning', label: 'Fine-tuning' },
+    { value: 'quantization', label: 'Quantization' },
+    { value: 'docker_available', label: 'Docker available' },
+    { value: 'gui_available', label: 'GUI / No-code' },
+    { value: 'paid_support', label: 'Paid support' },
+];
+
+export const YES_ONLY_OPTIONS: FilterOption[] = [
+    { value: '', label: 'Any' },
+    { value: 'yes', label: 'Yes only' },
+];
+
+export const TELEMETRY_OPTIONS: FilterOption[] = [
+    { value: '', label: 'Any' },
+    { value: 'None', label: 'None only' },
+];
+
 export const MATURITY_OPTIONS: FilterOption[] = [
     { value: 'Production / Stable', label: 'Production / Stable' },
     { value: 'Beta', label: 'Beta' },
@@ -77,11 +116,18 @@ export const LAST_UPDATED_OPTIONS: FilterOption[] = [
 ];
 
 export const FILTER_GROUPS: FilterGroupConfig[] = [
-    // { key: 'category', label: 'Category', type: 'multi', options: CATEGORY_OPTIONS },
+    { key: 'category', label: 'Category', type: 'multi', options: CATEGORY_OPTIONS },
+    { key: 'use_case', label: 'Use Case', type: 'multi', options: USE_CASE_OPTIONS },
+    { key: 'persona', label: 'Persona', type: 'multi', options: PERSONA_OPTIONS },
+    { key: 'setup_difficulty', label: 'Setup Difficulty', type: 'multi', options: SETUP_OPTIONS },
     { key: 'license', label: 'License', type: 'multi', options: LICENSE_OPTIONS },
     { key: 'language', label: 'Language / Runtime', type: 'multi', options: LANGUAGE_OPTIONS },
     { key: 'hardware', label: 'Hardware', type: 'multi', options: HARDWARE_OPTIONS },
     { key: 'deployment', label: 'Deployment', type: 'multi', options: DEPLOYMENT_OPTIONS },
+    { key: 'features', label: 'Features', type: 'multi', options: FEATURE_OPTIONS },
+    { key: 'commercial_use', label: 'Commercial Use', type: 'single', options: YES_ONLY_OPTIONS },
+    { key: 'offline_after_setup', label: 'Offline After Setup', type: 'single', options: YES_ONLY_OPTIONS },
+    { key: 'telemetry', label: 'Telemetry', type: 'single', options: TELEMETRY_OPTIONS },
     {
         key: 'model_format',
         label: 'Model Format',

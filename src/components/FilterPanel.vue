@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 import type { FilterState } from '../types';
 import { FILTER_GROUPS, LAST_UPDATED_OPTIONS } from '../composables/filterConfig';
 
@@ -11,12 +11,19 @@ const props = defineProps<{
 
 const emit = defineEmits<{
     'update:category': [value: string[]];
+    'update:use_case': [value: string[]];
+    'update:persona': [value: string[]];
+    'update:setup_difficulty': [value: string[]];
     'update:license': [value: string[]];
     'update:language': [value: string[]];
     'update:hardware': [value: string[]];
     'update:deployment': [value: string[]];
     'update:model_format': [value: string[]];
     'update:maturity': [value: string[]];
+    'update:features': [value: string[]];
+    'update:commercial_use': [value: string | null];
+    'update:offline_after_setup': [value: string | null];
+    'update:telemetry': [value: string | null];
     'update:last_updated': [value: string | null];
     toggle: [key: keyof FilterState, value: string];
     clear: [key: keyof FilterState];
@@ -38,9 +45,16 @@ function groupCount(key: keyof FilterState): number {
     return 0;
 }
 
-function handleSingleSelect(key: keyof FilterState, value: string) {
+function handleSingleSelect(key: keyof FilterState, value: string | null) {
+    const normalized = value || null;
     if (key === 'last_updated') {
-        emit('update:last_updated', value || null);
+        emit('update:last_updated', normalized);
+    } else if (key === 'commercial_use') {
+        emit('update:commercial_use', normalized);
+    } else if (key === 'offline_after_setup') {
+        emit('update:offline_after_setup', normalized);
+    } else if (key === 'telemetry') {
+        emit('update:telemetry', normalized);
     }
 }
 
@@ -56,24 +70,26 @@ function handleClearAll() {
     emit('clear-all');
 }
 
-function isOptionSelected(key: keyof FilterState, value: string): boolean {
+function isOptionSelected(key: keyof FilterState, value: string | null): boolean {
     const stateVal = props.state[key];
-    if (Array.isArray(stateVal)) return stateVal.includes(value);
-    if (key === 'last_updated') return stateVal === value;
+    if (Array.isArray(stateVal)) return typeof value === 'string' && stateVal.includes(value);
+    if (key === 'last_updated' || key === 'commercial_use' || key === 'offline_after_setup' || key === 'telemetry') {
+        return (stateVal || null) === (value || null);
+    }
     return false;
 }
 
-function optionLabel(key: keyof FilterState, value: string): string {
+function optionLabel(key: keyof FilterState, value: string | null): string {
     if (key === 'last_updated') {
         const opt = LAST_UPDATED_OPTIONS.find((o) => o.value === value);
-        return opt?.label || value;
+        return opt?.label || value || 'Any time';
     }
-    return value;
+    return value || 'Any';
 }
 
-const visibleGroups = FILTER_GROUPS.filter(
+const visibleGroups = computed(() => FILTER_GROUPS.filter(
     (g) => g.key !== 'model_format' || props.showModelFormat
-);
+));
 </script>
 
 <template>
@@ -102,7 +118,7 @@ const visibleGroups = FILTER_GROUPS.filter(
             <div v-show="expandedGroups[group.key]" class="filter-group-content">
                 <div class="filter-buttons">
                     <template v-if="group.type === 'single'">
-                        <button v-for="opt in group.options" :key="opt.value" class="filter-btn"
+                        <button v-for="opt in group.options" :key="String(opt.value)" class="filter-btn"
                             :class="{ 'is-selected': isOptionSelected(group.key, opt.value) }"
                             @click="handleSingleSelect(group.key, opt.value)">
                             {{ optionLabel(group.key, opt.value) }}
@@ -110,9 +126,9 @@ const visibleGroups = FILTER_GROUPS.filter(
                     </template>
 
                     <template v-else>
-                        <button v-for="opt in group.options" :key="opt.value" class="filter-btn"
+                        <button v-for="opt in group.options" :key="String(opt.value)" class="filter-btn"
                             :class="{ 'is-selected': isOptionSelected(group.key, opt.value) }"
-                            @click="handleToggle(group.key, opt.value)">
+                            @click="handleToggle(group.key, opt.value || '')">
                             {{ opt.label }}
                         </button>
                     </template>

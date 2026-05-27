@@ -1,0 +1,86 @@
+---
+import Layout from "../layouts/Layout.astro";
+import toolsData from "../data/tools.json";
+
+const allTools = toolsData.tools.flatMap((cat: any) =>
+  cat.content.map((tool: any) => ({
+    ...tool,
+    category: cat.category,
+  })),
+);
+
+const sections = [
+  {
+    name: "Business Owner",
+    copy: "Find tools that can be run by an IT contractor without turning client data into a cloud dependency.",
+    categories: ["rag-document", "chat-interfaces", "workflow-automation"],
+    href: "/?persona=Business+Owner&setup=Low&commercial=yes",
+  },
+  {
+    name: "Developer / Engineer",
+    copy: "Shortlist self-hosted infrastructure by API support, license, hardware target, and deployment path.",
+    categories: ["llm-inference", "deployment", "monitoring-observability"],
+    href: "/?persona=Developer&feature=openai_api&feature=docker_available",
+  },
+  {
+    name: "Healthcare Professional",
+    copy: "Look for offline tools that keep clinical notes and patient context inside the clinic network.",
+    categories: ["chat-interfaces", "speech-to-text", "rag-document"],
+    href: "/?persona=Healthcare&offline=yes&telemetry=None",
+  },
+  {
+    name: "Legal Professional",
+    copy: "Evaluate document review and private search workflows for contracts, discovery, and NDA-bound files.",
+    categories: ["rag-document", "vector-databases", "chat-interfaces"],
+    href: "/?persona=Legal&use=Contract+Review&commercial=yes",
+  },
+  {
+    name: "Indie Hacker / Solo Builder",
+    copy: "Find affordable embeddable AI pieces that run locally or on your own small server.",
+    categories: ["llm-inference", "chat-interfaces", "agent-frameworks"],
+    href: "/?persona=Indie+Hacker&use=Self-hosted+Inference",
+  },
+];
+
+const featuredFor = (categories: string[]) => allTools
+  .filter((tool: any) => categories.includes(tool.category))
+  .sort((a: any, b: any) => (b.popularity_score || 0) - (a.popularity_score || 0))
+  .slice(0, 3);
+---
+
+<Layout
+  site="Enclavetools - Use Cases"
+  title="Use Cases"
+  tagline="Find private AI tools by job, not jargon"
+  pageTitle="Private AI use cases"
+  pageDescription="Persona-oriented entry points for private, local, and self-hosted AI tools."
+  showSearch={true}
+>
+  <main id="main-content" class="decision-page">
+    <header class="decision-header">
+      <p class="section-kicker">Use cases</p>
+      <h1>Start from the risk you need to control.</h1>
+      <p>These entry points map non-technical and technical needs to categories, filters, and practical shortlists.</p>
+    </header>
+
+    <div class="use-case-list">
+      {sections.map((section) => (
+        <section class="use-case-row">
+          <div>
+            <h2>{section.name}</h2>
+            <p>{section.copy}</p>
+            <a href={section.href}>Browse this view</a>
+          </div>
+          <div class="use-case-tools">
+            {featuredFor(section.categories).map((tool: any) => (
+              <a href={`/tools/${tool.slug}`}>
+                <strong>{tool.title}</strong>
+                <span>{tool.body}</span>
+              </a>
+            ))}
+          </div>
+        </section>
+      ))}
+    </div>
+  </main>
+</Layout>

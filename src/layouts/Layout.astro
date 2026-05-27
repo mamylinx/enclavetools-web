@@ -104,20 +104,6 @@ const {
     }
     {twitterImage && <meta name="twitter:image" content={twitterImage} />}
 
-    <!-- Google tag (gtag.js) -->
-    <script
-      type="text/partytown"
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-S08Z38BTMJ"></script>
-    <script type="text/partytown">
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        window.dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-
-      gtag("config", "G-S08Z38BTMJ");
-    </script>
     <ClientRouter />
     <WebSiteSchema />
   </head>
@@ -197,6 +183,18 @@ const {
         )
       }
       <div class="btn-group">
+        <a href="/" class="favorites-link">
+          <span class="favorites-text">Browse</span>
+        </a>
+        <a href="/use-cases" class="favorites-link">
+          <span class="favorites-text">Use cases</span>
+        </a>
+        <a href="/compare" class="favorites-link">
+          <span class="favorites-text">Compare</span>
+        </a>
+        <a href="/stack-builder" class="favorites-link">
+          <span class="favorites-text">Stack</span>
+        </a>
         <button
           class="new-filter-toggle"
           id="new-filter-toggle"
@@ -253,6 +251,10 @@ const {
               id="mobileNewFilterToggle"
               aria-pressed="false">Latest</button
             >
+            <a href="/" class="mobile-dropdown-item">Browse</a>
+            <a href="/use-cases" class="mobile-dropdown-item">Use cases</a>
+            <a href="/compare" class="mobile-dropdown-item">Compare</a>
+            <a href="/stack-builder" class="mobile-dropdown-item">Stack builder</a>
             <a
               href="/saved"
               class="mobile-dropdown-item mobile-saved-link"

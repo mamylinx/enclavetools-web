@@ -4,6 +4,7 @@ import Dashboard from "../components/Dashboard";
 import OrganizationSchema from "../components/schema/OrganizationSchema.astro";
 import ItemListSchema from "../components/schema/ItemListSchema.astro";
 import toolsData from "../data/tools.json";
+import categories from "../data/categories.json";
 
 const allTools = toolsData.tools.flatMap((cat: any) =>
   cat.content.map((tool: any) => ({
@@ -11,6 +12,30 @@ const allTools = toolsData.tools.flatMap((cat: any) =>
     category: [cat.category],
   }))
 );
+
+const totalTools = allTools.length;
+const latestVerified = allTools
+  .map((tool: any) => tool.last_verified || tool.last_updated || tool["date-added"])
+  .filter(Boolean)
+  .sort()
+  .at(-1);
+
+const categoryCounts = new Map(
+  toolsData.tools.map((cat: any) => [cat.category, cat.content.length])
+);
+
+const personaLinks = [
+  { label: "Developer", href: "/?persona=Developer&feature=openai_api&feature=docker_available" },
+  { label: "Business Owner", href: "/?persona=Business+Owner&setup=Low&commercial=yes" },
+  { label: "Healthcare", href: "/?persona=Healthcare&offline=yes&telemetry=None" },
+  { label: "Legal", href: "/?persona=Legal&use=Contract+Review&commercial=yes" },
+  { label: "Indie Hacker", href: "/?persona=Indie+Hacker&use=Self-hosted+Inference" },
+];
+
+const categoryTiles = categories.slice(0, 8).map((cat: any) => ({
+  ...cat,
+  count: categoryCounts.get(cat.category) || 0,
+}));
 ---
 <Layout
     site="Enclavetools"
@@ -21,6 +46,46 @@ const allTools = toolsData.tools.flatMap((cat: any) =>
 >
     <OrganizationSchema />
     <ItemListSchema items={allTools} listName="AI Tools Directory - All Tools" />
+    <main id="main-content" class="home-shell">
+        <section class="private-hero">
+            <p class="hero-kicker">Private AI tools directory</p>
+            <h1>AI tools that keep your data inside your walls.</h1>
+            <p class="hero-copy">Find self-hosted, local, and offline AI software for teams that cannot afford leaks. Compare setup difficulty, license risk, hardware needs, telemetry, and API support before you open GitHub.</p>
+            <div class="hero-actions">
+                <a href="#browse" class="hero-primary">Browse all tools</a>
+                <a href="#use-cases" class="hero-secondary">Find tools for my use case</a>
+                <a href="/compare" class="hero-secondary">Compare tools</a>
+                <a href="/stack-builder" class="hero-secondary">Build a stack</a>
+            </div>
+            <dl class="trust-strip" aria-label="Directory statistics">
+                <div><dt>{totalTools}</dt><dd>tools listed</dd></div>
+                <div><dt>{toolsData.tools.length}</dt><dd>categories</dd></div>
+                <div><dt>{latestVerified ? new Date(latestVerified).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" }) : "Build data"}</dt><dd>latest verification</dd></div>
+            </dl>
+        </section>
+
+        <section id="use-cases" class="persona-strip" aria-label="Use case entry points">
+            {personaLinks.map((item, index) => (
+                <a href={item.href} class="persona-link"><span>{String(index + 1).padStart(2, "0")}</span>{item.label}</a>
+            ))}
+        </section>
+
+        <section class="category-band" aria-labelledby="category-heading">
+            <div>
+                <p class="section-kicker">Start with the job</p>
+                <h2 id="category-heading">Choose a category, then narrow by privacy and setup.</h2>
+            </div>
+            <div class="category-tile-grid">
+                {categoryTiles.map((cat: any) => (
+                    <a href={`/?cat=${cat.category}`} class="category-tile">
+                        <span>{cat.title}</span>
+                        <strong>{cat.count}</strong>
+                    </a>
+                ))}
+            </div>
+        </section>
+    </main>
+    <div id="browse"></div>
     <Dashboard
         client:visible
         category="all"

@@ -5,6 +5,7 @@ import Sidebar from './Sidebar.vue';
 import FilterSidebar from './FilterSidebar.vue';
 import FilterBottomSheet from './FilterBottomSheet.vue';
 import ActiveFiltersBar from './ActiveFiltersBar.vue';
+import CompareTray from './CompareTray.vue';
 import { useFilterState } from '../composables/useFilterState';
 import type { Tool } from '../types';
 
@@ -54,6 +55,12 @@ function handleRemoveChip(key: keyof typeof filterState, value: string) {
         if (idx !== -1) arr.splice(idx, 1);
     } else if (key === 'sort') {
         filterState.sort = 'featured';
+    } else if (key === 'commercial_use') {
+        filterState.commercial_use = null;
+    } else if (key === 'offline_after_setup') {
+        filterState.offline_after_setup = null;
+    } else if (key === 'telemetry') {
+        filterState.telemetry = null;
     } else if (key === 'last_updated') {
         filterState.last_updated = null;
     }
@@ -79,10 +86,16 @@ onUnmounted(() => {
         <FilterSidebar class="filter-sidebar desktop-only" :state="filterState" :show-model-format="showModelFormat"
             :active-count="activeCount" @update:sort="(v) => setFilter('sort', v)"
             @update:category="(v) => setFilter('category', v)" @update:license="(v) => setFilter('license', v)"
+            @update:use_case="(v) => setFilter('use_case', v)" @update:persona="(v) => setFilter('persona', v)"
+            @update:setup_difficulty="(v) => setFilter('setup_difficulty', v)"
             @update:language="(v) => setFilter('language', v)" @update:hardware="(v) => setFilter('hardware', v)"
             @update:deployment="(v) => setFilter('deployment', v)"
             @update:model_format="(v) => setFilter('model_format', v)"
             @update:maturity="(v) => setFilter('maturity', v)"
+            @update:features="(v) => setFilter('features', v)"
+            @update:commercial_use="(v) => setFilter('commercial_use', v)"
+            @update:offline_after_setup="(v) => setFilter('offline_after_setup', v)"
+            @update:telemetry="(v) => setFilter('telemetry', v)"
             @update:last_updated="(v) => setFilter('last_updated', v)" @toggle="handleToggle"
             @clear="(k) => clearFilter(k)" @clear-all="clearAll" />
 
@@ -109,14 +122,21 @@ onUnmounted(() => {
         <aside class="sidebar desktop-only">
             <Sidebar showSponsor showNewsletter />
         </aside>
+        <CompareTray :tools="props.ssrTools || []" />
     </div>
 
     <FilterBottomSheet v-if="showFilterSheet" :state="filterState" :show-model-format="showModelFormat"
         :active-count="activeCount" @close="showFilterSheet = false" @update:sort="(v) => setFilter('sort', v)"
         @update:category="(v) => setFilter('category', v)" @update:license="(v) => setFilter('license', v)"
+        @update:use_case="(v) => setFilter('use_case', v)" @update:persona="(v) => setFilter('persona', v)"
+        @update:setup_difficulty="(v) => setFilter('setup_difficulty', v)"
         @update:language="(v) => setFilter('language', v)" @update:hardware="(v) => setFilter('hardware', v)"
         @update:deployment="(v) => setFilter('deployment', v)"
         @update:model_format="(v) => setFilter('model_format', v)" @update:maturity="(v) => setFilter('maturity', v)"
+        @update:features="(v) => setFilter('features', v)"
+        @update:commercial_use="(v) => setFilter('commercial_use', v)"
+        @update:offline_after_setup="(v) => setFilter('offline_after_setup', v)"
+        @update:telemetry="(v) => setFilter('telemetry', v)"
         @update:last_updated="(v) => setFilter('last_updated', v)" @toggle="handleToggle" @clear="(k) => clearFilter(k)"
         @clear-all="clearAll" />
 </template>

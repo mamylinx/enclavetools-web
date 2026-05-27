@@ -25,6 +25,10 @@ export const toolComparators = {
     },
     'most-popular': (a: Tool, b: Tool): number =>
         (b.popularity_score || 0) - (a.popularity_score || 0),
+    'setup-easiest': (a: Tool, b: Tool): number => {
+        const rank: Record<string, number> = { Low: 0, Medium: 1, High: 2 };
+        return (rank[a.setup_difficulty || 'Medium'] ?? 1) - (rank[b.setup_difficulty || 'Medium'] ?? 1);
+    },
 } as const;
 
 export type SortKey = keyof typeof toolComparators | 'random';

@@ -1,0 +1,25 @@
+---
+import Layout from "../layouts/Layout.astro";
+import StackBuilder from "../components/StackBuilder.vue";
+import toolsData from "../data/tools.json";
+
+const allTools = toolsData.tools.flatMap((cat: any) =>
+  cat.content.map((tool: any) => ({
+    ...tool,
+    category: cat.category,
+  })),
+);
+---
+
+<Layout
+  site="Enclavetools - Stack Builder"
+  title="Stack Builder"
+  tagline="Build a private AI stack from compatible tools"
+  pageTitle="Private AI stack builder"
+  pageDescription="Build a local, self-hosted AI stack from compatible inference, chat, RAG, vector, deployment, and monitoring tools."
+  showSearch={true}
+>
+  <main id="main-content">
+    <StackBuilder client:visible tools={allTools} />
+  </main>
+</Layout>

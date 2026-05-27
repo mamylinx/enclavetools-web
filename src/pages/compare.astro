@@ -1,0 +1,25 @@
+---
+import Layout from "../layouts/Layout.astro";
+import CompareView from "../components/CompareView.vue";
+import toolsData from "../data/tools.json";
+
+const allTools = toolsData.tools.flatMap((cat: any) =>
+  cat.content.map((tool: any) => ({
+    ...tool,
+    category: cat.category,
+  })),
+);
+---
+
+<Layout
+  site="Enclavetools - Compare"
+  title="Compare"
+  tagline="Compare private AI tools side by side"
+  pageTitle="Compare private AI tools"
+  pageDescription="Compare self-hosted AI tools by license, privacy, setup, API support, and hardware requirements."
+  showSearch={true}
+>
+  <main id="main-content">
+    <CompareView client:visible tools={allTools} />
+  </main>
+</Layout>

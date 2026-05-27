@@ -5,28 +5,29 @@ import BreadcrumbSchema from "../../components/schema/BreadcrumbSchema.astro";
 import BookmarkButton from "../../components/BookmarkButton";
 import toolsData from "../../data/tools.json";
 import slugMap from "../../data/slug-map.json";
+import { getWorksWith } from "../../utils/toolModel";
 
 // Generate all tool slugs for static paths
 export function getStaticPaths() {
-  const allTools = toolsData.tools.flatMap((cat: any) => 
+  const allTools = toolsData.tools.flatMap((cat: any) =>
     cat.content.map((tool: any) => ({
       ...tool,
       category: cat.category,
-    }))
+    })),
   );
   return allTools.map((tool: any) => ({
-    params: { slug: tool.slug }
+    params: { slug: tool.slug },
   }));
 }
 
 const { slug } = Astro.params;
 
 // Flatten all tools with category info
-const allTools = toolsData.tools.flatMap((cat: any) => 
+const allTools = toolsData.tools.flatMap((cat: any) =>
   cat.content.map((tool: any) => ({
     ...tool,
     category: cat.category,
-  }))
+  })),
 );
 
 // Find the requested tool
@@ -38,10 +39,83 @@ if (!tool) {
 // Get category (should exist since tool was found)
 const category = tool.category;
 
-// Get related tools (same category, different slug, limit 4 random)
+const enrichTool = (item: any) => {
+  const text = `${item.title} ${item.body} ${item.category}`.toLowerCase();
+  const hardware = item.hardware || [];
+  const deployment = item.deployment || [];
+  const modelFormat = item.model_format || [];
+  const lowResource = hardware.some((value: string) =>
+    value.includes("Low-resource"),
+  );
+  const gpuOnly =
+    hardware.length > 0 &&
+    hardware.every(
+      (value: string) =>
+        value.includes("GPU") ||
+        value.includes("CUDA") ||
+        value.includes("ROCm"),
+    );
+  const docker = deployment.includes("Docker");
+  const gui =
+    item.category === "chat-interfaces" ||
+    text.includes("gui") ||
+    text.includes("visual") ||
+    text.includes("no-code");
+  return {
+    ...item,
+    plain_description: item.plain_description || item.body,
+    technical_description: item.technical_description || item.body,
+    commercial_use:
+      item.commercial_use ??
+      !/agpl|non-commercial|cc by-nc/i.test(item.license || ""),
+    setup_difficulty:
+      item.setup_difficulty ||
+      (gui || lowResource
+        ? "Low"
+        : docker
+          ? "Medium"
+          : gpuOnly
+            ? "High"
+            : "Medium"),
+    min_ram_gb: item.min_ram_gb || (lowResource ? 8 : gpuOnly ? 16 : 8),
+    recommended_ram_gb: item.recommended_ram_gb || (gpuOnly ? 32 : 16),
+    telemetry: item.telemetry || "None",
+    offline_after_setup: item.offline_after_setup ?? true,
+    paid_support:
+      item.paid_support ??
+      Boolean(item.url && !item.url.includes("github.com")),
+    gui_available: item.gui_available ?? gui,
+    docker_available: item.docker_available ?? docker,
+    openai_api:
+      item.openai_api ??
+      (text.includes("openai") || text.includes("oai compatible")),
+    rest_api:
+      item.rest_api ?? (text.includes("api") || item.category === "deployment"),
+    fine_tuning:
+      item.fine_tuning ??
+      (item.category === "fine-tuning-training" || text.includes("fine-tun")),
+    quantization:
+      item.quantization ??
+      (modelFormat.some((value: string) =>
+        ["GGUF", "GPTQ", "AWQ"].includes(value),
+      ) ||
+        text.includes("quant")),
+    community_notes_count: item.community_notes_count || 0,
+    community_guides_count: item.community_guides_count || 0,
+    last_verified:
+      item.last_verified || item.last_updated || item["date-added"],
+  };
+};
+
+const enrichedTool = enrichTool(tool);
+const worksWithTools = getWorksWith(enrichedTool, allTools, 4);
+
+// Get related tools (same category, different slug, deterministic order)
 const relatedTools = allTools
   .filter((t: any) => t.category === category && t.slug !== slug)
-  .sort(() => Math.random() - 0.5) // random order
+  .sort(
+    (a: any, b: any) => (b.popularity_score || 0) - (a.popularity_score || 0),
+  )
   .slice(0, 4);
 
 // Format date helper
@@ -66,9 +140,9 @@ const seoDescription = tool.body;
 
 // Get category display name (capitalize first letter of each word)
 const categoryTitle = category
-  .split('-')
-  .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-  .join(' ');
+  .split("-")
+  .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+  .join(" ");
 
 const breadcrumbs = [
   { name: "Home", url: "https://enclavetools.com" },
@@ -76,11 +150,44 @@ const breadcrumbs = [
   { name: tool.title },
 ];
 
-const encodedShareText = encodeURIComponent(`Check out ${tool.title} - ${tool.body}`);
+const encodedShareText = encodeURIComponent(
+  `Check out ${enrichedTool.title} - ${enrichedTool.body}`,
+);
 const encodedCanonicalUrl = encodeURIComponent(canonicalUrl);
 const xShareUrl = `https://x.com/intent/post?text=${encodedShareText}&url=${encodedCanonicalUrl}`;
 const linkedinShareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodedCanonicalUrl}`;
+
+const yesNo = (value: boolean) => (value ? "Yes" : "No");
+const scorecard = [
+  ["License", enrichedTool.license || "Not specified"],
+  ["Commercial use", yesNo(enrichedTool.commercial_use)],
+  ["OpenAI-compatible API", yesNo(enrichedTool.openai_api)],
+  ["REST API", yesNo(enrichedTool.rest_api)],
+  ["Fine-tuning support", yesNo(enrichedTool.fine_tuning)],
+  [
+    "Quantization support",
+    enrichedTool.quantization
+      ? enrichedTool.model_format?.join(", ") || "Yes"
+      : "No",
+  ],
+  ["Docker available", yesNo(enrichedTool.docker_available)],
+  ["GUI / no-code available", yesNo(enrichedTool.gui_available)],
+  ["Telemetry", enrichedTool.telemetry],
+  ["Offline after setup", yesNo(enrichedTool.offline_after_setup)],
+];
+
+const featureBadges = [
+  categoryTitle,
+  enrichedTool.license,
+  enrichedTool.setup_difficulty
+    ? `${enrichedTool.setup_difficulty} setup`
+    : null,
+  enrichedTool.popularity_score
+    ? `${enrichedTool.popularity_score.toLocaleString("en-US")} stars`
+    : null,
+].filter(Boolean);
 ---
+
 <Layout
   site={`Enclavetools - ${tool.title}`}
   title={tool.title}
@@ -111,237 +218,658 @@ const linkedinShareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${
   />
   <BreadcrumbSchema items={breadcrumbs} />
 
-  <main id="main-content">
-    <div class="detail-container">
-      <nav class="detail-breadcrumb">
-        <a href="/">Home</a>
-        <span class="breadcrumb-sep">/</span>
-        <a href={`/${category}`}>{categoryTitle}</a>
-        <span class="breadcrumb-sep">/</span>
-        <span class="breadcrumb-current">{tool.title}</span>
-      </nav>
+  <main id="main-content" class="tool-detail-shell">
+    <nav class="detail-breadcrumb">
+      <a href="/">Home</a><span>/</span><a href={`/${category}`}
+        >{categoryTitle}</a
+      ><span>/</span><span>{enrichedTool.title}</span>
+    </nav>
 
-      <article class="detail-card">
-        <div class="detail-header">
-          <div class="detail-icon-wrap">
-            <img src={faviconUrl} alt="" class="detail-icon" onerror="this.style.display='none'" />
-          </div>
-          <div class="detail-info">
-            <h1 class="detail-title">{tool.title}</h1>
-            <div class="detail-meta">
-              <a href={`/${category}`} class="detail-category">{categoryTitle}</a>
-              <span class="meta-sep">·</span>
-              <span class="detail-date">Added {formattedDate}</span>
+    <article class="tool-detail">
+      <aside class="detail-mini-nav" aria-label="Tool page sections">
+        <a href="#overview">Overview</a>
+        <a href="#technical">Technical</a>
+        <a href="#privacy">Privacy & Data</a>
+        <a href="#setup">Setup</a>
+        <a href="#hardware">Hardware</a>
+        <a href="#works-with">Works With</a>
+        <a href="#community">Community</a>
+        <a href="#related">Related</a>
+      </aside>
+
+      <div class="detail-main">
+        <header class="detail-hero">
+          <div class="detail-hero-top">
+            <img
+              src={faviconUrl}
+              alt=""
+              class="detail-icon"
+              onerror="this.style.display='none'"
+            />
+            <div class="detail-actions">
+              {
+                enrichedTool.github_url || enrichedTool.url ? (
+                  <a
+                    href={enrichedTool.github_url || enrichedTool.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="detail-button primary"
+                  >
+                    View on GitHub
+                  </a>
+                ) : null
+              }
+              {
+                enrichedTool.url ? (
+                  <a
+                    href={enrichedTool.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="detail-button"
+                  >
+                    Official site
+                  </a>
+                ) : null
+              }
+              <button class="detail-button" data-tool-action="share">
+                Share
+              </button>
+              <button class="detail-button" data-tool-action="compare" data-slug={slug}>
+                Add to compare
+              </button>
+              <button class="detail-button" data-tool-action="stack" data-slug={slug}>
+                Add to stack
+              </button>
+              <BookmarkButton
+                client:load
+                slug={slug}
+                title={enrichedTool.title}
+                body={enrichedTool.body}
+                url={enrichedTool.url}
+                category={category}
+                variant="default"
+              />
             </div>
           </div>
-          <div class="detail-actions">
-            {tool.url ? (
-              <a href={tool.url} target="_blank" rel="noopener noreferrer" class="btn-visit">Visit Website ↗</a>
-            ) : null}
-            <BookmarkButton client:load slug={slug} title={tool.title} body={tool.body} url={tool.url} category={category} variant="default" />
+          <h1>{enrichedTool.title}</h1>
+          <p>{enrichedTool.plain_description}</p>
+          <div class="badge-row">
+            {featureBadges.map((badge: string) => <span>{badge}</span>)}
           </div>
-        </div>
+        </header>
 
-        <div class="detail-body">
-          <div class="detail-section">
-            <h2 class="section-title">About</h2>
-            <p class="detail-desc">{tool.body}</p>
-          </div>
-
-          <div class="detail-fields">
-            {tool.license && (
-              <div class="field-item"><span class="field-label">License</span><span class="field-value">{tool.license}</span></div>
-            )}
-            {tool.language && tool.language.length > 0 && (
-              <div class="field-item">
-                <span class="field-label">Language</span>
-                <span class="field-value-array">
-                  {tool.language.map((lang: string) => <span class="field-tag">{lang}</span>)}
-                </span>
-              </div>
-            )}
-            {tool.hardware && tool.hardware.length > 0 && (
-              <div class="field-item">
-                <span class="field-label">Hardware</span>
-                <span class="field-value-array">
-                  {tool.hardware.map((hw: string) => <span class="field-tag">{hw}</span>)}
-                </span>
-              </div>
-            )}
-            {tool.deployment && tool.deployment.length > 0 && (
-              <div class="field-item">
-                <span class="field-label">Deployment</span>
-                <span class="field-value-array">
-                  {tool.deployment.map((dep: string) => <span class="field-tag">{dep}</span>)}
-                </span>
-              </div>
-            )}
-            {tool.model_format && tool.model_format.length > 0 && (
-              <div class="field-item">
-                <span class="field-label">Model Format</span>
-                <span class="field-value-array">
-                  {tool.model_format.map((fmt: string) => <span class="field-tag">{fmt}</span>)}
-                </span>
-              </div>
-            )}
-            {tool.maturity && (
-              <div class="field-item"><span class="field-label">Maturity</span><span class="field-value">{tool.maturity}</span></div>
-            )}
-          </div>
-        </div>
-
-        <div class="detail-footer">
-          <div class="share-box">
-            <span class="share-label">Share:</span>
-            <a href={xShareUrl} target="_blank" rel="noopener noreferrer" class="share-link">X</a>
-            <a href={linkedinShareUrl} target="_blank" rel="noopener noreferrer" class="share-link">LinkedIn</a>
-            <button class="share-copy" id="copyLinkBtn">Copy Link</button>
-          </div>
-          <a href={category === "all" ? "/" : `/${category}`} class="back-link">← Back to {categoryTitle}</a>
-        </div>
-      </article>
-
-      {relatedTools.length > 0 && (
-        <section class="related-section">
-          <h2 class="related-heading">Similar Tools</h2>
-          <div class="related-grid">
-            {relatedTools.map((t: any) => (
-              <a href={`/tools/${t.slug}`} class="related-card">
-                <img src={`/favicons/${t.slug}.png`} alt="" class="related-icon" onerror="this.style.display='none'" />
-                <div class="related-info">
-                  <span class="related-name">{t.title}</span>
-                  <span class="related-desc">{t.body?.slice(0, 50)}...</span>
-                </div>
-              </a>
-            ))}
+        <section id="overview" class="detail-section">
+          <p class="section-label">Overview</p>
+          <div class="overview-grid">
+            <div>
+              <h2>Plain English</h2>
+              <p>{enrichedTool.plain_description}</p>
+            </div>
+            <div>
+              <h2>Technical</h2>
+              <p>{enrichedTool.technical_description}</p>
+            </div>
           </div>
         </section>
-      )}
-    </div>
+
+        <section id="technical" class="detail-section">
+          <p class="section-label">Technical scorecard</p>
+          <div class="scorecard">
+            {
+              scorecard.map(([label, value]) => (
+                <div class="score-row">
+                  <>
+                    <span>{label}</span>
+                    <strong>{value}</strong>
+                  </>
+                </div>
+              ))
+            }
+          </div>
+        </section>
+
+        <section id="privacy" class="detail-section">
+          <p class="section-label">Data & Privacy</p>
+          <div class="qa-grid">
+            <div>
+              <h2>Does it send data online?</h2><p>
+                {
+                  enrichedTool.offline_after_setup
+                    ? "After setup, this listing is marked as usable offline. Confirm network behavior against the upstream project before regulated deployment."
+                    : "This listing is not marked offline after setup."
+                }
+              </p>
+            </div>
+            <div>
+              <h2>Does it store history?</h2><p>
+                Not verified in this directory yet. Review the upstream docs for
+                persistence, logs, and workspace storage.
+              </p>
+            </div>
+            <div>
+              <h2>License checks?</h2><p>
+                {
+                  enrichedTool.commercial_use
+                    ? "Commercial use is marked as allowed or likely allowed by the listed license."
+                    : "The listed license needs review before commercial use."
+                }
+              </p>
+            </div>
+            <div><h2>Telemetry?</h2><p>{enrichedTool.telemetry}</p></div>
+          </div>
+          <p class="verification-note">
+            Last verified: {formatDate(enrichedTool.last_verified)}. Maintainer
+            verification should be treated as directory guidance, not legal
+            advice.
+          </p>
+        </section>
+
+        <section id="setup" class="detail-section">
+          <p class="section-label">Setup & Installation</p>
+          <div class="setup-panel">
+            <div>
+              <span
+                class={`difficulty ${String(enrichedTool.setup_difficulty).toLowerCase()}`}
+              ></span><strong>{enrichedTool.setup_difficulty}</strong><p>
+                {
+                  enrichedTool.setup_difficulty === "Low"
+                    ? "GUI, low-resource, or simple install path likely available."
+                    : enrichedTool.setup_difficulty === "High"
+                      ? "Expect GPU, framework, or production deployment work."
+                      : "A developer can usually get this running with standard docs."
+                }
+              </p>
+            </div>
+            <div>
+              <h2>Prerequisites</h2><p>
+                {
+                  [
+                    ...(enrichedTool.language || []),
+                    ...(enrichedTool.deployment || []),
+                  ]
+                    .slice(0, 5)
+                    .join(", ") || "Check upstream documentation."
+                }
+              </p>
+            </div>
+          </div>
+          <pre><code>{`# Start with the official project documentation\n# ${enrichedTool.github_url || enrichedTool.url || canonicalUrl}`}</code></pre>
+        </section>
+
+        <section id="hardware" class="detail-section">
+          <p class="section-label">Hardware Requirements</p>
+          <div class="scorecard two-col">
+            <div class="score-row">
+              <span>RAM</span><strong
+                >{enrichedTool.min_ram_gb} GB minimum / {
+                  enrichedTool.recommended_ram_gb
+                } GB recommended</strong
+              >
+            </div>
+            <div class="score-row">
+              <span>Hardware tags</span><strong
+                >{enrichedTool.hardware?.join(", ") || "Not specified"}</strong
+              >
+            </div>
+            <div class="score-row">
+              <span>Model formats</span><strong
+                >{
+                  enrichedTool.model_format?.join(", ") || "Not specified"
+                }</strong
+              >
+            </div>
+            <div class="score-row">
+              <span>Primary language</span><strong
+                >{enrichedTool.language?.join(", ") || "Not specified"}</strong
+              >
+            </div>
+          </div>
+        </section>
+
+        <section id="works-with" class="detail-section">
+          <p class="section-label">Works Well With</p>
+          <div class="related-grid">
+            {
+              worksWithTools.map((t: any) => (
+                <a href={`/tools/${t.slug}`} class="related-card">
+                  <strong>{t.title}</strong>
+                  <span>{t.plain_description || t.body?.slice(0, 120)}</span>
+                </a>
+              ))
+            }
+          </div>
+          <div class="stack-actions">
+            <a href={`/stack-builder?stack=${[slug, ...worksWithTools.slice(0, 3).map((item: any) => item.slug)].join(",")}`} class="detail-button">
+              Open suggested stack
+            </a>
+          </div>
+        </section>
+
+        <section id="community" class="detail-section">
+          <p class="section-label">Community</p>
+          <div class="community-grid">
+            <div>
+              <strong>{enrichedTool.community_notes_count}</strong><span
+                >structured notes</span
+              >
+            </div>
+            <div>
+              <strong>{enrichedTool.community_guides_count}</strong><span
+                >guides</span
+              >
+            </div>
+          </div>
+          <form class="correction-form">
+            <h2>Suggest a correction</h2>
+            <label
+              >Field<select
+                ><option>License</option><option>Telemetry</option><option
+                  >Hardware</option
+                ><option>Setup difficulty</option></select
+              ></label
+            >
+            <label
+              >Correction<textarea placeholder="What should this say?"
+              ></textarea></label
+            >
+            <label
+              >Source URL<input type="url" placeholder="https://..." /></label
+            >
+            <button type="button">Submit for review</button>
+          </form>
+        </section>
+
+        {
+          relatedTools.length > 0 && (
+            <section id="related" class="detail-section">
+              <p class="section-label">You might also evaluate</p>
+              <div class="related-grid">
+                {relatedTools.map((t: any) => (
+                  <a href={`/tools/${t.slug}`} class="related-card">
+                    <strong>{t.title}</strong>
+                    <span>{t.body?.slice(0, 96)}...</span>
+                  </a>
+                ))}
+              </div>
+            </section>
+          )
+        }
+
+        <div class="share-box">
+          <a href={xShareUrl} target="_blank" rel="noopener noreferrer"
+            >Share on X</a
+          >
+          <a href={linkedinShareUrl} target="_blank" rel="noopener noreferrer"
+            >Share on LinkedIn</a
+          >
+        </div>
+      </div>
+    </article>
   </main>
 
   <script type="module">
-    const copyBtn = document.getElementById('copyLinkBtn');
-    if (copyBtn) {
-      copyBtn.addEventListener('click', () => {
-        navigator.clipboard.writeText(window.location.href);
-        copyBtn.textContent = 'Copied!';
-        setTimeout(() => copyBtn.textContent = 'Copy Link', 2000);
-      });
-    }
+    const copyText = async (value) => {
+      if (navigator.clipboard?.writeText && window.isSecureContext) {
+        await navigator.clipboard.writeText(value);
+        return;
+      }
+
+      const textarea = document.createElement("textarea");
+      textarea.value = value;
+      textarea.setAttribute("readonly", "");
+      textarea.style.position = "fixed";
+      textarea.style.left = "-9999px";
+      textarea.style.top = "0";
+      document.body.appendChild(textarea);
+      textarea.select();
+      const copied = document.execCommand("copy");
+      document.body.removeChild(textarea);
+      if (!copied) throw new Error("Copy command failed");
+    };
+
+    const setTemporaryText = (button, text, fallback) => {
+      button.textContent = text;
+      window.setTimeout(() => {
+        button.textContent = fallback;
+      }, 2200);
+    };
+
+    const addLocalSlug = (key, slug, max, append = true) => {
+      let slugs = [];
+      try {
+        slugs = JSON.parse(localStorage.getItem(key) || "[]");
+      } catch {}
+      if (!slug) return slugs.slice(0, max);
+      if (!slugs.includes(slug)) {
+        slugs = append ? [...slugs, slug] : [slug, ...slugs];
+      }
+      slugs = slugs.slice(0, max);
+      localStorage.setItem(key, JSON.stringify(slugs));
+      return slugs;
+    };
+
+    const handleToolAction = async (event) => {
+      const button = event.target.closest("[data-tool-action]");
+      if (!button) return;
+
+      const action = button.dataset.toolAction;
+      const slug = button.dataset.slug;
+
+      if (action === "share") {
+        try {
+          await copyText(window.location.href);
+          setTemporaryText(button, "Copied", "Share");
+        } catch {
+          setTemporaryText(button, "Copy failed", "Share");
+        }
+      }
+
+      if (action === "compare") {
+        const slugs = addLocalSlug("enclavetools-compare", slug, 4);
+        localStorage.setItem("enclavetools-compare", JSON.stringify(slugs));
+        window.dispatchEvent(new CustomEvent("compare:changed", { detail: { slugs } }));
+        setTemporaryText(button, "Added", "Add to compare");
+      }
+
+      if (action === "stack") {
+        const slugs = addLocalSlug("enclavetools-stack", slug, 8, false);
+        localStorage.setItem("enclavetools-stack", JSON.stringify(slugs));
+        setTemporaryText(button, "Added", "Add to stack");
+        window.location.assign(`/stack-builder?stack=${slugs.join(",")}`);
+      }
+    };
+
+    const bindToolActions = () => {
+      document.removeEventListener("click", handleToolAction);
+      document.addEventListener("click", handleToolAction);
+    };
+
+    bindToolActions();
+    document.addEventListener("astro:page-load", bindToolActions);
   </script>
 
   <style>
-    .detail-container { max-width: 960px; margin: 0 auto; padding: 24px; }
-    .detail-breadcrumb { display: flex; gap: 8px; font-size: 13px; margin-bottom: 20px; }
-    .detail-breadcrumb a { color: #888; text-decoration: none; }
-    .detail-breadcrumb a:hover { color: #0066FF; }
-    .breadcrumb-sep { color: #e0e0e0; }
-    .breadcrumb-current { color: #121212; }
-  
-    .detail-card {
-      background: #fff;
-      border: 1px solid #e0e0e0;
-      border-radius: 8px;
-      padding: 20px;
+    .tool-detail-shell {
+      padding: 96px 40px 72px;
+    }
+    .detail-breadcrumb {
+      display: flex;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      color: #777;
+    }
+    .detail-breadcrumb a {
+      color: #121212;
+    }
+    .tool-detail {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 40px;
+    }
+    .detail-mini-nav {
+      position: sticky;
+      top: 92px;
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 8px;
+      align-self: start;
     }
-  
-    .detail-header {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      padding-bottom: 16px;
-      border-bottom: 1px solid #e0e0e0;
-    }
-  
-    .detail-icon-wrap { flex-shrink: 0; }
-    .detail-icon { width: 40px; height: 40px; border-radius: 8px; border: 1px solid #e0e0e0; }
-    .detail-info { flex: 1; }
-    .detail-title { margin: 0 0 4px 0; font-size: 15px; font-weight: 600; color: #121212; letter-spacing: -0.2px; font-family: Inter, sans-serif; }
-    .detail-meta { display: flex; align-items: center; gap: 6px; }
-    .detail-category { font-size: 12px; color: #0066FF; text-decoration: none; }
-    .detail-category:hover { text-decoration: underline; }
-    .meta-sep { color: #888; font-size: 12px; }
-    .detail-date { font-size: 12px; color: #888; }
-    .detail-actions { display: flex; align-items: center; gap: 8px; }
-  
-    .btn-visit {
-      display: inline-block;
-      padding: 8px 16px;
-      background: #0066FF;
-      color: #fff;
-      font-size: 13px;
-      font-weight: 600;
-      text-decoration: none;
-      border-radius: 8px;
-      font-family: Inter, sans-serif;
-    }
-    .btn-visit:hover { background: #0052CC; }
-  
-    .detail-body { display: flex; flex-direction: column; gap: 16px; }
-    .section-title { margin: 0 0 8px 0; font-size: 12px; color: #888; text-transform: uppercase; letter-spacing: 0.05em; font-family: Inter, sans-serif; }
-    .detail-desc { margin: 0; font-size: 13px; line-height: 1.5; color: #555; font-family: Inter, sans-serif; }
-  
-    .detail-fields { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-    .field-item { display: flex; flex-direction: column; gap: 2px; }
-    .field-label { font-size: 11px; color: #888; text-transform: uppercase; }
-    .field-value { font-size: 13px; color: #121212; font-weight: 500; }
-    .field-value-array { display: flex; flex-wrap: wrap; gap: 4px; }
-    .field-tag {
-      display: inline-block;
-      padding: 2px 6px;
-      font-size: 11px;
+    .detail-mini-nav a {
       color: #121212;
-      background: #f5f5f5;
-      border-radius: 4px;
-      white-space: nowrap;
+      font-weight: 800;
+      font-size: 12px;
+      text-transform: uppercase;
     }
-  
-    .detail-footer {
+    .detail-main {
+      border-top: 1px solid #121212;
+    }
+    .detail-hero {
+      padding: 24px 0 44px;
+      border-bottom: 1px solid #121212;
+    }
+    .detail-hero-top {
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      padding-top: 16px;
-      border-top: 1px solid #e0e0e0;
+      gap: 16px;
+      align-items: flex-start;
     }
-  
-    .share-box { display: flex; align-items: center; gap: 8px; font-size: 12px; }
-    .share-label { color: #888; }
-    .share-link { color: #0066FF; text-decoration: none; }
-    .share-link:hover { text-decoration: underline; }
-    .share-copy { background: none; border: none; color: #0066FF; cursor: pointer; font-size: 12px; font-family: Inter, sans-serif; }
-  
-    .back-link { font-size: 12px; color: #888; text-decoration: none; font-family: Inter, sans-serif; }
-    .back-link:hover { color: #0066FF; }
-  
-    .related-section { margin-top: 32px; }
-    .related-heading { margin: 0 0 16px 0; font-size: 15px; font-weight: 600; color: #121212; font-family: Inter, sans-serif; }
-  
-    .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-    .related-card {
-      display: flex; align-items: center; gap: 10px;
-      padding: 14px;
+    .detail-icon {
+      width: 56px;
+      height: 56px;
+      border: 1px solid #121212;
+    }
+    .detail-actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .detail-button {
+      border: 1px solid #121212;
       background: #fff;
-      border: 1px solid #e0e0e0;
-      border-radius: 8px;
-      text-decoration: none;
+      color: #121212;
+      padding: 10px 20px;
+      font-weight: 800;
+      cursor: pointer;
     }
-    .related-card:hover { border-color: #0066FF; box-shadow: 0 4px 16px rgba(0, 102, 255, 0.12); transform: translateY(-2px); }
-    .related-icon { width: 32px; height: 32px; border-radius: 6px; border: 1px solid #e0e0e0; flex-shrink: 0; }
-    .related-info { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
-    .related-name { font-size: 13px; font-weight: 600; color: #121212; }
-    .related-desc { font-size: 12px; color: #888; overflow: hidden; text-overflow: ellipsis; }
-  
-    @media (max-width: 768px) {
-      .detail-container { padding: 16px; }
-      .detail-header { flex-wrap: wrap; }
-      .detail-actions { width: 100%; }
-      .btn-visit { flex: 1; text-align: center; }
-      .detail-fields { grid-template-columns: repeat(2, 1fr); }
-      .related-grid { grid-template-columns: 1fr; }
+    .detail-button.primary {
+      background: #121212;
+      color: #fff;
+    }
+    .detail-button:hover {
+      background: #ffd60a;
+      color: #121212;
+    }
+    .detail-hero h1 {
+      font-size: clamp(56px, 10vw, 144px);
+      line-height: 0.9;
+      font-weight: 900;
+      letter-spacing: 0;
+      margin: 28px 0 18px;
+    }
+    .detail-hero p {
+      max-width: 840px;
+      font-size: clamp(20px, 2.5vw, 34px);
+      line-height: 1.1;
+      font-weight: 700;
+      color: #121212;
+    }
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 24px;
+    }
+    .badge-row span {
+      border: 1px solid #121212;
+      padding: 6px 9px;
+      font-size: 12px;
+      font-weight: 900;
+    }
+    .detail-section {
+      padding: 42px 0;
+      border-bottom: 1px solid #121212;
+    }
+    .section-label {
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      color: #777;
+    }
+    .overview-grid,
+    .qa-grid,
+    .setup-panel,
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: #121212;
+      border: 1px solid #121212;
+    }
+    .overview-grid > div,
+    .qa-grid > div,
+    .setup-panel > div,
+    .related-card {
+      background: #fff;
+      padding: 18px;
+      color: #121212;
+    }
+    .overview-grid h2,
+    .qa-grid h2,
+    .setup-panel h2,
+    .correction-form h2 {
+      font-size: 18px;
+      font-weight: 900;
+      margin-bottom: 10px;
+    }
+    .overview-grid p,
+    .qa-grid p,
+    .setup-panel p {
+      font-size: 15px;
+      line-height: 1.5;
+      color: #333;
+    }
+    .scorecard {
+      border: 1px solid #121212;
+      border-bottom: 0;
+    }
+    .score-row {
+      display: grid;
+      grid-template-columns: minmax(180px, 0.8fr) 1.2fr;
+      border-bottom: 1px solid #121212;
+    }
+    .score-row span,
+    .score-row strong {
+      padding: 13px 14px;
+      font-size: 14px;
+    }
+    .score-row span {
+      color: #555;
+      border-right: 1px solid #121212;
+    }
+    .score-row strong {
+      font-weight: 900;
+    }
+    .verification-note {
+      margin-top: 14px;
+      color: #555;
+      font-size: 13px;
+    }
+    .difficulty {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #ffd60a;
+      margin-right: 8px;
+    }
+    .difficulty.low {
+      background: #16a34a;
+    }
+    .difficulty.high {
+      background: #ff3b30;
+    }
+    pre {
+      border: 1px solid #121212;
+      padding: 16px;
+      overflow-x: auto;
+      margin-top: 12px;
+      font-size: 13px;
+    }
+    .community-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      border: 1px solid #121212;
+      margin-bottom: 16px;
+    }
+    .community-grid div {
+      padding: 18px;
+      border-right: 1px solid #121212;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .community-grid strong {
+      font-size: 42px;
+      line-height: 1;
+    }
+    .correction-form {
+      display: grid;
+      gap: 12px;
+      border: 1px solid #121212;
+      padding: 18px;
+    }
+    .correction-form label {
+      display: grid;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+    .correction-form input,
+    .correction-form select,
+    .correction-form textarea {
+      width: 100%;
+      border: 1px solid #121212;
+      padding: 10px;
+      font: inherit;
+    }
+    .correction-form button {
+      justify-self: start;
+      border: 1px solid #121212;
+      background: #121212;
+      color: #fff;
+      padding: 10px 14px;
+      font-weight: 900;
+    }
+    .related-card {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .related-card strong {
+      font-size: 18px;
+      font-weight: 900;
+    }
+    .related-card span {
+      color: #555;
+      line-height: 1.4;
+    }
+    .share-box {
+      display: flex;
+      gap: 12px;
+      padding-top: 20px;
+      font-weight: 800;
+    }
+    @media (max-width: 900px) {
+      .tool-detail-shell {
+        padding: 82px 16px 48px;
+      }
+      .tool-detail,
+      .overview-grid,
+      .qa-grid,
+      .setup-panel,
+      .related-grid {
+        grid-template-columns: 1fr;
+      }
+      .detail-mini-nav {
+        display: none;
+      }
+      .detail-hero-top,
+      .detail-actions {
+        justify-content: flex-start;
+      }
+      .score-row {
+        grid-template-columns: 1fr;
+      }
+      .score-row span {
+        border-right: 0;
+        border-bottom: 1px solid #121212;
+      }
     }
   </style>
----
+  ---
+</Layout>
