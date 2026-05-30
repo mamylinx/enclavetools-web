@@ -13,13 +13,13 @@ const allTools = toolsData.tools.flatMap((cat: any) =>
 
 <Layout
   site="Enclavetools - Compare"
-  title="Compare"
-  tagline="Compare private AI tools side by side"
+  title="Side-by-side tool decisions."
+  tagline="Compare up to four tools across license, privacy, API, setup, and hardware attributes."
+  eyebrow="Compare"
   pageTitle="Compare private AI tools"
   pageDescription="Compare self-hosted AI tools by license, privacy, setup, API support, and hardware requirements."
   showSearch={true}
+  showHero={true}
 >
-  <main id="main-content">
-    <CompareView client:visible tools={allTools} />
-  </main>
+  <CompareView client:visible tools={allTools} />
 </Layout>

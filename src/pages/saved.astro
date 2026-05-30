@@ -17,13 +17,7 @@ const breadcrumbs = [
     pageDescription="Your saved AI tools collection"
 >
     <BreadcrumbSchema items={breadcrumbs} />
-    <main id="main-content">
+    <div class="max-w-[1400px] mx-auto px-4 md:px-10 py-16">
         <FavoritesView client:visible />
-    </main>
-    <style>
-        #main-content {
-            padding: 50px;
-            margin: 0 auto;
-        }
-    </style>
+    </div>
 </Layout>

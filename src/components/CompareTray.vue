@@ -55,15 +55,15 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div v-if="selected.length >= 2 || limitHit" class="compare-tray" role="status">
+  <div v-if="selected.length >= 2 || limitHit" class="fixed bottom-0 left-0 right-0 bg-gray-900 text-white p-4 flex justify-between items-center z-[100]" role="status">
     <div>
-      <strong>Comparing {{ selected.length }} tools</strong>
-      <span v-if="!limitHit">{{ selectedTools.map((tool) => tool.title).join(' / ') }}</span>
-      <span v-else>Maximum 4 tools can be compared.</span>
+      <strong class="mr-3 font-black tracking-wide">Comparing {{ selected.length }} tools</strong>
+      <span v-if="!limitHit" class="text-gray-400 text-sm">{{ selectedTools.map((tool) => tool.title).join(' / ') }}</span>
+      <span v-else class="text-yellow-400 font-bold text-sm">Maximum 4 tools can be compared.</span>
     </div>
-    <div class="compare-tray-actions">
-      <button type="button" @click="clear">Clear</button>
-      <a v-if="selected.length >= 2" :href="compareUrl">View comparison</a>
+    <div class="flex gap-4 items-center">
+      <button type="button" @click="clear" class="text-white opacity-70 hover:opacity-100 text-sm bg-transparent border-none cursor-pointer p-0 transition-opacity">Clear</button>
+      <a v-if="selected.length >= 2" :href="compareUrl" class="bg-primary-500 text-white px-4 py-2 font-bold no-underline hover:bg-yellow-400 hover:text-gray-900 transition-colors">View comparison</a>
     </div>
   </div>
 </template>

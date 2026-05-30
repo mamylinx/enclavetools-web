@@ -7,84 +7,201 @@ import toolsData from "../data/tools.json";
 import categories from "../data/categories.json";
 
 const allTools = toolsData.tools.flatMap((cat: any) =>
-  cat.content.map((tool: any) => ({
-    ...tool,
-    category: [cat.category],
-  }))
+    cat.content.map((tool: any) => ({
+        ...tool,
+        category: [cat.category],
+    })),
 );
 
 const totalTools = allTools.length;
 const latestVerified = allTools
-  .map((tool: any) => tool.last_verified || tool.last_updated || tool["date-added"])
-  .filter(Boolean)
-  .sort()
-  .at(-1);
+    .map(
+        (tool: any) =>
+            tool.last_verified || tool.last_updated || tool["date-added"],
+    )
+    .filter(Boolean)
+    .sort()
+    .at(-1);
 
 const categoryCounts = new Map(
-  toolsData.tools.map((cat: any) => [cat.category, cat.content.length])
+    toolsData.tools.map((cat: any) => [cat.category, cat.content.length]),
 );
 
 const personaLinks = [
-  { label: "Developer", href: "/?persona=Developer&feature=openai_api&feature=docker_available" },
-  { label: "Business Owner", href: "/?persona=Business+Owner&setup=Low&commercial=yes" },
-  { label: "Healthcare", href: "/?persona=Healthcare&offline=yes&telemetry=None" },
-  { label: "Legal", href: "/?persona=Legal&use=Contract+Review&commercial=yes" },
-  { label: "Indie Hacker", href: "/?persona=Indie+Hacker&use=Self-hosted+Inference" },
+    {
+        label: "Developer",
+        href: "/?persona=Developer&feature=openai_api&feature=docker_available",
+    },
+    {
+        label: "Business Owner",
+        href: "/?persona=Business+Owner&setup=Low&commercial=yes",
+    },
+    {
+        label: "Healthcare",
+        href: "/?persona=Healthcare&offline=yes&telemetry=None",
+    },
+    {
+        label: "Legal",
+        href: "/?persona=Legal&use=Contract+Review&commercial=yes",
+    },
+    {
+        label: "Indie Hacker",
+        href: "/?persona=Indie+Hacker&use=Self-hosted+Inference",
+    },
 ];
 
 const categoryTiles = categories.slice(0, 8).map((cat: any) => ({
-  ...cat,
-  count: categoryCounts.get(cat.category) || 0,
+    ...cat,
+    count: categoryCounts.get(cat.category) || 0,
 }));
 ---
+
 <Layout
     site="Enclavetools"
-    title="Enclavetools"
-    tagline="Stop paying for AI APIs. Everything here runs on your hardware."
+    title="AI tools that keep your data inside your walls."
+    tagline="Find self-hosted, local, and offline AI software for teams that cannot afford leaks. Compare setup difficulty, license risk, hardware needs, telemetry, and API support before you open GitHub."
+    eyebrow="Private AI tools directory"
     showSearch={true}
-    showHero={false}
+    showHero={true}
 >
     <OrganizationSchema />
-    <ItemListSchema items={allTools} listName="AI Tools Directory - All Tools" />
-    <main id="main-content" class="home-shell">
-        <section class="private-hero">
-            <p class="hero-kicker">Private AI tools directory</p>
-            <h1>AI tools that keep your data inside your walls.</h1>
-            <p class="hero-copy">Find self-hosted, local, and offline AI software for teams that cannot afford leaks. Compare setup difficulty, license risk, hardware needs, telemetry, and API support before you open GitHub.</p>
-            <div class="hero-actions">
-                <a href="#browse" class="hero-primary">Browse all tools</a>
-                <a href="#use-cases" class="hero-secondary">Find tools for my use case</a>
-                <a href="/compare" class="hero-secondary">Compare tools</a>
-                <a href="/stack-builder" class="hero-secondary">Build a stack</a>
+    <ItemListSchema
+        items={allTools}
+        listName="AI Tools Directory - All Tools"
+    />
+    <div class="px-4 md:px-10 pt-6 pb-6 border-b border-gray-900">
+        <section
+            class="grid grid-cols-1 gap-10 max-w-[1400px] mx-auto px-4 md:px-10 items-end"
+        >
+            <div class="flex flex-wrap gap-2.5 justify-center">
+                <a
+                    href="#browse"
+                    class="inline-flex items-center min-h-[48px] border border-gray-900 px-5 font-extrabold bg-gray-900 text-white hover:bg-yellow-400 hover:text-gray-900 rounded-full transition-colors no-underline"
+                    >Browse all tools</a
+                >
+                <a
+                    href="#use-cases"
+                    class="inline-flex items-center min-h-[48px] border border-gray-900 px-5 font-extrabold text-gray-900 bg-white hover:bg-yellow-400 hover:text-gray-900 rounded-full transition-colors no-underline"
+                    >Find tools for my use case</a
+                >
+                <a
+                    href="/compare"
+                    class="inline-flex items-center min-h-[48px] border border-gray-900 px-5 font-extrabold text-gray-900 bg-white hover:bg-yellow-400 hover:text-gray-900 rounded-full transition-colors no-underline"
+                    >Compare tools</a
+                >
+                <a
+                    href="/stack-builder"
+                    class="inline-flex items-center min-h-[48px] border border-gray-900 px-5 font-extrabold text-gray-900 bg-white hover:bg-yellow-400 hover:text-gray-900 rounded-full transition-colors no-underline"
+                    >Build a stack</a
+                >
             </div>
-            <dl class="trust-strip" aria-label="Directory statistics">
-                <div><dt>{totalTools}</dt><dd>tools listed</dd></div>
-                <div><dt>{toolsData.tools.length}</dt><dd>categories</dd></div>
-                <div><dt>{latestVerified ? new Date(latestVerified).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" }) : "Build data"}</dt><dd>latest verification</dd></div>
+
+            <dl
+                class="md:col-span-2 grid grid-cols-1 md:grid-cols-3 mt-14 border-y border-gray-900"
+                aria-label="Directory statistics"
+            >
+                <div
+                    class="p-4 border-b md:border-b-0 md:border-r border-gray-900"
+                >
+                    <dt class="text-xl font-black">{totalTools}</dt><dd
+                        class="text-xs font-extrabold uppercase text-gray-500"
+                    >
+                        tools listed
+                    </dd>
+                </div>
+                <div
+                    class="p-4 border-b md:border-b-0 md:border-r border-gray-900"
+                >
+                    <dt class="text-xl font-black">
+                        {toolsData.tools.length}
+                    </dt><dd
+                        class="text-xs font-extrabold uppercase text-gray-500"
+                    >
+                        categories
+                    </dd>
+                </div>
+                <div
+                    class="p-4 border-b md:border-b-0 md:border-r-0 border-gray-900"
+                >
+                    <dt class="text-xl font-black">
+                        {
+                            latestVerified
+                                ? new Date(latestVerified).toLocaleDateString(
+                                      "en-US",
+                                      {
+                                          month: "short",
+                                          day: "numeric",
+                                          year: "numeric",
+                                      },
+                                  )
+                                : "Build data"
+                        }
+                    </dt><dd
+                        class="text-xs font-extrabold uppercase text-gray-500"
+                    >
+                        latest verification
+                    </dd>
+                </div>
             </dl>
         </section>
 
-        <section id="use-cases" class="persona-strip" aria-label="Use case entry points">
-            {personaLinks.map((item, index) => (
-                <a href={item.href} class="persona-link"><span>{String(index + 1).padStart(2, "0")}</span>{item.label}</a>
-            ))}
+        <section
+            id="use-cases"
+            class="grid grid-cols-1 md:grid-cols-5 max-w-[1400px] mx-auto px-4 md:px-10"
+            aria-label="Use case entry points"
+        >
+            {
+                personaLinks.map((item, index) => (
+                    <a
+                        href={item.href}
+                        class="p-3.5 border-b md:border-r border-gray-900 last:border-r-0 text-gray-900 text-2xl font-black flex flex-col justify-between hover:bg-gray-900 hover:text-white transition-colors no-underline"
+                    >
+                        <span class="text-xs text-gray-400">
+                            {String(index + 1).padStart(2, "0")}
+                        </span>
+                        {item.label}
+                    </a>
+                ))
+            }
         </section>
 
-        <section class="category-band" aria-labelledby="category-heading">
+        <section
+            class="grid grid-cols-1 md:grid-cols-[minmax(280px,0.8fr)_1.2fr] gap-10 py-14 gap-8 max-w-[1400px] mx-auto px-4 md:px-10"
+            aria-labelledby="category-heading"
+        >
             <div>
-                <p class="section-kicker">Start with the job</p>
-                <h2 id="category-heading">Choose a category, then narrow by privacy and setup.</h2>
+                <p
+                    class="text-xs font-extrabold uppercase tracking-widest text-gray-900"
+                >
+                    Start with the job
+                </p>
+                <!-- text-4xl md:text-5xl lg:text-6xl text-gray-900 -->
+                <h2
+                    id="category-heading"
+                    class="max-w-[620px] text-3xl md:text-4xl lg:text-5xl text-gray-900 leading-[0.98] font-black tracking-tight mt-3"
+                >
+                    Choose a category, then narrow by privacy and setup.
+                </h2>
             </div>
-            <div class="category-tile-grid">
-                {categoryTiles.map((cat: any) => (
-                    <a href={`/?cat=${cat.category}`} class="category-tile">
-                        <span>{cat.title}</span>
-                        <strong>{cat.count}</strong>
-                    </a>
-                ))}
+            <div
+                class="grid grid-cols-1 md:grid-cols-2 border-t md:border-l md:border-t-0 border-gray-900"
+            >
+                {
+                    categoryTiles.map((cat: any) => (
+                        <a
+                            href={`/?cat=${cat.category}`}
+                            class="p-3.5 border-r border-b border-gray-900 text-gray-900 flex flex-col justify-between text-lg font-black hover:bg-yellow-400 hover:text-gray-900 transition-colors no-underline"
+                        >
+                            <span>{cat.title}</span>
+                            <strong class="text-xl font-black">
+                                {cat.count}
+                            </strong>
+                        </a>
+                    ))
+                }
             </div>
         </section>
-    </main>
+    </div>
     <div id="browse"></div>
     <Dashboard
         client:visible

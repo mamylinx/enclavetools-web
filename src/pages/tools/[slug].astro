@@ -218,42 +218,83 @@ const featureBadges = [
   />
   <BreadcrumbSchema items={breadcrumbs} />
 
-  <main id="main-content" class="tool-detail-shell">
-    <nav class="detail-breadcrumb">
-      <a href="/">Home</a><span>/</span><a href={`/${category}`}
+  <div class="max-w-[1400px] mx-auto px-4 md:px-10 pt-24 pb-16">
+    <nav class="flex gap-2 text-xs font-black mb-6 text-gray-500">
+      <a href="/" class="text-gray-900 hover:text-primary-500 transition-colors"
+        >Home</a
+      ><span>/</span><a
+        href={`/${category}`}
+        class="text-gray-900 hover:text-primary-500 transition-colors"
         >{categoryTitle}</a
       ><span>/</span><span>{enrichedTool.title}</span>
     </nav>
 
-    <article class="tool-detail">
-      <aside class="detail-mini-nav" aria-label="Tool page sections">
-        <a href="#overview">Overview</a>
-        <a href="#technical">Technical</a>
-        <a href="#privacy">Privacy & Data</a>
-        <a href="#setup">Setup</a>
-        <a href="#hardware">Hardware</a>
-        <a href="#works-with">Works With</a>
-        <a href="#community">Community</a>
-        <a href="#related">Related</a>
+    <article
+      class="grid grid-cols-1 lg:grid-cols-[220px_minmax(0,1fr)] gap-10"
+    >
+      <aside
+        class="sticky top-24 flex flex-col gap-2 self-start hidden lg:flex"
+        aria-label="Tool page sections"
+      >
+        <a
+          href="#overview"
+          class="text-gray-900 font-black text-xs uppercase hover:text-primary-500 transition-colors"
+          >Overview</a
+        >
+        <a
+          href="#technical"
+          class="text-gray-900 font-black text-xs uppercase hover:text-primary-500 transition-colors"
+          >Technical</a
+        >
+        <a
+          href="#privacy"
+          class="text-gray-900 font-black text-xs uppercase hover:text-primary-500 transition-colors"
+          >Privacy &amp; Data</a
+        >
+        <a
+          href="#setup"
+          class="text-gray-900 font-black text-xs uppercase hover:text-primary-500 transition-colors"
+          >Setup</a
+        >
+        <a
+          href="#hardware"
+          class="text-gray-900 font-black text-xs uppercase hover:text-primary-500 transition-colors"
+          >Hardware</a
+        >
+        <a
+          href="#works-with"
+          class="text-gray-900 font-black text-xs uppercase hover:text-primary-500 transition-colors"
+          >Works With</a
+        >
+        <a
+          href="#community"
+          class="text-gray-900 font-black text-xs uppercase hover:text-primary-500 transition-colors"
+          >Community</a
+        >
+        <a
+          href="#related"
+          class="text-gray-900 font-black text-xs uppercase hover:text-primary-500 transition-colors"
+          >Related</a
+        >
       </aside>
 
-      <div class="detail-main">
-        <header class="detail-hero">
-          <div class="detail-hero-top">
+      <div class="border-t-2 border-gray-900">
+        <header class="py-6 pb-11 border-b-2 border-gray-900">
+          <div class="flex justify-between gap-4 items-start">
             <img
               src={faviconUrl}
               alt=""
-              class="detail-icon"
+              class="w-14 h-14 border-2 border-gray-900 object-contain"
               onerror="this.style.display='none'"
             />
-            <div class="detail-actions">
+            <div class="flex gap-2 flex-wrap justify-end">
               {
                 enrichedTool.github_url || enrichedTool.url ? (
                   <a
                     href={enrichedTool.github_url || enrichedTool.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="detail-button primary"
+                    class="border-2 border-gray-900 bg-gray-900 text-white px-5 py-2.5 font-black cursor-pointer hover:bg-primary-500 hover:border-primary-500 transition-colors no-underline text-sm"
                   >
                     View on GitHub
                   </a>
@@ -265,19 +306,30 @@ const featureBadges = [
                     href={enrichedTool.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="detail-button"
+                    class="border-2 border-gray-900 bg-white text-gray-900 px-5 py-2.5 font-black cursor-pointer hover:bg-yellow-400 transition-colors no-underline text-sm"
                   >
                     Official site
                   </a>
                 ) : null
               }
-              <button class="detail-button" data-tool-action="share">
+              <button
+                class="border-2 border-gray-900 bg-white text-gray-900 px-5 py-2.5 font-black cursor-pointer hover:bg-yellow-400 transition-colors text-sm"
+                data-tool-action="share"
+              >
                 Share
               </button>
-              <button class="detail-button" data-tool-action="compare" data-slug={slug}>
+              <button
+                class="border-2 border-gray-900 bg-white text-gray-900 px-5 py-2.5 font-black cursor-pointer hover:bg-yellow-400 transition-colors text-sm"
+                data-tool-action="compare"
+                data-slug={slug}
+              >
                 Add to compare
               </button>
-              <button class="detail-button" data-tool-action="stack" data-slug={slug}>
+              <button
+                class="border-2 border-gray-900 bg-white text-gray-900 px-5 py-2.5 font-black cursor-pointer hover:bg-yellow-400 transition-colors text-sm"
+                data-tool-action="stack"
+                data-slug={slug}
+              >
                 Add to stack
               </button>
               <BookmarkButton
@@ -291,36 +343,66 @@ const featureBadges = [
               />
             </div>
           </div>
-          <h1>{enrichedTool.title}</h1>
-          <p>{enrichedTool.plain_description}</p>
-          <div class="badge-row">
-            {featureBadges.map((badge: string) => <span>{badge}</span>)}
+          <h1
+            class="text-[clamp(56px,10vw,144px)] leading-[0.9] font-black tracking-tight mt-7 mb-4"
+          >
+            {enrichedTool.title}
+          </h1>
+          <p
+            class="max-w-[840px] text-[clamp(20px,2.5vw,34px)] leading-[1.1] font-black text-gray-900"
+          >
+            {enrichedTool.plain_description}
+          </p>
+          <div class="flex flex-wrap gap-2 mt-6">
+            {
+              featureBadges.map((badge: string) => (
+                <span class="border-2 border-gray-900 px-2.5 py-1.5 text-xs font-black uppercase tracking-wider">
+                  {badge}
+                </span>
+              ))
+            }
           </div>
         </header>
 
-        <section id="overview" class="detail-section">
-          <p class="section-label">Overview</p>
-          <div class="overview-grid">
-            <div>
-              <h2>Plain English</h2>
-              <p>{enrichedTool.plain_description}</p>
+        <section id="overview" class="py-11 border-b-2 border-gray-900">
+          <p
+            class="text-xs font-black uppercase mb-4 text-gray-500 tracking-wider"
+          >
+            Overview
+          </p>
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 gap-px bg-gray-900 border-2 border-gray-900"
+          >
+            <div class="bg-white p-5">
+              <h2 class="text-xl font-black mb-2">Plain English</h2>
+              <p class="text-base leading-relaxed text-gray-700">
+                {enrichedTool.plain_description}
+              </p>
             </div>
-            <div>
-              <h2>Technical</h2>
-              <p>{enrichedTool.technical_description}</p>
+            <div class="bg-white p-5">
+              <h2 class="text-xl font-black mb-2">Technical</h2>
+              <p class="text-base leading-relaxed text-gray-700">
+                {enrichedTool.technical_description}
+              </p>
             </div>
           </div>
         </section>
 
-        <section id="technical" class="detail-section">
-          <p class="section-label">Technical scorecard</p>
-          <div class="scorecard">
+        <section id="technical" class="py-11 border-b-2 border-gray-900">
+          <p
+            class="text-xs font-black uppercase mb-4 text-gray-500 tracking-wider"
+          >
+            Technical scorecard
+          </p>
+          <div class="border-2 border-gray-900 border-b-0">
             {
               scorecard.map(([label, value]) => (
-                <div class="score-row">
+                <div class="grid grid-cols-[minmax(180px,0.8fr)_1.2fr] border-b-2 border-gray-900">
                   <>
-                    <span>{label}</span>
-                    <strong>{value}</strong>
+                    <span class="p-3.5 text-sm text-gray-600 border-r-2 border-gray-900">
+                      {label}
+                    </span>
+                    <strong class="p-3.5 text-sm font-black">{value}</strong>
                   </>
                 </div>
               ))
@@ -328,11 +410,19 @@ const featureBadges = [
           </div>
         </section>
 
-        <section id="privacy" class="detail-section">
-          <p class="section-label">Data & Privacy</p>
-          <div class="qa-grid">
-            <div>
-              <h2>Does it send data online?</h2><p>
+        <section id="privacy" class="py-11 border-b-2 border-gray-900">
+          <p
+            class="text-xs font-black uppercase mb-4 text-gray-500 tracking-wider"
+          >
+            Data &amp; Privacy
+          </p>
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 gap-px bg-gray-900 border-2 border-gray-900"
+          >
+            <div class="bg-white p-5">
+              <h2 class="text-xl font-black mb-2">
+                Does it send data online?
+              </h2><p class="text-base leading-relaxed text-gray-700">
                 {
                   enrichedTool.offline_after_setup
                     ? "After setup, this listing is marked as usable offline. Confirm network behavior against the upstream project before regulated deployment."
@@ -340,14 +430,18 @@ const featureBadges = [
                 }
               </p>
             </div>
-            <div>
-              <h2>Does it store history?</h2><p>
+            <div class="bg-white p-5">
+              <h2 class="text-xl font-black mb-2">Does it store history?</h2><p
+                class="text-base leading-relaxed text-gray-700"
+              >
                 Not verified in this directory yet. Review the upstream docs for
                 persistence, logs, and workspace storage.
               </p>
             </div>
-            <div>
-              <h2>License checks?</h2><p>
+            <div class="bg-white p-5">
+              <h2 class="text-xl font-black mb-2">License checks?</h2><p
+                class="text-base leading-relaxed text-gray-700"
+              >
                 {
                   enrichedTool.commercial_use
                     ? "Commercial use is marked as allowed or likely allowed by the listed license."
@@ -355,22 +449,36 @@ const featureBadges = [
                 }
               </p>
             </div>
-            <div><h2>Telemetry?</h2><p>{enrichedTool.telemetry}</p></div>
+            <div class="bg-white p-5">
+              <h2 class="text-xl font-black mb-2">Telemetry?</h2><p
+                class="text-base leading-relaxed text-gray-700"
+              >
+                {enrichedTool.telemetry}
+              </p>
+            </div>
           </div>
-          <p class="verification-note">
+          <p class="mt-4 text-gray-500 text-sm">
             Last verified: {formatDate(enrichedTool.last_verified)}. Maintainer
             verification should be treated as directory guidance, not legal
             advice.
           </p>
         </section>
 
-        <section id="setup" class="detail-section">
-          <p class="section-label">Setup & Installation</p>
-          <div class="setup-panel">
-            <div>
+        <section id="setup" class="py-11 border-b-2 border-gray-900">
+          <p
+            class="text-xs font-black uppercase mb-4 text-gray-500 tracking-wider"
+          >
+            Setup &amp; Installation
+          </p>
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 gap-px bg-gray-900 border-2 border-gray-900"
+          >
+            <div class="bg-white p-5">
               <span
-                class={`difficulty ${String(enrichedTool.setup_difficulty).toLowerCase()}`}
-              ></span><strong>{enrichedTool.setup_difficulty}</strong><p>
+                class={`inline-block w-2.5 h-2.5 rounded-full mr-2 ${String(enrichedTool.setup_difficulty).toLowerCase() === "low" ? "bg-green-600" : String(enrichedTool.setup_difficulty).toLowerCase() === "high" ? "bg-red-500" : "bg-yellow-400"}`}
+              ></span><strong class="font-black text-lg"
+                >{enrichedTool.setup_difficulty}</strong
+              ><p class="text-base leading-relaxed text-gray-700 mt-2">
                 {
                   enrichedTool.setup_difficulty === "Low"
                     ? "GUI, low-resource, or simple install path likely available."
@@ -380,8 +488,10 @@ const featureBadges = [
                 }
               </p>
             </div>
-            <div>
-              <h2>Prerequisites</h2><p>
+            <div class="bg-white p-5">
+              <h2 class="text-xl font-black mb-2">Prerequisites</h2><p
+                class="text-base leading-relaxed text-gray-700"
+              >
                 {
                   [
                     ...(enrichedTool.language || []),
@@ -393,101 +503,169 @@ const featureBadges = [
               </p>
             </div>
           </div>
-          <pre><code>{`# Start with the official project documentation\n# ${enrichedTool.github_url || enrichedTool.url || canonicalUrl}`}</code></pre>
+          <pre
+            class="border-2 border-gray-900 p-4 overflow-x-auto mt-3 text-sm bg-gray-50"><code>{`# Start with the official project documentation\n# ${enrichedTool.github_url || enrichedTool.url || canonicalUrl}`}</code></pre>
         </section>
 
-        <section id="hardware" class="detail-section">
-          <p class="section-label">Hardware Requirements</p>
-          <div class="scorecard two-col">
-            <div class="score-row">
-              <span>RAM</span><strong
+        <section id="hardware" class="py-11 border-b-2 border-gray-900">
+          <p
+            class="text-xs font-black uppercase mb-4 text-gray-500 tracking-wider"
+          >
+            Hardware Requirements
+          </p>
+          <div class="border-2 border-gray-900 border-b-0">
+            <div
+              class="grid grid-cols-[minmax(180px,0.8fr)_1.2fr] border-b-2 border-gray-900"
+            >
+              <span
+                class="p-3.5 text-sm text-gray-600 border-r-2 border-gray-900"
+                >RAM</span
+              ><strong class="p-3.5 text-sm font-black"
                 >{enrichedTool.min_ram_gb} GB minimum / {
                   enrichedTool.recommended_ram_gb
                 } GB recommended</strong
               >
             </div>
-            <div class="score-row">
-              <span>Hardware tags</span><strong
+            <div
+              class="grid grid-cols-[minmax(180px,0.8fr)_1.2fr] border-b-2 border-gray-900"
+            >
+              <span
+                class="p-3.5 text-sm text-gray-600 border-r-2 border-gray-900"
+                >Hardware tags</span
+              ><strong class="p-3.5 text-sm font-black"
                 >{enrichedTool.hardware?.join(", ") || "Not specified"}</strong
               >
             </div>
-            <div class="score-row">
-              <span>Model formats</span><strong
+            <div
+              class="grid grid-cols-[minmax(180px,0.8fr)_1.2fr] border-b-2 border-gray-900"
+            >
+              <span
+                class="p-3.5 text-sm text-gray-600 border-r-2 border-gray-900"
+                >Model formats</span
+              ><strong class="p-3.5 text-sm font-black"
                 >{
                   enrichedTool.model_format?.join(", ") || "Not specified"
                 }</strong
               >
             </div>
-            <div class="score-row">
-              <span>Primary language</span><strong
+            <div
+              class="grid grid-cols-[minmax(180px,0.8fr)_1.2fr] border-b-2 border-gray-900"
+            >
+              <span
+                class="p-3.5 text-sm text-gray-600 border-r-2 border-gray-900"
+                >Primary language</span
+              ><strong class="p-3.5 text-sm font-black"
                 >{enrichedTool.language?.join(", ") || "Not specified"}</strong
               >
             </div>
           </div>
         </section>
 
-        <section id="works-with" class="detail-section">
-          <p class="section-label">Works Well With</p>
-          <div class="related-grid">
+        <section id="works-with" class="py-11 border-b-2 border-gray-900">
+          <p
+            class="text-xs font-black uppercase mb-4 text-gray-500 tracking-wider"
+          >
+            Works Well With
+          </p>
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 gap-px bg-gray-900 border-2 border-gray-900"
+          >
             {
               worksWithTools.map((t: any) => (
-                <a href={`/tools/${t.slug}`} class="related-card">
-                  <strong>{t.title}</strong>
-                  <span>{t.plain_description || t.body?.slice(0, 120)}</span>
+                <a
+                  href={`/tools/${t.slug}`}
+                  class="flex flex-col gap-2 bg-white p-5 no-underline hover:bg-yellow-50 transition-colors group"
+                >
+                  <strong class="text-xl font-black text-gray-900 group-hover:text-primary-500 transition-colors">
+                    {t.title}
+                  </strong>
+                  <span class="text-gray-600 leading-snug text-sm">
+                    {t.plain_description || t.body?.slice(0, 120)}
+                  </span>
                 </a>
               ))
             }
           </div>
-          <div class="stack-actions">
-            <a href={`/stack-builder?stack=${[slug, ...worksWithTools.slice(0, 3).map((item: any) => item.slug)].join(",")}`} class="detail-button">
+          <div class="mt-4">
+            <a
+              href={`/stack-builder?stack=${[slug, ...worksWithTools.slice(0, 3).map((item: any) => item.slug)].join(",")}`}
+              class="border-2 border-gray-900 bg-white text-gray-900 px-5 py-2.5 font-black cursor-pointer hover:bg-yellow-400 transition-colors no-underline text-sm inline-block"
+            >
               Open suggested stack
             </a>
           </div>
         </section>
 
-        <section id="community" class="detail-section">
-          <p class="section-label">Community</p>
-          <div class="community-grid">
-            <div>
-              <strong>{enrichedTool.community_notes_count}</strong><span
+        <section id="community" class="py-11 border-b-2 border-gray-900">
+          <p
+            class="text-xs font-black uppercase mb-4 text-gray-500 tracking-wider"
+          >
+            Community
+          </p>
+          <div class="grid grid-cols-2 border-2 border-gray-900 mb-4">
+            <div class="p-5 border-r-2 border-gray-900 flex flex-col gap-1.5">
+              <strong class="text-5xl font-black leading-none"
+                >{enrichedTool.community_notes_count}</strong
+              ><span class="text-sm font-bold text-gray-600"
                 >structured notes</span
               >
             </div>
-            <div>
-              <strong>{enrichedTool.community_guides_count}</strong><span
-                >guides</span
-              >
+            <div class="p-5 flex flex-col gap-1.5">
+              <strong class="text-5xl font-black leading-none"
+                >{enrichedTool.community_guides_count}</strong
+              ><span class="text-sm font-bold text-gray-600">guides</span>
             </div>
           </div>
-          <form class="correction-form">
-            <h2>Suggest a correction</h2>
+          <form class="grid gap-3 border-2 border-gray-900 p-5">
+            <h2 class="text-xl font-black">Suggest a correction</h2>
             <label
+              class="grid gap-1.5 text-xs font-black uppercase tracking-wider"
               >Field<select
+                class="w-full border-2 border-gray-900 p-2.5 font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 rounded-none"
                 ><option>License</option><option>Telemetry</option><option
                   >Hardware</option
                 ><option>Setup difficulty</option></select
               ></label
             >
             <label
-              >Correction<textarea placeholder="What should this say?"
-              ></textarea></label
+              class="grid gap-1.5 text-xs font-black uppercase tracking-wider"
+              >Correction<textarea
+                class="w-full border-2 border-gray-900 p-2.5 font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 rounded-none"
+                placeholder="What should this say?"></textarea></label
             >
             <label
-              >Source URL<input type="url" placeholder="https://..." /></label
+              class="grid gap-1.5 text-xs font-black uppercase tracking-wider"
+              >Source URL<input
+                class="w-full border-2 border-gray-900 p-2.5 font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 rounded-none"
+                type="url"
+                placeholder="https://..."
+              /></label
             >
-            <button type="button">Submit for review</button>
+            <button
+              class="justify-self-start border-2 border-gray-900 bg-gray-900 text-white px-3.5 py-2.5 font-black hover:bg-primary-500 hover:border-primary-500 transition-colors cursor-pointer"
+              type="button">Submit for review</button
+            >
           </form>
         </section>
 
         {
           relatedTools.length > 0 && (
-            <section id="related" class="detail-section">
-              <p class="section-label">You might also evaluate</p>
-              <div class="related-grid">
+            <section id="related" class="py-11 border-b-2 border-gray-900">
+              <p class="text-xs font-black uppercase mb-4 text-gray-500 tracking-wider">
+                You might also evaluate
+              </p>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-gray-900 border-2 border-gray-900">
                 {relatedTools.map((t: any) => (
-                  <a href={`/tools/${t.slug}`} class="related-card">
-                    <strong>{t.title}</strong>
-                    <span>{t.body?.slice(0, 96)}...</span>
+                  <a
+                    href={`/tools/${t.slug}`}
+                    class="flex flex-col gap-2 bg-white p-5 no-underline hover:bg-yellow-50 transition-colors group"
+                  >
+                    <strong class="text-xl font-black text-gray-900 group-hover:text-primary-500 transition-colors">
+                      {t.title}
+                    </strong>
+                    <span class="text-gray-600 leading-snug text-sm">
+                      {t.body?.slice(0, 96)}...
+                    </span>
                   </a>
                 ))}
               </div>
@@ -495,17 +673,25 @@ const featureBadges = [
           )
         }
 
-        <div class="share-box">
-          <a href={xShareUrl} target="_blank" rel="noopener noreferrer"
+        <div class="flex gap-3 pt-5 font-black">
+          <a
+            href={xShareUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="border-2 border-gray-900 bg-white text-gray-900 px-5 py-2.5 font-black cursor-pointer hover:bg-yellow-400 transition-colors no-underline text-sm"
             >Share on X</a
           >
-          <a href={linkedinShareUrl} target="_blank" rel="noopener noreferrer"
+          <a
+            href={linkedinShareUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="border-2 border-gray-900 bg-white text-gray-900 px-5 py-2.5 font-black cursor-pointer hover:bg-yellow-400 transition-colors no-underline text-sm"
             >Share on LinkedIn</a
           >
         </div>
       </div>
     </article>
-  </main>
+  </div>
 
   <script type="module">
     const copyText = async (value) => {
@@ -567,7 +753,9 @@ const featureBadges = [
       if (action === "compare") {
         const slugs = addLocalSlug("enclavetools-compare", slug, 4);
         localStorage.setItem("enclavetools-compare", JSON.stringify(slugs));
-        window.dispatchEvent(new CustomEvent("compare:changed", { detail: { slugs } }));
+        window.dispatchEvent(
+          new CustomEvent("compare:changed", { detail: { slugs } }),
+        );
         setTemporaryText(button, "Added", "Add to compare");
       }
 
@@ -587,289 +775,4 @@ const featureBadges = [
     bindToolActions();
     document.addEventListener("astro:page-load", bindToolActions);
   </script>
-
-  <style>
-    .tool-detail-shell {
-      padding: 96px 40px 72px;
-    }
-    .detail-breadcrumb {
-      display: flex;
-      gap: 8px;
-      font-size: 12px;
-      font-weight: 700;
-      margin-bottom: 24px;
-      color: #777;
-    }
-    .detail-breadcrumb a {
-      color: #121212;
-    }
-    .tool-detail {
-      display: grid;
-      grid-template-columns: 220px minmax(0, 1fr);
-      gap: 40px;
-    }
-    .detail-mini-nav {
-      position: sticky;
-      top: 92px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      align-self: start;
-    }
-    .detail-mini-nav a {
-      color: #121212;
-      font-weight: 800;
-      font-size: 12px;
-      text-transform: uppercase;
-    }
-    .detail-main {
-      border-top: 1px solid #121212;
-    }
-    .detail-hero {
-      padding: 24px 0 44px;
-      border-bottom: 1px solid #121212;
-    }
-    .detail-hero-top {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      align-items: flex-start;
-    }
-    .detail-icon {
-      width: 56px;
-      height: 56px;
-      border: 1px solid #121212;
-    }
-    .detail-actions {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-    .detail-button {
-      border: 1px solid #121212;
-      background: #fff;
-      color: #121212;
-      padding: 10px 20px;
-      font-weight: 800;
-      cursor: pointer;
-    }
-    .detail-button.primary {
-      background: #121212;
-      color: #fff;
-    }
-    .detail-button:hover {
-      background: #ffd60a;
-      color: #121212;
-    }
-    .detail-hero h1 {
-      font-size: clamp(56px, 10vw, 144px);
-      line-height: 0.9;
-      font-weight: 900;
-      letter-spacing: 0;
-      margin: 28px 0 18px;
-    }
-    .detail-hero p {
-      max-width: 840px;
-      font-size: clamp(20px, 2.5vw, 34px);
-      line-height: 1.1;
-      font-weight: 700;
-      color: #121212;
-    }
-    .badge-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 24px;
-    }
-    .badge-row span {
-      border: 1px solid #121212;
-      padding: 6px 9px;
-      font-size: 12px;
-      font-weight: 900;
-    }
-    .detail-section {
-      padding: 42px 0;
-      border-bottom: 1px solid #121212;
-    }
-    .section-label {
-      font-size: 12px;
-      font-weight: 900;
-      text-transform: uppercase;
-      margin-bottom: 18px;
-      color: #777;
-    }
-    .overview-grid,
-    .qa-grid,
-    .setup-panel,
-    .related-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1px;
-      background: #121212;
-      border: 1px solid #121212;
-    }
-    .overview-grid > div,
-    .qa-grid > div,
-    .setup-panel > div,
-    .related-card {
-      background: #fff;
-      padding: 18px;
-      color: #121212;
-    }
-    .overview-grid h2,
-    .qa-grid h2,
-    .setup-panel h2,
-    .correction-form h2 {
-      font-size: 18px;
-      font-weight: 900;
-      margin-bottom: 10px;
-    }
-    .overview-grid p,
-    .qa-grid p,
-    .setup-panel p {
-      font-size: 15px;
-      line-height: 1.5;
-      color: #333;
-    }
-    .scorecard {
-      border: 1px solid #121212;
-      border-bottom: 0;
-    }
-    .score-row {
-      display: grid;
-      grid-template-columns: minmax(180px, 0.8fr) 1.2fr;
-      border-bottom: 1px solid #121212;
-    }
-    .score-row span,
-    .score-row strong {
-      padding: 13px 14px;
-      font-size: 14px;
-    }
-    .score-row span {
-      color: #555;
-      border-right: 1px solid #121212;
-    }
-    .score-row strong {
-      font-weight: 900;
-    }
-    .verification-note {
-      margin-top: 14px;
-      color: #555;
-      font-size: 13px;
-    }
-    .difficulty {
-      display: inline-block;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: #ffd60a;
-      margin-right: 8px;
-    }
-    .difficulty.low {
-      background: #16a34a;
-    }
-    .difficulty.high {
-      background: #ff3b30;
-    }
-    pre {
-      border: 1px solid #121212;
-      padding: 16px;
-      overflow-x: auto;
-      margin-top: 12px;
-      font-size: 13px;
-    }
-    .community-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      border: 1px solid #121212;
-      margin-bottom: 16px;
-    }
-    .community-grid div {
-      padding: 18px;
-      border-right: 1px solid #121212;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-    .community-grid strong {
-      font-size: 42px;
-      line-height: 1;
-    }
-    .correction-form {
-      display: grid;
-      gap: 12px;
-      border: 1px solid #121212;
-      padding: 18px;
-    }
-    .correction-form label {
-      display: grid;
-      gap: 6px;
-      font-size: 12px;
-      font-weight: 900;
-      text-transform: uppercase;
-    }
-    .correction-form input,
-    .correction-form select,
-    .correction-form textarea {
-      width: 100%;
-      border: 1px solid #121212;
-      padding: 10px;
-      font: inherit;
-    }
-    .correction-form button {
-      justify-self: start;
-      border: 1px solid #121212;
-      background: #121212;
-      color: #fff;
-      padding: 10px 14px;
-      font-weight: 900;
-    }
-    .related-card {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-    .related-card strong {
-      font-size: 18px;
-      font-weight: 900;
-    }
-    .related-card span {
-      color: #555;
-      line-height: 1.4;
-    }
-    .share-box {
-      display: flex;
-      gap: 12px;
-      padding-top: 20px;
-      font-weight: 800;
-    }
-    @media (max-width: 900px) {
-      .tool-detail-shell {
-        padding: 82px 16px 48px;
-      }
-      .tool-detail,
-      .overview-grid,
-      .qa-grid,
-      .setup-panel,
-      .related-grid {
-        grid-template-columns: 1fr;
-      }
-      .detail-mini-nav {
-        display: none;
-      }
-      .detail-hero-top,
-      .detail-actions {
-        justify-content: flex-start;
-      }
-      .score-row {
-        grid-template-columns: 1fr;
-      }
-      .score-row span {
-        border-right: 0;
-        border-bottom: 1px solid #121212;
-      }
-    }
-  </style>
-  ---
 </Layout>

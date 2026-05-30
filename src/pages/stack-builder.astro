@@ -18,8 +18,7 @@ const allTools = toolsData.tools.flatMap((cat: any) =>
   pageTitle="Private AI stack builder"
   pageDescription="Build a local, self-hosted AI stack from compatible inference, chat, RAG, vector, deployment, and monitoring tools."
   showSearch={true}
+  showHero={true}
 >
-  <main id="main-content">
-    <StackBuilder client:visible tools={allTools} />
-  </main>
+  <StackBuilder client:visible tools={allTools} />
 </Layout>

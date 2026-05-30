@@ -16,30 +16,30 @@ const newsletter = ref<NewsletterData>(newsletterData);
 </script>
 
 <template>
-  <aside class="sidebar">
+  <aside class="flex flex-col gap-6">
     <!-- Sponsor -->
-    <div class="scard" v-if="props.showSponsor !== false" v-for="sponsor in sponsors" :key="sponsor.logo">
-      <div class="scard-label">Sponsor</div>
-      <div class="sponsor-logo">{{ sponsor.logo }}</div>
-      <p class="sponsor-desc">{{ sponsor.description }}</p>
-      <button class="scard-btn-ghost">{{ sponsor.cta }}</button>
+    <div class="flex flex-col h-full border border-gray-200 p-5 bg-white" v-if="props.showSponsor !== false" v-for="sponsor in sponsors" :key="sponsor.logo">
+      <div class="text-[10px] font-black uppercase text-gray-400 tracking-wider mb-3">Sponsor</div>
+      <div class="text-xl font-black text-gray-900 mb-2">{{ sponsor.logo }}</div>
+      <p class="text-sm font-medium text-gray-600 mb-4 flex-1">{{ sponsor.description }}</p>
+      <button class="w-full py-2 border border-gray-200 font-bold text-gray-700 hover:border-gray-900 hover:text-gray-900 transition-colors">{{ sponsor.cta }}</button>
     </div>
 
     <!-- Newsletter -->
-    <div class="scard" v-if="props.showNewsletter !== false">
-      <div class="scard-label">Newsletter</div>
-      <div class="scard-title">{{ newsletter.title }}</div>
-      <p class="scard-sub">{{ newsletter.subtitle }}</p>
-      <input class="scard-input" type="email" :placeholder="newsletter.placeholder" />
-      <button class="scard-btn">Get the digest</button>
+    <div class="flex flex-col h-full border border-gray-200 p-5 bg-white" v-if="props.showNewsletter !== false">
+      <div class="text-[10px] font-black uppercase text-gray-400 tracking-wider mb-3">Newsletter</div>
+      <div class="text-lg font-black text-gray-900 mb-2">{{ newsletter.title }}</div>
+      <p class="text-sm font-medium text-gray-600 mb-4 flex-1">{{ newsletter.subtitle }}</p>
+      <input class="w-full px-3 py-2 border border-gray-200 font-sans text-sm mb-2 focus:border-primary-500 focus:ring-1 focus:ring-primary-500 outline-none" type="email" :placeholder="newsletter.placeholder" />
+      <button class="w-full py-2 bg-gray-900 text-white font-bold hover:bg-yellow-400 hover:text-gray-900 transition-colors">Get the digest</button>
     </div>
 
     <!-- Featured CTA -->
-    <div class="scard">
-      <div class="scard-label">Get featured</div>
-      <div class="scard-title">{{ featured.title }}</div>
-      <p class="scard-sub">{{ featured.description }}</p>
-      <button class="scard-btn">{{ featured.cta }}</button>
+    <div class="flex flex-col h-full border border-gray-200 p-5 bg-white">
+      <div class="text-[10px] font-black uppercase text-gray-400 tracking-wider mb-3">Get featured</div>
+      <div class="text-lg font-black text-gray-900 mb-2">{{ featured.title }}</div>
+      <p class="text-sm font-medium text-gray-600 mb-4 flex-1">{{ featured.description }}</p>
+      <button class="w-full py-2 bg-gray-900 text-white font-bold hover:bg-yellow-400 hover:text-gray-900 transition-colors">{{ featured.cta }}</button>
     </div>
   </aside>
 </template>

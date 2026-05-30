@@ -1,49 +1,49 @@
 <template>
   <div>
-    <div v-if="success" class="success-message">
-      <div class="success-icon">✓</div>
+    <div v-if="success" class="flex flex-col md:flex-row items-start md:items-center gap-6 bg-green-50 border-2 border-green-600 p-6 mb-8">
+      <div class="w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center text-2xl font-black shrink-0">✓</div>
       <div>
-        <h3>Successfully submitted</h3>
-        <p>Your tool has been submitted and is pending review by the admin.</p>
+        <h3 class="text-xl font-black text-green-800 mb-2">Successfully submitted</h3>
+        <p class="text-green-700 font-bold m-0">Your tool has been submitted and is pending review by the admin.</p>
       </div>
     </div>
 
-    <form v-else @submit.prevent="submitForm" class="custom-form">
+    <form v-else @submit.prevent="submitForm" class="flex flex-col gap-6">
 
       <!-- GitHub Autofill -->
-      <div class="github-section">
-        <h3>Have a GitHub Repo?</h3>
-        <p>Paste the URL below to automatically fill in most of the details.</p>
-        <div class="github-input-group">
-          <input type="url" v-model="githubUrl" id="githubUrl" class="custom-input"
+      <div class="bg-gray-50 border-2 border-gray-900 p-6">
+        <h3 class="text-xl font-black text-gray-900 mb-2 uppercase tracking-wide">Have a GitHub Repo?</h3>
+        <p class="text-base font-bold text-gray-600 mb-6 m-0">Paste the URL below to automatically fill in most of the details.</p>
+        <div class="flex flex-col md:flex-row gap-4">
+          <input type="url" v-model="githubUrl" id="githubUrl" class="w-full bg-white border-2 border-gray-900 px-4 py-3 font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 rounded-none transition-colors"
             placeholder="https://github.com/owner/repo" />
-          <button type="button" @click="fetchGithubData" :disabled="isFetching" class="custom-btn secondary">
+          <button type="button" @click="fetchGithubData" :disabled="isFetching" class="inline-flex items-center justify-center px-6 py-3 font-black uppercase tracking-wider text-sm transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed bg-white border-2 border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white rounded-none whitespace-nowrap">
             {{ isFetching ? 'Fetching...' : 'Auto-fill' }}
           </button>
         </div>
-        <p v-if="fetchError" class="error-text">{{ fetchError }}</p>
+        <p v-if="fetchError" class="text-sm font-bold text-red-600 mt-3 m-0">{{ fetchError }}</p>
       </div>
 
       <!-- Core Fields -->
-      <div class="form-grid">
-        <div class="form-group full-width">
-          <label for="name">Name *</label>
-          <input type="text" id="name" v-model="form.name" required class="custom-input" />
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="flex flex-col gap-2 col-span-1 md:col-span-2">
+          <label for="name" class="font-black text-gray-900 uppercase tracking-wider text-sm">Name *</label>
+          <input type="text" id="name" v-model="form.name" required class="w-full bg-white border-2 border-gray-900 px-4 py-3 font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 rounded-none transition-colors" />
         </div>
 
-        <div class="form-group full-width">
-          <label for="description">Description *</label>
-          <textarea id="description" v-model="form.description" rows="3" required class="custom-input"></textarea>
+        <div class="flex flex-col gap-2 col-span-1 md:col-span-2">
+          <label for="description" class="font-black text-gray-900 uppercase tracking-wider text-sm">Description *</label>
+          <textarea id="description" v-model="form.description" rows="3" required class="w-full bg-white border-2 border-gray-900 px-4 py-3 font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 rounded-none transition-colors"></textarea>
         </div>
 
-        <div class="form-group half-width">
-          <label for="url">Website URL</label>
-          <input type="url" id="url" v-model="form.url" class="custom-input" />
+        <div class="flex flex-col gap-2 col-span-1">
+          <label for="url" class="font-black text-gray-900 uppercase tracking-wider text-sm">Website URL</label>
+          <input type="url" id="url" v-model="form.url" class="w-full bg-white border-2 border-gray-900 px-4 py-3 font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 rounded-none transition-colors" />
         </div>
 
-        <div class="form-group half-width">
-          <label for="category">Category *</label>
-          <select id="category" v-model="form.category" required class="custom-input">
+        <div class="flex flex-col gap-2 col-span-1">
+          <label for="category" class="font-black text-gray-900 uppercase tracking-wider text-sm">Category *</label>
+          <select id="category" v-model="form.category" required class="w-full bg-white border-2 border-gray-900 px-4 py-3 font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 rounded-none transition-colors cursor-pointer appearance-none">
             <option value="">Select a category</option>
             <option value="llm-inference">LLM Inference</option>
             <option value="llm-models">LLM Models</option>
@@ -56,67 +56,72 @@
           </select>
         </div>
 
-        <div class="form-group full-width">
-          <label for="license">License</label>
+        <div class="flex flex-col gap-2 col-span-1 md:col-span-2">
+          <label for="license" class="font-black text-gray-900 uppercase tracking-wider text-sm">License</label>
           <input type="text" id="license" v-model="form.license" placeholder="e.g. MIT, Apache 2.0"
-            class="custom-input" />
+            class="w-full bg-white border-2 border-gray-900 px-4 py-3 font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 rounded-none transition-colors" />
         </div>
 
-        <div class="form-group half-width">
-          <label>Hardware *</label>
-          <div class="checkbox-group">
-            <label class="checkbox-label"><input type="checkbox" v-model="form.hardware" value="CPU Only"> CPU Only</label>
-            <label class="checkbox-label"><input type="checkbox" v-model="form.hardware" value="NVIDIA GPU (CUDA)"> NVIDIA GPU (CUDA)</label>
-            <label class="checkbox-label"><input type="checkbox" v-model="form.hardware" value="AMD GPU (ROCm)"> AMD GPU (ROCm)</label>
-            <label class="checkbox-label"><input type="checkbox" v-model="form.hardware" value="Apple Silicon (Metal)"> Apple Silicon (Metal)</label>
-            <label class="checkbox-label"><input type="checkbox" v-model="form.hardware" value="Low-resource (< 8GB RAM)"> Low-resource (&lt; 8GB RAM)</label>
+        <div class="flex flex-col gap-2 col-span-1">
+          <label class="font-black text-gray-900 uppercase tracking-wider text-sm">Hardware *</label>
+          <div class="flex flex-col gap-3 bg-white border-2 border-gray-900 p-4">
+            <label class="flex items-center gap-3 font-bold text-gray-700 cursor-pointer"><input type="checkbox" v-model="form.hardware" value="CPU Only" class="w-5 h-5 border-2 border-gray-900 rounded-none cursor-pointer accent-gray-900"> CPU Only</label>
+            <label class="flex items-center gap-3 font-bold text-gray-700 cursor-pointer"><input type="checkbox" v-model="form.hardware" value="NVIDIA GPU (CUDA)" class="w-5 h-5 border-2 border-gray-900 rounded-none cursor-pointer accent-gray-900"> NVIDIA GPU (CUDA)</label>
+            <label class="flex items-center gap-3 font-bold text-gray-700 cursor-pointer"><input type="checkbox" v-model="form.hardware" value="AMD GPU (ROCm)" class="w-5 h-5 border-2 border-gray-900 rounded-none cursor-pointer accent-gray-900"> AMD GPU (ROCm)</label>
+            <label class="flex items-center gap-3 font-bold text-gray-700 cursor-pointer"><input type="checkbox" v-model="form.hardware" value="Apple Silicon (Metal)" class="w-5 h-5 border-2 border-gray-900 rounded-none cursor-pointer accent-gray-900"> Apple Silicon (Metal)</label>
+            <label class="flex items-center gap-3 font-bold text-gray-700 cursor-pointer"><input type="checkbox" v-model="form.hardware" value="Low-resource (< 8GB RAM)" class="w-5 h-5 border-2 border-gray-900 rounded-none cursor-pointer accent-gray-900"> Low-resource (&lt; 8GB RAM)</label>
           </div>
         </div>
 
-        <div class="form-group half-width">
-          <label>Deployment *</label>
-          <div class="checkbox-group">
-            <label class="checkbox-label"><input type="checkbox" v-model="form.deployment" value="Docker"> Docker</label>
-            <label class="checkbox-label"><input type="checkbox" v-model="form.deployment" value="Bare Metal"> Bare Metal</label>
-            <label class="checkbox-label"><input type="checkbox" v-model="form.deployment" value="Kubernetes"> Kubernetes</label>
-            <label class="checkbox-label"><input type="checkbox" v-model="form.deployment" value="Systemd / Linux Service"> Systemd / Linux Service</label>
-            <label class="checkbox-label"><input type="checkbox" v-model="form.deployment" value="Embedded / Edge"> Embedded / Edge</label>
+        <div class="flex flex-col gap-2 col-span-1">
+          <label class="font-black text-gray-900 uppercase tracking-wider text-sm">Deployment *</label>
+          <div class="flex flex-col gap-3 bg-white border-2 border-gray-900 p-4">
+            <label class="flex items-center gap-3 font-bold text-gray-700 cursor-pointer"><input type="checkbox" v-model="form.deployment" value="Docker" class="w-5 h-5 border-2 border-gray-900 rounded-none cursor-pointer accent-gray-900"> Docker</label>
+            <label class="flex items-center gap-3 font-bold text-gray-700 cursor-pointer"><input type="checkbox" v-model="form.deployment" value="Bare Metal" class="w-5 h-5 border-2 border-gray-900 rounded-none cursor-pointer accent-gray-900"> Bare Metal</label>
+            <label class="flex items-center gap-3 font-bold text-gray-700 cursor-pointer"><input type="checkbox" v-model="form.deployment" value="Kubernetes" class="w-5 h-5 border-2 border-gray-900 rounded-none cursor-pointer accent-gray-900"> Kubernetes</label>
+            <label class="flex items-center gap-3 font-bold text-gray-700 cursor-pointer"><input type="checkbox" v-model="form.deployment" value="Systemd / Linux Service" class="w-5 h-5 border-2 border-gray-900 rounded-none cursor-pointer accent-gray-900"> Systemd / Linux Service</label>
+            <label class="flex items-center gap-3 font-bold text-gray-700 cursor-pointer"><input type="checkbox" v-model="form.deployment" value="Embedded / Edge" class="w-5 h-5 border-2 border-gray-900 rounded-none cursor-pointer accent-gray-900"> Embedded / Edge</label>
           </div>
         </div>
 
-        <Transition name="fade-slide">
-          <div v-if="form.category === 'llm-models'" class="form-group full-width">
-            <label>Model Format *</label>
-            <div class="checkbox-group horizontal-options">
-              <label class="checkbox-label"><input type="checkbox" v-model="form.modelFormat" value="GGUF"> GGUF</label>
-              <label class="checkbox-label"><input type="checkbox" v-model="form.modelFormat" value="GPTQ"> GPTQ</label>
-              <label class="checkbox-label"><input type="checkbox" v-model="form.modelFormat" value="AWQ"> AWQ</label>
-              <label class="checkbox-label"><input type="checkbox" v-model="form.modelFormat" value="Safetensors"> Safetensors</label>
-              <label class="checkbox-label"><input type="checkbox" v-model="form.modelFormat" value="ONNX"> ONNX</label>
+        <Transition 
+          enter-active-class="transition-all duration-300 ease-out"
+          enter-from-class="opacity-0 -translate-y-2.5"
+          leave-active-class="transition-all duration-300 ease-out"
+          leave-to-class="opacity-0 -translate-y-2.5"
+        >
+          <div v-if="form.category === 'llm-models'" class="flex flex-col gap-2 col-span-1 md:col-span-2">
+            <label class="font-black text-gray-900 uppercase tracking-wider text-sm">Model Format *</label>
+            <div class="flex flex-row flex-wrap gap-6 bg-white border-2 border-gray-900 p-4">
+              <label class="flex items-center gap-3 font-bold text-gray-700 cursor-pointer"><input type="checkbox" v-model="form.modelFormat" value="GGUF" class="w-5 h-5 border-2 border-gray-900 rounded-none cursor-pointer accent-gray-900"> GGUF</label>
+              <label class="flex items-center gap-3 font-bold text-gray-700 cursor-pointer"><input type="checkbox" v-model="form.modelFormat" value="GPTQ" class="w-5 h-5 border-2 border-gray-900 rounded-none cursor-pointer accent-gray-900"> GPTQ</label>
+              <label class="flex items-center gap-3 font-bold text-gray-700 cursor-pointer"><input type="checkbox" v-model="form.modelFormat" value="AWQ" class="w-5 h-5 border-2 border-gray-900 rounded-none cursor-pointer accent-gray-900"> AWQ</label>
+              <label class="flex items-center gap-3 font-bold text-gray-700 cursor-pointer"><input type="checkbox" v-model="form.modelFormat" value="Safetensors" class="w-5 h-5 border-2 border-gray-900 rounded-none cursor-pointer accent-gray-900"> Safetensors</label>
+              <label class="flex items-center gap-3 font-bold text-gray-700 cursor-pointer"><input type="checkbox" v-model="form.modelFormat" value="ONNX" class="w-5 h-5 border-2 border-gray-900 rounded-none cursor-pointer accent-gray-900"> ONNX</label>
             </div>
           </div>
         </Transition>
 
         <!-- Custom Logo -->
-        <div class="form-group full-width">
-          <label>Custom Logo (Optional)</label>
-          <div class="logo-upload">
+        <div class="flex flex-col gap-2 col-span-1 md:col-span-2">
+          <label class="font-black text-gray-900 uppercase tracking-wider text-sm">Custom Logo (Optional)</label>
+          <div class="flex items-center gap-6 mt-2">
             <img v-if="logoPreview || form.githubAvatarUrl" :src="logoPreview || form.githubAvatarUrl"
-              class="logo-preview" />
-            <div v-else class="logo-placeholder">Img</div>
+              class="w-16 h-16 object-cover border-2 border-gray-900" />
+            <div v-else class="w-16 h-16 bg-gray-50 border-2 border-dashed border-gray-400 flex items-center justify-center font-bold text-gray-400 text-xs uppercase">Img</div>
             <input type="file" ref="logoInput" accept="image/png, image/jpeg" @change="handleLogoChange"
-              class="file-input" />
+              class="text-sm font-bold text-gray-600 file:mr-4 file:py-3 file:px-6 file:border-2 file:border-gray-900 file:text-sm file:font-black file:uppercase file:tracking-wider file:bg-white file:text-gray-900 hover:file:bg-gray-900 hover:file:text-white file:transition-colors file:cursor-pointer file:rounded-none cursor-pointer" />
           </div>
-          <p v-if="fileError" class="error-text">{{ fileError }}</p>
+          <p v-if="fileError" class="text-sm font-bold text-red-600 mt-2 m-0">{{ fileError }}</p>
         </div>
       </div>
 
-      <div v-if="submitError" class="error-message">
+      <div v-if="submitError" class="bg-red-50 text-red-600 border-2 border-red-600 p-4 font-bold text-sm">
         {{ submitError }}
       </div>
 
-      <div class="form-actions">
-        <button type="submit" :disabled="isSubmitting" class="custom-btn primary">
+      <div class="flex justify-end mt-4">
+        <button type="submit" :disabled="isSubmitting" class="inline-flex items-center justify-center px-8 py-4 font-black uppercase tracking-wider text-sm transition-colors border-none cursor-pointer rounded-none disabled:opacity-50 disabled:cursor-not-allowed bg-gray-900 text-white hover:bg-primary-500">
           {{ isSubmitting ? 'Submitting...' : 'Submit Tool' }}
         </button>
       </div>
@@ -253,283 +258,3 @@ const submitForm = async () => {
   }
 };
 </script>
-
-<style scoped>
-.custom-form {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.github-section {
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-md);
-  padding: 20px;
-}
-
-.github-section h3 {
-  font-size: 15px;
-  font-weight: 600;
-  margin-bottom: 4px;
-}
-
-.github-section p {
-  font-size: 13px;
-  color: var(--text-secondary);
-  margin-bottom: 12px;
-}
-
-.github-input-group {
-  display: flex;
-  gap: 12px;
-}
-
-@media (max-width: 480px) {
-  .github-input-group {
-    flex-direction: column;
-  }
-}
-
-.form-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.full-width {
-  grid-column: 1 / -1;
-}
-
-.half-width {
-  grid-column: span 1;
-}
-
-@media (max-width: 600px) {
-  .form-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .half-width {
-    grid-column: 1 / -1;
-  }
-}
-
-.form-group label {
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--text-primary);
-}
-
-.custom-input {
-  width: 100%;
-  background: var(--white);
-  border: 1.5px solid var(--border-light);
-  border-radius: var(--radius-md);
-  padding: 10px 12px;
-  color: var(--text-primary);
-  font-family: var(--font);
-  font-size: 14px;
-  outline: none;
-  transition: all 0.15s;
-}
-
-.custom-input:focus {
-  border-color: var(--accent-blue);
-  box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.1);
-}
-
-.logo-upload {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.logo-preview {
-  width: 48px;
-  height: 48px;
-  border-radius: var(--radius-md);
-  object-fit: cover;
-  border: 1px solid var(--border-light);
-}
-
-.logo-placeholder {
-  width: 48px;
-  height: 48px;
-  border-radius: var(--radius-md);
-  background: var(--bg-secondary);
-  border: 1px dashed var(--text-tertiary);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 12px;
-  color: var(--text-tertiary);
-}
-
-.file-input {
-  font-size: 13px;
-  color: var(--text-secondary);
-}
-
-.file-input::file-selector-button {
-  padding: 8px 12px;
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--border-light);
-  background: var(--bg-secondary);
-  color: var(--text-primary);
-  font-family: var(--font);
-  font-size: 12px;
-  font-weight: 500;
-  cursor: pointer;
-  margin-right: 12px;
-  transition: all 0.15s;
-}
-
-.file-input::file-selector-button:hover {
-  background: var(--border-light);
-}
-
-.custom-btn {
-  padding: 10px 16px;
-  border-radius: var(--radius-md);
-  font-family: var(--font);
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.15s;
-  border: none;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.custom-btn:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-.custom-btn.primary {
-  background: var(--accent-blue);
-  color: var(--white);
-}
-
-.custom-btn.primary:hover:not(:disabled) {
-  background: var(--accent-blue-hover);
-}
-
-.custom-btn.secondary {
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-light);
-  color: var(--text-primary);
-}
-
-.custom-btn.secondary:hover:not(:disabled) {
-  border-color: var(--text-tertiary);
-}
-
-.form-actions {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 16px;
-}
-
-.error-text {
-  font-size: 13px;
-  color: var(--red-text);
-  margin-top: 8px;
-}
-
-.error-message {
-  background: var(--red-bg);
-  color: var(--red-text);
-  padding: 12px 16px;
-  border-radius: var(--radius-md);
-  font-size: 13px;
-  font-weight: 500;
-}
-
-.success-message {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  background: var(--green-bg);
-  color: var(--green-text);
-  padding: 20px;
-  border-radius: var(--radius-md);
-  margin-bottom: 24px;
-}
-
-.success-icon {
-  width: 32px;
-  height: 32px;
-  background: var(--white);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.success-message h3 {
-  font-size: 15px;
-  font-weight: 600;
-  margin-bottom: 4px;
-}
-
-.success-message p {
-  font-size: 13px;
-}
-
-.checkbox-group {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  background: var(--white);
-  border: 1.5px solid var(--border-light);
-  border-radius: var(--radius-md);
-  padding: 12px;
-}
-
-.checkbox-group.horizontal-options {
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 16px;
-}
-
-.checkbox-label {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 14px;
-  color: var(--text-primary);
-  font-weight: 400 !important;
-  cursor: pointer;
-}
-
-.checkbox-label input[type="checkbox"] {
-  width: 16px;
-  height: 16px;
-  border-radius: 4px;
-  border: 1.5px solid var(--border-light);
-  accent-color: var(--accent-blue);
-  cursor: pointer;
-}
-
-.fade-slide-enter-active,
-.fade-slide-leave-active {
-  transition: all 0.3s ease;
-}
-
-.fade-slide-enter-from,
-.fade-slide-leave-to {
-  opacity: 0;
-  transform: translateY(-10px);
-}
-</style>

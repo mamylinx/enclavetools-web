@@ -1,39 +1,39 @@
 <template>
-  <li class="link-card" :class="{ featured: isFeatured }">
-    <div v-if="slug" class="card-compare">
-      <label class="compare-check" @click.stop>
-        <input type="checkbox" :checked="isCompared" @change="toggleCompare" />
-        <span>Compare</span>
+  <li class="relative list-none flex flex-col gap-3 bg-white border border-gray-200 p-4.5 transition-colors cursor-pointer hover:border-gray-900 group" :class="{ 'border-[1.5px] border-gray-900 bg-[#f7f7f2]': isFeatured }">
+    <div v-if="slug" class="absolute top-2 right-2 z-10 hidden group-hover:block">
+      <label class="flex items-center gap-1 text-xs cursor-pointer bg-white/90 px-2 py-1 rounded border border-gray-200" @click.stop>
+        <input type="checkbox" :checked="isCompared" @change="toggleCompare" class="w-3 h-3 text-primary-500 rounded-sm border-gray-300 focus:ring-primary-500" />
+        <span class="text-gray-600 font-medium">Compare</span>
       </label>
     </div>
-    <a :href="linkUrl" @click="handleClick">
-      <div class="card-top">
-        <div class="card-icon">
+    <a :href="linkUrl" @click="handleClick" class="flex flex-col justify-between w-full h-full p-0 text-inherit no-underline gap-3">
+      <div class="flex items-start gap-3">
+        <div class="w-10 h-10 bg-gray-50 border border-gray-200 flex items-center justify-center shrink-0 text-gray-900 font-medium">
           <component :is="categoryIcon" :size="18" :stroke-width="2" />
         </div>
-        <div class="card-meta">
-          <div class="card-name">
+        <div class="flex-1 min-w-0">
+          <div class="text-lg font-extrabold text-gray-900 tracking-[-0.2px] truncate mb-0.5">
             {{ title }}
-            <span v-if="isFeatured" class="featured-badge-inline">Featured</span>
+            <span v-if="isFeatured" class="inline-block align-middle text-[10px] font-semibold bg-blue-500 text-white px-1.5 py-0.5 rounded-full tracking-[0.02em] ml-1.5 -mt-0.5">Featured</span>
           </div>
-          <div class="card-cat">{{ category }}</div>
+          <div class="text-xs text-gray-500">{{ category }}</div>
         </div>
       </div>
-      <div class="card-desc">{{ body }}</div>
-      <div class="card-signals">
-        <span v-if="setupDifficulty" class="signal-dot" :class="setupClass">{{ setupDifficulty }} setup</span>
-        <span v-if="primaryHardware" class="signal-chip">{{ primaryHardware }}</span>
-        <span v-if="commercialUse" class="signal-chip">Commercial use</span>
+      <div class="text-[13px] leading-relaxed text-gray-600 m-0 line-clamp-2">{{ body }}</div>
+      <div class="flex flex-wrap gap-1.5">
+        <span v-if="setupDifficulty" class="inline-flex items-center min-h-[24px] border border-gray-200 px-2 text-[11px] font-bold text-gray-900 bg-white" :class="setupClass">{{ setupDifficulty }} setup</span>
+        <span v-if="primaryHardware" class="inline-flex items-center min-h-[24px] border border-gray-200 px-2 text-[11px] font-bold text-gray-900 bg-white">{{ primaryHardware }}</span>
+        <span v-if="commercialUse" class="inline-flex items-center min-h-[24px] border border-gray-200 px-2 text-[11px] font-bold text-gray-900 bg-white">Commercial use</span>
       </div>
-      <div class="card-foot">
-        <span class="price-tag" :class="priceClass">{{ license }}</span>
-        <span class="card-stats">
-          <span v-if="githubStars" class="card-stat">★ {{ formattedStars }}</span>
-          <span v-if="lastUpdated" class="card-stat">Updated {{ formattedUpdated }}</span>
+      <div class="flex items-center justify-between mt-1 gap-3 flex-wrap">
+        <span class="text-[11px] font-semibold px-2.5 py-1 font-sans" :class="priceClass">{{ license }}</span>
+        <span class="flex flex-wrap justify-end gap-2.5 text-gray-500 text-xs font-semibold">
+          <span v-if="githubStars" class="whitespace-nowrap">★ {{ formattedStars }}</span>
+          <span v-if="lastUpdated" class="whitespace-nowrap">Updated {{ formattedUpdated }}</span>
         </span>
       </div>
     </a>
-    <div v-if="slug" class="card-bookmark">
+    <div v-if="slug" class="absolute bottom-4 right-4 z-10 hidden group-hover:block">
       <BookmarkButton :slug="slug" :title="title" :body="body" :license="license" :url="href" :category="category || ''"
         :date-added="dateAdded" variant="small" />
     </div>
@@ -93,7 +93,13 @@ const formattedUpdated = computed(() => {
   if (days < 365) return `${Math.floor(days / 30)}mo ago`;
   return `${Math.floor(days / 365)}y ago`;
 });
-const setupClass = computed(() => `setup-${(props.setupDifficulty || '').toLowerCase()}`);
+const setupClass = computed(() => {
+  const d = (props.setupDifficulty || '').toLowerCase();
+  if (d === 'low') return 'before:content-[\'\'] before:w-1.5 before:h-1.5 before:mr-1.5 before:bg-green-600 before:rounded-full before:inline-block';
+  if (d === 'medium') return 'before:content-[\'\'] before:w-1.5 before:h-1.5 before:mr-1.5 before:bg-yellow-400 before:rounded-full before:inline-block';
+  if (d === 'high') return 'before:content-[\'\'] before:w-1.5 before:h-1.5 before:mr-1.5 before:bg-red-500 before:rounded-full before:inline-block';
+  return '';
+});
 
 const categoryIcon = computed(() => {
   const icons: Record<string, any> = {
@@ -125,8 +131,8 @@ const priceClass = computed(() => {
   const l = props.license.toLowerCase();
   const openSource = ['mit', 'apache', 'bsd', 'gpl', 'lgpl', 'mozilla', 'open'];
   const isOpen = openSource.some(k => l.includes(k));
-  if (isOpen) return 'p-free';
-  return 'p-custom';
+  if (isOpen) return 'bg-green-50 text-green-800';
+  return 'bg-orange-50 text-orange-800';
 });
 
 const handleClick = () => {
@@ -157,18 +163,3 @@ const toggleCompare = (event: Event) => {
 };
 </script>
 
-<style scoped>
-.featured-badge-inline {
-  display: inline-block;
-  vertical-align: middle;
-  font-size: 10px;
-  font-weight: 600;
-  background: var(--accent-blue);
-  color: var(--white);
-  padding: 2px 6px;
-  border-radius: 12px;
-  letter-spacing: 0.02em;
-  margin-left: 6px;
-  margin-top: -2px;
-}
-</style>

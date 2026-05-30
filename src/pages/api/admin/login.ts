@@ -20,11 +20,12 @@ export const POST: APIRoute = async (context) => {
     const token = await createSessionToken(env);
     
     // Set HTTP-only cookie
+    const isSecure = new URL(context.request.url).protocol === 'https:';
     context.cookies.set('admin_session', token, {
       path: '/',
       httpOnly: true,
-      secure: true,
-      sameSite: 'strict',
+      secure: isSecure,
+      sameSite: isSecure ? 'strict' : 'lax',
       maxAge: 60 * 60 * 24 // 24 hours
     });
 

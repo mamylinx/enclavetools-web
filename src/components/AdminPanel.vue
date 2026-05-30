@@ -1,60 +1,60 @@
 <template>
   <div>
     <!-- Login Form -->
-    <div v-if="!loggedIn" class="login-card">
-      <h2>Admin Login</h2>
-      <form @submit.prevent="login" class="custom-form">
-        <div class="form-group">
-          <label>Password</label>
-          <input type="password" v-model="password" required class="custom-input" />
+    <div v-if="!loggedIn" class="max-w-[400px] mx-auto bg-gray-50 border-2 border-gray-900 p-8 shadow-[4px_4px_0_0_rgba(17,24,39,1)]">
+      <h2 class="text-xl font-black text-gray-900 mb-6 text-center uppercase tracking-wide">Admin Login</h2>
+      <form @submit.prevent="login" class="flex flex-col gap-4">
+        <div class="flex flex-col gap-2">
+          <label class="font-black text-gray-900 uppercase tracking-wider text-sm">Password</label>
+          <input type="password" v-model="password" required class="w-full bg-white border-2 border-gray-900 px-4 py-3 font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 rounded-none transition-colors" />
         </div>
-        <p v-if="loginError" class="error-text">{{ loginError }}</p>
-        <button type="submit" class="custom-btn primary full-width" :disabled="isLoggingIn">
+        <p v-if="loginError" class="text-sm font-bold text-red-600 m-0">{{ loginError }}</p>
+        <button type="submit" class="w-full inline-flex items-center justify-center px-6 py-3 font-black uppercase tracking-wider text-sm transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed bg-gray-900 text-white hover:bg-primary-500 border-none rounded-none mt-2" :disabled="isLoggingIn">
           {{ isLoggingIn ? 'Logging in...' : 'Sign In' }}
         </button>
       </form>
     </div>
 
     <!-- Dashboard -->
-    <div v-else class="dashboard-container">
-      <div class="dashboard-header">
-        <div class="status-badge">
-          <span class="pulse-dot"></span>
+    <div v-else class="flex flex-col gap-8 max-w-5xl mx-auto">
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b-2 border-gray-900 pb-6">
+        <div class="inline-flex items-center gap-2 bg-primary-50 text-primary-600 border-2 border-primary-500 px-4 py-2 font-black uppercase tracking-widest text-xs">
+          <span class="w-2 h-2 bg-primary-500 rounded-full animate-pulse block"></span>
           {{ pendingTools.length }} Pending Submissions
         </div>
-        <div class="dashboard-actions">
-          <button @click="rebuild" :disabled="isRebuilding" class="custom-btn success">
+        <div class="flex flex-wrap gap-3 w-full md:w-auto">
+          <button @click="rebuild" :disabled="isRebuilding" class="flex-1 md:flex-none inline-flex items-center justify-center px-6 py-2.5 font-black uppercase tracking-wider text-xs transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed bg-green-500 text-white hover:bg-green-600 border-2 border-green-700 rounded-none">
             {{ isRebuilding ? 'Triggering Build...' : 'Rebuild Pages' }}
           </button>
-          <button @click="logout" class="custom-btn secondary">
+          <button @click="logout" class="flex-1 md:flex-none inline-flex items-center justify-center px-6 py-2.5 font-black uppercase tracking-wider text-xs transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed bg-white border-2 border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white rounded-none">
             Logout
           </button>
         </div>
       </div>
 
-      <div v-if="rebuildMessage" :class="['message-banner', rebuildMessage.includes('Error') ? 'error' : 'success']">
+      <div v-if="rebuildMessage" class="p-4 font-bold text-sm border-2" :class="rebuildMessage.includes('Error') ? 'bg-red-50 text-red-600 border-red-600' : 'bg-green-50 text-green-700 border-green-600'">
         {{ rebuildMessage }}
       </div>
 
-      <div class="submissions-list">
-        <div v-if="pendingTools.length === 0" class="empty-list">
-          <p>No pending tools to review.</p>
+      <div class="bg-white border-2 border-gray-900 shadow-[4px_4px_0_0_rgba(17,24,39,1)] flex flex-col">
+        <div v-if="pendingTools.length === 0" class="p-12 text-center text-gray-500 font-bold text-lg border-dashed border-gray-300">
+          <p class="m-0">No pending tools to review.</p>
         </div>
 
-        <div v-for="tool in pendingTools" :key="tool.id" class="submission-card">
-          <div class="sub-info">
-            <h4>{{ tool.name }}</h4>
-            <p>{{ tool.description }}</p>
-            <div class="sub-meta">
-              <span class="meta-tag">Category: {{ tool.category }}</span>
-              <span v-if="tool.github_url" class="meta-tag">
-                GitHub: <a :href="tool.github_url" target="_blank">Link</a>
+        <div v-for="tool in pendingTools" :key="tool.id" class="flex flex-col md:flex-row justify-between items-start md:items-center p-6 border-b-2 border-gray-200 last:border-b-0 gap-6">
+          <div class="flex-1">
+            <h4 class="text-xl font-black text-gray-900 mb-2">{{ tool.name }}</h4>
+            <p class="text-gray-600 font-medium mb-4 max-w-2xl leading-relaxed m-0">{{ tool.description }}</p>
+            <div class="flex flex-wrap gap-3">
+              <span class="text-xs font-bold text-gray-700 bg-gray-100 border border-gray-300 px-2 py-1 uppercase tracking-wider">Category: {{ tool.category }}</span>
+              <span v-if="tool.github_url" class="text-xs font-bold text-gray-700 bg-gray-100 border border-gray-300 px-2 py-1 uppercase tracking-wider">
+                GitHub: <a :href="tool.github_url" target="_blank" class="text-primary-500 hover:text-primary-600 underline">Link</a>
               </span>
             </div>
           </div>
-          <div class="sub-actions">
-            <button @click="rejectTool(tool.id)" class="custom-btn danger outline">Reject</button>
-            <button @click="approveTool(tool.id)" class="custom-btn primary">Approve</button>
+          <div class="flex w-full md:w-auto gap-3 shrink-0">
+            <button @click="rejectTool(tool.id)" class="flex-1 md:flex-none inline-flex items-center justify-center px-4 py-2 font-black uppercase tracking-wider text-xs transition-colors cursor-pointer bg-white text-red-600 hover:bg-red-50 hover:text-red-700 border-2 border-red-200 hover:border-red-600 rounded-none">Reject</button>
+            <button @click="approveTool(tool.id)" class="flex-1 md:flex-none inline-flex items-center justify-center px-6 py-2 font-black uppercase tracking-wider text-xs transition-colors cursor-pointer bg-gray-900 text-white hover:bg-primary-500 border-none rounded-none">Approve</button>
           </div>
         </div>
       </div>
@@ -95,6 +95,7 @@ const login = async () => {
 
     if (res.ok) {
       loggedIn.value = true;
+      password.value = '';
       fetchTools();
     } else {
       const data = await res.json();
@@ -169,278 +170,4 @@ const rebuild = async () => {
 };
 </script>
 
-<style scoped>
-.login-card {
-  max-width: 400px;
-  margin: 0 auto;
-  background: var(--white);
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-md);
-  padding: 32px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
-}
 
-.login-card h2 {
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 24px;
-  text-align: center;
-}
-
-.custom-form {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.form-group label {
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--text-primary);
-}
-
-.custom-input {
-  width: 100%;
-  background: var(--white);
-  border: 1.5px solid var(--border-light);
-  border-radius: var(--radius-md);
-  padding: 10px 12px;
-  color: var(--text-primary);
-  font-family: var(--font);
-  font-size: 14px;
-  outline: none;
-  transition: all 0.15s;
-}
-
-.custom-input:focus {
-  border-color: var(--accent-blue);
-  box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.1);
-}
-
-.custom-btn {
-  padding: 10px 16px;
-  border-radius: var(--radius-md);
-  font-family: var(--font);
-  font-size: 13px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.15s;
-  border: none;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.custom-btn:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-.custom-btn.full-width {
-  width: 100%;
-}
-
-.custom-btn.primary {
-  background: var(--accent-blue);
-  color: var(--white);
-}
-
-.custom-btn.primary:hover:not(:disabled) {
-  background: var(--accent-blue-hover);
-}
-
-.custom-btn.secondary {
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-light);
-  color: var(--text-primary);
-}
-
-.custom-btn.secondary:hover:not(:disabled) {
-  border-color: var(--text-tertiary);
-}
-
-.custom-btn.success {
-  background: var(--green-bg);
-  color: var(--green-text);
-  border: 1px solid #c8e6c9;
-}
-
-.custom-btn.success:hover:not(:disabled) {
-  background: #c8e6c9;
-}
-
-.custom-btn.danger.outline {
-  background: transparent;
-  color: var(--red-text);
-  border: 1px solid #ffcdd2;
-}
-
-.custom-btn.danger.outline:hover:not(:disabled) {
-  background: var(--red-bg);
-}
-
-.error-text {
-  font-size: 13px;
-  color: var(--red-text);
-}
-
-.dashboard-container {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.dashboard-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.dashboard-actions {
-  display: flex;
-  gap: 12px;
-}
-
-.status-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--blue-bg);
-  color: var(--blue-text);
-  padding: 6px 12px;
-  border-radius: 100px;
-  font-size: 13px;
-  font-weight: 600;
-}
-
-.pulse-dot {
-  width: 8px;
-  height: 8px;
-  background: var(--accent-blue);
-  border-radius: 50%;
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  0% {
-      transform: scale(0.95);
-      box-shadow: 0 0 0 0 rgba(0, 102, 255, 0.7);
-    }
-  
-    70% {
-      transform: scale(1);
-      box-shadow: 0 0 0 6px rgba(0, 102, 255, 0);
-    }
-  
-    100% {
-      transform: scale(0.95);
-      box-shadow: 0 0 0 0 rgba(0, 102, 255, 0);
-    }
-}
-
-.message-banner {
-  padding: 12px 16px;
-  border-radius: var(--radius-md);
-  font-size: 13px;
-  font-weight: 500;
-}
-
-.message-banner.success {
-  background: var(--green-bg);
-  color: var(--green-text);
-}
-
-.message-banner.error {
-  background: var(--red-bg);
-  color: var(--red-text);
-}
-
-.submissions-list {
-  background: var(--white);
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-md);
-  overflow: hidden;
-}
-
-.empty-list {
-  padding: 40px;
-  text-align: center;
-  color: var(--text-tertiary);
-  font-size: 14px;
-}
-
-.submission-card {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
-  border-bottom: 1px solid var(--border-light);
-}
-
-.submission-card:last-child {
-  border-bottom: none;
-}
-
-.sub-info h4 {
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--accent-blue);
-  margin-bottom: 4px;
-}
-
-.sub-info p {
-  font-size: 13px;
-  color: var(--text-secondary);
-  margin-bottom: 12px;
-  max-width: 600px;
-}
-
-.sub-meta {
-  display: flex;
-  gap: 16px;
-}
-
-.meta-tag {
-  font-size: 12px;
-  color: var(--text-tertiary);
-  background: var(--bg-secondary);
-  padding: 4px 8px;
-  border-radius: var(--radius-sm);
-}
-
-.meta-tag a {
-  color: var(--accent-blue);
-  text-decoration: underline;
-}
-
-.sub-actions {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-}
-
-@media (max-width: 768px) {
-  .dashboard-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
-  }
-
-  .submission-card {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
-  }
-
-  .sub-actions {
-    width: 100%;
-    justify-content: flex-end;
-  }
-}
-</style>

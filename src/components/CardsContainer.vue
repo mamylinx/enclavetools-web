@@ -291,60 +291,60 @@ onUnmounted(() => {
     </div>
 
     <div v-else>
-        <div class="toolbar">
-            <span class="toolbar-count">
+        <div class="flex flex-col md:flex-row md:items-center justify-between pb-4 border-b border-gray-900 gap-4 mb-6">
+            <span class="text-xs font-extrabold text-gray-500 uppercase tracking-widest">
                 <span>{{ toolCount }} result{{ toolCount !== 1 ? 's' : '' }}</span>
             </span>
-            <div class="toolbar-sorts">
-                <button class="sort-btn" :class="{ active: activeSort === 'az' }" @click="setSort('az')">A–Z</button>
-                <button class="sort-btn" :class="{ active: activeSort === 'featured' }"
+            <div class="flex items-center gap-1 overflow-x-auto pb-2 md:pb-0 scrollbar-hide">
+                <button class="whitespace-nowrap px-3 py-1.5 rounded-full text-xs font-bold transition-colors border" :class="{ 'bg-gray-100 text-gray-900 border-gray-200': activeSort === 'az', 'text-gray-600 border-transparent hover:text-gray-900 hover:bg-gray-50': activeSort !== 'az' }" @click="setSort('az')">A–Z</button>
+                <button class="whitespace-nowrap px-3 py-1.5 rounded-full text-xs font-bold transition-colors border" :class="{ 'bg-gray-100 text-gray-900 border-gray-200': activeSort === 'featured', 'text-gray-600 border-transparent hover:text-gray-900 hover:bg-gray-50': activeSort !== 'featured' }"
                     @click="setSort('featured')">Featured</button>
-                <button class="sort-btn" :class="{ active: activeSort === 'newest' }"
+                <button class="whitespace-nowrap px-3 py-1.5 rounded-full text-xs font-bold transition-colors border" :class="{ 'bg-gray-100 text-gray-900 border-gray-200': activeSort === 'newest', 'text-gray-600 border-transparent hover:text-gray-900 hover:bg-gray-50': activeSort !== 'newest' }"
                     @click="setSort('newest')">Recently added</button>
-                <button class="sort-btn" :class="{ active: activeSort === 'recently-updated' }"
+                <button class="whitespace-nowrap px-3 py-1.5 rounded-full text-xs font-bold transition-colors border" :class="{ 'bg-gray-100 text-gray-900 border-gray-200': activeSort === 'recently-updated', 'text-gray-600 border-transparent hover:text-gray-900 hover:bg-gray-50': activeSort !== 'recently-updated' }"
                     @click="setSort('recently-updated')">Last updated</button>
-                <button class="sort-btn" :class="{ active: activeSort === 'most-popular' }"
+                <button class="whitespace-nowrap px-3 py-1.5 rounded-full text-xs font-bold transition-colors border" :class="{ 'bg-gray-100 text-gray-900 border-gray-200': activeSort === 'most-popular', 'text-gray-600 border-transparent hover:text-gray-900 hover:bg-gray-50': activeSort !== 'most-popular' }"
                     @click="setSort('most-popular')">Most stars</button>
             </div>
         </div>
 
-        <ul role="list" class="link-card-grid">
+        <ul role="list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 m-0 p-0">
             <template v-for="(item, i) in displayedCards" :key="`${item.title}-${i}`">
-                <div class="ad-card" v-if="i === 0" v-for="ad in promotedAds" :key="ad.title">
-                    <div class="ad-left">
-                        <div class="ad-label">{{ ad.label }}</div>
-                        <div class="ad-title">{{ ad.title }}</div>
-                        <p class="ad-sub">{{ ad.description }}</p>
+                <div class="col-span-1 md:col-span-2 flex flex-col md:flex-row items-start md:items-center justify-between p-6 border-2 border-gray-900 bg-orange-50/50 mb-2" v-if="i === 0" v-for="ad in promotedAds" :key="ad.title">
+                    <div class="flex-1">
+                        <div class="text-[10px] font-black uppercase text-gray-900 tracking-wider mb-2">{{ ad.label }}</div>
+                        <div class="text-xl font-black text-gray-900 mb-1">{{ ad.title }}</div>
+                        <p class="text-sm font-medium text-gray-600 m-0">{{ ad.description }}</p>
                     </div>
-                    <button class="ad-btn">{{ ad.cta }}</button>
+                    <button class="mt-4 md:mt-0 whitespace-nowrap px-6 py-2.5 bg-gray-900 hover:bg-yellow-400 hover:text-gray-900 text-white font-bold transition-colors">{{ ad.cta }}</button>
                 </div>
 
-                <div class="mobile-sidebar-card" v-if="i === positions.sponsor" v-for="sponsor in sponsors"
+                <div class="lg:hidden col-span-1 border border-gray-200 p-5 bg-white" v-if="i === positions.sponsor" v-for="sponsor in sponsors"
                     :key="'sponsor-' + sponsor.logo">
-                    <div class="scard">
-                        <div class="scard-label">Sponsor</div>
-                        <div class="sponsor-logo">{{ sponsor.logo }}</div>
-                        <p class="sponsor-desc">{{ sponsor.description }}</p>
-                        <button class="scard-btn-ghost">{{ sponsor.cta }}</button>
+                    <div class="flex flex-col h-full">
+                        <div class="text-[10px] font-black uppercase text-gray-400 tracking-wider mb-3">Sponsor</div>
+                        <div class="text-xl font-black text-gray-900 mb-2">{{ sponsor.logo }}</div>
+                        <p class="text-sm font-medium text-gray-600 mb-4 flex-1">{{ sponsor.description }}</p>
+                        <button class="w-full py-2 border border-gray-200 font-bold text-gray-700 hover:border-gray-900 hover:text-gray-900 transition-colors">{{ sponsor.cta }}</button>
                     </div>
                 </div>
 
-                <div class="mobile-sidebar-card" v-if="i === positions.newsletter">
-                    <div class="scard">
-                        <div class="scard-label">Newsletter</div>
-                        <div class="scard-title">{{ newsletter.title }}</div>
-                        <p class="scard-sub">{{ newsletter.subtitle }}</p>
-                        <input class="scard-input" type="email" :placeholder="newsletter.placeholder" />
-                        <button class="scard-btn">Get the digest</button>
+                <div class="lg:hidden col-span-1 border border-gray-200 p-5 bg-white" v-if="i === positions.newsletter">
+                    <div class="flex flex-col h-full">
+                        <div class="text-[10px] font-black uppercase text-gray-400 tracking-wider mb-3">Newsletter</div>
+                        <div class="text-lg font-black text-gray-900 mb-2">{{ newsletter.title }}</div>
+                        <p class="text-sm font-medium text-gray-600 mb-4 flex-1">{{ newsletter.subtitle }}</p>
+                        <input class="w-full px-3 py-2 border border-gray-200 font-sans text-sm mb-2 focus:border-gray-900 focus:ring-1 focus:ring-gray-900 outline-none" type="email" :placeholder="newsletter.placeholder" />
+                        <button class="w-full py-2 bg-gray-900 text-white font-bold hover:bg-yellow-400 hover:text-gray-900 transition-colors">Get the digest</button>
                     </div>
                 </div>
 
-                <div class="mobile-sidebar-card" v-if="i === positions.featured">
-                    <div class="scard">
-                        <div class="scard-label">Get featured</div>
-                        <div class="scard-title">{{ featured.title }}</div>
-                        <p class="scard-sub">{{ featured.description }}</p>
-                        <button class="scard-btn">{{ featured.cta }}</button>
+                <div class="lg:hidden col-span-1 border border-gray-200 p-5 bg-white" v-if="i === positions.featured">
+                    <div class="flex flex-col h-full">
+                        <div class="text-[10px] font-black uppercase text-gray-400 tracking-wider mb-3">Get featured</div>
+                        <div class="text-lg font-black text-gray-900 mb-2">{{ featured.title }}</div>
+                        <p class="text-sm font-medium text-gray-600 mb-4 flex-1">{{ featured.description }}</p>
+                        <button class="w-full py-2 bg-gray-900 text-white font-bold hover:bg-yellow-400 hover:text-gray-900 transition-colors">{{ featured.cta }}</button>
                     </div>
                 </div>
 
@@ -357,8 +357,8 @@ onUnmounted(() => {
             </template>
         </ul>
 
-        <div v-if="displayedCount < filteredCards.length" ref="loaderRef" class="infinite-scroll-loader">
-            <p v-if="isLoading" class="loading-text">Loading more...</p>
+        <div v-if="displayedCount < filteredCards.length" ref="loaderRef" class="py-8 text-center">
+            <p v-if="isLoading" class="text-sm font-bold text-gray-500 uppercase tracking-widest">Loading more...</p>
         </div>
     </div>
 </template>

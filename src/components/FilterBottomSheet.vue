@@ -46,7 +46,7 @@ function close() {
 }
 
 function handleOverlayClick(e: MouseEvent) {
-    if ((e.target as HTMLElement).classList.contains('bottom-sheet-overlay')) {
+    if ((e.target as HTMLElement).classList.contains('z-40')) {
         close();
     }
 }
@@ -62,18 +62,18 @@ onUnmounted(() => {
 
 <template>
     <Teleport to="body">
-        <div class="bottom-sheet-overlay" :class="{ show: isOpen }" @click="handleOverlayClick">
-            <div class="bottom-sheet-wrapper" :class="{ show: isOpen }">
-                <div class="bottom-sheet-header">
-                    <span class="bottom-sheet-title">Filters</span>
-                    <button class="bottom-sheet-close" @click="close" aria-label="Close filters">
+        <div class="fixed inset-0 bg-black/40 z-40 transition-opacity duration-300" :class="isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'" @click="handleOverlayClick">
+            <div class="fixed inset-x-0 bottom-0 bg-white border-t border-gray-200 z-50 transition-transform duration-300 max-h-[85vh] flex flex-col" :class="isOpen ? 'translate-y-0' : 'translate-y-full'">
+                <div class="flex items-center justify-between px-6 py-5 border-b border-gray-200">
+                    <span class="text-lg font-black text-gray-900 tracking-tight">Filters</span>
+                    <button class="flex items-center justify-center p-2 hover:bg-gray-100 bg-transparent border-none cursor-pointer text-gray-500 transition-colors" @click="close" aria-label="Close filters">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2">
                             <path d="M18 6L6 18M6 6l12 12" />
                         </svg>
                     </button>
                 </div>
-                <div class="bottom-sheet-content">
+                <div class="overflow-y-auto px-6 py-4 flex-1 overscroll-contain">
                     <FilterPanel :state="state" :show-model-format="showModelFormat" :active-count="activeCount"
                         @update:sort="(v) => emit('update:sort', v)"
                         @update:category="(v) => emit('update:category', v)"

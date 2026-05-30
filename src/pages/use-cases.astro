@@ -50,37 +50,34 @@ const featuredFor = (categories: string[]) => allTools
 
 <Layout
   site="Enclavetools - Use Cases"
-  title="Use Cases"
-  tagline="Find private AI tools by job, not jargon"
+  title="Start from the risk you need to control."
+  tagline="These entry points map non-technical and technical needs to categories, filters, and practical shortlists."
+  eyebrow="Use cases"
   pageTitle="Private AI use cases"
   pageDescription="Persona-oriented entry points for private, local, and self-hosted AI tools."
   showSearch={true}
+  showHero={true}
 >
-  <main id="main-content" class="decision-page">
-    <header class="decision-header">
-      <p class="section-kicker">Use cases</p>
-      <h1>Start from the risk you need to control.</h1>
-      <p>These entry points map non-technical and technical needs to categories, filters, and practical shortlists.</p>
-    </header>
+  <div class="px-4 md:px-10 pt-6 pb-12 md:pb-16">
 
-    <div class="use-case-list">
+    <div class="grid grid-cols-1 border-t border-gray-900">
       {sections.map((section) => (
-        <section class="use-case-row">
+        <section class="grid grid-cols-1 md:grid-cols-[0.85fr_1.15fr] gap-6 py-6 border-b border-gray-900">
           <div>
-            <h2>{section.name}</h2>
-            <p>{section.copy}</p>
-            <a href={section.href}>Browse this view</a>
+            <h2 class="text-[clamp(30px,4vw,58px)] leading-[0.95] font-black mb-3 text-gray-900">{section.name}</h2>
+            <p class="max-w-[560px] text-gray-600 text-base leading-relaxed mb-4 font-medium">{section.copy}</p>
+            <a href={section.href} class="font-black text-gray-900 hover:text-blue-600 transition-colors">Browse this view</a>
           </div>
-          <div class="use-case-tools">
+          <div class="grid grid-cols-1 md:grid-cols-3 border border-gray-900">
             {featuredFor(section.categories).map((tool: any) => (
-              <a href={`/tools/${tool.slug}`}>
-                <strong>{tool.title}</strong>
-                <span>{tool.body}</span>
+              <a href={`/tools/${tool.slug}`} class="p-3.5 text-gray-900 border-b last:border-b-0 md:border-b-0 md:border-r border-gray-900 last:border-r-0 hover:bg-gray-50 transition-colors no-underline block h-full">
+                <strong class="block text-lg font-black mb-2">{tool.title}</strong>
+                <span class="block text-gray-600 leading-snug text-sm font-medium">{tool.body}</span>
               </a>
             ))}
           </div>
         </section>
       ))}
     </div>
-  </main>
+  </div>
 </Layout>

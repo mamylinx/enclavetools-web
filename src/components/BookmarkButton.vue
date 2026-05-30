@@ -61,9 +61,9 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <button class="bookmark-btn" :class="[
-    `bookmark-btn--${props.variant || 'default'}`,
-    { bookmarked: bookmarked },
+  <button class="bg-transparent border border-gray-200 cursor-pointer flex items-center justify-center transition-colors hover:text-gray-900 hover:border-gray-900" :class="[
+    props.variant === 'small' ? 'w-8 h-8' : 'w-10 h-10',
+    bookmarked ? 'text-primary-500 border-primary-500 hover:text-primary-600 hover:border-primary-600 bg-primary-50' : 'text-gray-400 bg-white',
     props.className
 ]" @click="handleClick" :aria-label="bookmarked ? `Remove ${title} from saved list` : `Add ${title} to saved list`"
     :title="bookmarked ? `Remove ${title} from saved list` : `Add ${title} to saved list`" type="button">
@@ -71,7 +71,7 @@ onUnmounted(() => {
       <path d="M15 19L9.80769 17.0435L5 19V1H15V19Z" stroke="currentColor" stroke-miterlimit="10"
         :fill="bookmarked ? 'currentColor' : 'none'" />
     </svg>
-    <span v-if="props.showLabel" class="bookmark-label">
+    <span v-if="props.showLabel" class="ml-2 font-bold text-sm">
       {{ bookmarked ? `Remove ${title} from saved list` : `Add ${title} to saved list` }}
     </span>
   </button>

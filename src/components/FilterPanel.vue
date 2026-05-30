@@ -93,41 +93,41 @@ const visibleGroups = computed(() => FILTER_GROUPS.filter(
 </script>
 
 <template>
-    <div class="filter-panel">
-        <div class="filter-header-row">
-            <button class="filter-reset-btn" @click="handleClearAll">
+    <div class="w-full flex flex-col gap-1">
+        <div class="flex justify-end pb-2 mb-2 border-b border-gray-200">
+            <button class="text-xs text-gray-400 hover:text-gray-900 transition-colors py-1 px-2 rounded hover:bg-gray-100" @click="handleClearAll">
                 Reset
             </button>
         </div>
-        <div v-for="group in visibleGroups" :key="group.key" class="filter-group">
-            <button class="filter-group-header" @click="toggleGroup(group.key)"
+        <div v-for="group in visibleGroups" :key="group.key" class="border-b border-gray-200 last:border-b-0">
+            <button class="flex w-full items-center justify-between py-3 bg-transparent border-none cursor-pointer text-left" @click="toggleGroup(group.key)"
                 :aria-expanded="expandedGroups[group.key]">
-                <span class="filter-group-label">
+                <span class="text-[11px] font-black uppercase text-gray-900 tracking-widest flex items-center gap-2">
                     {{ group.label }}
-                    <span v-if="groupCount(group.key as keyof FilterState) > 0" class="filter-badge">
+                    <span v-if="groupCount(group.key as keyof FilterState) > 0" class="bg-primary-50 text-primary-600 px-1.5 py-0.5 rounded-full text-[10px] font-bold">
                         {{ groupCount(group.key as keyof FilterState) }}
                     </span>
                 </span>
-                <svg class="filter-chevron" :class="{ 'is-expanded': expandedGroups[group.key] }"
+                <svg class="text-gray-400 transition-transform duration-200" :class="{ 'rotate-180': expandedGroups[group.key] }"
                     xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2">
                     <path d="m6 9 6 6 6-6" />
                 </svg>
             </button>
 
-            <div v-show="expandedGroups[group.key]" class="filter-group-content">
-                <div class="filter-buttons">
+            <div v-show="expandedGroups[group.key]" class="pb-4">
+                <div class="flex flex-wrap gap-1.5">
                     <template v-if="group.type === 'single'">
-                        <button v-for="opt in group.options" :key="String(opt.value)" class="filter-btn"
-                            :class="{ 'is-selected': isOptionSelected(group.key, opt.value) }"
+                        <button v-for="opt in group.options" :key="String(opt.value)" class="px-3 py-1.5 text-xs font-bold transition-colors border"
+                            :class="isOptionSelected(group.key, opt.value) ? 'bg-gray-900 text-white border-gray-900 hover:bg-yellow-400 hover:text-gray-900' : 'text-gray-600 bg-white border-gray-200 hover:border-gray-900 hover:text-gray-900'"
                             @click="handleSingleSelect(group.key, opt.value)">
                             {{ optionLabel(group.key, opt.value) }}
                         </button>
                     </template>
 
                     <template v-else>
-                        <button v-for="opt in group.options" :key="String(opt.value)" class="filter-btn"
-                            :class="{ 'is-selected': isOptionSelected(group.key, opt.value) }"
+                        <button v-for="opt in group.options" :key="String(opt.value)" class="px-3 py-1.5 text-xs font-bold transition-colors border"
+                            :class="isOptionSelected(group.key, opt.value) ? 'bg-gray-900 text-white border-gray-900 hover:bg-yellow-400 hover:text-gray-900' : 'text-gray-600 bg-white border-gray-200 hover:border-gray-900 hover:text-gray-900'"
                             @click="handleToggle(group.key, opt.value || '')">
                             {{ opt.label }}
                         </button>
@@ -138,28 +138,3 @@ const visibleGroups = computed(() => FILTER_GROUPS.filter(
     </div>
 </template>
 
-<style scoped>
-.filter-header-row {
-    display: flex;
-    justify-content: flex-end;
-    padding: 4px 0 8px;
-    border-bottom: 1px solid var(--border-light);
-    margin-bottom: 8px;
-}
-
-.filter-reset-btn {
-    font-size: 12px;
-    color: var(--text-tertiary);
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 4px 8px;
-    border-radius: 4px;
-    transition: all 0.15s;
-}
-
-.filter-reset-btn:hover {
-    color: var(--accent-blue);
-    background: var(--bg-tertiary);
-}
-</style>

@@ -28,6 +28,7 @@ export interface Props {
   showSearch?: boolean;
   searchPlaceholder?: string;
   showHero?: boolean;
+  eyebrow?: string;
 }
 
 const {
@@ -51,6 +52,7 @@ const {
   showSearch = false,
   searchPlaceholder = "Search by name, category, or feature...",
   showHero = false,
+  eyebrow,
 } = Astro.props;
 ---
 
@@ -79,7 +81,9 @@ const {
         "Stop paying for AI APIs. Everything here runs on your hardware."}
     />
     <link rel="sitemap" href="/sitemap-index.xml" />
+    
     <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
       rel="stylesheet"
@@ -109,22 +113,38 @@ const {
   </head>
 
   <body>
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-    <div class="floating-nav" aria-label="main navigation">
-      <div class="left-group">
-        <div class="logo">
-          <a href="/" aria-label="home page" tabindex="-1"
+    <a
+      href="#main-content"
+      class="absolute -top-[100px] left-1/2 -translate-x-1/2 px-1 py-1 bg-gray-900 text-white no-underline font-semibold z-[9999999] transition-[top] duration-200 text-xs focus:top-1.5"
+      >Skip to main content</a
+    >
+    <div
+      class="sticky top-0 z-[999998] flex items-center justify-between bg-white border-b border-gray-200 px-4 md:px-10 h-16 w-full"
+      aria-label="main navigation"
+    >
+      <div class="flex items-center gap-2">
+        <div class="flex items-center gap-2 font-bold text-primary-500 text-xl">
+          <a
+            href="/"
+            aria-label="home page"
+            tabindex="-1"
+            class="flex items-center gap-2 no-underline"
             ><img
               src="/enclavetools.svg"
               width="64"
               height="64"
               alt="Enclavetools"
               aria-hidden="true"
-            /><span class="hide-mobile smooth-color-fade">Enclavetools</span></a
+            /><span class="hidden md:inline font-black text-primary-500"
+              >Enclavetools</span
+            ></a
           >
         </div>
-        <div class="nav-menu-wrapper hide-mobile">
-          <button class="nav-menu-trigger" aria-label="Browse categories">
+        <div class="relative hidden md:block group">
+          <button
+            class="flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-gray-700 hover:text-primary-500"
+            aria-label="Browse categories"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -153,18 +173,20 @@ const {
               <path d="m6 9 6 6 6-6"></path>
             </svg>
           </button>
-          <div class="nav-menu-dropdown">
-            <div class="category-grid">
+          <div
+            class="absolute left-0 top-full mt-1 w-[600px] bg-white border border-gray-200 rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50 p-4"
+          >
+            <div class="grid grid-cols-3 gap-2">
               <a
                 href="/"
-                class="category-grid-item all-link"
+                class="block px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-primary-500 rounded-md"
                 data-category="all">All Tools</a
               >
               {
                 categories.map((cat) => (
                   <a
                     href={`/${cat.category}`}
-                    class="category-grid-item"
+                    class="block px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-primary-500 rounded-md"
                     data-category={cat.category}
                   >
                     {cat.title}
@@ -177,26 +199,38 @@ const {
       </div>
       {
         showSearch && (
-          <div class="center-search">
+          <div class="flex-1 max-w-[520px] mx-4 hidden md:block">
             <SearchInput client:visible placeholder={searchPlaceholder} />
           </div>
         )
       }
-      <div class="btn-group">
-        <a href="/" class="favorites-link">
-          <span class="favorites-text">Browse</span>
+      <div class="hidden md:flex items-center gap-1">
+        <a
+          href="/"
+          class="flex items-center px-3 py-2 text-sm font-medium text-gray-700 hover:text-primary-500 no-underline"
+        >
+          <span class="hidden lg:inline">Browse</span>
         </a>
-        <a href="/use-cases" class="favorites-link">
-          <span class="favorites-text">Use cases</span>
+        <a
+          href="/use-cases"
+          class="flex items-center px-3 py-2 text-sm font-medium text-gray-700 hover:text-primary-500 no-underline"
+        >
+          <span class="hidden lg:inline">Use cases</span>
         </a>
-        <a href="/compare" class="favorites-link">
-          <span class="favorites-text">Compare</span>
+        <a
+          href="/compare"
+          class="flex items-center px-3 py-2 text-sm font-medium text-gray-700 hover:text-primary-500 no-underline"
+        >
+          <span class="hidden lg:inline">Compare</span>
         </a>
-        <a href="/stack-builder" class="favorites-link">
-          <span class="favorites-text">Stack</span>
+        <a
+          href="/stack-builder"
+          class="flex items-center px-3 py-2 text-sm font-medium text-gray-700 hover:text-primary-500 no-underline"
+        >
+          <span class="hidden lg:inline">Stack</span>
         </a>
         <button
-          class="new-filter-toggle"
+          class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-primary-500 active:scale-95 transition-transform"
           id="new-filter-toggle"
           title="Recently added tools"
           aria-label="Filter new tools"
@@ -206,24 +240,29 @@ const {
         </button>
         <a
           href="/saved"
-          class="favorites-link"
+          class="flex items-center px-3 py-2 text-sm font-medium text-gray-700 hover:text-primary-500 no-underline"
           id="favoritesLink"
           style="display: none;"
         >
-          <span class="favorites-text">Saved tools</span>
-          <span class="favorites-count" id="favoritesCount"></span>
+          <span class="hidden lg:inline">Saved tools</span>
+          <span
+            class="ml-1 bg-gray-100 text-gray-600 px-1.5 py-0.5 rounded-full text-xs font-bold"
+            id="favoritesCount"></span>
         </a>
         <a
           href="/submit"
           target="_blank"
           rel="noopener noreferrer"
-          class="submit-btn"
-          tabindex="0"><span class="submit-text">Submit ↗</span></a
+          class="ml-2 inline-flex items-center justify-center px-5 py-2 text-sm font-bold text-white bg-black hover:bg-yellow-400 hover:text-black transition-colors rounded-full no-underline"
+          tabindex="0"
+          ><span class="hidden lg:inline">Submit ↗</span><span class="lg:hidden"
+            >Submit</span
+          ></a
         >
       </div>
-      <div class="mobile-menu-wrapper">
+      <div class="block md:hidden relative">
         <button
-          class="hamburger-btn"
+          class="flex items-center justify-center w-10 h-10 text-gray-700 hover:bg-gray-100 rounded-md transition-colors"
           id="hamburgerBtn"
           aria-label="Open menu"
           aria-expanded="false"
@@ -244,29 +283,52 @@ const {
             <line x1="3" y1="18" x2="21" y2="18"></line>
           </svg>
         </button>
-        <div class="mobile-dropdown" id="mobileDropdown">
-          <div class="mobile-dropdown-inner">
+        <div
+          class="absolute right-0 top-[calc(100%+8px)] w-[200px] bg-white border border-gray-200 rounded-xl shadow-[0_8px_32px_rgba(0,0,0,0.12)] opacity-0 invisible -translate-y-1 transition-all z-[1000000]"
+          id="mobileDropdown"
+        >
+          <div class="p-2 flex flex-col gap-0.5">
             <button
-              class="mobile-dropdown-item mobile-new-filter"
+              class="block w-full text-left px-3 py-2.5 text-sm font-medium text-gray-600 hover:bg-gray-50 hover:text-primary-500 rounded-md transition-colors"
               id="mobileNewFilterToggle"
               aria-pressed="false">Latest</button
             >
-            <a href="/" class="mobile-dropdown-item">Browse</a>
-            <a href="/use-cases" class="mobile-dropdown-item">Use cases</a>
-            <a href="/compare" class="mobile-dropdown-item">Compare</a>
-            <a href="/stack-builder" class="mobile-dropdown-item">Stack builder</a>
+            <a
+              href="/"
+              class="block w-full text-left px-3 py-2.5 text-sm font-medium text-gray-600 hover:bg-gray-50 hover:text-primary-500 rounded-md transition-colors no-underline"
+              >Browse</a
+            >
+            <a
+              href="/use-cases"
+              class="block w-full text-left px-3 py-2.5 text-sm font-medium text-gray-600 hover:bg-gray-50 hover:text-primary-500 rounded-md transition-colors no-underline"
+              >Use cases</a
+            >
+            <a
+              href="/compare"
+              class="block w-full text-left px-3 py-2.5 text-sm font-medium text-gray-600 hover:bg-gray-50 hover:text-primary-500 rounded-md transition-colors no-underline"
+              >Compare</a
+            >
+            <a
+              href="/stack-builder"
+              class="block w-full text-left px-3 py-2.5 text-sm font-medium text-gray-600 hover:bg-gray-50 hover:text-primary-500 rounded-md transition-colors no-underline"
+              >Stack builder</a
+            >
             <a
               href="/saved"
-              class="mobile-dropdown-item mobile-saved-link"
+              class="block w-full text-left px-3 py-2.5 text-sm font-medium text-gray-600 hover:bg-gray-50 hover:text-primary-500 rounded-md transition-colors no-underline"
               id="mobileFavoritesLink"
               style="display:none;"
-              >Saved tools <span id="mobileFavoritesCount"></span></a
+              >Saved tools <span
+                id="mobileFavoritesCount"
+                class="ml-1 bg-gray-100 text-gray-600 px-1.5 py-0.5 rounded-full text-xs font-bold"
+              ></span></a
             >
             <a
               href="/submit"
               target="_blank"
               rel="noopener noreferrer"
-              class="mobile-dropdown-item mobile-submit">Submit ↗</a
+              class="block w-full text-left px-3 py-3.5 mt-1 text-sm font-semibold text-primary-500 border-t border-gray-200 hover:bg-gray-50 transition-colors no-underline"
+              >Submit ↗</a
             >
           </div>
         </div>
@@ -274,366 +336,102 @@ const {
     </div>
     <CategoryNav client:visible />
 
-    {showHero && <Hero title={title} tagline={tagline} />}
-    <slot />
+    {showHero && <Hero eyebrow={eyebrow} title={title} tagline={tagline} />}
 
-    <footer class="footer">
-      <div class="footer-inner">
-        <div class="footer-grid">
-          <div>
-            <div class="footer-brand">Enclavetools</div>
-            <p class="footer-brand-sub">
+    <main id="main-content" class="w-full">
+      <slot />
+    </main>
+
+    <footer class="bg-primary-500 text-gray-900 py-16 px-6 md:px-10 mt-20">
+      <div class="max-w-[1200px] mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-16">
+          <div class="md:col-span-1">
+            <div class="text-3xl font-black mb-2 tracking-tight">
+              Enclavetools
+            </div>
+            <p class="text-sm font-medium opacity-90 leading-relaxed">
               Your models. Your hardware. Zero subscriptions.
             </p>
           </div>
-          <div class="footer-col">
-            <h5>Browse</h5>
-            <a href="/">All tools</a>
-            <a href="/?filter=new">Latest</a>
-            <a href="/saved">Saved tools</a>
+          <div class="flex flex-col gap-3">
+            <h5
+              class="text-xs font-bold uppercase tracking-widest opacity-70 mb-2"
+            >
+              Browse
+            </h5>
+            <a
+              href="/"
+              class="text-sm font-medium hover:text-yellow-300 transition-colors no-underline"
+              >All tools</a
+            >
+            <a
+              href="/?filter=new"
+              class="text-sm font-medium hover:text-yellow-300 transition-colors no-underline"
+              >Latest</a
+            >
+            <a
+              href="/saved"
+              class="text-sm font-medium hover:text-yellow-300 transition-colors no-underline"
+              >Saved tools</a
+            >
           </div>
-          <div class="footer-col">
-            <h5>Company</h5>
+          <div class="flex flex-col gap-3">
+            <h5
+              class="text-xs font-bold uppercase tracking-widest opacity-70 mb-2"
+            >
+              Company
+            </h5>
             <a
               href="https://x.com/planetabhi"
               target="_blank"
-              rel="noopener noreferrer">About</a
+              rel="noopener noreferrer"
+              class="text-sm font-medium hover:text-yellow-300 transition-colors no-underline"
+              >About</a
             >
-            <a href="/submit" target="_blank" rel="noopener noreferrer"
+            <a
+              href="/submit"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-sm font-medium hover:text-yellow-300 transition-colors no-underline"
               >Submit a tool</a
             >
           </div>
-          <div class="footer-col">
-            <h5>More</h5>
-            <a href="/submit" target="_blank" rel="noopener noreferrer"
+          <div class="flex flex-col gap-3">
+            <h5
+              class="text-xs font-bold uppercase tracking-widest opacity-70 mb-2"
+            >
+              More
+            </h5>
+            <a
+              href="/submit"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-sm font-medium hover:text-yellow-300 transition-colors no-underline"
               >Advertise</a
             >
           </div>
         </div>
-        <div class="footer-bottom">
+        <div
+          class="pt-8 border-t border-white/20 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-medium opacity-80"
+        >
           <p>© 2026 Enclavetools. All rights reserved.</p>
-          <p>
-            <a href="/privacy">Privacy Policy</a> · <a href="/terms">Terms</a>
+          <p class="flex items-center gap-3">
+            <a
+              href="/privacy"
+              class="hover:text-white transition-colors no-underline"
+              >Privacy Policy</a
+            >
+            <span>·</span>
+            <a
+              href="/terms"
+              class="hover:text-white transition-colors no-underline">Terms</a
+            >
           </p>
         </div>
       </div>
     </footer>
   </body>
 </html>
-<style is:global>
-  :root {
-    --accent: var(--link);
-    --body-copy: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    --monospace: var(--monospace-code);
-    --body-strong: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-synthesis: none;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    overflow-x: hidden;
-  }
-
-  /* Skip link for accessibility */
-  .skip-link {
-    position: absolute;
-    top: -100px;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: var(--spacing-01) var(--spacing-02);
-    background-color: var(--text-primary);
-    color: var(--bg-primary);
-    text-decoration: none;
-    font-weight: 600;
-    border-radius: var(--spacing-00);
-    z-index: 9999999;
-    transition: top 0.2s ease;
-    font-size: var(--desktop-caption);
-    line-height: var(--lh-desktop-caption);
-  }
-
-  .skip-link:focus {
-    top: var(--spacing-03);
-  }
-
-  main {
-    margin: 0;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-weight: 500;
-  }
-
-  .nu-u-link--subtle {
-    color: var(--text-secondary) !important;
-  }
-
-  .left-group {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-04);
-  }
-
-  .logo a {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-  }
-
-  .logo-text {
-    font-weight: 700;
-    color: var(--accent-blue);
-    font-size: 20px;
-  }
-
-  .logo span {
-    font-weight: 900;
-  }
-
-  .new-filter-toggle:active {
-    transform: scale(0.97);
-  }
-
-  .favorites-link svg {
-    flex-shrink: 0;
-  }
-
-  .favorites-count {
-    display: none;
-  }
-
-  @media (max-width: 48rem) {
-    .favorites-text,
-    .submit-text {
-      display: none;
-    }
-
-    .favorites-count {
-      display: inline;
-    }
-
-    .submit-btn::after {
-      content: "Submit";
-    }
-  }
-
-  /* Empty state styles */
-  .empty-state {
-    text-align: center;
-    padding: var(--spacing-15) var(--spacing-06);
-    max-width: 40rem;
-    margin: 0 auto;
-  }
-
-  .empty-state h2 {
-    margin-top: var(--spacing-04);
-    margin-bottom: var(--spacing-03);
-  }
-
-  .back-home-btn {
-    padding: var(--spacing-03) var(--spacing-06);
-    background-color: var(--accent);
-    color: var(--white);
-    text-decoration: none;
-    font-weight: 600;
-    border-radius: var(--spacing-00);
-    transition: filter 0.2s ease;
-  }
-
-  .back-home-btn:hover {
-    filter: brightness(1.1);
-  }
-
-  /* Favorites page styles */
-  .favorites-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: var(--spacing-06);
-    flex-wrap: wrap;
-    gap: var(--spacing-04);
-  }
-
-  .sort-select {
-    padding: var(--spacing-02) var(--spacing-04);
-    border: 1.5px solid var(--border-light);
-    background-color: var(--white);
-    color: var(--text-secondary);
-    font-size: var(--desktop-body-sm);
-    line-height: var(--lh-desktop-body-sm);
-    border-radius: var(--radius-md);
-    cursor: pointer;
-    font-family: var(--font);
-  }
-
-  .sort-select:hover {
-    border-color: var(--accent-blue);
-  }
-
-  .sort-select:focus {
-    outline: 2px solid var(--accent-blue);
-    outline-offset: 2px;
-  }
-
-  @media (max-width: 30rem) {
-    main {
-      margin: auto var(--spacing-06);
-    }
-    .floating-nav {
-      padding: 0 16px;
-    }
-  }
-
-  .legal-content-wrapper {
-    max-width: 45rem;
-    margin: 0 auto var(--spacing-15) auto;
-    padding: var(--spacing-09);
-    border: 1px solid var(--border-light);
-  }
-
-  .legal-header {
-    margin-bottom: var(--spacing-08);
-    border-bottom: 1px solid var(--border-light);
-    padding-bottom: var(--spacing-04);
-  }
-
-  .last-updated {
-    font-family: var(--monospace);
-    font-size: var(--desktop-caption);
-    color: var(--text-tertiary);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-
-  .legal-content-wrapper h2 {
-    margin: var(--spacing-08) 0 var(--spacing-04) 0;
-    font-weight: 600;
-  }
-
-  .legal-content-wrapper p,
-  .legal-content-wrapper li {
-    margin-bottom: var(--spacing-05);
-    line-height: var(--lh-desktop-body);
-  }
-
-  @media (max-width: 768px) {
-    .legal-content-wrapper {
-      padding: var(--spacing-06);
-      margin: 0 var(--spacing-04);
-    }
-  }
-
-  .page-layout {
-    margin: 0 auto;
-    padding: 32px 40px 72px;
-    display: grid;
-    grid-template-columns: 1fr 280px;
-    gap: 32px;
-    align-items: start;
-  }
-
-  @media (max-width: 768px) {
-    .page-layout {
-      grid-template-columns: 1fr;
-      padding: 24px 16px 48px;
-    }
-  }
-
-  .mobile-menu-wrapper {
-    display: none;
-    position: relative;
-  }
-  .hamburger-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: var(--text-primary);
-    border-radius: var(--radius-md);
-    transition: background 0.15s;
-  }
-  .hamburger-btn:hover {
-    background: var(--bg-secondary);
-  }
-  .mobile-dropdown {
-    position: absolute;
-    top: calc(100% + 8px);
-    right: 0;
-    width: 200px;
-    background: var(--white);
-    border: 1px solid var(--border-light);
-    border-radius: var(--radius-md);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-4px);
-    transition:
-      opacity 0.15s,
-      transform 0.15s,
-      visibility 0.15s;
-    z-index: 1000000;
-  }
-  .mobile-dropdown.open {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-  }
-  .mobile-dropdown-inner {
-    padding: 8px;
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-  }
-  .mobile-dropdown-item {
-    display: block;
-    padding: 10px 14px;
-    font-family: var(--font);
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--text-secondary);
-    background: none;
-    border: none;
-    cursor: pointer;
-    transition: all 0.15s;
-    text-decoration: none;
-    text-align: left;
-    width: 100%;
-  }
-  .mobile-dropdown-item:hover {
-    background: var(--bg-secondary);
-    color: var(--accent-blue);
-  }
-  .mobile-dropdown-item.mobile-submit {
-    color: var(--accent-blue);
-    font-weight: 600;
-    border-top: 1px solid var(--border-light);
-    margin-top: 4px;
-    padding-top: 14px;
-  }
-  @media (max-width: 768px) {
-    .btn-group {
-      display: none;
-    }
-    .mobile-menu-wrapper {
-      display: block;
-    }
-  }
-</style>
 
 <script is:inline>
   (function () {
@@ -777,8 +575,13 @@ const {
       if (hamburgerBtn && mobileDropdown && !hamburgerBtn._hasListener) {
         hamburgerBtn.addEventListener("click", (e) => {
           e.stopPropagation();
-          const isOpen = mobileDropdown.classList.contains("open");
-          mobileDropdown.classList.toggle("open");
+          const isOpen = mobileDropdown.classList.contains("opacity-100");
+          mobileDropdown.classList.toggle("opacity-0");
+          mobileDropdown.classList.toggle("invisible");
+          mobileDropdown.classList.toggle("-translate-y-1");
+          mobileDropdown.classList.toggle("opacity-100");
+          mobileDropdown.classList.toggle("visible");
+          mobileDropdown.classList.toggle("translate-y-0");
           hamburgerBtn.setAttribute("aria-expanded", !isOpen);
         });
         hamburgerBtn._hasListener = true;
@@ -798,16 +601,39 @@ const {
               detail: { filterNew: !isPressed },
             }),
           );
-          mobileDropdown.classList.remove("open");
+          mobileDropdown.classList.remove(
+            "opacity-100",
+            "visible",
+            "translate-y-0",
+          );
+          mobileDropdown.classList.add(
+            "opacity-0",
+            "invisible",
+            "-translate-y-1",
+          );
+          hamburgerBtn.setAttribute("aria-expanded", "false");
         });
         mobileNewFilter._hasListener = true;
       }
 
       document.addEventListener("click", (e) => {
-        if (mobileDropdown && mobileDropdown.classList.contains("open")) {
-          const wrapper = document.querySelector(".mobile-menu-wrapper");
+        if (
+          mobileDropdown &&
+          mobileDropdown.classList.contains("opacity-100")
+        ) {
+          const wrapper = document.querySelector(".block.md\\:hidden.relative");
           if (wrapper && !wrapper.contains(e.target)) {
-            mobileDropdown.classList.remove("open");
+            mobileDropdown.classList.remove(
+              "opacity-100",
+              "visible",
+              "translate-y-0",
+            );
+            mobileDropdown.classList.add(
+              "opacity-0",
+              "invisible",
+              "-translate-y-1",
+            );
+            hamburgerBtn.setAttribute("aria-expanded", "false");
           }
         }
       });

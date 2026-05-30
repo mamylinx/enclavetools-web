@@ -32,7 +32,7 @@ const emit = defineEmits<{
 </script>
 
 <template>
-    <aside class="filter-sidebar">
+    <aside class="w-full">
         <FilterPanel :state="state" :show-model-format="showModelFormat" :active-count="activeCount"
             @update:sort="(v) => emit('update:sort', v)" @update:category="(v) => emit('update:category', v)"
             @update:use_case="(v) => emit('update:use_case', v)"

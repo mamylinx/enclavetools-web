@@ -82,8 +82,8 @@ onUnmounted(() => {
 </script>
 
 <template>
-    <div class="page-layout">
-        <FilterSidebar class="filter-sidebar desktop-only" :state="filterState" :show-model-format="showModelFormat"
+    <div class="grid grid-cols-1 lg:grid-cols-[240px_1fr_260px] gap-8 max-w-[1400px] mx-auto px-4 md:px-10 py-8 items-start">
+        <FilterSidebar class="hidden lg:block" :state="filterState" :show-model-format="showModelFormat"
             :active-count="activeCount" @update:sort="(v) => setFilter('sort', v)"
             @update:category="(v) => setFilter('category', v)" @update:license="(v) => setFilter('license', v)"
             @update:use_case="(v) => setFilter('use_case', v)" @update:persona="(v) => setFilter('persona', v)"
@@ -99,15 +99,15 @@ onUnmounted(() => {
             @update:last_updated="(v) => setFilter('last_updated', v)" @toggle="handleToggle"
             @clear="(k) => clearFilter(k)" @clear-all="clearAll" />
 
-        <div class="cards-container">
-            <div class="mobile-filter-bar">
-                <button class="mobile-filter-trigger" @click="showFilterSheet = true">
+        <div class="flex flex-col gap-6 min-w-0">
+            <div class="lg:hidden mb-4">
+                <button class="flex items-center justify-center gap-2 px-4 py-3 bg-white border border-gray-900 font-extrabold text-gray-900 w-full hover:bg-gray-50 transition-colors" @click="showFilterSheet = true">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2">
                         <path d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
                     Filters
-                    <span v-if="activeCount > 0" class="mobile-filter-badge">{{ activeCount }}</span>
+                    <span v-if="activeCount > 0" class="bg-primary-500 text-white px-2 py-0.5 rounded-full text-[10px] ml-1">{{ activeCount }}</span>
                 </button>
             </div>
 
@@ -119,7 +119,7 @@ onUnmounted(() => {
                 @clear-all="clearAll" />
         </div>
 
-        <aside class="sidebar desktop-only">
+        <aside class="hidden lg:block w-full">
             <Sidebar showSponsor showNewsletter />
         </aside>
         <CompareTray :tools="props.ssrTools || []" />

@@ -111,55 +111,66 @@ onMounted(load);
 </script>
 
 <template>
-  <section class="decision-page">
-    <header class="decision-header">
-      <p class="section-kicker">Stack builder</p>
-      <h1>Assemble a private AI stack.</h1>
-      <p>Combine complementary tools for inference, chat, RAG, vector storage, deployment, and monitoring. Your stack is local to the browser and shareable through the URL.</p>
-    </header>
-
-    <div class="decision-controls">
-      <select @change="addFromSelect">
+  <section class="max-w-[1400px] mx-auto px-4 md:px-10 py-12 lg:py-20">
+    <div class="flex flex-col md:flex-row items-center gap-4 mb-12 p-6 bg-gray-50 border-2 border-gray-900 flex-wrap">
+      <select
+        class="flex-1 w-full bg-white border-2 border-gray-900 px-4 py-3 font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 rounded-none cursor-pointer min-w-[200px]"
+        @change="addFromSelect">
         <option value="">Add a tool to the stack</option>
-        <option v-for="tool in allTools" :key="tool.slug" :value="tool.slug" :disabled="selected.includes(tool.slug || '')">
+        <option v-for="tool in allTools" :key="tool.slug" :value="tool.slug"
+          :disabled="selected.includes(tool.slug || '')">
           {{ tool.title }}
         </option>
       </select>
-      <button type="button" @click="copyStack">
+      <button
+        class="w-full md:w-auto px-6 py-3 bg-gray-900 text-white font-bold hover:bg-primary-500 transition-colors cursor-pointer border-none whitespace-nowrap rounded-none"
+        type="button" @click="copyStack">
         {{ copyStatus === 'copied' ? 'Copied' : copyStatus === 'failed' ? 'Copy failed' : 'Copy stack link' }}
       </button>
-      <a :href="`/compare?tools=${selected.slice(0, 4).join(',')}`">Compare first 4</a>
+      <a class="w-full md:w-auto inline-flex items-center justify-center px-6 py-3 bg-gray-900 text-white font-bold hover:bg-primary-500 transition-colors border-none no-underline rounded-none"
+        :href="`/compare?tools=${selected.slice(0, 4).join(',')}`">Compare first 4</a>
     </div>
 
-    <div v-if="stackTools.length === 0" class="empty-decision">
+    <div v-if="stackTools.length === 0"
+      class="py-20 text-center bg-gray-50 border-2 border-dashed border-gray-300 text-gray-500 font-bold text-lg">
       Start with an inference engine, chat interface, document tool, or vector database.
     </div>
 
-    <div v-else class="stack-layout">
-      <section class="stack-column">
-        <h2>Current stack</h2>
-        <div v-for="[category, tools] in groupedStack" :key="category" class="stack-group">
-          <h3>{{ category }}</h3>
-          <article v-for="tool in tools" :key="tool.slug" class="stack-item">
-            <div>
-              <strong>{{ tool.title }}</strong>
-              <p>{{ tool.plain_description || tool.body }}</p>
+    <div v-else class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+      <section class="flex flex-col gap-6">
+        <h2 class="text-2xl font-black text-gray-900 pb-4 border-b-2 border-gray-900">Current stack</h2>
+        <div v-for="[category, tools] in groupedStack" :key="category" class="mb-4">
+          <h3 class="text-sm font-black text-primary-500 uppercase tracking-widest mb-4">{{ category }}</h3>
+          <article v-for="tool in tools" :key="tool.slug"
+            class="flex flex-col sm:flex-row justify-between items-start sm:items-center p-5 bg-white border-2 border-gray-200 mb-4 gap-4 transition-colors hover:border-gray-900">
+            <div class="flex-1">
+              <strong class="block text-lg font-black text-gray-900 mb-1">{{ tool.title }}</strong>
+              <p class="text-sm text-gray-600 m-0">{{ tool.plain_description || tool.body }}</p>
             </div>
-            <button type="button" @click="remove(tool.slug)">Remove</button>
+            <button
+              class="shrink-0 px-4 py-2 bg-white border-2 border-gray-900 text-gray-900 font-bold hover:bg-gray-900 hover:text-white transition-colors cursor-pointer rounded-none"
+              type="button" @click="remove(tool.slug)">Remove</button>
           </article>
         </div>
       </section>
 
-      <section class="stack-column">
-        <h2>Works well with</h2>
-        <article v-for="tool in suggestions" :key="tool.slug" class="stack-item suggested">
-          <div>
-            <strong>{{ tool.title }}</strong>
-            <span>{{ categoryValue(tool) }}</span>
-            <p>{{ tool.plain_description || tool.body }}</p>
-          </div>
-          <button type="button" @click="add(tool.slug)">Add</button>
-        </article>
+      <section class="flex flex-col gap-6">
+        <h2 class="text-2xl font-black text-gray-900 pb-4 border-b-2 border-gray-900">Works well with</h2>
+        <div class="flex flex-col gap-4">
+          <article v-for="tool in suggestions" :key="tool.slug"
+            class="flex flex-col sm:flex-row justify-between items-start sm:items-center p-5 bg-gray-50 border-2 border-dashed border-gray-200 gap-4 transition-colors hover:border-solid hover:border-gray-900">
+            <div class="flex-1">
+              <strong class="block text-lg font-black text-gray-900 mb-1">{{ tool.title }}</strong>
+              <span
+                class="inline-block px-2 py-1 bg-gray-200 text-gray-700 text-[10px] uppercase tracking-wider font-bold mb-2">{{
+                categoryValue(tool) }}</span>
+              <p class="text-sm text-gray-600 m-0">{{ tool.plain_description || tool.body }}</p>
+            </div>
+            <button
+              class="shrink-0 px-4 py-2 bg-white border-2 border-gray-900 text-gray-900 font-bold hover:bg-gray-900 hover:text-white transition-colors cursor-pointer rounded-none"
+              type="button" @click="add(tool.slug)">Add</button>
+          </article>
+        </div>
       </section>
     </div>
   </section>
