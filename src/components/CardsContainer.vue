@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed, watch, onMounted, onUnmounted } from 'vue';
+import { ref, computed, watch } from 'vue';
 import Card from './Card.vue';
 import EmptyState from './EmptyState.vue';
 import promotedData from '../data/promoted.json';
@@ -17,8 +17,6 @@ const sponsors = ref<Sponsor[]>(sponsorsData.sponsors);
 const featured = ref<FeaturedConfig>(featuredData);
 const newsletter = ref<NewsletterData>(newsletterData);
 
-const ITEMS_PER_PAGE = 32;
-
 const props = defineProps<{
     filter: string;
     sort?: SortKey;
@@ -34,9 +32,6 @@ const emit = defineEmits<{
     'clear-all': [];
 }>();
 
-const displayedCount = ref(ITEMS_PER_PAGE);
-const isLoading = ref(false);
-const loaderRef = ref<HTMLElement | null>(null);
 const activeSort = ref<string>('featured');
 
 const baseTools = computed((): ToolWithCategory[] => {
@@ -143,8 +138,6 @@ const filteredCards = computed((): ToolWithCategory[] => {
     return base;
 });
 
-const displayedCards = computed(() => filteredCards.value.slice(0, displayedCount.value));
-
 const toolCount = computed(() => filteredCards.value.length);
 
 const isSearchingInCategory = computed(
@@ -159,97 +152,12 @@ const hasNoFilterResults = computed(
     () => hasActiveFilters.value && filteredCards.value.length === 0
 );
 
-const positions = randomSidebarPositions(computed(() => displayedCards.value.length));
-
-watch(
-    [() => props.filter, () => props.searchQuery, () => props.filterNew],
-    () => {
-        displayedCount.value = ITEMS_PER_PAGE;
-    }
-);
-
-watch(
-    () => props.filterState,
-    () => {
-        displayedCount.value = ITEMS_PER_PAGE;
-        if (props.filterState?.sort) activeSort.value = props.filterState.sort;
-    },
-    { deep: true }
-);
-
-const tryRestore = () => {
-    try {
-        const raw = sessionStorage.getItem('toolsState');
-        if (!raw) return;
-        const state = JSON.parse(raw);
-        if (state && state.filter === props.filter) {
-            if (state.displayedCount && state.displayedCount > displayedCount.value) {
-                displayedCount.value = state.displayedCount;
-            }
-            setTimeout(() => {
-                if (typeof window !== 'undefined' && typeof state.scrollY !== 'undefined') {
-                    window.scrollTo(0, state.scrollY);
-                }
-            }, 50);
-        }
-        sessionStorage.removeItem('toolsState');
-    } catch (err) { }
-};
-
-const handleSaveState = () => {
-    try {
-        const state = {
-            filter: props.filter,
-            displayedCount: displayedCount.value,
-            scrollY: typeof window !== 'undefined' ? window.scrollY || window.pageYOffset : 0,
-        };
-        sessionStorage.setItem('toolsState', JSON.stringify(state));
-    } catch (err) { }
-};
+const positions = randomSidebarPositions(computed(() => filteredCards.value.length));
 
 const setSort = (sort: string) => {
     activeSort.value = sort;
     if (props.filterState) props.filterState.sort = sort;
 };
-
-let observer: IntersectionObserver | null = null;
-
-onMounted(() => {
-    tryRestore();
-    window.addEventListener('pageshow', tryRestore);
-    window.addEventListener('astro:page-load', tryRestore);
-    window.addEventListener('tools:save-state', handleSaveState);
-
-    if (loaderRef.value) {
-        observer = new IntersectionObserver(
-            (entries) => {
-                if (
-                    entries[0]?.isIntersecting &&
-                    !isLoading.value &&
-                    displayedCount.value < filteredCards.value.length
-                ) {
-                    isLoading.value = true;
-                    setTimeout(() => {
-                        displayedCount.value = Math.min(
-                            displayedCount.value + ITEMS_PER_PAGE,
-                            filteredCards.value.length
-                        );
-                        isLoading.value = false;
-                    }, 300);
-                }
-            },
-            { threshold: 0.1 }
-        );
-        observer.observe(loaderRef.value);
-    }
-});
-
-onUnmounted(() => {
-    window.removeEventListener('pageshow', tryRestore);
-    window.removeEventListener('astro:page-load', tryRestore);
-    window.removeEventListener('tools:save-state', handleSaveState);
-    if (observer) observer.disconnect();
-});
 </script>
 
 <template>
@@ -282,7 +190,7 @@ onUnmounted(() => {
         </div>
 
         <ul role="list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 m-0 p-0">
-            <template v-for="(item, i) in displayedCards" :key="`${item.title}-${i}`">
+            <template v-for="(item, i) in filteredCards" :key="`${item.title}-${i}`">
                 <div class="col-span-1 md:col-span-2 flex flex-col md:flex-row items-start md:items-center justify-between p-6 border-2 border-gray-900 bg-gray-100 mb-2" v-if="i === 0" v-for="ad in promotedAds" :key="ad.title">
                     <div class="flex-1">
                         <div class="text-[10px] font-black uppercase text-gray-900 tracking-wider mb-2">{{ ad.label }}</div>
@@ -329,10 +237,6 @@ onUnmounted(() => {
                     :category="Array.isArray(item.category) ? item.category[0] : item.category" />
             </template>
         </ul>
-
-        <div v-if="displayedCount < filteredCards.length" ref="loaderRef" class="py-8 text-center">
-            <p v-if="isLoading" class="text-sm font-bold text-gray-500 uppercase tracking-widest">Loading more...</p>
-        </div>
     </div>
 </template>
 

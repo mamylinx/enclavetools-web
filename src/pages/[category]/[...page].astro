@@ -6,31 +6,33 @@ import BreadcrumbSchema from "../../components/schema/BreadcrumbSchema.astro";
 import toolsData from "../../data/tools.json";
 
 export function getStaticPaths({ paginate }: any) {
-  const categories = toolsData.tools.map((cat: any) => cat.category);
-  categories.push("all");
+    const categories = toolsData.tools.map((cat: any) => cat.category);
+    categories.push("all");
 
-  return categories.flatMap((category: string) => {
-    let tools;
-    if (category === "all") {
-        tools = toolsData.tools.flatMap((cat: any) =>
-            cat.content.map((tool: any) => ({
+    return categories.flatMap((category: string) => {
+        let tools;
+        if (category === "all") {
+            tools = toolsData.tools.flatMap((cat: any) =>
+                cat.content.map((tool: any) => ({
+                    ...tool,
+                    category: [cat.category],
+                })),
+            );
+        } else {
+            const catData = toolsData.tools.find(
+                (cat: any) => cat.category === category,
+            );
+            tools = (catData?.content || []).map((tool: any) => ({
                 ...tool,
-                category: [cat.category],
-            })),
-        );
-    } else {
-        const catData = toolsData.tools.find((cat: any) => cat.category === category);
-        tools = (catData?.content || []).map((tool: any) => ({
-            ...tool,
-            category: [category],
-        }));
-    }
+                category: [category],
+            }));
+        }
 
-    return paginate(tools, {
-      params: { category },
-      pageSize: 50,
+        return paginate(tools, {
+            params: { category },
+            pageSize: 25,
+        });
     });
-  });
 }
 
 const { category } = Astro.params;
@@ -40,12 +42,15 @@ let categoryTitle = category;
 if (category === "all") {
     categoryTitle = "All Tools";
 } else {
-    const categoryData = toolsData.tools.find((cat: any) => cat.category === category);
+    const categoryData = toolsData.tools.find(
+        (cat: any) => cat.category === category,
+    );
     categoryTitle = categoryData?.title ?? category;
 }
 
-const ssrTools = page.data;
+const tools = page.data;
 ---
+
 <Layout
     site={`Enclavetools - ${categoryTitle}`}
     title="Enclavetools"
@@ -53,22 +58,45 @@ const ssrTools = page.data;
     showSearch={true}
     searchPlaceholder={`Search in ${categoryTitle}...`}
 >
-    <ItemListSchema items={ssrTools} listName={`${categoryTitle} Tools`} />
-    <BreadcrumbSchema items={[
-      { name: "Home", url: "https://enclavetools.com" },
-      { name: categoryTitle },
-    ]} />
+    <ItemListSchema items={tools} listName={`${categoryTitle} Tools`} />
+    <BreadcrumbSchema
+        items={[
+            { name: "Home", url: "https://enclavetools.com" },
+            { name: categoryTitle },
+        ]}
+    />
     <Dashboard
         client:visible
         category={category}
         transition:persist
-        ssr-tools={ssrTools}
+        ssr-tools={tools}
         ssr-total={page.total}
     />
-    
-    <div class="flex justify-center gap-4 py-8 mb-8 text-gray-900 font-bold max-w-[1400px] mx-auto">
-        {page.url.prev ? <a href={page.url.prev} class="px-4 py-2 border border-gray-200 rounded-lg hover:border-gray-900 transition-colors no-underline">Previous</a> : null}
-        <span class="px-4 py-2">Page {page.currentPage} of {page.lastPage}</span>
-        {page.url.next ? <a href={page.url.next} class="px-4 py-2 border border-gray-200 rounded-lg hover:border-gray-900 transition-colors no-underline">Next</a> : null}
+
+    <div
+        class="flex justify-center gap-4 py-8 mb-8 text-gray-900 font-bold max-w-[1400px] mx-auto"
+    >
+        {
+            page.url.prev ? (
+                <a
+                    href={page.url.prev}
+                    class="px-4 py-2 border border-gray-200 rounded-lg hover:border-gray-900 transition-colors no-underline"
+                >
+                    Previous
+                </a>
+            ) : null
+        }
+        <span class="px-4 py-2">Page {page.currentPage} of {page.lastPage}</span
+        >
+        {
+            page.url.next ? (
+                <a
+                    href={page.url.next}
+                    class="px-4 py-2 border border-gray-200 rounded-lg hover:border-gray-900 transition-colors no-underline"
+                >
+                    Next
+                </a>
+            ) : null
+        }
     </div>
 </Layout>
