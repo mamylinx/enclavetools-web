@@ -77,15 +77,15 @@ const iconMap: Record<string, any> = {
 </script>
 
 <template>
-    <div class="flex flex-col items-center justify-center py-20 text-center px-4 bg-gray-50 border-2 border-dashed border-gray-200">
+    <div class="flex flex-col items-center justify-center py-20 text-center px-4 bg-gray-50/50 border-2 border-dashed border-gray-300">
         <div v-if="iconComponent" class="text-gray-300 mb-6 w-16 h-16">
             <component :is="iconComponent" />
         </div>
         <p v-if="props.message" class="text-lg font-bold text-gray-500 mb-6 max-w-[400px]">{{ props.message }}</p>
-        <a v-if="props.actionText && props.actionHref" :href="props.actionHref" class="inline-flex px-6 py-2.5 bg-gray-900 text-white font-bold no-underline hover:bg-primary-500 transition-colors border-none cursor-pointer">
+        <a v-if="props.actionText && props.actionHref" :href="props.actionHref" class="inline-flex px-6 py-2.5 bg-gray-900 text-white font-bold no-underline hover:bg-primary-500 transition-colors border-none cursor-pointer rounded-lg">
             {{ props.actionText }}
         </a>
-        <button v-else-if="props.actionText" class="inline-flex px-6 py-2.5 bg-gray-900 text-white font-bold no-underline hover:bg-primary-500 transition-colors border-none cursor-pointer" @click="emit('action')">
+        <button v-else-if="props.actionText" class="inline-flex px-6 py-2.5 bg-gray-900 text-white font-bold no-underline hover:bg-primary-500 transition-colors border-none cursor-pointer rounded-lg" @click="emit('action')">
             {{ props.actionText }}
         </button>
     </div>

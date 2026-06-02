@@ -1,14 +1,11 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted } from 'vue';
 import { getBookmarkedTools, type BookmarkedTool } from '../utils/bookmarks';
-import { toolComparators, type SortKey } from '../utils/sorting';
+import { toolComparators } from '../utils/sorting';
 import Card from './Card.vue';
 import EmptyState from './EmptyState.vue';
 
-type FavoritesSortKey = Exclude<SortKey, 'random'>;
-
 const bookmarkedTools = ref<BookmarkedTool[]>([]);
-const sortBy = ref<FavoritesSortKey>('nameAsc');
 const isLoading = ref(true);
 
 const loadBookmarks = () => {
@@ -20,7 +17,7 @@ const handleBookmarkChange = () => {
 };
 
 const sortedTools = computed(() => {
-  return [...bookmarkedTools.value].sort(toolComparators[sortBy.value]);
+  return [...bookmarkedTools.value].sort(toolComparators['dateNewest']);
 });
 
 onMounted(() => {
@@ -51,16 +48,6 @@ onUnmounted(() => {
         <p class="text-2xl font-black text-gray-900 m-0 tracking-tight">
           {{ bookmarkedTools.length }} {{ bookmarkedTools.length === 1 ? 'tool' : 'tools' }} saved
         </p>
-      </div>
-
-      <div class="flex items-center">
-        <select :value="sortBy" @change="(e) => sortBy = (e.target as HTMLSelectElement).value as FavoritesSortKey"
-          class="bg-white border-2 border-gray-900 px-4 py-2.5 font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 rounded-none cursor-pointer">
-          <option value="nameAsc">Name (A-Z)</option>
-          <option value="nameDesc">Name (Z-A)</option>
-          <option value="dateNewest">Newest First</option>
-          <option value="dateOldest">Oldest First</option>
-        </select>
       </div>
     </div>
 

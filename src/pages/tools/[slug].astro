@@ -207,6 +207,7 @@ const featureBadges = [
   twitterImage={faviconUrl}
   pageFavicon={faviconUrl}
   showSearch={true}
+  showHero="{true}"
 >
   <SoftwareApplicationSchema
     name={tool.title}
@@ -218,7 +219,73 @@ const featureBadges = [
   />
   <BreadcrumbSchema items={breadcrumbs} />
 
-  <div class="max-w-[1400px] mx-auto px-4 md:px-10 pt-24 pb-16">
+  <div class="px-4 md:px-10 pt-6 pb-6">
+    <section
+      class="grid grid-cols-1 gap-10 max-w-[1400px] mx-auto px-4 md:px-10 items-end"
+    >
+      <!-- 
+      inline-flex items-center min-h-[48px] border border-gray-900 px-5 font-extrabold text-gray-900 bg-white hover:bg-yellow-400 hover:text-gray-900 rounded-full transition-colors no-underline
+       -->
+      <div class="flex flex-wrap gap-2.5 justify-center">
+        {
+          enrichedTool.github_url || enrichedTool.url ? (
+            <a
+              href={enrichedTool.github_url || enrichedTool.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center min-h-[48px] border border-gray-900 px-5 font-extrabold bg-gray-900 text-white hover:bg-yellow-400 hover:text-gray-900 rounded-full transition-colors no-underline"
+            >
+              View on GitHub
+            </a>
+          ) : null
+        }
+
+        {
+          enrichedTool.url ? (
+            <a
+              href={enrichedTool.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center min-h-[48px] border border-gray-900 px-5 font-extrabold text-gray-900 bg-white hover:bg-yellow-400 hover:text-gray-900 rounded-full transition-colors no-underline"
+            >
+              Official site
+            </a>
+          ) : null
+        }
+        <button
+          class="inline-flex items-center min-h-[48px] border border-gray-900 px-5 font-extrabold text-gray-900 bg-white hover:bg-yellow-400 hover:text-gray-900 rounded-full transition-colors no-underline"
+          data-tool-action="share"
+        >
+          Share
+        </button>
+        <button
+          class="inline-flex items-center min-h-[48px] border border-gray-900 px-5 font-extrabold text-gray-900 bg-white hover:bg-yellow-400 hover:text-gray-900 rounded-full transition-colors no-underline"
+          data-tool-action="compare"
+          data-slug={slug}
+        >
+          Add to compare
+        </button>
+        <button
+          class="inline-flex items-center min-h-[48px] border border-gray-900 px-5 font-extrabold text-gray-900 bg-white hover:bg-yellow-400 hover:text-gray-900 rounded-full transition-colors no-underline"
+          data-tool-action="stack"
+          data-slug={slug}
+        >
+          Add to stack
+        </button>
+        <BookmarkButton
+          client:load
+          slug={slug}
+          title={enrichedTool.title}
+          body={enrichedTool.body}
+          url={enrichedTool.url}
+          category={category}
+          variant="default"
+        />
+      </div>
+    </section>
+  </div>
+
+  <div class="max-w-[1400px] mx-auto px-4 md:px-10 py-12 lg:py-20">
     <nav class="flex gap-2 text-xs font-black mb-6 text-gray-500">
       <a href="/" class="text-gray-900 hover:text-primary-500 transition-colors"
         >Home</a
@@ -229,9 +296,7 @@ const featureBadges = [
       ><span>/</span><span>{enrichedTool.title}</span>
     </nav>
 
-    <article
-      class="grid grid-cols-1 lg:grid-cols-[220px_minmax(0,1fr)] gap-10"
-    >
+    <article class="grid grid-cols-1 lg:grid-cols-[220px_minmax(0,1fr)]">
       <aside
         class="sticky top-24 flex flex-col gap-2 self-start hidden lg:flex"
         aria-label="Tool page sections"
@@ -278,91 +343,16 @@ const featureBadges = [
         >
       </aside>
 
-      <div class="border-t-2 border-gray-900">
-        <header class="py-6 pb-11 border-b-2 border-gray-900">
-          <div class="flex justify-between gap-4 items-start">
-            <img
-              src={faviconUrl}
-              alt=""
-              class="w-14 h-14 border-2 border-gray-900 object-contain"
-              onerror="this.style.display='none'"
-            />
-            <div class="flex gap-2 flex-wrap justify-end">
-              {
-                enrichedTool.github_url || enrichedTool.url ? (
-                  <a
-                    href={enrichedTool.github_url || enrichedTool.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="border-2 border-gray-900 bg-gray-900 text-white px-5 py-2.5 font-black cursor-pointer hover:bg-primary-500 hover:border-primary-500 transition-colors no-underline text-sm"
-                  >
-                    View on GitHub
-                  </a>
-                ) : null
-              }
-              {
-                enrichedTool.url ? (
-                  <a
-                    href={enrichedTool.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="border-2 border-gray-900 bg-white text-gray-900 px-5 py-2.5 font-black cursor-pointer hover:bg-yellow-400 transition-colors no-underline text-sm"
-                  >
-                    Official site
-                  </a>
-                ) : null
-              }
-              <button
-                class="border-2 border-gray-900 bg-white text-gray-900 px-5 py-2.5 font-black cursor-pointer hover:bg-yellow-400 transition-colors text-sm"
-                data-tool-action="share"
-              >
-                Share
-              </button>
-              <button
-                class="border-2 border-gray-900 bg-white text-gray-900 px-5 py-2.5 font-black cursor-pointer hover:bg-yellow-400 transition-colors text-sm"
-                data-tool-action="compare"
-                data-slug={slug}
-              >
-                Add to compare
-              </button>
-              <button
-                class="border-2 border-gray-900 bg-white text-gray-900 px-5 py-2.5 font-black cursor-pointer hover:bg-yellow-400 transition-colors text-sm"
-                data-tool-action="stack"
-                data-slug={slug}
-              >
-                Add to stack
-              </button>
-              <BookmarkButton
-                client:load
-                slug={slug}
-                title={enrichedTool.title}
-                body={enrichedTool.body}
-                url={enrichedTool.url}
-                category={category}
-                variant="default"
-              />
-            </div>
-          </div>
-          <h1
-            class="text-[clamp(56px,10vw,144px)] leading-[0.9] font-black tracking-tight mt-7 mb-4"
-          >
-            {enrichedTool.title}
-          </h1>
-          <p
-            class="max-w-[840px] text-[clamp(20px,2.5vw,34px)] leading-[1.1] font-black text-gray-900"
-          >
-            {enrichedTool.plain_description}
-          </p>
-          <div class="flex flex-wrap gap-2 mt-6">
-            {
-              featureBadges.map((badge: string) => (
-                <span class="border-2 border-gray-900 px-2.5 py-1.5 text-xs font-black uppercase tracking-wider">
-                  {badge}
-                </span>
-              ))
-            }
-          </div>
-        </header>
+      <div class="flex flex-col gap-10">
+        <div class="flex flex-wrap gap-2 mt-6">
+          {
+            featureBadges.map((badge: string) => (
+              <span class="border-2 border-gray-900 px-2.5 py-1.5 text-xs font-black uppercase tracking-wider">
+                {badge}
+              </span>
+            ))
+          }
+        </div>
 
         <section id="overview" class="py-11 border-b-2 border-gray-900">
           <p

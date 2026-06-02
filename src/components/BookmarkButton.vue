@@ -61,11 +61,13 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <button class="bg-transparent border border-gray-200 cursor-pointer flex items-center justify-center transition-colors hover:text-gray-900 hover:border-gray-900" :class="[
-    props.variant === 'small' ? 'w-8 h-8' : 'w-10 h-10',
-    bookmarked ? 'text-primary-500 border-primary-500 hover:text-primary-600 hover:border-primary-600 bg-primary-50' : 'text-gray-400 bg-white',
-    props.className
-]" @click="handleClick" :aria-label="bookmarked ? `Remove ${title} from saved list` : `Add ${title} to saved list`"
+  <button
+    class="bg-transparent border border-gray-200 cursor-pointer flex items-center justify-center transition-all duration-150 hover:text-gray-900 hover:border-gray-900"
+    :class="[
+      props.variant === 'small' ? 'w-8 h-8' : 'w-10 h-10',
+      bookmarked ? 'text-primary-500 border-primary-500 hover:text-primary-600 hover:border-primary-600 bg-primary-50' : 'text-gray-400 bg-white',
+      props.className
+    ]" @click="handleClick" :aria-label="bookmarked ? `Remove ${title} from saved list` : `Add ${title} to saved list`"
     :title="bookmarked ? `Remove ${title} from saved list` : `Add ${title} to saved list`" type="button">
     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
       <path d="M15 19L9.80769 17.0435L5 19V1H15V19Z" stroke="currentColor" stroke-miterlimit="10"

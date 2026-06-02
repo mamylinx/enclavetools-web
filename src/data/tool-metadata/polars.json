@@ -1,7 +1,7 @@
 {
   "title": "Polars",
   "description": "Lightning-fast DataFrame library in Rust with lazy evaluation for efficient data preprocessing before model training.",
-  "category": "data-processing",
+  "category": "data-utilities",
   "url": "https://github.com/pola-rs/polars",
   "tag": "Free",
   "date-added": "2026-05-17",

@@ -29,14 +29,9 @@
     "popularity_score": 40000,
     "commercial_use": true,
     "setup_difficulty": "Medium",
-    "use_cases": [
-      "Document Processing",
-      "Internal Search"
-    ],
+    "use_cases": [],
     "personas": [
-      "Developer",
-      "Business Owner",
-      "Legal"
+      "Developer"
     ],
     "features": [],
     "works_with": [],
@@ -85,14 +80,9 @@
     "popularity_score": 1200,
     "commercial_use": true,
     "setup_difficulty": "Medium",
-    "use_cases": [
-      "Document Processing",
-      "Internal Search"
-    ],
+    "use_cases": [],
     "personas": [
-      "Developer",
-      "Business Owner",
-      "Legal"
+      "Developer"
     ],
     "features": [],
     "works_with": [],
@@ -143,14 +133,9 @@
     "popularity_score": 7200,
     "commercial_use": true,
     "setup_difficulty": "Low",
-    "use_cases": [
-      "Document Processing",
-      "Internal Search"
-    ],
+    "use_cases": [],
     "personas": [
-      "Developer",
-      "Business Owner",
-      "Legal"
+      "Developer"
     ],
     "features": [],
     "works_with": [],
@@ -200,14 +185,9 @@
     "popularity_score": 13000,
     "commercial_use": true,
     "setup_difficulty": "Medium",
-    "use_cases": [
-      "Document Processing",
-      "Internal Search"
-    ],
+    "use_cases": [],
     "personas": [
-      "Developer",
-      "Business Owner",
-      "Legal"
+      "Developer"
     ],
     "features": [],
     "works_with": [],
@@ -256,14 +236,9 @@
     "popularity_score": 44000,
     "commercial_use": true,
     "setup_difficulty": "Medium",
-    "use_cases": [
-      "Document Processing",
-      "Internal Search"
-    ],
+    "use_cases": [],
     "personas": [
-      "Developer",
-      "Business Owner",
-      "Legal"
+      "Developer"
     ],
     "features": [],
     "works_with": [],
@@ -312,14 +287,9 @@
     "popularity_score": 30000,
     "commercial_use": true,
     "setup_difficulty": "Medium",
-    "use_cases": [
-      "Document Processing",
-      "Internal Search"
-    ],
+    "use_cases": [],
     "personas": [
-      "Developer",
-      "Business Owner",
-      "Legal"
+      "Developer"
     ],
     "features": [],
     "works_with": [],

@@ -1,7 +1,7 @@
 {
   "title": "Tabby",
   "description": "Self-hosted AI coding assistant providing code completion and chat with local model support for air-gapped development.",
-  "category": "code-generation",
+  "category": "code-assistants",
   "url": "https://tabby.tabbyml.com/",
   "tag": "Free",
   "date-added": "2026-05-17",

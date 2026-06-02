@@ -7,6 +7,7 @@ const props = defineProps<{
     state: FilterState;
     showModelFormat: boolean;
     activeCount: number;
+    hideCategory?: boolean;
 }>();
 
 const emit = defineEmits<{
@@ -88,7 +89,10 @@ function optionLabel(key: keyof FilterState, value: string | null): string {
 }
 
 const visibleGroups = computed(() => FILTER_GROUPS.filter(
-    (g) => g.key !== 'model_format' || props.showModelFormat
+    (g) => {
+        if (props.hideCategory && g.key === 'category') return false;
+        return g.key !== 'model_format' || props.showModelFormat;
+    }
 ));
 </script>
 
@@ -118,16 +122,16 @@ const visibleGroups = computed(() => FILTER_GROUPS.filter(
             <div v-show="expandedGroups[group.key]" class="pb-4">
                 <div class="flex flex-wrap gap-1.5">
                     <template v-if="group.type === 'single'">
-                        <button v-for="opt in group.options" :key="String(opt.value)" class="px-3 py-1.5 text-xs font-bold transition-colors border"
-                            :class="isOptionSelected(group.key, opt.value) ? 'bg-gray-900 text-white border-gray-900 hover:bg-yellow-400 hover:text-gray-900' : 'text-gray-600 bg-white border-gray-200 hover:border-gray-900 hover:text-gray-900'"
+                        <button v-for="opt in group.options" :key="String(opt.value)" class="px-3 py-1.5 text-xs font-bold transition-all duration-150 border rounded-full"
+                            :class="isOptionSelected(group.key, opt.value) ? 'bg-gray-900 text-white border-gray-900 hover:bg-yellow-400 hover:text-gray-900' : 'text-gray-600 bg-white border-gray-200 hover:border-gray-400 hover:text-gray-900 hover:bg-gray-50'"
                             @click="handleSingleSelect(group.key, opt.value)">
                             {{ optionLabel(group.key, opt.value) }}
                         </button>
                     </template>
 
                     <template v-else>
-                        <button v-for="opt in group.options" :key="String(opt.value)" class="px-3 py-1.5 text-xs font-bold transition-colors border"
-                            :class="isOptionSelected(group.key, opt.value) ? 'bg-gray-900 text-white border-gray-900 hover:bg-yellow-400 hover:text-gray-900' : 'text-gray-600 bg-white border-gray-200 hover:border-gray-900 hover:text-gray-900'"
+                        <button v-for="opt in group.options" :key="String(opt.value)" class="px-3 py-1.5 text-xs font-bold transition-all duration-150 border rounded-full"
+                            :class="isOptionSelected(group.key, opt.value) ? 'bg-gray-900 text-white border-gray-900 hover:bg-yellow-400 hover:text-gray-900' : 'text-gray-600 bg-white border-gray-200 hover:border-gray-400 hover:text-gray-900 hover:bg-gray-50'"
                             @click="handleToggle(group.key, opt.value || '')">
                             {{ opt.label }}
                         </button>

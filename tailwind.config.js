@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+import forms from '@tailwindcss/forms';
+
 export default {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   darkMode: 'class',
@@ -20,7 +22,7 @@ export default {
         },
         surface: {
           DEFAULT: '#ffffff',
-          elevated: '#f9fafb',
+          elevated: '#f5f5f4',
           card: '#ffffff',
           dark: '#111827',
         },
@@ -39,14 +41,18 @@ export default {
       },
       boxShadow: {
         card: '0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)',
-        'card-hover': '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)',
+        'card-hover': '0 8px 24px rgba(0,0,0,0.08)',
       },
       borderRadius: {
         'xl': '1rem',
+        card: '0.75rem',
+      },
+      transitionTimingFunction: {
+        'out-expo': 'cubic-bezier(0.16, 1, 0.3, 1)',
       }
     },
   },
   plugins: [
-    require('@tailwindcss/forms'),
+    forms,
   ],
 }

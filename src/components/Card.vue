@@ -1,8 +1,8 @@
 <template>
-  <li class="relative list-none flex flex-col gap-3 bg-white border border-gray-200 p-4.5 transition-colors cursor-pointer hover:border-gray-900 group" :class="{ 'border-[1.5px] border-gray-900 bg-[#f7f7f2]': isFeatured }">
+  <li class="relative list-none flex flex-col gap-3 bg-white border border-gray-200 p-4.5 transition-all duration-150 cursor-pointer hover:border-gray-400 hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] group" :class="{ 'border-gray-900 bg-[#f7f7f2]': isFeatured }">
     <div v-if="slug" class="absolute top-2 right-2 z-10 hidden group-hover:block">
-      <label class="flex items-center gap-1 text-xs cursor-pointer bg-white/90 px-2 py-1 rounded border border-gray-200" @click.stop>
-        <input type="checkbox" :checked="isCompared" @change="toggleCompare" class="w-3 h-3 text-primary-500 rounded-sm border-gray-300 focus:ring-primary-500" />
+      <label class="flex items-center gap-1 text-xs cursor-pointer bg-white/90 px-2 py-1 border border-gray-200" @click.stop>
+        <input type="checkbox" :checked="isCompared" @change="toggleCompare" class="w-3 h-3 text-primary-500 border-gray-300 focus:ring-primary-500" />
         <span class="text-gray-600 font-medium">Compare</span>
       </label>
     </div>
@@ -69,7 +69,6 @@ const props = defineProps<{
 }>();
 
 const linkUrl = computed(() => props.slug ? `/tools/${props.slug}` : props.href);
-const isNew = computed(() => isRecentlyAdded(props.dateAdded, 30));
 const isFeatured = computed(() => props.featured);
 const isCompared = computed(() => {
   if (typeof window === 'undefined' || !props.slug) return false;
@@ -162,4 +161,3 @@ const toggleCompare = (event: Event) => {
   window.dispatchEvent(new CustomEvent('compare:changed', { detail: { slugs } }));
 };
 </script>
-

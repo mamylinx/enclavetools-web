@@ -6,6 +6,7 @@ defineProps<{
     state: FilterState;
     showModelFormat: boolean;
     activeCount: number;
+    hideCategory?: boolean;
 }>();
 
 const emit = defineEmits<{
@@ -33,7 +34,7 @@ const emit = defineEmits<{
 
 <template>
     <aside class="w-full">
-        <FilterPanel :state="state" :show-model-format="showModelFormat" :active-count="activeCount"
+        <FilterPanel :state="state" :show-model-format="showModelFormat" :active-count="activeCount" :hide-category="hideCategory"
             @update:sort="(v) => emit('update:sort', v)" @update:category="(v) => emit('update:category', v)"
             @update:use_case="(v) => emit('update:use_case', v)"
             @update:persona="(v) => emit('update:persona', v)"

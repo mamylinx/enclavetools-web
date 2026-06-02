@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue';
+import { ref, computed, onMounted, onUnmounted } from 'vue';
 import CardsContainer from './CardsContainer.vue';
+import HomeContainer from './HomeContainer.vue';
 import Sidebar from './Sidebar.vue';
 import FilterSidebar from './FilterSidebar.vue';
 import FilterBottomSheet from './FilterBottomSheet.vue';
@@ -13,13 +14,13 @@ const props = defineProps<{
     category: string;
     ssrTools?: Tool[];
     ssrTotal?: number;
+    isHomepage?: boolean;
 }>();
 
 const {
     state: filterState,
     showModelFormat,
     activeCount,
-    hasActiveFilters,
     setFilter,
     toggleFilter,
     clearFilter,
@@ -29,6 +30,7 @@ const {
 const searchQuery = ref('');
 const filterNew = ref(false);
 const showFilterSheet = ref(false);
+const hideCategory = computed(() => props.category !== 'all');
 
 const handleSearch = (e: Event) => {
     const detail = (e as CustomEvent<{ query?: string }>)?.detail || {};
@@ -82,9 +84,10 @@ onUnmounted(() => {
 </script>
 
 <template>
-    <div class="grid grid-cols-1 lg:grid-cols-[240px_1fr_260px] gap-8 max-w-[1400px] mx-auto px-4 md:px-10 py-8 items-start">
-        <FilterSidebar class="hidden lg:block" :state="filterState" :show-model-format="showModelFormat"
-            :active-count="activeCount" @update:sort="(v) => setFilter('sort', v)"
+    <div class="grid gap-8 max-w-[1400px] mx-auto px-4 md:px-10 py-8 items-start"
+        :class="isHomepage ? 'grid-cols-1 lg:grid-cols-[1fr_260px]' : 'grid-cols-1 lg:grid-cols-[240px_1fr_260px]'">
+        <FilterSidebar v-if="!isHomepage" class="hidden lg:block" :state="filterState" :show-model-format="showModelFormat"
+            :active-count="activeCount" :hide-category="hideCategory" @update:sort="(v) => setFilter('sort', v)"
             @update:category="(v) => setFilter('category', v)" @update:license="(v) => setFilter('license', v)"
             @update:use_case="(v) => setFilter('use_case', v)" @update:persona="(v) => setFilter('persona', v)"
             @update:setup_difficulty="(v) => setFilter('setup_difficulty', v)"
@@ -100,7 +103,7 @@ onUnmounted(() => {
             @clear="(k) => clearFilter(k)" @clear-all="clearAll" />
 
         <div class="flex flex-col gap-6 min-w-0">
-            <div class="lg:hidden mb-4">
+            <div v-if="!isHomepage" class="lg:hidden mb-4">
                 <button class="flex items-center justify-center gap-2 px-4 py-3 bg-white border border-gray-900 font-extrabold text-gray-900 w-full hover:bg-gray-50 transition-colors" @click="showFilterSheet = true">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2">
@@ -111,22 +114,23 @@ onUnmounted(() => {
                 </button>
             </div>
 
-            <ActiveFiltersBar :state="filterState" :active-count="activeCount" @remove="handleRemoveChip"
+            <ActiveFiltersBar v-if="!isHomepage" :state="filterState" :active-count="activeCount" @remove="handleRemoveChip"
                 @clear-all="clearAll" />
 
-            <CardsContainer :filter="props.category" :search-query="searchQuery" :filter-new="filterNew"
+            <HomeContainer v-if="isHomepage" :ssr-tools="props.ssrTools" />
+            <CardsContainer v-else :filter="props.category" :search-query="searchQuery" :filter-new="filterNew"
                 :filter-state="filterState" :ssr-tools="props.ssrTools" :ssr-total="props.ssrTotal"
                 @clear-all="clearAll" />
         </div>
 
-        <aside class="hidden lg:block w-full">
+        <aside class="sticky top-24 hidden lg:block w-full">
             <Sidebar showSponsor showNewsletter />
         </aside>
         <CompareTray :tools="props.ssrTools || []" />
     </div>
 
-    <FilterBottomSheet v-if="showFilterSheet" :state="filterState" :show-model-format="showModelFormat"
-        :active-count="activeCount" @close="showFilterSheet = false" @update:sort="(v) => setFilter('sort', v)"
+    <FilterBottomSheet v-if="showFilterSheet && !isHomepage" :state="filterState" :show-model-format="showModelFormat"
+        :active-count="activeCount" :hide-category="hideCategory" @close="showFilterSheet = false" @update:sort="(v) => setFilter('sort', v)"
         @update:category="(v) => setFilter('category', v)" @update:license="(v) => setFilter('license', v)"
         @update:use_case="(v) => setFilter('use_case', v)" @update:persona="(v) => setFilter('persona', v)"
         @update:setup_difficulty="(v) => setFilter('setup_difficulty', v)"

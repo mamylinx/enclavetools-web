@@ -384,39 +384,39 @@
     "vision-multimodal"
   ],
   "aider": [
-    "code-generation"
+    "code-assistants"
   ],
   "codegeex": [
-    "code-generation"
+    "code-assistants"
   ],
   "continue": [
-    "code-generation"
+    "code-assistants"
   ],
   "deepseek-coder": [
-    "code-generation"
+    "code-assistants"
   ],
   "starcoder2": [
-    "code-generation"
+    "code-assistants"
   ],
   "tabby": [
-    "code-generation"
+    "code-assistants"
   ],
   "apache-spark": [
-    "data-processing"
+    "data-utilities"
   ],
   "datacleaner": [
-    "data-processing"
+    "data-utilities"
   ],
   "duckdb": [
-    "data-processing"
+    "data-utilities"
   ],
   "dvc": [
-    "data-processing"
+    "data-utilities"
   ],
   "pandas": [
-    "data-processing"
+    "data-utilities"
   ],
   "polars": [
-    "data-processing"
+    "data-utilities"
   ]
 }

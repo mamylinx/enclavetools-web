@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref, computed, watch, onMounted, onUnmounted } from 'vue';
-import Fuse from 'fuse.js';
 import Card from './Card.vue';
 import EmptyState from './EmptyState.vue';
 import promotedData from '../data/promoted.json';
@@ -40,32 +39,12 @@ const isLoading = ref(false);
 const loaderRef = ref<HTMLElement | null>(null);
 const activeSort = ref<string>('featured');
 
-const fuseOptions = {
-    keys: [
-        { name: 'title', weight: 0.4 },
-        { name: 'body', weight: 0.3 },
-        { name: 'plain_description', weight: 0.25 },
-        { name: 'technical_description', weight: 0.2 },
-        { name: 'category', weight: 0.2 },
-        { name: 'use_cases', weight: 0.15 },
-        { name: 'personas', weight: 0.15 },
-        { name: 'features', weight: 0.15 },
-        { name: 'tag', weight: 0.1 },
-    ],
-    threshold: 0.3,
-    includeScore: true,
-    minMatchCharLength: 2,
-    ignoreLocation: true,
-};
-
 const baseTools = computed((): ToolWithCategory[] => {
     if (props.ssrTools && props.ssrTools.length > 0) {
         return props.ssrTools.map(enrichTool);
     }
     return [];
 });
-
-const fuse = computed(() => new Fuse(baseTools.value, fuseOptions));
 
 const hasActiveFilters = computed(() => {
     if (!props.filterState) return false;
@@ -156,12 +135,6 @@ const filteredCards = computed((): ToolWithCategory[] => {
 
     if (hasActiveFilters.value && props.filterState) {
         base = base.filter((tool) => matchesFilter(tool, props.filterState!));
-    }
-
-    if (props.searchQuery && props.searchQuery.length >= 2) {
-        const results = fuse.value.search(props.searchQuery);
-        const searchResults = new Set(results.map((r) => r.item.slug || r.item.title));
-        base = base.filter((tool) => searchResults.has(tool.slug || tool.title));
     }
 
     const comparator = toolComparators[activeSort.value as keyof typeof toolComparators];
@@ -310,7 +283,7 @@ onUnmounted(() => {
 
         <ul role="list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 m-0 p-0">
             <template v-for="(item, i) in displayedCards" :key="`${item.title}-${i}`">
-                <div class="col-span-1 md:col-span-2 flex flex-col md:flex-row items-start md:items-center justify-between p-6 border-2 border-gray-900 bg-orange-50/50 mb-2" v-if="i === 0" v-for="ad in promotedAds" :key="ad.title">
+                <div class="col-span-1 md:col-span-2 flex flex-col md:flex-row items-start md:items-center justify-between p-6 border-2 border-gray-900 bg-gray-100 mb-2" v-if="i === 0" v-for="ad in promotedAds" :key="ad.title">
                     <div class="flex-1">
                         <div class="text-[10px] font-black uppercase text-gray-900 tracking-wider mb-2">{{ ad.label }}</div>
                         <div class="text-xl font-black text-gray-900 mb-1">{{ ad.title }}</div>

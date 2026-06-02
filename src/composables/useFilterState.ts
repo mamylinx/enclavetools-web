@@ -103,6 +103,13 @@ function syncToUrl(state: FilterState) {
         }
     }
 
+    const currentParams = new URLSearchParams(window.location.search);
+    for (const [key] of currentParams) {
+        if (!Object.keys(PARAM_MAP).includes(key)) {
+            params.set(key, currentParams.get(key)!);
+        }
+    }
+
     const queryString = params.toString();
     const newUrl = queryString ? `${window.location.pathname}?${queryString}` : window.location.pathname;
     const currentPath = window.location.pathname + (window.location.search ? window.location.search : '');
@@ -242,7 +249,14 @@ export function useFilterState() {
 
         if (typeof window !== 'undefined') {
             localStorage.removeItem(STORAGE_KEY);
-            window.history.pushState({ filters: true }, '', window.location.pathname);
+            const params = new URLSearchParams(window.location.search);
+            for (const [key] of params) {
+                if (!Object.keys(PARAM_MAP).includes(key)) continue;
+                params.delete(key);
+            }
+            const qs = params.toString();
+            const url = qs ? `${window.location.pathname}?${qs}` : window.location.pathname;
+            window.history.pushState({ filters: true }, '', url);
         }
     }
 

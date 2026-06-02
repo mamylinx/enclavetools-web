@@ -1,7 +1,7 @@
 {
   "title": "Pandas",
   "description": "Essential Python data manipulation library for structured data cleaning, transformation, and analysis in offline pipelines.",
-  "category": "data-processing",
+  "category": "data-utilities",
   "url": "https://pandas.pydata.org/",
   "tag": "BSD",
   "date-added": "2026-05-17",
