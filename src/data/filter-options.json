@@ -1,0 +1,114 @@
+{
+  "use_case": [
+    {
+      "value": "Self-hosted Inference",
+      "label": "Self-hosted Inference"
+    },
+    {
+      "value": "Document Processing",
+      "label": "Document Processing"
+    },
+    {
+      "value": "Internal Search",
+      "label": "Internal Search"
+    },
+    {
+      "value": "Workflow Automation",
+      "label": "Workflow Automation"
+    },
+    {
+      "value": "Contract Review",
+      "label": "Contract Review"
+    },
+    {
+      "value": "Clinical Notes",
+      "label": "Clinical Notes"
+    }
+  ],
+  "persona": [
+    {
+      "value": "Developer",
+      "label": "Developer"
+    },
+    {
+      "value": "Business Owner",
+      "label": "Business Owner"
+    },
+    {
+      "value": "Legal",
+      "label": "Legal"
+    },
+    {
+      "value": "Healthcare",
+      "label": "Healthcare"
+    },
+    {
+      "value": "Indie Hacker",
+      "label": "Indie Hacker"
+    }
+  ],
+  "setup_difficulty": [
+    {
+      "value": "Low",
+      "label": "Low"
+    },
+    {
+      "value": "Medium",
+      "label": "Medium"
+    },
+    {
+      "value": "High",
+      "label": "High"
+    }
+  ],
+  "license": [
+    {
+      "value": "MIT",
+      "label": "MIT"
+    },
+    {
+      "value": "Apache 2.0",
+      "label": "Apache 2.0"
+    },
+    {
+      "value": "GPL 3.0",
+      "label": "GPL 3.0"
+    },
+    {
+      "value": "AGPL 3.0",
+      "label": "AGPL 3.0"
+    },
+    {
+      "value": "Other",
+      "label": "Other"
+    }
+  ],
+  "maturity": [
+    {
+      "value": "Production / Stable",
+      "label": "Production / Stable"
+    },
+    {
+      "value": "Beta / Experimental",
+      "label": "Beta / Experimental"
+    },
+    {
+      "value": "Archived / Unmaintained",
+      "label": "Archived / Unmaintained"
+    }
+  ],
+  "telemetry": [
+    {
+      "value": "None",
+      "label": "None"
+    },
+    {
+      "value": "Optional",
+      "label": "Optional"
+    },
+    {
+      "value": "On by default",
+      "label": "On by default"
+    }
+  ]
+}

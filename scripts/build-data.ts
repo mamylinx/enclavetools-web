@@ -1,13 +1,9 @@
 import fs from 'fs';
 import path from 'path';
 
-// This script runs at build time on Cloudflare Pages.
-// It uses the Cloudflare REST API to fetch tools from D1, since Wrangler bindings
-// are not available to node scripts during the Pages build phase.
-
 const CF_ACCOUNT_ID = process.env.CF_ACCOUNT_ID;
 const CF_API_TOKEN = process.env.CLOUDFLARE_API_TOKEN;
-const D1_DB_ID = process.env.D1_DB_ID; 
+const D1_DB_ID = process.env.D1_DB_ID;
 
 const dataDir = path.join(process.cwd(), 'src/data');
 const toolsJsonPath = path.join(dataDir, 'tools.json');
@@ -78,35 +74,35 @@ function inferToolFields(row: any) {
     hardware,
     deployment,
     model_format: modelFormat,
-    commercial_use: !/agpl|non-commercial|cc by-nc/i.test(license),
-    setup_difficulty: row.setup_difficulty || (gui || lowResource ? 'Low' : docker ? 'Medium' : gpuOnly ? 'High' : 'Medium'),
+    commercial_use: row.commercial_use ?? !/agpl|non-commercial|cc by-nc/i.test(license),
+    setup_difficulty: row.setup_difficulty ?? (gui || lowResource ? 'Low' : docker ? 'Medium' : gpuOnly ? 'High' : 'Medium'),
     use_cases: parseJson(row.use_cases).length ? parseJson(row.use_cases) : Array.from(useCases),
     personas: parseJson(row.personas).length ? parseJson(row.personas) : Array.from(personas),
     features: parseJson(row.features),
     works_with: parseJson(row.works_with),
-    docs_url: row.docs_url || row.github_url || row.url,
+    docs_url: row.docs_url ?? row.github_url ?? row.url,
     community_guides: parseJson(row.community_guides),
     community_notes: parseJson(row.community_notes),
-    min_ram_gb: Number(row.min_ram_gb || (lowResource ? 8 : gpuOnly ? 16 : 8)),
-    recommended_ram_gb: Number(row.recommended_ram_gb || (gpuOnly ? 32 : 16)),
-    telemetry: row.telemetry || 'None',
-    offline_after_setup: boolFromRow(row.offline_after_setup, true),
-    paid_support: boolFromRow(row.paid_support, Boolean(row.url && !String(row.url).includes('github.com'))),
-    gui_available: boolFromRow(row.gui_available, gui),
-    docker_available: boolFromRow(row.docker_available, docker),
-    openai_api: boolFromRow(row.openai_api, openaiApi),
-    rest_api: boolFromRow(row.rest_api, restApi),
-    fine_tuning: boolFromRow(row.fine_tuning, fineTuning),
-    quantization: boolFromRow(row.quantization, quantization),
-    community_notes_count: Number(row.community_notes_count || 0),
-    community_guides_count: Number(row.community_guides_count || 0),
-    last_verified: row.last_verified || row.last_updated || row.date_added,
+    min_ram_gb: Number(row.min_ram_gb ?? (lowResource ? 8 : gpuOnly ? 16 : 8)),
+    recommended_ram_gb: Number(row.recommended_ram_gb ?? (gpuOnly ? 32 : 16)),
+    telemetry: row.telemetry ?? 'None',
+    offline_after_setup: row.offline_after_setup ?? true,
+    paid_support: row.paid_support ?? Boolean(row.url && !String(row.url).includes('github.com')),
+    gui_available: row.gui_available ?? gui,
+    docker_available: row.docker_available ?? docker,
+    openai_api: row.openai_api ?? openaiApi,
+    rest_api: row.rest_api ?? restApi,
+    fine_tuning: row.fine_tuning ?? fineTuning,
+    quantization: row.quantization ?? quantization,
+    community_notes_count: Number(row.community_notes_count ?? 0),
+    community_guides_count: Number(row.community_guides_count ?? 0),
+    last_verified: row.last_verified ?? row.last_updated ?? row.date_added,
   };
 }
 
 async function main() {
   console.log("Fetching tools data from D1...");
-  
+
   if (!CF_ACCOUNT_ID || !CF_API_TOKEN || !D1_DB_ID) {
     console.warn("⚠️  Missing Cloudflare credentials in environment.");
     console.warn("Using local tools.json fallback.");
@@ -137,30 +133,34 @@ async function main() {
     }
 
     const rows = json.result[0].results;
-    
-    // Format into the expected tools.json structure
-    // Group by category
+
     const categoriesMap = new Map();
-    
+
     for (const row of rows) {
       if (!categoriesMap.has(row.category)) {
         categoriesMap.set(row.category, []);
       }
-      
+
       const content = categoriesMap.get(row.category);
-      
+
       const inferred = inferToolFields(row);
+
+      const tag = row.license
+        ? (row.license === 'MIT' || row.license.includes('Apache') ? 'Free' : row.license)
+        : 'Free';
+
+      const body = row.body ?? row.description;
 
       content.push({
         title: row.name,
-        body: row.description,
-        plain_description: row.plain_description || row.description,
-        technical_description: row.technical_description || row.description,
+        body,
+        plain_description: row.plain_description ?? body,
+        technical_description: row.technical_description ?? body,
         slug: row.slug,
         url: row.url,
         github_url: row.github_url,
         docs_url: inferred.docs_url,
-        tag: row.license ? (row.license === 'MIT' || row.license.includes('Apache') ? 'Free' : row.license) : 'Free',
+        tag,
         'date-added': row.date_added,
         license: row.license,
         language: inferred.language,
@@ -170,14 +170,32 @@ async function main() {
         maturity: row.maturity,
         last_updated: row.last_updated,
         popularity_score: row.popularity_score,
-        ...inferred,
-        featured: row.featured === 1
+        featured: row.featured === 1,
+        commercial_use: inferred.commercial_use,
+        setup_difficulty: inferred.setup_difficulty,
+        use_cases: inferred.use_cases,
+        personas: inferred.personas,
+        features: inferred.features,
+        works_with: inferred.works_with,
+        community_guides: inferred.community_guides,
+        community_notes: inferred.community_notes,
+        min_ram_gb: inferred.min_ram_gb,
+        recommended_ram_gb: inferred.recommended_ram_gb,
+        telemetry: inferred.telemetry,
+        offline_after_setup: inferred.offline_after_setup,
+        paid_support: inferred.paid_support,
+        gui_available: inferred.gui_available,
+        docker_available: inferred.docker_available,
+        openai_api: inferred.openai_api,
+        rest_api: inferred.rest_api,
+        fine_tuning: inferred.fine_tuning,
+        quantization: inferred.quantization,
+        community_notes_count: inferred.community_notes_count,
+        community_guides_count: inferred.community_guides_count,
+        last_verified: inferred.last_verified,
       });
     }
 
-    // Prepare final JSON
-    // We would need to know the category titles. We can infer them or hardcode mapping if needed.
-    // For now, we will use the category id as the title with basic formatting.
     const toolsData = {
       tools: Array.from(categoriesMap.entries()).map(([catId, content]) => ({
         title: catId.split('-').map((w: string) => w.charAt(0).toUpperCase() + w.slice(1)).join(' '),
@@ -192,11 +210,7 @@ async function main() {
 
     fs.writeFileSync(toolsJsonPath, JSON.stringify(toolsData, null, 2));
     console.log(`✅ Successfully generated tools.json with ${rows.length} tools`);
-    
-    // Downloading logos from R2 logic would go here.
-    // For simplicity, we are assuming google favicons are used as fallback 
-    // on the client side if the local image isn't found.
-    
+
   } catch (error: any) {
     console.error("❌ Error generating data from D1:", error.message);
     process.exit(1);

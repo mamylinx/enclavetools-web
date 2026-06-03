@@ -24,4 +24,5 @@ INSERT INTO categories (slug, title, sort_order) VALUES
 ('video-generation', 'Video Generation', 17),
 ('vision-multimodal', 'Vision & Multimodal', 18),
 ('code-assistants', 'Code Assistants', 19),
-('data-utilities', 'Data Utilities', 20);
+('data-utilities', 'Data Utilities', 20)
+ON CONFLICT(slug) DO NOTHING;

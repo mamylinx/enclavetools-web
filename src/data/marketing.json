@@ -1,0 +1,28 @@
+{
+  "featured": [
+    {
+      "label": "Featured",
+      "title": "Put your tool at the top",
+      "description": "Featured listings get 10× more clicks and are shown prominently across the directory.",
+      "cta": "Get featured →",
+      "url": "/submit"
+    }
+  ],
+  "promoted": [
+    {
+      "label": "Offgrid AI tools · Updated daily",
+      "title": "Enclavetools",
+      "description": "Stop paying for AI APIs. Everything here runs on your hardware.",
+      "cta": "Publish yours now →",
+      "url": "/submit"
+    }
+  ],
+  "sponsors": [
+    {
+      "logo": null,
+      "description": "Reach 50,000+ enterprise buyers looking for private AI solutions.",
+      "cta": "Sponsor the directory →",
+      "url": "/submit"
+    }
+  ]
+}

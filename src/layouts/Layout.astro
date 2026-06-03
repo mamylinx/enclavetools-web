@@ -4,8 +4,11 @@ import WebSiteSchema from "../components/schema/WebSiteSchema.astro";
 import Hero from "../components/Hero.astro";
 import CategoryNav from "../components/CategoryNav.vue";
 import categories from "../data/categories.json";
+import siteContent from "../data/site-content.json";
 import SearchInput from "../components/SearchInput.vue";
 import "../styles/main.css";
+
+const c = siteContent as Record<string, string>;
 
 export interface Props {
   site: string;
@@ -159,7 +162,7 @@ const {
             >
               <path d="M4 6h16M4 12h16M4 18h16"></path>
             </svg>
-            <span>Categories</span>
+            <span>{c.nav_all_categories || 'Categories'}</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="12"
@@ -205,25 +208,25 @@ const {
           href="/all"
           class="flex items-center px-3 py-2 text-sm font-medium text-gray-700 hover:text-primary-500 no-underline"
         >
-          <span class="hidden lg:inline">Browse</span>
+          <span class="hidden lg:inline">{c.nav_browse || 'Browse'}</span>
         </a>
         <a
           href="/use-cases"
           class="flex items-center px-3 py-2 text-sm font-medium text-gray-700 hover:text-primary-500 no-underline"
         >
-          <span class="hidden lg:inline">Use cases</span>
+          <span class="hidden lg:inline">{c.nav_use_cases || 'Use cases'}</span>
         </a>
         <a
           href="/compare"
           class="flex items-center px-3 py-2 text-sm font-medium text-gray-700 hover:text-primary-500 no-underline"
         >
-          <span class="hidden lg:inline">Compare</span>
+          <span class="hidden lg:inline">{c.nav_compare || 'Compare'}</span>
         </a>
         <a
           href="/stack-builder"
           class="flex items-center px-3 py-2 text-sm font-medium text-gray-700 hover:text-primary-500 no-underline"
         >
-          <span class="hidden lg:inline">Stack</span>
+          <span class="hidden lg:inline">{c.nav_stack || 'Stack'}</span>
         </a>
         <button
           class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-primary-500 active:scale-95 transition-transform"
@@ -232,7 +235,7 @@ const {
           aria-label="Filter new tools"
           aria-pressed="false"
         >
-          Latest
+          {c.nav_latest || 'Latest'}
         </button>
         <a
           href="/saved"
@@ -240,7 +243,7 @@ const {
           id="favoritesLink"
           style="display: none;"
         >
-          <span class="hidden lg:inline">Saved tools</span>
+          <span class="hidden lg:inline">{c.nav_saved_tools || 'Saved tools'}</span>
           <span
             class="ml-1 bg-gray-100 text-gray-600 px-1.5 py-0.5 rounded-full text-xs font-bold"
             id="favoritesCount"></span>
@@ -287,34 +290,34 @@ const {
             <button
               class="block w-full text-left px-3 py-2.5 text-sm font-medium text-gray-600 hover:bg-gray-50 hover:text-primary-500 rounded-md transition-colors"
               id="mobileNewFilterToggle"
-              aria-pressed="false">Latest</button
+              aria-pressed="false">{c.nav_latest || 'Latest'}</button
             >
             <a
               href="/"
               class="block w-full text-left px-3 py-2.5 text-sm font-medium text-gray-600 hover:bg-gray-50 hover:text-primary-500 rounded-md transition-colors no-underline"
-              >Browse</a
+              >{c.nav_browse || 'Browse'}</a
             >
             <a
               href="/use-cases"
               class="block w-full text-left px-3 py-2.5 text-sm font-medium text-gray-600 hover:bg-gray-50 hover:text-primary-500 rounded-md transition-colors no-underline"
-              >Use cases</a
+              >{c.nav_use_cases || 'Use cases'}</a
             >
             <a
               href="/compare"
               class="block w-full text-left px-3 py-2.5 text-sm font-medium text-gray-600 hover:bg-gray-50 hover:text-primary-500 rounded-md transition-colors no-underline"
-              >Compare</a
+              >{c.nav_compare || 'Compare'}</a
             >
             <a
               href="/stack-builder"
               class="block w-full text-left px-3 py-2.5 text-sm font-medium text-gray-600 hover:bg-gray-50 hover:text-primary-500 rounded-md transition-colors no-underline"
-              >Stack builder</a
+              >{c.nav_stack || 'Stack builder'}</a
             >
             <a
               href="/saved"
               class="block w-full text-left px-3 py-2.5 text-sm font-medium text-gray-600 hover:bg-gray-50 hover:text-primary-500 rounded-md transition-colors no-underline"
               id="mobileFavoritesLink"
               style="display:none;"
-              >Saved tools <span
+              >{c.nav_saved_tools || 'Saved tools'} <span
                 id="mobileFavoritesCount"
                 class="ml-1 bg-gray-100 text-gray-600 px-1.5 py-0.5 rounded-full text-xs font-bold"
               ></span></a
@@ -324,7 +327,7 @@ const {
               target="_blank"
               rel="noopener noreferrer"
               class="block w-full text-left px-3 py-3.5 mt-1 text-sm font-semibold text-primary-500 border-t border-gray-200 hover:bg-gray-50 transition-colors no-underline"
-              >Submit ↗</a
+              >{c.nav_submit || 'Submit'} ↗</a
             >
           </div>
         </div>
@@ -346,29 +349,29 @@ const {
               Enclavetools
             </div>
             <p class="text-sm font-medium text-gray-400 leading-relaxed">
-              Your models. Your hardware. Zero subscriptions.
+              {c.footer_tagline || 'Your models. Your hardware. Zero subscriptions.'}
             </p>
           </div>
           <div class="flex flex-col gap-3">
             <h5
               class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-2"
             >
-              Browse
+              {c.nav_browse || 'Browse'}
             </h5>
             <a
               href="/"
               class="text-sm font-medium text-gray-300 hover:text-primary-500 transition-colors no-underline"
-              >All tools</a
+              >{c.nav_browse || 'Browse'}</a
             >
             <a
               href="/?filter=new"
               class="text-sm font-medium text-gray-300 hover:text-primary-500 transition-colors no-underline"
-              >Latest</a
+              >{c.nav_latest || 'Latest'}</a
             >
             <a
               href="/saved"
               class="text-sm font-medium text-gray-300 hover:text-primary-500 transition-colors no-underline"
-              >Saved tools</a
+              >{c.nav_saved_tools || 'Saved tools'}</a
             >
           </div>
           <div class="flex flex-col gap-3">
@@ -389,7 +392,7 @@ const {
               target="_blank"
               rel="noopener noreferrer"
               class="text-sm font-medium text-gray-300 hover:text-primary-500 transition-colors no-underline"
-              >Submit a tool</a
+               >{c.nav_submit || 'Submit a tool'}</a
             >
           </div>
           <div class="flex flex-col gap-3">
@@ -410,7 +413,7 @@ const {
         <div
           class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-medium text-gray-400"
         >
-          <p>© 2026 Enclavetools. All rights reserved.</p>
+          <p>{c.footer_copyright || '© 2026 Enclavetools. All rights reserved.'}</p>
           <p class="flex items-center gap-3">
             <a
               href="/privacy"

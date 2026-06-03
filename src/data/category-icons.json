@@ -1,0 +1,21 @@
+{
+  "llm-inference": "cpu",
+  "llm-models": "brain",
+  "vector-databases": "database",
+  "agent-frameworks": "bot",
+  "chat-interfaces": "message-square",
+  "rag-document": "file-text",
+  "speech-to-text": "mic",
+  "text-to-speech": "volume-2",
+  "image-generation": "image",
+  "fine-tuning-training": "graduation-cap",
+  "monitoring-observability": "activity",
+  "privacy-security": "shield",
+  "embedding-models": "layers",
+  "deployment": "server",
+  "workflow-automation": "git-branch",
+  "video-generation": "video",
+  "vision-multimodal": "eye",
+  "code-assistants": "terminal",
+  "data-utilities": "bar-chart-3"
+}

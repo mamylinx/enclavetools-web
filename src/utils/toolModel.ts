@@ -16,71 +16,28 @@ export function enrichTool(tool: ToolWithCategory): ToolWithCategory {
   const modelFormat = tool.model_format || [];
   const lowResource = hardware.some((item) => item.includes('Low-resource'));
   const docker = deployment.includes('Docker');
-  const gui = category === 'chat-interfaces' || text.includes('gui') || text.includes('visual') || text.includes('no-code');
   const gpuOnly = hardware.length > 0 && hardware.every((item) => item.includes('GPU') || item.includes('CUDA') || item.includes('ROCm'));
-  const useCases = new Set(tool.use_cases || []);
-  const personas = new Set(tool.personas || ['Developer']);
-
-  if (category === 'rag-document' || category === 'data-processing') {
-    useCases.add('Document Processing');
-    useCases.add('Internal Search');
-    personas.add('Business Owner');
-    personas.add('Legal');
-  }
-  if (category === 'chat-interfaces') {
-    useCases.add('Clinical Notes');
-    personas.add('Healthcare');
-    personas.add('Business Owner');
-  }
-  if (category === 'llm-inference') {
-    useCases.add('Self-hosted Inference');
-    personas.add('Indie Hacker');
-  }
-  if (category === 'workflow-automation') {
-    useCases.add('Workflow Automation');
-    personas.add('Business Owner');
-  }
-  if (text.includes('contract') || text.includes('legal')) {
-    useCases.add('Contract Review');
-    personas.add('Legal');
-  }
-
-  const openaiApi = tool.openai_api ?? (text.includes('openai') || text.includes('oai compatible'));
-  const restApi = tool.rest_api ?? (text.includes('api') || category === 'deployment');
-  const fineTuning = tool.fine_tuning ?? (category === 'fine-tuning-training' || text.includes('fine-tun'));
-  const quantization = tool.quantization ?? (modelFormat.some((format) => ['GGUF', 'GPTQ', 'AWQ'].includes(format)) || text.includes('quant'));
-  const dockerAvailable = tool.docker_available ?? docker;
-  const guiAvailable = tool.gui_available ?? gui;
-  const paidSupport = tool.paid_support ?? Boolean(tool.url && !tool.url.includes('github.com'));
 
   return {
     ...tool,
     plain_description: tool.plain_description || tool.body,
     technical_description: tool.technical_description || tool.body,
-    setup_difficulty: tool.setup_difficulty || (gui || lowResource ? 'Low' : docker ? 'Medium' : gpuOnly ? 'High' : 'Medium'),
-    use_cases: Array.from(useCases),
-    personas: Array.from(personas),
-    commercial_use: tool.commercial_use ?? !/agpl|non-commercial|cc by-nc/i.test(tool.license || ''),
+    setup_difficulty: tool.setup_difficulty || (lowResource ? 'Low' : docker ? 'Medium' : gpuOnly ? 'High' : 'Medium'),
+    use_cases: tool.use_cases || [],
+    personas: tool.personas || [],
+    commercial_use: tool.commercial_use ?? true,
     offline_after_setup: tool.offline_after_setup ?? true,
     telemetry: tool.telemetry || 'None',
-    docker_available: dockerAvailable,
-    gui_available: guiAvailable,
-    openai_api: openaiApi,
-    rest_api: restApi,
-    fine_tuning: fineTuning,
-    quantization: quantization,
-    paid_support: paidSupport,
+    docker_available: tool.docker_available ?? docker,
+    gui_available: tool.gui_available ?? (category === 'chat-interfaces' || text.includes('gui')),
+    openai_api: tool.openai_api ?? (text.includes('openai') || text.includes('oai compatible')),
+    rest_api: tool.rest_api ?? (text.includes('api') || category === 'deployment'),
+    fine_tuning: tool.fine_tuning ?? (category === 'fine-tuning-training' || text.includes('fine-tun')),
+    quantization: tool.quantization ?? (modelFormat.some((f) => ['GGUF', 'GPTQ', 'AWQ'].includes(f)) || text.includes('quant')),
+    paid_support: tool.paid_support ?? Boolean(tool.url && !tool.url.includes('github.com')),
     min_ram_gb: tool.min_ram_gb || (lowResource ? 8 : gpuOnly ? 16 : 8),
     recommended_ram_gb: tool.recommended_ram_gb || (gpuOnly ? 32 : 16),
-    features: tool.features || [
-      openaiApi ? 'openai_api' : '',
-      restApi ? 'rest_api' : '',
-      fineTuning ? 'fine_tuning' : '',
-      quantization ? 'quantization' : '',
-      dockerAvailable ? 'docker_available' : '',
-      guiAvailable ? 'gui_available' : '',
-      paidSupport ? 'paid_support' : '',
-    ].filter(Boolean),
+    features: tool.features || [],
     community_notes_count: tool.community_notes_count || 0,
     community_guides_count: tool.community_guides_count || 0,
     last_verified: tool.last_verified || tool.last_updated || tool['date-added'],

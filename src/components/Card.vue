@@ -43,13 +43,9 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import BookmarkButton from './BookmarkButton.vue';
-import { isRecentlyAdded } from '../utils/dates';
-import { 
-  Cpu, Brain, Database, Network, MessageSquare, 
-  FileText, Mic, Volume2, Image as ImageIcon, Wrench, 
-  Activity, Shield, Layers, Server, Zap, 
-  Video, Eye, Code, Table, Circle 
-} from 'lucide-vue-next';
+import categoryIcons from '../data/category-icons.json';
+import * as LucideIcons from 'lucide-vue-next';
+import type { Component } from 'vue';
 
 const props = defineProps<{
   href: string;
@@ -101,28 +97,13 @@ const setupClass = computed(() => {
 });
 
 const categoryIcon = computed(() => {
-  const icons: Record<string, any> = {
-    'llm-inference': Cpu,
-    'llm-models': Brain,
-    'vector-databases': Database,
-    'agent-frameworks': Network,
-    'chat-interfaces': MessageSquare,
-    'rag-document': FileText,
-    'speech-to-text': Mic,
-    'text-to-speech': Volume2,
-    'image-generation': ImageIcon,
-    'fine-tuning-training': Wrench,
-    'monitoring-observability': Activity,
-    'privacy-security': Shield,
-    'embedding-models': Layers,
-    'deployment': Server,
-    'workflow-automation': Zap,
-    'video-generation': Video,
-    'vision-multimodal': Eye,
-    'code-assistants': Code,
-    'data-utilities': Table,
-  };
-  return icons[props.category || ''] || Circle;
+  const iconName = (categoryIcons as Record<string, string>)[props.category || ''];
+  if (iconName) {
+    const pascalName = iconName.replace(/(?:^|-)(\w)/g, (_, c) => c.toUpperCase());
+    const icon = (LucideIcons as Record<string, Component>)[pascalName];
+    if (icon) return icon;
+  }
+  return LucideIcons.Circle;
 });
 
 const priceClass = computed(() => {

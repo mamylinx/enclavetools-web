@@ -1,0 +1,167 @@
+CREATE TABLE IF NOT EXISTS site_content (
+  key TEXT PRIMARY KEY,
+  value TEXT NOT NULL,
+  updated_at TEXT DEFAULT (datetime('now'))
+);
+
+INSERT INTO site_content (key, value) VALUES
+  ('nav_browse', 'Browse'),
+  ('nav_use_cases', 'Use cases'),
+  ('nav_compare', 'Compare'),
+  ('nav_stack', 'Stack'),
+  ('nav_latest', 'Latest'),
+  ('nav_saved_tools', 'Saved tools'),
+  ('nav_submit', 'Submit'),
+  ('nav_all_categories', 'All Categories'),
+  ('footer_tagline', 'Your models. Your hardware. Zero subscriptions.'),
+  ('footer_copyright', '© 2026 Enclavetools'),
+  ('hero_eyebrow', 'Private AI Tools Directory'),
+  ('hero_title', 'Find the right AI tool for your hardware'),
+  ('hero_tagline', 'Stop paying for AI APIs. Everything here runs on your hardware.'),
+  ('search_placeholder', 'Search tools...'),
+  ('sort_recently_added', 'Recently added'),
+  ('sort_last_updated', 'Last updated'),
+  ('sort_most_stars', 'Most stars'),
+  ('empty_no_results', 'No tools match your filters'),
+  ('empty_no_bookmarks', 'No saved tools yet'),
+  ('cta_browse_all', 'Browse all tools'),
+  ('cta_use_cases', 'Find tools for my use case'),
+  ('cta_compare', 'Compare tools'),
+  ('cta_build_stack', 'Build a stack'),
+  ('section_featured_tools', 'Featured Tools'),
+  ('section_latest_added', 'Latest Added'),
+  ('section_browse_all', 'Browse all'),
+  ('section_start_with_job', 'Start with the job'),
+  ('section_choose_category', 'Choose a category...'),
+  ('sponsor_label', 'Sponsor'),
+  ('newsletter_title', '5 new tools, every Friday'),
+  ('newsletter_subtitle', 'No fluff. No spam. Join 12,000+ builders.'),
+  ('newsletter_placeholder', 'your@email.com'),
+  ('compare_title', 'Compare AI Tools'),
+  ('compare_tagline', 'Side-by-side comparison of private AI tools'),
+  ('compare_eyebrow', 'Side by side comparison'),
+  ('compare_attribute_header', 'Attribute'),
+  ('compare_add_tool', 'Add a tool'),
+  ('compare_show_differences', 'Show differences only'),
+  ('compare_copy_markdown', 'Copy Markdown'),
+  ('compare_download_csv', 'Download CSV'),
+  ('compare_share', 'Share comparison'),
+  ('compare_empty', 'Select tools to compare'),
+  ('submit_tagline', 'Submit a private AI tool to the directory'),
+  ('saved_tagline', 'Your curated collection of private AI tools'),
+  ('stack_builder_title', 'Stack Builder'),
+  ('stack_builder_tagline', 'Build your ideal AI stack'),
+  ('tool_overview', 'Overview'),
+  ('tool_plain_english', 'Plain English'),
+  ('tool_technical', 'Technical'),
+  ('tool_scorecard', 'Technical scorecard'),
+  ('tool_data_privacy', 'Data & Privacy'),
+  ('tool_sends_data_online', 'Does it send data online?'),
+  ('tool_view_github', 'View on GitHub'),
+  ('tool_official_site', 'Official site'),
+  ('tool_share', 'Share'),
+  ('tool_add_compare', 'Add to compare'),
+  ('tool_add_stack', 'Add to stack'),
+  ('tool_suggest_correction', 'Suggest a correction'),
+  ('404_title', 'Oops!'),
+  ('404_description', 'We can''t seem to find the page you''re looking for.')
+ON CONFLICT(key) DO UPDATE SET value = EXCLUDED.value;
+
+CREATE TABLE IF NOT EXISTS marketing_cards (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  type TEXT NOT NULL CHECK(type IN ('featured', 'promoted', 'sponsor')),
+  label TEXT,
+  title TEXT NOT NULL,
+  description TEXT NOT NULL,
+  cta TEXT,
+  url TEXT,
+  logo TEXT,
+  sort_order INTEGER DEFAULT 0,
+  active INTEGER DEFAULT 1,
+  updated_at TEXT DEFAULT (datetime('now')),
+  UNIQUE(type, title)
+);
+
+INSERT INTO marketing_cards (type, label, title, description, cta, url, logo, sort_order, active) VALUES
+  ('featured', 'Featured', 'Put your tool at the top', 'Featured listings get 10× more clicks and are shown prominently across the directory.', 'Get featured →', '/submit', NULL, 1, 1),
+  ('promoted', 'Offgrid AI tools · Updated daily', 'Enclavetools', 'Stop paying for AI APIs. Everything here runs on your hardware.', 'Publish yours now →', '/submit', NULL, 1, 1),
+  ('sponsor', NULL, 'YourBrand.ai', 'Reach 50,000+ enterprise buyers looking for private AI solutions.', 'Sponsor the directory →', '/submit', NULL, 1, 1)
+ON CONFLICT(type, title) DO NOTHING;
+
+CREATE TABLE IF NOT EXISTS filter_options (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  group_key TEXT NOT NULL,
+  value TEXT NOT NULL,
+  label TEXT NOT NULL,
+  sort_order INTEGER DEFAULT 0,
+  active INTEGER DEFAULT 1,
+  updated_at TEXT DEFAULT (datetime('now')),
+  UNIQUE(group_key, value)
+);
+
+INSERT INTO filter_options (group_key, value, label, sort_order) VALUES
+  ('use_case', 'Self-hosted Inference', 'Self-hosted Inference', 1),
+  ('use_case', 'Document Processing', 'Document Processing', 2),
+  ('use_case', 'Internal Search', 'Internal Search', 3),
+  ('use_case', 'Workflow Automation', 'Workflow Automation', 4),
+  ('use_case', 'Contract Review', 'Contract Review', 5),
+  ('use_case', 'Clinical Notes', 'Clinical Notes', 6),
+  ('persona', 'Developer', 'Developer', 1),
+  ('persona', 'Business Owner', 'Business Owner', 2),
+  ('persona', 'Legal', 'Legal', 3),
+  ('persona', 'Healthcare', 'Healthcare', 4),
+  ('persona', 'Indie Hacker', 'Indie Hacker', 5),
+  ('license', 'MIT', 'MIT', 1),
+  ('license', 'Apache 2.0', 'Apache 2.0', 2),
+  ('license', 'GPL 3.0', 'GPL 3.0', 3),
+  ('license', 'AGPL 3.0', 'AGPL 3.0', 4),
+  ('license', 'Other', 'Other', 5),
+  ('setup_difficulty', 'Low', 'Low', 1),
+  ('setup_difficulty', 'Medium', 'Medium', 2),
+  ('setup_difficulty', 'High', 'High', 3),
+  ('maturity', 'Production / Stable', 'Production / Stable', 1),
+  ('maturity', 'Beta / Experimental', 'Beta / Experimental', 2),
+  ('maturity', 'Archived / Unmaintained', 'Archived / Unmaintained', 3),
+  ('telemetry', 'None', 'None', 1),
+  ('telemetry', 'Optional', 'Optional', 2),
+  ('telemetry', 'On by default', 'On by default', 3)
+ON CONFLICT(group_key, value) DO NOTHING;
+
+CREATE TABLE IF NOT EXISTS category_meta (
+  category_slug TEXT PRIMARY KEY,
+  title TEXT NOT NULL,
+  description TEXT,
+  icon_name TEXT,
+  og_image TEXT,
+  sort_order INTEGER DEFAULT 0,
+  updated_at TEXT DEFAULT (datetime('now'))
+);
+
+INSERT INTO category_meta (category_slug, title, icon_name, sort_order) VALUES
+  ('llm-inference', 'LLM Inference Engines', 'cpu', 2),
+  ('llm-models', 'LLM Models', 'brain', 3),
+  ('vector-databases', 'Vector Databases', 'database', 4),
+  ('agent-frameworks', 'Agent Frameworks', 'bot', 5),
+  ('chat-interfaces', 'Chat Interfaces', 'message-square', 6),
+  ('rag-document', 'RAG & Document Processing', 'file-text', 7),
+  ('speech-to-text', 'Speech to Text', 'mic', 8),
+  ('text-to-speech', 'Text to Speech', 'volume-2', 9),
+  ('image-generation', 'Image Generation', 'image', 10),
+  ('fine-tuning-training', 'Fine-tuning & Training', 'graduation-cap', 11),
+  ('monitoring-observability', 'Monitoring & Observability', 'activity', 12),
+  ('privacy-security', 'Privacy & Security', 'shield', 13),
+  ('embedding-models', 'Embedding Models', 'layers', 14),
+  ('deployment', 'Deployment', 'server', 15),
+  ('workflow-automation', 'Agent & Workflow Automation', 'git-branch', 16),
+  ('video-generation', 'Video Generation', 'video', 17),
+  ('vision-multimodal', 'Vision & Multimodal', 'eye', 18),
+  ('code-assistants', 'Code Assistants', 'terminal', 19),
+  ('data-utilities', 'Data Utilities', 'bar-chart-3', 20)
+ON CONFLICT(category_slug) DO NOTHING;
+
+CREATE TABLE IF NOT EXISTS legal_pages (
+  slug TEXT PRIMARY KEY,
+  title TEXT NOT NULL,
+  body TEXT NOT NULL,
+  updated_at TEXT DEFAULT (datetime('now'))
+);
