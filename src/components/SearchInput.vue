@@ -2,12 +2,6 @@
 import { ref, onMounted, onUnmounted } from 'vue';
 import Fuse from 'fuse.js';
 import toolsData from '../data/tools.json';
-import { 
-  Cpu, Brain, Database, Network, MessageSquare, 
-  FileText, Mic, Volume2, Image as ImageIcon, Wrench, 
-  Activity, Shield, Layers, Server, Zap, 
-  Video, Eye, Code, Table, Circle 
-} from 'lucide-vue-next';
 
 const props = defineProps<{
   placeholder?: string;
@@ -123,7 +117,7 @@ onUnmounted(() => {
       </svg>
       <input ref="inputRef" type="text"
         class="w-full bg-white border border-gray-200 rounded-full py-2 pl-12 pr-12 text-gray-900 outline-none focus:border-primary-500 ring-2 ring-transparent focus:ring-primary-500/15 transition-all placeholder:text-gray-400 hover:border-gray-300"
-        :placeholder="props.placeholder || 'Search by name, category, or feature...'" :value="query"
+        :placeholder="'Search by name, category, or feature...'" :value="query"
         @input="handleInput" @focus="query.length > 0 && searchResults.length > 0 ? isDropdownOpen = true : null"
         aria-label="Search AI tools" />
       <button v-if="query"
@@ -146,13 +140,16 @@ onUnmounted(() => {
           class="m-0 p-0 border-b border-gray-100 last:border-0">
           <a :href="`/tools/${result.item.slug}`" @click="handleResultClick"
             class="flex items-start gap-3 p-3 hover:bg-gray-50 transition-colors group no-underline text-left cursor-pointer">
-         
+
             <div class="flex-1 min-w-0">
-              <div class="text-[13px] font-extrabold text-gray-900 tracking-[-0.2px] truncate mb-0.5 group-hover:text-primary-600 transition-colors">
+              <div
+                class="text-[13px] font-extrabold text-gray-900 tracking-[-0.2px] truncate mb-0.5 group-hover:text-primary-600 transition-colors">
                 {{ result.item.title }}
               </div>
-              <div class="text-[11px] text-gray-500 capitalize leading-tight mb-1">{{ result.item.category.replace(/-/g, ' ') }}</div>
-              <div class="text-[12px] leading-snug text-gray-600 m-0 line-clamp-1">{{ result.item.plain_description }}</div>
+              <div class="text-[11px] text-gray-500 capitalize leading-tight mb-1">{{ result.item.category.replace(/-/g,
+                ' ') }}</div>
+              <div class="text-[12px] leading-snug text-gray-600 m-0 line-clamp-1">{{ result.item.plain_description }}
+              </div>
             </div>
           </a>
         </li>

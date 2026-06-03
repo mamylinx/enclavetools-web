@@ -1,20 +1,10 @@
 import type { FilterGroupConfig, FilterOption } from '../types';
+import categoriesData from '../data/categories.json';
 
-export const CATEGORY_OPTIONS: FilterOption[] = [
-    { value: 'llm-inference', label: 'Inference Engines' },
-    { value: 'llm-models', label: 'LLM Models' },
-    { value: 'chat-interfaces', label: 'Chat Interfaces' },
-    { value: 'rag-document', label: 'Document Processing' },
-    { value: 'vector-databases', label: 'Vector Stores' },
-    { value: 'embedding-models', label: 'Embeddings' },
-    { value: 'fine-tuning-training', label: 'Fine-tuning' },
-    { value: 'agent-frameworks', label: 'Agents' },
-    { value: 'workflow-automation', label: 'Workflow Automation' },
-    { value: 'privacy-security', label: 'Privacy & Security' },
-    { value: 'speech-to-text', label: 'Speech to Text' },
-    { value: 'text-to-speech', label: 'Text to Speech' },
-    { value: 'deployment', label: 'Deployment' },
-];
+export const CATEGORY_OPTIONS: FilterOption[] = categoriesData.map(category => ({
+    value: category.category,
+    label: category.title
+}));
 
 export const USE_CASE_OPTIONS: FilterOption[] = [
     { value: 'Document Processing', label: 'Document Processing' },

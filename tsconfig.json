@@ -2,7 +2,8 @@
   "extends": "astro/tsconfigs/strictest",
   "compilerOptions": {
     "jsx": "preserve",
-    "jsxImportSource": "vue"
+    "jsxImportSource": "vue",
+    "resolveJsonModule": true
   },
   "include": [
     "./worker-configuration.d.ts"

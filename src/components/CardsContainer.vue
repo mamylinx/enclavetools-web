@@ -177,9 +177,9 @@ const setSort = (sort: string) => {
                 <span>{{ toolCount }} result{{ toolCount !== 1 ? 's' : '' }}</span>
             </span>
             <div class="flex items-center gap-1 overflow-x-auto pb-2 md:pb-0 scrollbar-hide">
-                <button class="whitespace-nowrap px-3 py-1.5 rounded-full text-xs font-bold transition-colors border" :class="{ 'bg-gray-100 text-gray-900 border-gray-200': activeSort === 'az', 'text-gray-600 border-transparent hover:text-gray-900 hover:bg-gray-50': activeSort !== 'az' }" @click="setSort('az')">A–Z</button>
+                <!--<button class="whitespace-nowrap px-3 py-1.5 rounded-full text-xs font-bold transition-colors border" :class="{ 'bg-gray-100 text-gray-900 border-gray-200': activeSort === 'az', 'text-gray-600 border-transparent hover:text-gray-900 hover:bg-gray-50': activeSort !== 'az' }" @click="setSort('az')">A–Z</button>
                 <button class="whitespace-nowrap px-3 py-1.5 rounded-full text-xs font-bold transition-colors border" :class="{ 'bg-gray-100 text-gray-900 border-gray-200': activeSort === 'featured', 'text-gray-600 border-transparent hover:text-gray-900 hover:bg-gray-50': activeSort !== 'featured' }"
-                    @click="setSort('featured')">Featured</button>
+                    @click="setSort('featured')">Featured</button>-->
                 <button class="whitespace-nowrap px-3 py-1.5 rounded-full text-xs font-bold transition-colors border" :class="{ 'bg-gray-100 text-gray-900 border-gray-200': activeSort === 'newest', 'text-gray-600 border-transparent hover:text-gray-900 hover:bg-gray-50': activeSort !== 'newest' }"
                     @click="setSort('newest')">Recently added</button>
                 <button class="whitespace-nowrap px-3 py-1.5 rounded-full text-xs font-bold transition-colors border" :class="{ 'bg-gray-100 text-gray-900 border-gray-200': activeSort === 'recently-updated', 'text-gray-600 border-transparent hover:text-gray-900 hover:bg-gray-50': activeSort !== 'recently-updated' }"

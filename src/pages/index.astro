@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Dashboard from "../components/Dashboard";
+import Dashboard from "../components/Dashboard.vue";
 import OrganizationSchema from "../components/schema/OrganizationSchema.astro";
 import ItemListSchema from "../components/schema/ItemListSchema.astro";
 import toolsData from "../data/tools.json";
@@ -52,7 +52,7 @@ const personaLinks = [
 
 const categoryTiles = categories.slice(0, 8).map((cat: any) => ({
     ...cat,
-    count: categoryCounts.get(cat.category) || 0,
+    count: cat.category === "all" ? totalTools : categoryCounts.get(cat.category) || 0,
 }));
 ---
 
