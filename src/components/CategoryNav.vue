@@ -55,7 +55,7 @@ const closeBottomSheet = () => {
 </script>
 
 <template>
-  <div class="sticky top-16 relative w-full max-w-[1400px] mx-auto px-4 md:px-10 flex sm:hidden items-center justify-between border-b border-gray-200 bg-white z-20">
+  <div class="sticky top-16 relative w-full max-w-[1400px] mx-auto px-4 md:px-10 flex items-center justify-between border-b border-gray-200 bg-white z-20">
     <nav ref="navRef" class="flex items-center gap-2 overflow-x-auto whitespace-nowrap py-4 flex-1 scrollbar-hide" tabindex="-1" @scroll="checkScroll">
       <a v-for="item in navItems" :key="item.category" class="px-4 py-2 text-sm font-bold border no-underline transition-all duration-150 rounded-full"
         :class="activeFilter === item.category ? 'bg-gray-900 text-white border-gray-900 shadow-sm' : 'bg-white text-gray-600 border-gray-200 hover:text-gray-900 hover:border-gray-400 hover:bg-gray-50'" :href="item.href">
@@ -63,7 +63,11 @@ const closeBottomSheet = () => {
       </a>
     </nav>
 
-    <div class="absolute right-10 top-0 bottom-0 w-16 bg-gradient-to-l from-white to-transparent pointer-events-none transition-opacity duration-200 hidden md:flex items-center justify-end z-10" :class="showRightFade ? 'opacity-100' : 'opacity-0'" @click="scrollRight">
+    <div class="absolute right-10 top-0 bottom-0 w-16 bg-gradient-to-l from-white to-transparent cursor-pointer transition-opacity duration-200 hidden md:flex items-center justify-end z-10" :class="showRightFade ? 'opacity-100' : 'opacity-0'" @click="scrollRight">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="m9 18 6-6-6-6" />
+      </svg>
     </div>
 
     <button class="md:hidden ml-4 p-2 text-gray-500 bg-white border border-gray-200 shadow-sm flex items-center justify-center cursor-pointer hover:bg-gray-50 rounded-lg" @click="toggleBottomSheet" aria-label="Show all categories">
