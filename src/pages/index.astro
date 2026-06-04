@@ -1,10 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Dashboard from "../components/Dashboard.vue";
+import UseCases from "../components/UseCases.vue";
 import OrganizationSchema from "../components/schema/OrganizationSchema.astro";
 import ItemListSchema from "../components/schema/ItemListSchema.astro";
 import toolsData from "../data/tools.json";
 import categories from "../data/categories.json";
+import siteContent from "../data/site-content.json";
+
+const c = siteContent as Record<string, string>;
 
 const allTools = toolsData.tools.flatMap((cat: any) =>
     cat.content.map((tool: any) => ({
@@ -27,49 +31,70 @@ const categoryCounts = new Map(
     toolsData.tools.map((cat: any) => [cat.category, cat.content.length]),
 );
 
-const personaLinks = [
+const sections = [
     {
-        label: "Developer",
-        href: "/all?persona=Developer&feature=openai_api&feature=docker_available",
+        name: c.usecase_business_name || "Business Owner",
+        copy: c.usecase_business_copy || "Find tools that can be run by an IT contractor without turning client data into a cloud dependency.",
+        categories: ["rag-document", "chat-interfaces", "workflow-automation"],
     },
     {
-        label: "Business Owner",
-        href: "/all?persona=Business+Owner&setup=Low&commercial=yes",
+        name: c.usecase_developer_name || "Developer / Engineer",
+        copy: c.usecase_developer_copy || "Shortlist self-hosted infrastructure by API support, license, hardware target, and deployment path.",
+        categories: ["llm-inference", "deployment", "monitoring-observability"],
     },
     {
-        label: "Healthcare",
-        href: "/all?persona=Healthcare&offline=yes&telemetry=None",
+        name: c.usecase_healthcare_name || "Healthcare Professional",
+        copy: c.usecase_healthcare_copy || "Look for offline tools that keep clinical notes and patient context inside the clinic network.",
+        categories: ["chat-interfaces", "speech-to-text", "rag-document"],
     },
     {
-        label: "Legal",
-        href: "/all?persona=Legal&use=Contract+Review&commercial=yes",
+        name: c.usecase_legal_name || "Legal Professional",
+        copy: c.usecase_legal_copy || "Evaluate document review and private search workflows for contracts, discovery, and NDA-bound files.",
+        categories: ["rag-document", "vector-databases", "chat-interfaces"],
     },
     {
-        label: "Indie Hacker",
-        href: "/all?persona=Indie+Hacker&use=Self-hosted+Inference",
+        name: c.usecase_indie_name || "Indie Hacker / Solo Builder",
+        copy: c.usecase_indie_copy || "Find affordable embeddable AI pieces that run locally or on your own small server.",
+        categories: ["llm-inference", "chat-interfaces", "agent-frameworks"],
     },
 ];
 
+const featuredFor = (categories: string[]) =>
+    allTools
+        .filter((tool: any) =>
+            tool.category.some((c: string) => categories.includes(c)),
+        )
+        .sort(
+            (a: any, b: any) =>
+                (b.popularity_score || 0) - (a.popularity_score || 0),
+        )
+        .slice(0, 3);
+
 const categoryTiles = categories.slice(0, 8).map((cat: any) => ({
     ...cat,
-    count: cat.category === "all" ? totalTools : categoryCounts.get(cat.category) || 0,
+    count:
+        cat.category === "all"
+            ? totalTools
+            : categoryCounts.get(cat.category) || 0,
 }));
+
+const featuredTools = sections.map((s) => featuredFor(s.categories));
 ---
 
 <Layout
     site="Enclavetools"
-    title="AI tools that keep your data inside your walls."
-    tagline="Find self-hosted, local, and offline AI software for teams that cannot afford leaks. Compare setup difficulty, license risk, hardware needs, telemetry, and API support before you open GitHub."
-    eyebrow="Private AI tools directory"
+    title={c.home_page_title || "AI tools that keep your data inside your walls."}
+    tagline={c.home_page_tagline || "Find self-hosted, local, and offline AI software for teams that cannot afford leaks. Compare setup difficulty, license risk, hardware needs, telemetry, and API support before you open GitHub."}
+    eyebrow={c.home_page_eyebrow || "Private AI tools directory"}
     showSearch={true}
     showHero={true}
 >
     <OrganizationSchema />
     <ItemListSchema
         items={allTools}
-        listName="AI Tools Directory - All Tools"
+        listName={c.home_schema_list_name || "AI Tools Directory - All Tools"}
     />
-    <div class="px-4 md:px-10 pt-6 pb-6 border-b border-gray-900">
+    <div class="px-4 md:px-10 pt-6 pb-6 border-b border-gray-200">
         <section
             class="grid grid-cols-1 gap-10 max-w-[1400px] mx-auto px-4 md:px-10 items-end"
         >
@@ -77,22 +102,22 @@ const categoryTiles = categories.slice(0, 8).map((cat: any) => ({
                 <a
                     href="/all"
                     class="inline-flex items-center min-h-[48px] border border-gray-900 px-5 font-extrabold bg-gray-900 text-white hover:bg-yellow-400 hover:text-gray-900 rounded-full transition-colors no-underline"
-                    >Browse all tools</a
+                    >{c.cta_browse_all || "Browse all tools"}</a
                 >
                 <a
                     href="#use-cases"
                     class="inline-flex items-center min-h-[48px] border border-gray-900 px-5 font-extrabold text-gray-900 bg-white hover:bg-yellow-400 hover:text-gray-900 rounded-full transition-colors no-underline"
-                    >Find tools for my use case</a
+                    >{c.cta_use_cases || "Find tools for my use case"}</a
                 >
                 <a
                     href="/compare"
                     class="inline-flex items-center min-h-[48px] border border-gray-900 px-5 font-extrabold text-gray-900 bg-white hover:bg-yellow-400 hover:text-gray-900 rounded-full transition-colors no-underline"
-                    >Compare tools</a
+                    >{c.cta_compare || "Compare tools"}</a
                 >
                 <a
                     href="/stack-builder"
                     class="inline-flex items-center min-h-[48px] border border-gray-900 px-5 font-extrabold text-gray-900 bg-white hover:bg-yellow-400 hover:text-gray-900 rounded-full transition-colors no-underline"
-                    >Build a stack</a
+                    >{c.cta_build_stack || "Build a stack"}</a
                 >
             </div>
 
@@ -106,7 +131,7 @@ const categoryTiles = categories.slice(0, 8).map((cat: any) => ({
                     <dt class="text-xl font-black">{totalTools}</dt><dd
                         class="text-xs font-extrabold uppercase text-gray-500"
                     >
-                        tools listed
+                        {c.home_stat_tools_label || "tools listed"}
                     </dd>
                 </div>
                 <div
@@ -117,7 +142,7 @@ const categoryTiles = categories.slice(0, 8).map((cat: any) => ({
                     </dt><dd
                         class="text-xs font-extrabold uppercase text-gray-500"
                     >
-                        categories
+                        {c.home_stat_categories_label || "categories"}
                     </dd>
                 </div>
                 <div
@@ -134,35 +159,15 @@ const categoryTiles = categories.slice(0, 8).map((cat: any) => ({
                                           year: "numeric",
                                       },
                                   )
-                                : "Build data"
+                                : c.home_stat_build_data_fallback || "Build data"
                         }
                     </dt><dd
                         class="text-xs font-extrabold uppercase text-gray-500"
                     >
-                        latest verification
+                        {c.home_stat_verification_label || "latest verification"}
                     </dd>
                 </div>
             </dl>
-        </section>
-
-        <section
-            id="use-cases"
-            class="grid grid-cols-1 md:grid-cols-5 max-w-[1400px] mx-auto px-4 md:px-10 scroll-mt-[82px]"
-            aria-label="Use case entry points"
-        >
-            {
-                personaLinks.map((item, index) => (
-                    <a
-                        href={item.href}
-                        class="p-3.5 border-b md:border-r border-gray-900 last:border-r-0 text-gray-900 text-2xl font-black flex flex-col justify-between hover:bg-gray-900 hover:text-white transition-colors no-underline"
-                    >
-                        <span class="text-xs text-gray-400">
-                            {String(index + 1).padStart(2, "0")}
-                        </span>
-                        {item.label}
-                    </a>
-                ))
-            }
         </section>
 
         <section
@@ -173,13 +178,13 @@ const categoryTiles = categories.slice(0, 8).map((cat: any) => ({
                 <p
                     class="text-xs font-extrabold uppercase tracking-widest text-gray-900"
                 >
-                    Start with the job
+                    {c.home_category_eyebrow || "Start with the job"}
                 </p>
                 <h2
                     id="category-heading"
                     class="max-w-[620px] text-3xl md:text-4xl lg:text-5xl text-gray-900 leading-[0.98] font-black tracking-tight mt-3"
                 >
-                    Choose a category, then narrow by privacy and setup.
+                    {c.home_category_heading || "Choose a category, then narrow by privacy and setup."}
                 </h2>
             </div>
             <div
@@ -209,5 +214,13 @@ const categoryTiles = categories.slice(0, 8).map((cat: any) => ({
         transition:persist
         ssr-tools={allTools}
         ssr-total={allTools.length}
+    />
+    <div class="border-b border-gray-200"></div>
+    <UseCases
+        client:visible
+        sections={sections}
+        featured-tools={featuredTools}
+        eyebrow={c.home_usecase_eyebrow || "Use cases"}
+        heading={c.home_usecase_heading || "Start from the risk you need to control."}
     />
 </Layout>

@@ -144,24 +144,20 @@ const {
             ></a
           >
         </div>
+      </div>
+      {
+        showSearch && (
+          <div class="flex-1 max-w-[520px] mx-4 hidden md:block">
+            <SearchInput client:visible placeholder={searchPlaceholder} />
+          </div>
+        )
+      }
+      <div class="hidden md:flex items-center gap-1">
         <div class="relative hidden md:block group">
           <button
             class="flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-gray-700 hover:text-primary-500"
             aria-label="Browse categories"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M4 6h16M4 12h16M4 18h16"></path>
-            </svg>
             <span>{c.nav_all_categories || "Categories"}</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -195,27 +191,6 @@ const {
             </div>
           </div>
         </div>
-      </div>
-      {
-        showSearch && (
-          <div class="flex-1 max-w-[520px] mx-4 hidden md:block">
-            <SearchInput client:visible placeholder={searchPlaceholder} />
-          </div>
-        )
-      }
-      <div class="hidden md:flex items-center gap-1">
-        <a
-          href="/all"
-          class="flex items-center px-3 py-2 text-sm font-medium text-gray-700 hover:text-primary-500 no-underline"
-        >
-          <span class="hidden lg:inline">{c.nav_browse || "Browse"}</span>
-        </a>
-        <a
-          href="/use-cases"
-          class="flex items-center px-3 py-2 text-sm font-medium text-gray-700 hover:text-primary-500 no-underline"
-        >
-          <span class="hidden lg:inline">{c.nav_use_cases || "Use cases"}</span>
-        </a>
         <a
           href="/compare"
           class="flex items-center px-3 py-2 text-sm font-medium text-gray-700 hover:text-primary-500 no-underline"
@@ -228,15 +203,6 @@ const {
         >
           <span class="hidden lg:inline">{c.nav_stack || "Stack"}</span>
         </a>
-        <button
-          class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-primary-500 active:scale-95 transition-transform"
-          id="new-filter-toggle"
-          title="Recently added tools"
-          aria-label="Filter new tools"
-          aria-pressed="false"
-        >
-          {c.nav_latest || "Latest"}
-        </button>
         <a
           href="/saved"
           class="flex items-center px-3 py-2 text-sm font-medium text-gray-700 hover:text-primary-500 no-underline"
@@ -289,20 +255,10 @@ const {
           id="mobileDropdown"
         >
           <div class="p-2 flex flex-col gap-0.5">
-            <button
-              class="block w-full text-left px-3 py-2.5 text-sm font-medium text-gray-600 hover:bg-gray-50 hover:text-primary-500 rounded-md transition-colors"
-              id="mobileNewFilterToggle"
-              aria-pressed="false">{c.nav_latest || "Latest"}</button
-            >
             <a
               href="/"
               class="block w-full text-left px-3 py-2.5 text-sm font-medium text-gray-600 hover:bg-gray-50 hover:text-primary-500 rounded-md transition-colors no-underline"
               >{c.nav_browse || "Browse"}</a
-            >
-            <a
-              href="/use-cases"
-              class="block w-full text-left px-3 py-2.5 text-sm font-medium text-gray-600 hover:bg-gray-50 hover:text-primary-500 rounded-md transition-colors no-underline"
-              >{c.nav_use_cases || "Use cases"}</a
             >
             <a
               href="/compare"

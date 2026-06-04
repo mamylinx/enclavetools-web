@@ -2,6 +2,9 @@
 import { computed } from 'vue';
 import Card from './Card.vue';
 import type { ToolWithCategory } from '../utils/toolModel';
+import siteContent from '../data/site-content.json';
+
+const c = siteContent as Record<string, string>;
 
 const props = defineProps<{
     ssrTools?: ToolWithCategory[];
@@ -35,7 +38,7 @@ const latestTools = computed(() => {
 <template>
     <div class="flex flex-col gap-10">
         <section>
-            <h3 class="text-2xl font-black text-gray-900 mb-6">Featured Tools</h3>
+            <h3 class="text-2xl font-black text-gray-900 mb-6">{{ c.section_featured_tools || 'Featured Tools' }}</h3>
             <ul data-cards-grid role="list" class="grid grid-cols-1 gap-4 m-0 p-0">
                 <Card v-for="(item, i) in featuredTools" :key="`featured-${i}`"
                     :href="item.url" :title="item.title" :body="item.body" :license="item.license"
@@ -49,8 +52,8 @@ const latestTools = computed(() => {
 
         <section>
             <div class="flex flex-row items-center justify-between mb-6">
-                <h3 class="text-2xl font-black text-gray-900 m-0">Latest Added</h3>
-                <a href="/all" class="text-sm font-bold text-gray-900 border border-gray-200 px-4 py-2 hover:border-gray-900 transition-colors no-underline">Browse all</a>
+                <h3 class="text-2xl font-black text-gray-900 m-0">{{ c.section_latest_added || 'Latest Added' }}</h3>
+                <a href="/all" class="text-sm font-bold text-gray-900 border border-gray-200 px-4 py-2 hover:border-gray-900 transition-colors no-underline">{{ c.section_browse_all || 'Browse all' }}</a>
             </div>
             <ul data-cards-grid role="list" class="grid grid-cols-1 gap-4 m-0 p-0">
                 <Card v-for="(item, i) in latestTools" :key="`latest-${i}`"

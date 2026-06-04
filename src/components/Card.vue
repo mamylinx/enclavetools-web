@@ -14,7 +14,7 @@
         <div class="flex-1 min-w-0">
           <div class="text-lg font-extrabold text-gray-900 tracking-[-0.2px] truncate mb-0.5">
             {{ title }}
-            <span v-if="isFeatured" class="inline-block align-middle text-[10px] font-semibold bg-blue-500 text-white px-1.5 py-0.5 rounded-full tracking-[0.02em] ml-1.5 -mt-0.5">Featured</span>
+            <span v-if="isFeatured" class="inline-block text-xs font-black uppercase tracking-widest px-2 py-1 mb-2 bg-primary-100 text-primary-700">Featured</span>
           </div>
           <div class="text-xs text-gray-500">{{ category }}</div>
         </div>
