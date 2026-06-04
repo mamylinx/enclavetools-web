@@ -102,7 +102,7 @@ const chips = computed(() => {
 <template>
     <div v-if="chips.length > 0" class="flex flex-wrap items-center gap-2 mb-6 p-4 bg-gray-50 border border-gray-200 rounded-lg">
         <div v-for="(chip, i) in chips" :key="`${chip.group}-${chip.value}-${i}`" class="inline-flex items-center bg-white border border-gray-200 pl-2.5 pr-1 py-1 text-xs gap-1.5 rounded-full">
-            <span class="font-bold text-gray-400 uppercase tracking-wider text-[10px]">{{ getGroupLabel(chip.group) }}:</span>
+            <span class="font-bold text-gray-400 uppercase tracking-wider text-xs">{{ getGroupLabel(chip.group) }}:</span>
             <span class="font-bold text-gray-900">{{ chip.label }}</span>
             <button class="text-gray-400 hover:text-red-500 bg-transparent border-none cursor-pointer p-0.5 flex items-center justify-center transition-colors" @click="emit('remove', chip.group, chip.value)"
                 aria-label="Remove filter">

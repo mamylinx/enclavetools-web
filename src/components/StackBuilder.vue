@@ -162,7 +162,7 @@ onMounted(load);
             <div class="flex-1">
               <strong class="block text-lg font-black text-gray-900 mb-1">{{ tool.title }}</strong>
               <span
-                class="inline-block px-2 py-1 bg-gray-200 text-gray-700 text-[10px] uppercase tracking-wider font-bold mb-2">{{
+                class="inline-block px-2 py-1 bg-gray-200 text-gray-700 text-xs uppercase tracking-wider font-bold mb-2">{{
                 categoryValue(tool) }}</span>
               <p class="text-sm text-gray-600 m-0">{{ tool.plain_description || tool.body }}</p>
             </div>

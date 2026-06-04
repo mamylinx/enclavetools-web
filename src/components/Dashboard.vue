@@ -110,7 +110,7 @@ onUnmounted(() => {
                         <path d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
                     Filters
-                    <span v-if="activeCount > 0" class="bg-primary-500 text-white px-2 py-0.5 rounded-full text-[10px] ml-1">{{ activeCount }}</span>
+                    <span v-if="activeCount > 0" class="bg-primary-500 text-white px-2 py-0.5 rounded-full text-xs ml-1">{{ activeCount }}</span>
                 </button>
             </div>
 

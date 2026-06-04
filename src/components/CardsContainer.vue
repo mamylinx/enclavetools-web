@@ -193,17 +193,17 @@ const setSort = (sort: string) => {
             <template v-for="(item, i) in filteredCards" :key="`${item.title}-${i}`">
                 <div class="col-span-1 md:col-span-2 flex flex-col md:flex-row items-start md:items-center justify-between p-6 bg-gray-100 mb-2" v-if="i === 0" v-for="ad in promotedAds" :key="ad.title">
                     <div class="flex-1">
-                        <div class="text-[10px] font-black uppercase text-gray-900 tracking-wider mb-2">{{ ad.label }}</div>
+                        <div class="text-xs font-black uppercase text-gray-900 tracking-wider mb-2">{{ ad.label }}</div>
                         <div class="text-xl font-black text-gray-900 mb-1">{{ ad.title }}</div>
                         <p class="text-sm font-medium text-gray-600 m-0">{{ ad.description }}</p>
                     </div>
-                    <button class="mt-4 md:mt-0 whitespace-nowrap px-6 py-2.5 bg-gray-900 hover:bg-primary-600 text-white font-bold transition-colors">{{ ad.cta }}</button>
+                    <button class="mt-4 md:mt-0 whitespace-nowrap px-6 py-2.5 bg-gray-900 hover:bg-primary-500 text-white font-bold transition-colors">{{ ad.cta }}</button>
                 </div>
 
                 <div class="lg:hidden col-span-1 border border-gray-200 p-5 bg-white" v-if="i === positions.sponsor" v-for="sponsor in sponsors"
                     :key="'sponsor-' + sponsor.logo">
                     <div class="flex flex-col h-full">
-                        <div class="text-[10px] font-black uppercase text-gray-400 tracking-wider mb-3">Sponsor</div>
+                        <div class="text-xs font-black uppercase text-gray-400 tracking-wider mb-3">Sponsor</div>
                         <div class="text-xl font-black text-gray-900 mb-2">{{ sponsor.logo }}</div>
                         <p class="text-sm font-medium text-gray-600 mb-4 flex-1">{{ sponsor.description }}</p>
                         <button class="w-full py-2 border border-gray-200 font-bold text-gray-700 hover:border-gray-900 hover:text-gray-900 transition-colors">{{ sponsor.cta }}</button>
@@ -212,20 +212,20 @@ const setSort = (sort: string) => {
 
                 <div class="lg:hidden col-span-1 border border-gray-200 p-5 bg-white" v-if="i === positions.newsletter">
                     <div class="flex flex-col h-full">
-                        <div class="text-[10px] font-black uppercase text-gray-400 tracking-wider mb-3">Newsletter</div>
+                        <div class="text-xs font-black uppercase text-gray-400 tracking-wider mb-3">Newsletter</div>
                         <div class="text-lg font-black text-gray-900 mb-2">{{ newsletter.title }}</div>
                         <p class="text-sm font-medium text-gray-600 mb-4 flex-1">{{ newsletter.subtitle }}</p>
                         <input class="w-full px-3 py-2 border border-gray-200 font-sans text-sm mb-2 focus:border-gray-900 focus:ring-1 focus:ring-gray-900 outline-none" type="email" :placeholder="newsletter.placeholder" />
-                        <button class="w-full py-2 bg-gray-900 text-white font-bold hover:bg-primary-600 transition-colors">Get the digest</button>
+                        <button class="w-full py-2 bg-gray-900 text-white font-bold hover:bg-primary-500 transition-colors">Get the digest</button>
                     </div>
                 </div>
 
                 <div class="lg:hidden col-span-1 border border-gray-200 p-5 bg-white" v-if="i === positions.featured">
                     <div class="flex flex-col h-full">
-                        <div class="text-[10px] font-black uppercase text-gray-400 tracking-wider mb-3">Get featured</div>
+                        <div class="text-xs font-black uppercase text-gray-400 tracking-wider mb-3">Get featured</div>
                         <div class="text-lg font-black text-gray-900 mb-2">{{ featured.title }}</div>
                         <p class="text-sm font-medium text-gray-600 mb-4 flex-1">{{ featured.description }}</p>
-                        <button class="w-full py-2 bg-gray-900 text-white font-bold hover:bg-primary-600 transition-colors">{{ featured.cta }}</button>
+                        <button class="w-full py-2 bg-gray-900 text-white font-bold hover:bg-primary-500 transition-colors">{{ featured.cta }}</button>
                     </div>
                 </div>
 

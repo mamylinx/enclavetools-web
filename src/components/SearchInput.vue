@@ -129,7 +129,7 @@ onUnmounted(() => {
         </svg>
       </button>
       <kbd v-if="!query"
-        class="absolute right-4 top-1/2 -translate-y-1/2 text-[11px] text-gray-400 bg-gray-50 border border-gray-200 rounded-md px-2 py-0.5 font-mono pointer-events-none">⌘K</kbd>
+        class="absolute right-4 top-1/2 -translate-y-1/2 text-sm text-gray-400 bg-gray-50 border border-gray-200 rounded-md px-2 py-0.5 font-mono pointer-events-none">⌘K</kbd>
     </div>
 
     <!-- Dropdown Results -->
@@ -143,12 +143,12 @@ onUnmounted(() => {
 
             <div class="flex-1 min-w-0">
               <div
-                class="text-[13px] font-extrabold text-gray-900 tracking-[-0.2px] truncate mb-0.5 group-hover:text-primary-600 transition-colors">
+                class="text-sm font-extrabold text-gray-900 tracking-[-0.2px] truncate mb-0.5 group-hover:text-primary-600 transition-colors">
                 {{ result.item.title }}
               </div>
-              <div class="text-[11px] text-gray-500 capitalize leading-tight mb-1">{{ result.item.category.replace(/-/g,
+              <div class="text-sm text-gray-500 capitalize leading-tight mb-1">{{ result.item.category.replace(/-/g,
                 ' ') }}</div>
-              <div class="text-[12px] leading-snug text-gray-600 m-0 line-clamp-1">{{ result.item.plain_description }}
+              <div class="text-sm leading-snug text-gray-600 m-0 line-clamp-1">{{ result.item.plain_description }}
               </div>
             </div>
           </a>

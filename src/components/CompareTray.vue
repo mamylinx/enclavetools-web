@@ -63,7 +63,7 @@ onUnmounted(() => {
     </div>
     <div class="flex gap-4 items-center">
       <button type="button" @click="clear" class="text-white opacity-70 hover:opacity-100 text-sm bg-transparent border-none cursor-pointer p-0 transition-opacity rounded-lg">Clear</button>
-      <a v-if="selected.length >= 2" :href="compareUrl" class="bg-primary-500 text-white px-4 py-2 font-bold no-underline hover:bg-primary-600 transition-colors rounded-lg">View comparison</a>
+      <a v-if="selected.length >= 2" :href="compareUrl" class="bg-primary-500 text-white px-4 py-2 font-bold no-underline hover:bg-primary-500 transition-colors rounded-lg">View comparison</a>
     </div>
   </div>
 </template>
