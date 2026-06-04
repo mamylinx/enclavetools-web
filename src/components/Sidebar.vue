@@ -32,7 +32,7 @@ const promoted = ref(m.promoted?.[0] || null);
       <div class="text-lg font-black text-gray-900 mb-2">{{ c.newsletter_title || '5 new tools, every Friday' }}</div>
       <p class="text-sm font-medium text-gray-600 mb-4 flex-1">{{ c.newsletter_subtitle || 'No fluff. No spam. Join 12,000+ builders.' }}</p>
       <input class="w-full px-3 py-2 border border-gray-200 font-sans text-sm mb-2 focus:border-primary-500 focus:ring-1 focus:ring-primary-500 outline-none" type="email" :placeholder="c.newsletter_placeholder || 'your@email.com'" />
-      <button class="w-full py-2 bg-gray-900 text-white font-bold hover:bg-yellow-400 hover:text-gray-900 transition-colors">{{ c.newsletter_cta || 'Get the digest' }}</button>
+      <button class="w-full py-2 bg-gray-900 text-white font-bold hover:bg-primary-600 transition-colors">{{ c.newsletter_cta || 'Get the digest' }}</button>
     </div>
 
     <!-- Featured CTA -->
@@ -40,7 +40,7 @@ const promoted = ref(m.promoted?.[0] || null);
       <div class="text-[10px] font-black uppercase text-gray-400 tracking-wider mb-3">{{ c.featured_label || 'Featured' }}</div>
       <div class="text-lg font-black text-gray-900 mb-2">{{ featured.title }}</div>
       <p class="text-sm font-medium text-gray-600 mb-4 flex-1">{{ featured.description }}</p>
-      <a :href="featured.url || '/submit'" class="block w-full py-2 bg-gray-900 text-white font-bold hover:bg-yellow-400 hover:text-gray-900 transition-colors text-center no-underline">{{ featured.cta }}</a>
+      <a :href="featured.url || '/submit'" class="block w-full py-2 bg-gray-900 text-white font-bold hover:bg-primary-600 transition-colors text-center no-underline">{{ featured.cta }}</a>
     </div>
   </aside>
 </template>

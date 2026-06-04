@@ -102,16 +102,16 @@ onMounted(loadFromUrl);
 <template>
   <section class="max-w-[1400px] mx-auto px-4 md:px-10 py-12 lg:py-20">
     <div class="flex flex-col md:flex-row items-center gap-4 mb-12 p-6 bg-gray-50 border-2 border-gray-900 flex-wrap">
-      <select class="flex-1 w-full bg-white border-2 border-gray-900 px-4 py-3 font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 rounded-none cursor-pointer min-w-[200px]" @change="addTool">
+      <select class="flex-1 w-full bg-white border-2 border-gray-900 px-4 py-3 font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500  cursor-pointer min-w-[200px]" @change="addTool">
         <option value="">Add a tool</option>
         <option v-for="tool in allTools" :key="tool.slug" :value="tool.slug" :disabled="selected.includes(tool.slug || '')">
           {{ tool.title }}
         </option>
       </select>
-      <label class="flex items-center gap-3 font-bold text-gray-700 cursor-pointer whitespace-nowrap"><input class="w-5 h-5 border-2 border-gray-900 text-primary-500 focus:ring-primary-500 rounded-none cursor-pointer" v-model="differencesOnly" type="checkbox" /> Show differences only</label>
-      <button class="w-full md:w-auto px-6 py-3 bg-gray-900 text-white font-bold hover:bg-primary-500 transition-colors cursor-pointer border-none whitespace-nowrap rounded-none" type="button" @click="copyMarkdown">Copy Markdown</button>
-      <button class="w-full md:w-auto px-6 py-3 bg-gray-900 text-white font-bold hover:bg-primary-500 transition-colors cursor-pointer border-none whitespace-nowrap rounded-none" type="button" @click="downloadCsv">Download CSV</button>
-      <button class="w-full md:w-auto px-6 py-3 bg-gray-900 text-white font-bold hover:bg-primary-500 transition-colors cursor-pointer border-none whitespace-nowrap rounded-none" type="button" @click="share">Share comparison</button>
+      <label class="flex items-center gap-3 font-bold text-gray-700 cursor-pointer whitespace-nowrap"><input class="w-5 h-5 border-2 border-gray-900 text-primary-500 focus:ring-primary-500  cursor-pointer" v-model="differencesOnly" type="checkbox" /> Show differences only</label>
+      <button class="w-full md:w-auto px-6 py-3 bg-gray-900 text-white font-bold hover:bg-primary-500 transition-colors cursor-pointer border-none whitespace-nowrap " type="button" @click="copyMarkdown">Copy Markdown</button>
+      <button class="w-full md:w-auto px-6 py-3 bg-gray-900 text-white font-bold hover:bg-primary-500 transition-colors cursor-pointer border-none whitespace-nowrap " type="button" @click="downloadCsv">Download CSV</button>
+      <button class="w-full md:w-auto px-6 py-3 bg-gray-900 text-white font-bold hover:bg-primary-500 transition-colors cursor-pointer border-none whitespace-nowrap " type="button" @click="share">Share comparison</button>
     </div>
 
     <div v-if="selectedTools.length < 2" class="py-20 text-center bg-gray-50 border-2 border-dashed border-gray-300 text-gray-500 font-bold text-lg">
@@ -126,7 +126,7 @@ onMounted(loadFromUrl);
             <th class="p-5 border-b-2 border-gray-900 border-r-2 last:border-r-0 bg-gray-50 font-black text-gray-900 uppercase tracking-wider text-sm align-bottom min-w-[200px]" v-for="tool in selectedTools" :key="tool.slug">
               <div class="flex flex-col gap-3 items-start">
                 <a class="text-primary-500 hover:text-primary-600 no-underline" :href="`/tools/${tool.slug}`">{{ tool.title }}</a>
-                <button class="px-3 py-1.5 bg-transparent border-2 border-gray-900 text-gray-900 text-xs font-bold hover:bg-gray-900 hover:text-white transition-colors cursor-pointer rounded-none" type="button" @click="remove(tool.slug)">Remove</button>
+                <button class="px-3 py-1.5 bg-transparent border-2 border-gray-900 text-gray-900 text-xs font-bold hover:bg-gray-900 hover:text-white transition-colors cursor-pointer " type="button" @click="remove(tool.slug)">Remove</button>
               </div>
             </th>
           </tr>

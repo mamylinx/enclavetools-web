@@ -88,7 +88,7 @@ const {
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
       rel="stylesheet"
     />
     {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
@@ -227,17 +227,16 @@ const {
           ></a
         >
       </div>
-      <div class="block md:hidden relative">
+      <div class="block md:hidden flex items-center gap-0">
         <button
           class="flex items-center justify-center w-10 h-10 text-gray-700 hover:bg-gray-100 rounded-md transition-colors"
-          id="hamburgerBtn"
-          aria-label="Open menu"
-          aria-expanded="false"
+          id="mobileSearchBtn"
+          aria-label="Search tools"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
+            width="20"
+            height="20"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
@@ -245,21 +244,38 @@ const {
             stroke-linecap="round"
             stroke-linejoin="round"
           >
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <line x1="3" y1="12" x2="21" y2="12"></line>
-            <line x1="3" y1="18" x2="21" y2="18"></line>
+            <circle cx="11" cy="11" r="8" />
+            <path d="m21 21-4.35-4.35" />
           </svg>
         </button>
-        <div
-          class="absolute right-0 top-[calc(100%+8px)] w-[200px] bg-white border border-gray-200 rounded-xl shadow-[0_8px_30px_rgba(0,0,0,0.08)] opacity-0 invisible -translate-y-1 transition-all z-[1000000]"
+        <div class="relative">
+          <button
+            class="flex items-center justify-center w-10 h-10 text-gray-700 hover:bg-gray-100 rounded-md transition-colors"
+            id="hamburgerBtn"
+            aria-label="Open menu"
+            aria-expanded="false"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+          <div
+            class="absolute right-0 top-[calc(100%+8px)] w-[200px] bg-white border border-gray-200 rounded-xl shadow-[0_8px_30px_rgba(0,0,0,0.08)] opacity-0 invisible -translate-y-1 transition-all z-[1000000]"
           id="mobileDropdown"
         >
           <div class="p-2 flex flex-col gap-0.5">
-            <a
-              href="/"
-              class="block w-full text-left px-3 py-2.5 text-sm font-medium text-gray-600 hover:bg-gray-50 hover:text-primary-500 rounded-md transition-colors no-underline"
-              >{c.nav_browse || "Browse"}</a
-            >
             <a
               href="/compare"
               class="block w-full text-left px-3 py-2.5 text-sm font-medium text-gray-600 hover:bg-gray-50 hover:text-primary-500 rounded-md transition-colors no-underline"
@@ -292,6 +308,16 @@ const {
         </div>
       </div>
     </div>
+    </div>
+    {
+      showSearch && (
+        <div class="md:hidden overflow-hidden transition-all duration-200 max-h-0 relative z-30" id="mobileSearchPanel">
+          <div class="px-4 pb-4 pt-2 bg-white border-b border-gray-200">
+            <SearchInput client:visible placeholder={searchPlaceholder} />
+          </div>
+        </div>
+      )
+    }
     <CategoryNav client:visible />
 
     {showHero && <Hero eyebrow={eyebrow} title={title} tagline={tagline} />}
@@ -325,11 +351,11 @@ const {
               class="text-sm font-medium text-gray-300 hover:text-primary-500 transition-colors no-underline"
               >{c.nav_browse || "Browse"}</a
             >
-            <a
-              href="/?filter=new"
+            <!-- <a
+              href="/all/?filter=new"
               class="text-sm font-medium text-gray-300 hover:text-primary-500 transition-colors no-underline"
               >{c.nav_latest || "Latest"}</a
-            >
+            > -->
             <a
               href="/saved"
               class="text-sm font-medium text-gray-300 hover:text-primary-500 transition-colors no-underline"
@@ -551,6 +577,24 @@ const {
         hamburgerBtn._hasListener = true;
       }
 
+      // Mobile Search Toggle
+      const mobileSearchBtn = document.getElementById("mobileSearchBtn");
+      const mobileSearchPanel = document.getElementById("mobileSearchPanel");
+      if (mobileSearchBtn && mobileSearchPanel && !mobileSearchBtn._hasListener) {
+        mobileSearchBtn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          const isOpen = mobileSearchPanel.classList.contains("max-h-[200px]");
+          if (isOpen) {
+            mobileSearchPanel.classList.remove("max-h-[200px]", "overflow-visible");
+            mobileSearchPanel.classList.add("max-h-0", "overflow-hidden");
+          } else {
+            mobileSearchPanel.classList.remove("max-h-0", "overflow-hidden");
+            mobileSearchPanel.classList.add("max-h-[200px]", "overflow-visible");
+          }
+        });
+        mobileSearchBtn._hasListener = true;
+      }
+
       const mobileNewFilter = document.getElementById("mobileNewFilterToggle");
       if (mobileNewFilter && !mobileNewFilter._hasListener) {
         mobileNewFilter.addEventListener("click", () => {
@@ -581,12 +625,14 @@ const {
       }
 
       document.addEventListener("click", (e) => {
-        if (
-          mobileDropdown &&
-          mobileDropdown.classList.contains("opacity-100")
-        ) {
-          const wrapper = document.querySelector(".block.md\\:hidden.relative");
-          if (wrapper && !wrapper.contains(e.target)) {
+        const target = e.target;
+        const inMobileDropdown = mobileDropdown && mobileDropdown.contains(target);
+        const inMobileBtns = target.closest && target.closest("#hamburgerBtn, #mobileSearchBtn") !== null;
+        const inSearchPanel = mobileSearchPanel && mobileSearchPanel.contains(target);
+
+        // Close mobile dropdown when clicking outside the hamburger area
+        if (!inMobileDropdown && !inMobileBtns) {
+          if (mobileDropdown && mobileDropdown.classList.contains("opacity-100")) {
             mobileDropdown.classList.remove(
               "opacity-100",
               "visible",
@@ -598,6 +644,14 @@ const {
               "-translate-y-1",
             );
             hamburgerBtn.setAttribute("aria-expanded", "false");
+          }
+        }
+
+        // Close mobile search when clicking outside search panel and buttons
+        if (!inSearchPanel && !inMobileBtns) {
+          if (mobileSearchPanel && mobileSearchPanel.classList.contains("max-h-[200px]")) {
+            mobileSearchPanel.classList.remove("max-h-[200px]", "overflow-visible");
+            mobileSearchPanel.classList.add("max-h-0", "overflow-hidden");
           }
         }
       });

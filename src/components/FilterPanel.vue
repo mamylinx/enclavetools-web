@@ -123,7 +123,7 @@ const visibleGroups = computed(() => FILTER_GROUPS.filter(
                 <div class="flex flex-wrap gap-1.5">
                     <template v-if="group.type === 'single'">
                         <button v-for="opt in group.options" :key="String(opt.value)" class="px-3 py-1.5 text-xs font-bold transition-all duration-150 border rounded-full"
-                            :class="isOptionSelected(group.key, opt.value) ? 'bg-gray-900 text-white border-gray-900 hover:bg-yellow-400 hover:text-gray-900' : 'text-gray-600 bg-white border-gray-200 hover:border-gray-400 hover:text-gray-900 hover:bg-gray-50'"
+                            :class="isOptionSelected(group.key, opt.value) ? 'bg-gray-900 text-white border-gray-900 hover:bg-primary-600' : 'text-gray-600 bg-white border-gray-200 hover:border-gray-400 hover:text-gray-900 hover:bg-gray-50'"
                             @click="handleSingleSelect(group.key, opt.value)">
                             {{ optionLabel(group.key, opt.value) }}
                         </button>
@@ -131,7 +131,7 @@ const visibleGroups = computed(() => FILTER_GROUPS.filter(
 
                     <template v-else>
                         <button v-for="opt in group.options" :key="String(opt.value)" class="px-3 py-1.5 text-xs font-bold transition-all duration-150 border rounded-full"
-                            :class="isOptionSelected(group.key, opt.value) ? 'bg-gray-900 text-white border-gray-900 hover:bg-yellow-400 hover:text-gray-900' : 'text-gray-600 bg-white border-gray-200 hover:border-gray-400 hover:text-gray-900 hover:bg-gray-50'"
+                            :class="isOptionSelected(group.key, opt.value) ? 'bg-gray-900 text-white border-gray-900 hover:bg-primary-600' : 'text-gray-600 bg-white border-gray-200 hover:border-gray-400 hover:text-gray-900 hover:bg-gray-50'"
                             @click="handleToggle(group.key, opt.value || '')">
                             {{ opt.label }}
                         </button>

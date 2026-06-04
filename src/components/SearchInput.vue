@@ -134,7 +134,7 @@ onUnmounted(() => {
 
     <!-- Dropdown Results -->
     <div v-if="isDropdownOpen && searchResults.length > 0"
-      class="absolute left-0 right-0 w-full mt-2 bg-white border border-gray-200 rounded-xl shadow-[0_8px_30px_rgba(0,0,0,0.08)] overflow-hidden z-[100]">
+      class="absolute left-0 right-0 w-full mt-2 bg-white border border-gray-200 rounded-xl shadow-[0_8px_30px_rgba(0,0,0,0.08)] overflow-hidden z-[400]">
       <ul class="max-h-[400px] overflow-y-auto py-2 m-0 p-0 list-none">
         <li v-for="result in searchResults" :key="result.item.slug"
           class="m-0 p-0 border-b border-gray-100 last:border-0">

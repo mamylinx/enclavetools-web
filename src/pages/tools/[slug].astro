@@ -224,7 +224,7 @@ const featureBadges = [
       class="grid grid-cols-1 gap-10 max-w-[1400px] mx-auto px-4 md:px-10 items-end"
     >
       <!-- 
-      inline-flex items-center min-h-[48px] border border-gray-900 px-5 font-extrabold text-gray-900 bg-white hover:bg-yellow-400 hover:text-gray-900 rounded-full transition-colors no-underline
+      inline-flex items-center min-h-[48px] border border-gray-900 px-5 font-extrabold text-gray-900 bg-white hover:bg-primary-500 hover:text-white rounded-full transition-colors no-underline
        -->
       <div class="flex flex-wrap gap-2.5 justify-center">
         {
@@ -233,7 +233,7 @@ const featureBadges = [
               href={enrichedTool.github_url || enrichedTool.url}
               target="_blank"
               rel="noopener noreferrer"
-              class="inline-flex items-center min-h-[48px] border border-gray-900 px-5 font-extrabold bg-gray-900 text-white hover:bg-yellow-400 hover:text-gray-900 rounded-full transition-colors no-underline"
+              class="inline-flex items-center min-h-[48px] border border-gray-900 px-5 font-extrabold bg-gray-900 text-white hover:bg-primary-600 rounded-full transition-colors no-underline"
             >
               View on GitHub
             </a>
@@ -246,27 +246,27 @@ const featureBadges = [
               href={enrichedTool.url}
               target="_blank"
               rel="noopener noreferrer"
-              class="inline-flex items-center min-h-[48px] border border-gray-900 px-5 font-extrabold text-gray-900 bg-white hover:bg-yellow-400 hover:text-gray-900 rounded-full transition-colors no-underline"
+              class="inline-flex items-center min-h-[48px] border border-gray-900 px-5 font-extrabold text-gray-900 bg-white hover:bg-primary-500 hover:text-white rounded-full transition-colors no-underline"
             >
               Official site
             </a>
           ) : null
         }
         <button
-          class="inline-flex items-center min-h-[48px] border border-gray-900 px-5 font-extrabold text-gray-900 bg-white hover:bg-yellow-400 hover:text-gray-900 rounded-full transition-colors no-underline"
+          class="inline-flex items-center min-h-[48px] border border-gray-900 px-5 font-extrabold text-gray-900 bg-white hover:bg-primary-500 hover:text-white rounded-full transition-colors no-underline"
           data-tool-action="share"
         >
           Share
         </button>
         <button
-          class="inline-flex items-center min-h-[48px] border border-gray-900 px-5 font-extrabold text-gray-900 bg-white hover:bg-yellow-400 hover:text-gray-900 rounded-full transition-colors no-underline"
+          class="inline-flex items-center min-h-[48px] border border-gray-900 px-5 font-extrabold text-gray-900 bg-white hover:bg-primary-500 hover:text-white rounded-full transition-colors no-underline"
           data-tool-action="compare"
           data-slug={slug}
         >
           Add to compare
         </button>
         <button
-          class="inline-flex items-center min-h-[48px] border border-gray-900 px-5 font-extrabold text-gray-900 bg-white hover:bg-yellow-400 hover:text-gray-900 rounded-full transition-colors no-underline"
+          class="inline-flex items-center min-h-[48px] border border-gray-900 px-5 font-extrabold text-gray-900 bg-white hover:bg-primary-500 hover:text-white rounded-full transition-colors no-underline"
           data-tool-action="stack"
           data-slug={slug}
         >
@@ -579,7 +579,7 @@ const featureBadges = [
           <div class="mt-4">
             <a
               href={`/stack-builder?stack=${[slug, ...worksWithTools.slice(0, 3).map((item: any) => item.slug)].join(",")}`}
-              class="border-2 border-gray-900 bg-white text-gray-900 px-5 py-2.5 font-black cursor-pointer hover:bg-yellow-400 transition-colors no-underline text-sm inline-block"
+              class="border-2 border-gray-900 bg-white text-gray-900 px-5 py-2.5 font-black cursor-pointer hover:bg-primary-500 hover:text-white transition-colors no-underline text-sm inline-block"
             >
               Open suggested stack
             </a>
@@ -611,7 +611,7 @@ const featureBadges = [
             <label
               class="grid gap-1.5 text-xs font-black uppercase tracking-wider"
               >Field<select
-                class="w-full border-2 border-gray-900 p-2.5 font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 rounded-none"
+                class="w-full border-2 border-gray-900 p-2.5 font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500"
                 ><option>License</option><option>Telemetry</option><option
                   >Hardware</option
                 ><option>Setup difficulty</option></select
@@ -620,13 +620,13 @@ const featureBadges = [
             <label
               class="grid gap-1.5 text-xs font-black uppercase tracking-wider"
               >Correction<textarea
-                class="w-full border-2 border-gray-900 p-2.5 font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 rounded-none"
+                class="w-full border-2 border-gray-900 p-2.5 font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500"
                 placeholder="What should this say?"></textarea></label
             >
             <label
               class="grid gap-1.5 text-xs font-black uppercase tracking-wider"
               >Source URL<input
-                class="w-full border-2 border-gray-900 p-2.5 font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 rounded-none"
+                class="w-full border-2 border-gray-900 p-2.5 font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500"
                 type="url"
                 placeholder="https://..."
               /></label
@@ -668,14 +668,14 @@ const featureBadges = [
             href={xShareUrl}
             target="_blank"
             rel="noopener noreferrer"
-            class="border-2 border-gray-900 bg-white text-gray-900 px-5 py-2.5 font-black cursor-pointer hover:bg-yellow-400 transition-colors no-underline text-sm"
+            class="border-2 border-gray-900 bg-white text-gray-900 px-5 py-2.5 font-black cursor-pointer hover:bg-primary-500 hover:text-white transition-colors no-underline text-sm"
             >Share on X</a
           >
           <a
             href={linkedinShareUrl}
             target="_blank"
             rel="noopener noreferrer"
-            class="border-2 border-gray-900 bg-white text-gray-900 px-5 py-2.5 font-black cursor-pointer hover:bg-yellow-400 transition-colors no-underline text-sm"
+            class="border-2 border-gray-900 bg-white text-gray-900 px-5 py-2.5 font-black cursor-pointer hover:bg-primary-500 hover:text-white transition-colors no-underline text-sm"
             >Share on LinkedIn</a
           >
         </div>
