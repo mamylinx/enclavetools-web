@@ -79,6 +79,17 @@ const categoryTiles = categories.slice(0, 8).map((cat: any) => ({
 }));
 
 const featuredTools = sections.map((s) => featuredFor(s.categories));
+
+const hoverColors = [
+    "hover:bg-[#FFD93D] hover:text-gray-900", // Neon Yellow
+    "hover:bg-[#6BCB77] hover:text-gray-900", // Mint Green
+    "hover:bg-[#4D96FF] hover:text-white",    // Electric Blue
+    "hover:bg-[#FF6B6B] hover:text-white",    // Coral Red
+    "hover:bg-[#FF9F43] hover:text-white",    // Orange
+    "hover:bg-[#9B5DE5] hover:text-white",    // Purple
+    "hover:bg-[#00F5D4] hover:text-gray-900", // Cyan
+    "hover:bg-[#F15BB5] hover:text-white",    // Hot Pink
+];
 ---
 
 <Layout
@@ -187,21 +198,31 @@ const featuredTools = sections.map((s) => featuredFor(s.categories));
                     {c.home_category_heading || "Choose a category, then narrow by privacy and setup."}
                 </h2>
             </div>
-            <div
-                class="grid grid-cols-1 md:grid-cols-2 border-t md:border-l md:border-t-0 border-gray-900"
-            >
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {
-                    categoryTiles.map((cat: any) => (
-                        <a
-                            href={`/${cat.category}`}
-                            class="p-3.5 sm:border-r border-b border-gray-900 text-gray-900 flex flex-col justify-between text-lg font-black hover:bg-primary-500 hover:text-white transition-all duration-300 ease-out-expo no-underline"
-                        >
-                            <span>{cat.title}</span>
-                            <strong class="text-xl font-black">
-                                {cat.count}
-                            </strong>
-                        </a>
-                    ))
+                    categoryTiles.map((cat: any, index: number) => {
+                        const hoverColorClass = hoverColors[index % hoverColors.length];
+                        return (
+                            <a
+                                href={`/${cat.category}`}
+                                class={`group flex flex-col justify-between min-h-[130px] p-5 bg-white border-2 border-gray-900 text-gray-900 transition-all duration-200 ease-out-expo hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[4px_4px_0_0_rgba(17,24,39,1)] shadow-[0_0_0_0_rgba(0,0,0,0)] no-underline ${hoverColorClass}`}
+                            >
+                                <div class="flex justify-between items-start w-full">
+                                    <span class="text-lg font-black leading-tight max-w-[85%]">
+                                        {cat.title}
+                                    </span>
+                                    <span class="text-lg font-black transform transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true">
+                                        ↗
+                                    </span>
+                                </div>
+                                <div class="flex justify-between items-end mt-4">
+                                    <span class="inline-flex items-center px-2 py-0.5 text-xs font-black uppercase border-2 border-gray-900 bg-gray-900 text-white group-hover:bg-white group-hover:text-gray-900 transition-colors duration-150">
+                                        {cat.count} {cat.count === 1 ? 'tool' : 'tools'}
+                                    </span>
+                                </div>
+                            </a>
+                        );
+                    })
                 }
             </div>
         </section>
