@@ -62,8 +62,8 @@ onUnmounted(() => {
       <span v-else class="text-yellow-400 font-bold text-sm">Maximum 4 tools can be compared.</span>
     </div>
     <div class="flex gap-4 items-center">
-      <button type="button" @click="clear" class="text-white opacity-70 hover:opacity-100 text-sm bg-transparent border-none cursor-pointer p-0 transition-opacity rounded-lg">Clear</button>
-      <a v-if="selected.length >= 2" :href="compareUrl" class="bg-primary-500 text-white px-4 py-2 font-bold no-underline hover:bg-primary-500 transition-colors rounded-lg">View comparison</a>
+      <button type="button" @click="clear" class="text-white opacity-70 hover:opacity-100 text-sm bg-transparent border-2 border-transparent cursor-pointer p-0 transition-opacity">Clear</button>
+      <a v-if="selected.length >= 2" :href="compareUrl" class="bg-gray-900 text-white px-4 py-2 font-bold no-underline hover:bg-primary-500 transition-colors border-none">View comparison</a>
     </div>
   </div>
 </template>

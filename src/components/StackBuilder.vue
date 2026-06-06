@@ -148,7 +148,7 @@ onMounted(load);
               <p class="text-sm text-gray-600 m-0">{{ tool.plain_description || tool.body }}</p>
             </div>
             <button
-              class="shrink-0 px-4 py-2 bg-white border-2 border-gray-900 text-gray-900 font-bold hover:bg-gray-900 hover:text-white transition-colors cursor-pointer "
+              class="shrink-0 px-4 py-2 bg-white border-2 border-gray-900 text-gray-900 font-bold hover:bg-primary-500 hover:text-white hover:border-primary-500 transition-colors cursor-pointer "
               type="button" @click="remove(tool.slug)">Remove</button>
           </article>
         </div>
@@ -167,7 +167,7 @@ onMounted(load);
               <p class="text-sm text-gray-600 m-0">{{ tool.plain_description || tool.body }}</p>
             </div>
             <button
-              class="shrink-0 px-4 py-2 bg-white border-2 border-gray-900 text-gray-900 font-bold hover:bg-gray-900 hover:text-white transition-colors cursor-pointer "
+              class="shrink-0 px-4 py-2 bg-white border-2 border-gray-900 text-gray-900 font-bold hover:bg-primary-500 hover:text-white hover:border-primary-500 transition-colors cursor-pointer "
               type="button" @click="add(tool.slug)">Add</button>
           </article>
         </div>

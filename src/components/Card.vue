@@ -1,24 +1,24 @@
 <template>
   <li
-    class="relative list-none flex flex-col gap-3 bg-white border border-gray-200 p-4 transition-all duration-150 cursor-pointer hover:border-gray-400 hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] group"
-    :class="{ 'border-gray-900 bg-[#f7f7f2]': isFeatured }">
+    class="relative list-none flex flex-col gap-4 bg-white border-2 border-gray-200 p-5 transition-all duration-300 ease-out-expo cursor-pointer hover:border-gray-900 hover:-translate-y-1 hover:shadow-card-hover group"
+    :class="{ 'border-gray-900 bg-gray-50': isFeatured }">
     <div v-if="slug" class="absolute top-2 right-2 z-10 hidden group-hover:block">
-      <label class="flex items-center gap-1 text-xs cursor-pointer bg-white/90 px-2 py-1 border border-gray-200"
+      <label class="flex items-center gap-1 text-xs cursor-pointer bg-white/90 px-2 py-1 border-2 border-gray-200"
         @click.stop>
         <input type="checkbox" :checked="isCompared" @change="toggleCompare"
           class="w-3 h-3 text-primary-500 border-gray-300 focus:ring-primary-500" />
-        <span class="text-gray-600 font-medium">Compare</span>
+        <span class="text-gray-900 font-bold">Compare</span>
       </label>
     </div>
     <a :href="linkUrl" @click="handleClick"
       class="flex flex-col justify-between w-full h-full p-0 text-inherit no-underline gap-3">
       <div class="flex items-start gap-3">
         <div
-          class="w-10 h-10 bg-gray-50 border border-gray-200 flex items-center justify-center shrink-0 text-gray-900 font-medium">
+          class="w-10 h-10 bg-gray-50 border-2 border-gray-200 flex items-center justify-center shrink-0 text-gray-900 font-medium">
           <component :is="categoryIcon" :size="18" :stroke-width="2" />
         </div>
         <div class="flex-1 min-w-0">
-          <div class="text-lg font-extrabold text-gray-900 tracking-[-0.2px] truncate mb-0.5">
+          <div class="text-lg font-black text-gray-900 tracking-[-0.2px] truncate mb-0.5">
             {{ title }}
             <span v-if="isFeatured"
               class="inline-block text-xs font-black uppercase tracking-widest px-2 py-1 mb-2 bg-primary-100 text-primary-700">Featured</span>
@@ -29,18 +29,18 @@
       <div class="text-sm leading-relaxed text-gray-600 m-0 line-clamp-2">{{ body }}</div>
       <div class="flex flex-wrap gap-1.5">
         <span v-if="setupDifficulty"
-          class="inline-flex items-center min-h-[24px] border border-gray-200 px-2 text-xs font-bold text-gray-900 bg-white"
+          class="inline-flex items-center min-h-[24px] border-2 border-gray-200 px-2 text-xs font-bold text-gray-900 bg-white"
           :class="setupClass">{{ setupDifficulty }} setup</span>
         <span v-if="primaryHardware"
-          class="inline-flex items-center min-h-[24px] border border-gray-200 px-2 text-xs font-bold text-gray-900 bg-white">{{
+          class="inline-flex items-center min-h-[24px] border-2 border-gray-200 px-2 text-xs font-bold text-gray-900 bg-white">{{
           primaryHardware }}</span>
         <span v-if="commercialUse"
-          class="inline-flex items-center min-h-[24px] border border-gray-200 px-2 text-xs font-bold text-gray-900 bg-white">Commercial
+          class="inline-flex items-center min-h-[24px] border-2 border-gray-200 px-2 text-xs font-bold text-gray-900 bg-white">Commercial
           use</span>
       </div>
       <div class="flex items-center justify-between mt-1 gap-3 flex-wrap">
-        <span class="text-xs font-semibold px-2.5 py-1 font-sans" :class="priceClass">{{ license }}</span>
-        <span class="flex flex-wrap justify-end gap-2.5 text-gray-500 text-xs font-semibold">
+        <span class="text-xs font-bold px-2.5 py-1 font-sans" :class="priceClass">{{ license }}</span>
+        <span class="flex flex-wrap justify-end gap-2.5 text-gray-500 text-xs font-bold">
           <span v-if="githubStars" class="whitespace-nowrap">★ {{ formattedStars }}</span>
           <span v-if="lastUpdated" class="whitespace-nowrap">Updated {{ formattedUpdated }}</span>
         </span>

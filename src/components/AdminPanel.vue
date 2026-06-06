@@ -8,7 +8,7 @@
           <input type="password" v-model="password" required class="w-full bg-white border-2 border-gray-900 px-4 py-3 font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-colors" />
         </div>
         <p v-if="loginError" class="text-sm font-bold text-red-600 m-0">{{ loginError }}</p>
-        <button type="submit" class="w-full inline-flex items-center justify-center px-6 py-3 font-black uppercase tracking-wider text-sm transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed bg-gray-900 text-white hover:bg-primary-500 border-none mt-2" :disabled="isLoggingIn">
+        <button type="submit" class="w-full inline-flex items-center justify-center px-4 py-2 font-black uppercase tracking-wider text-xs transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed bg-gray-900 text-white hover:bg-primary-500 border-none" :disabled="isLoggingIn">
           {{ isLoggingIn ? 'Logging in...' : 'Sign In' }}
         </button>
       </form>
@@ -21,10 +21,10 @@
           {{ pendingCount }} Pending
         </div>
         <div class="flex flex-wrap gap-3">
-          <button @click="rebuild" :disabled="isRebuilding" class="inline-flex items-center justify-center px-5 py-2 font-black uppercase tracking-wider text-xs transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed bg-green-500 text-white hover:bg-green-600 border-2 border-green-700">
+          <button @click="rebuild" :disabled="isRebuilding" class="inline-flex items-center justify-center px-4 py-2 font-black uppercase tracking-wider text-xs transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed bg-gray-900 text-white hover:bg-primary-500 border-none">
             {{ isRebuilding ? 'Triggering...' : 'Rebuild Pages' }}
           </button>
-          <button @click="logout" class="inline-flex items-center justify-center px-5 py-2 font-black uppercase tracking-wider text-xs transition-colors cursor-pointer bg-white border-2 border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white">
+          <button @click="logout" class="inline-flex items-center justify-center px-4 py-2 font-black uppercase tracking-wider text-xs transition-colors cursor-pointer bg-white border-2 border-gray-900 text-gray-900 hover:bg-primary-500 hover:text-white hover:border-primary-500">
             Logout
           </button>
         </div>

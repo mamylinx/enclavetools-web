@@ -16,8 +16,8 @@
           <textarea v-model="editForm.body" rows="10" class="border-2 border-gray-900 px-3 py-2 font-bold text-sm font-mono"></textarea>
         </div>
         <div class="flex gap-3 justify-end">
-          <button @click="savePage(page.slug)" class="px-5 py-2 font-black uppercase tracking-wider text-xs transition-colors cursor-pointer bg-gray-900 text-white hover:bg-primary-500 border-none">Save</button>
-          <button @click="editingSlug = null" class="px-5 py-2 font-black uppercase tracking-wider text-xs transition-colors cursor-pointer bg-white border-2 border-gray-900 text-gray-900 hover:bg-gray-100">Cancel</button>
+          <button @click="savePage(page.slug)" class="px-4 py-2 font-black uppercase tracking-wider text-xs transition-colors cursor-pointer bg-gray-900 text-white hover:bg-primary-500 border-none">Save</button>
+          <button @click="editingSlug = null" class="px-4 py-2 font-black uppercase tracking-wider text-xs transition-colors cursor-pointer bg-white border-2 border-gray-900 text-gray-900 hover:bg-primary-500 hover:text-white hover:border-primary-500">Cancel</button>
         </div>
       </div>
       <div v-else class="flex flex-col md:flex-row justify-between items-start gap-4">
@@ -26,7 +26,7 @@
           <h4 class="text-lg font-black text-gray-900">{{ page.title }}</h4>
           <p class="text-gray-500 m-0 text-sm line-clamp-2">{{ page.body?.substring(0, 200) }}{{ page.body?.length > 200 ? '...' : '' }}</p>
         </div>
-        <button @click="startEdit(page)" class="px-4 py-2 font-black uppercase tracking-wider text-xs transition-colors cursor-pointer bg-white border-2 border-gray-900 text-gray-900 hover:bg-gray-100 shrink-0">Edit</button>
+        <button @click="startEdit(page)" class="px-4 py-2 font-black uppercase tracking-wider text-xs transition-colors cursor-pointer bg-white border-2 border-gray-900 text-gray-900 hover:bg-primary-500 hover:text-white hover:border-primary-500 shrink-0">Edit</button>
       </div>
     </div>
   </div>

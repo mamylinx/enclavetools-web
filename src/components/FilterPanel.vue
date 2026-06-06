@@ -98,17 +98,17 @@ const visibleGroups = computed(() => FILTER_GROUPS.filter(
 
 <template>
     <div class="w-full flex flex-col gap-1">
-        <div class="flex justify-end pb-2 mb-2 border-b border-gray-200">
-            <button class="text-xs text-gray-400 hover:text-gray-900 transition-colors py-1 px-2 rounded hover:bg-gray-100" @click="handleClearAll">
+        <div class="flex justify-end pb-2 mb-2 border-b-2 border-gray-900">
+            <button class="text-xs text-gray-400 hover:text-gray-900 transition-colors py-1 px-2 bg-transparent border-2 border-transparent cursor-pointer" @click="handleClearAll">
                 Reset
             </button>
         </div>
         <div v-for="group in visibleGroups" :key="group.key" class="border-b border-gray-200 last:border-b-0">
-            <button class="flex w-full items-center justify-between py-3 bg-transparent border-none cursor-pointer text-left" @click="toggleGroup(group.key)"
+            <button class="flex w-full items-center justify-between py-3 bg-transparent border-2 border-transparent cursor-pointer text-left" @click="toggleGroup(group.key)"
                 :aria-expanded="expandedGroups[group.key]">
                 <span class="text-xs font-black uppercase text-gray-900 tracking-widest flex items-center gap-2">
                     {{ group.label }}
-                    <span v-if="groupCount(group.key as keyof FilterState) > 0" class="bg-primary-50 text-primary-600 px-1.5 py-0.5 rounded-full font-bold">
+                    <span v-if="groupCount(group.key as keyof FilterState) > 0" class="bg-primary-50 text-primary-600 px-1.5 py-0.5 border border-primary-500 rounded-none font-bold text-[10px]">
                         {{ groupCount(group.key as keyof FilterState) }}
                     </span>
                 </span>
@@ -122,16 +122,16 @@ const visibleGroups = computed(() => FILTER_GROUPS.filter(
             <div v-show="expandedGroups[group.key]" class="pb-4">
                 <div class="flex flex-wrap gap-1.5">
                     <template v-if="group.type === 'single'">
-                        <button v-for="opt in group.options" :key="String(opt.value)" class="px-3 py-1.5 text-xs font-bold transition-all duration-150 border rounded-full"
-                            :class="isOptionSelected(group.key, opt.value) ? 'bg-gray-900 text-white border-gray-900 hover:bg-primary-500' : 'text-gray-600 bg-white border-gray-200 hover:border-gray-400 hover:text-gray-900 hover:bg-gray-50'"
+                        <button v-for="opt in group.options" :key="String(opt.value)" class="px-3 py-1.5 text-xs font-bold transition-all duration-150 border-2 rounded-none"
+                            :class="isOptionSelected(group.key, opt.value) ? 'bg-gray-900 text-white border-2 border-gray-900 hover:bg-primary-500 hover:border-primary-500' : 'text-gray-600 bg-white border-2 border-gray-200 hover:border-gray-900 hover:text-gray-900'"
                             @click="handleSingleSelect(group.key, opt.value)">
                             {{ optionLabel(group.key, opt.value) }}
                         </button>
                     </template>
 
                     <template v-else>
-                        <button v-for="opt in group.options" :key="String(opt.value)" class="px-3 py-1.5 text-xs font-bold transition-all duration-150 border rounded-full"
-                            :class="isOptionSelected(group.key, opt.value) ? 'bg-gray-900 text-white border-gray-900 hover:bg-primary-500' : 'text-gray-600 bg-white border-gray-200 hover:border-gray-400 hover:text-gray-900 hover:bg-gray-50'"
+                        <button v-for="opt in group.options" :key="String(opt.value)" class="px-3 py-1.5 text-xs font-bold transition-all duration-150 border-2 rounded-none"
+                            :class="isOptionSelected(group.key, opt.value) ? 'bg-gray-900 text-white border-2 border-gray-900 hover:bg-primary-500 hover:border-primary-500' : 'text-gray-600 bg-white border-2 border-gray-200 hover:border-gray-900 hover:text-gray-900'"
                             @click="handleToggle(group.key, opt.value || '')">
                             {{ opt.label }}
                         </button>

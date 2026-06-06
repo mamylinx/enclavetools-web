@@ -28,8 +28,8 @@
           <input v-model.number="editForm.sort_order" type="number" class="border-2 border-gray-900 px-3 py-2 font-bold text-sm" />
         </div>
         <div class="md:col-span-2 flex gap-3 justify-end">
-          <button @click="saveCategory(cat.category_slug)" class="px-5 py-2 font-black uppercase tracking-wider text-xs transition-colors cursor-pointer bg-gray-900 text-white hover:bg-primary-500 border-none">Save</button>
-          <button @click="editingSlug = null" class="px-5 py-2 font-black uppercase tracking-wider text-xs transition-colors cursor-pointer bg-white border-2 border-gray-900 text-gray-900 hover:bg-gray-100">Cancel</button>
+          <button @click="saveCategory(cat.category_slug)" class="px-4 py-2 font-black uppercase tracking-wider text-xs transition-colors cursor-pointer bg-gray-900 text-white hover:bg-primary-500 border-none">Save</button>
+          <button @click="editingSlug = null" class="px-4 py-2 font-black uppercase tracking-wider text-xs transition-colors cursor-pointer bg-white border-2 border-gray-900 text-gray-900 hover:bg-primary-500 hover:text-white hover:border-primary-500">Cancel</button>
         </div>
       </div>
       <div v-else class="flex flex-col md:flex-row justify-between items-start gap-4">
@@ -42,7 +42,7 @@
             <span v-if="cat.sort_order" class="text-xs font-mono bg-gray-100 px-2 py-1">Order: {{ cat.sort_order }}</span>
           </div>
         </div>
-        <button @click="startEdit(cat)" class="px-4 py-2 font-black uppercase tracking-wider text-xs transition-colors cursor-pointer bg-white border-2 border-gray-900 text-gray-900 hover:bg-gray-100 shrink-0">Edit</button>
+        <button @click="startEdit(cat)" class="px-4 py-2 font-black uppercase tracking-wider text-xs transition-colors cursor-pointer bg-white border-2 border-gray-900 text-gray-900 hover:bg-primary-500 hover:text-white hover:border-primary-500 shrink-0">Edit</button>
       </div>
     </div>
   </div>

@@ -67,7 +67,7 @@ onUnmounted(() => {
             <div class="fixed inset-x-0 bottom-0 bg-white border-t border-gray-200 z-50 transition-transform duration-300 max-h-[85vh] flex flex-col rounded-t-2xl" :class="isOpen ? 'translate-y-0' : 'translate-y-full'">
                 <div class="flex items-center justify-between px-6 py-5 border-b border-gray-200">
                     <span class="text-lg font-black text-gray-900 tracking-tight">Filters</span>
-                    <button class="flex items-center justify-center p-2 hover:bg-gray-100 bg-transparent border-none cursor-pointer text-gray-500 transition-colors" @click="close" aria-label="Close filters">
+                    <button class="flex items-center justify-center p-2 bg-transparent border-2 border-transparent text-gray-500 hover:text-gray-900 transition-colors cursor-pointer" @click="close" aria-label="Close filters">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2">
                             <path d="M18 6L6 18M6 6l12 12" />

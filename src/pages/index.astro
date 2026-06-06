@@ -101,22 +101,22 @@ const featuredTools = sections.map((s) => featuredFor(s.categories));
             <div class="flex flex-wrap gap-2.5 justify-center">
                 <a
                     href="/all"
-                    class="inline-flex items-center min-h-[48px] border border-gray-900 px-5 font-extrabold bg-gray-900 text-white hover:bg-primary-500 rounded-full transition-colors no-underline"
+                    class="inline-flex items-center min-h-[48px] border-2 border-gray-900 px-5 font-black uppercase tracking-wider text-xs bg-gray-900 text-white hover:bg-primary-500 hover:border-primary-500 rounded-none transition-all duration-300 ease-out-expo hover:-translate-y-1 hover:shadow-md no-underline"
                     >{c.cta_browse_all || "Browse all tools"}</a
                 >
                 <a
                     href="#use-cases"
-                    class="inline-flex items-center min-h-[48px] border border-gray-900 px-5 font-extrabold text-gray-900 bg-white hover:bg-primary-500 hover:text-white rounded-full transition-colors no-underline"
+                    class="inline-flex items-center min-h-[48px] border-2 border-gray-900 px-5 font-black uppercase tracking-wider text-xs bg-white text-gray-900 hover:bg-primary-500 hover:text-white hover:border-primary-500 rounded-none transition-all duration-300 ease-out-expo hover:-translate-y-1 hover:shadow-md no-underline"
                     >{c.cta_use_cases || "Find tools for my use case"}</a
                 >
                 <a
                     href="/compare"
-                    class="inline-flex items-center min-h-[48px] border border-gray-900 px-5 font-extrabold text-gray-900 bg-white hover:bg-primary-500 hover:text-white rounded-full transition-colors no-underline"
+                    class="inline-flex items-center min-h-[48px] border-2 border-gray-900 px-5 font-black uppercase tracking-wider text-xs bg-white text-gray-900 hover:bg-primary-500 hover:text-white hover:border-primary-500 rounded-none transition-all duration-300 ease-out-expo hover:-translate-y-1 hover:shadow-md no-underline"
                     >{c.cta_compare || "Compare tools"}</a
                 >
                 <a
                     href="/stack-builder"
-                    class="inline-flex items-center min-h-[48px] border border-gray-900 px-5 font-extrabold text-gray-900 bg-white hover:bg-primary-500 hover:text-white rounded-full transition-colors no-underline"
+                    class="inline-flex items-center min-h-[48px] border-2 border-gray-900 px-5 font-black uppercase tracking-wider text-xs bg-white text-gray-900 hover:bg-primary-500 hover:text-white hover:border-primary-500 rounded-none transition-all duration-300 ease-out-expo hover:-translate-y-1 hover:shadow-md no-underline"
                     >{c.cta_build_stack || "Build a stack"}</a
                 >
             </div>
@@ -129,7 +129,7 @@ const featuredTools = sections.map((s) => featuredFor(s.categories));
                     class="p-4 border-b md:border-b-0 md:border-r border-gray-900"
                 >
                     <dt class="text-xl font-black">{totalTools}</dt><dd
-                        class="text-xs font-extrabold uppercase text-gray-500"
+                        class="text-xs font-black uppercase text-gray-500 tracking-wider"
                     >
                         {c.home_stat_tools_label || "tools listed"}
                     </dd>
@@ -140,7 +140,7 @@ const featuredTools = sections.map((s) => featuredFor(s.categories));
                     <dt class="text-xl font-black">
                         {toolsData.tools.length}
                     </dt><dd
-                        class="text-xs font-extrabold uppercase text-gray-500"
+                        class="text-xs font-black uppercase text-gray-500 tracking-wider"
                     >
                         {c.home_stat_categories_label || "categories"}
                     </dd>
@@ -162,7 +162,7 @@ const featuredTools = sections.map((s) => featuredFor(s.categories));
                                 : c.home_stat_build_data_fallback || "Build data"
                         }
                     </dt><dd
-                        class="text-xs font-extrabold uppercase text-gray-500"
+                        class="text-xs font-black uppercase text-gray-500 tracking-wider"
                     >
                         {c.home_stat_verification_label || "latest verification"}
                     </dd>
@@ -176,7 +176,7 @@ const featuredTools = sections.map((s) => featuredFor(s.categories));
         >
             <div class="flex flex-col py-auto items-start justify-center">
                 <p
-                    class="text-xs font-extrabold uppercase tracking-widest text-gray-900"
+                    class="text-xs font-black uppercase tracking-widest text-gray-900"
                 >
                     {c.home_category_eyebrow || "Start with the job"}
                 </p>
@@ -194,7 +194,7 @@ const featuredTools = sections.map((s) => featuredFor(s.categories));
                     categoryTiles.map((cat: any) => (
                         <a
                             href={`/${cat.category}`}
-                            class="p-3.5 sm:border-r border-b border-gray-900 text-gray-900 flex flex-col justify-between text-lg font-black hover:bg-primary-500 hover:text-white transition-colors no-underline"
+                            class="p-3.5 sm:border-r border-b border-gray-900 text-gray-900 flex flex-col justify-between text-lg font-black hover:bg-primary-500 hover:text-white transition-all duration-300 ease-out-expo no-underline"
                         >
                             <span>{cat.title}</span>
                             <strong class="text-xl font-black">

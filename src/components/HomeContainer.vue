@@ -53,7 +53,7 @@ const latestTools = computed(() => {
         <section>
             <div class="flex flex-row items-center justify-between mb-6">
                 <h3 class="text-2xl font-black text-gray-900 m-0">{{ c.section_latest_added || 'Latest Added' }}</h3>
-                <a href="/all" class="text-sm font-bold text-gray-900 border border-gray-200 px-4 py-2 hover:border-gray-900 transition-colors no-underline">{{ c.section_browse_all || 'Browse all' }}</a>
+                <a href="/all" class="text-sm font-bold bg-white border-2 border-gray-900 text-gray-900 px-4 py-2 hover:bg-primary-500 hover:text-white hover:border-primary-500 transition-colors no-underline">{{ c.section_browse_all || 'Browse all' }}</a>
             </div>
             <ul data-cards-grid role="list" class="grid grid-cols-1 gap-4 m-0 p-0">
                 <Card v-for="(item, i) in latestTools" :key="`latest-${i}`"

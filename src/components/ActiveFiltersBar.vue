@@ -100,11 +100,11 @@ const chips = computed(() => {
 </script>
 
 <template>
-    <div v-if="chips.length > 0" class="flex flex-wrap items-center gap-2 mb-6 p-4 bg-gray-50 border border-gray-200 rounded-lg">
-        <div v-for="(chip, i) in chips" :key="`${chip.group}-${chip.value}-${i}`" class="inline-flex items-center bg-white border border-gray-200 pl-2.5 pr-1 py-1 text-xs gap-1.5 rounded-full">
+    <div v-if="chips.length > 0" class="flex flex-wrap items-center gap-2 mb-6 p-4 bg-gray-50 border-2 border-gray-900">
+        <div v-for="(chip, i) in chips" :key="`${chip.group}-${chip.value}-${i}`" class="inline-flex items-center bg-white border-2 border-gray-900 pl-2.5 pr-1 py-1 text-xs gap-1.5 rounded-none transition-all duration-300 ease-out-expo hover:-translate-y-0.5">
             <span class="font-bold text-gray-400 uppercase tracking-wider text-xs">{{ getGroupLabel(chip.group) }}:</span>
             <span class="font-bold text-gray-900">{{ chip.label }}</span>
-            <button class="text-gray-400 hover:text-red-500 bg-transparent border-none cursor-pointer p-0.5 flex items-center justify-center transition-colors" @click="emit('remove', chip.group, chip.value)"
+            <button class="text-gray-400 hover:text-red-500 bg-transparent border-2 border-transparent cursor-pointer p-0.5 flex items-center justify-center transition-colors" @click="emit('remove', chip.group, chip.value)"
                 aria-label="Remove filter">
                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2.5">
@@ -112,6 +112,6 @@ const chips = computed(() => {
                 </svg>
             </button>
         </div>
-        <button class="text-xs font-bold text-gray-500 hover:text-gray-900 border-none bg-transparent cursor-pointer ml-auto transition-colors" @click="emit('clear-all')">Clear all</button>
+        <button class="text-xs font-bold text-gray-500 hover:text-gray-900 border-2 border-transparent bg-transparent cursor-pointer ml-auto transition-colors" @click="emit('clear-all')">Clear all</button>
     </div>
 </template>

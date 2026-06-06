@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="p-4 border-b-2 border-gray-200 flex justify-end">
-      <button @click="$emit('add')" class="px-5 py-2 font-black uppercase tracking-wider text-xs transition-colors cursor-pointer bg-gray-900 text-white hover:bg-primary-500 border-none">+ Add Card</button>
+      <button @click="$emit('add')" class="px-4 py-2 font-black uppercase tracking-wider text-xs transition-colors cursor-pointer bg-gray-900 text-white hover:bg-primary-500 border-none">+ Add Card</button>
     </div>
     <div v-if="cards.length === 0" class="p-12 text-center text-gray-500 font-bold text-lg">No marketing cards.</div>
     <div v-for="card in cards" :key="card.id || card._key" class="flex flex-col p-6 border-b-2 border-gray-200 last:border-b-0 gap-4">
@@ -47,8 +47,8 @@
           <label class="font-black text-xs uppercase tracking-wider text-gray-700">Active</label>
         </div>
         <div class="md:col-span-2 flex gap-3 justify-end">
-          <button @click="saveCard(card)" class="px-5 py-2 font-black uppercase tracking-wider text-xs transition-colors cursor-pointer bg-gray-900 text-white hover:bg-primary-500 border-none">Save</button>
-          <button @click="cancelEdit(card)" class="px-5 py-2 font-black uppercase tracking-wider text-xs transition-colors cursor-pointer bg-white border-2 border-gray-900 text-gray-900 hover:bg-gray-100">Cancel</button>
+          <button @click="saveCard(card)" class="px-4 py-2 font-black uppercase tracking-wider text-xs transition-colors cursor-pointer bg-gray-900 text-white hover:bg-primary-500 border-none">Save</button>
+          <button @click="cancelEdit(card)" class="px-4 py-2 font-black uppercase tracking-wider text-xs transition-colors cursor-pointer bg-white border-2 border-gray-900 text-gray-900 hover:bg-primary-500 hover:text-white hover:border-primary-500">Cancel</button>
         </div>
       </div>
       <div v-else class="flex flex-col md:flex-row justify-between items-start gap-4">
@@ -58,8 +58,8 @@
           <p class="text-gray-600 font-medium m-0 text-sm">{{ card.description }}</p>
         </div>
         <div class="flex gap-3 shrink-0">
-          <button @click="startEdit(card)" class="px-4 py-2 font-black uppercase tracking-wider text-xs transition-colors cursor-pointer bg-white border-2 border-gray-900 text-gray-900 hover:bg-gray-100">Edit</button>
-          <button @click="$emit('delete', card.id)" class="px-4 py-2 font-black uppercase tracking-wider text-xs transition-colors cursor-pointer bg-white text-red-600 border-2 border-red-200 hover:border-red-600 hover:bg-red-50">Delete</button>
+          <button @click="startEdit(card)" class="px-4 py-2 font-black uppercase tracking-wider text-xs transition-colors cursor-pointer bg-white border-2 border-gray-900 text-gray-900 hover:bg-primary-500 hover:text-white hover:border-primary-500">Edit</button>
+          <button @click="$emit('delete', card.id)" class="px-4 py-2 font-black uppercase tracking-wider text-xs transition-colors cursor-pointer bg-white border-2 border-red-200 text-red-600 hover:bg-red-50 hover:text-red-700 hover:border-red-600">Delete</button>
         </div>
       </div>
     </div>

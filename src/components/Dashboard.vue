@@ -104,13 +104,13 @@ onUnmounted(() => {
 
         <div class="flex flex-col gap-6 min-w-0">
             <div v-if="!isHomepage" class="lg:hidden mb-4">
-                <button class="flex items-center justify-center gap-2 px-4 py-3 bg-white border border-gray-900 font-extrabold text-gray-900 w-full hover:bg-gray-50 transition-colors" @click="showFilterSheet = true">
+                <button class="flex items-center justify-center gap-2 px-4 py-3 bg-white border-2 border-gray-900 font-extrabold text-gray-900 w-full hover:bg-primary-500 hover:text-white hover:border-primary-500 transition-colors" @click="showFilterSheet = true">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2">
                         <path d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
                     Filters
-                    <span v-if="activeCount > 0" class="bg-primary-500 text-white px-2 py-0.5 rounded-full text-xs ml-1">{{ activeCount }}</span>
+                    <span v-if="activeCount > 0" class="bg-gray-900 text-white px-1.5 py-0.5 rounded-none text-[10px] font-black border border-gray-900 ml-1">{{ activeCount }}</span>
                 </button>
             </div>
 

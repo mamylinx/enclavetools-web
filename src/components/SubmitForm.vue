@@ -16,7 +16,7 @@
         <div class="flex flex-col md:flex-row gap-4">
           <input type="url" v-model="githubUrl" id="githubUrl" class="w-full bg-white border border-gray-200 px-4 py-3 font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-colors"
             placeholder="https://github.com/owner/repo" />
-          <button type="button" @click="fetchGithubData" :disabled="isFetching" class="inline-flex items-center justify-center px-6 py-3 font-black uppercase tracking-wider text-sm transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed bg-white border border-gray-200 text-gray-900 hover:bg-gray-900 hover:text-white whitespace-nowrap">
+          <button type="button" @click="fetchGithubData" :disabled="isFetching" class="inline-flex items-center justify-center px-6 py-3 font-black uppercase tracking-wider text-sm transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed bg-white border-2 border-gray-900 text-gray-900 hover:bg-primary-500 hover:text-white hover:border-primary-500 whitespace-nowrap">
             {{ isFetching ? 'Fetching...' : 'Auto-fill' }}
           </button>
         </div>
@@ -120,7 +120,7 @@
 
       <!-- Advanced Fields -->
       <button type="button" @click="showAdvanced = !showAdvanced"
-        class="self-start inline-flex items-center gap-2 px-6 py-3 font-black uppercase tracking-wider text-sm transition-colors cursor-pointer bg-gray-100 border border-gray-300 text-gray-700 hover:bg-gray-200">
+        class="self-start inline-flex items-center gap-2 px-6 py-3 font-black uppercase tracking-wider text-sm transition-colors cursor-pointer bg-white border-2 border-gray-900 text-gray-900 hover:bg-primary-500 hover:text-white hover:border-primary-500">
         {{ showAdvanced ? '▾' : '▸' }} Advanced Fields
       </button>
 
@@ -249,7 +249,7 @@
       </div>
 
       <div class="flex justify-end mt-4">
-        <button type="submit" :disabled="isSubmitting" class="inline-flex items-center justify-center px-8 py-4 font-black uppercase tracking-wider text-sm transition-colors border-none cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed bg-gray-900 text-white hover:bg-primary-500">
+        <button type="submit" :disabled="isSubmitting" class="inline-flex items-center justify-center px-6 py-3 font-black uppercase tracking-wider text-sm transition-colors border-none cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed bg-gray-900 text-white hover:bg-primary-500">
           {{ isSubmitting ? 'Submitting...' : 'Submit Tool' }}
         </button>
       </div>

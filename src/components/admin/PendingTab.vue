@@ -11,8 +11,8 @@
         </div>
       </div>
       <div class="flex w-full md:w-auto gap-3 shrink-0">
-        <button @click="$emit('reject', tool.id)" class="flex-1 md:flex-none inline-flex items-center justify-center px-4 py-2 font-black uppercase tracking-wider text-xs transition-colors cursor-pointer bg-white text-red-600 hover:bg-red-50 hover:text-red-700 border-2 border-red-200 hover:border-red-600">Reject</button>
-        <button @click="$emit('approve', tool.id)" class="flex-1 md:flex-none inline-flex items-center justify-center px-6 py-2 font-black uppercase tracking-wider text-xs transition-colors cursor-pointer bg-gray-900 text-white hover:bg-primary-500 border-none">Approve</button>
+        <button @click="$emit('reject', tool.id)" class="flex-1 md:flex-none inline-flex items-center justify-center px-4 py-2 font-black uppercase tracking-wider text-xs transition-colors cursor-pointer bg-white border-2 border-red-200 text-red-600 hover:bg-red-50 hover:text-red-700 hover:border-red-600">Reject</button>
+        <button @click="$emit('approve', tool.id)" class="flex-1 md:flex-none inline-flex items-center justify-center px-4 py-2 font-black uppercase tracking-wider text-xs transition-colors cursor-pointer bg-gray-900 text-white hover:bg-primary-500 border-none">Approve</button>
       </div>
     </div>
   </div>

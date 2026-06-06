@@ -126,7 +126,7 @@ onMounted(loadFromUrl);
             <th class="p-5 border-b-2 border-gray-900 border-r-2 last:border-r-0 bg-gray-50 font-black text-gray-900 uppercase tracking-wider text-sm align-bottom min-w-[200px]" v-for="tool in selectedTools" :key="tool.slug">
               <div class="flex flex-col gap-3 items-start">
                 <a class="text-primary-500 hover:text-primary-600 no-underline" :href="`/tools/${tool.slug}`">{{ tool.title }}</a>
-                <button class="px-3 py-1.5 bg-transparent border-2 border-gray-900 text-gray-900 text-xs font-bold hover:bg-gray-900 hover:text-white transition-colors cursor-pointer " type="button" @click="remove(tool.slug)">Remove</button>
+                <button class="px-3 py-1.5 bg-white border-2 border-gray-900 text-gray-900 text-xs font-bold hover:bg-primary-500 hover:text-white hover:border-primary-500 transition-colors cursor-pointer " type="button" @click="remove(tool.slug)">Remove</button>
               </div>
             </th>
           </tr>
