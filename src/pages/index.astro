@@ -105,29 +105,29 @@ const hoverColors = [
         items={allTools}
         listName={c.home_schema_list_name || "AI Tools Directory - All Tools"}
     />
-    <div class="px-4 md:px-10 pt-6 pb-6 border-b border-gray-200">
+    <div class="px-4 pt-6 pb-6 border-b border-gray-200">
         <section
-            class="grid grid-cols-1 gap-10 max-w-[1400px] mx-auto px-4 md:px-10 items-end"
+            class="grid grid-cols-1 gap-10 max-w-[1400px] mx-auto px-4 items-end"
         >
             <div class="flex flex-wrap gap-2.5 justify-center">
                 <a
                     href="/all"
-                    class="inline-flex items-center min-h-[48px] border-2 border-gray-900 px-5 font-black uppercase tracking-wider text-xs bg-gray-900 text-white hover:bg-primary-500 hover:border-primary-500 rounded-none transition-all duration-300 ease-out-expo hover:-translate-y-1 hover:shadow-md no-underline"
+                    class="inline-flex items-center min-h-[48px] border-2 border-gray-900 px-5 font-black uppercase tracking-wider text-xs bg-gray-900 text-white hover:bg-primary-500 hover:border-primary-500 rounded-none transition-all duration-300 ease-out-expo hover:-translate-y-1 hover:shadow-card-hover no-underline"
                     >{c.cta_browse_all || "Browse all tools"}</a
                 >
                 <a
                     href="#use-cases"
-                    class="inline-flex items-center min-h-[48px] border-2 border-gray-900 px-5 font-black uppercase tracking-wider text-xs bg-white text-gray-900 hover:bg-primary-500 hover:text-white hover:border-primary-500 rounded-none transition-all duration-300 ease-out-expo hover:-translate-y-1 hover:shadow-md no-underline"
+                    class="inline-flex items-center min-h-[48px] border-2 border-gray-900 px-5 font-black uppercase tracking-wider text-xs bg-white text-gray-900 hover:bg-primary-500 hover:text-white hover:border-primary-500 rounded-none transition-all duration-300 ease-out-expo hover:-translate-y-1 hover:shadow-card-hover no-underline"
                     >{c.cta_use_cases || "Find tools for my use case"}</a
                 >
                 <a
                     href="/compare"
-                    class="inline-flex items-center min-h-[48px] border-2 border-gray-900 px-5 font-black uppercase tracking-wider text-xs bg-white text-gray-900 hover:bg-primary-500 hover:text-white hover:border-primary-500 rounded-none transition-all duration-300 ease-out-expo hover:-translate-y-1 hover:shadow-md no-underline"
+                    class="inline-flex items-center min-h-[48px] border-2 border-gray-900 px-5 font-black uppercase tracking-wider text-xs bg-white text-gray-900 hover:bg-primary-500 hover:text-white hover:border-primary-500 rounded-none transition-all duration-300 ease-out-expo hover:-translate-y-1 hover:shadow-card-hover no-underline"
                     >{c.cta_compare || "Compare tools"}</a
                 >
                 <a
                     href="/stack-builder"
-                    class="inline-flex items-center min-h-[48px] border-2 border-gray-900 px-5 font-black uppercase tracking-wider text-xs bg-white text-gray-900 hover:bg-primary-500 hover:text-white hover:border-primary-500 rounded-none transition-all duration-300 ease-out-expo hover:-translate-y-1 hover:shadow-md no-underline"
+                    class="inline-flex items-center min-h-[48px] border-2 border-gray-900 px-5 font-black uppercase tracking-wider text-xs bg-white text-gray-900 hover:bg-primary-500 hover:text-white hover:border-primary-500 rounded-none transition-all duration-300 ease-out-expo hover:-translate-y-1 hover:shadow-card-hover no-underline"
                     >{c.cta_build_stack || "Build a stack"}</a
                 >
             </div>
@@ -182,7 +182,7 @@ const hoverColors = [
         </section>
 
         <section
-            class="grid grid-cols-1 md:grid-cols-[minmax(280px,0.8fr)_1.2fr] gap-10 gap-8 max-w-[1400px] mx-auto px-4 md:px-10"
+            class="grid grid-cols-1 md:grid-cols-[minmax(280px,0.8fr)_1.2fr] gap-10 max-w-[1400px] mx-auto pt-6 px-4 md:px-10"
             aria-labelledby="category-heading"
         >
             <div class="flex flex-col py-auto items-start justify-center">
@@ -195,7 +195,7 @@ const hoverColors = [
                     id="category-heading"
                     class="max-w-[620px] text-3xl md:text-4xl lg:text-5xl text-gray-900 leading-[0.98] font-black tracking-tight mt-3"
                 >
-                    {c.home_category_heading || "Choose a category, then narrow by privacy and setup."}
+                    {c.home_category_heading || "Choose a category."}
                 </h2>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -205,7 +205,7 @@ const hoverColors = [
                         return (
                             <a
                                 href={`/${cat.category}`}
-                                class={`group flex flex-col justify-between min-h-[130px] p-5 bg-white border-2 border-gray-900 text-gray-900 transition-all duration-200 ease-out-expo hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[4px_4px_0_0_rgba(17,24,39,1)] shadow-[0_0_0_0_rgba(0,0,0,0)] no-underline ${hoverColorClass}`}
+                                class={`group flex flex-col justify-between min-h-[130px] p-5 bg-white border-2 border-gray-900 text-gray-900 transition-all duration-300 ease-out-expo hover:-translate-y-1 hover:shadow-card-hover shadow-[0_0_0_0_rgba(0,0,0,0)] no-underline ${hoverColorClass}`}
                             >
                                 <div class="flex justify-between items-start w-full">
                                     <span class="text-lg font-black leading-tight max-w-[85%]">

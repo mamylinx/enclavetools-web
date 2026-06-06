@@ -111,7 +111,7 @@ onMounted(load);
 </script>
 
 <template>
-  <section class="max-w-[1400px] mx-auto px-4 md:px-10 py-12 lg:py-20">
+  <section class="max-w-[1400px] mx-auto px-4 py-12 lg:py-20">
     <div class="flex flex-col md:flex-row items-center gap-4 mb-12 p-6 bg-gray-50 border-2 border-gray-900 flex-wrap">
       <select
         class="flex-1 w-full bg-white border-2 border-gray-900 px-4 py-3 font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500  cursor-pointer min-w-[200px]"

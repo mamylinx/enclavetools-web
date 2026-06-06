@@ -55,7 +55,7 @@ const closeBottomSheet = () => {
 </script>
 
 <template>
-  <div class="sticky top-16 relative w-full max-w-[1400px] mx-auto px-4 md:px-10 flex sm:hidden items-center justify-between border-b-2 border-gray-900 bg-white z-20">
+  <div class="sticky top-16 relative w-full max-w-[1400px] mx-auto px-4 flex sm:hidden items-center justify-between border-b-2 border-gray-900 bg-white z-20">
     <nav ref="navRef" class="flex items-center gap-2 overflow-x-auto whitespace-nowrap py-4 flex-1 scrollbar-hide" tabindex="-1" @scroll="checkScroll">
       <a v-for="item in navItems" :key="item.category" class="px-4 py-2 text-sm font-bold border-2 no-underline transition-all duration-300 ease-out-expo rounded-none"
         :class="activeFilter === item.category ? 'bg-gray-900 text-white border-gray-900' : 'bg-white text-gray-600 border-gray-200 hover:text-gray-900 hover:border-gray-900 hover:-translate-y-0.5'" :href="item.href">

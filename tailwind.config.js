@@ -40,8 +40,8 @@ export default {
       },
       boxShadow: {
         card: '0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)',
-        'card-hover': '0 12px 32px -4px rgba(0, 0, 0, 0.12), 0 4px 16px -4px rgba(0, 0, 0, 0.08)',
-        'brutal': '4px 4px 0px 0px rgba(0,0,0,1)',
+        'card-hover': '4px 4px 0px 0px rgba(17, 24, 39, 1)',
+        'brutal': '4px 4px 0px 0px rgba(17, 24, 39, 1)',
       },
       borderRadius: {
         'xl': '1rem',

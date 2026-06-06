@@ -30,7 +30,7 @@ function selectTab(index: number) {
 <template>
     <section
         id="use-cases"
-        class="max-w-[1400px] mx-auto px-4 md:px-10 pt-12 pb-6 scroll-mt-[82px]"
+        class="max-w-[1400px] mx-auto px-4 pt-12 pb-6 scroll-mt-[82px]"
         aria-labelledby="use-cases-heading"
     >
         <div class="mb-8">
@@ -94,7 +94,7 @@ function selectTab(index: number) {
                         <strong class="block text-sm font-black text-gray-900 group-hover:text-primary-500 transition-colors">
                             {{ tool.title }}
                         </strong>
-                        <span class="block text-xs text-gray-500 mt-1 leading-snug line-clamp-2">
+                        <span class="text-xs text-gray-500 mt-1 line-clamp-3">
                             {{ tool.body }}
                         </span>
                     </a>

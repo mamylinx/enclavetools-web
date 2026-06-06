@@ -116,7 +116,7 @@ onUnmounted(() => {
         <path d="m21 21-4.35-4.35" />
       </svg>
       <input ref="inputRef" type="text"
-        class="w-full bg-white border-2 border-gray-900 rounded-none py-2 pl-12 pr-12 text-gray-900 outline-none focus:border-primary-500 ring-2 ring-transparent focus:ring-primary-500/15 transition-all duration-300 ease-out-expo placeholder:text-gray-400 hover:shadow-sm"
+        class="w-full bg-white border-2 border-gray-900 rounded-none py-2 pl-12 pr-12 text-gray-900 outline-none focus:border-primary-500 ring-2 ring-transparent focus:ring-primary-500/15 transition-all duration-300 ease-out-expo placeholder:text-gray-400"
         :placeholder="'Search by name, category, or feature...'" :value="query"
         @input="handleInput" @focus="query.length > 0 && searchResults.length > 0 ? isDropdownOpen = true : null"
         aria-label="Search AI tools" />
@@ -134,7 +134,7 @@ onUnmounted(() => {
 
     <!-- Dropdown Results -->
     <div v-if="isDropdownOpen && searchResults.length > 0"
-      class="absolute left-0 right-0 w-full mt-2 bg-white border-2 border-gray-900 rounded-none shadow-card-hover overflow-hidden z-[400]">
+      class="absolute left-0 right-0 w-full mt-2 bg-white border-2 border-gray-900 overflow-hidden z-[400]">
       <ul class="max-h-[400px] overflow-y-auto py-2 m-0 p-0 list-none">
         <li v-for="result in searchResults" :key="result.item.slug"
           class="m-0 p-0 border-b border-gray-100 last:border-0">

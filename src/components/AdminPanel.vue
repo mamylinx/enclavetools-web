@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="!loggedIn" class="max-w-[400px] mx-auto bg-gray-50 border-2 border-gray-900 p-8 shadow-[4px_4px_0_0_rgba(17,24,39,1)]">
+    <div v-if="!loggedIn" class="max-w-[400px] mx-auto bg-gray-50 border-2 border-gray-900 p-8 shadow-brutal">
       <h2 class="text-xl font-black text-gray-900 mb-6 text-center uppercase tracking-wide">Admin Login</h2>
       <form @submit.prevent="login" class="flex flex-col gap-4">
         <div class="flex flex-col gap-2">
@@ -42,7 +42,7 @@
         </button>
       </div>
 
-      <div class="bg-white border-2 border-gray-900 shadow-[4px_4px_0_0_rgba(17,24,39,1)]">
+      <div class="bg-white border-2 border-gray-900 shadow-brutal">
         <div v-if="storeMessage" class="p-4 font-bold text-sm border-b-2 border-gray-200" :class="storeMessageType === 'error' ? 'bg-red-50 text-red-600 border-red-600' : 'bg-green-50 text-green-700 border-green-600'">
           {{ storeMessage }}
         </div>

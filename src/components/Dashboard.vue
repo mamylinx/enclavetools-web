@@ -84,7 +84,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-    <div class="grid gap-8 max-w-[1400px] mx-auto px-4 md:px-10 py-8 items-start"
+    <div class="grid gap-8 max-w-[1400px] mx-auto px-4 py-8 items-start"
         :class="isHomepage ? 'grid-cols-1 lg:grid-cols-[1fr_260px]' : 'grid-cols-1 lg:grid-cols-[240px_1fr_260px]'">
         <FilterSidebar v-if="!isHomepage" class="hidden lg:block" :state="filterState" :show-model-format="showModelFormat"
             :active-count="activeCount" :hide-category="hideCategory" @update:sort="(v) => setFilter('sort', v)"
