@@ -84,7 +84,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-    <div class="grid gap-8 max-w-[1400px] mx-auto px-4 py-8 items-start"
+    <div class="grid gap-8 max-w-[1400px] mx-auto px-4 md:px-8 py-12 items-start"
         :class="isHomepage ? 'grid-cols-1 lg:grid-cols-[1fr_260px]' : 'grid-cols-1 lg:grid-cols-[240px_1fr_260px]'">
         <FilterSidebar v-if="!isHomepage" class="hidden lg:block" :state="filterState" :show-model-format="showModelFormat"
             :active-count="activeCount" :hide-category="hideCategory" @update:sort="(v) => setFilter('sort', v)"
@@ -104,13 +104,13 @@ onUnmounted(() => {
 
         <div class="flex flex-col gap-6 min-w-0">
             <div v-if="!isHomepage" class="lg:hidden mb-4">
-                <button class="flex items-center justify-center gap-2 px-4 py-3 bg-white border-2 border-gray-900 font-extrabold text-gray-900 w-full hover:bg-primary-500 hover:text-white hover:border-primary-500 transition-colors" @click="showFilterSheet = true">
+                <button class="flex items-center justify-center gap-2 px-4 h-12 bg-white border-2 border-gray-900 font-extrabold text-gray-900 w-full hover:bg-primary-500 hover:text-white hover:border-primary-500 transition-colors" @click="showFilterSheet = true">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2">
                         <path d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
                     Filters
-                    <span v-if="activeCount > 0" class="bg-gray-900 text-white px-1.5 py-0.5 rounded-none text-[10px] font-black border border-gray-900 ml-1">{{ activeCount }}</span>
+                    <span v-if="activeCount > 0" class="bg-gray-900 text-white px-2 py-1 rounded-none text-[10px] font-black border-2 border-gray-900 ml-1">{{ activeCount }}</span>
                 </button>
             </div>
 
@@ -123,10 +123,10 @@ onUnmounted(() => {
                 @clear-all="clearAll" />
         </div>
 
-        <aside class="sticky top-24 hidden lg:block w-full">
+        <aside class="sticky top-24 hidden lg:block w/full">
             <Sidebar showSponsor showNewsletter />
         </aside>
-        <CompareTray :tools="props.ssrTools || []" />
+        <CompareTray :tools="(props.ssrTools || []) as any" />
     </div>
 
     <FilterBottomSheet v-if="showFilterSheet && !isHomepage" :state="filterState" :show-model-format="showModelFormat"

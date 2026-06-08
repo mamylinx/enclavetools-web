@@ -73,27 +73,27 @@ const tools = page.data;
     />
 
     <div
-        class="flex justify-center gap-4 py-8 mb-8 text-gray-900 font-bold max-w-[1400px] mx-auto"
+        class="flex justify-center items-center gap-3 py-12 px-4 md:px-8 border-t-2 border-gray-900 max-w-[1400px] mx-auto"
     >
         {
             page.url.prev ? (
                 <a
                     href={page.url.prev}
-                    class="px-4 py-2 border border-gray-200 rounded-lg hover:border-gray-900 transition-colors no-underline"
+                    class="inline-flex items-center h-12 px-4 border-2 border-gray-900 text-xs font-black uppercase tracking-wider text-gray-900 hover:bg-gray-900 hover:text-white transition-all duration-200 no-underline"
                 >
-                    Previous
+                    ← Previous
                 </a>
             ) : null
         }
-        <span class="px-4 py-2">Page {page.currentPage} of {page.lastPage}</span
+        <span class="px-4 text-xs font-black uppercase tracking-wider text-gray-500">Page {page.currentPage} of {page.lastPage}</span
         >
         {
             page.url.next ? (
                 <a
                     href={page.url.next}
-                    class="px-4 py-2 border border-gray-200 rounded-lg hover:border-gray-900 transition-colors no-underline"
+                    class="inline-flex items-center h-12 px-4 border-2 border-gray-900 text-xs font-black uppercase tracking-wider text-gray-900 hover:bg-gray-900 hover:text-white transition-all duration-200 no-underline"
                 >
-                    Next
+                    Next →
                 </a>
             ) : null
         }

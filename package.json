@@ -32,6 +32,7 @@
     "astro": "astro",
     "test": "vitest",
     "test:run": "vitest run",
+    "lint:spacing": "bash scripts/lint-spacing.sh",
     "check-data": "bun run scripts/check-data.ts",
     "update-metadata": "bun run scripts/update-metadata.ts",
     "backfill": "bun run scripts/backfill-tools.ts",

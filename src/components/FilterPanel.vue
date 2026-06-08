@@ -108,7 +108,7 @@ const visibleGroups = computed(() => FILTER_GROUPS.filter(
                 :aria-expanded="expandedGroups[group.key]">
                 <span class="text-xs font-black uppercase text-gray-900 tracking-widest flex items-center gap-2">
                     {{ group.label }}
-                    <span v-if="groupCount(group.key as keyof FilterState) > 0" class="bg-primary-50 text-primary-600 px-1.5 py-0.5 border border-primary-500 rounded-none font-bold text-[10px]">
+                    <span v-if="groupCount(group.key as keyof FilterState) > 0" class="bg-primary-50 text-primary-600 px-2 py-1 border-2 border-primary-500 rounded-none font-bold text-[10px]">
                         {{ groupCount(group.key as keyof FilterState) }}
                     </span>
                 </span>
@@ -120,9 +120,9 @@ const visibleGroups = computed(() => FILTER_GROUPS.filter(
             </button>
 
             <div v-show="expandedGroups[group.key]" class="pb-4">
-                <div class="flex flex-wrap gap-1.5">
+                <div class="flex flex-wrap gap-2">
                     <template v-if="group.type === 'single'">
-                        <button v-for="opt in group.options" :key="String(opt.value)" class="px-3 py-1.5 text-xs font-bold transition-all duration-150 border-2 rounded-none"
+                        <button v-for="opt in group.options" :key="String(opt.value)" class="px-3 py-2 text-xs font-bold transition-all duration-150 border-2 rounded-none"
                             :class="isOptionSelected(group.key, opt.value) ? 'bg-gray-900 text-white border-2 border-gray-900 hover:bg-primary-500 hover:border-primary-500' : 'text-gray-600 bg-white border-2 border-gray-200 hover:border-gray-900 hover:text-gray-900'"
                             @click="handleSingleSelect(group.key, opt.value)">
                             {{ optionLabel(group.key, opt.value) }}
@@ -130,7 +130,7 @@ const visibleGroups = computed(() => FILTER_GROUPS.filter(
                     </template>
 
                     <template v-else>
-                        <button v-for="opt in group.options" :key="String(opt.value)" class="px-3 py-1.5 text-xs font-bold transition-all duration-150 border-2 rounded-none"
+                        <button v-for="opt in group.options" :key="String(opt.value)" class="px-3 py-2 text-xs font-bold transition-all duration-150 border-2 rounded-none"
                             :class="isOptionSelected(group.key, opt.value) ? 'bg-gray-900 text-white border-2 border-gray-900 hover:bg-primary-500 hover:border-primary-500' : 'text-gray-600 bg-white border-2 border-gray-200 hover:border-gray-900 hover:text-gray-900'"
                             @click="handleToggle(group.key, opt.value || '')">
                             {{ opt.label }}

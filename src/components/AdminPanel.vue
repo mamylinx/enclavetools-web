@@ -36,7 +36,7 @@
 
       <div class="flex flex-wrap gap-1 border-b-2 border-gray-200 pb-0">
         <button v-for="tab in tabs" :key="tab.key" @click="activeTab = tab.key"
-          class="px-5 py-3 font-black uppercase tracking-wider text-xs transition-colors cursor-pointer border-b-2 -mb-[2px]"
+          class="px-4 py-3 font-black uppercase tracking-wider text-xs transition-colors cursor-pointer border-b-2 -mb-[2px]"
           :class="activeTab === tab.key ? 'border-gray-900 text-gray-900 bg-white' : 'border-transparent text-gray-500 hover:text-gray-900 hover:border-gray-400 bg-gray-50'">
           {{ tab.label }}
         </button>

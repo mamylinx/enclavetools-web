@@ -30,7 +30,7 @@ function selectTab(index: number) {
 <template>
     <section
         id="use-cases"
-        class="max-w-[1400px] mx-auto px-4 pt-12 pb-6 scroll-mt-[82px]"
+        class="max-w-[1400px] mx-auto px-4 md:px-8 py-12 scroll-mt-[82px]"
         aria-labelledby="use-cases-heading"
     >
         <div class="mb-8">
@@ -45,7 +45,7 @@ function selectTab(index: number) {
             </h2>
         </div>
 
-        <div class="flex flex-col md:flex-row gap-0 md:gap-6">
+        <div class="flex flex-col md:flex-row gap-6">
             <div
                 class="flex md:flex-col border-2 border-gray-900 md:w-56 lg:w-64 shrink-0 md:self-start"
                 role="tablist"
@@ -58,7 +58,7 @@ function selectTab(index: number) {
                     :id="`use-case-tab-${index}`"
                     :aria-controls="`use-case-panel-${index}`"
                     :aria-selected="activeTab === index"
-                    class="flex items-center gap-3 px-4 py-3.5 text-left border-b-2 md:border-b-0 md:border-r-2 border-gray-900 last:border-b-0 transition-colors w-full"
+                    class="flex items-center gap-3 px-4 h-12 text-left border-b-2 md:border-b-0 md:border-r-2 border-gray-900 last:border-b-0 transition-colors w-full"
                     :class="activeTab === index ? 'bg-gray-900 text-white' : 'bg-white text-gray-900 hover:bg-gray-50'"
                     @click="selectTab(index)"
                 >
@@ -77,19 +77,19 @@ function selectTab(index: number) {
                 role="tabpanel"
                 :id="`use-case-panel-${index}`"
                 :aria-labelledby="`use-case-tab-${index}`"
-                class="border-2 border-gray-900 p-5 md:p-6 bg-white flex-1"
+                class="border-2 border-gray-900 p-6 bg-white flex-1"
                 :class="activeTab === index ? '' : 'hidden'"
             >
                 <p class="text-gray-600 text-sm leading-relaxed font-medium">
                     {{ section.copy }}
                 </p>
 
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-5 pt-4 border-t-2 border-gray-900">
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-4 pt-4 border-t-2 border-gray-900">
                     <a
                         v-for="tool in featuredTools[index]"
                         :key="tool.slug"
                         :href="`/tools/${tool.slug}`"
-                        class="border-2 border-dashed border-gray-200 p-3 hover:border-solid hover:border-gray-900 transition-colors no-underline block group"
+                        class="border-2 border-dashed border-gray-200 p-4 hover:border-solid hover:border-gray-900 transition-colors no-underline block group"
                     >
                         <strong class="block text-sm font-black text-gray-900 group-hover:text-primary-500 transition-colors">
                             {{ tool.title }}

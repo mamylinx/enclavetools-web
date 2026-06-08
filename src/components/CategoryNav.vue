@@ -73,24 +73,26 @@ const closeBottomSheet = () => {
       </svg>
     </button>
 
-    <div class="fixed inset-0 bg-black/40 z-40 transition-opacity duration-300" :class="showBottomSheet ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'" @click="closeBottomSheet"></div>
+    <Teleport to="body">
+      <div class="fixed inset-0 bg-black/40 z-[60] transition-opacity duration-300" :class="showBottomSheet ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'" @click="closeBottomSheet"></div>
 
-    <div class="fixed inset-x-0 bottom-0 bg-white border-t-2 border-gray-900 z-50 transition-transform duration-300 max-h-[85vh] flex flex-col rounded-none shadow-[0_-4px_0_0_rgba(17,24,39,1)]" :class="showBottomSheet ? 'translate-y-0' : 'translate-y-full'">
-      <div class="flex items-center justify-between px-6 py-5 border-b-2 border-gray-900">
-        <span class="text-lg font-black text-gray-900 tracking-tight">All Categories</span>
-        <button class="flex items-center justify-center p-2 bg-transparent border-2 border-transparent text-gray-500 hover:text-gray-900 transition-colors cursor-pointer" @click="closeBottomSheet" aria-label="Close">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2">
-            <path d="M18 6 6 18M6 6l12 12" stroke-linecap="round" />
-          </svg>
-        </button>
+      <div class="fixed inset-x-0 bottom-0 bg-white border-t-2 border-gray-900 z-[70] transition-transform duration-300 max-h-[85vh] flex flex-col rounded-none shadow-[0_-4px_0_0_rgba(17,24,39,1)]" :class="showBottomSheet ? 'translate-y-0' : 'translate-y-full'">
+        <div class="flex items-center justify-between px-4 md:px-8 py-4 border-b-2 border-gray-900 shrink-0">
+          <span class="text-lg font-black text-gray-900 tracking-tight">All Categories</span>
+          <button class="flex items-center justify-center p-2 bg-transparent border-2 border-transparent text-gray-500 hover:text-gray-900 transition-colors cursor-pointer" @click="closeBottomSheet" aria-label="Close">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2">
+              <path d="M18 6 6 18M6 6l12 12" stroke-linecap="round" />
+            </svg>
+          </button>
+        </div>
+        <div class="overflow-y-auto px-4 md:px-8 py-4 flex-1 overscroll-contain">
+          <a v-for="item in navItems" :key="item.category" class="flex items-center px-4 py-4 border-b-2 border-gray-200 text-base font-bold no-underline"
+            :class="activeFilter === item.category ? 'text-primary-500' : 'text-gray-600'" :href="item.href" @click="closeBottomSheet">
+            <span>{{ item.title }}</span>
+          </a>
+        </div>
       </div>
-      <div class="overflow-y-auto px-6 py-4 flex-1 overscroll-contain">
-        <a v-for="item in navItems" :key="item.category" class="flex items-center px-4 py-4 border-b border-gray-200 text-base font-bold no-underline"
-          :class="activeFilter === item.category ? 'text-primary-500' : 'text-gray-600'" :href="item.href" @click="closeBottomSheet">
-          <span>{{ item.title }}</span>
-        </a>
-      </div>
-    </div>
+    </Teleport>
   </div>
 </template>

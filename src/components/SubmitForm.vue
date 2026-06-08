@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="success" class="flex flex-col md:flex-row items-start md:items-center gap-6 bg-green-50 border border-green-600 p-6 mb-8">
+    <div v-if="success" class="flex flex-col md:flex-row items-start md:items-center gap-6 bg-green-50 border-2 border-green-600 p-6 mb-8">
       <div class="w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center text-2xl font-black shrink-0">✓</div>
       <div>
         <h3 class="text-xl font-black text-green-800 mb-2">Successfully submitted</h3>
@@ -10,13 +10,13 @@
 
     <form v-else @submit.prevent="submitForm" class="flex flex-col gap-6">
 
-      <div class="bg-gray-50 border border-gray-200 p-6">
+      <div class="bg-gray-50 border-2 border-gray-200 p-6">
         <h3 class="text-xl font-black text-gray-900 mb-2 uppercase tracking-wide">Have a GitHub Repo?</h3>
         <p class="text-base font-bold text-gray-600 mb-6 m-0">Paste the URL below to automatically fill in most of the details.</p>
         <div class="flex flex-col md:flex-row gap-4">
-          <input type="url" v-model="githubUrl" id="githubUrl" class="w-full bg-white border border-gray-200 px-4 py-3 font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-colors"
+          <input type="url" v-model="githubUrl" id="githubUrl" class="w-full bg-white border-2 border-gray-200 h-12 px-4 font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-colors"
             placeholder="https://github.com/owner/repo" />
-          <button type="button" @click="fetchGithubData" :disabled="isFetching" class="inline-flex items-center justify-center px-6 py-3 font-black uppercase tracking-wider text-sm transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed bg-white border-2 border-gray-900 text-gray-900 hover:bg-primary-500 hover:text-white hover:border-primary-500 whitespace-nowrap">
+          <button type="button" @click="fetchGithubData" :disabled="isFetching" class="inline-flex items-center justify-center px-4 h-12 font-black uppercase tracking-wider text-sm transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed bg-white border-2 border-gray-900 text-gray-900 hover:bg-primary-500 hover:text-white hover:border-primary-500 whitespace-nowrap">
             {{ isFetching ? 'Fetching...' : 'Auto-fill' }}
           </button>
         </div>
@@ -26,22 +26,22 @@
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div class="flex flex-col gap-2 col-span-1 md:col-span-2">
           <label for="name" class="font-black text-gray-900 uppercase tracking-wider text-sm">Name *</label>
-          <input type="text" id="name" v-model="form.name" required class="w-full bg-white border border-gray-200 px-4 py-3 font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-colors" />
+          <input type="text" id="name" v-model="form.name" required class="w-full bg-white border-2 border-gray-200 h-12 px-4 font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-colors" />
         </div>
 
         <div class="flex flex-col gap-2 col-span-1 md:col-span-2">
           <label for="description" class="font-black text-gray-900 uppercase tracking-wider text-sm">Short Description *</label>
-          <textarea id="description" v-model="form.description" rows="3" required class="w-full bg-white border border-gray-200 px-4 py-3 font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-colors"></textarea>
+          <textarea id="description" v-model="form.description" rows="3" required class="w-full bg-white border-2 border-gray-200 px-4 py-4 font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-colors resize-none"></textarea>
         </div>
 
         <div class="flex flex-col gap-2 col-span-1">
           <label for="url" class="font-black text-gray-900 uppercase tracking-wider text-sm">Website URL</label>
-          <input type="url" id="url" v-model="form.url" class="w-full bg-white border border-gray-200 px-4 py-3 font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-colors" />
+          <input type="url" id="url" v-model="form.url" class="w-full bg-white border-2 border-gray-200 h-12 px-4 font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-colors" />
         </div>
 
         <div class="flex flex-col gap-2 col-span-1">
           <label for="category" class="font-black text-gray-900 uppercase tracking-wider text-sm">Category *</label>
-          <select id="category" v-model="form.category" required class="w-full bg-white border border-gray-200 px-4 py-3 font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-colors cursor-pointer appearance-none">
+          <select id="category" v-model="form.category" required class="w-full bg-white border-2 border-gray-200 h-12 px-4 font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-colors cursor-pointer appearance-none">
             <option value="">Select a category</option>
             <option v-for="cat in categoryOptions" :key="cat.category" :value="cat.category">{{ cat.title }}</option>
           </select>
@@ -50,12 +50,12 @@
         <div class="flex flex-col gap-2 col-span-1">
           <label for="license" class="font-black text-gray-900 uppercase tracking-wider text-sm">License</label>
           <input type="text" id="license" v-model="form.license" placeholder="e.g. MIT, Apache 2.0"
-            class="w-full bg-white border border-gray-200 px-4 py-3 font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-colors" />
+            class="w-full bg-white border-2 border-gray-200 h-12 px-4 font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-colors" />
         </div>
 
         <div class="flex flex-col gap-2 col-span-1">
           <label for="maturity" class="font-black text-gray-900 uppercase tracking-wider text-sm">Maturity</label>
-          <select id="maturity" v-model="form.maturity" class="w-full bg-white border border-gray-200 px-4 py-3 font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-colors cursor-pointer appearance-none">
+          <select id="maturity" v-model="form.maturity" class="w-full bg-white border-2 border-gray-200 h-12 px-4 font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-colors cursor-pointer appearance-none">
             <option value="">Select maturity</option>
             <option value="stable">Stable</option>
             <option value="beta">Beta</option>
@@ -67,7 +67,7 @@
 
         <div class="flex flex-col gap-2 col-span-1">
           <label class="font-black text-gray-900 uppercase tracking-wider text-sm">Hardware *</label>
-          <div class="flex flex-col gap-3 bg-white border border-gray-200 p-4">
+          <div class="flex flex-col gap-3 bg-white border-2 border-gray-200 p-4">
             <label class="flex items-center gap-3 font-bold text-gray-700 cursor-pointer"><input type="checkbox" v-model="form.hardware" value="CPU Only" class="w-5 h-5 border-2 border-gray-900 cursor-pointer accent-gray-900"> CPU Only</label>
             <label class="flex items-center gap-3 font-bold text-gray-700 cursor-pointer"><input type="checkbox" v-model="form.hardware" value="NVIDIA GPU (CUDA)" class="w-5 h-5 border-2 border-gray-900 cursor-pointer accent-gray-900"> NVIDIA GPU (CUDA)</label>
             <label class="flex items-center gap-3 font-bold text-gray-700 cursor-pointer"><input type="checkbox" v-model="form.hardware" value="AMD GPU (ROCm)" class="w-5 h-5 border-2 border-gray-900 cursor-pointer accent-gray-900"> AMD GPU (ROCm)</label>
@@ -78,7 +78,7 @@
 
         <div class="flex flex-col gap-2 col-span-1">
           <label class="font-black text-gray-900 uppercase tracking-wider text-sm">Deployment *</label>
-          <div class="flex flex-col gap-3 bg-white border border-gray-200 p-4">
+          <div class="flex flex-col gap-3 bg-white border-2 border-gray-200 p-4">
             <label class="flex items-center gap-3 font-bold text-gray-700 cursor-pointer"><input type="checkbox" v-model="form.deployment" value="Docker" class="w-5 h-5 border-2 border-gray-900 cursor-pointer accent-gray-900"> Docker</label>
             <label class="flex items-center gap-3 font-bold text-gray-700 cursor-pointer"><input type="checkbox" v-model="form.deployment" value="Bare Metal" class="w-5 h-5 border-2 border-gray-900 cursor-pointer accent-gray-900"> Bare Metal</label>
             <label class="flex items-center gap-3 font-bold text-gray-700 cursor-pointer"><input type="checkbox" v-model="form.deployment" value="Kubernetes" class="w-5 h-5 border-2 border-gray-900 cursor-pointer accent-gray-900"> Kubernetes</label>
@@ -95,7 +95,7 @@
         >
           <div v-if="form.category === 'llm-models'" class="flex flex-col gap-2 col-span-1 md:col-span-2">
             <label class="font-black text-gray-900 uppercase tracking-wider text-sm">Model Format *</label>
-            <div class="flex flex-row flex-wrap gap-6 bg-white border border-gray-200 p-4">
+            <div class="flex flex-row flex-wrap gap-6 bg-white border-2 border-gray-200 p-4">
               <label class="flex items-center gap-3 font-bold text-gray-700 cursor-pointer"><input type="checkbox" v-model="form.modelFormat" value="GGUF" class="w-5 h-5 border-2 border-gray-900 cursor-pointer accent-gray-900"> GGUF</label>
               <label class="flex items-center gap-3 font-bold text-gray-700 cursor-pointer"><input type="checkbox" v-model="form.modelFormat" value="GPTQ" class="w-5 h-5 border-2 border-gray-900 cursor-pointer accent-gray-900"> GPTQ</label>
               <label class="flex items-center gap-3 font-bold text-gray-700 cursor-pointer"><input type="checkbox" v-model="form.modelFormat" value="AWQ" class="w-5 h-5 border-2 border-gray-900 cursor-pointer accent-gray-900"> AWQ</label>
@@ -112,7 +112,7 @@
               class="w-16 h-16 object-cover border-2 border-gray-900" />
             <div v-else class="w-16 h-16 bg-gray-50 border-2 border-dashed border-gray-400 flex items-center justify-center font-bold text-gray-400 text-xs uppercase">Img</div>
             <input type="file" ref="logoInput" accept="image/png, image/jpeg" @change="handleLogoChange"
-              class="text-sm font-bold text-gray-600 file:mr-4 file:py-3 file:px-6 file:border-2 file:border-gray-900 file:text-sm file:font-black file:uppercase file:tracking-wider file:bg-white file:text-gray-900 hover:file:bg-gray-900 hover:file:text-white file:transition-colors file:cursor-pointer file:cursor-pointer" />
+              class="text-sm font-bold text-gray-600 file:mr-4 file:h-12 file:px-4 file:border-2 file:border-gray-900 file:text-sm file:font-black file:uppercase file:tracking-wider file:bg-white file:text-gray-900 hover:file:bg-gray-900 hover:file:text-white file:transition-colors file:cursor-pointer" />
           </div>
           <p v-if="fileError" class="text-sm font-bold text-red-600 mt-2 m-0">{{ fileError }}</p>
         </div>
@@ -120,26 +120,26 @@
 
       <!-- Advanced Fields -->
       <button type="button" @click="showAdvanced = !showAdvanced"
-        class="self-start inline-flex items-center gap-2 px-6 py-3 font-black uppercase tracking-wider text-sm transition-colors cursor-pointer bg-white border-2 border-gray-900 text-gray-900 hover:bg-primary-500 hover:text-white hover:border-primary-500">
+        class="self-start inline-flex items-center gap-2 px-4 h-12 font-black uppercase tracking-wider text-sm transition-colors cursor-pointer bg-white border-2 border-gray-900 text-gray-900 hover:bg-primary-500 hover:text-white hover:border-primary-500">
         {{ showAdvanced ? '▾' : '▸' }} Advanced Fields
       </button>
 
-      <div v-if="showAdvanced" class="grid grid-cols-1 md:grid-cols-2 gap-6 p-6 bg-gray-50 border border-gray-200">
+      <div v-if="showAdvanced" class="grid grid-cols-1 md:grid-cols-2 gap-6 p-6 bg-gray-50 border-2 border-gray-200">
         <div class="flex flex-col gap-2 col-span-1 md:col-span-2">
           <label for="plain_desc" class="font-black text-gray-900 uppercase tracking-wider text-sm">Plain Description</label>
           <textarea id="plain_desc" v-model="form.plain_description" rows="2" placeholder="Simple, non-technical description of what this tool does"
-            class="w-full bg-white border border-gray-200 px-4 py-3 font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-colors"></textarea>
+            class="w-full bg-white border-2 border-gray-200 px-4 py-4 font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-colors resize-none"></textarea>
         </div>
 
         <div class="flex flex-col gap-2 col-span-1 md:col-span-2">
           <label for="tech_desc" class="font-black text-gray-900 uppercase tracking-wider text-sm">Technical Description</label>
           <textarea id="tech_desc" v-model="form.technical_description" rows="2" placeholder="Detailed technical description for power users"
-            class="w-full bg-white border border-gray-200 px-4 py-3 font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-colors"></textarea>
+            class="w-full bg-white border-2 border-gray-200 px-4 py-4 font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-colors resize-none"></textarea>
         </div>
 
         <div class="flex flex-col gap-2">
           <label for="setup_diff" class="font-black text-gray-900 uppercase tracking-wider text-sm">Setup Difficulty</label>
-          <select id="setup_diff" v-model="form.setup_difficulty" class="w-full bg-white border border-gray-200 px-4 py-3 font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-colors cursor-pointer appearance-none">
+          <select id="setup_diff" v-model="form.setup_difficulty" class="w-full bg-white border-2 border-gray-200 h-12 px-4 font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-colors cursor-pointer appearance-none">
             <option value="">Select difficulty</option>
             <option value="very_easy">Very Easy</option>
             <option value="easy">Easy</option>
@@ -151,7 +151,7 @@
 
         <div class="flex flex-col gap-2">
           <label for="comm_use" class="font-black text-gray-900 uppercase tracking-wider text-sm">Commercial Use</label>
-          <select id="comm_use" v-model="form.commercial_use" class="w-full bg-white border border-gray-200 px-4 py-3 font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-colors cursor-pointer appearance-none">
+          <select id="comm_use" v-model="form.commercial_use" class="w-full bg-white border-2 border-gray-200 h-12 px-4 font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-colors cursor-pointer appearance-none">
             <option value="">Not specified</option>
             <option value="yes">Yes</option>
             <option value="no">No</option>
@@ -161,7 +161,7 @@
 
         <div class="flex flex-col gap-2">
           <label for="telemetry" class="font-black text-gray-900 uppercase tracking-wider text-sm">Telemetry</label>
-          <select id="telemetry" v-model="form.telemetry" class="w-full bg-white border border-gray-200 px-4 py-3 font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-colors cursor-pointer appearance-none">
+          <select id="telemetry" v-model="form.telemetry" class="w-full bg-white border-2 border-gray-200 h-12 px-4 font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-colors cursor-pointer appearance-none">
             <option value="">Not specified</option>
             <option value="none">None</option>
             <option value="opt_in">Opt-in</option>
@@ -172,7 +172,7 @@
 
         <div class="flex flex-col gap-2">
           <label for="offline" class="font-black text-gray-900 uppercase tracking-wider text-sm">Works Offline After Setup</label>
-          <select id="offline" v-model="form.offline_after_setup" class="w-full bg-white border border-gray-200 px-4 py-3 font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-colors cursor-pointer appearance-none">
+          <select id="offline" v-model="form.offline_after_setup" class="w-full bg-white border-2 border-gray-200 h-12 px-4 font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-colors cursor-pointer appearance-none">
             <option value="">Not specified</option>
             <option value="yes">Yes</option>
             <option value="no">No</option>
@@ -181,7 +181,7 @@
 
         <div class="flex flex-col gap-2">
           <label class="font-black text-gray-900 uppercase tracking-wider text-sm">Capabilities</label>
-          <div class="flex flex-col gap-3 bg-white border border-gray-200 p-4">
+          <div class="flex flex-col gap-3 bg-white border-2 border-gray-200 p-4">
             <label class="flex items-center gap-3 font-bold text-gray-700 cursor-pointer"><input type="checkbox" v-model="form.openai_api" value="yes" class="w-5 h-5 accent-gray-900 cursor-pointer"> OpenAI API Compatible</label>
             <label class="flex items-center gap-3 font-bold text-gray-700 cursor-pointer"><input type="checkbox" v-model="form.rest_api" value="yes" class="w-5 h-5 accent-gray-900 cursor-pointer"> REST API</label>
             <label class="flex items-center gap-3 font-bold text-gray-700 cursor-pointer"><input type="checkbox" v-model="form.docker_available" value="yes" class="w-5 h-5 accent-gray-900 cursor-pointer"> Docker Available</label>
@@ -192,7 +192,7 @@
 
         <div class="flex flex-col gap-2">
           <label class="font-black text-gray-900 uppercase tracking-wider text-sm">Model Features</label>
-          <div class="flex flex-col gap-3 bg-white border border-gray-200 p-4">
+          <div class="flex flex-col gap-3 bg-white border-2 border-gray-200 p-4">
             <label class="flex items-center gap-3 font-bold text-gray-700 cursor-pointer"><input type="checkbox" v-model="form.fine_tuning" value="yes" class="w-5 h-5 accent-gray-900 cursor-pointer"> Fine-tuning</label>
             <label class="flex items-center gap-3 font-bold text-gray-700 cursor-pointer"><input type="checkbox" v-model="form.quantization" value="yes" class="w-5 h-5 accent-gray-900 cursor-pointer"> Quantization</label>
           </div>
@@ -201,24 +201,24 @@
         <div class="flex flex-col gap-2">
           <label for="doc_url" class="font-black text-gray-900 uppercase tracking-wider text-sm">Documentation URL</label>
           <input type="url" id="doc_url" v-model="form.docs_url" placeholder="https://docs.example.com"
-            class="w-full bg-white border border-gray-200 px-4 py-3 font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-colors" />
+            class="w-full bg-white border-2 border-gray-200 h-12 px-4 font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-colors" />
         </div>
 
         <div class="flex flex-col gap-2">
           <label for="min_ram" class="font-black text-gray-900 uppercase tracking-wider text-sm">Min RAM (GB)</label>
           <input type="number" id="min_ram" v-model="form.min_ram_gb" placeholder="e.g. 8" min="0" step="1"
-            class="w-full bg-white border border-gray-200 px-4 py-3 font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-colors" />
+            class="w-full bg-white border-2 border-gray-200 h-12 px-4 font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-colors" />
         </div>
 
         <div class="flex flex-col gap-2">
           <label for="rec_ram" class="font-black text-gray-900 uppercase tracking-wider text-sm">Recommended RAM (GB)</label>
           <input type="number" id="rec_ram" v-model="form.recommended_ram_gb" placeholder="e.g. 16" min="0" step="1"
-            class="w-full bg-white border border-gray-200 px-4 py-3 font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-colors" />
+            class="w-full bg-white border-2 border-gray-200 h-12 px-4 font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-colors" />
         </div>
 
         <div class="flex flex-col gap-2 col-span-1 md:col-span-2">
           <label class="font-black text-gray-900 uppercase tracking-wider text-sm">Use Cases</label>
-          <div class="flex flex-row flex-wrap gap-x-6 gap-y-3 bg-white border border-gray-200 p-4">
+          <div class="flex flex-row flex-wrap gap-x-6 gap-y-3 bg-white border-2 border-gray-200 p-4">
             <label class="flex items-center gap-3 font-bold text-gray-700 cursor-pointer"><input type="checkbox" v-model="form.use_cases" value="chat" class="w-5 h-5 accent-gray-900 cursor-pointer"> Chat</label>
             <label class="flex items-center gap-3 font-bold text-gray-700 cursor-pointer"><input type="checkbox" v-model="form.use_cases" value="code_generation" class="w-5 h-5 accent-gray-900 cursor-pointer"> Code Generation</label>
             <label class="flex items-center gap-3 font-bold text-gray-700 cursor-pointer"><input type="checkbox" v-model="form.use_cases" value="image_generation" class="w-5 h-5 accent-gray-900 cursor-pointer"> Image Generation</label>
@@ -234,7 +234,7 @@
 
         <div class="flex flex-col gap-2 col-span-1 md:col-span-2">
           <label class="font-black text-gray-900 uppercase tracking-wider text-sm">Target Personas</label>
-          <div class="flex flex-row flex-wrap gap-x-6 gap-y-3 bg-white border border-gray-200 p-4">
+          <div class="flex flex-row flex-wrap gap-x-6 gap-y-3 bg-white border-2 border-gray-200 p-4">
             <label class="flex items-center gap-3 font-bold text-gray-700 cursor-pointer"><input type="checkbox" v-model="form.personas" value="developer" class="w-5 h-5 accent-gray-900 cursor-pointer"> Developer</label>
             <label class="flex items-center gap-3 font-bold text-gray-700 cursor-pointer"><input type="checkbox" v-model="form.personas" value="data_scientist" class="w-5 h-5 accent-gray-900 cursor-pointer"> Data Scientist</label>
             <label class="flex items-center gap-3 font-bold text-gray-700 cursor-pointer"><input type="checkbox" v-model="form.personas" value="researcher" class="w-5 h-5 accent-gray-900 cursor-pointer"> Researcher</label>
@@ -244,12 +244,12 @@
         </div>
       </div>
 
-      <div v-if="submitError" class="bg-red-50 text-red-600 border border-red-600 p-4 font-bold text-sm">
+      <div v-if="submitError" class="bg-red-50 text-red-600 border-2 border-red-600 p-4 font-bold text-sm">
         {{ submitError }}
       </div>
 
       <div class="flex justify-end mt-4">
-        <button type="submit" :disabled="isSubmitting" class="inline-flex items-center justify-center px-6 py-3 font-black uppercase tracking-wider text-sm transition-colors border-none cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed bg-gray-900 text-white hover:bg-primary-500">
+        <button type="submit" :disabled="isSubmitting" class="inline-flex items-center justify-center px-4 h-12 font-black uppercase tracking-wider text-sm transition-colors border-none cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed bg-gray-900 text-white hover:bg-primary-500">
           {{ isSubmitting ? 'Submitting...' : 'Submit Tool' }}
         </button>
       </div>

@@ -81,14 +81,14 @@ const categoryTiles = categories.slice(0, 8).map((cat: any) => ({
 const featuredTools = sections.map((s) => featuredFor(s.categories));
 
 const hoverColors = [
-    "hover:bg-[#FFD93D] hover:text-gray-900", // Neon Yellow
-    "hover:bg-[#6BCB77] hover:text-gray-900", // Mint Green
-    "hover:bg-[#4D96FF] hover:text-white",    // Electric Blue
-    "hover:bg-[#FF6B6B] hover:text-white",    // Coral Red
-    "hover:bg-[#FF9F43] hover:text-white",    // Orange
-    "hover:bg-[#9B5DE5] hover:text-white",    // Purple
-    "hover:bg-[#00F5D4] hover:text-gray-900", // Cyan
-    "hover:bg-[#F15BB5] hover:text-white",    // Hot Pink
+    "hover:bg-accent-hue-1 hover:text-gray-900",
+    "hover:bg-accent-hue-2 hover:text-gray-900",
+    "hover:bg-accent-hue-3 hover:text-gray-900",
+    "hover:bg-accent-hue-4 hover:text-gray-900",
+    "hover:bg-accent-hue-5 hover:text-gray-900",
+    "hover:bg-accent-hue-6 hover:text-gray-900",
+    "hover:bg-accent-hue-7 hover:text-gray-900",
+    "hover:bg-accent-hue-8 hover:text-gray-900",
 ];
 ---
 
@@ -105,39 +105,39 @@ const hoverColors = [
         items={allTools}
         listName={c.home_schema_list_name || "AI Tools Directory - All Tools"}
     />
-    <div class="px-4 pt-6 pb-6 border-b border-gray-200">
+    <div class="px-4 md:px-8 pt-12 pb-16 border-b-2 border-gray-900">
         <section
-            class="grid grid-cols-1 gap-10 max-w-[1400px] mx-auto px-4 items-end"
+            class="flex flex-col items-center max-w-[1400px] mx-auto"
         >
-            <div class="flex flex-wrap gap-2.5 justify-center">
+            <div class="flex flex-wrap gap-3 justify-center">
                 <a
                     href="/all"
-                    class="inline-flex items-center min-h-[48px] border-2 border-gray-900 px-5 font-black uppercase tracking-wider text-xs bg-gray-900 text-white hover:bg-primary-500 hover:border-primary-500 rounded-none transition-all duration-300 ease-out-expo hover:-translate-y-1 hover:shadow-card-hover no-underline"
+                    class="inline-flex items-center h-12 border-2 border-gray-900 px-4 font-black uppercase tracking-wider text-xs bg-gray-900 text-white hover:bg-primary-500 hover:border-primary-500 rounded-none transition-all duration-300 ease-out-expo hover:-translate-y-1 hover:shadow-card-hover no-underline"
                     >{c.cta_browse_all || "Browse all tools"}</a
                 >
                 <a
                     href="#use-cases"
-                    class="inline-flex items-center min-h-[48px] border-2 border-gray-900 px-5 font-black uppercase tracking-wider text-xs bg-white text-gray-900 hover:bg-primary-500 hover:text-white hover:border-primary-500 rounded-none transition-all duration-300 ease-out-expo hover:-translate-y-1 hover:shadow-card-hover no-underline"
+                    class="inline-flex items-center h-12 border-2 border-gray-900 px-4 font-black uppercase tracking-wider text-xs bg-white text-gray-900 hover:bg-primary-500 hover:text-white hover:border-primary-500 rounded-none transition-all duration-300 ease-out-expo hover:-translate-y-1 hover:shadow-card-hover no-underline"
                     >{c.cta_use_cases || "Find tools for my use case"}</a
                 >
                 <a
                     href="/compare"
-                    class="inline-flex items-center min-h-[48px] border-2 border-gray-900 px-5 font-black uppercase tracking-wider text-xs bg-white text-gray-900 hover:bg-primary-500 hover:text-white hover:border-primary-500 rounded-none transition-all duration-300 ease-out-expo hover:-translate-y-1 hover:shadow-card-hover no-underline"
+                    class="inline-flex items-center h-12 border-2 border-gray-900 px-4 font-black uppercase tracking-wider text-xs bg-white text-gray-900 hover:bg-primary-500 hover:text-white hover:border-primary-500 rounded-none transition-all duration-300 ease-out-expo hover:-translate-y-1 hover:shadow-card-hover no-underline"
                     >{c.cta_compare || "Compare tools"}</a
                 >
                 <a
                     href="/stack-builder"
-                    class="inline-flex items-center min-h-[48px] border-2 border-gray-900 px-5 font-black uppercase tracking-wider text-xs bg-white text-gray-900 hover:bg-primary-500 hover:text-white hover:border-primary-500 rounded-none transition-all duration-300 ease-out-expo hover:-translate-y-1 hover:shadow-card-hover no-underline"
+                    class="inline-flex items-center h-12 border-2 border-gray-900 px-4 font-black uppercase tracking-wider text-xs bg-white text-gray-900 hover:bg-primary-500 hover:text-white hover:border-primary-500 rounded-none transition-all duration-300 ease-out-expo hover:-translate-y-1 hover:shadow-card-hover no-underline"
                     >{c.cta_build_stack || "Build a stack"}</a
                 >
             </div>
 
             <dl
-                class="md:col-span-2 grid grid-cols-1 md:grid-cols-3 mt-5 border-y border-gray-900"
+                class="w-full grid grid-cols-1 md:grid-cols-3 mt-12 border-y-2 border-gray-900"
                 aria-label="Directory statistics"
             >
                 <div
-                    class="p-4 border-b md:border-b-0 md:border-r border-gray-900"
+                    class="p-6 border-b-2 md:border-b-0 md:border-r-2 border-gray-900"
                 >
                     <dt class="text-xl font-black">{totalTools}</dt><dd
                         class="text-xs font-black uppercase text-gray-500 tracking-wider"
@@ -146,7 +146,7 @@ const hoverColors = [
                     </dd>
                 </div>
                 <div
-                    class="p-4 border-b md:border-b-0 md:border-r border-gray-900"
+                    class="p-6 border-b-2 md:border-b-0 md:border-r-2 border-gray-900"
                 >
                     <dt class="text-xl font-black">
                         {toolsData.tools.length}
@@ -157,7 +157,7 @@ const hoverColors = [
                     </dd>
                 </div>
                 <div
-                    class="p-4 border-b md:border-b-0 md:border-r-0 border-gray-900"
+                    class="p-6 border-b-2 md:border-b-0 md:border-r-0 border-gray-900"
                 >
                     <dt class="text-xl font-black">
                         {
@@ -182,7 +182,7 @@ const hoverColors = [
         </section>
 
         <section
-            class="grid grid-cols-1 md:grid-cols-[minmax(280px,0.8fr)_1.2fr] gap-10 max-w-[1400px] mx-auto pt-6 px-4 md:px-10"
+            class="grid grid-cols-1 md:grid-cols-[minmax(280px,0.8fr)_1.2fr] gap-12 max-w-[1400px] mx-auto pt-12"
             aria-labelledby="category-heading"
         >
             <div class="flex flex-col py-auto items-start justify-center">
@@ -193,7 +193,7 @@ const hoverColors = [
                 </p>
                 <h2
                     id="category-heading"
-                    class="max-w-[620px] text-3xl md:text-4xl lg:text-5xl text-gray-900 leading-[0.98] font-black tracking-tight mt-3"
+                    class="max-w-[620px] text-3xl md:text-4xl lg:text-5xl text-gray-900 leading-[0.98] font-black tracking-tight mt-4"
                 >
                     {c.home_category_heading || "Choose a category."}
                 </h2>
@@ -205,7 +205,7 @@ const hoverColors = [
                         return (
                             <a
                                 href={`/${cat.category}`}
-                                class={`group flex flex-col justify-between min-h-[130px] p-5 bg-white border-2 border-gray-900 text-gray-900 transition-all duration-300 ease-out-expo hover:-translate-y-1 hover:shadow-card-hover shadow-[0_0_0_0_rgba(0,0,0,0)] no-underline ${hoverColorClass}`}
+                                class={`group flex flex-col justify-between min-h-0 p-6 bg-white border-2 border-gray-900 text-gray-900 transition-all duration-300 ease-out-expo hover:-translate-y-1 hover:shadow-card-hover shadow-[0_0_0_0_rgba(0,0,0,0)] no-underline ${hoverColorClass}`}
                             >
                                 <div class="flex justify-between items-start w-full">
                                     <span class="text-lg font-black leading-tight max-w-[85%]">
@@ -216,7 +216,7 @@ const hoverColors = [
                                     </span>
                                 </div>
                                 <div class="flex justify-between items-end mt-4">
-                                    <span class="inline-flex items-center px-2 py-0.5 text-xs font-black uppercase border-2 border-gray-900 bg-gray-900 text-white group-hover:bg-white group-hover:text-gray-900 transition-colors duration-150">
+                                    <span class="inline-flex items-center px-2 py-1 text-xs font-black uppercase border-2 border-gray-900 bg-gray-900 text-white group-hover:bg-white group-hover:text-gray-900 transition-colors duration-150">
                                         {cat.count} {cat.count === 1 ? 'tool' : 'tools'}
                                     </span>
                                 </div>

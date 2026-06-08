@@ -32,7 +32,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <section v-if="isLoading" class="py-20 text-center">
+  <section v-if="isLoading" class="py-16 text-center">
     <p class="text-lg font-bold text-gray-500 uppercase tracking-widest">Loading saved tools...</p>
   </section>
 
@@ -42,7 +42,7 @@ onUnmounted(() => {
       action-text="Browse AI Tools" action-href="/" />
   </section>
 
-  <section v-else class="py-8 md:py-12">
+  <section v-else class="py-12">
     <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8 pb-6 border-b-2 border-gray-900">
       <div class="favorites-info">
         <p class="text-2xl font-black text-gray-900 m-0 tracking-tight">

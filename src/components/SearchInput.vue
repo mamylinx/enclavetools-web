@@ -116,7 +116,7 @@ onUnmounted(() => {
         <path d="m21 21-4.35-4.35" />
       </svg>
       <input ref="inputRef" type="text"
-        class="w-full bg-white border-2 border-gray-900 rounded-none py-2 pl-12 pr-12 text-gray-900 outline-none focus:border-primary-500 ring-2 ring-transparent focus:ring-primary-500/15 transition-all duration-300 ease-out-expo placeholder:text-gray-400"
+        class="w-full bg-white border-2 border-gray-900 rounded-none py-3 pl-12 pr-12 h-12 text-gray-900 outline-none focus:border-primary-500 ring-2 ring-transparent focus:ring-primary-500/15 transition-all duration-300 ease-out-expo placeholder:text-gray-400"
         :placeholder="'Search by name, category, or feature...'" :value="query"
         @input="handleInput" @focus="query.length > 0 && searchResults.length > 0 ? isDropdownOpen = true : null"
         aria-label="Search AI tools" />
@@ -129,7 +129,7 @@ onUnmounted(() => {
         </svg>
       </button>
       <kbd v-if="!query"
-        class="absolute right-4 top-1/2 -translate-y-1/2 text-sm text-gray-400 bg-gray-50 border border-gray-200 rounded-md px-2 py-0.5 font-mono pointer-events-none">⌘K</kbd>
+        class="absolute right-4 top-1/2 -translate-y-1/2 text-sm text-gray-400 bg-gray-50 border-2 border-gray-200 rounded-none px-2 py-1 font-mono pointer-events-none">⌘K</kbd>
     </div>
 
     <!-- Dropdown Results -->
@@ -137,13 +137,13 @@ onUnmounted(() => {
       class="absolute left-0 right-0 w-full mt-2 bg-white border-2 border-gray-900 overflow-hidden z-[400]">
       <ul class="max-h-[400px] overflow-y-auto py-2 m-0 p-0 list-none">
         <li v-for="result in searchResults" :key="result.item.slug"
-          class="m-0 p-0 border-b border-gray-100 last:border-0">
+          class="m-0 p-0 border-b-2 border-gray-200 last:border-0">
           <a :href="`/tools/${result.item.slug}`" @click="handleResultClick"
             class="flex items-start gap-3 p-3 hover:bg-gray-50 transition-colors group no-underline text-left cursor-pointer">
 
             <div class="flex-1 min-w-0">
               <div
-                class="text-sm font-extrabold text-gray-900 tracking-[-0.2px] truncate mb-0.5 group-hover:text-primary-600 transition-colors">
+                class="text-sm font-extrabold text-gray-900 tracking-[-0.2px] truncate mb-1 group-hover:text-primary-600 transition-colors">
                 {{ result.item.title }}
               </div>
               <div class="text-sm text-gray-500 capitalize leading-tight mb-1">{{ result.item.category.replace(/-/g,

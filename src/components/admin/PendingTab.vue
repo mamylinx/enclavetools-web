@@ -6,8 +6,8 @@
         <h4 class="text-xl font-black text-gray-900 mb-2">{{ tool.name }}</h4>
         <p class="text-gray-600 font-medium mb-4 max-w-2xl leading-relaxed m-0">{{ tool.description }}</p>
         <div class="flex flex-wrap gap-3">
-          <span class="text-xs font-bold text-gray-700 bg-gray-100 border border-gray-300 px-2 py-1 uppercase tracking-wider">Category: {{ tool.category }}</span>
-          <span v-if="tool.github_url" class="text-xs font-bold text-gray-700 bg-gray-100 border border-gray-300 px-2 py-1 uppercase tracking-wider">GitHub: <a :href="tool.github_url" target="_blank" class="text-primary-500 hover:text-primary-600 underline">Link</a></span>
+          <span class="text-xs font-bold text-gray-700 bg-gray-100 border-2 border-gray-300 px-2 py-1 uppercase tracking-wider">Category: {{ tool.category }}</span>
+          <span v-if="tool.github_url" class="text-xs font-bold text-gray-700 bg-gray-100 border-2 border-gray-300 px-2 py-1 uppercase tracking-wider">GitHub: <a :href="tool.github_url" target="_blank" class="text-primary-500 hover:text-primary-600 underline">Link</a></span>
         </div>
       </div>
       <div class="flex w-full md:w-auto gap-3 shrink-0">
