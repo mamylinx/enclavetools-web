@@ -7,10 +7,11 @@ import sponsorsData from '../data/sponsors.json';
 import featuredData from '../data/featured.json';
 import newsletterData from '../data/newsletter.json';
 import { randomSidebarPositions } from '../utils/randomSidebarPositions';
-import type { Tool, Category, PromotedAd, Sponsor, FeaturedConfig, NewsletterData, FilterState } from '../types';
+import type { Tool, PromotedAd, Sponsor, FeaturedConfig, NewsletterData, FilterState } from '../types';
 import { toolComparators, type SortKey } from '../utils/sorting';
 import { isRecentlyAdded } from '../utils/dates';
 import { enrichTool, type ToolWithCategory } from '../utils/toolModel';
+import { searchTools } from '../composables/useOrama';
 
 const promotedAds = ref<PromotedAd[]>(promotedData.ads);
 const sponsors = ref<Sponsor[]>(sponsorsData.sponsors);
@@ -33,6 +34,9 @@ const emit = defineEmits<{
 }>();
 
 const activeSort = ref<string>('featured');
+const currentPage = ref(1);
+const oramaResults = ref<ToolWithCategory[]>([]);
+const oramaTotal = ref(0);
 
 const baseTools = computed((): ToolWithCategory[] => {
     if (props.ssrTools && props.ssrTools.length > 0) {
@@ -41,80 +45,36 @@ const baseTools = computed((): ToolWithCategory[] => {
     return [];
 });
 
-const hasActiveFilters = computed(() => {
-    if (!props.filterState) return false;
+function hasActiveFilters(filterState: FilterState): boolean {
     return (
-        props.filterState.sort !== 'featured' ||
-        props.filterState.category.length > 0 ||
-        props.filterState.use_case.length > 0 ||
-        props.filterState.persona.length > 0 ||
-        props.filterState.setup_difficulty.length > 0 ||
-        props.filterState.license.length > 0 ||
-        props.filterState.language.length > 0 ||
-        props.filterState.hardware.length > 0 ||
-        props.filterState.deployment.length > 0 ||
-        props.filterState.model_format.length > 0 ||
-        props.filterState.maturity.length > 0 ||
-        props.filterState.features.length > 0 ||
-        props.filterState.commercial_use !== null ||
-        props.filterState.offline_after_setup !== null ||
-        props.filterState.telemetry !== null ||
-        props.filterState.last_updated !== null
+        filterState.sort !== 'featured' ||
+        filterState.category.length > 0 ||
+        filterState.use_case.length > 0 ||
+        filterState.persona.length > 0 ||
+        filterState.setup_difficulty.length > 0 ||
+        filterState.license.length > 0 ||
+        filterState.language.length > 0 ||
+        filterState.hardware.length > 0 ||
+        filterState.deployment.length > 0 ||
+        filterState.model_format.length > 0 ||
+        filterState.maturity.length > 0 ||
+        filterState.features.length > 0 ||
+        filterState.commercial_use !== null ||
+        filterState.offline_after_setup !== null ||
+        filterState.telemetry !== null ||
+        filterState.last_updated !== null
     );
-});
-
-function matchesFilter(tool: ToolWithCategory, filterState: FilterState): boolean {
-    if (filterState.category.length > 0) {
-        const toolCats = Array.isArray(tool.category) ? tool.category : [tool.category];
-        if (!filterState.category.some(c => toolCats.includes(c))) return false;
-    }
-    if (filterState.use_case.length > 0) {
-        const useCases = tool.use_cases || [];
-        if (!filterState.use_case.some(u => useCases.includes(u))) return false;
-    }
-    if (filterState.persona.length > 0) {
-        const personas = tool.personas || [];
-        if (!filterState.persona.some(p => personas.includes(p))) return false;
-    }
-    if (filterState.setup_difficulty.length > 0 && !filterState.setup_difficulty.includes(tool.setup_difficulty || '')) return false;
-    if (filterState.license.length > 0 && !filterState.license.includes(tool.license || '')) return false;
-    if (filterState.language.length > 0) {
-        const toolLangs = tool.language || [];
-        if (!filterState.language.some(l => toolLangs.includes(l))) return false;
-    }
-    if (filterState.hardware.length > 0) {
-        const toolHw = tool.hardware || [];
-        if (!filterState.hardware.some(h => toolHw.includes(h))) return false;
-    }
-    if (filterState.deployment.length > 0) {
-        const toolDeploy = tool.deployment || [];
-        if (!filterState.deployment.some(d => toolDeploy.includes(d))) return false;
-    }
-    if (filterState.model_format.length > 0) {
-        const toolFormats = tool.model_format || [];
-        if (!filterState.model_format.some(f => toolFormats.includes(f))) return false;
-    }
-    if (filterState.maturity.length > 0 && !filterState.maturity.includes(tool.maturity || '')) return false;
-    if (filterState.features.length > 0) {
-        if (!filterState.features.every((feature) => Boolean((tool as Record<string, unknown>)[feature]))) return false;
-    }
-    if (filterState.commercial_use === 'yes' && !tool.commercial_use) return false;
-    if (filterState.offline_after_setup === 'yes' && !tool.offline_after_setup) return false;
-    if (filterState.telemetry === 'None' && tool.telemetry !== 'None') return false;
-    if (filterState.last_updated) {
-        const lastUpdated = tool.last_updated || tool['date-added'];
-        if (!lastUpdated) return false;
-        const now = new Date();
-        const updated = new Date(lastUpdated);
-        const daysDiff = (now.getTime() - updated.getTime()) / (1000 * 60 * 60 * 24);
-        if (filterState.last_updated === '30d' && daysDiff > 30) return false;
-        if (filterState.last_updated === '6m' && daysDiff > 180) return false;
-        if (filterState.last_updated === '1y' && daysDiff > 365) return false;
-    }
-    return true;
 }
 
+const isOramaActive = computed(() => {
+    if (!props.filterState) return false;
+    return hasActiveFilters(props.filterState) || (!!props.searchQuery && props.searchQuery.length >= 2);
+});
+
 const filteredCards = computed((): ToolWithCategory[] => {
+    if (isOramaActive.value) {
+        return oramaResults.value;
+    }
     let base = baseTools.value;
 
     if (props.filter !== 'all') {
@@ -128,17 +88,23 @@ const filteredCards = computed((): ToolWithCategory[] => {
         base = base.filter((tool) => isRecentlyAdded(tool['date-added'], 30));
     }
 
-    if (hasActiveFilters.value && props.filterState) {
-        base = base.filter((tool) => matchesFilter(tool, props.filterState!));
-    }
-
     const comparator = toolComparators[activeSort.value as keyof typeof toolComparators];
     if (comparator) base = [...base].sort(comparator);
 
     return base;
 });
 
-const toolCount = computed(() => filteredCards.value.length);
+const toolCount = computed(() => {
+    if (isOramaActive.value) return oramaTotal.value;
+    return filteredCards.value.length;
+});
+
+const totalPages = computed(() => Math.ceil(oramaTotal.value / 25));
+
+const hasCategoryFilterActive = computed(() => {
+    if (!props.filterState) return false;
+    return props.filterState.category.length > 0;
+});
 
 const isSearchingInCategory = computed(
     () => props.searchQuery && props.searchQuery.length >= 2 && props.filter !== 'all'
@@ -149,7 +115,7 @@ const hasNoSearchResults = computed(
 );
 
 const hasNoFilterResults = computed(
-    () => hasActiveFilters.value && filteredCards.value.length === 0
+    () => isOramaActive.value && filteredCards.value.length === 0
 );
 
 const positions = randomSidebarPositions(computed(() => filteredCards.value.length));
@@ -158,6 +124,79 @@ const setSort = (sort: string) => {
     activeSort.value = sort;
     if (props.filterState) props.filterState.sort = sort;
 };
+
+const goToPage = (page: number) => {
+    currentPage.value = page;
+};
+
+async function runOramaSearch() {
+    if (!props.filterState) return;
+    const isActive = hasActiveFilters(props.filterState) || (!!props.searchQuery && props.searchQuery.length >= 2);
+    if (!isActive) {
+        oramaResults.value = [];
+        oramaTotal.value = 0;
+        return;
+    }
+    try {
+        const result = await searchTools({
+            urlCategory: props.filter,
+            filters: props.filterState,
+            term: props.searchQuery,
+            sort: activeSort.value,
+            limit: 25,
+            offset: (currentPage.value - 1) * 25,
+        });
+        oramaResults.value = result.tools;
+        oramaTotal.value = result.total;
+    } catch (e) {
+        console.error('Orama search failed:', e);
+    }
+}
+
+const filterChangeKey = computed(() => {
+    if (!props.filterState) return '';
+    const f = props.filterState;
+    return [
+        props.filter,
+        props.searchQuery,
+        JSON.stringify({
+            use_case: f.use_case,
+            persona: f.persona,
+            setup_difficulty: f.setup_difficulty,
+            license: f.license,
+            language: f.language,
+            hardware: f.hardware,
+            deployment: f.deployment,
+            model_format: f.model_format,
+            maturity: f.maturity,
+            features: f.features,
+            category: f.category,
+            commercial_use: f.commercial_use,
+            offline_after_setup: f.offline_after_setup,
+            telemetry: f.telemetry,
+            last_updated: f.last_updated,
+        }),
+    ].join('::');
+});
+
+const fullSearchKey = computed(() => {
+    return [filterChangeKey.value, activeSort.value, currentPage.value].join('::');
+});
+
+watch(fullSearchKey, async () => {
+    await runOramaSearch();
+});
+
+watch(filterChangeKey, () => {
+    currentPage.value = 1;
+});
+
+watch(isOramaActive, (active) => {
+    const el = document.getElementById('ssr-pagination');
+    if (el) {
+        el.style.display = active ? 'none' : '';
+    }
+});
 </script>
 
 <template>
@@ -178,9 +217,6 @@ const setSort = (sort: string) => {
                 <span>{{ toolCount }} result{{ toolCount !== 1 ? 's' : '' }}</span>
             </span>
             <div class="flex items-center gap-2 overflow-x-auto pb-0 md:pb-0 scrollbar-hide">
-                <!--<button class="whitespace-nowrap px-3 py-2 rounded-full text-xs font-bold transition-colors border-2" :class="{ 'bg-gray-100 text-gray-900 border-gray-200': activeSort === 'az', 'text-gray-600 border-transparent hover:text-gray-900 hover:bg-gray-50': activeSort !== 'az' }" @click="setSort('az')">A–Z</button>
-                <button class="whitespace-nowrap px-3 py-2 rounded-full text-xs font-bold transition-colors border-2" :class="{ 'bg-gray-100 text-gray-900 border-gray-200': activeSort === 'featured', 'text-gray-600 border-transparent hover:text-gray-900 hover:bg-gray-50': activeSort !== 'featured' }"
-                    @click="setSort('featured')">Featured</button>-->
                 <button
                     class="whitespace-nowrap px-3 h-10 rounded-none text-xs font-bold transition-colors border-2 inline-flex items-center"
                     :class="{ 'bg-gray-900 text-white border-gray-900 hover:bg-primary-500 hover:border-primary-500': activeSort === 'newest', 'text-gray-600 border-gray-200 hover:border-gray-900 hover:text-gray-900': activeSort !== 'newest' }"
@@ -257,9 +293,20 @@ const setSort = (sort: string) => {
                     :category="Array.isArray(item.category) ? item.category[0] : item.category" />
             </template>
         </ul>
+
+        <div v-if="isOramaActive && totalPages > 1"
+            class="flex justify-center items-center gap-3 py-12 px-4 md:px-8 border-t-2 border-gray-900 max-w-[1400px] mx-auto">
+            <button v-if="currentPage > 1" @click="goToPage(currentPage - 1)"
+                class="inline-flex items-center h-12 px-4 border-2 border-gray-900 text-xs font-black uppercase tracking-wider text-gray-900 hover:bg-gray-900 hover:text-white transition-all duration-200 cursor-pointer">
+                ← Previous
+            </button>
+            <span class="px-4 text-xs font-black uppercase tracking-wider text-gray-500">
+                Page {{ currentPage }} of {{ totalPages }}
+            </span>
+            <button v-if="currentPage < totalPages" @click="goToPage(currentPage + 1)"
+                class="inline-flex items-center h-12 px-4 border-2 border-gray-900 text-xs font-black uppercase tracking-wider text-gray-900 hover:bg-gray-900 hover:text-white transition-all duration-200 cursor-pointer">
+                Next →
+            </button>
+        </div>
     </div>
 </template>
-
-<script lang="ts">
-import { h } from 'vue';
-</script>

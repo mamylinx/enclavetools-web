@@ -1,13 +1,11 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue';
-import Fuse from 'fuse.js';
-import toolsData from '../data/tools.json';
+import { searchDropdown } from '../composables/useOrama';
 
 const props = defineProps<{
   placeholder?: string;
 }>();
 
-// Process tools.json into a flat array
 interface SearchResult {
   title: string;
   category: string;
@@ -15,47 +13,34 @@ interface SearchResult {
   plain_description: string;
 }
 
-const allTools: SearchResult[] = [];
-if (toolsData && toolsData.tools) {
-  toolsData.tools.forEach((categoryBlock: any) => {
-    if (categoryBlock.content) {
-      categoryBlock.content.forEach((tool: any) => {
-        allTools.push({
-          title: tool.title,
-          category: categoryBlock.category,
-          slug: tool.slug,
-          plain_description: tool.plain_description || '',
-        });
-      });
-    }
-  });
-}
-
-const fuse = new Fuse(allTools, {
-  keys: [
-    { name: 'title', weight: 0.7 },
-    { name: 'plain_description', weight: 0.3 }
-  ],
-  threshold: 0.3,
-  includeMatches: true
-});
-
 const query = ref('');
 const inputRef = ref<HTMLInputElement | null>(null);
-const searchResults = ref<Fuse.FuseResult<SearchResult>[]>([]);
+const searchResults = ref<SearchResult[]>([]);
 const isDropdownOpen = ref(false);
+let searchTimeout: ReturnType<typeof setTimeout> | null = null;
 
-const handleInput = (e: Event) => {
+const handleInput = async (e: Event) => {
   const target = e.target as HTMLInputElement;
   query.value = target.value;
+
+  if (searchTimeout) clearTimeout(searchTimeout);
 
   if (query.value.trim() === '') {
     searchResults.value = [];
     isDropdownOpen.value = false;
-  } else {
-    searchResults.value = fuse.search(query.value).slice(0, 8); // Limit to 8 results
-    isDropdownOpen.value = searchResults.value.length > 0;
+    return;
   }
+
+  searchTimeout = setTimeout(async () => {
+    try {
+      const results = await searchDropdown(query.value);
+      searchResults.value = results;
+      isDropdownOpen.value = results.length > 0;
+    } catch {
+      searchResults.value = [];
+      isDropdownOpen.value = false;
+    }
+  }, 150);
 };
 
 const handleClear = () => {
@@ -103,6 +88,7 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener('keydown', handleKeyDown);
   document.removeEventListener('click', closeDropdown);
+  if (searchTimeout) clearTimeout(searchTimeout);
 });
 </script>
 
@@ -132,23 +118,22 @@ onUnmounted(() => {
         class="absolute right-4 top-1/2 -translate-y-1/2 text-sm text-gray-400 bg-gray-50 border-2 border-gray-200 rounded-none px-2 py-1 font-mono pointer-events-none">⌘K</kbd>
     </div>
 
-    <!-- Dropdown Results -->
     <div v-if="isDropdownOpen && searchResults.length > 0"
       class="absolute left-0 right-0 w-full mt-2 bg-white border-2 border-gray-900 overflow-hidden z-[400]">
       <ul class="max-h-[400px] overflow-y-auto py-2 m-0 p-0 list-none">
-        <li v-for="result in searchResults" :key="result.item.slug"
+        <li v-for="result in searchResults" :key="result.slug"
           class="m-0 p-0 border-b-2 border-gray-200 last:border-0">
-          <a :href="`/tools/${result.item.slug}`" @click="handleResultClick"
+          <a :href="`/tools/${result.slug}`" @click="handleResultClick"
             class="flex items-start gap-3 p-3 hover:bg-gray-50 transition-colors group no-underline text-left cursor-pointer">
 
             <div class="flex-1 min-w-0">
               <div
                 class="text-sm font-extrabold text-gray-900 tracking-[-0.2px] truncate mb-1 group-hover:text-primary-600 transition-colors">
-                {{ result.item.title }}
+                {{ result.title }}
               </div>
-              <div class="text-sm text-gray-500 capitalize leading-tight mb-1">{{ result.item.category.replace(/-/g,
+              <div class="text-sm text-gray-500 capitalize leading-tight mb-1">{{ result.category.replace(/-/g,
                 ' ') }}</div>
-              <div class="text-sm leading-snug text-gray-600 m-0 line-clamp-1">{{ result.item.plain_description }}
+              <div class="text-sm leading-snug text-gray-600 m-0 line-clamp-1">{{ result.plain_description }}
               </div>
             </div>
           </a>
