@@ -46,6 +46,14 @@ function toggleDropdown(key: string) {
   openDropdown.value = openDropdown.value === key ? null : key;
 }
 
+function columnCount(group: { options: { value: string | null; label: string }[] }): number {
+  const len = group.options.length;
+  if (len <= 6) return 1;
+  if (len <= 12) return 2;
+  if (len <= 18) return 3;
+  return 4;
+}
+
 function closeDropdown() {
   openDropdown.value = null;
 }
@@ -138,14 +146,17 @@ function handleGlobalClick(e: MouseEvent) {
 
         <div
           v-show="openDropdown === group.key"
-          class="absolute top-full left-0 mt-1 z-50 min-w-[220px] border-2 border-gray-900 bg-white shadow-card p-2"
+          class="absolute top-full left-0 mt-1 z-50 border-2 border-gray-900 bg-white shadow-card"
         >
-          <div class="flex flex-col gap-1">
+          <div
+            class="max-h-72 p-2"
+            :style="{ columnCount: columnCount(group), columnGap: '0.25rem' }"
+          >
             <template v-if="group.type === 'single'">
               <button
                 v-for="opt in group.options"
                 :key="String(opt.value)"
-                class="w-full text-left px-3 py-2 text-xs font-bold transition-all duration-150 border-2"
+                class="block w-full text-left px-3 py-2 text-xs font-bold transition-all duration-150 border-2 whitespace-nowrap break-inside-avoid"
                 :class="isOptionSelected(group.key, opt.value)
                   ? 'bg-gray-900 text-white border-gray-900'
                   : 'text-gray-600 bg-white border-transparent hover:border-gray-900 hover:text-gray-900'"
@@ -158,7 +169,7 @@ function handleGlobalClick(e: MouseEvent) {
               <button
                 v-for="opt in group.options"
                 :key="String(opt.value)"
-                class="w-full text-left px-3 py-2 text-xs font-bold transition-all duration-150 border-2"
+                class="block w-full text-left px-3 py-2 text-xs font-bold transition-all duration-150 border-2 whitespace-nowrap break-inside-avoid"
                 :class="isOptionSelected(group.key, opt.value)
                   ? 'bg-gray-900 text-white border-gray-900'
                   : 'text-gray-600 bg-white border-transparent hover:border-gray-900 hover:text-gray-900'"
