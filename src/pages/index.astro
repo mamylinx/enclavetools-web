@@ -8,8 +8,10 @@ import ItemListSchema from "../components/schema/ItemListSchema.astro";
 import toolsData from "../data/tools.json";
 import categories from "../data/categories.json";
 import siteContent from "../data/site-content.json";
+import filterOptions from "../data/filter-options.json";
 
 const c = siteContent as Record<string, string>;
+const PERSONA = (filterOptions as Record<string, any>).persona.map((p: any) => p.value);
 
 const allTools = toolsData.tools.flatMap((cat: any) =>
     cat.content.map((tool: any) => ({
@@ -32,54 +34,15 @@ const categoryCounts = new Map(
     toolsData.tools.map((cat: any) => [cat.category, cat.content.length]),
 );
 
-const sections = [
-    {
-        name: c.usecase_business_name || "Business Owner",
-        copy:
-            c.usecase_business_copy ||
-            "Find tools that can be run by an IT contractor without turning client data into a cloud dependency.",
-        categories: ["rag-document", "chat-interfaces", "workflow-automation"],
-    },
-    {
-        name: c.usecase_developer_name || "Developer / Engineer",
-        copy:
-            c.usecase_developer_copy ||
-            "Shortlist self-hosted infrastructure by API support, license, hardware target, and deployment path.",
-        categories: ["llm-inference", "deployment", "monitoring-observability"],
-    },
-    {
-        name: c.usecase_healthcare_name || "Healthcare Professional",
-        copy:
-            c.usecase_healthcare_copy ||
-            "Look for offline tools that keep clinical notes and patient context inside the clinic network.",
-        categories: ["chat-interfaces", "speech-to-text", "rag-document"],
-    },
-    {
-        name: c.usecase_legal_name || "Legal Professional",
-        copy:
-            c.usecase_legal_copy ||
-            "Evaluate document review and private search workflows for contracts, discovery, and NDA-bound files.",
-        categories: ["rag-document", "vector-databases", "chat-interfaces"],
-    },
-    {
-        name: c.usecase_indie_name || "Indie Hacker / Solo Builder",
-        copy:
-            c.usecase_indie_copy ||
-            "Find affordable embeddable AI pieces that run locally or on your own small server.",
-        categories: ["llm-inference", "chat-interfaces", "agent-frameworks"],
-    },
-];
 
-const featuredFor = (categories: string[]) =>
+const featuredFor = (persona: string) =>
     allTools
-        .filter((tool: any) =>
-            tool.category.some((c: string) => categories.includes(c)),
-        )
+        .filter((tool: any) => tool.personas?.includes(persona))
         .sort(
             (a: any, b: any) =>
                 (b.popularity_score || 0) - (a.popularity_score || 0),
         )
-        .slice(0, 3);
+        .slice(0, 8);
 
 const categoryTiles = categories.slice(0, 8).map((cat: any) => ({
     ...cat,
@@ -89,7 +52,10 @@ const categoryTiles = categories.slice(0, 8).map((cat: any) => ({
             : categoryCounts.get(cat.category) || 0,
 }));
 
-const featuredTools = sections.map((s) => featuredFor(s.categories));
+const featuredTools = PERSONA.map((_, i) => featuredFor(PERSONA[i]));
+const featuredCounts = PERSONA.map((_, i) =>
+    allTools.filter((tool: any) => tool.personas?.includes(PERSONA[i])).length,
+);
 
 const hoverColors = [
     "hover:bg-accent-hue-1 hover:text-gray-900",
@@ -261,8 +227,9 @@ const hoverColors = [
     <div class="border-b-2 border-gray-200"></div>
     <UseCases
         client:visible
-        sections={sections}
         featured-tools={featuredTools}
+        featured-counts={featuredCounts}
+        persona={PERSONA}
         eyebrow={c.home_usecase_eyebrow || "Use cases"}
         heading={c.home_usecase_heading ||
             "Start from the risk you need to control."}
