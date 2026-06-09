@@ -3,7 +3,7 @@ import { ref, computed, onMounted, onUnmounted } from 'vue';
 import CardsContainer from './CardsContainer.vue';
 import HomeContainer from './HomeContainer.vue';
 import Sidebar from './Sidebar.vue';
-import FilterSidebar from './FilterSidebar.vue';
+import HorizontalFilterBar from './HorizontalFilterBar.vue';
 import FilterBottomSheet from './FilterBottomSheet.vue';
 import ActiveFiltersBar from './ActiveFiltersBar.vue';
 import CompareTray from './CompareTray.vue';
@@ -84,23 +84,24 @@ onUnmounted(() => {
 </script>
 
 <template>
-    <div class="grid gap-8 max-w-[1400px] mx-auto px-4 md:px-8 py-12 items-start"
-        :class="isHomepage ? 'grid-cols-1 lg:grid-cols-[1fr_260px]' : 'grid-cols-1 lg:grid-cols-[240px_1fr_260px]'">
-        <FilterSidebar v-if="!isHomepage" class="hidden lg:block" :state="filterState" :show-model-format="showModelFormat"
-            :active-count="activeCount" :hide-category="hideCategory" @update:sort="(v) => setFilter('sort', v)"
-            @update:category="(v) => setFilter('category', v)" @update:license="(v) => setFilter('license', v)"
-            @update:use_case="(v) => setFilter('use_case', v)" @update:persona="(v) => setFilter('persona', v)"
-            @update:setup_difficulty="(v) => setFilter('setup_difficulty', v)"
-            @update:language="(v) => setFilter('language', v)" @update:hardware="(v) => setFilter('hardware', v)"
-            @update:deployment="(v) => setFilter('deployment', v)"
-            @update:model_format="(v) => setFilter('model_format', v)"
-            @update:maturity="(v) => setFilter('maturity', v)"
-            @update:features="(v) => setFilter('features', v)"
-            @update:commercial_use="(v) => setFilter('commercial_use', v)"
-            @update:offline_after_setup="(v) => setFilter('offline_after_setup', v)"
-            @update:telemetry="(v) => setFilter('telemetry', v)"
-            @update:last_updated="(v) => setFilter('last_updated', v)" @toggle="handleToggle"
-            @clear="(k) => clearFilter(k)" @clear-all="clearAll" />
+    <HorizontalFilterBar v-if="!isHomepage" class="hidden lg:block" :state="filterState" :show-model-format="showModelFormat"
+        :active-count="activeCount" :hide-category="hideCategory" @update:sort="(v) => setFilter('sort', v)"
+        @update:category="(v) => setFilter('category', v)" @update:use_case="(v) => setFilter('use_case', v)"
+        @update:persona="(v) => setFilter('persona', v)"
+        @update:setup_difficulty="(v) => setFilter('setup_difficulty', v)"
+        @update:license="(v) => setFilter('license', v)" @update:language="(v) => setFilter('language', v)"
+        @update:hardware="(v) => setFilter('hardware', v)" @update:deployment="(v) => setFilter('deployment', v)"
+        @update:model_format="(v) => setFilter('model_format', v)"
+        @update:maturity="(v) => setFilter('maturity', v)"
+        @update:features="(v) => setFilter('features', v)"
+        @update:commercial_use="(v) => setFilter('commercial_use', v)"
+        @update:offline_after_setup="(v) => setFilter('offline_after_setup', v)"
+        @update:telemetry="(v) => setFilter('telemetry', v)"
+        @update:last_updated="(v) => setFilter('last_updated', v)" @toggle="handleToggle"
+        @clear="(k) => clearFilter(k)" @clear-all="clearAll" />
+
+    <div class="grid gap-8 max-w-[1400px] mx-auto px-4 md:px-8 pb-12 items-start"
+        :class="[isHomepage ? 'pt-12' : 'pt-8', 'grid-cols-1 lg:grid-cols-[1fr_260px]']">
 
         <div class="flex flex-col gap-6 min-w-0">
             <div v-if="!isHomepage" class="lg:hidden mb-4">
