@@ -257,7 +257,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref, computed } from 'vue';
 import categories from '../data/categories.json';
 

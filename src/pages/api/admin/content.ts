@@ -12,7 +12,8 @@ export const GET: APIRoute = async (context) => {
     const { results } = await env.enclavetools_db.prepare('SELECT key, value FROM site_content ORDER BY key').all();
     return new Response(JSON.stringify({ content: results }), { status: 200 });
   } catch (err: any) {
-    return new Response(JSON.stringify({ error: err.message }), { status: 500 });
+    console.error("Admin content GET error", err);
+    return new Response(JSON.stringify({ error: "Internal server error" }), { status: 500 });
   }
 };
 
@@ -32,6 +33,7 @@ export const POST: APIRoute = async (context) => {
     ).bind(key, String(value)).run();
     return new Response(JSON.stringify({ success: true }), { status: 200 });
   } catch (err: any) {
-    return new Response(JSON.stringify({ error: err.message }), { status: 500 });
+    console.error("Admin content POST error", err);
+    return new Response(JSON.stringify({ error: "Internal server error" }), { status: 500 });
   }
 };

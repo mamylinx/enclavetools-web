@@ -76,6 +76,7 @@ Two tables are created:
 ```bash
 # Admin password (required)
 npx wrangler secret put ADMIN_PASSWORD
+npx wrangler secret put ADMIN_SECRET
 
 # Cloudflare credentials (for rebuild feature)
 npx wrangler secret put CF_ACCOUNT_ID

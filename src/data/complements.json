@@ -1,0 +1,11 @@
+{
+  "llm-inference": ["chat-interfaces", "rag-document", "deployment", "monitoring-observability"],
+  "llm-models": ["llm-inference", "chat-interfaces", "fine-tuning-training"],
+  "chat-interfaces": ["llm-inference", "llm-models", "rag-document"],
+  "rag-document": ["vector-databases", "embedding-models", "llm-inference", "chat-interfaces"],
+  "vector-databases": ["embedding-models", "rag-document"],
+  "embedding-models": ["vector-databases", "rag-document"],
+  "fine-tuning-training": ["llm-models", "deployment", "monitoring-observability"],
+  "workflow-automation": ["agent-frameworks", "chat-interfaces", "rag-document"],
+  "agent-frameworks": ["llm-inference", "workflow-automation", "monitoring-observability"]
+}

@@ -35,6 +35,6 @@ export const POST: APIRoute = async (context) => {
     return new Response(JSON.stringify({ success: true }), { status: 200 });
   } catch (err: any) {
     console.error("Reject error", err);
-    return new Response(JSON.stringify({ error: err.message }), { status: 500 });
+    return new Response(JSON.stringify({ error: "Internal server error" }), { status: 500 });
   }
 };

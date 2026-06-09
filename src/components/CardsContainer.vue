@@ -2,21 +2,21 @@
 import { ref, computed, watch } from 'vue';
 import Card from './Card.vue';
 import EmptyState from './EmptyState.vue';
-import promotedData from '../data/promoted.json';
-import sponsorsData from '../data/sponsors.json';
-import featuredData from '../data/featured.json';
-import newsletterData from '../data/newsletter.json';
+import marketingData from '../data/marketing.json';
+import siteContent from '../data/site-content.json';
 import { randomSidebarPositions } from '../utils/randomSidebarPositions';
-import type { Tool, PromotedAd, Sponsor, FeaturedConfig, NewsletterData, FilterState } from '../types';
+import type { Tool, FilterState } from '../types';
 import { toolComparators, type SortKey } from '../utils/sorting';
 import { isRecentlyAdded } from '../utils/dates';
 import { enrichTool, type ToolWithCategory } from '../utils/toolModel';
 import { searchTools } from '../composables/useOrama';
 
-const promotedAds = ref<PromotedAd[]>(promotedData.ads);
-const sponsors = ref<Sponsor[]>(sponsorsData.sponsors);
-const featured = ref<FeaturedConfig>(featuredData);
-const newsletter = ref<NewsletterData>(newsletterData);
+const m = marketingData as any;
+const c = siteContent as Record<string, string>;
+
+const promotedAds = ref(m.promoted || []);
+const sponsors = ref(m.sponsors || []);
+const featured = ref(m.featured?.[0] || null);
 
 const props = defineProps<{
     filter: string;
@@ -261,15 +261,18 @@ watch(isOramaActive, (active) => {
                 <div class="lg:hidden col-span-1 border-2 border-gray-200 p-6 bg-white transition-all duration-300 ease-out-expo hover:border-gray-900 hover:-translate-y-1 hover:shadow-card-hover"
                     v-if="i === positions.newsletter">
                     <div class="flex flex-col h-full">
-                        <div class="text-xs font-black uppercase text-gray-400 tracking-wider mb-3">Newsletter</div>
-                        <div class="text-lg font-black text-gray-900 mb-2">{{ newsletter.title }}</div>
-                        <p class="text-sm font-medium text-gray-600 mb-4 flex-1">{{ newsletter.subtitle }}</p>
-                        <input
-                            class="w-full px-3 h-10 border-2 border-gray-200 font-sans text-sm mb-2 focus:border-gray-900 focus:ring-2 focus:ring-primary-500 outline-none"
-                            type="email" :placeholder="newsletter.placeholder" />
-                        <button
-                            class="w-full h-10 bg-gray-900 text-white font-bold hover:bg-primary-500 transition-colors border-none inline-flex items-center justify-center">Get
-                            the digest</button>
+                        <div class="text-xs font-black uppercase text-gray-400 tracking-wider mb-3">{{ c.marketing_newsletter_label || 'Newsletter' }}</div>
+                        <div class="text-lg font-black text-gray-900 mb-2">{{ c.newsletter_title }}</div>
+                        <p class="text-sm font-medium text-gray-600 mb-4 flex-1">{{ c.newsletter_subtitle }}</p>
+   
+                        <form method="post" action="https://systeme.io/embedded/41620392/subscription">
+                            <input
+                                class="w-full px-3 h-10 border-2 border-gray-200 font-sans text-sm mb-2 focus:border-gray-900 focus:ring-2 focus:ring-primary-500 outline-none"
+                                type="text" name="email" :placeholder="c.newsletter_placeholder || 'your@email.com'" />
+                            <button
+                                class="w-full h-10 bg-gray-900 text-white font-bold hover:bg-primary-500 transition-colors border-none inline-flex items-center justify-center"
+                                type="submit">{{ c.newsletter_cta || 'Get the digest' }}</button>
+                        </form>
                     </div>
                 </div>
 

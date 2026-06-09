@@ -1,3 +1,19 @@
+const MAGIC_BYTES: Record<string, number[]> = {
+  'image/png': [0x89, 0x50, 0x4E, 0x47],
+  'image/jpeg': [0xFF, 0xD8, 0xFF],
+  'image/webp': [0x52, 0x49, 0x46, 0x46],
+  'image/gif': [0x47, 0x49, 0x46, 0x38],
+};
+
+async function isValidImage(file: File): Promise<boolean> {
+  const expected = MAGIC_BYTES[file.type];
+  if (!expected) return false;
+  const blob = file.slice(0, expected.length);
+  const buf = await blob.arrayBuffer();
+  const bytes = new Uint8Array(buf);
+  return expected.every((b, i) => b === bytes[i]);
+}
+
 /**
  * Uploads a file to R2
  */
@@ -5,6 +21,9 @@ export async function uploadLogo(env: any, key: string, file: File): Promise<voi
   if (!env || !env.enclavetools_logos) {
     console.warn("LOGOS R2 bucket not bound. Skipping upload.");
     return;
+  }
+  if (!(await isValidImage(file))) {
+    throw new Error("Invalid image file: magic bytes do not match expected format");
   }
   const arrayBuffer = await file.arrayBuffer();
   await env.enclavetools_logos.put(key, arrayBuffer, {

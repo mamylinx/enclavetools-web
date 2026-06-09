@@ -103,7 +103,7 @@ const visibleGroups = computed(() => FILTER_GROUPS.filter(
                 Reset
             </button>
         </div>
-        <div v-for="group in visibleGroups" :key="group.key" class="border-b border-gray-200 last:border-b-0">
+        <div v-for="group in visibleGroups" :key="group.key" class="border-b-2 border-gray-200 last:border-b-0">
             <button class="flex w-full items-center justify-between py-3 bg-transparent border-2 border-transparent cursor-pointer text-left" @click="toggleGroup(group.key)"
                 :aria-expanded="expandedGroups[group.key]">
                 <span class="text-xs font-black uppercase text-gray-900 tracking-widest flex items-center gap-2">

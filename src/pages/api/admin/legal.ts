@@ -12,7 +12,8 @@ export const GET: APIRoute = async (context) => {
     const { results } = await env.enclavetools_db.prepare('SELECT * FROM legal_pages ORDER BY slug').all();
     return new Response(JSON.stringify({ pages: results }), { status: 200 });
   } catch (err: any) {
-    return new Response(JSON.stringify({ error: err.message }), { status: 500 });
+    console.error("Admin legal GET error", err);
+    return new Response(JSON.stringify({ error: "Internal server error" }), { status: 500 });
   }
 };
 
@@ -33,6 +34,7 @@ export const POST: APIRoute = async (context) => {
     ).bind(slug, title, pageBody || '').run();
     return new Response(JSON.stringify({ success: true }), { status: 200 });
   } catch (err: any) {
-    return new Response(JSON.stringify({ error: err.message }), { status: 500 });
+    console.error("Admin legal POST error", err);
+    return new Response(JSON.stringify({ error: "Internal server error" }), { status: 500 });
   }
 };

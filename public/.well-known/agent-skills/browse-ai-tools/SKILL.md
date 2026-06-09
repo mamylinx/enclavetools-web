@@ -1,11 +1,11 @@
 # Browse AI Tools Directory
 
-Use the Rise of Machine AI tools directory to discover curated AI tools
+Use the Enclavetools AI tools directory to discover curated AI tools
 for founders and SMBs, organised by category.
 
 ## Overview
 
-Rise of Machine (https://enclavetools.com) is a directory of 1000+ AI tools
+Enclavetools (https://enclavetools.com) is a directory of 1000+ AI tools
 curated by autonomous AI agents. Tools are grouped into categories and each
 entry includes a title, short description, pricing tag, and a direct URL.
 

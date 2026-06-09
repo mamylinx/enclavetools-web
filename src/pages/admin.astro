@@ -2,11 +2,11 @@
 export const prerender = false;
 import Layout from "../layouts/Layout.astro";
 import AdminPanel from "../components/AdminPanel.vue";
+import { verifySessionToken } from "../lib/auth";
+import { env } from "cloudflare:workers";
 
-// Very basic server-side check to see if they might be logged in.
-// The real validation is done in the API.
 const session = Astro.cookies.get("admin_session");
-const isLoggedIn = !!session?.value;
+const isLoggedIn = session?.value ? await verifySessionToken(env, session.value) : false;
 ---
 
 <Layout
@@ -16,11 +16,11 @@ const isLoggedIn = !!session?.value;
   eyebrow="Administration"
   pageTitle="Admin Dashboard"
   pageDescription="Admin Dashboard for Enclavetools - Manage tools, categories, and site content."
+  robots="noindex, nofollow"
   showSearch={true}
   showHero={true}
 >
-    <div class="block max-w-[1400px] mx-auto pt-10 px-4 md:px-0">
-      <AdminPanel client:only="vue" initialLoggedIn={isLoggedIn} />
-    </div>
-  </Layout>
+  <div class="block max-w-[1400px] mx-auto pt-10 px-4 md:px-0">
+    <AdminPanel client:only="vue" initialLoggedIn={isLoggedIn} />
+  </div>
 </Layout>

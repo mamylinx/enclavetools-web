@@ -25,6 +25,7 @@ export const GET: APIRoute = async (context) => {
       headers: { 'Content-Type': 'application/json' }
     });
   } catch (err: any) {
-    return new Response(JSON.stringify({ error: err.message }), { status: 500 });
+    console.error("Admin list error", err);
+    return new Response(JSON.stringify({ error: "Internal server error" }), { status: 500 });
   }
 };

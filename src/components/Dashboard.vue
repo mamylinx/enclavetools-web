@@ -123,8 +123,8 @@ onUnmounted(() => {
                 @clear-all="clearAll" />
         </div>
 
-        <aside class="sticky top-24 hidden lg:block w/full">
-            <Sidebar showSponsor showNewsletter />
+        <aside class="sticky top-24 hidden lg:block w-full">
+            <Sidebar showSponsor :showNewsletter="!isHomepage" />
         </aside>
         <CompareTray :tools="(props.ssrTools || []) as any" />
     </div>

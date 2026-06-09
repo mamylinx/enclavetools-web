@@ -12,7 +12,8 @@ export const GET: APIRoute = async (context) => {
     const { results } = await env.enclavetools_db.prepare('SELECT * FROM filter_options ORDER BY group_key, sort_order').all();
     return new Response(JSON.stringify({ options: results }), { status: 200 });
   } catch (err: any) {
-    return new Response(JSON.stringify({ error: err.message }), { status: 500 });
+    console.error("Admin filters GET error", err);
+    return new Response(JSON.stringify({ error: "Internal server error" }), { status: 500 });
   }
 };
 
@@ -35,7 +36,8 @@ export const POST: APIRoute = async (context) => {
     }
     return new Response(JSON.stringify({ success: true }), { status: 200 });
   } catch (err: any) {
-    return new Response(JSON.stringify({ error: err.message }), { status: 500 });
+    console.error("Admin filters POST error", err);
+    return new Response(JSON.stringify({ error: "Internal server error" }), { status: 500 });
   }
 };
 
@@ -51,6 +53,7 @@ export const DELETE: APIRoute = async (context) => {
     await env.enclavetools_db.prepare('DELETE FROM filter_options WHERE id = ?').bind(id).run();
     return new Response(JSON.stringify({ success: true }), { status: 200 });
   } catch (err: any) {
-    return new Response(JSON.stringify({ error: err.message }), { status: 500 });
+    console.error("Admin filters DELETE error", err);
+    return new Response(JSON.stringify({ error: "Internal server error" }), { status: 500 });
   }
 };

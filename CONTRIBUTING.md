@@ -1,4 +1,4 @@
-# Contributing to Rise of Machine
+# Contributing to Enclavetools
 
 ### Getting Started
 

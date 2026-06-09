@@ -13,7 +13,7 @@ const c = siteContent as Record<string, string>;
 
 const sponsors = ref(m.sponsors || []);
 const featured = ref(m.featured?.[0] || null);
-const promoted = ref(m.promoted?.[0] || null);
+
 </script>
 
 <template>
@@ -31,8 +31,14 @@ const promoted = ref(m.promoted?.[0] || null);
       <div class="text-xs font-black uppercase text-gray-400 tracking-wider mb-3">{{ c.newsletter_label || 'Newsletter' }}</div>
       <div class="text-lg font-black text-gray-900 mb-2">{{ c.newsletter_title || '5 new tools, every Friday' }}</div>
       <p class="text-sm font-medium text-gray-600 mb-4 flex-1">{{ c.newsletter_subtitle || 'No fluff. No spam. Join 12,000+ builders.' }}</p>
-      <input class="w-full px-3 h-10 border-2 border-gray-200 font-sans text-sm mb-2 focus:border-gray-900 focus:ring-2 focus:ring-primary-500 outline-none" type="email" :placeholder="c.newsletter_placeholder || 'your@email.com'" />
-      <button class="w-full h-10 bg-gray-900 text-white font-bold hover:bg-primary-500 transition-colors border-none inline-flex items-center justify-center">{{ c.newsletter_cta || 'Get the digest' }}</button>
+      <form method="post" action="https://systeme.io/embedded/41620392/subscription">
+        <input
+          class="w-full px-3 h-10 border-2 border-gray-200 font-sans text-sm mb-2 focus:border-gray-900 focus:ring-2 focus:ring-primary-500 outline-none"
+          type="text" name="email" :placeholder="c.newsletter_placeholder || 'your@email.com'" />
+        <button
+          class="w-full h-10 bg-gray-900 text-white font-bold hover:bg-primary-500 transition-colors border-none inline-flex items-center justify-center"
+          type="submit">{{ c.newsletter_cta || 'Get the digest' }}</button>
+      </form>
     </div>
 
     <!-- Featured CTA -->

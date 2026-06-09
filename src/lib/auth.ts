@@ -3,22 +3,24 @@
  * Uses Web Crypto API which is compatible with Cloudflare Workers.
  */
 
-// Simple constant-time comparison for passwords
+// Constant-time comparison for passwords
 export async function verifyPassword(env: any, password: string): Promise<boolean> {
   const adminPassword = env.ADMIN_PASSWORD;
   if (!adminPassword || !password) return false;
   
-  // Use Web Crypto API to avoid timing attacks
   const encoder = new TextEncoder();
   const a = encoder.encode(adminPassword);
   const b = encoder.encode(password);
   
-  if (a.length !== b.length) return false;
+  const maxLen = Math.max(a.length, b.length);
+  const paddedA = new Uint8Array(maxLen);
+  const paddedB = new Uint8Array(maxLen);
+  paddedA.set(a);
+  paddedB.set(b);
   
-  // crypto.subtle is available in Cloudflare Workers
-  const key = await crypto.subtle.importKey('raw', a, { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
-  const sigA = await crypto.subtle.sign('HMAC', key, a);
-  const sigB = await crypto.subtle.sign('HMAC', key, b);
+  const key = await crypto.subtle.importKey('raw', paddedA, { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
+  const sigA = await crypto.subtle.sign('HMAC', key, paddedA);
+  const sigB = await crypto.subtle.sign('HMAC', key, paddedB);
   
   const bufA = new Uint8Array(sigA);
   const bufB = new Uint8Array(sigB);
@@ -30,9 +32,16 @@ export async function verifyPassword(env: any, password: string): Promise<boolea
   return result === 0;
 }
 
+function requireSecret(env: any): string {
+  if (!env.ADMIN_SECRET) {
+    throw new Error("ADMIN_SECRET env var is not set");
+  }
+  return env.ADMIN_SECRET;
+}
+
 // Generate a signed session token
 export async function createSessionToken(env: any): Promise<string> {
-  const secret = env.ADMIN_SECRET || 'fallback-secret-for-dev-only-do-not-use-in-prod';
+  const secret = requireSecret(env);
   const encoder = new TextEncoder();
   const key = await crypto.subtle.importKey(
     'raw', 
@@ -66,7 +75,7 @@ export async function verifySessionToken(env: any, token: string): Promise<boole
     const payload = JSON.parse(atob(payloadBase64));
     if (payload.exp < Date.now()) return false; // Expired
     
-    const secret = env.ADMIN_SECRET || 'fallback-secret-for-dev-only-do-not-use-in-prod';
+    const secret = requireSecret(env);
     const encoder = new TextEncoder();
     const key = await crypto.subtle.importKey(
       'raw', 

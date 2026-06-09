@@ -12,7 +12,8 @@ export const GET: APIRoute = async (context) => {
     const { results } = await env.enclavetools_db.prepare('SELECT * FROM category_meta ORDER BY sort_order').all();
     return new Response(JSON.stringify({ categories: results }), { status: 200 });
   } catch (err: any) {
-    return new Response(JSON.stringify({ error: err.message }), { status: 500 });
+    console.error("Admin categories GET error", err);
+    return new Response(JSON.stringify({ error: "Internal server error" }), { status: 500 });
   }
 };
 
@@ -36,6 +37,7 @@ export const POST: APIRoute = async (context) => {
     ).bind(category_slug, title, description || null, icon_name || null, og_image || null, sort_order || 0).run();
     return new Response(JSON.stringify({ success: true }), { status: 200 });
   } catch (err: any) {
-    return new Response(JSON.stringify({ error: err.message }), { status: 500 });
+    console.error("Admin categories POST error", err);
+    return new Response(JSON.stringify({ error: "Internal server error" }), { status: 500 });
   }
 };

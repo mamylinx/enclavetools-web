@@ -17,6 +17,7 @@ export interface Props {
   pageTitle?: string;
   pageDescription?: string;
   canonicalUrl?: string;
+  robots?: string;
   ogTitle?: string;
   ogDescription?: string;
   ogImage?: string;
@@ -41,6 +42,7 @@ const {
   pageTitle,
   pageDescription,
   canonicalUrl,
+  robots,
   ogTitle,
   ogDescription,
   ogImage,
@@ -83,6 +85,7 @@ const {
       content={pageDescription ||
         "Stop paying for AI APIs. Everything here runs on your hardware."}
     />
+    {robots && <meta name="robots" content={robots} />}
     <link rel="sitemap" href="/sitemap-index.xml" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -148,7 +151,7 @@ const {
       {
         showSearch && (
           <div class="flex-1 max-w-[520px] mx-4 hidden md:block">
-            <SearchInput client:visible placeholder={searchPlaceholder} />
+            <SearchInput client:load placeholder={searchPlaceholder} />
           </div>
         )
       }
@@ -313,12 +316,12 @@ const {
       showSearch && (
         <div class="md:hidden overflow-hidden transition-all duration-200 max-h-0 relative z-30" id="mobileSearchPanel">
           <div class="px-4 py-4 bg-white border-b-2 border-gray-900">
-            <SearchInput client:visible placeholder={searchPlaceholder} />
+            <SearchInput client:load placeholder={searchPlaceholder} />
           </div>
         </div>
       )
     }
-    <CategoryNav client:visible />
+    <CategoryNav client:load />
 
     {showHero && <Hero eyebrow={eyebrow} title={title} tagline={tagline} />}
 

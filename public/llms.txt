@@ -1,4 +1,4 @@
-# Rise of Machine
+# Enclavetools
 1000+ AI tools curated by agents for founders and SMBs 
 
 ## Categories

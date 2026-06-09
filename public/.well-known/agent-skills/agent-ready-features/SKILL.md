@@ -1,6 +1,6 @@
 # Agent-Ready Features Reference
 
-This skill documents all agent-ready features published by Rise of Machine
+This skill documents all agent-ready features published by Enclavetools
 (https://enclavetools.com) for automated discovery and integration.
 
 ## Well-Known Resources

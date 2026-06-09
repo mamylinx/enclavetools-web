@@ -3,9 +3,15 @@ import type { APIRoute } from 'astro';
 export const prerender = false;
 import { env } from 'cloudflare:workers';
 import { verifyPassword, createSessionToken } from '../../../lib/auth';
+import { checkRateLimit } from '../../../lib/rate-limit';
 
 export const POST: APIRoute = async (context) => {
-  
+  const ip = context.request.headers.get('CF-Connecting-IP') || '127.0.0.1';
+  const allowed = await checkRateLimit(env, ip, 'admin-login', 5, 900);
+  if (!allowed) {
+    return new Response(JSON.stringify({ error: "Too many attempts" }), { status: 429 });
+  }
+
   try {
     const data = await context.request.json();
     if (!data.password) {
@@ -31,6 +37,7 @@ export const POST: APIRoute = async (context) => {
 
     return new Response(JSON.stringify({ success: true }), { status: 200 });
   } catch (err) {
-    return new Response(JSON.stringify({ error: "Internal error" }), { status: 500 });
+    console.error("Admin login error", err);
+    return new Response(JSON.stringify({ error: "Internal server error" }), { status: 500 });
   }
 };

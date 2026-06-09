@@ -1,4 +1,6 @@
 import type { Tool } from '../types';
+import complementsData from '../data/complements.json';
+import compareRowsData from '../data/compare-rows.json';
 
 export interface ToolWithCategory extends Tool {
   category: string | string[];
@@ -44,17 +46,7 @@ export function enrichTool(tool: ToolWithCategory): ToolWithCategory {
   };
 }
 
-const COMPLEMENTS: Record<string, string[]> = {
-  'llm-inference': ['chat-interfaces', 'rag-document', 'deployment', 'monitoring-observability'],
-  'llm-models': ['llm-inference', 'chat-interfaces', 'fine-tuning-training'],
-  'chat-interfaces': ['llm-inference', 'llm-models', 'rag-document'],
-  'rag-document': ['vector-databases', 'embedding-models', 'llm-inference', 'chat-interfaces'],
-  'vector-databases': ['embedding-models', 'rag-document'],
-  'embedding-models': ['vector-databases', 'rag-document'],
-  'fine-tuning-training': ['llm-models', 'deployment', 'monitoring-observability'],
-  'workflow-automation': ['agent-frameworks', 'chat-interfaces', 'rag-document'],
-  'agent-frameworks': ['llm-inference', 'workflow-automation', 'monitoring-observability'],
-};
+const COMPLEMENTS = complementsData as Record<string, string[]>;
 
 export function getWorksWith(tool: ToolWithCategory, allTools: ToolWithCategory[], limit = 4): ToolWithCategory[] {
   const category = categoryValue(tool);
@@ -73,26 +65,7 @@ export function getWorksWith(tool: ToolWithCategory, allTools: ToolWithCategory[
     .slice(0, limit);
 }
 
-export const compareRows = [
-  ['License', 'license'],
-  ['Commercial use', 'commercial_use'],
-  ['Setup difficulty', 'setup_difficulty'],
-  ['GitHub stars', 'popularity_score'],
-  ['Last updated', 'last_updated'],
-  ['OpenAI API', 'openai_api'],
-  ['REST API', 'rest_api'],
-  ['Fine-tuning', 'fine_tuning'],
-  ['Quantization', 'quantization'],
-  ['Docker', 'docker_available'],
-  ['GUI / no-code', 'gui_available'],
-  ['Offline after setup', 'offline_after_setup'],
-  ['Telemetry', 'telemetry'],
-  ['Minimum RAM', 'min_ram_gb'],
-  ['Recommended RAM', 'recommended_ram_gb'],
-  ['Hardware', 'hardware'],
-  ['Deployment', 'deployment'],
-  ['Model format', 'model_format'],
-] as const;
+export const compareRows = compareRowsData as [string, string][];
 
 export function formatCompareValue(value: unknown): string {
   if (Array.isArray(value)) return value.length ? value.join(', ') : 'Not specified';

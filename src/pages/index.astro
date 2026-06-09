@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import Dashboard from "../components/Dashboard.vue";
 import UseCases from "../components/UseCases.vue";
+import NewsletterSection from "../components/NewsletterSection.astro";
 import OrganizationSchema from "../components/schema/OrganizationSchema.astro";
 import ItemListSchema from "../components/schema/ItemListSchema.astro";
 import toolsData from "../data/tools.json";
@@ -34,27 +35,37 @@ const categoryCounts = new Map(
 const sections = [
     {
         name: c.usecase_business_name || "Business Owner",
-        copy: c.usecase_business_copy || "Find tools that can be run by an IT contractor without turning client data into a cloud dependency.",
+        copy:
+            c.usecase_business_copy ||
+            "Find tools that can be run by an IT contractor without turning client data into a cloud dependency.",
         categories: ["rag-document", "chat-interfaces", "workflow-automation"],
     },
     {
         name: c.usecase_developer_name || "Developer / Engineer",
-        copy: c.usecase_developer_copy || "Shortlist self-hosted infrastructure by API support, license, hardware target, and deployment path.",
+        copy:
+            c.usecase_developer_copy ||
+            "Shortlist self-hosted infrastructure by API support, license, hardware target, and deployment path.",
         categories: ["llm-inference", "deployment", "monitoring-observability"],
     },
     {
         name: c.usecase_healthcare_name || "Healthcare Professional",
-        copy: c.usecase_healthcare_copy || "Look for offline tools that keep clinical notes and patient context inside the clinic network.",
+        copy:
+            c.usecase_healthcare_copy ||
+            "Look for offline tools that keep clinical notes and patient context inside the clinic network.",
         categories: ["chat-interfaces", "speech-to-text", "rag-document"],
     },
     {
         name: c.usecase_legal_name || "Legal Professional",
-        copy: c.usecase_legal_copy || "Evaluate document review and private search workflows for contracts, discovery, and NDA-bound files.",
+        copy:
+            c.usecase_legal_copy ||
+            "Evaluate document review and private search workflows for contracts, discovery, and NDA-bound files.",
         categories: ["rag-document", "vector-databases", "chat-interfaces"],
     },
     {
         name: c.usecase_indie_name || "Indie Hacker / Solo Builder",
-        copy: c.usecase_indie_copy || "Find affordable embeddable AI pieces that run locally or on your own small server.",
+        copy:
+            c.usecase_indie_copy ||
+            "Find affordable embeddable AI pieces that run locally or on your own small server.",
         categories: ["llm-inference", "chat-interfaces", "agent-frameworks"],
     },
 ];
@@ -94,8 +105,10 @@ const hoverColors = [
 
 <Layout
     site="Enclavetools"
-    title={c.home_page_title || "AI tools that keep your data inside your walls."}
-    tagline={c.home_page_tagline || "Find self-hosted, local, and offline AI software for teams that cannot afford leaks. Compare setup difficulty, license risk, hardware needs, telemetry, and API support before you open GitHub."}
+    title={c.home_page_title ||
+        "AI tools that keep your data inside your walls."}
+    tagline={c.home_page_tagline ||
+        "Find self-hosted, local, and offline AI software for teams that cannot afford leaks. Compare setup difficulty, license risk, hardware needs, telemetry, and API support before you open GitHub."}
     eyebrow={c.home_page_eyebrow || "Private AI tools directory"}
     showSearch={true}
     showHero={true}
@@ -106,9 +119,7 @@ const hoverColors = [
         listName={c.home_schema_list_name || "AI Tools Directory - All Tools"}
     />
     <div class="px-4 md:px-8 pt-12 pb-16 border-b-2 border-gray-900">
-        <section
-            class="flex flex-col items-center max-w-[1400px] mx-auto"
-        >
+        <section class="flex flex-col items-center max-w-[1400px] mx-auto">
             <div class="flex flex-wrap gap-3 justify-center">
                 <a
                     href="/all"
@@ -170,12 +181,16 @@ const hoverColors = [
                                           year: "numeric",
                                       },
                                   )
-                                : c.home_stat_build_data_fallback || "Build data"
+                                : c.home_stat_build_data_fallback ||
+                                  "Build data"
                         }
                     </dt><dd
                         class="text-xs font-black uppercase text-gray-500 tracking-wider"
                     >
-                        {c.home_stat_verification_label || "latest verification"}
+                        {
+                            c.home_stat_verification_label ||
+                                "latest verification"
+                        }
                     </dd>
                 </div>
             </dl>
@@ -201,7 +216,8 @@ const hoverColors = [
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {
                     categoryTiles.map((cat: any, index: number) => {
-                        const hoverColorClass = hoverColors[index % hoverColors.length];
+                        const hoverColorClass =
+                            hoverColors[index % hoverColors.length];
                         return (
                             <a
                                 href={`/${cat.category}`}
@@ -211,13 +227,17 @@ const hoverColors = [
                                     <span class="text-lg font-black leading-tight max-w-[85%]">
                                         {cat.title}
                                     </span>
-                                    <span class="text-lg font-black transform transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true">
+                                    <span
+                                        class="text-lg font-black transform transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                                        aria-hidden="true"
+                                    >
                                         ↗
                                     </span>
                                 </div>
                                 <div class="flex justify-between items-end mt-4">
                                     <span class="inline-flex items-center px-2 py-1 text-xs font-black uppercase border-2 border-gray-900 bg-gray-900 text-white group-hover:bg-white group-hover:text-gray-900 transition-colors duration-150">
-                                        {cat.count} {cat.count === 1 ? 'tool' : 'tools'}
+                                        {cat.count}{" "}
+                                        {cat.count === 1 ? "tool" : "tools"}
                                     </span>
                                 </div>
                             </a>
@@ -236,12 +256,15 @@ const hoverColors = [
         ssr-tools={allTools}
         ssr-total={allTools.length}
     />
-    <div class="border-b border-gray-200"></div>
+    <div class="border-b-2 border-gray-200"></div>
+    <NewsletterSection siteContent={c} />
+    <div class="border-b-2 border-gray-200"></div>
     <UseCases
         client:visible
         sections={sections}
         featured-tools={featuredTools}
         eyebrow={c.home_usecase_eyebrow || "Use cases"}
-        heading={c.home_usecase_heading || "Start from the risk you need to control."}
+        heading={c.home_usecase_heading ||
+            "Start from the risk you need to control."}
     />
 </Layout>
