@@ -234,7 +234,7 @@ watch(isOramaActive, (active) => {
 
         <ul role="list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 m-0 p-0">
             <template v-for="(item, i) in filteredCards" :key="`${item.title}-${i}`">
-                <div class="col-span-1 md:col-span-2 flex flex-col md:flex-row items-start md:items-center justify-between p-6 border-2 border-gray-900 bg-gray-50 mb-2 transition-all duration-300 ease-out-expo hover:shadow-card-hover hover:-translate-y-1"
+                <div class="col-span-1 md:col-span-2 flex flex-col md:flex-row items-start md:items-center justify-between p-6 border-2 border-gray-900 bg-gray-50 transition-all duration-300 ease-out-expo hover:shadow-card-hover hover:-translate-y-1"
                     v-if="i === 0" v-for="ad in promotedAds" :key="ad.title">
                     <div class="flex-1">
                         <div class="text-xs font-black uppercase text-gray-900 tracking-wider mb-2">{{ ad.label }}</div>

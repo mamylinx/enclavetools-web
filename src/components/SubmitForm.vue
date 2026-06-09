@@ -35,8 +35,9 @@
         </div>
 
         <div class="flex flex-col gap-2 col-span-1">
-          <label for="url" class="font-black text-gray-900 uppercase tracking-wider text-sm">Website URL</label>
+          <label for="url" class="font-black text-gray-900 uppercase tracking-wider text-sm">Website URL *</label>
           <input type="url" id="url" v-model="form.url" class="w-full bg-white border-2 border-gray-200 h-12 px-4 font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-colors" />
+          <p class="text-xs font-bold text-gray-500 mt-1 m-0">Required if no GitHub URL provided</p>
         </div>
 
         <div class="flex flex-col gap-2 col-span-1">
@@ -346,6 +347,11 @@ const submitForm = async () => {
   isSubmitting.value = true;
   submitError.value = '';
 
+  if (!form.value.url && !form.value.githubUrl) {
+    submitError.value = "Please provide a Website URL or a GitHub URL.";
+    isSubmitting.value = false;
+    return;
+  }
   if (form.value.hardware.length === 0) {
     submitError.value = "Please select at least one hardware option.";
     isSubmitting.value = false;
