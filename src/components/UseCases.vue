@@ -42,7 +42,7 @@ const props = defineProps<{
                 <div class="flex flex-col md:flex-row md:items-start gap-4 mb-6">
                     <div class="flex items-start gap-4 flex-1 min-w-0 w-full md:w-auto">
                         <span
-                            class="text-sm font-black shrink-0 mt-1 bg-gray-900 text-white w-8 h-8 flex items-center justify-center"
+                            class="text-sm font-black shrink-0 bg-gray-900 text-white w-8 h-8 flex items-center justify-center"
                         >
                             {{ String(index + 1).padStart(2, "0") }}
                         </span>

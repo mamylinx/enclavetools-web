@@ -18,6 +18,7 @@ export const GET: APIRoute = async (context) => {
       SELECT * FROM pending_tools 
       WHERE status = 'pending' 
       ORDER BY submitted_at DESC
+      LIMIT 100
     `).all();
 
     return new Response(JSON.stringify({ tools: result.results }), { 

@@ -3,7 +3,7 @@ import path from 'path';
 import crypto from 'crypto';
 
 const inputPath = path.join(process.cwd(), 'src/data/tools.json');
-const outputPath = path.join(process.cwd(), 'wrangler/d1/migrations/004_initial_data.sql');
+const outputPath = path.join(process.cwd(), 'wrangler/d1/seed.sql');
 
 if (!fs.existsSync(inputPath)) {
   console.error(`tools.json not found at ${inputPath}`);
@@ -62,5 +62,5 @@ for (const categoryObj of data.tools) {
 sql += values.join(',\n') + ';\n';
 
 fs.writeFileSync(outputPath, sql);
-console.log(`✅ Migration SQL generated at ${outputPath}`);
-console.log(`Run: npx wrangler d1 execute enclavetools-db --local --file=wrangler/d1/migrations/004_initial_data.sql`);
+console.log(`✅ Seed SQL generated at ${outputPath}`);
+console.log(`Run: npx wrangler d1 execute enclavetools-db --local --file=wrangler/d1/seed.sql`);

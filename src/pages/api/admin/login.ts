@@ -4,6 +4,7 @@ export const prerender = false;
 import { env } from 'cloudflare:workers';
 import { verifyPassword, createSessionToken } from '../../../lib/auth';
 import { checkRateLimit } from '../../../lib/rate-limit';
+import { adminLoginSchema } from '../../../lib/validation';
 
 export const POST: APIRoute = async (context) => {
   const ip = context.request.headers.get('CF-Connecting-IP') || '127.0.0.1';
@@ -14,8 +15,9 @@ export const POST: APIRoute = async (context) => {
 
   try {
     const data = await context.request.json();
-    if (!data.password) {
-      return new Response(JSON.stringify({ error: "Password required" }), { status: 400 });
+    const parsed = adminLoginSchema.safeParse(data);
+    if (!parsed.success) {
+      return new Response(JSON.stringify({ error: "Invalid password format" }), { status: 400 });
     }
 
     const isValid = await verifyPassword(env, data.password);
