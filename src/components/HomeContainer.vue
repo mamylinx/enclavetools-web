@@ -39,7 +39,7 @@ const latestTools = computed(() => {
     <div class="flex flex-col gap-8">
         <section>
             <h3 class="text-2xl font-black text-gray-900 mb-6">{{ c.section_featured_tools || 'Featured Tools' }}</h3>
-            <ul data-cards-grid role="list" class="grid grid-cols-1 gap-4 m-0 p-0">
+            <ul data-cards-grid role="list" class="grid grid-cols-3 gap-4 m-0 p-0">
                 <Card v-for="(item, i) in featuredTools" :key="`featured-${i}`"
                     :href="item.url" :title="item.title" :body="item.body" :license="item.license"
                     :date-added="item['date-added']" :slug="item.slug" :featured="item.featured"
@@ -55,7 +55,7 @@ const latestTools = computed(() => {
                 <h3 class="text-2xl font-black text-gray-900 m-0">{{ c.section_latest_added || 'Latest Added' }}</h3>
                 <a href="/all" class="text-sm font-bold bg-white border-2 border-gray-900 text-gray-900 h-10 px-4 inline-flex items-center hover:bg-primary-500 hover:text-white hover:border-primary-500 transition-colors no-underline">{{ c.section_browse_all || 'Browse all' }}</a>
             </div>
-            <ul data-cards-grid role="list" class="grid grid-cols-1 gap-4 m-0 p-0">
+            <ul data-cards-grid role="list" class="grid grid-cols-3 gap-4 m-0 p-0">
                 <Card v-for="(item, i) in latestTools" :key="`latest-${i}`"
                     :href="item.url" :title="item.title" :body="item.body" :license="item.license"
                     :date-added="item['date-added']" :slug="item.slug" :featured="item.featured"

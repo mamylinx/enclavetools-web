@@ -19,7 +19,7 @@ const allTools = toolsData.tools.flatMap((cat: any) =>
   pageDescription="Build a local, self-hosted AI stack from compatible inference, chat, RAG, vector, deployment, and monitoring tools."
   canonicalUrl="https://enclavetools.com/stack-builder"
   showSearch={true}
-  showHero={true}
 >
+  <h1 class="sr-only">Stack Builder</h1>
   <StackBuilder client:visible tools={allTools} />
 </Layout>

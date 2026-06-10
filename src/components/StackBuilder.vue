@@ -179,6 +179,10 @@ async function copyText(value: string) {
   if (!ok) throw new Error('Copy failed');
 }
 
+function addAllSuggestions() {
+  suggestions.value.forEach((tool) => add(tool.slug));
+}
+
 onMounted(() => {
   document.addEventListener('click', (e) => {
     if (showOverflow.value && !(e.target as Element).closest('#ow')) {
@@ -224,116 +228,138 @@ watch(activeId, () => { pushUrl(); refresh(); });
 
     <!-- First-time CTA -->
     <div v-if="stacks.length === 0 && !creating"
-      class="py-24 text-center bg-gray-50 border-2 border-dashed border-gray-300">
+      class="py-16 lg:py-24 text-center bg-gray-50 border-2 border-dashed border-gray-300">
       <h2 class="text-2xl font-black text-gray-900 mb-4">No stacks yet</h2>
       <p class="text-gray-600 font-bold mb-8 max-w-md mx-auto">
         Create a stack to collect compatible self-hosted AI tools.
       </p>
       <button type="button" @click="handleCreate"
-        class="inline-flex items-center gap-2 px-6 h-12 bg-gray-900 text-white font-black hover:bg-primary-500 transition-colors cursor-pointer border-none text-sm uppercase tracking-wider">
+        class="inline-flex items-center gap-2 px-4 h-12 bg-gray-900 text-white font-black hover:bg-primary-500 transition-colors cursor-pointer border-none text-sm uppercase tracking-wider">
         + Create your first stack
       </button>
     </div>
 
     <template v-else>
 
-      <!-- Inline create -->
-      <div v-if="creating"
-        class="flex flex-col md:flex-row items-center gap-3 mb-6 p-4 bg-yellow-50 border-2 border-gray-900">
-        <input id="ci" type="text" v-model="createDraft" @keydown.enter="commitCreate" @keydown.escape="cancelCreate"
-          placeholder="Name the new stack"
-          class="flex-1 w-full bg-white border-2 border-gray-900 px-4 h-12 font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500"
-          maxlength="30" />
-        <div class="flex gap-2 w-full md:w-auto">
-          <button type="button" @click="commitCreate"
-            class="px-4 h-12 bg-gray-900 text-white font-bold hover:bg-primary-500 transition-colors cursor-pointer border-none">Create</button>
-          <button type="button" @click="cancelCreate"
-            class="px-4 h-12 bg-white border-2 border-gray-900 text-gray-900 font-bold hover:bg-gray-100 transition-colors cursor-pointer">Cancel</button>
-        </div>
-      </div>
-
-      <!-- Stack management -->
-      <div class="flex flex-col md:flex-row items-center gap-3 mb-3 p-4 bg-gray-50 border-2 border-gray-900 flex-wrap">
-        <div class="flex items-center gap-2 w-full md:w-auto flex-1 min-w-0">
-          <select
-            class="flex-1 bg-white border-2 border-gray-900 px-3 h-12 font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 cursor-pointer min-w-[160px]"
-            :value="activeId" @change="switchStack(($event.target as HTMLSelectElement).value)"
-            aria-label="Select stack">
-            <option value="" disabled v-if="!activeId">Select a stack</option>
-            <option v-for="s in stacks" :key="s.id" :value="s.id">{{ s.name }} ({{ s.tools.length }})</option>
-          </select>
-
-          <!-- Rename inline -->
-          <div v-if="renaming" class="flex items-center gap-2 flex-1">
-            <input id="ri" type="text" v-model="renameDraft" @keydown.enter="commitRename" @keydown.escape="cancelRename"
-              class="flex-1 bg-white border-2 border-gray-900 px-3 h-12 font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500"
-              maxlength="30" />
-            <button type="button" @click="commitRename"
-              class="shrink-0 px-4 h-12 bg-gray-900 text-white font-bold hover:bg-primary-500 transition-colors cursor-pointer border-none text-sm">Save</button>
-            <button type="button" @click="cancelRename"
-              class="shrink-0 px-4 h-12 bg-white border-2 border-gray-900 text-gray-900 font-bold hover:bg-gray-100 transition-colors cursor-pointer text-sm">Cancel</button>
+      <!-- Merged toolbar: create form replaces toolbar when active -->
+      <div v-if="stacks.length > 0 || creating"
+        class="flex flex-col md:flex-row items-center gap-3 mb-3 p-4 bg-gray-50 border-2 border-gray-900 flex-wrap">
+        <div v-if="creating" class="flex flex-col md:flex-row items-center gap-3 w-full">
+          <input id="ci" type="text" v-model="createDraft" @keydown.enter="commitCreate" @keydown.escape="cancelCreate"
+            placeholder="Name the new stack"
+            class="flex-1 w-full bg-white border-2 border-gray-900 px-4 h-12 font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500"
+            maxlength="30" />
+          <div class="flex gap-2 w-full md:w-auto">
+            <button type="button" @click="commitCreate"
+              class="px-4 h-12 bg-gray-900 text-white font-bold hover:bg-primary-500 transition-colors cursor-pointer border-none">Create</button>
+            <button type="button" @click="cancelCreate"
+              class="px-4 h-12 bg-white border-2 border-gray-900 text-gray-900 font-bold hover:bg-gray-100 transition-colors cursor-pointer">Cancel</button>
           </div>
-
-          <!-- Overflow -->
-          <div v-if="!renaming" id="ow" class="relative shrink-0">
-            <button type="button" @click="showOverflow = !showOverflow"
-              class="w-12 h-12 bg-white border-2 border-gray-900 text-gray-900 hover:bg-primary-500 hover:text-white hover:border-primary-500 transition-colors cursor-pointer inline-flex items-center justify-center"
-              aria-label="Stack actions">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg>
-            </button>
-            <div v-if="showOverflow"
-              class="absolute right-0 top-full mt-1 z-50 bg-white border-2 border-gray-900 shadow-[4px_4px_0_0_rgba(17,24,39,1)] min-w-[180px]">
-              <button type="button" @click="startRename"
-                class="flex items-center gap-3 w-full text-left px-4 h-12 text-sm font-bold text-gray-900 hover:bg-gray-100 border-b border-gray-100 cursor-pointer bg-transparent">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.85 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/></svg>
-                Rename
-              </button>
-              <button type="button" @click="showDeleteConfirm = true; showOverflow = false"
-                class="flex items-center gap-3 w-full text-left px-4 h-12 text-sm font-bold text-red-600 hover:bg-red-50 cursor-pointer bg-transparent">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>
-                Delete
-              </button>
+        </div>
+        <template v-else>
+          <div class="flex items-center gap-2 flex-1 min-w-0">
+            <div v-if="stacks.length === 1"
+              class="flex flex-1 items-center h-12 px-3 bg-white border-2 border-gray-900 min-w-[160px] font-bold text-gray-900 gap-2 truncate">
+              <span class="truncate">{{ activeStack?.name }}</span>
+              <span class="shrink-0 text-gray-400 text-sm">({{ activeStack?.tools.length || 0 }})</span>
             </div>
+            <select v-else
+              class="flex-1 bg-white border-2 border-gray-900 px-3 h-12 font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 cursor-pointer min-w-[160px]"
+              :value="activeId" @change="switchStack(($event.target as HTMLSelectElement).value)"
+              aria-label="Select stack">
+              <option v-for="s in stacks" :key="s.id" :value="s.id">{{ s.name }} ({{ s.tools.length }})</option>
+            </select>
+
+            <!-- Rename inline -->
+            <div v-if="renaming" class="flex items-center gap-2 flex-1">
+              <input id="ri" type="text" v-model="renameDraft" @keydown.enter="commitRename"
+                @keydown.escape="cancelRename"
+                class="flex-1 bg-white border-2 border-gray-900 px-3 h-12 font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500"
+                maxlength="30" />
+              <button type="button" @click="commitRename"
+                class="shrink-0 px-4 h-12 bg-gray-900 text-white font-bold hover:bg-primary-500 transition-colors cursor-pointer border-none text-sm">Save</button>
+              <button type="button" @click="cancelRename"
+                class="shrink-0 px-4 h-12 bg-white border-2 border-gray-900 text-gray-900 font-bold hover:bg-gray-100 transition-colors cursor-pointer text-sm">Cancel</button>
+            </div>
+
+            <!-- Copy link -->
+            <button v-if="!renaming" type="button" @click="copyStackLink"
+              class="shrink-0 w-12 h-12 bg-white border-2 border-gray-900 text-gray-900 hover:bg-primary-500 hover:text-white hover:border-primary-500 transition-colors cursor-pointer inline-flex items-center justify-center"
+              :aria-label="copyStatus === 'copied' ? 'Copied' : copyStatus === 'failed' ? 'Copy failed' : 'Copy stack link'"
+              :title="copyStatus === 'copied' ? 'Copied' : copyStatus === 'failed' ? 'Copy failed' : 'Copy stack link'">
+              <svg v-if="copyStatus === 'idle'" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+              <svg v-else-if="copyStatus === 'copied'" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <svg v-else xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            </button>
+
+            <!-- Overflow -->
+            <div v-if="!renaming" id="ow" class="relative shrink-0">
+              <button type="button" @click="showOverflow = !showOverflow"
+                class="w-12 h-12 bg-white border-2 border-gray-900 text-gray-900 hover:bg-primary-500 hover:text-white hover:border-primary-500 transition-colors cursor-pointer inline-flex items-center justify-center"
+                aria-label="Stack actions">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="5" r="1" />
+                  <circle cx="12" cy="12" r="1" />
+                  <circle cx="12" cy="19" r="1" />
+                </svg>
+              </button>
+              <div v-if="showOverflow"
+                class="absolute right-0 top-full mt-1 z-50 bg-white border-2 border-gray-900 shadow-brutal min-w-[180px]">
+                <button type="button" @click="startRename"
+                  class="flex items-center gap-3 w-full text-left px-4 h-12 text-sm font-bold text-gray-900 hover:bg-gray-100 border-b border-gray-100 cursor-pointer bg-transparent">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M17 3a2.85 2.85 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
+                    <path d="m15 5 4 4" />
+                  </svg>
+                  Rename
+                </button>
+                <button type="button" @click="showDeleteConfirm = true; showOverflow = false"
+                  class="flex items-center gap-3 w-full text-left px-4 h-12 text-sm font-bold text-red-600 hover:bg-red-50 cursor-pointer bg-transparent">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 6h18" />
+                    <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
+                    <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
+                  </svg>
+                  Delete
+                </button>
+              </div>
+            </div>
+
+            <!-- New stack -->
+            <button v-if="!renaming" type="button" @click="handleCreate"
+              class="shrink-0 w-12 h-12 bg-white border-2 border-gray-900 text-gray-900 hover:bg-primary-500 hover:text-white hover:border-primary-500 transition-colors cursor-pointer inline-flex items-center justify-center"
+              aria-label="Create new stack">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14" />
+                <path d="M12 5v14" />
+              </svg>
+            </button>
           </div>
-        </div>
+          <div class="flex items-center gap-2 w-full md:w-auto md:border-l-2 md:border-gray-300 md:pl-4">
+            <select
+              class="flex-1 w-full md:w-auto bg-gray-900 text-white border-2 border-gray-900 px-4 h-12 font-bold focus:outline-none focus:ring-2 focus:ring-primary-500 cursor-pointer min-w-[200px]"
+              @change="addFromSelect" aria-label="Add a tool to the stack">
+              <option class="text-gray-900" value="">Add a tool to the stack</option>
+              <option class="text-gray-900" v-for="tool in allTools" :key="tool.slug" :value="tool.slug"
+                :disabled="(activeStack?.tools || []).includes(tool.slug || '')">
+                {{ tool.title }}
+              </option>
+            </select>
+          </div>
+        </template>
       </div>
 
       <!-- Delete confirm -->
-      <div v-if="showDeleteConfirm"
-        class="flex items-center gap-4 mb-3 p-4 bg-red-50 border-2 border-red-600">
+      <div v-if="showDeleteConfirm" class="flex items-center gap-4 mb-3 p-4 bg-red-50 border-2 border-red-600">
         <span class="font-bold text-red-800">Delete this stack?</span>
         <button type="button" @click="handleDelete"
           class="px-4 h-10 bg-red-600 text-white font-bold hover:bg-red-700 transition-colors cursor-pointer border-none">Delete</button>
         <button type="button" @click="showDeleteConfirm = false"
           class="px-4 h-10 bg-white border-2 border-gray-900 text-gray-900 font-bold hover:bg-gray-100 transition-colors cursor-pointer">Cancel</button>
-      </div>
-
-      <!-- Tool actions (original toolbar) -->
-      <div class="flex flex-col md:flex-row items-center gap-3 mb-8 p-4 bg-gray-50 border-2 border-gray-900 flex-wrap">
-        <select
-          class="flex-1 w-full bg-white border-2 border-gray-900 px-4 h-12 font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 cursor-pointer min-w-[200px]"
-          @change="addFromSelect"
-          aria-label="Add a tool to the stack">
-          <option value="">Add a tool to the stack</option>
-          <option v-for="tool in allTools" :key="tool.slug" :value="tool.slug"
-            :disabled="(activeStack?.tools || []).includes(tool.slug || '')">
-            {{ tool.title }}
-          </option>
-        </select>
-        <div class="flex gap-2 w-full md:w-auto">
-          <button type="button" @click="handleCreate"
-            class="shrink-0 px-4 h-12 bg-white border-2 border-gray-900 text-gray-900 font-bold hover:bg-primary-500 hover:text-white hover:border-primary-500 transition-colors cursor-pointer inline-flex items-center gap-2 text-sm"
-            aria-label="Create new stack">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
-            <span class="hidden md:inline">New stack</span>
-          </button>
-          <button
-            class="shrink-0 px-4 h-12 bg-gray-900 text-white font-bold hover:bg-primary-500 transition-colors cursor-pointer border-none whitespace-nowrap inline-flex items-center gap-2 text-sm"
-            type="button" @click="copyStackLink"
-            aria-label="Copy stack link">
-            {{ copyStatus === 'copied' ? 'Copied' : copyStatus === 'failed' ? 'Failed' : 'Copy link' }}
-          </button>
-        </div>
       </div>
 
       <!-- Empty state -->
@@ -345,7 +371,8 @@ watch(activeId, () => { pushUrl(); refresh(); });
       <!-- Stack content -->
       <div v-else class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
         <section class="flex flex-col gap-4">
-          <h2 class="text-2xl font-black text-gray-900 pb-4 border-b-2 border-gray-900">Current stack</h2>
+          <h2 class="text-2xl font-black text-gray-900 pb-4 border-b-2 border-gray-900">Current stack - {{
+            activeStack?.name }}</h2>
           <div v-for="[cat, tools] in groupedStack" :key="cat" class="mb-4">
             <h3 class="text-sm font-black text-primary-500 uppercase tracking-widest mb-4">{{ cat }}</h3>
             <article v-for="tool in tools" :key="tool.slug"
@@ -356,7 +383,11 @@ watch(activeId, () => { pushUrl(); refresh(); });
               </div>
               <button type="button" @click="remove(tool.slug)"
                 class="shrink-0 px-3 h-10 bg-white border-2 border-gray-900 text-gray-900 font-bold hover:bg-primary-500 hover:text-white hover:border-primary-500 transition-colors cursor-pointer inline-flex items-center justify-center gap-2 text-sm">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 6 6 18" />
+                  <path d="m6 6 12 12" />
+                </svg>
                 Remove
               </button>
             </article>
@@ -364,18 +395,23 @@ watch(activeId, () => { pushUrl(); refresh(); });
         </section>
 
         <section class="flex flex-col gap-4">
-          <h2 class="text-2xl font-black text-gray-900 pb-4 border-b-2 border-gray-900">Works well with</h2>
           <div class="flex flex-col gap-4">
             <article v-for="tool in suggestions" :key="tool.slug"
               class="flex flex-col sm:flex-row justify-between items-start sm:items-center p-6 bg-gray-50 border-2 border-dashed border-gray-200 gap-4 transition-colors hover:border-solid hover:border-gray-900">
               <div class="flex-1">
                 <strong class="block text-lg font-black text-gray-900 mb-1">{{ tool.title }}</strong>
-                <span class="inline-block px-2 py-1 bg-gray-200 text-gray-700 text-xs uppercase tracking-wider font-bold mb-2">{{ categoryValue(tool) }}</span>
+                <span
+                  class="inline-block px-2 py-1 bg-gray-200 text-gray-700 text-xs uppercase tracking-wider font-bold mb-2">{{
+                  categoryValue(tool) }}</span>
                 <p class="text-sm text-gray-600 m-0">{{ tool.plain_description || tool.body }}</p>
               </div>
               <button type="button" @click="add(tool.slug)"
                 class="shrink-0 px-3 h-10 bg-white border-2 border-gray-900 text-gray-900 font-bold hover:bg-primary-500 hover:text-white hover:border-primary-500 transition-colors cursor-pointer inline-flex items-center justify-center gap-2 text-sm">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14" />
+                  <path d="M12 5v14" />
+                </svg>
                 Add
               </button>
             </article>
