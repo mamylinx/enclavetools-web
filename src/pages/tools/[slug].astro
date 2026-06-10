@@ -682,9 +682,13 @@ const featureBadges = [
 
   <script type="module">
     const copyText = async (value) => {
-      if (navigator.clipboard?.writeText && window.isSecureContext) {
-        await navigator.clipboard.writeText(value);
-        return;
+      if (navigator.clipboard?.writeText) {
+        try {
+          await navigator.clipboard.writeText(value);
+          return;
+        } catch {
+          /* fall through */
+        }
       }
 
       const textarea = document.createElement("textarea");
@@ -747,10 +751,43 @@ const featureBadges = [
       }
 
       if (action === "stack") {
-        const slugs = addLocalSlug("enclavetools-stack", slug, 8, false);
-        localStorage.setItem("enclavetools-stack", JSON.stringify(slugs));
+        const STORAGE_KEY = "enclavetools-stacks";
+        const ACTIVE_KEY = "enclavetools-active-stack";
+        const LEGACY_KEY = "enclavetools-stack";
+        const MAX_TOOLS = 8;
+        const readStacks = () => { try { const r = localStorage.getItem(STORAGE_KEY); return r ? JSON.parse(r) : []; } catch { return []; } };
+        const writeStacks = (s) => { localStorage.setItem(STORAGE_KEY, JSON.stringify(s)); };
+        const migrateLegacy = () => {
+          try {
+            const legacy = localStorage.getItem(LEGACY_KEY);
+            if (!legacy) return;
+            const tools = JSON.parse(legacy);
+            localStorage.removeItem(LEGACY_KEY);
+            if (!Array.isArray(tools) || !tools.length) return;
+            if (readStacks().length) return;
+            const now = new Date().toISOString();
+            writeStacks([{ id: "default", name: "My Stack", tools: tools.slice(0, MAX_TOOLS), created: now, updated: now }]);
+            localStorage.setItem(ACTIVE_KEY, "default");
+          } catch { /* silent */ }
+        };
+        migrateLegacy();
+        let stacks = readStacks();
+        if (!stacks.length) {
+          const now = new Date().toISOString();
+          const id = crypto.randomUUID?.() || `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
+          stacks = [{ id, name: "My Stack", tools: [], created: now, updated: now }];
+          writeStacks(stacks);
+          localStorage.setItem(ACTIVE_KEY, id);
+        }
+        const stack = stacks[0];
+        if (!stack.tools.includes(slug) && stack.tools.length < MAX_TOOLS) {
+          stack.tools = [slug, ...stack.tools].slice(0, MAX_TOOLS);
+          stack.updated = new Date().toISOString();
+          writeStacks(stacks);
+        }
+        localStorage.setItem(ACTIVE_KEY, stack.id);
         setTemporaryText(button, "Added", "Add to stack");
-        window.location.assign(`/stack-builder?stack=${slugs.join(",")}`);
+        window.location.assign(`/stack-builder?stack=${stack.id}`);
       }
     };
 
