@@ -101,7 +101,7 @@ onUnmounted(() => {
         @clear="(k) => clearFilter(k)" @clear-all="clearAll" />
 
     <div class="grid gap-8 max-w-[1400px] mx-auto px-4 md:px-8 pb-12 items-start"
-        :class="[isHomepage ? 'pt-12' : 'pt-8', 'grid-cols-1 lg:grid-cols-[1fr_260px]']">
+        :class="[isHomepage ? 'pt-12' : 'pt-8 grid-cols-1 lg:grid-cols-[1fr_260px]']">
 
         <div class="flex flex-col gap-6 min-w-0">
             <div v-if="!isHomepage" class="lg:hidden mb-4">
@@ -124,8 +124,8 @@ onUnmounted(() => {
                 @clear-all="clearAll" />
         </div>
 
-        <aside class="sticky top-24 hidden lg:block w-full">
-            <Sidebar showSponsor :showNewsletter="!isHomepage" />
+        <aside v-if="!isHomepage" class="sticky top-24 hidden lg:block w-full">
+            <Sidebar showNewsletter />
         </aside>
         <CompareTray :tools="(props.ssrTools || []) as any" />
     </div>

@@ -15,7 +15,6 @@ const m = marketingData as any;
 const c = siteContent as Record<string, string>;
 
 const promotedAds = ref(m.promoted || []);
-const sponsors = ref(m.sponsors || []);
 const featured = ref(m.featured?.[0] || null);
 
 const props = defineProps<{
@@ -235,7 +234,7 @@ watch(isOramaActive, (active) => {
         <ul role="list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 m-0 p-0">
             <template v-for="(item, i) in filteredCards" :key="`${item.title}-${i}`">
                 <div class="col-span-1 md:col-span-2 flex flex-col md:flex-row items-start md:items-center justify-between p-6 border-2 border-gray-900 bg-gray-50 transition-all duration-300 ease-out-expo hover:shadow-card-hover hover:-translate-y-1"
-                    v-if="i === 0" v-for="ad in promotedAds" :key="ad.title">
+                    v-if="i === positions.featured" v-for="ad in promotedAds" :key="ad.title">
                     <div class="flex-1">
                         <div class="text-xs font-black uppercase text-gray-900 tracking-wider mb-2">{{ ad.label }}</div>
                         <div class="text-xl font-black text-gray-900 mb-1">{{ ad.title }}</div>
@@ -243,18 +242,6 @@ watch(isOramaActive, (active) => {
                     </div>
                     <a href="/submit"
                         class="mt-4 md:mt-0 whitespace-nowrap px-4 h-12 bg-gray-900 text-white font-bold hover:bg-primary-500 transition-colors border-none inline-flex items-center">{{ ad.cta }}</a>
-                </div>
-
-                <div class="lg:hidden col-span-1 border-2 border-gray-200 p-6 bg-white transition-all duration-300 ease-out-expo hover:border-gray-900 hover:-translate-y-1 hover:shadow-card-hover"
-                    v-if="i === positions.sponsor" v-for="sponsor in sponsors" :key="'sponsor-' + sponsor.logo">
-                    <div class="flex flex-col h-full">
-                        <div class="text-xs font-black uppercase text-gray-400 tracking-wider mb-3">Sponsor</div>
-                        <div class="text-xl font-black text-gray-900 mb-2">{{ sponsor.logo }}</div>
-                        <p class="text-sm font-medium text-gray-600 mb-4 flex-1">{{ sponsor.description }}</p>
-                        <button
-                            class="w-full h-10 bg-white border-2 border-gray-900 text-gray-900 font-bold hover:bg-primary-500 hover:text-white hover:border-primary-500 transition-colors inline-flex items-center justify-center">{{
-                            sponsor.cta }}</button>
-                    </div>
                 </div>
 
                 <div class="lg:hidden col-span-1 border-2 border-gray-200 p-6 bg-white transition-all duration-300 ease-out-expo hover:border-gray-900 hover:-translate-y-1 hover:shadow-card-hover"
@@ -275,15 +262,14 @@ watch(isOramaActive, (active) => {
                     </div>
                 </div>
 
-                <div class="lg:hidden col-span-1 border-2 border-gray-200 p-6 bg-white transition-all duration-300 ease-out-expo hover:border-gray-900 hover:-translate-y-1 hover:shadow-card-hover"
-                    v-if="i === positions.featured">
+                <div class="col-span-1 border-2 border-gray-200 p-6 bg-white transition-all duration-300 ease-out-expo hover:border-gray-900 hover:-translate-y-1 hover:shadow-card-hover"
+                    v-if="i === 0">
                     <div class="flex flex-col h-full">
-                        <div class="text-xs font-black uppercase text-gray-400 tracking-wider mb-3">Get featured</div>
+                        <div class="text-xs font-black uppercase text-gray-400 tracking-wider mb-3">{{ c.featured_label || 'Featured' }}</div>
                         <div class="text-lg font-black text-gray-900 mb-2">{{ featured.title }}</div>
                         <p class="text-sm font-medium text-gray-600 mb-4 flex-1">{{ featured.description }}</p>
-                        <button
-                            class="w-full h-10 bg-gray-900 text-white font-bold hover:bg-primary-500 transition-colors border-none inline-flex items-center justify-center">{{
-                            featured.cta }}</button>
+                        <a :href="featured.url || '/submit'"
+                            class="block w-full h-10 bg-gray-900 text-white font-bold hover:bg-primary-500 transition-colors text-center no-underline border-none inline-flex items-center justify-center">{{ featured.cta }}</a>
                     </div>
                 </div>
 
