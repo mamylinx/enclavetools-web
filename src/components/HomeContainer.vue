@@ -42,7 +42,7 @@ const latestTools = computed(() => {
 <template>
     <div class="flex flex-col gap-8">
         <section>
-            <h3 class="text-2xl font-black text-gray-900 mb-6">{{ c.section_featured_tools || 'Featured Tools' }}</h3>
+            <h3 class="text-2xl font-black text-gray-900 mb-4">{{ c.section_featured_tools || 'Featured Tools' }}</h3>
             <ul data-cards-grid role="list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 m-0 p-0">
                 <li v-if="featured"
                     class="col-span-1 border-2 border-gray-200 p-6 bg-white transition-all duration-300 ease-out-expo hover:border-gray-900 hover:-translate-y-1 hover:shadow-card-hover list-none flex flex-col h-full">
@@ -62,7 +62,7 @@ const latestTools = computed(() => {
         </section>
 
         <section v-if="sponsors.length > 0">
-            <h3 class="text-2xl font-black text-gray-900 mb-6">{{ c.marketing_sponsor_label || 'Sponsor' }}</h3>
+            <h3 class="text-2xl font-black text-gray-900 mb-4">{{ c.marketing_sponsor_label || 'Sponsor' }}</h3>
             <div class="grid gap-4"
                 :class="sponsors.length === 1 ? 'grid-cols-1' : sponsors.length === 2 ? 'grid-cols-1 sm:grid-cols-2' : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'">
                 <a v-for="sponsor in sponsors" :key="sponsor.title || sponsor.cta"

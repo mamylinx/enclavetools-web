@@ -128,7 +128,7 @@ onUnmounted(() => {
 
             <div class="flex-1 min-w-0">
               <div
-                class="text-sm font-extrabold text-gray-900 tracking-[-0.2px] truncate mb-1 group-hover:text-primary-600 transition-colors">
+                class="text-sm font-black text-gray-900 tracking-[-0.2px] truncate mb-1 group-hover:text-primary-600 transition-colors">
                 {{ result.title }}
               </div>
               <div class="text-sm text-gray-500 capitalize leading-tight mb-1">{{ result.category.replace(/-/g,

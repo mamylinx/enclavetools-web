@@ -105,7 +105,7 @@ onUnmounted(() => {
 
         <div class="flex flex-col gap-6 min-w-0">
             <div v-if="!isHomepage" class="lg:hidden mb-4">
-                <button class="flex items-center justify-center gap-2 px-4 h-12 bg-white border-2 border-gray-900 font-extrabold text-gray-900 w-full hover:bg-primary-500 hover:text-white hover:border-primary-500 transition-colors" @click="showFilterSheet = true">
+                <button class="flex items-center justify-center gap-2 px-4 h-12 bg-white border-2 border-gray-900 font-black text-gray-900 w-full hover:bg-primary-500 hover:text-white hover:border-primary-500 transition-colors" @click="showFilterSheet = true">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2">
                         <path d="M4 6h16M4 12h16M4 18h16" />

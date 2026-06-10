@@ -242,7 +242,7 @@ watch(isOramaActive, (active) => {
                         <p class="text-sm font-medium text-gray-600 m-0">{{ ad.description }}</p>
                     </div>
                     <a href="/submit"
-                        class="mt-4 md:mt-0 whitespace-nowrap px-4 h-12 bg-gray-900 text-white font-bold hover:bg-primary-500 transition-colors border-none inline-flex items-center">{{ ad.cta }}</a>
+                        class="mt-4 md:mt-0 whitespace-nowrap px-4 h-12 bg-gray-900 text-white font-black hover:bg-primary-500 transition-colors border-none inline-flex items-center">{{ ad.cta }}</a>
                 </div>
 
                 <div class="lg:hidden col-span-1 border-2 border-gray-200 p-6 bg-white transition-all duration-300 ease-out-expo hover:border-gray-900 hover:-translate-y-1 hover:shadow-card-hover"

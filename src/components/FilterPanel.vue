@@ -97,7 +97,7 @@ const visibleGroups = computed(() => FILTER_GROUPS.filter(
 </script>
 
 <template>
-    <div class="w-full flex flex-col gap-1">
+    <div class="w-full flex flex-col gap-2">
         <div class="flex justify-end pb-2 mb-2 border-b-2 border-gray-900">
             <button class="text-xs text-gray-400 hover:text-gray-900 transition-colors py-1 px-2 bg-transparent border-2 border-transparent cursor-pointer" @click="handleClearAll">
                 Reset

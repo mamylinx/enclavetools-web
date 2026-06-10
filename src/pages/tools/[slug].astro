@@ -279,7 +279,7 @@ const featureBadges = [
             role="dialog"
             aria-label="Choose a stack"
             aria-modal="true"
-            class="hidden absolute left-0 top-full mt-1 z-50 min-w-[260px] border-2 border-gray-900 bg-white shadow-lg"
+            class="hidden absolute left-0 top-full mt-1 z-50 min-w-[260px] border-2 border-gray-900 bg-white shadow-brutal"
           >
             <p class="px-4 pt-3 pb-2 text-xs font-black uppercase tracking-wider text-gray-500">Choose a stack</p>
             <div id="stack-picker-list" class="flex flex-col max-h-56 overflow-y-auto border-t-2 border-gray-900"></div>
@@ -298,20 +298,20 @@ const featureBadges = [
                   type="text"
                   maxlength="30"
                   placeholder="Stack name"
-                  class="w-full border-2 border-gray-900 px-3 h-9 text-xs font-bold text-gray-900 focus:outline-none focus:border-primary-500 transition-colors"
+                  class="w-full border-2 border-gray-900 px-3 h-10 text-xs font-bold text-gray-900 focus:outline-none focus:border-primary-500 transition-colors"
                 />
                 <div class="flex gap-2">
                   <button
                     id="stack-picker-confirm"
                     type="button"
-                    class="flex-1 h-9 bg-gray-900 text-white text-xs font-black uppercase tracking-wider hover:bg-primary-500 transition-colors border-none cursor-pointer"
+                    class="flex-1 h-10 bg-gray-900 text-white text-xs font-black uppercase tracking-wider hover:bg-primary-500 transition-colors border-none cursor-pointer"
                   >
                     Create
                   </button>
                   <button
                     id="stack-picker-cancel"
                     type="button"
-                    class="flex-1 h-9 border-2 border-gray-900 text-gray-900 text-xs font-black uppercase tracking-wider hover:bg-gray-100 transition-colors cursor-pointer bg-white"
+                    class="flex-1 h-10 border-2 border-gray-900 text-gray-900 text-xs font-black uppercase tracking-wider hover:bg-gray-100 transition-colors cursor-pointer bg-white"
                   >
                     Cancel
                   </button>
@@ -391,7 +391,7 @@ const featureBadges = [
         >
       </aside>
 
-      <div class="flex flex-col gap-10">
+      <div class="flex flex-col gap-8">
         <div class="flex flex-wrap gap-2 mt-8">
           {
             featureBadges.map((badge: string) => (
@@ -900,7 +900,7 @@ const featureBadges = [
         ].join(" ");
         const dot = isActive
           ? `<span class="inline-block w-2 h-2 rounded-full bg-primary-500 flex-shrink-0"></span>`
-          : `<span class="inline-block w-2 h-2 rounded-full border border-gray-300 flex-shrink-0"></span>`;
+          : `<span class="inline-block w-2 h-2 rounded-full border-2 border-gray-300 flex-shrink-0"></span>`;
         const badge = alreadyIn ? "already added" : full ? "full" : `${stack.tools.length}/${MAX_TOOLS}`;
         item.innerHTML = `<span class="flex items-center gap-2 truncate">${dot}<span class="truncate">${stack.name}</span></span><span class="text-gray-400 font-normal normal-case flex-shrink-0">${badge}</span>`;
         if (!alreadyIn && !full) {

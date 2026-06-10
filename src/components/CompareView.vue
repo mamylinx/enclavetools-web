@@ -109,9 +109,9 @@ onMounted(loadFromUrl);
         </option>
       </select>
       <label class="flex items-center gap-3 font-bold text-gray-700 cursor-pointer whitespace-nowrap h-12"><input class="w-5 h-5 border-2 border-gray-900 text-primary-500 focus:ring-primary-500  cursor-pointer" v-model="differencesOnly" type="checkbox" /> Show differences only</label>
-      <button class="w-full md:w-auto px-4 h-12 bg-gray-900 text-white font-bold hover:bg-primary-500 transition-colors cursor-pointer border-none whitespace-nowrap inline-flex items-center" type="button" @click="copyMarkdown">Copy Markdown</button>
-      <button class="w-full md:w-auto px-4 h-12 bg-gray-900 text-white font-bold hover:bg-primary-500 transition-colors cursor-pointer border-none whitespace-nowrap inline-flex items-center" type="button" @click="downloadCsv">Download CSV</button>
-      <button class="w-full md:w-auto px-4 h-12 bg-gray-900 text-white font-bold hover:bg-primary-500 transition-colors cursor-pointer border-none whitespace-nowrap inline-flex items-center" type="button" @click="share">Share comparison</button>
+      <button class="w-full md:w-auto px-4 h-12 bg-gray-900 text-white font-black hover:bg-primary-500 transition-colors cursor-pointer border-none whitespace-nowrap inline-flex items-center" type="button" @click="copyMarkdown">Copy Markdown</button>
+      <button class="w-full md:w-auto px-4 h-12 bg-gray-900 text-white font-black hover:bg-primary-500 transition-colors cursor-pointer border-none whitespace-nowrap inline-flex items-center" type="button" @click="downloadCsv">Download CSV</button>
+      <button class="w-full md:w-auto px-4 h-12 bg-gray-900 text-white font-black hover:bg-primary-500 transition-colors cursor-pointer border-none whitespace-nowrap inline-flex items-center" type="button" @click="share">Share comparison</button>
     </div>
 
     <div v-if="selectedTools.length < 2" class="py-16 text-center bg-gray-50 border-2 border-dashed border-gray-300 text-gray-500 font-bold text-lg">
@@ -130,7 +130,7 @@ onMounted(loadFromUrl);
             <th class="p-4 border-b-2 border-gray-900 border-r-2 last:border-r-0 bg-gray-50 font-black text-gray-900 uppercase tracking-wider text-sm align-bottom" v-for="tool in selectedTools" :key="tool.slug">
               <div class="flex flex-col gap-3 items-start">
                 <a class="text-primary-500 hover:text-primary-600 no-underline" :href="`/tools/${tool.slug}`">{{ tool.title }}</a>
-                <button class="px-3 h-8 bg-white border-2 border-gray-900 text-gray-900 text-xs font-bold hover:bg-primary-500 hover:text-white hover:border-primary-500 transition-colors cursor-pointer inline-flex items-center" type="button" @click="remove(tool.slug)">Remove</button>
+                <button class="px-3 h-10 bg-white border-2 border-gray-900 text-gray-900 text-xs font-bold hover:bg-primary-500 hover:text-white hover:border-primary-500 transition-colors cursor-pointer inline-flex items-center" type="button" @click="remove(tool.slug)">Remove</button>
               </div>
             </th>
           </tr>

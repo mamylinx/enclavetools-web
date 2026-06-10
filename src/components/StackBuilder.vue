@@ -22,6 +22,13 @@ const showOverflow = ref(false);
 const creating = ref(false);
 const createDraft = ref('');
 
+// ── Tool search combobox ──────────────────────────────────────────
+const searchQuery = ref('');
+const searchOpen = ref(false);
+const searchHighlight = ref(-1); // flat index into filteredFlat
+const searchInputEl = ref<HTMLInputElement | null>(null);
+const searchDropEl = ref<HTMLDivElement | null>(null);
+
 const allTools = computed(() => props.tools.map(enrichTool));
 const activeStack = computed(() => stacks.value.find((s) => s.id === activeId.value));
 const stackTools = computed(() => (activeStack.value?.tools || [])
@@ -42,6 +49,94 @@ const groupedStack = computed(() => {
   });
   return Array.from(groups.entries());
 });
+
+// Filtered tools grouped by category
+const filteredGroups = computed(() => {
+  const q = searchQuery.value.trim().toLowerCase();
+  const inStack = new Set(activeStack.value?.tools || []);
+  const source = q
+    ? allTools.value.filter(
+        (t) =>
+          !inStack.has(t.slug || '') &&
+          (t.title?.toLowerCase().includes(q) ||
+            t.category?.toLowerCase().includes(q) ||
+            t.body?.toLowerCase().includes(q)),
+      )
+    : allTools.value.filter((t) => !inStack.has(t.slug || ''));
+
+  const groups = new Map<string, ToolWithCategory[]>();
+  source.forEach((t) => {
+    const cat = categoryValue(t) || 'Other';
+    groups.set(cat, [...(groups.get(cat) || []), t]);
+  });
+  return Array.from(groups.entries());
+});
+
+// Flat list for keyboard navigation
+const filteredFlat = computed(() =>
+  filteredGroups.value.flatMap(([, tools]) => tools),
+);
+
+function openSearch() {
+  searchOpen.value = true;
+  searchHighlight.value = -1;
+}
+
+function closeSearch() {
+  searchOpen.value = false;
+  searchQuery.value = '';
+  searchHighlight.value = -1;
+}
+
+function pickTool(slug: string | undefined) {
+  if (!slug) return;
+  if (!activeId.value) {
+    const s = createStack('My Stack');
+    activeId.value = s.id;
+    refresh();
+    pushUrl();
+  }
+  add(slug);
+  closeSearch();
+  nextTick(() => searchInputEl.value?.focus());
+}
+
+function onSearchKeydown(e: KeyboardEvent) {
+  const flat = filteredFlat.value;
+  if (e.key === 'ArrowDown') {
+    e.preventDefault();
+    searchHighlight.value = Math.min(searchHighlight.value + 1, flat.length - 1);
+    scrollHighlightIntoView();
+  } else if (e.key === 'ArrowUp') {
+    e.preventDefault();
+    searchHighlight.value = Math.max(searchHighlight.value - 1, 0);
+    scrollHighlightIntoView();
+  } else if (e.key === 'Enter') {
+    e.preventDefault();
+    if (searchHighlight.value >= 0 && flat[searchHighlight.value]) {
+      pickTool(flat[searchHighlight.value].slug);
+    }
+  } else if (e.key === 'Escape') {
+    closeSearch();
+  } else {
+    searchHighlight.value = -1;
+  }
+}
+
+function scrollHighlightIntoView() {
+  nextTick(() => {
+    const el = searchDropEl.value?.querySelector('[data-highlighted="true"]');
+    el?.scrollIntoView({ block: 'nearest' });
+  });
+}
+
+function highlightIndexFor(slug: string | undefined) {
+  if (!slug) return false;
+  const idx = filteredFlat.value.findIndex((t) => t.slug === slug);
+  return idx === searchHighlight.value;
+}
+
+// ── rest of StackBuilder ──────────────────────────────────────────
 
 function refresh() {
   stacks.value = getAll();
@@ -73,19 +168,6 @@ function remove(slug?: string) {
   if (!slug || !activeId.value) return;
   removeTool(activeId.value, slug);
   refresh();
-}
-
-function addFromSelect(event: Event) {
-  const slug = (event.target as HTMLSelectElement).value;
-  (event.target as HTMLSelectElement).value = '';
-  if (!slug) return;
-  if (!activeId.value) {
-    const s = createStack('My Stack');
-    activeId.value = s.id;
-    refresh();
-    pushUrl();
-  }
-  add(slug);
 }
 
 function handleDelete() {
@@ -126,7 +208,7 @@ function startRename() {
   nextTick(() => {
     const el = document.getElementById('ri');
     el?.focus();
-    el?.select();
+    (el as HTMLInputElement)?.select();
   });
 }
 
@@ -184,11 +266,18 @@ function addAllSuggestions() {
 }
 
 onMounted(() => {
+  // Close overflow menu when clicking outside
   document.addEventListener('click', (e) => {
     if (showOverflow.value && !(e.target as Element).closest('#ow')) {
       showOverflow.value = false;
     }
+    // Close search combobox when clicking outside
+    const anchor = document.getElementById('tool-search-anchor');
+    if (searchOpen.value && anchor && !anchor.contains(e.target as Node)) {
+      closeSearch();
+    }
   });
+
   const params = new URLSearchParams(window.location.search);
   const toolsParam = params.get('tools');
   if (toolsParam) {
@@ -251,9 +340,9 @@ watch(activeId, () => { pushUrl(); refresh(); });
             maxlength="30" />
           <div class="flex gap-2 w-full md:w-auto">
             <button type="button" @click="commitCreate"
-              class="px-4 h-12 bg-gray-900 text-white font-bold hover:bg-primary-500 transition-colors cursor-pointer border-none">Create</button>
+              class="px-4 h-12 bg-gray-900 text-white font-black hover:bg-primary-500 transition-colors cursor-pointer border-none">Create</button>
             <button type="button" @click="cancelCreate"
-              class="px-4 h-12 bg-white border-2 border-gray-900 text-gray-900 font-bold hover:bg-gray-100 transition-colors cursor-pointer">Cancel</button>
+              class="px-4 h-12 bg-white border-2 border-gray-900 text-gray-900 font-black hover:bg-gray-100 transition-colors cursor-pointer">Cancel</button>
           </div>
         </div>
         <template v-else>
@@ -277,9 +366,9 @@ watch(activeId, () => { pushUrl(); refresh(); });
                 class="flex-1 bg-white border-2 border-gray-900 px-3 h-12 font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500"
                 maxlength="30" />
               <button type="button" @click="commitRename"
-                class="shrink-0 px-4 h-12 bg-gray-900 text-white font-bold hover:bg-primary-500 transition-colors cursor-pointer border-none text-sm">Save</button>
+                class="shrink-0 px-4 h-12 bg-gray-900 text-white font-black hover:bg-primary-500 transition-colors cursor-pointer border-none text-sm">Save</button>
               <button type="button" @click="cancelRename"
-                class="shrink-0 px-4 h-12 bg-white border-2 border-gray-900 text-gray-900 font-bold hover:bg-gray-100 transition-colors cursor-pointer text-sm">Cancel</button>
+                class="shrink-0 px-4 h-12 bg-white border-2 border-gray-900 text-gray-900 font-black hover:bg-gray-100 transition-colors cursor-pointer text-sm">Cancel</button>
             </div>
 
             <!-- Copy link -->
@@ -307,7 +396,7 @@ watch(activeId, () => { pushUrl(); refresh(); });
               <div v-if="showOverflow"
                 class="absolute right-0 top-full mt-1 z-50 bg-white border-2 border-gray-900 shadow-brutal min-w-[180px]">
                 <button type="button" @click="startRename"
-                  class="flex items-center gap-3 w-full text-left px-4 h-12 text-sm font-bold text-gray-900 hover:bg-gray-100 border-b border-gray-100 cursor-pointer bg-transparent">
+                  class="flex items-center gap-3 w-full text-left px-4 h-12 text-sm font-bold text-gray-900 hover:bg-gray-100 border-b-2 border-gray-200 cursor-pointer bg-transparent">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M17 3a2.85 2.85 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
@@ -339,16 +428,85 @@ watch(activeId, () => { pushUrl(); refresh(); });
               </svg>
             </button>
           </div>
-          <div class="flex items-center gap-2 w-full md:w-auto md:border-l-2 md:border-gray-300 md:pl-4">
-            <select
-              class="flex-1 w-full md:w-auto bg-gray-900 text-white border-2 border-gray-900 px-4 h-12 font-bold focus:outline-none focus:ring-2 focus:ring-primary-500 cursor-pointer min-w-[200px]"
-              @change="addFromSelect" aria-label="Add a tool to the stack">
-              <option class="text-gray-900" value="">Add a tool to the stack</option>
-              <option class="text-gray-900" v-for="tool in allTools" :key="tool.slug" :value="tool.slug"
-                :disabled="(activeStack?.tools || []).includes(tool.slug || '')">
-                {{ tool.title }}
-              </option>
-            </select>
+
+          <!-- ── Searchable tool combobox ── -->
+          <div id="tool-search-anchor" class="flex items-center gap-2 w-full md:w-auto md:border-l-2 md:border-gray-300 md:pl-4 relative">
+            <div class="relative w-full md:w-auto">
+              <!-- Input trigger -->
+              <div class="relative flex items-center">
+                <svg class="absolute left-3 text-gray-400 pointer-events-none shrink-0" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                <input
+                  ref="searchInputEl"
+                  type="text"
+                  v-model="searchQuery"
+                  @focus="openSearch"
+                  @input="openSearch"
+                  @keydown="onSearchKeydown"
+                  placeholder="Search and add a tool…"
+                  autocomplete="off"
+                  class="w-full md:w-72 bg-gray-900 text-white border-2 border-gray-900 pl-8 pr-8 h-12 font-bold text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 placeholder-gray-400 cursor-text"
+                  aria-label="Search tools to add"
+                  aria-autocomplete="list"
+                  :aria-expanded="searchOpen"
+                  aria-controls="tool-search-dropdown"
+                  role="combobox"
+                />
+                <!-- Clear button -->
+                <button
+                  v-if="searchQuery"
+                  type="button"
+                  @click.stop="searchQuery = ''; searchInputEl?.focus()"
+                  class="absolute right-3 text-gray-400 hover:text-white transition-colors cursor-pointer border-none bg-transparent p-0 leading-none"
+                  aria-label="Clear search"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                </button>
+              </div>
+
+              <!-- Dropdown results -->
+              <div
+                v-if="searchOpen"
+                id="tool-search-dropdown"
+                ref="searchDropEl"
+                role="listbox"
+                aria-label="Tool search results"
+                class="absolute left-0 right-0 top-full mt-1 z-50 bg-white border-2 border-gray-900 shadow-brutal max-h-80 overflow-y-auto"
+                style="min-width: 320px"
+              >
+                <!-- No results -->
+                <div v-if="filteredGroups.length === 0" class="px-4 py-6 text-sm text-gray-500 font-bold text-center">
+                  No tools match "{{ searchQuery }}"
+                </div>
+
+                <!-- Grouped results -->
+                <template v-for="[cat, tools] in filteredGroups" :key="cat">
+                  <div class="px-3 pt-2 pb-1 text-xs font-black uppercase tracking-widest text-gray-400 bg-gray-50 border-b-2 border-gray-200 sticky top-0">
+                    {{ cat }}
+                  </div>
+                  <button
+                    v-for="tool in tools"
+                    :key="tool.slug"
+                    type="button"
+                    role="option"
+                    :aria-selected="highlightIndexFor(tool.slug)"
+                    :data-highlighted="highlightIndexFor(tool.slug) ? 'true' : undefined"
+                    @click.stop="pickTool(tool.slug)"
+                    @mouseenter="searchHighlight = filteredFlat.findIndex(t => t.slug === tool.slug)"
+                    :class="[
+                      'w-full text-left px-4 py-2 flex flex-col gap-2 border-b-2 border-gray-200 last:border-0 transition-colors cursor-pointer border-none outline-none',
+                      highlightIndexFor(tool.slug)
+                        ? 'bg-primary-500 text-white'
+                        : 'bg-white text-gray-900 hover:bg-gray-50'
+                    ]"
+                  >
+                    <span class="font-black text-sm leading-tight">{{ tool.title }}</span>
+                    <span
+                      :class="['text-xs leading-snug truncate', highlightIndexFor(tool.slug) ? 'text-white/80' : 'text-gray-500']"
+                    >{{ (tool.plain_description || tool.body || '').slice(0, 80) }}</span>
+                  </button>
+                </template>
+              </div>
+            </div>
           </div>
         </template>
       </div>
@@ -357,9 +515,9 @@ watch(activeId, () => { pushUrl(); refresh(); });
       <div v-if="showDeleteConfirm" class="flex items-center gap-4 mb-3 p-4 bg-red-50 border-2 border-red-600">
         <span class="font-bold text-red-800">Delete this stack?</span>
         <button type="button" @click="handleDelete"
-          class="px-4 h-10 bg-red-600 text-white font-bold hover:bg-red-700 transition-colors cursor-pointer border-none">Delete</button>
+          class="px-4 h-10 bg-red-600 text-white font-black hover:bg-red-700 transition-colors cursor-pointer border-none">Delete</button>
         <button type="button" @click="showDeleteConfirm = false"
-          class="px-4 h-10 bg-white border-2 border-gray-900 text-gray-900 font-bold hover:bg-gray-100 transition-colors cursor-pointer">Cancel</button>
+          class="px-4 h-10 bg-white border-2 border-gray-900 text-gray-900 font-black hover:bg-gray-100 transition-colors cursor-pointer">Cancel</button>
       </div>
 
       <!-- Empty state -->

@@ -3,7 +3,7 @@
     class="relative list-none flex flex-col gap-4 bg-white border-2 border-gray-200 p-6 transition-all duration-300 ease-out-expo cursor-pointer hover:border-gray-900 hover:-translate-y-1 hover:shadow-card-hover group"
     :class="{ 'border-gray-900 bg-gray-50': isFeatured }">
     <div v-if="slug" class="absolute top-2 right-2 z-10 hidden group-hover:block">
-      <label class="flex items-center gap-1 text-xs cursor-pointer bg-white/90 px-2 py-1 border-2 border-gray-200"
+      <label class="flex items-center gap-2 text-xs cursor-pointer bg-white/90 px-2 py-1 border-2 border-gray-200"
         @click.stop>
         <input type="checkbox" :checked="isCompared" @change="toggleCompare"
           class="w-3 h-3 text-primary-500 border-gray-300 focus:ring-primary-500" />
