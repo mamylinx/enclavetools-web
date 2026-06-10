@@ -17,7 +17,7 @@ const props = defineProps<{
 <template>
     <section
         id="use-cases"
-        class="max-w-[1400px] mx-auto px-4 md:px-8 py-12 scroll-mt-20"
+        class="max-w-[1400px] mx-auto px-4 md:px-8 py-12 scroll-mt-20 bg-gray-50"
         aria-labelledby="use-cases-heading"
     >
         <div>
@@ -78,7 +78,7 @@ const props = defineProps<{
                         v-for="tool in featuredTools[index].slice(0, 4)"
                         :key="tool.slug"
                         :href="`/tools/${tool.slug}`"
-                        class="border-2 border-gray-900 p-6 bg-white no-underline block group transition-all duration-300 ease-out-expo hover:-translate-y-1 hover:shadow-card-hover"
+                        class="border-2 border-gray-200 p-6 bg-white no-underline block group transition-all duration-300 ease-out-expo hover:border-gray-900 hover:-translate-y-1 hover:shadow-card-hover"
                     >
                         <strong class="block text-sm font-black text-gray-900 group-hover:text-primary-500 transition-colors">
                             {{ tool.title }}
