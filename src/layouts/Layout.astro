@@ -1,17 +1,13 @@
 ---
-import { ClientRouter } from "astro:transitions";
-import WebSiteSchema from "../components/schema/WebSiteSchema.astro";
+import SeoHead from "../components/SeoHead.astro";
+import NavHeader from "../components/NavHeader.astro";
 import Hero from "../components/Hero.astro";
 import CategoryNav from "../components/CategoryNav.vue";
-import categories from "../data/categories.json";
-import siteContent from "../data/site-content.json";
-import SearchInput from "../components/SearchInput.vue";
+import SiteFooter from "../components/SiteFooter.astro";
 import "../styles/main.css";
 
-const c = siteContent as Record<string, string>;
-
 export interface Props {
-  site: string;
+  site?: string;
   title: string;
   tagline: string;
   pageTitle?: string;
@@ -36,289 +32,22 @@ export interface Props {
 }
 
 const {
-  site,
   title,
   tagline,
-  pageTitle,
-  pageDescription,
-  canonicalUrl,
-  robots,
-  ogTitle,
-  ogDescription,
-  ogImage,
-  ogUrl,
-  ogType,
-  ogSiteName,
-  twitterCard,
-  twitterTitle,
-  twitterDescription,
-  twitterImage,
-  pageFavicon,
-  showSearch = false,
-  searchPlaceholder = "Search by name, category, or feature...",
   showHero = false,
   eyebrow,
+  ...seoProps
 } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href={pageFavicon || "/enclavetools.svg"}
-    />
-    <meta name="generator" content={Astro.generator} />
-    <title>
-      {
-        pageTitle
-          ? `${pageTitle} | Enclavetools`
-          : `${site} — Stop paying for AI APIs. Everything here runs on your hardware.`
-      }
-    </title>
-    <meta name="author" content="@planetabhi" />
-    <meta
-      name="description"
-      content={pageDescription ||
-        "Stop paying for AI APIs. Everything here runs on your hardware."}
-    />
-    {robots && <meta name="robots" content={robots} />}
-    <link rel="sitemap" href="/sitemap-index.xml" />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
-      rel="stylesheet"
-    />
-    {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
-    {ogTitle && <meta property="og:title" content={ogTitle} />}
-    {ogType && <meta property="og:type" content={ogType} />}
-    {
-      ogDescription && (
-        <meta property="og:description" content={ogDescription} />
-      )
-    }
-    {ogImage && <meta property="og:image" content={ogImage} />}
-    {ogUrl && <meta property="og:url" content={ogUrl} />}
-    {ogSiteName && <meta property="og:site_name" content={ogSiteName} />}
-    {twitterCard && <meta name="twitter:card" content={twitterCard} />}
-    {twitterTitle && <meta name="twitter:title" content={twitterTitle} />}
-    {
-      twitterDescription && (
-        <meta name="twitter:description" content={twitterDescription} />
-      )
-    }
-    {twitterImage && <meta name="twitter:image" content={twitterImage} />}
-
-    <ClientRouter />
-    <WebSiteSchema />
+    <SeoHead {...seoProps} />
   </head>
 
   <body>
-    <a
-      href="#main-content"
-      class="absolute -top-[100px] left-1/2 -translate-x-1/2 px-3 py-1 bg-primary-500 text-white no-underline font-black uppercase tracking-wider z-[9999999] transition-[top] duration-200 text-xs focus:top-1 border-2 border-gray-900 rounded-none shadow-[2px_2px_0_0_rgba(17,24,39,1)]"
-      >Skip to main content</a
-    >
-    <div
-      class="sticky top-0 z-[1000] flex items-center justify-between bg-white border-b-2 border-gray-900 h-16 max-w-[1400px] mx-auto"
-      aria-label="main navigation"
-      transition:persist="header-nav"
-    >
-      <div class="flex items-center gap-2">
-        <div class="flex items-center gap-2 font-bold text-primary-500 text-xl">
-          <a
-            href="/"
-            aria-label="home page"
-            tabindex="-1"
-            class="flex items-center gap-2 no-underline"
-            ><img
-              src="/enclavetools.svg"
-              width="64"
-              height="64"
-              alt="Enclavetools"
-              aria-hidden="true"
-            /><span class="hidden md:inline font-black text-primary-500"
-              >Enclavetools</span
-            ></a
-          >
-        </div>
-      </div>
-      {
-        showSearch && (
-          <div class="flex-1 max-w-[520px] mx-4 hidden md:block">
-            <SearchInput client:load placeholder={searchPlaceholder} />
-          </div>
-        )
-      }
-      <div class="hidden md:flex items-center gap-2">
-        <div class="relative hidden md:block group">
-          <button
-            class="flex items-center gap-2 px-3 py-2 text-xs font-black uppercase tracking-wider text-gray-900 hover:text-primary-500 bg-transparent border-none cursor-pointer"
-            aria-label="Browse categories"
-          >
-            <span>{c.nav_all_categories || "Categories"}</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="12"
-              height="12"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="m6 9 6 6 6-6"></path>
-            </svg>
-          </button>
-          <div
-            class="absolute left-0 top-full mt-2 w-[600px] bg-white border-2 border-gray-900 rounded-none shadow-[4px_4px_0_0_rgba(17,24,39,1)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50 p-4"
-          >
-            <div class="grid grid-cols-3 gap-2">
-              {
-                categories.map((cat) => (
-                  <a
-                    href={`/${cat.category}`}
-                    class="block px-3 py-2 text-xs font-bold uppercase tracking-wider text-gray-700 hover:bg-gray-900 hover:text-white rounded-none transition-colors"
-                    data-category={cat.category}
-                  >
-                    {cat.title}
-                  </a>
-                ))
-              }
-            </div>
-          </div>
-        </div>
-        <a
-          href="/compare"
-          class="flex items-center px-3 py-2 text-xs font-black uppercase tracking-wider text-gray-900 hover:text-primary-500 no-underline"
-        >
-          <span class="hidden lg:inline">{c.nav_compare || "Compare"}</span>
-        </a>
-        <a
-          href="/stack-builder"
-          class="flex items-center px-3 py-2 text-xs font-black uppercase tracking-wider text-gray-900 hover:text-primary-500 no-underline"
-        >
-          <span class="hidden lg:inline">{c.nav_stack || "Stack"}</span>
-        </a>
-        <a
-          href="/saved"
-          class="flex items-center px-3 py-2 text-xs font-black uppercase tracking-wider text-gray-900 hover:text-primary-500 no-underline hidden"
-          id="favoritesLink"
-        >
-          <span class="hidden lg:inline"
-            >{c.nav_saved_tools || "Saved tools"}</span
-          >
-          <span
-            class="ml-2 bg-gray-900 text-white px-2 py-1 rounded-none text-[10px] font-black border-2 border-gray-900"
-            id="favoritesCount"></span>
-        </a>
-        <a
-          href="/submit"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="ml-2 inline-flex items-center justify-center px-4 h-12 text-xs font-black uppercase tracking-wider text-white bg-gray-900 hover:bg-primary-500 transition-all duration-150 rounded-none no-underline border-2 border-gray-900 hover:border-primary-500"
-          tabindex="0"
-          ><span class="hidden lg:inline">Submit ↗</span><span class="lg:hidden"
-            >Submit</span
-          ></a
-        >
-      </div>
-      <div class="block md:hidden flex items-center gap-2">
-        <button
-          class="flex items-center justify-center w-10 h-10 text-gray-700 bg-transparent border-2 border-transparent hover:text-gray-900 transition-colors cursor-pointer"
-          id="mobileSearchBtn"
-          aria-label="Search tools"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <circle cx="11" cy="11" r="8" />
-            <path d="m21 21-4.35-4.35" />
-          </svg>
-        </button>
-        <div class="relative">
-          <button
-            class="flex items-center justify-center w-10 h-10 text-gray-700 bg-transparent border-2 border-transparent hover:text-gray-900 transition-colors cursor-pointer"
-            id="hamburgerBtn"
-            aria-label="Open menu"
-            aria-expanded="false"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <line x1="3" y1="6" x2="21" y2="6"></line>
-              <line x1="3" y1="12" x2="21" y2="12"></line>
-              <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
-          </button>
-          <div
-            class="absolute right-0 top-[calc(100%+8px)] w-[200px] bg-white border-2 border-gray-900 rounded-none shadow-[4px_4px_0_0_rgba(17,24,39,1)] opacity-0 invisible -translate-y-1 transition-all z-[1000000]"
-          id="mobileDropdown"
-        >
-          <div class="p-2 flex flex-col gap-2">
-            <a
-              href="/compare"
-              class="block w-full text-left px-3 h-12 text-xs font-black uppercase tracking-wider text-gray-900 hover:bg-gray-900 hover:text-white rounded-none transition-colors no-underline"
-              >{c.nav_compare || "Compare"}</a
-            >
-            <a
-              href="/stack-builder"
-              class="block w-full text-left px-3 h-12 text-xs font-black uppercase tracking-wider text-gray-900 hover:bg-gray-900 hover:text-white rounded-none transition-colors no-underline"
-              >{c.nav_stack || "Stack builder"}</a
-            >
-            <a
-              href="/saved"
-              class="w-full text-left px-3 h-12 text-xs font-black uppercase tracking-wider text-gray-900 hover:bg-gray-900 hover:text-white rounded-none transition-colors no-underline hidden"
-              id="mobileFavoritesLink"
-              >{c.nav_saved_tools || "Saved tools"}
-              <span
-                id="mobileFavoritesCount"
-                class="ml-2 bg-gray-900 text-white px-2 py-1 rounded-none text-[10px] font-black border-2 border-gray-900"
-              ></span></a
-            >
-            <a
-              href="/submit"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="block w-full text-left px-3 h-12 mt-1 text-xs font-black uppercase tracking-wider text-primary-500 border-t-2 border-gray-900 hover:bg-primary-500 hover:text-white transition-colors no-underline"
-              >{c.nav_submit || "Submit"} ↗</a
-            >
-          </div>
-        </div>
-      </div>
-    </div>
-    </div>
-    {
-      showSearch && (
-        <div class="md:hidden overflow-hidden transition-all duration-200 max-h-0 relative z-30" id="mobileSearchPanel">
-          <div class="px-4 py-4 bg-white border-b-2 border-gray-900">
-            <SearchInput client:load placeholder={searchPlaceholder} />
-          </div>
-        </div>
-      )
-    }
+    <NavHeader showSearch={seoProps.showSearch} searchPlaceholder={seoProps.searchPlaceholder} />
     <CategoryNav client:load />
 
     {showHero && <Hero eyebrow={eyebrow} title={title} tagline={tagline} />}
@@ -327,100 +56,7 @@ const {
       <slot />
     </main>
 
-    <footer class="bg-gray-900 text-white py-16 px-4 md:px-8 mt-16">
-      <div class="max-w-[1400px] mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-          <div class="md:col-span-1">
-            <div class="text-3xl font-black mb-2 tracking-tight text-white">
-              Enclavetools
-            </div>
-            <p class="text-sm font-bold text-gray-400 leading-relaxed">
-              {
-                c.footer_tagline ||
-                  "Your models. Your hardware. Zero subscriptions."
-              }
-            </p>
-          </div>
-          <div class="flex flex-col gap-3">
-            <h5
-              class="text-xs font-black uppercase tracking-widest text-gray-400 mb-2"
-            >
-              {c.nav_browse || "Browse"}
-            </h5>
-            <a
-              href="/"
-              class="text-sm font-bold text-gray-300 hover:text-primary-500 transition-colors no-underline"
-              >{c.nav_browse || "Browse"}</a
-            >
-            <!-- <a
-              href="/all/?filter=new"
-              class="text-sm font-bold text-gray-300 hover:text-primary-500 transition-colors no-underline"
-              >{c.nav_latest || "Latest"}</a
-            > -->
-            <a
-              href="/saved"
-              class="text-sm font-bold text-gray-300 hover:text-primary-500 transition-colors no-underline"
-              >{c.nav_saved_tools || "Saved tools"}</a
-            >
-          </div>
-          <div class="flex flex-col gap-3">
-            <h5
-              class="text-xs font-black uppercase tracking-widest text-gray-400 mb-2"
-            >
-              Company
-            </h5>
-            <a
-              href="https://x.com/planetabhi"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="text-sm font-bold text-gray-300 hover:text-primary-500 transition-colors no-underline"
-              >About</a
-            >
-            <a
-              href="/submit"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="text-sm font-bold text-gray-300 hover:text-primary-500 transition-colors no-underline"
-              >{c.nav_submit || "Submit a tool"}</a
-            >
-          </div>
-          <div class="flex flex-col gap-3">
-            <h5
-              class="text-xs font-black uppercase tracking-widest text-gray-400 mb-2"
-            >
-              More
-            </h5>
-            <a
-              href="/submit"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="text-sm font-bold text-gray-300 hover:text-primary-500 transition-colors no-underline"
-              >Advertise</a
-            >
-          </div>
-        </div>
-        <div
-          class="pt-8 border-t-2 border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-bold text-gray-400"
-        >
-          <p>
-            {c.footer_copyright || "© 2026 Enclavetools. All rights reserved."}
-          </p>
-          <p class="flex items-center gap-3">
-            <a
-              href="/privacy"
-              class="text-gray-400 hover:text-white transition-colors no-underline"
-              >Privacy Policy</a
-            >
-            <span class="text-gray-600">·</span>
-            <a
-              href="/terms"
-              class="text-gray-400 hover:text-white transition-colors no-underline"
-              >Terms</a
-            >
-          </p>
-        </div>
-      </div>
-    </footer>
+    <SiteFooter />
   </body>
 </html>
 
