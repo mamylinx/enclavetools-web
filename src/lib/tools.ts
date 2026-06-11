@@ -1,5 +1,5 @@
 import toolsData from '../data/tools.json';
-import type { ToolWithCategory } from '../utils/toolModel';
+import { categoryValue, type ToolWithCategory } from '../utils/toolModel';
 
 interface ToolsConfig {
   tools: Array<{ category: string; title: string; content: unknown[] }>;
@@ -45,7 +45,4 @@ export function getCategoryCounts(): Map<string, number> {
   );
 }
 
-/** Get the category string from a tool with category. */
-export function categoryValue(tool: ToolWithCategory): string {
-  return Array.isArray(tool.category) ? tool.category[0] || '' : tool.category || '';
-}
+

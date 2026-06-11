@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue';
-import { isBookmarked, toggleBookmark, type BookmarkedTool } from '../utils/bookmarks';
+import { isBookmarked, toggleBookmark } from '../utils/bookmarks';
+import type { BookmarkedTool } from '../types';
 
 const props = defineProps<{
   slug: string;

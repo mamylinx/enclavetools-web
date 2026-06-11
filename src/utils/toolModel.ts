@@ -1,10 +1,6 @@
-import type { Tool } from '../types';
+import type { ToolWithCategory } from '../types';
 import complementsData from '../data/complements.json';
 import compareRowsData from '../data/compare-rows.json';
-
-export interface ToolWithCategory extends Tool {
-  category: string | string[];
-}
 
 export function categoryValue(tool: ToolWithCategory): string {
   return Array.isArray(tool.category) ? tool.category[0] || '' : tool.category || '';

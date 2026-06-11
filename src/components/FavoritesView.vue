@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted } from 'vue';
-import { getBookmarkedTools, type BookmarkedTool } from '../utils/bookmarks';
+import { getBookmarkedTools } from '../utils/bookmarks';
+import type { BookmarkedTool } from '../types';
 import { toolComparators } from '../utils/sorting';
 import Card from './Card.vue';
 import EmptyState from './EmptyState.vue';

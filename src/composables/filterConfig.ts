@@ -1,18 +1,18 @@
-import type { FilterGroupConfig, FilterOption } from '../types';
+import type { FilterGroupConfig, FilterOptionValueValue } from '../types';
 import categoriesData from '../data/categories.json';
 import filterOptions from '../data/filter-options.json';
 
-export const CATEGORY_OPTIONS: FilterOption[] = categoriesData.map(category => ({
+export const CATEGORY_OPTIONS: FilterOptionValue[] = categoriesData.map(category => ({
     value: category.category,
     label: category.title
 }));
 
 const opts = filterOptions as Record<string, Array<{ value: string; label: string }>>;
 
-export const USE_CASE_OPTIONS: FilterOption[] = opts.use_case || [];
-export const PERSONA_OPTIONS: FilterOption[] = opts.persona || [];
-export const SETUP_OPTIONS: FilterOption[] = opts.setup_difficulty || [];
-export const LICENSE_OPTIONS: FilterOption[] = opts.license || [
+export const USE_CASE_OPTIONS: FilterOptionValue[] = opts.use_case || [];
+export const PERSONA_OPTIONS: FilterOptionValue[] = opts.persona || [];
+export const SETUP_OPTIONS: FilterOptionValue[] = opts.setup_difficulty || [];
+export const LICENSE_OPTIONS: FilterOptionValue[] = opts.license || [
   { value: 'MIT', label: 'MIT' },
   { value: 'Apache 2.0', label: 'Apache 2.0' },
   { value: 'GPL / LGPL', label: 'GPL / LGPL' },
@@ -20,17 +20,17 @@ export const LICENSE_OPTIONS: FilterOption[] = opts.license || [
   { value: 'Commercial-Friendly', label: 'Commercial-Friendly' },
   { value: 'Restricted / Custom', label: 'Restricted / Custom' },
 ];
-export const MATURITY_OPTIONS: FilterOption[] = opts.maturity || [
+export const MATURITY_OPTIONS: FilterOptionValue[] = opts.maturity || [
   { value: 'Production / Stable', label: 'Production / Stable' },
   { value: 'Beta', label: 'Beta' },
   { value: 'Experimental', label: 'Experimental' },
   { value: 'Archived / Unmaintained', label: 'Archived / Unmaintained' },
 ];
-export const TELEMETRY_OPTIONS: FilterOption[] = opts.telemetry
+export const TELEMETRY_OPTIONS: FilterOptionValue[] = opts.telemetry
   ? [{ value: '', label: 'Any' }, ...opts.telemetry.map((o) => ({ value: o.value, label: o.label === 'None' ? 'None only' : o.label }))]
   : [{ value: '', label: 'Any' }, { value: 'None', label: 'None only' }];
 
-export const LANGUAGE_OPTIONS: FilterOption[] = [
+export const LANGUAGE_OPTIONS: FilterOptionValue[] = [
   { value: 'Python', label: 'Python' },
   { value: 'Rust', label: 'Rust' },
   { value: 'Go', label: 'Go' },
@@ -39,7 +39,7 @@ export const LANGUAGE_OPTIONS: FilterOption[] = [
   { value: 'Java / Kotlin', label: 'Java / Kotlin' },
 ];
 
-export const HARDWARE_OPTIONS: FilterOption[] = [
+export const HARDWARE_OPTIONS: FilterOptionValue[] = [
   { value: 'CPU Only', label: 'CPU Only' },
   { value: 'NVIDIA GPU (CUDA)', label: 'NVIDIA GPU (CUDA)' },
   { value: 'AMD GPU (ROCm)', label: 'AMD GPU (ROCm)' },
@@ -47,7 +47,7 @@ export const HARDWARE_OPTIONS: FilterOption[] = [
   { value: 'Low-resource (< 8GB RAM)', label: 'Low-resource (< 8GB RAM)' },
 ];
 
-export const DEPLOYMENT_OPTIONS: FilterOption[] = [
+export const DEPLOYMENT_OPTIONS: FilterOptionValue[] = [
   { value: 'Docker', label: 'Docker' },
   { value: 'Bare Metal', label: 'Bare Metal' },
   { value: 'Kubernetes', label: 'Kubernetes' },
@@ -55,7 +55,7 @@ export const DEPLOYMENT_OPTIONS: FilterOption[] = [
   { value: 'Embedded / Edge', label: 'Embedded / Edge' },
 ];
 
-export const MODEL_FORMAT_OPTIONS: FilterOption[] = [
+export const MODEL_FORMAT_OPTIONS: FilterOptionValue[] = [
   { value: 'GGUF', label: 'GGUF' },
   { value: 'GPTQ', label: 'GPTQ' },
   { value: 'AWQ', label: 'AWQ' },
@@ -63,7 +63,7 @@ export const MODEL_FORMAT_OPTIONS: FilterOption[] = [
   { value: 'ONNX', label: 'ONNX' },
 ];
 
-export const FEATURE_OPTIONS: FilterOption[] = [
+export const FEATURE_OPTIONS: FilterOptionValue[] = [
   { value: 'openai_api', label: 'OpenAI-compatible API' },
   { value: 'rest_api', label: 'REST API' },
   { value: 'fine_tuning', label: 'Fine-tuning' },
@@ -73,12 +73,12 @@ export const FEATURE_OPTIONS: FilterOption[] = [
   { value: 'paid_support', label: 'Paid support' },
 ];
 
-export const YES_ONLY_OPTIONS: FilterOption[] = [
+export const YES_ONLY_OPTIONS: FilterOptionValue[] = [
   { value: '', label: 'Any' },
   { value: 'yes', label: 'Yes only' },
 ];
 
-export const LAST_UPDATED_OPTIONS: FilterOption[] = [
+export const LAST_UPDATED_OPTIONS: FilterOptionValue[] = [
   { value: null, label: 'Any time' },
   { value: '30d', label: 'Past 30 days' },
   { value: '6m', label: 'Past 6 months' },

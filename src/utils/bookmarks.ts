@@ -1,10 +1,6 @@
-import type { Tool } from '../types';
+import type { BookmarkedTool } from '../types';
 
 const STORAGE_KEY = 'rom_bookmarks';
-
-export interface BookmarkedTool extends Tool {
-    category: string;
-}
 
 export function getBookmarks(): BookmarkedTool[] {
     try {
