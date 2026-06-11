@@ -2,6 +2,10 @@
 export const prerender = false;
 import Layout from "../layouts/Layout.astro";
 import SubmitForm from "../components/SubmitForm.vue";
+import { env } from "cloudflare:workers";
+
+const sitekey = env.TURNSTILE_SITEKEY;
+const workerUrl = env.TURNSTILE_WORKER_URL;
 ---
 
 <Layout
@@ -16,7 +20,7 @@ import SubmitForm from "../components/SubmitForm.vue";
 >
   <div class="max-w-[640px] mx-auto pt-12 pb-24 px-4 md:px-8">
     <div class="bg-white border-2 border-gray-900 shadow-brutal p-8">
-      <SubmitForm client:load />
+      <SubmitForm client:load sitekey={sitekey} workerUrl={workerUrl} />
     </div>
   </div>
 </Layout>

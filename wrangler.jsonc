@@ -34,5 +34,9 @@
 			"id": "a69284f9e4094f7a8350948353bff849",
 			"remote": true
 		}
-	]
+	],
+	"vars": {
+		"TURNSTILE_SITEKEY": "0x4AAAAAADitjbCHr6Wv5Ofa",
+		"TURNSTILE_WORKER_URL": "https://turnstile-siteverify-enclavetools.mamy-else.workers.dev"
+	}
 }

@@ -1,14 +1,16 @@
 <template>
   <div>
-    <div v-if="!loggedIn" class="max-w-[400px] mx-auto bg-gray-50 border-2 border-gray-900 p-8 shadow-brutal">
-      <h2 class="text-xl font-black text-gray-900 mb-6 text-center uppercase tracking-wide">Admin Login</h2>
-      <form @submit.prevent="login" class="flex flex-col gap-4">
-        <div class="flex flex-col gap-2">
-          <label class="font-black text-gray-900 uppercase tracking-wider text-sm">Password</label>
-          <input type="password" v-model="password" required class="w-full bg-white border-2 border-gray-900 px-4 py-3 font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-colors" />
-        </div>
-        <p v-if="loginError" class="text-sm font-bold text-red-600 m-0">{{ loginError }}</p>
-        <button type="submit" class="w-full inline-flex items-center justify-center px-4 py-2 font-black uppercase tracking-wider text-xs transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed bg-gray-900 text-white hover:bg-primary-500 border-none" :disabled="isLoggingIn">
+        <div v-if="!loggedIn" class="max-w-[400px] mx-auto bg-gray-50 border-2 border-gray-900 p-8 shadow-brutal">
+          <h2 class="text-xl font-black text-gray-900 mb-6 text-center uppercase tracking-wide">Admin Login</h2>
+          <form @submit.prevent="login" class="flex flex-col gap-4">
+            <div class="flex flex-col gap-2">
+              <label class="font-black text-gray-900 uppercase tracking-wider text-sm">Password</label>
+              <input type="password" v-model="password" required class="w-full bg-white border-2 border-gray-900 px-4 py-3 font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-colors" />
+            </div>
+            <div class="cf-turnstile" :data-sitekey="props.sitekey" data-action="turnstile-spin-v1"></div>
+            <p v-if="loginError" class="text-sm font-bold text-red-600 m-0">{{ loginError }}</p>
+            <p v-if="turnstileError" class="text-sm font-bold text-red-600 m-0">{{ turnstileError }}</p>
+            <button type="submit" class="w-full inline-flex items-center justify-center px-4 py-2 font-black uppercase tracking-wider text-xs transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed bg-gray-900 text-white hover:bg-primary-500 border-none" :disabled="isLoggingIn">
           {{ isLoggingIn ? 'Logging in...' : 'Sign In' }}
         </button>
       </form>
@@ -71,11 +73,12 @@ import LegalTab from './admin/LegalTab.vue';
 import ComplementsTab from './admin/ComplementsTab.vue';
 import CompareRowsTab from './admin/CompareRowsTab.vue';
 
-const props = defineProps({ initialLoggedIn: Boolean });
+const props = defineProps({ initialLoggedIn: Boolean, sitekey: String, workerUrl: String });
 const loggedIn = ref(props.initialLoggedIn);
 const password = ref('');
 const isLoggingIn = ref(false);
 const loginError = ref('');
+const turnstileError = ref('');
 const isRebuilding = ref(false);
 const rebuildMessage = ref('');
 const activeTab = ref('pending');
@@ -90,6 +93,16 @@ const categories = ref([]);
 const legalPages = ref([]);
 const complements = ref([]);
 const compareRowsList = ref([]);
+
+const getCsrfToken = () => {
+  const match = document.cookie.match(/(?:__Host-csrf|csrf)=([^;]+)/);
+  return match ? decodeURIComponent(match[1]) : '';
+};
+
+const csrfFetch = async (url, options = {}) => {
+  const headers = { ...options.headers, 'X-CSRF-Token': getCsrfToken() };
+  return fetch(url, { ...options, headers });
+};
 
 const tabs = [
   { key: 'pending', label: 'Pending' },
@@ -114,11 +127,44 @@ const showMessage = (msg, type = 'success') => {
   setTimeout(() => { storeMessage.value = ''; }, 4000);
 };
 
+const verifyTurnstile = async () => {
+  turnstileError.value = '';
+  if (!window.turnstile) {
+    turnstileError.value = 'Verification not ready. Please try again.';
+    return false;
+  }
+  const token = turnstile.getResponse();
+  if (!token) {
+    turnstileError.value = 'Please complete the verification.';
+    return false;
+  }
+  try {
+    const res = await fetch(props.workerUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ token }),
+    });
+    const data = await res.json();
+    if (data.success) return true;
+    turnstile.reset();
+    turnstileError.value = 'Verification failed. Please try again.';
+    return false;
+  } catch {
+    turnstileError.value = 'Verification service unavailable.';
+    return false;
+  }
+};
+
 const login = async () => {
   isLoggingIn.value = true;
   loginError.value = '';
+  turnstileError.value = '';
+  if (!await verifyTurnstile()) {
+    isLoggingIn.value = false;
+    return;
+  }
   try {
-    const res = await fetch('/api/admin/login', {
+    const res = await csrfFetch('/api/admin/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ password: password.value })
@@ -139,20 +185,20 @@ const login = async () => {
 };
 
 const logout = async () => {
-  await fetch('/api/admin/logout', { method: 'POST' });
+  await csrfFetch('/api/admin/logout', { method: 'POST' });
   loggedIn.value = false;
 };
 
 const fetchAll = async () => {
   const [pendingRes, contentRes, marketingRes, filtersRes, categoriesRes, legalRes, complementsRes, compareRowsRes] = await Promise.all([
-    fetch('/api/admin/list'),
-    fetch('/api/admin/content'),
-    fetch('/api/admin/marketing'),
-    fetch('/api/admin/filters'),
-    fetch('/api/admin/categories'),
-    fetch('/api/admin/legal'),
-    fetch('/api/admin/complements'),
-    fetch('/api/admin/compare-rows'),
+    csrfFetch('/api/admin/list'),
+    csrfFetch('/api/admin/content'),
+    csrfFetch('/api/admin/marketing'),
+    csrfFetch('/api/admin/filters'),
+    csrfFetch('/api/admin/categories'),
+    csrfFetch('/api/admin/legal'),
+    csrfFetch('/api/admin/complements'),
+    csrfFetch('/api/admin/compare-rows'),
   ]);
   if (pendingRes.status === 401) { loggedIn.value = false; return; }
   const pData = await pendingRes.json();
@@ -174,7 +220,7 @@ const fetchAll = async () => {
 
 const approveTool = async (id) => {
   try {
-    const res = await fetch(`/api/admin/tools/${id}/approve`, { method: 'POST' });
+    const res = await csrfFetch(`/api/admin/tools/${id}/approve`, { method: 'POST' });
     if (res.ok) {
       const tool = pendingTools.value.find(t => t.id === id);
       if (tool) tool.status = 'approved';
@@ -185,7 +231,7 @@ const approveTool = async (id) => {
 
 const rejectTool = async (id, explanation) => {
   try {
-    const res = await fetch(`/api/admin/tools/${id}/reject`, {
+    const res = await csrfFetch(`/api/admin/tools/${id}/reject`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ explanation })
@@ -200,7 +246,7 @@ const rejectTool = async (id, explanation) => {
 
 const deleteTool = async (id) => {
   try {
-    const res = await fetch(`/api/admin/tools/${id}/delete`, { method: 'POST' });
+    const res = await csrfFetch(`/api/admin/tools/${id}/delete`, { method: 'POST' });
     if (res.ok) {
       pendingTools.value = pendingTools.value.filter(t => t.id !== id);
       showMessage('Tool removed from pending');
@@ -210,7 +256,7 @@ const deleteTool = async (id) => {
 
 const saveSiteContent = async (key, value) => {
   try {
-    const res = await fetch('/api/admin/content', {
+    const res = await csrfFetch('/api/admin/content', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ key, value })
@@ -225,7 +271,7 @@ const saveSiteContent = async (key, value) => {
 
 const saveMarketingCard = async (card) => {
   try {
-    const res = await fetch('/api/admin/marketing', {
+    const res = await csrfFetch('/api/admin/marketing', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(card)
@@ -243,7 +289,7 @@ const addMarketingCard = async () => {
 
 const deleteMarketingCard = async (id) => {
   try {
-    const res = await fetch(`/api/admin/marketing?id=${id}`, { method: 'DELETE' });
+    const res = await csrfFetch(`/api/admin/marketing?id=${id}`, { method: 'DELETE' });
     if (res.ok) {
       marketingCards.value = marketingCards.value.filter(c => c.id !== id);
       showMessage('Card deleted');
@@ -253,7 +299,7 @@ const deleteMarketingCard = async (id) => {
 
 const saveFilterOption = async (opt) => {
   try {
-    const res = await fetch('/api/admin/filters', {
+    const res = await csrfFetch('/api/admin/filters', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(opt)
@@ -271,7 +317,7 @@ const addFilterOption = async () => {
 
 const deleteFilterOption = async (id) => {
   try {
-    const res = await fetch(`/api/admin/filters?id=${id}`, { method: 'DELETE' });
+    const res = await csrfFetch(`/api/admin/filters?id=${id}`, { method: 'DELETE' });
     if (res.ok) {
       filterOptions.value = filterOptions.value.filter(o => o.id !== id);
       showMessage('Filter deleted');
@@ -281,7 +327,7 @@ const deleteFilterOption = async (id) => {
 
 const saveCategory = async (slug, data) => {
   try {
-    const res = await fetch('/api/admin/categories', {
+    const res = await csrfFetch('/api/admin/categories', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ category_slug: slug, ...data })
@@ -295,7 +341,7 @@ const saveCategory = async (slug, data) => {
 
 const saveLegalPage = async (slug, data) => {
   try {
-    const res = await fetch('/api/admin/legal', {
+    const res = await csrfFetch('/api/admin/legal', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ slug, ...data })
@@ -309,7 +355,7 @@ const saveLegalPage = async (slug, data) => {
 
 const saveComplement = async (item) => {
   try {
-    const res = await fetch('/api/admin/complements', {
+    const res = await csrfFetch('/api/admin/complements', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ category_slug: item.category_slug, complements: item.complements })
@@ -327,7 +373,7 @@ const addComplement = async () => {
 
 const deleteComplement = async (category_slug) => {
   try {
-    const res = await fetch(`/api/admin/complements?category_slug=${encodeURIComponent(category_slug)}`, { method: 'DELETE' });
+    const res = await csrfFetch(`/api/admin/complements?category_slug=${encodeURIComponent(category_slug)}`, { method: 'DELETE' });
     if (res.ok) {
       complements.value = complements.value.filter(c => c.category_slug !== category_slug);
       showMessage('Complement deleted');
@@ -337,7 +383,7 @@ const deleteComplement = async (category_slug) => {
 
 const saveCompareRow = async (item) => {
   try {
-    const res = await fetch('/api/admin/compare-rows', {
+    const res = await csrfFetch('/api/admin/compare-rows', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ id: item.id, label: item.label, field_key: item.field_key, sort_order: item.sort_order })
@@ -355,7 +401,7 @@ const addCompareRow = async () => {
 
 const deleteCompareRow = async (id) => {
   try {
-    const res = await fetch(`/api/admin/compare-rows?id=${id}`, { method: 'DELETE' });
+    const res = await csrfFetch(`/api/admin/compare-rows?id=${id}`, { method: 'DELETE' });
     if (res.ok) {
       compareRowsList.value = compareRowsList.value.filter(r => r.id !== id);
       showMessage('Row deleted');
@@ -367,7 +413,7 @@ const rebuild = async () => {
   isRebuilding.value = true;
   rebuildMessage.value = '';
   try {
-    const res = await fetch('/api/admin/rebuild', { method: 'POST' });
+    const res = await csrfFetch('/api/admin/rebuild', { method: 'POST' });
     if (res.ok) rebuildMessage.value = "Successfully triggered Cloudflare Pages build!";
     else { const d = await res.json(); rebuildMessage.value = `Error: ${d.error}`; }
   } catch { rebuildMessage.value = "Error triggering build."; }

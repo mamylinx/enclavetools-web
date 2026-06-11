@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, onMounted, ref, watch, nextTick } from 'vue';
 import { getWorksWith, type ToolWithCategory } from '../utils/toolModel';
-import { create as createStack, setActive, ensureDefault } from '../utils/stacks';
+import { create as createStack, setActive } from '../utils/stacks';
 import { useStackCrud } from '../composables/useStackCrud';
 import { useToolSearch } from '../composables/useToolSearch';
 import { useClipboard } from '../composables/useClipboard';

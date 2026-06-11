@@ -147,14 +147,3 @@ export function getActiveStack(): StoredStack | undefined {
 export function toolCount(id: string): number {
   return get(id)?.tools.length || 0;
 }
-
-export function ensureDefault(): StoredStack {
-  const a = getActiveStack();
-  if (a) return a;
-  const all = getAll();
-  if (all.length) {
-    setActive(all[0].id);
-    return all[0];
-  }
-  return create('My Stack');
-}

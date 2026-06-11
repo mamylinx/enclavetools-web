@@ -51,6 +51,9 @@
 
       <div v-if="submitError" class="bg-red-50 text-red-600 border-2 border-red-600 p-4 font-bold text-sm">{{ submitError }}</div>
 
+      <div class="cf-turnstile" :data-sitekey="props.sitekey" data-action="turnstile-spin-v1"></div>
+      <p v-if="turnstileError" class="text-sm font-bold text-red-600 m-0">{{ turnstileError }}</p>
+
       <button type="submit" :disabled="!isValid || isSubmitting" class="w-full h-14 inline-flex items-center justify-center gap-3 font-black uppercase tracking-wider text-base transition-all duration-150 cursor-pointer border-2 disabled:opacity-50 disabled:cursor-not-allowed bg-gray-900 text-white border-gray-900 hover:bg-primary-500 hover:border-primary-500">
         <span v-if="isSubmitting" class="animate-spin w-5 h-5 border-2 border-white border-t-transparent rounded-full inline-block"></span>
         {{ isSubmitting ? 'Submitting...' : 'Submit Tool ↗' }}
@@ -61,6 +64,11 @@
 
 <script setup>
 import { ref } from 'vue';
+
+const props = defineProps({
+  sitekey: { type: String, required: true },
+  workerUrl: { type: String, required: true },
+});
 
 const domains = [
   { host: 'github.com', label: 'GitHub' },
@@ -84,6 +92,7 @@ const success = ref(false);
 const detected = ref('');
 const validationMessage = ref('');
 const info = ref(null);
+const turnstileError = ref('');
 
 const infoStyles = {
   already_listed: {
@@ -161,9 +170,41 @@ const resetForm = () => {
   submitError.value = '';
 };
 
+const verifyTurnstile = async () => {
+  turnstileError.value = '';
+  if (!window.turnstile) {
+    turnstileError.value = 'Verification not ready. Please try again.';
+    return false;
+  }
+  const token = turnstile.getResponse();
+  if (!token) {
+    turnstileError.value = 'Please complete the verification.';
+    return false;
+  }
+  try {
+    const res = await fetch(props.workerUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ token }),
+    });
+    const data = await res.json();
+    if (data.success) return true;
+    turnstile.reset();
+    turnstileError.value = 'Verification failed. Please try again.';
+    return false;
+  } catch {
+    turnstileError.value = 'Verification service unavailable.';
+    return false;
+  }
+};
+
 const submitUrl = async () => {
   isSubmitting.value = true;
   submitError.value = '';
+  if (!(await verifyTurnstile())) {
+    isSubmitting.value = false;
+    return;
+  }
   try {
     const res = await fetch('/api/submit', {
       method: 'POST',

@@ -7,6 +7,9 @@ import { env } from "cloudflare:workers";
 
 const session = Astro.cookies.get("admin_session");
 const isLoggedIn = session?.value ? await verifySessionToken(env, session.value) : false;
+
+const sitekey = env.TURNSTILE_SITEKEY;
+const workerUrl = env.TURNSTILE_WORKER_URL;
 ---
 
 <Layout
@@ -21,6 +24,6 @@ const isLoggedIn = session?.value ? await verifySessionToken(env, session.value)
   showHero={true}
 >
   <div class="max-w-[1400px] mx-auto pt-12 px-4 md:px-8">
-    <AdminPanel client:only="vue" initialLoggedIn={isLoggedIn} />
+    <AdminPanel client:only="vue" initialLoggedIn={isLoggedIn} sitekey={sitekey} workerUrl={workerUrl} />
   </div>
 </Layout>

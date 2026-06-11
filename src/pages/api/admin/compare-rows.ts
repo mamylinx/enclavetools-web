@@ -1,6 +1,9 @@
 import type { APIRoute } from 'astro';
 export const prerender = false;
 import { requireAdminAuth, successResponse, errorResponse, withErrorHandling } from '../../../lib/api-helpers';
+import { requireCsrfValidation } from '../../../lib/csrf';
+import { checkRateLimit } from '../../../lib/rate-limit';
+import { compareRowSchema } from '../../../lib/admin-schemas';
 
 export const GET: APIRoute = withErrorHandling(async (_context, env) => {
   const auth = await requireAdminAuth(_context);
@@ -12,9 +15,15 @@ export const GET: APIRoute = withErrorHandling(async (_context, env) => {
 export const POST: APIRoute = withErrorHandling(async (_context, env) => {
   const auth = await requireAdminAuth(_context);
   if (auth.error) return auth.error;
+  const csrf = await requireCsrfValidation(_context);
+  if (csrf.error) return csrf.error;
+  const ip = _context.request.headers.get('CF-Connecting-IP') || '127.0.0.1';
+  const allowed = await checkRateLimit(env, ip, 'admin-compare-rows', 30, 60);
+  if (!allowed) return errorResponse('Rate limit exceeded', 429);
   const body = await _context.request.json();
-  const { id, label, field_key, sort_order } = body;
-  if (!label || !field_key) return errorResponse('label and field_key required', 400);
+  const parsed = compareRowSchema.safeParse(body);
+  if (!parsed.success) return errorResponse('Invalid input', 400, parsed.error.flatten());
+  const { id, label, field_key, sort_order } = parsed.data;
   if (id) {
     await env.enclavetools_db.prepare(
       `UPDATE compare_rows SET label=?, field_key=?, sort_order=?, updated_at=datetime('now') WHERE id=?`
@@ -30,6 +39,11 @@ export const POST: APIRoute = withErrorHandling(async (_context, env) => {
 export const DELETE: APIRoute = withErrorHandling(async (_context, env) => {
   const auth = await requireAdminAuth(_context);
   if (auth.error) return auth.error;
+  const csrf = await requireCsrfValidation(_context);
+  if (csrf.error) return csrf.error;
+  const ip = _context.request.headers.get('CF-Connecting-IP') || '127.0.0.1';
+  const allowed = await checkRateLimit(env, ip, 'admin-compare-rows', 30, 60);
+  if (!allowed) return errorResponse('Rate limit exceeded', 429);
   const url = new URL(_context.request.url);
   const id = url.searchParams.get('id');
   if (!id) return errorResponse('id required', 400);

@@ -8,6 +8,8 @@ interface __BaseEnv_Env {
 	ASSETS: Fetcher;
 	ADMIN_PASSWORD: string;
 	ADMIN_SECRET: string;
+	TURNSTILE_SITEKEY: string;
+	TURNSTILE_WORKER_URL: string;
 }
 declare namespace Cloudflare {
 	interface Env extends __BaseEnv_Env {}

@@ -5,4 +5,6 @@ export interface CloudflareEnv {
   ASSETS: Fetcher;
   ADMIN_PASSWORD: string;
   ADMIN_SECRET: string;
+  TURNSTILE_SITEKEY: string;
+  TURNSTILE_WORKER_URL: string;
 }

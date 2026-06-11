@@ -1,8 +1,9 @@
 import type { APIRoute } from 'astro';
 export const prerender = false;
-import { getEnv, errorResponse, withErrorHandling } from '../../../lib/api-helpers';
+import { errorResponse, withErrorHandling } from '../../../lib/api-helpers';
 import { verifyPassword, createSessionToken } from '../../../lib/auth';
 import { checkRateLimit } from '../../../lib/rate-limit';
+import { createCsrfToken } from '../../../lib/csrf';
 import { adminLoginSchema } from '../../../lib/validation';
 
 export const POST: APIRoute = withErrorHandling(async (context, env) => {
@@ -24,6 +25,7 @@ export const POST: APIRoute = withErrorHandling(async (context, env) => {
   }
 
   const token = await createSessionToken(env);
+  await createCsrfToken(env, context);
 
   const isSecure = new URL(context.request.url).protocol === 'https:';
   context.cookies.set('admin_session', token, {
