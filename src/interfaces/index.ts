@@ -2,6 +2,11 @@ export type { CloudflareEnv } from './env';
 
 export type {
   Tool,
+  ToolCore,
+  ToolDiscovery,
+  ToolCapabilities,
+  ToolHardware,
+  ToolCommunity,
   D1Tool,
   PendingTool,
   ToolWithCategory,
