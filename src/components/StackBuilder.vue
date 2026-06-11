@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, onMounted, ref, watch, nextTick } from 'vue';
-import { enrichTool, getWorksWith, type ToolWithCategory } from '../utils/toolModel';
+import { getWorksWith, type ToolWithCategory } from '../utils/toolModel';
 import { create as createStack, setActive, ensureDefault } from '../utils/stacks';
 import { useStackCrud } from '../composables/useStackCrud';
 import { useToolSearch } from '../composables/useToolSearch';
@@ -20,7 +20,7 @@ const {
   createNewStack, renameActiveStack,
 } = useStackCrud();
 
-const allTools = computed(() => props.tools.map(enrichTool));
+const allTools = computed(() => props.tools);
 
 const search = useToolSearch(
   () => allTools.value,

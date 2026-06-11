@@ -38,75 +38,7 @@ if (!tool) {
 // Get category (should exist since tool was found)
 const category = tool.category;
 
-const enrichTool = (item: any) => {
-  const text = `${item.title} ${item.body} ${item.category}`.toLowerCase();
-  const hardware = item.hardware || [];
-  const deployment = item.deployment || [];
-  const modelFormat = item.model_format || [];
-  const lowResource = hardware.some((value: string) =>
-    value.includes("Low-resource"),
-  );
-  const gpuOnly =
-    hardware.length > 0 &&
-    hardware.every(
-      (value: string) =>
-        value.includes("GPU") ||
-        value.includes("CUDA") ||
-        value.includes("ROCm"),
-    );
-  const docker = deployment.includes("Docker");
-  const gui =
-    item.category === "chat-interfaces" ||
-    text.includes("gui") ||
-    text.includes("visual") ||
-    text.includes("no-code");
-  return {
-    ...item,
-    plain_description: item.plain_description || item.body,
-    technical_description: item.technical_description || item.body,
-    commercial_use:
-      item.commercial_use ??
-      !/agpl|non-commercial|cc by-nc/i.test(item.license || ""),
-    setup_difficulty:
-      item.setup_difficulty ||
-      (gui || lowResource
-        ? "Low"
-        : docker
-          ? "Medium"
-          : gpuOnly
-            ? "High"
-            : "Medium"),
-    min_ram_gb: item.min_ram_gb || (lowResource ? 8 : gpuOnly ? 16 : 8),
-    recommended_ram_gb: item.recommended_ram_gb || (gpuOnly ? 32 : 16),
-    telemetry: item.telemetry || "None",
-    offline_after_setup: item.offline_after_setup ?? true,
-    paid_support:
-      item.paid_support ??
-      Boolean(item.url && !item.url.includes("github.com")),
-    gui_available: item.gui_available ?? gui,
-    docker_available: item.docker_available ?? docker,
-    openai_api:
-      item.openai_api ??
-      (text.includes("openai") || text.includes("oai compatible")),
-    rest_api:
-      item.rest_api ?? (text.includes("api") || item.category === "deployment"),
-    fine_tuning:
-      item.fine_tuning ??
-      (item.category === "fine-tuning-training" || text.includes("fine-tun")),
-    quantization:
-      item.quantization ??
-      (modelFormat.some((value: string) =>
-        ["GGUF", "GPTQ", "AWQ"].includes(value),
-      ) ||
-        text.includes("quant")),
-    community_notes_count: item.community_notes_count || 0,
-    community_guides_count: item.community_guides_count || 0,
-    last_verified:
-      item.last_verified || item.last_updated || item["date-added"],
-  };
-};
-
-const enrichedTool = enrichTool(tool);
+const enrichedTool = tool;
 const worksWithTools = getWorksWith(enrichedTool, allTools, 4);
 
 // Get related tools (same category, different slug, deterministic order)
@@ -130,7 +62,6 @@ const formatDate = (dateStr: string) => {
   }
 };
 
-const formattedDate = formatDate(tool["date-added"]);
 const canonicalUrl = `https://enclavetools.com/tools/${tool.slug}`;
 const faviconUrl = `/favicons/${slug}.png`;
 
@@ -219,9 +150,7 @@ const featureBadges = [
   <BreadcrumbSchema items={breadcrumbs} />
 
   <div class="px-4 md:px-8 pt-12 pb-8">
-    <section
-      class="grid grid-cols-1 gap-12 max-w-[1400px] mx-auto items-end"
-    >
+    <section class="grid grid-cols-1 gap-12 max-w-[1400px] mx-auto items-end">
       <div class="flex flex-wrap gap-3 justify-center">
         {
           enrichedTool.github_url || enrichedTool.url ? (
@@ -280,8 +209,16 @@ const featureBadges = [
             aria-modal="true"
             class="hidden absolute left-0 top-full mt-1 z-50 min-w-[260px] border-2 border-gray-900 bg-white shadow-brutal"
           >
-            <p class="px-4 pt-3 pb-2 text-xs font-black uppercase tracking-wider text-gray-500">Choose a stack</p>
-            <div id="stack-picker-list" class="flex flex-col max-h-56 overflow-y-auto border-t-2 border-gray-900"></div>
+            <p
+              class="px-4 pt-3 pb-2 text-xs font-black uppercase tracking-wider text-gray-500"
+            >
+              Choose a stack
+            </p>
+            <div
+              id="stack-picker-list"
+              class="flex flex-col max-h-56 overflow-y-auto border-t-2 border-gray-900"
+            >
+            </div>
             <div class="border-t-2 border-gray-900" id="stack-picker-footer">
               <!-- Default: show the create button -->
               <button
@@ -291,7 +228,10 @@ const featureBadges = [
                 + Create new stack
               </button>
               <!-- Inline create form (hidden by default) -->
-              <div id="stack-picker-create-form" class="hidden px-3 py-3 flex flex-col gap-2">
+              <div
+                id="stack-picker-create-form"
+                class="hidden px-3 py-3 flex flex-col gap-2"
+              >
                 <input
                   id="stack-picker-name-input"
                   type="text"
@@ -554,8 +494,7 @@ const featureBadges = [
             <div
               class="grid grid-cols-[minmax(180px,0.8fr)_1.2fr] border-b-2 border-gray-900"
             >
-              <span
-                class="p-6 text-sm text-gray-600 border-r-2 border-gray-900"
+              <span class="p-6 text-sm text-gray-600 border-r-2 border-gray-900"
                 >RAM</span
               ><strong class="p-6 text-sm font-black"
                 >{enrichedTool.min_ram_gb} GB minimum / {
@@ -566,8 +505,7 @@ const featureBadges = [
             <div
               class="grid grid-cols-[minmax(180px,0.8fr)_1.2fr] border-b-2 border-gray-900"
             >
-              <span
-                class="p-6 text-sm text-gray-600 border-r-2 border-gray-900"
+              <span class="p-6 text-sm text-gray-600 border-r-2 border-gray-900"
                 >Hardware tags</span
               ><strong class="p-6 text-sm font-black"
                 >{enrichedTool.hardware?.join(", ") || "Not specified"}</strong
@@ -576,8 +514,7 @@ const featureBadges = [
             <div
               class="grid grid-cols-[minmax(180px,0.8fr)_1.2fr] border-b-2 border-gray-900"
             >
-              <span
-                class="p-6 text-sm text-gray-600 border-r-2 border-gray-900"
+              <span class="p-6 text-sm text-gray-600 border-r-2 border-gray-900"
                 >Model formats</span
               ><strong class="p-6 text-sm font-black"
                 >{
@@ -588,8 +525,7 @@ const featureBadges = [
             <div
               class="grid grid-cols-[minmax(180px,0.8fr)_1.2fr] border-b-2 border-gray-900"
             >
-              <span
-                class="p-6 text-sm text-gray-600 border-r-2 border-gray-900"
+              <span class="p-6 text-sm text-gray-600 border-r-2 border-gray-900"
                 >Primary language</span
               ><strong class="p-6 text-sm font-black"
                 >{enrichedTool.language?.join(", ") || "Not specified"}</strong
@@ -679,5 +615,4 @@ const featureBadges = [
   </div>
 
   <script src="/scripts/tool-actions.js" type="module" defer></script>
-
 </Layout>

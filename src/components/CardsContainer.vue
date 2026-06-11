@@ -8,7 +8,7 @@ import { randomSidebarPositions } from '../utils/randomSidebarPositions';
 import type { Tool, FilterState } from '../types';
 import { toolComparators, type SortKey } from '../utils/sorting';
 import { isRecentlyAdded } from '../utils/dates';
-import { enrichTool, type ToolWithCategory } from '../utils/toolModel';
+import type { ToolWithCategory } from '../utils/toolModel';
 import { searchTools } from '../composables/useOrama';
 import type { MarketingConfig } from '../interfaces/content';
 
@@ -41,7 +41,7 @@ const oramaTotal = ref(0);
 
 const baseTools = computed((): ToolWithCategory[] => {
     if (props.ssrTools && props.ssrTools.length > 0) {
-        return props.ssrTools.map(enrichTool);
+        return props.ssrTools;
     }
     return [];
 });

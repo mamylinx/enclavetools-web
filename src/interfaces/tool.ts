@@ -1,35 +1,35 @@
 export interface Tool {
   title: string;
   body: string;
-  plain_description?: string;
-  technical_description?: string;
-  tag?: string;
+  plain_description: string;
+  technical_description: string;
+  tag: string;
   url: string;
   github_url?: string;
   "date-added": string;
-  slug?: string;
+  slug: string;
   license?: string;
-  commercial_use?: boolean;
-  language?: string[];
-  hardware?: string[];
-  deployment?: string[];
-  model_format?: string[];
+  commercial_use: boolean;
+  language: string[];
+  hardware: string[];
+  deployment: string[];
+  model_format: string[];
   maturity?: string;
   last_updated?: string;
-  setup_difficulty?: 'Low' | 'Medium' | 'High' | string;
-  use_cases?: string[];
-  personas?: string[];
-  features?: string[];
-  works_with?: string[];
-  docs_url?: string;
-  community_notes?: Array<{
+  setup_difficulty: 'Low' | 'Medium' | 'High' | string;
+  use_cases: string[];
+  personas: string[];
+  features: string[];
+  works_with: string[];
+  docs_url: string;
+  community_notes: Array<{
     category: string;
     text: string;
     upvotes?: number;
     date?: string;
     url?: string;
   }>;
-  community_guides?: Array<{
+  community_guides: Array<{
     title: string;
     url: string;
     author?: string;
@@ -37,21 +37,21 @@ export interface Tool {
     date?: string;
     description?: string;
   }>;
-  min_ram_gb?: number;
-  recommended_ram_gb?: number;
-  telemetry?: 'None' | 'Optional' | 'On by default' | string;
-  offline_after_setup?: boolean;
-  paid_support?: boolean;
-  gui_available?: boolean;
-  docker_available?: boolean;
-  openai_api?: boolean;
-  rest_api?: boolean;
-  fine_tuning?: boolean;
-  quantization?: boolean;
-  community_notes_count?: number;
-  community_guides_count?: number;
-  last_verified?: string;
-  featured?: boolean;
+  min_ram_gb: number;
+  recommended_ram_gb: number;
+  telemetry: 'None' | 'Optional' | 'On by default' | string;
+  offline_after_setup: boolean;
+  paid_support: boolean;
+  gui_available: boolean;
+  docker_available: boolean;
+  openai_api: boolean;
+  rest_api: boolean;
+  fine_tuning: boolean;
+  quantization: boolean;
+  community_notes_count: number;
+  community_guides_count: number;
+  last_verified: string;
+  featured: boolean;
   popularity_score?: number;
 }
 

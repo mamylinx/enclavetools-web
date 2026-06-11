@@ -7,7 +7,7 @@ import { submitUrlSchema } from '../../lib/validation';
 export const POST: APIRoute = async (context) => {
   const ip = context.request.headers.get('CF-Connecting-IP') || '127.0.0.1';
 
-  const allowed = await checkRateLimit(env, ip, 'submit', 10, 1800);
+  const allowed = await checkRateLimit(env, ip, 'submit', 5, 3600);
   if (!allowed) {
     return new Response(JSON.stringify({ error: "Rate limit exceeded" }), { status: 429 });
   }

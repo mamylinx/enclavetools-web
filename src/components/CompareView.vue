@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue';
-import { compareRows, enrichTool, formatCompareValue, type ToolWithCategory } from '../utils/toolModel';
+import { compareRows, formatCompareValue, type ToolWithCategory } from '../utils/toolModel';
 
 const props = defineProps<{
   tools: ToolWithCategory[];
@@ -9,7 +9,7 @@ const props = defineProps<{
 const selected = ref<string[]>([]);
 const differencesOnly = ref(false);
 
-const allTools = computed(() => props.tools.map(enrichTool));
+const allTools = computed(() => props.tools);
 const selectedTools = computed(() => selected.value
   .map((slug) => allTools.value.find((tool) => tool.slug === slug))
   .filter(Boolean)

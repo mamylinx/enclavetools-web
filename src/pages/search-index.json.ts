@@ -1,6 +1,5 @@
 import { create, insert, save } from '@orama/orama'
 import toolsData from '../data/tools.json'
-import { enrichTool } from '../utils/toolModel'
 import type { Tool, Category } from '../interfaces/tool'
 
 const SCHEMA = {
@@ -71,12 +70,10 @@ export async function GET() {
 
   const docs = catTools.flatMap((cat: Category) =>
     cat.content.map((tool: Tool) =>
-      sanitize(
-        enrichTool({
-          ...tool,
-          category: [cat.category],
-        }),
-      ),
+      sanitize({
+        ...tool,
+        category: [cat.category],
+      }),
     ),
   )
 
