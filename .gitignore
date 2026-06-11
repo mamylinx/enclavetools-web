@@ -28,4 +28,4 @@ lerna-debug.log*
 .vscode
 
 .antigravitycli/
-.opencode/
+.opencode
