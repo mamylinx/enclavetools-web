@@ -1,10 +1,11 @@
 import type { BookmarkedTool } from '../types';
+import { localStorageAdapter as storage, windowEventEmitter as events } from '../lib/storage';
 
 const STORAGE_KEY = 'rom_bookmarks';
 
 export function getBookmarks(): BookmarkedTool[] {
     try {
-        const stored = localStorage.getItem(STORAGE_KEY);
+        const stored = storage.getItem(STORAGE_KEY);
         return stored ? JSON.parse(stored) : [];
     } catch (error) {
         console.warn('Failed to read bookmarks from localStorage:', error);
@@ -14,10 +15,8 @@ export function getBookmarks(): BookmarkedTool[] {
 
 function saveBookmarks(bookmarks: BookmarkedTool[]): void {
     try {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(bookmarks));
-        window.dispatchEvent(new CustomEvent('bookmarks:changed', {
-            detail: { bookmarks }
-        }));
+        storage.setItem(STORAGE_KEY, JSON.stringify(bookmarks));
+        events.dispatch('bookmarks:changed', { bookmarks });
     } catch (error) {
         console.warn('Failed to save bookmarks to localStorage:', error);
     }

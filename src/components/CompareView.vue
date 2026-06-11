@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue';
 import { compareRows, formatCompareValue, type ToolWithCategory } from '../utils/toolModel';
+import { localStorageAdapter as storage } from '../lib/storage';
 
 const props = defineProps<{
   tools: ToolWithCategory[];
@@ -30,12 +31,12 @@ function loadFromUrl() {
   const fromUrl = (params.get('tools') || '').split(',').map((slug) => slug.trim()).filter(Boolean);
   if (fromUrl.length) {
     selected.value = fromUrl.slice(0, 4);
-    localStorage.setItem('enclavetools-compare', JSON.stringify(selected.value));
+    storage.setItem('enclavetools-compare', JSON.stringify(selected.value));
     return;
   }
 
   try {
-    selected.value = JSON.parse(localStorage.getItem('enclavetools-compare') || '[]').slice(0, 4);
+    selected.value = JSON.parse(storage.getItem('enclavetools-compare') || '[]').slice(0, 4);
   } catch {
     selected.value = [];
   }
@@ -44,7 +45,7 @@ function loadFromUrl() {
 function syncUrl() {
   const query = selected.value.length ? `?tools=${selected.value.join(',')}` : '';
   history.replaceState({}, '', `/compare${query}`);
-  localStorage.setItem('enclavetools-compare', JSON.stringify(selected.value));
+  storage.setItem('enclavetools-compare', JSON.stringify(selected.value));
 }
 
 function remove(slug?: string) {

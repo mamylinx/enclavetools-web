@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, onMounted, onUnmounted, ref } from 'vue';
 import type { ToolWithCategory } from '../utils/toolModel';
+import { localStorageAdapter as storage, windowEventEmitter as events } from '../lib/storage';
 
 const props = defineProps<{
   tools: ToolWithCategory[];
@@ -15,7 +16,7 @@ const selectedTools = computed(() => selected.value
 
 function load() {
   try {
-    selected.value = JSON.parse(localStorage.getItem('enclavetools-compare') || '[]').slice(0, 4);
+    selected.value = JSON.parse(storage.getItem('enclavetools-compare') || '[]').slice(0, 4);
   } catch {
     selected.value = [];
   }
@@ -23,8 +24,8 @@ function load() {
 
 function clear() {
   selected.value = [];
-  localStorage.removeItem('enclavetools-compare');
-  window.dispatchEvent(new CustomEvent('compare:changed', { detail: { slugs: [] } }));
+  storage.removeItem('enclavetools-compare');
+  events.dispatch('compare:changed', { slugs: [] });
 }
 
 function handleChanged(event: Event) {

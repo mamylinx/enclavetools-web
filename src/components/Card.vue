@@ -59,6 +59,7 @@ import BookmarkButton from './BookmarkButton.vue';
 import categoryIcons from '../data/category-icons.json';
 import * as LucideIcons from 'lucide-vue-next';
 import type { Component } from 'vue';
+import { localStorageAdapter as storage } from '../lib/storage';
 
 const props = defineProps<{
   href: string;
@@ -82,7 +83,7 @@ const isFeatured = computed(() => props.featured);
 const isCompared = computed(() => {
   if (typeof window === 'undefined' || !props.slug) return false;
   try {
-    return JSON.parse(localStorage.getItem('enclavetools-compare') || '[]').includes(props.slug);
+    return JSON.parse(storage.getItem('enclavetools-compare') || '[]').includes(props.slug);
   } catch {
     return false;
   }
@@ -137,7 +138,7 @@ const toggleCompare = (event: Event) => {
   const input = event.target as HTMLInputElement;
   let slugs: string[] = [];
   try {
-    slugs = JSON.parse(localStorage.getItem('enclavetools-compare') || '[]');
+    slugs = JSON.parse(storage.getItem('enclavetools-compare') || '[]');
   } catch { }
 
   if (input.checked && !slugs.includes(props.slug)) {
@@ -151,7 +152,7 @@ const toggleCompare = (event: Event) => {
     slugs = slugs.filter((slug) => slug !== props.slug);
   }
 
-  localStorage.setItem('enclavetools-compare', JSON.stringify(slugs));
+  storage.setItem('enclavetools-compare', JSON.stringify(slugs));
   window.dispatchEvent(new CustomEvent('compare:changed', { detail: { slugs } }));
 };
 </script>

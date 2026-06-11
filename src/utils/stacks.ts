@@ -1,3 +1,5 @@
+import { localStorageAdapter as storage, windowEventEmitter as events } from '../lib/storage';
+
 const STORAGE_KEY = 'enclavetools-stacks';
 const ACTIVE_KEY = 'enclavetools-active-stack';
 const LEGACY_KEY = 'enclavetools-stack';
@@ -22,7 +24,7 @@ function now(): string {
 
 function read(): StoredStack[] {
   try {
-    const raw = localStorage.getItem(STORAGE_KEY);
+    const raw = storage.getItem(STORAGE_KEY);
     return raw ? JSON.parse(raw) : [];
   } catch {
     return [];
@@ -30,22 +32,22 @@ function read(): StoredStack[] {
 }
 
 function write(stacks: StoredStack[]): void {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(stacks));
-  window.dispatchEvent(new CustomEvent('stacks:changed', { detail: { stacks } }));
+  storage.setItem(STORAGE_KEY, JSON.stringify(stacks));
+  events.dispatch('stacks:changed', { stacks });
 }
 
 function migrate(): void {
   try {
-    const legacy = localStorage.getItem(LEGACY_KEY);
+    const legacy = storage.getItem(LEGACY_KEY);
     if (!legacy) return;
     const tools = JSON.parse(legacy);
-    localStorage.removeItem(LEGACY_KEY);
+    storage.removeItem(LEGACY_KEY);
     if (!Array.isArray(tools) || !tools.length) return;
     const existing = read();
     if (existing.length) return;
     const ts = now();
     write([{ id: 'default', name: 'My Stack', tools: tools.slice(0, MAX_TOOLS), created: ts, updated: ts }]);
-    localStorage.setItem(ACTIVE_KEY, 'default');
+    storage.setItem(ACTIVE_KEY, 'default');
   } catch {
     /* silent */
   }
@@ -77,7 +79,7 @@ export function remove(id: string): void {
   if (getActive() === id) {
     const next = stacks[0]?.id || null;
     if (next) setActive(next);
-    else localStorage.removeItem(ACTIVE_KEY);
+    else storage.removeItem(ACTIVE_KEY);
   }
 }
 
@@ -130,11 +132,11 @@ export function removeTool(id: string, slug: string): boolean {
 }
 
 export function getActive(): string | null {
-  return localStorage.getItem(ACTIVE_KEY);
+  return storage.getItem(ACTIVE_KEY);
 }
 
 export function setActive(id: string): void {
-  localStorage.setItem(ACTIVE_KEY, id);
+  storage.setItem(ACTIVE_KEY, id);
 }
 
 export function getActiveStack(): StoredStack | undefined {

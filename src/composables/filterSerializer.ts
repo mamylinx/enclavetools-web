@@ -1,4 +1,5 @@
 import type { FilterState } from '../interfaces/tool';
+import { localStorageAdapter as storage } from '../lib/storage';
 
 export const PARAM_MAP: Record<string, keyof FilterState> = {
   sort: 'sort',
@@ -50,14 +51,14 @@ export function createDefaultState(): FilterState {
 
 export function loadFromStorage(): FilterState | null {
   try {
-    const stored = localStorage.getItem(STORAGE_KEY);
+    const stored = storage.getItem(STORAGE_KEY);
     return stored ? JSON.parse(stored) : null;
   } catch { return null; }
 }
 
 export function saveToStorage(state: FilterState) {
   try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    storage.setItem(STORAGE_KEY, JSON.stringify(state));
   } catch {}
 }
 
@@ -141,5 +142,5 @@ export function hasActiveFilters(state: FilterState): boolean {
 }
 
 export function clearAllStorage() {
-  localStorage.removeItem(STORAGE_KEY);
+  storage.removeItem(STORAGE_KEY);
 }
