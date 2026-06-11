@@ -41,7 +41,11 @@ const {
 
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="icon" type="image/svg+xml" href={pageFavicon || "/enclavetools.svg"} />
+<link
+  rel="icon"
+  type="image/svg+xml"
+  href={pageFavicon || "/enclavetools.svg"}
+/>
 <meta name="generator" content={Astro.generator} />
 <title>
   {
@@ -50,7 +54,7 @@ const {
       : "Enclavetools — Stop paying for AI APIs. Everything here runs on your hardware."
   }
 </title>
-<meta name="author" content="@planetabhi" />
+<meta name="author" content="@MamyLinx" />
 <meta
   name="description"
   content={pageDescription ||
@@ -74,7 +78,11 @@ const {
 {ogSiteName && <meta property="og:site_name" content={ogSiteName} />}
 {twitterCard && <meta name="twitter:card" content={twitterCard} />}
 {twitterTitle && <meta name="twitter:title" content={twitterTitle} />}
-{twitterDescription && <meta name="twitter:description" content={twitterDescription} />}
+{
+  twitterDescription && (
+    <meta name="twitter:description" content={twitterDescription} />
+  )
+}
 {twitterImage && <meta name="twitter:image" content={twitterImage} />}
 
 <ClientRouter />

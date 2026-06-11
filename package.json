@@ -80,7 +80,7 @@
     "smb",
     "ai-agents"
   ],
-  "author": "@planetabhi",
+  "author": "@mamylinx",
   "license": "MIT",
   "overrides": {
     "vite": "^7",
