@@ -102,10 +102,11 @@ export interface D1Tool {
   last_verified: string | null;
 }
 
-export interface PendingTool extends D1Tool {
-  logo_r2_key: string | null;
-  github_data: string | null;
+export interface PendingTool {
+  id: string;
+  url: string;
   status: 'pending' | 'approved' | 'rejected';
+  explanation: string | null;
   submitted_at: string;
   reviewed_at: string | null;
 }

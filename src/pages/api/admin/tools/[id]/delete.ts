@@ -11,11 +11,9 @@ export const POST: APIRoute = withErrorHandling(async (context, env) => {
 
   if (!env.enclavetools_db) throw new Error("DB not bound");
 
-  const now = new Date().toISOString();
-
   await env.enclavetools_db.prepare(
-    `UPDATE pending_tools SET status = 'approved', reviewed_at = ? WHERE id = ?`
-  ).bind(now, id).run();
+    `DELETE FROM pending_tools WHERE id = ?`
+  ).bind(id).run();
 
   return new Response(JSON.stringify({ success: true }), { status: 200 });
-}, 'Admin approve');
+}, 'Admin delete pending');

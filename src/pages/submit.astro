@@ -7,14 +7,14 @@ import SubmitForm from "../components/SubmitForm.vue";
 <Layout
   site="Enclavetools"
   title="Submit a Tool"
-  tagline="Help grow the directory by submitting open-source, locally runnable AI tools."
-  pageTitle="Submit a Tool"
-  pageDescription="Submit your self-hosted, open-source AI tool to the Enclavetools directory."
-  showSearch={true}
+  tagline="Paste a repo URL and we'll do the rest."
+  pageTitle="Submit Your Tool"
+  pageDescription="Submit an open-source, self-hosted AI tool to the Enclavetools directory. Just paste your repository URL and we'll fetch everything automatically."
+  showSearch={false}
   showHero={true}
 >
-  <div class="block max-w-[1400px] mx-auto pt-12 px-4 md:px-8">
-    <div class="bg-white border-2 border-gray-900 p-6">
+  <div class="max-w-[640px] mx-auto pt-12 pb-24 px-4 md:px-8">
+    <div class="bg-white border-2 border-gray-900 shadow-brutal p-8">
       <SubmitForm client:load />
     </div>
   </div>

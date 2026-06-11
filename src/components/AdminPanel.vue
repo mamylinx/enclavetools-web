@@ -47,7 +47,7 @@
           {{ storeMessage }}
         </div>
 
-        <PendingTab v-if="activeTab === 'pending'" :tools="pendingTools" @approve="approveTool" @reject="rejectTool" />
+        <PendingTab v-if="activeTab === 'pending'" :tools="pendingTools" @approve="approveTool" @reject="rejectTool" @delete="deleteTool" />
         <SiteContentTab v-if="activeTab === 'content'" :items="siteContent" @save="saveSiteContent" />
         <MarketingTab v-if="activeTab === 'marketing'" :cards="marketingCards" @save="saveMarketingCard" @delete="deleteMarketingCard" @add="addMarketingCard" />
         <FiltersTab v-if="activeTab === 'filters'" :options="filterOptions" @save="saveFilterOption" @delete="deleteFilterOption" @add="addFilterOption" />
@@ -176,20 +176,36 @@ const approveTool = async (id) => {
   try {
     const res = await fetch(`/api/admin/tools/${id}/approve`, { method: 'POST' });
     if (res.ok) {
-      pendingTools.value = pendingTools.value.filter(t => t.id !== id);
+      const tool = pendingTools.value.find(t => t.id === id);
+      if (tool) tool.status = 'approved';
       showMessage('Tool approved successfully');
     } else { const d = await res.json(); showMessage(`Error: ${d.error}`, 'error'); }
   } catch { showMessage('Network error approving tool', 'error'); }
 };
 
-const rejectTool = async (id) => {
+const rejectTool = async (id, explanation) => {
   try {
-    const res = await fetch(`/api/admin/tools/${id}/reject`, { method: 'POST' });
+    const res = await fetch(`/api/admin/tools/${id}/reject`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ explanation })
+    });
     if (res.ok) {
-      pendingTools.value = pendingTools.value.filter(t => t.id !== id);
+      const tool = pendingTools.value.find(t => t.id === id);
+      if (tool) { tool.status = 'rejected'; tool.explanation = explanation || null; }
       showMessage('Tool rejected');
     } else { const d = await res.json(); showMessage(`Error: ${d.error}`, 'error'); }
   } catch { showMessage('Network error rejecting tool', 'error'); }
+};
+
+const deleteTool = async (id) => {
+  try {
+    const res = await fetch(`/api/admin/tools/${id}/delete`, { method: 'POST' });
+    if (res.ok) {
+      pendingTools.value = pendingTools.value.filter(t => t.id !== id);
+      showMessage('Tool removed from pending');
+    } else { const d = await res.json(); showMessage(`Error: ${d.error}`, 'error'); }
+  } catch { showMessage('Network error deleting tool', 'error'); }
 };
 
 const saveSiteContent = async (key, value) => {

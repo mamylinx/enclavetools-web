@@ -2,9 +2,8 @@
 import Layout from "../../layouts/Layout.astro";
 import SoftwareApplicationSchema from "../../components/schema/SoftwareApplicationSchema.astro";
 import BreadcrumbSchema from "../../components/schema/BreadcrumbSchema.astro";
-import BookmarkButton from "../../components/BookmarkButton";
+import BookmarkButton from "../../components/BookmarkButton.vue";
 import toolsData from "../../data/tools.json";
-import slugMap from "../../data/slug-map.json";
 import { getWorksWith } from "../../utils/toolModel";
 
 // Generate all tool slugs for static paths
@@ -633,58 +632,6 @@ const featureBadges = [
             </a>
           </div>
         </section>
-
-        <!-- <section id="community" class="py-12 border-b-2 border-gray-900">
-          <p
-            class="text-xs font-black uppercase mb-4 text-gray-500 tracking-wider"
-          >
-            Community
-          </p>
-          <div class="grid grid-cols-2 border-2 border-gray-900 mb-4">
-            <div class="p-6 border-r-2 border-gray-900 flex flex-col gap-2">
-              <strong class="text-5xl font-black leading-none"
-                >{enrichedTool.community_notes_count}</strong
-              ><span class="text-sm font-bold text-gray-600"
-                >structured notes</span
-              >
-            </div>
-            <div class="p-6 flex flex-col gap-2">
-              <strong class="text-5xl font-black leading-none"
-                >{enrichedTool.community_guides_count}</strong
-              ><span class="text-sm font-bold text-gray-600">guides</span>
-            </div>
-          </div>
-          <form class="grid gap-3 border-2 border-gray-900 p-6">
-            <h2 class="text-xl font-black">Suggest a correction</h2>
-            <label
-              class="grid gap-2 text-xs font-black uppercase tracking-wider"
-              >Field<select
-                class="w-full border-2 border-gray-900 px-4 h-12 font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500"
-                ><option>License</option><option>Telemetry</option><option
-                  >Hardware</option
-                ><option>Setup difficulty</option></select
-              ></label
-            >
-            <label
-              class="grid gap-2 text-xs font-black uppercase tracking-wider"
-              >Correction<textarea
-                class="w-full border-2 border-gray-900 px-4 py-3 font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500"
-                placeholder="What should this say?"></textarea></label
-            >
-            <label
-              class="grid gap-2 text-xs font-black uppercase tracking-wider"
-              >Source URL<input
-                class="w-full border-2 border-gray-900 px-4 h-12 font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500"
-                type="url"
-                placeholder="https://..."
-              /></label
-            >
-            <button
-              class="justify-self-start bg-gray-900 text-white px-4 h-12 font-black hover:bg-primary-500 transition-colors cursor-pointer border-none inline-flex items-center"
-              type="button">Submit for review</button
-            >
-          </form>
-        </section> -->
 
         {
           relatedTools.length > 0 && (

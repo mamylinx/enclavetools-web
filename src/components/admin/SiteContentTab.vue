@@ -2,7 +2,7 @@
   <div>
     <div v-if="items.length === 0" class="p-12 text-center text-gray-500 font-bold text-lg">No site content entries.</div>
     <div v-for="item in items" :key="item.key" class="flex flex-col md:flex-row items-start gap-4 p-4 border-b-2 border-gray-200 last:border-b-0">
-      <div class="font-black text-sm uppercase tracking-wider text-gray-700 w-52 shrink-0 pt-2">{{ item.key }}</div>
+      <div class="font-black text-sm uppercase tracking-wider text-gray-700 w-80 shrink-0 pt-2">{{ item.key }}</div>
       <div class="flex-1 min-w-0 w-full">
         <textarea v-if="editingKey === item.key" v-model="editValue" rows="2" class="w-full border-2 border-gray-900 px-3 py-2 font-bold text-sm"></textarea>
         <div v-else class="text-gray-800 font-medium text-sm whitespace-pre-wrap break-words">{{ item.value }}</div>

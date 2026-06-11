@@ -8,7 +8,7 @@ export const GET: APIRoute = withErrorHandling(async (context, env) => {
   if (!env.enclavetools_db) throw new Error("DB not bound");
   const result = await env.enclavetools_db.prepare(`
     SELECT * FROM pending_tools 
-    WHERE status = 'pending' 
+    WHERE status IN ('pending', 'approved', 'rejected')
     ORDER BY submitted_at DESC
     LIMIT 100
   `).all();
