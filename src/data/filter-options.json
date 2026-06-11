@@ -77,10 +77,6 @@
     {
       "value": "AGPL 3.0",
       "label": "AGPL 3.0"
-    },
-    {
-      "value": "Other",
-      "label": "Other"
     }
   ],
   "maturity": [

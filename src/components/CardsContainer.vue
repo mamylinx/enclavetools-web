@@ -10,8 +10,9 @@ import { toolComparators, type SortKey } from '../utils/sorting';
 import { isRecentlyAdded } from '../utils/dates';
 import { enrichTool, type ToolWithCategory } from '../utils/toolModel';
 import { searchTools } from '../composables/useOrama';
+import type { MarketingConfig } from '../interfaces/content';
 
-const m = marketingData as any;
+const m = marketingData as MarketingConfig;
 const c = siteContent as Record<string, string>;
 
 const promotedAds = ref(m.promoted || []);

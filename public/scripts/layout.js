@@ -50,19 +50,23 @@
 
       if (linkEl && countEl) {
         if (count > 0) {
-          linkEl.style.display = "inline-flex";
+          linkEl.classList.remove("hidden");
+          linkEl.classList.add("flex");
           countEl.textContent = count;
         } else {
-          linkEl.style.display = "none";
+          linkEl.classList.remove("flex");
+          linkEl.classList.add("hidden");
           countEl.textContent = "";
         }
       }
       if (mobileLinkEl && mobileCountEl) {
         if (count > 0) {
-          mobileLinkEl.style.display = "block";
+          mobileLinkEl.classList.remove("hidden");
+          mobileLinkEl.classList.add("block");
           mobileCountEl.textContent = count;
         } else {
-          mobileLinkEl.style.display = "none";
+          mobileLinkEl.classList.remove("block");
+          mobileLinkEl.classList.add("hidden");
           mobileCountEl.textContent = "";
         }
       }

@@ -3,8 +3,10 @@
  * Uses Web Crypto API which is compatible with Cloudflare Workers.
  */
 
+import type { CloudflareEnv } from '../interfaces/env';
+
 // Constant-time comparison for passwords
-export async function verifyPassword(env: any, password: string): Promise<boolean> {
+export async function verifyPassword(env: CloudflareEnv, password: string): Promise<boolean> {
   const adminPassword = env.ADMIN_PASSWORD;
   if (!adminPassword || !password) return false;
   
@@ -32,7 +34,7 @@ export async function verifyPassword(env: any, password: string): Promise<boolea
   return result === 0;
 }
 
-function requireSecret(env: any): string {
+function requireSecret(env: CloudflareEnv): string {
   if (!env.ADMIN_SECRET) {
     throw new Error("ADMIN_SECRET env var is not set");
   }
@@ -40,7 +42,7 @@ function requireSecret(env: any): string {
 }
 
 // Generate a signed session token
-export async function createSessionToken(env: any): Promise<string> {
+export async function createSessionToken(env: CloudflareEnv): Promise<string> {
   const secret = requireSecret(env);
   const encoder = new TextEncoder();
   const key = await crypto.subtle.importKey(
@@ -63,7 +65,7 @@ export async function createSessionToken(env: any): Promise<string> {
 }
 
 // Verify a session token
-export async function verifySessionToken(env: any, token: string): Promise<boolean> {
+export async function verifySessionToken(env: CloudflareEnv, token: string): Promise<boolean> {
   if (!token) return false;
   
   const parts = token.split('.');

@@ -1,3 +1,5 @@
+import type { CloudflareEnv } from '../interfaces/env';
+
 const MAGIC_BYTES: Record<string, number[]> = {
   'image/png': [0x89, 0x50, 0x4E, 0x47],
   'image/jpeg': [0xFF, 0xD8, 0xFF],
@@ -17,7 +19,7 @@ async function isValidImage(file: File): Promise<boolean> {
 /**
  * Uploads a file to R2
  */
-export async function uploadLogo(env: any, key: string, file: File): Promise<void> {
+export async function uploadLogo(env: CloudflareEnv, key: string, file: File): Promise<void> {
   if (!env || !env.enclavetools_logos) {
     console.warn("LOGOS R2 bucket not bound. Skipping upload.");
     return;
@@ -34,7 +36,7 @@ export async function uploadLogo(env: any, key: string, file: File): Promise<voi
 /**
  * Copies an object from one key to another in the same R2 bucket
  */
-export async function copyLogo(env: any, sourceKey: string, destKey: string): Promise<void> {
+export async function copyLogo(env: CloudflareEnv, sourceKey: string, destKey: string): Promise<void> {
   if (!env || !env.enclavetools_logos) return;
   const object = await env.enclavetools_logos.get(sourceKey);
   if (object) {
@@ -47,7 +49,7 @@ export async function copyLogo(env: any, sourceKey: string, destKey: string): Pr
 /**
  * Deletes an object from R2
  */
-export async function deleteLogo(env: any, key: string): Promise<void> {
+export async function deleteLogo(env: CloudflareEnv, key: string): Promise<void> {
   if (!env || !env.enclavetools_logos) return;
   await env.enclavetools_logos.delete(key);
 }

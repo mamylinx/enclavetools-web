@@ -1,8 +1,10 @@
+import type { CloudflareEnv } from '../interfaces/env';
+
 /**
  * Uses Cloudflare KV to implement a simple sliding window rate limiter.
  */
 export async function checkRateLimit(
-  env: any,
+  env: CloudflareEnv,
   ip: string,
   path: string,
   limit: number,

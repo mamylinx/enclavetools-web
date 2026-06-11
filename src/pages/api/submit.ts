@@ -4,6 +4,7 @@ import { env } from 'cloudflare:workers';
 import { checkRateLimit } from '../../lib/rate-limit';
 import { submitFormSchema } from '../../lib/validation';
 import { uploadLogo } from '../../lib/r2';
+import type { GitHubRepoData } from '../../interfaces/config';
 
 export const POST: APIRoute = async (context) => {
   const ip = context.request.headers.get('CF-Connecting-IP') || '127.0.0.1';
@@ -32,7 +33,7 @@ export const POST: APIRoute = async (context) => {
     const slug = `${rawSlug}-${id.split('-')[0]}`;
 
     const githubDataStr = formData.get('github_data') as string;
-    let ghData: any = null;
+    let ghData: GitHubRepoData | null = null;
     let popularity_score = 0;
     let ghLanguage: string | null = null;
 
@@ -134,8 +135,9 @@ export const POST: APIRoute = async (context) => {
 
     return new Response(JSON.stringify({ success: true, id, slug }), { status: 200 });
 
-  } catch (err: any) {
-    console.error("Submission error:", err);
+  } catch (err: unknown) {
+    const message = err instanceof Error ? err.message : String(err);
+    console.error("Submission error:", message);
     return new Response(JSON.stringify({ error: "Internal server error" }), { status: 500 });
   }
 };

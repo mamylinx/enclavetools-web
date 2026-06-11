@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { h, computed } from 'vue';
+import { h, computed, type Component } from 'vue';
 
 const props = defineProps<{
-    icon?: any;
+    icon?: Component | string;
     message?: string;
     actionText?: string;
     actionHref?: string;
@@ -20,7 +20,7 @@ const iconComponent = computed(() => {
     return props.icon;
 });
 
-const iconMap: Record<string, any> = {
+const iconMap: Record<string, Component> = {
     search: {
         render() {
             return h('svg', {

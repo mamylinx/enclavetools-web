@@ -1,6 +1,7 @@
 import { create, insert, save } from '@orama/orama'
 import toolsData from '../data/tools.json'
 import { enrichTool } from '../utils/toolModel'
+import type { Tool, Category } from '../interfaces/tool'
 
 const SCHEMA = {
   title: 'string',
@@ -68,8 +69,8 @@ function sanitize(doc: Record<string, unknown>): Record<string, unknown> {
 export async function GET() {
   const catTools = toolsData.tools
 
-  const docs = catTools.flatMap((cat: any) =>
-    cat.content.map((tool: any) =>
+  const docs = catTools.flatMap((cat: Category) =>
+    cat.content.map((tool: Tool) =>
       sanitize(
         enrichTool({
           ...tool,

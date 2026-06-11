@@ -9,6 +9,7 @@ import ActiveFiltersBar from './ActiveFiltersBar.vue';
 import CompareTray from './CompareTray.vue';
 import { useFilterState } from '../composables/useFilterState';
 import type { Tool } from '../types';
+import type { ToolWithCategory } from '../utils/toolModel';
 
 const props = defineProps<{
     category: string;
@@ -127,7 +128,7 @@ onUnmounted(() => {
         <aside v-if="!isHomepage" class="sticky top-24 hidden lg:block w-full">
             <Sidebar showNewsletter />
         </aside>
-        <CompareTray :tools="(props.ssrTools || []) as any" />
+        <CompareTray :tools="(props.ssrTools || []) as ToolWithCategory[]" />
     </div>
 
     <FilterBottomSheet v-if="showFilterSheet && !isHomepage" :state="filterState" :show-model-format="showModelFormat"

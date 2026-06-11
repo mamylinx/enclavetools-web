@@ -1,28 +1,18 @@
-// src/pages/api/admin/rebuild.ts
 import type { APIRoute } from 'astro';
 export const prerender = false;
-import { env } from 'cloudflare:workers';
-import { verifySessionToken } from '../../../lib/auth';
+import { requireAdminAuth, errorResponse, withErrorHandling } from '../../../lib/api-helpers';
 
-export const POST: APIRoute = async (context) => {
-  const token = context.cookies.get('admin_session')?.value;
-  
-  if (!token || !(await verifySessionToken(env, token))) {
-    return new Response(JSON.stringify({ error: "Unauthorized" }), { status: 401 });
-  }
+export const POST: APIRoute = withErrorHandling(async (context, env) => {
+  const auth = await requireAdminAuth(context);
+  if (auth.error) return auth.error;
 
-  // Use Deploy Hook URL
-  const hookUrl = env.DEPLOY_HOOK_URL;
+  const hookUrl = (env as Record<string, unknown>).DEPLOY_HOOK_URL as string;
   if (!hookUrl) {
-    return new Response(JSON.stringify({ error: "DEPLOY_HOOK_URL not configured" }), { status: 500 });
+    return errorResponse('DEPLOY_HOOK_URL not configured', 500);
   }
 
-  try {
-    const res = await fetch(hookUrl, { method: 'POST' });
-    if (!res.ok) throw new Error("Failed to trigger deploy");
-    
-    return new Response(JSON.stringify({ success: true }), { status: 200 });
-  } catch (err: any) {
-    return new Response(JSON.stringify({ error: err.message }), { status: 500 });
-  }
-};
+  const res = await fetch(hookUrl, { method: 'POST' });
+  if (!res.ok) throw new Error("Failed to trigger deploy");
+
+  return new Response(JSON.stringify({ success: true }), { status: 200 });
+}, 'Admin rebuild');

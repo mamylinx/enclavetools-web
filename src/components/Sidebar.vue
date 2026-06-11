@@ -2,13 +2,14 @@
 import { ref } from 'vue';
 import siteContent from '../data/site-content.json';
 import marketingData from '../data/marketing.json';
+import type { MarketingConfig } from '../interfaces/content';
 
 const props = defineProps<{
   showNewsletter?: boolean;
 }>();
 
 const c = siteContent as Record<string, string>;
-const featured = ref((marketingData as any).featured?.[0] || null);
+const featured = ref((marketingData as MarketingConfig).featured?.[0] || null);
 
 </script>
 

@@ -53,6 +53,8 @@
         <FiltersTab v-if="activeTab === 'filters'" :options="filterOptions" @save="saveFilterOption" @delete="deleteFilterOption" @add="addFilterOption" />
         <CategoriesTab v-if="activeTab === 'categories'" :categories="categories" @save="saveCategory" />
         <LegalTab v-if="activeTab === 'legal'" :pages="legalPages" @save="saveLegalPage" />
+        <ComplementsTab v-if="activeTab === 'complements'" :items="complements" :categories="categories" @save="saveComplement" @delete="deleteComplement" @add="addComplement" />
+        <CompareRowsTab v-if="activeTab === 'compare-rows'" :items="compareRowsList" @save="saveCompareRow" @delete="deleteCompareRow" @add="addCompareRow" />
       </div>
     </div>
   </div>
@@ -66,6 +68,8 @@ import MarketingTab from './admin/MarketingTab.vue';
 import FiltersTab from './admin/FiltersTab.vue';
 import CategoriesTab from './admin/CategoriesTab.vue';
 import LegalTab from './admin/LegalTab.vue';
+import ComplementsTab from './admin/ComplementsTab.vue';
+import CompareRowsTab from './admin/CompareRowsTab.vue';
 
 const props = defineProps({ initialLoggedIn: Boolean });
 const loggedIn = ref(props.initialLoggedIn);
@@ -84,6 +88,8 @@ const marketingCards = ref([]);
 const filterOptions = ref([]);
 const categories = ref([]);
 const legalPages = ref([]);
+const complements = ref([]);
+const compareRowsList = ref([]);
 
 const tabs = [
   { key: 'pending', label: 'Pending' },
@@ -92,6 +98,8 @@ const tabs = [
   { key: 'filters', label: 'Filters' },
   { key: 'categories', label: 'Categories' },
   { key: 'legal', label: 'Legal Pages' },
+  { key: 'complements', label: 'Complements' },
+  { key: 'compare-rows', label: 'Compare Rows' },
 ];
 
 const pendingCount = computed(() => pendingTools.value.length);
@@ -136,13 +144,15 @@ const logout = async () => {
 };
 
 const fetchAll = async () => {
-  const [pendingRes, contentRes, marketingRes, filtersRes, categoriesRes, legalRes] = await Promise.all([
+  const [pendingRes, contentRes, marketingRes, filtersRes, categoriesRes, legalRes, complementsRes, compareRowsRes] = await Promise.all([
     fetch('/api/admin/list'),
     fetch('/api/admin/content'),
     fetch('/api/admin/marketing'),
     fetch('/api/admin/filters'),
     fetch('/api/admin/categories'),
     fetch('/api/admin/legal'),
+    fetch('/api/admin/complements'),
+    fetch('/api/admin/compare-rows'),
   ]);
   if (pendingRes.status === 401) { loggedIn.value = false; return; }
   const pData = await pendingRes.json();
@@ -152,6 +162,14 @@ const fetchAll = async () => {
   if (filtersRes.ok) { const d = await filtersRes.json(); filterOptions.value = d.options || []; }
   if (categoriesRes.ok) { const d = await categoriesRes.json(); categories.value = d.categories || []; }
   if (legalRes.ok) { const d = await legalRes.json(); legalPages.value = d.pages || []; }
+  if (complementsRes.ok) {
+    const d = await complementsRes.json();
+    complements.value = (d.complements || []).map(c => ({ ...c, _editing: false }));
+  }
+  if (compareRowsRes.ok) {
+    const d = await compareRowsRes.json();
+    compareRowsList.value = (d.rows || []).map(r => ({ ...r, _editing: false }));
+  }
 };
 
 const approveTool = async (id) => {
@@ -271,6 +289,62 @@ const saveLegalPage = async (slug, data) => {
       fetchAll();
     } else { const d = await res.json(); showMessage(`Error: ${d.error}`, 'error'); }
   } catch { showMessage('Network error saving legal page', 'error'); }
+};
+
+const saveComplement = async (item) => {
+  try {
+    const res = await fetch('/api/admin/complements', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ category_slug: item.category_slug, complements: item.complements })
+    });
+    if (res.ok) {
+      showMessage(item._new ? 'Complement created' : 'Complement updated');
+      fetchAll();
+    } else { const d = await res.json(); showMessage(`Error: ${d.error}`, 'error'); }
+  } catch { showMessage('Network error saving complement', 'error'); }
+};
+
+const addComplement = async () => {
+  complements.value.push({ category_slug: '', complements: [], complementsText: '', _editing: true, _new: true });
+};
+
+const deleteComplement = async (category_slug) => {
+  try {
+    const res = await fetch(`/api/admin/complements?category_slug=${encodeURIComponent(category_slug)}`, { method: 'DELETE' });
+    if (res.ok) {
+      complements.value = complements.value.filter(c => c.category_slug !== category_slug);
+      showMessage('Complement deleted');
+    } else { const d = await res.json(); showMessage(`Error: ${d.error}`, 'error'); }
+  } catch { showMessage('Network error deleting complement', 'error'); }
+};
+
+const saveCompareRow = async (item) => {
+  try {
+    const res = await fetch('/api/admin/compare-rows', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id: item.id, label: item.label, field_key: item.field_key, sort_order: item.sort_order })
+    });
+    if (res.ok) {
+      showMessage(item.id ? 'Row updated' : 'Row created');
+      fetchAll();
+    } else { const d = await res.json(); showMessage(`Error: ${d.error}`, 'error'); }
+  } catch { showMessage('Network error saving compare row', 'error'); }
+};
+
+const addCompareRow = async () => {
+  compareRowsList.value.push({ label: '', field_key: '', sort_order: 0, _editing: true, _new: true });
+};
+
+const deleteCompareRow = async (id) => {
+  try {
+    const res = await fetch(`/api/admin/compare-rows?id=${id}`, { method: 'DELETE' });
+    if (res.ok) {
+      compareRowsList.value = compareRowsList.value.filter(r => r.id !== id);
+      showMessage('Row deleted');
+    } else { const d = await res.json(); showMessage(`Error: ${d.error}`, 'error'); }
+  } catch { showMessage('Network error deleting compare row', 'error'); }
 };
 
 const rebuild = async () => {

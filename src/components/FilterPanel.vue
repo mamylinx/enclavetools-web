@@ -119,7 +119,7 @@ const visibleGroups = computed(() => FILTER_GROUPS.filter(
                 </svg>
             </button>
 
-            <div v-show="expandedGroups[group.key]" class="pb-4">
+            <div v-if="expandedGroups[group.key]" class="pb-4">
                 <div class="flex flex-wrap gap-2">
                     <template v-if="group.type === 'single'">
                         <button v-for="opt in group.options" :key="String(opt.value)" class="px-3 py-2 text-xs font-bold transition-all duration-150 border-2 rounded-none"

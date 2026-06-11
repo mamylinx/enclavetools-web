@@ -4,9 +4,10 @@ import Card from './Card.vue';
 import type { ToolWithCategory } from '../utils/toolModel';
 import siteContent from '../data/site-content.json';
 import marketingData from '../data/marketing.json';
+import type { MarketingConfig } from '../interfaces/content';
 
 const c = siteContent as Record<string, string>;
-const m = marketingData as any;
+const m = marketingData as MarketingConfig;
 const sponsors = computed(() => m.sponsors || []);
 const featured = m.featured?.[0] || null;
 

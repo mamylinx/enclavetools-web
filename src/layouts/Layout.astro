@@ -208,9 +208,8 @@ const {
         </a>
         <a
           href="/saved"
-          class="flex items-center px-3 py-2 text-xs font-black uppercase tracking-wider text-gray-900 hover:text-primary-500 no-underline"
+          class="flex items-center px-3 py-2 text-xs font-black uppercase tracking-wider text-gray-900 hover:text-primary-500 no-underline hidden"
           id="favoritesLink"
-          style="display: none;"
         >
           <span class="hidden lg:inline"
             >{c.nav_saved_tools || "Saved tools"}</span
@@ -291,9 +290,8 @@ const {
             >
             <a
               href="/saved"
-              class="block w-full text-left px-3 h-12 text-xs font-black uppercase tracking-wider text-gray-900 hover:bg-gray-900 hover:text-white rounded-none transition-colors no-underline"
+              class="w-full text-left px-3 h-12 text-xs font-black uppercase tracking-wider text-gray-900 hover:bg-gray-900 hover:text-white rounded-none transition-colors no-underline hidden"
               id="mobileFavoritesLink"
-              style="display:none;"
               >{c.nav_saved_tools || "Saved tools"}
               <span
                 id="mobileFavoritesCount"

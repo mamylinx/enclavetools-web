@@ -145,18 +145,18 @@ function handleGlobalClick(e: MouseEvent) {
         </button>
 
         <div
-          v-show="openDropdown === group.key"
+          v-if="openDropdown === group.key"
           class="absolute top-full left-0 mt-1 z-50 border-2 border-gray-900 bg-white shadow-card"
         >
           <div
-            class="max-h-72 p-2"
-            :style="{ columnCount: columnCount(group), columnGap: '0.25rem' }"
+            class="max-h-72 p-2 gap-1 overflow-x-hidden overflow-y-auto"
+            :class="columnCount(group) === 1 ? 'columns-1' : columnCount(group) === 2 ? 'columns-2' : columnCount(group) === 3 ? 'columns-3' : 'columns-4'"
           >
             <template v-if="group.type === 'single'">
               <button
                 v-for="opt in group.options"
                 :key="String(opt.value)"
-                class="block w-full text-left px-3 py-2 text-xs font-bold transition-all duration-150 border-2 whitespace-nowrap break-inside-avoid"
+                class="block w-full text-left px-3 py-2 text-xs font-bold transition-all duration-150 border-2 whitespace-nowrap break-inside-avoid mb-1"
                 :class="isOptionSelected(group.key, opt.value)
                   ? 'bg-gray-900 text-white border-gray-900'
                   : 'text-gray-600 bg-white border-transparent hover:border-gray-900 hover:text-gray-900'"
@@ -169,7 +169,7 @@ function handleGlobalClick(e: MouseEvent) {
               <button
                 v-for="opt in group.options"
                 :key="String(opt.value)"
-                class="block w-full text-left px-3 py-2 text-xs font-bold transition-all duration-150 border-2 whitespace-nowrap break-inside-avoid"
+                class="block w-full text-left px-3 py-2 text-xs font-bold transition-all duration-150 border-2 whitespace-nowrap break-inside-avoid mb-1"
                 :class="isOptionSelected(group.key, opt.value)
                   ? 'bg-gray-900 text-white border-gray-900'
                   : 'text-gray-600 bg-white border-transparent hover:border-gray-900 hover:text-gray-900'"

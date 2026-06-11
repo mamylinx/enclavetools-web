@@ -1,20 +1,74 @@
 [
-  ["License", "license"],
-  ["Commercial use", "commercial_use"],
-  ["Setup difficulty", "setup_difficulty"],
-  ["GitHub stars", "popularity_score"],
-  ["Last updated", "last_updated"],
-  ["OpenAI API", "openai_api"],
-  ["REST API", "rest_api"],
-  ["Fine-tuning", "fine_tuning"],
-  ["Quantization", "quantization"],
-  ["Docker", "docker_available"],
-  ["GUI / no-code", "gui_available"],
-  ["Offline after setup", "offline_after_setup"],
-  ["Telemetry", "telemetry"],
-  ["Minimum RAM", "min_ram_gb"],
-  ["Recommended RAM", "recommended_ram_gb"],
-  ["Hardware", "hardware"],
-  ["Deployment", "deployment"],
-  ["Model format", "model_format"]
+  [
+    "License",
+    "license"
+  ],
+  [
+    "Commercial use",
+    "commercial_use"
+  ],
+  [
+    "Setup difficulty",
+    "setup_difficulty"
+  ],
+  [
+    "GitHub stars",
+    "popularity_score"
+  ],
+  [
+    "Last updated",
+    "last_updated"
+  ],
+  [
+    "OpenAI API",
+    "openai_api"
+  ],
+  [
+    "REST API",
+    "rest_api"
+  ],
+  [
+    "Fine-tuning",
+    "fine_tuning"
+  ],
+  [
+    "Quantization",
+    "quantization"
+  ],
+  [
+    "Docker",
+    "docker_available"
+  ],
+  [
+    "GUI / no-code",
+    "gui_available"
+  ],
+  [
+    "Offline after setup",
+    "offline_after_setup"
+  ],
+  [
+    "Telemetry",
+    "telemetry"
+  ],
+  [
+    "Minimum RAM",
+    "min_ram_gb"
+  ],
+  [
+    "Recommended RAM",
+    "recommended_ram_gb"
+  ],
+  [
+    "Hardware",
+    "hardware"
+  ],
+  [
+    "Deployment",
+    "deployment"
+  ],
+  [
+    "Model format",
+    "model_format"
+  ]
 ]
