@@ -170,38 +170,20 @@ const resetForm = () => {
   submitError.value = '';
 };
 
-const verifyTurnstile = async () => {
-  turnstileError.value = '';
-  if (!window.turnstile) {
-    turnstileError.value = 'Verification not ready. Please try again.';
-    return false;
-  }
-  const token = turnstile.getResponse();
-  if (!token) {
-    turnstileError.value = 'Please complete the verification.';
-    return false;
-  }
-  try {
-    const res = await fetch(props.workerUrl, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ token }),
-    });
-    const data = await res.json();
-    if (data.success) return true;
-    turnstile.reset();
-    turnstileError.value = 'Verification failed. Please try again.';
-    return false;
-  } catch {
-    turnstileError.value = 'Verification service unavailable.';
-    return false;
-  }
-};
+
 
 const submitUrl = async () => {
   isSubmitting.value = true;
   submitError.value = '';
-  if (!(await verifyTurnstile())) {
+  turnstileError.value = '';
+  if (!window.turnstile) {
+    turnstileError.value = 'Verification not ready. Please try again.';
+    isSubmitting.value = false;
+    return;
+  }
+  const turnstileToken = turnstile.getResponse();
+  if (!turnstileToken) {
+    turnstileError.value = 'Please complete the verification.';
     isSubmitting.value = false;
     return;
   }
@@ -209,10 +191,17 @@ const submitUrl = async () => {
     const res = await fetch('/api/submit', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ url: url.value }),
+      body: JSON.stringify({ url: url.value, turnstileToken }),
     });
     const data = await res.json();
-    if (!res.ok) throw new Error(data.error || 'Submission failed');
+    if (!res.ok) {
+      if (res.status === 403 && data.error === "Turnstile verification failed") {
+        turnstile.reset();
+        turnstileError.value = 'Verification failed. Please try again.';
+        return;
+      }
+      throw new Error(data.error || 'Submission failed');
+    }
     if (data.status === 'success') { success.value = true; return; }
     const style = infoStyles[data.status];
     if (style) {

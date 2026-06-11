@@ -5,6 +5,7 @@ import { verifyPassword, createSessionToken } from '../../../lib/auth';
 import { checkRateLimit } from '../../../lib/rate-limit';
 import { createCsrfToken } from '../../../lib/csrf';
 import { adminLoginSchema } from '../../../lib/validation';
+import { verifyTurnstileToken } from '../../../lib/turnstile';
 
 export const POST: APIRoute = withErrorHandling(async (context, env) => {
   const ip = context.request.headers.get('CF-Connecting-IP') || '127.0.0.1';
@@ -19,7 +20,14 @@ export const POST: APIRoute = withErrorHandling(async (context, env) => {
     return errorResponse('Invalid password format', 400);
   }
 
-  const isValid = await verifyPassword(env, data.password);
+  const { password, turnstileToken } = parsed.data;
+
+  const isHuman = await verifyTurnstileToken(env, turnstileToken);
+  if (!isHuman) {
+    return errorResponse('Turnstile verification failed', 403);
+  }
+
+  const isValid = await verifyPassword(env, password);
   if (!isValid) {
     return errorResponse('Invalid password', 401);
   }

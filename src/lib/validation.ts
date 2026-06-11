@@ -13,6 +13,7 @@ export const submitUrlSchema = z.object({
         return false;
       }
     }, { message: "URL must be from: github.com, huggingface.co, kaggle.com, bitbucket.org, or gitlab.com" }),
+  turnstileToken: z.string().min(1, "Turnstile token is required"),
 });
 
 export const adminLoginSchema = z.object({
@@ -21,4 +22,5 @@ export const adminLoginSchema = z.object({
     .regex(/[a-z]/, "Password must contain a lowercase letter")
     .regex(/[0-9]/, "Password must contain a digit")
     .regex(/[^A-Za-z0-9]/, "Password must contain a special character"),
+  turnstileToken: z.string().min(1, "Turnstile token is required"),
 });

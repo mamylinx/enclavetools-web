@@ -3,6 +3,7 @@ export const prerender = false;
 import { env } from 'cloudflare:workers';
 import { checkRateLimit } from '../../lib/rate-limit';
 import { submitUrlSchema } from '../../lib/validation';
+import { verifyTurnstileToken } from '../../lib/turnstile';
 
 export const POST: APIRoute = async (context) => {
   const ip = context.request.headers.get('CF-Connecting-IP') || '127.0.0.1';
@@ -22,7 +23,13 @@ export const POST: APIRoute = async (context) => {
       }), { status: 400 });
     }
 
-    const { url } = result.data;
+    const { url, turnstileToken } = result.data;
+
+    const isHuman = await verifyTurnstileToken(env, turnstileToken);
+    if (!isHuman) {
+      return new Response(JSON.stringify({ error: "Turnstile verification failed" }), { status: 403 });
+    }
+
     const db = env?.enclavetools_db;
     if (!db) {
       return new Response(JSON.stringify({ error: "Database not available" }), { status: 500 });

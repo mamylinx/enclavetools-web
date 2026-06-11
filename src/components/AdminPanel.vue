@@ -127,39 +127,20 @@ const showMessage = (msg, type = 'success') => {
   setTimeout(() => { storeMessage.value = ''; }, 4000);
 };
 
-const verifyTurnstile = async () => {
-  turnstileError.value = '';
-  if (!window.turnstile) {
-    turnstileError.value = 'Verification not ready. Please try again.';
-    return false;
-  }
-  const token = turnstile.getResponse();
-  if (!token) {
-    turnstileError.value = 'Please complete the verification.';
-    return false;
-  }
-  try {
-    const res = await fetch(props.workerUrl, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ token }),
-    });
-    const data = await res.json();
-    if (data.success) return true;
-    turnstile.reset();
-    turnstileError.value = 'Verification failed. Please try again.';
-    return false;
-  } catch {
-    turnstileError.value = 'Verification service unavailable.';
-    return false;
-  }
-};
+
 
 const login = async () => {
   isLoggingIn.value = true;
   loginError.value = '';
   turnstileError.value = '';
-  if (!await verifyTurnstile()) {
+  if (!window.turnstile) {
+    turnstileError.value = 'Verification not ready. Please try again.';
+    isLoggingIn.value = false;
+    return;
+  }
+  const turnstileToken = turnstile.getResponse();
+  if (!turnstileToken) {
+    turnstileError.value = 'Please complete the verification.';
     isLoggingIn.value = false;
     return;
   }
@@ -167,7 +148,7 @@ const login = async () => {
     const res = await csrfFetch('/api/admin/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ password: password.value })
+      body: JSON.stringify({ password: password.value, turnstileToken })
     });
     if (res.ok) {
       loggedIn.value = true;
@@ -175,7 +156,12 @@ const login = async () => {
       fetchAll();
     } else {
       const data = await res.json();
-      loginError.value = data.error || 'Login failed';
+      if (res.status === 403 && data.error === 'Turnstile verification failed') {
+        turnstile.reset();
+        turnstileError.value = 'Verification failed. Please try again.';
+      } else {
+        loginError.value = data.error || 'Login failed';
+      }
     }
   } catch {
     loginError.value = 'Network error';
