@@ -21,13 +21,7 @@
 			"migrations_dir": "wrangler/d1/migrations"
 		}
 	],
-	"r2_buckets": [
-		{
-			"bucket_name": "enclavetools-logos",
-			"binding": "enclavetools_logos",
-			"remote": true
-		}
-	],
+
 	"kv_namespaces": [
 		{
 			"binding": "RATE_LIMITER",
