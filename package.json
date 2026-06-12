@@ -7,23 +7,22 @@
   "main": "src/data/tools.json",
   "files": [
     "src/data/tools.json",
-    "src/data/tools/*.json",
+    "src/data/generated/tools/*.json",
     "src/data/metadata.json",
-    "src/data/slug-map.json",
-    "src/data/tool-metadata/*.json"
+    "src/data/generated/slug-map.json",
+    "src/data/generated/tool-metadata/*.json"
   ],
   "exports": {
     ".": "./src/data/tools.json",
     "./tools": "./src/data/tools.json",
     "./metadata": "./src/data/metadata.json",
-    "./slug-map": "./src/data/slug-map.json",
-    "./categories/*": "./src/data/tools/*.json",
-    "./tool/*": "./src/data/tool-metadata/*.json"
+    "./slug-map": "./src/data/generated/slug-map.json",
+    "./categories/*": "./src/data/generated/tools/*.json",
+    "./tool/*": "./src/data/generated/tool-metadata/*.json"
   },
   "scripts": {
-    "add-slugs": "bun run scripts/add-slugs.ts",
-    "clean": "rm -rf dist .astro src/data/slug-map.json src/data/tool-metadata",
-    "prepare-data": "bun run scripts/build-categories.ts && bun run scripts/build-data.ts && bun run scripts/build-site-content.ts && bun run scripts/build-marketing.ts && bun run scripts/build-filter-options.ts && bun run scripts/build-category-icons.ts && bun run scripts/build-legal-pages.ts && bun run scripts/build-complements.ts && bun run scripts/build-compare-rows.ts && bun run scripts/split-data.ts && bun run scripts/generate-slug-map.ts && bun run scripts/generate-tool-metadata.ts && bun run scripts/sync-logos.ts",
+    "clean": "rm -rf dist .astro src/data/generated",
+    "prepare-data": "bun run scripts/split-data.ts && bun run scripts/generate-slug-map.ts && bun run scripts/generate-tool-metadata.ts && bun run scripts/sync-logos.ts",
     "prepublishOnly": "bun run prepare-data",
     "dev": "bun run prepare-data && astro dev",
     "start": "astro dev",
@@ -33,9 +32,6 @@
     "test": "vitest",
     "test:run": "vitest run",
     "lint:spacing": "bash scripts/lint-spacing.sh",
-    "check-data": "bun run scripts/check-data.ts",
-    "update-metadata": "bun run scripts/update-metadata.ts",
-    "backfill": "bun run scripts/backfill-tools.ts",
     "generate-types": "wrangler types"
   },
   "dependencies": {
@@ -43,7 +39,7 @@
     "@astrojs/partytown": "^2.1.7",
     "@astrojs/sitemap": "^3.7.2",
     "@astrojs/vue": "^6.0.1",
-    "@aws-sdk/client-s3": "^3.1052.0",
+
     "@lucide/vue": "^1.16.0",
     "@orama/orama": "^3.1.18",
     "@vueuse/core": "^14.3.0",
@@ -61,7 +57,6 @@
     "@testing-library/dom": "^10.4.1",
     "@vue/test-utils": "^2.4.10",
     "autoprefixer": "^10.5.0",
-    "dotenv": "^17.4.2",
     "jsdom": "^29.1.1",
     "node-html-parser": "^7.1.0",
     "tailwindcss": "^4.3.0",

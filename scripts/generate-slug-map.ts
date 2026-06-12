@@ -53,7 +53,7 @@ Object.entries(slugMap).forEach(([slug, categories]) => {
 });
 
 // Write slug map
-const outputPath = path.join(__dirname, '../src/data/slug-map.json');
+const outputPath = path.join(__dirname, '../src/data/generated/slug-map.json');
 try {
     fs.writeFileSync(outputPath, JSON.stringify(slugMap, null, 2));
     console.log(`✅ Generated slug map with ${totalSlugs} entries`);

@@ -10,7 +10,7 @@ console.log('🚀 Starting data split process...\n');
 
 // Path to the monolithic tools.json
 const toolsPath = path.join(__dirname, '../src/data/tools.json');
-const outputDir = path.join(__dirname, '../src/data/tools');
+const outputDir = path.join(__dirname, '../src/data/generated/tools');
 
 // Ensure output directory exists
 if (!fs.existsSync(outputDir)) {

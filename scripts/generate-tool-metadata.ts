@@ -11,7 +11,7 @@ console.log('🔧 Generating individual tool metadata files...\n');
 // Paths
 const toolsPath = path.join(__dirname, '../src/data/tools.json');
 const metadataPath = path.join(__dirname, '../src/data/metadata.json');
-const outputDir = path.join(__dirname, '../src/data/tool-metadata');
+const outputDir = path.join(__dirname, '../src/data/generated/tool-metadata');
 
 // Ensure output directory exists
 if (!fs.existsSync(outputDir)) {
