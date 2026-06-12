@@ -37,17 +37,6 @@ export const POST: APIRoute = async (context) => {
 
     const normalizedUrl = url.replace(/\/$/, '');
 
-    const existingTool = await db.prepare(
-      `SELECT slug FROM tools WHERE url = ? OR github_url = ? LIMIT 1`
-    ).bind(normalizedUrl, normalizedUrl).first<{ slug: string }>();
-
-    if (existingTool) {
-      return new Response(JSON.stringify({
-        status: 'already_listed',
-        url: `/tools/${existingTool.slug}`
-      }), { status: 200 });
-    }
-
     const existingPending = await db.prepare(
       `SELECT status, explanation FROM pending_tools WHERE url = ? LIMIT 1`
     ).bind(normalizedUrl).first<{ status: string; explanation: string | null }>();
