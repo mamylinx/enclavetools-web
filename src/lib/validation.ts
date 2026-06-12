@@ -16,11 +16,4 @@ export const submitUrlSchema = z.object({
   turnstileToken: z.string().min(1, "Turnstile token is required"),
 });
 
-export const adminLoginSchema = z.object({
-  password: z.string().min(12, "Password must be at least 12 characters")
-    .regex(/[A-Z]/, "Password must contain an uppercase letter")
-    .regex(/[a-z]/, "Password must contain a lowercase letter")
-    .regex(/[0-9]/, "Password must contain a digit")
-    .regex(/[^A-Za-z0-9]/, "Password must contain a special character"),
-  turnstileToken: z.string().min(1, "Turnstile token is required"),
-});
+

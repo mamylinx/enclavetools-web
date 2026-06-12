@@ -74,10 +74,6 @@ Two tables are created:
 ### 4. Set Secrets
 
 ```bash
-# Admin password (required)
-npx wrangler secret put ADMIN_PASSWORD
-npx wrangler secret put ADMIN_SECRET
-
 # Cloudflare credentials (for rebuild feature)
 npx wrangler secret put CF_ACCOUNT_ID
 npx wrangler secret put CF_API_TOKEN
@@ -86,7 +82,6 @@ npx wrangler secret put CF_API_TOKEN
 For local development, add these to `.dev.vars`:
 
 ```
-ADMIN_PASSWORD=dev-password
 CF_ACCOUNT_ID=dev-account-id
 CF_API_TOKEN=dev-api-token
 ```
@@ -129,7 +124,7 @@ npx wrangler pages deploy dist --project-name enclavetools
 
 ## Admin Panel
 
-Access at `/admin` (requires password via HTTP Basic Auth).
+Access at `/admin` (secured by Cloudflare Access).
 
 **Approve**: moves submission from `pending_tools` → `tools`, triggers rebuild
 **Reject**: marks submission as `status='rejected'`
@@ -158,7 +153,6 @@ Access at `/admin` (requires password via HTTP Basic Auth).
 
 | Variable | Required | Description |
 |----------|----------|-------------|
-| `ADMIN_PASSWORD` | Yes | Admin panel password |
 | `CF_ACCOUNT_ID` | For rebuild | Cloudflare account ID |
 | `CF_API_TOKEN` | For rebuild | Cloudflare API token |
 | `CF_PAGES_PROJECT` | No | Pages project name (default: `enclavetools`) |
@@ -211,7 +205,7 @@ Ensure `export const prerender = true` is set on all static pages. This is alrea
 
 - For local: use `--local` flag with `wrangler d1 execute`
 - For remote: verify `database_id` is set in `wrangler.jsonc`
-- Check `ADMIN_PASSWORD` secret is set (required for API auth)
+- Check Cloudflare Access is configured for `/admin` and `/api/admin/*`
 
 **GitHub auto-fill not working**
 

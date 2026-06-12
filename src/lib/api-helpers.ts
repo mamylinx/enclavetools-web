@@ -1,7 +1,6 @@
 import type { APIContext } from 'astro';
 import { env } from 'cloudflare:workers';
 import type { CloudflareEnv } from '../interfaces/env';
-import { verifySessionToken } from './auth';
 
 export interface ApiResponse<T = unknown> {
   success?: boolean;
@@ -26,26 +25,6 @@ export function successResponse<T extends Record<string, unknown> = Record<strin
 
 export function errorResponse(error: string, status: number, details?: unknown): Response {
   return jsonResponse({ error, details }, status);
-}
-
-/**
- * Verify admin session from cookie.
- * Returns { env } if authenticated, or { env, error } if not.
- */
-export async function requireAdminAuth(
-  _context: APIContext,
-): Promise<{ env: CloudflareEnv } | { env: CloudflareEnv; error: Response }> {
-  const e = env as CloudflareEnv;
-  const token = _context.cookies.get('admin_session')?.value;
-
-  if (!token || !(await verifySessionToken(e, token))) {
-    return {
-      env: e,
-      error: errorResponse('Unauthorized', 401),
-    };
-  }
-
-  return { env: e };
 }
 
 /**

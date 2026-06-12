@@ -2,14 +2,6 @@
 export const prerender = false;
 import Layout from "../layouts/Layout.astro";
 import AdminPanel from "../components/AdminPanel.vue";
-import { verifySessionToken } from "../lib/auth";
-import { env } from "cloudflare:workers";
-
-const session = Astro.cookies.get("admin_session");
-const isLoggedIn = session?.value ? await verifySessionToken(env, session.value) : false;
-
-const sitekey = env.TURNSTILE_SITEKEY;
-const workerUrl = env.TURNSTILE_WORKER_URL;
 ---
 
 <Layout
@@ -24,6 +16,6 @@ const workerUrl = env.TURNSTILE_WORKER_URL;
   showHero={true}
 >
   <div class="max-w-[1400px] mx-auto pt-12 px-4 md:px-8">
-    <AdminPanel client:only="vue" initialLoggedIn={isLoggedIn} sitekey={sitekey} workerUrl={workerUrl} />
+    <AdminPanel client:only="vue" />
   </div>
 </Layout>

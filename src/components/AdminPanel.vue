@@ -1,62 +1,15 @@
 <template>
   <div>
-        <div v-if="!loggedIn" class="max-w-[400px] mx-auto bg-gray-50 border-2 border-gray-900 p-8 shadow-brutal">
-          <h2 class="text-xl font-black text-gray-900 mb-6 text-center uppercase tracking-wide">Admin Login</h2>
-          <form @submit.prevent="login" class="flex flex-col gap-4">
-            <div class="flex flex-col gap-2">
-              <label class="font-black text-gray-900 uppercase tracking-wider text-sm">Password</label>
-              <input type="password" v-model="password" required class="w-full bg-white border-2 border-gray-900 px-4 py-3 font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-colors" />
-            </div>
-            <div class="cf-turnstile" :data-sitekey="props.sitekey" data-action="turnstile-spin-v1"></div>
-            <p v-if="loginError" class="text-sm font-bold text-red-600 m-0">{{ loginError }}</p>
-            <p v-if="turnstileError" class="text-sm font-bold text-red-600 m-0">{{ turnstileError }}</p>
-            <button type="submit" class="w-full inline-flex items-center justify-center px-4 py-2 font-black uppercase tracking-wider text-xs transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed bg-gray-900 text-white hover:bg-primary-500 border-none" :disabled="isLoggingIn">
-          {{ isLoggingIn ? 'Logging in...' : 'Sign In' }}
-        </button>
-      </form>
-    </div>
-
-    <div v-else class="flex flex-col gap-6 max-w-6xl mx-auto">
+    <div class="flex flex-col gap-6 max-w-6xl mx-auto">
       <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b-2 border-gray-900 pb-4">
         <div class="inline-flex items-center gap-2 bg-primary-50 text-primary-600 border-2 border-primary-500 px-4 py-2 font-black uppercase tracking-widest text-xs">
           <span class="w-2 h-2 bg-primary-500 rounded-full animate-pulse block"></span>
           {{ pendingCount }} Pending
         </div>
-        <div class="flex flex-wrap gap-3">
-          <button @click="rebuild" :disabled="isRebuilding" class="inline-flex items-center justify-center px-4 py-2 font-black uppercase tracking-wider text-xs transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed bg-gray-900 text-white hover:bg-primary-500 border-none">
-            {{ isRebuilding ? 'Triggering...' : 'Rebuild Pages' }}
-          </button>
-          <button @click="logout" class="inline-flex items-center justify-center px-4 py-2 font-black uppercase tracking-wider text-xs transition-colors cursor-pointer bg-white border-2 border-gray-900 text-gray-900 hover:bg-primary-500 hover:text-white hover:border-primary-500">
-            Logout
-          </button>
-        </div>
-      </div>
-
-      <div v-if="rebuildMessage" class="p-4 font-bold text-sm border-2" :class="rebuildMessage.includes('Error') ? 'bg-red-50 text-red-600 border-red-600' : 'bg-green-50 text-green-700 border-green-600'">
-        {{ rebuildMessage }}
-      </div>
-
-      <div class="flex flex-wrap gap-2 border-b-2 border-gray-200 pb-0">
-        <button v-for="tab in tabs" :key="tab.key" @click="activeTab = tab.key"
-          class="px-4 py-3 font-black uppercase tracking-wider text-xs transition-colors cursor-pointer border-b-2 -mb-[2px]"
-          :class="activeTab === tab.key ? 'border-gray-900 text-gray-900 bg-white' : 'border-transparent text-gray-500 hover:text-gray-900 hover:border-gray-400 bg-gray-50'">
-          {{ tab.label }}
-        </button>
       </div>
 
       <div class="bg-white border-2 border-gray-900 shadow-brutal">
-        <div v-if="storeMessage" class="p-4 font-bold text-sm border-b-2 border-gray-200" :class="storeMessageType === 'error' ? 'bg-red-50 text-red-600 border-red-600' : 'bg-green-50 text-green-700 border-green-600'">
-          {{ storeMessage }}
-        </div>
-
-        <PendingTab v-if="activeTab === 'pending'" :tools="pendingTools" @approve="approveTool" @reject="rejectTool" @delete="deleteTool" />
-        <SiteContentTab v-if="activeTab === 'content'" :items="siteContent" @save="saveSiteContent" />
-        <MarketingTab v-if="activeTab === 'marketing'" :cards="marketingCards" @save="saveMarketingCard" @delete="deleteMarketingCard" @add="addMarketingCard" />
-        <FiltersTab v-if="activeTab === 'filters'" :options="filterOptions" @save="saveFilterOption" @delete="deleteFilterOption" @add="addFilterOption" />
-        <CategoriesTab v-if="activeTab === 'categories'" :categories="categories" @save="saveCategory" />
-        <LegalTab v-if="activeTab === 'legal'" :pages="legalPages" @save="saveLegalPage" />
-        <ComplementsTab v-if="activeTab === 'complements'" :items="complements" :categories="categories" @save="saveComplement" @delete="deleteComplement" @add="addComplement" />
-        <CompareRowsTab v-if="activeTab === 'compare-rows'" :items="compareRowsList" @save="saveCompareRow" @delete="deleteCompareRow" @add="addCompareRow" />
+        <PendingTab :tools="pendingTools" @approve="approveTool" @reject="rejectTool" @delete="deleteTool" />
       </div>
     </div>
   </div>
@@ -65,60 +18,17 @@
 <script setup>
 import { ref, onMounted, computed } from 'vue';
 import PendingTab from './admin/PendingTab.vue';
-import SiteContentTab from './admin/SiteContentTab.vue';
-import MarketingTab from './admin/MarketingTab.vue';
-import FiltersTab from './admin/FiltersTab.vue';
-import CategoriesTab from './admin/CategoriesTab.vue';
-import LegalTab from './admin/LegalTab.vue';
-import ComplementsTab from './admin/ComplementsTab.vue';
-import CompareRowsTab from './admin/CompareRowsTab.vue';
 
-const props = defineProps({ initialLoggedIn: Boolean, sitekey: String, workerUrl: String });
-const loggedIn = ref(props.initialLoggedIn);
-const password = ref('');
-const isLoggingIn = ref(false);
-const loginError = ref('');
-const turnstileError = ref('');
-const isRebuilding = ref(false);
-const rebuildMessage = ref('');
-const activeTab = ref('pending');
-const storeMessage = ref('');
-const storeMessageType = ref('success');
+const loggedIn = ref(true);
 
 const pendingTools = ref([]);
-const siteContent = ref([]);
-const marketingCards = ref([]);
-const filterOptions = ref([]);
-const categories = ref([]);
-const legalPages = ref([]);
-const complements = ref([]);
-const compareRowsList = ref([]);
-
-const getCsrfToken = () => {
-  const match = document.cookie.match(/(?:__Host-csrf|csrf)=([^;]+)/);
-  return match ? decodeURIComponent(match[1]) : '';
-};
-
-const csrfFetch = async (url, options = {}) => {
-  const headers = { ...options.headers, 'X-CSRF-Token': getCsrfToken() };
-  return fetch(url, { ...options, headers });
-};
-
-const tabs = [
-  { key: 'pending', label: 'Pending' },
-  { key: 'content', label: 'Site Content' },
-  { key: 'marketing', label: 'Marketing' },
-  { key: 'filters', label: 'Filters' },
-  { key: 'categories', label: 'Categories' },
-  { key: 'legal', label: 'Legal Pages' },
-  { key: 'complements', label: 'Complements' },
-  { key: 'compare-rows', label: 'Compare Rows' },
-];
+const storeMessage = ref('');
+const storeMessageType = ref('success');
 
 const pendingCount = computed(() => pendingTools.value.length);
 
 onMounted(() => {
-  if (loggedIn.value) fetchAll();
+  if (loggedIn.value) fetchPending();
 });
 
 const showMessage = (msg, type = 'success') => {
@@ -127,86 +37,16 @@ const showMessage = (msg, type = 'success') => {
   setTimeout(() => { storeMessage.value = ''; }, 4000);
 };
 
-
-
-const login = async () => {
-  isLoggingIn.value = true;
-  loginError.value = '';
-  turnstileError.value = '';
-  if (!window.turnstile) {
-    turnstileError.value = 'Verification not ready. Please try again.';
-    isLoggingIn.value = false;
-    return;
-  }
-  const turnstileToken = turnstile.getResponse();
-  if (!turnstileToken) {
-    turnstileError.value = 'Please complete the verification.';
-    isLoggingIn.value = false;
-    return;
-  }
-  try {
-    const res = await csrfFetch('/api/admin/login', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ password: password.value, turnstileToken })
-    });
-    if (res.ok) {
-      loggedIn.value = true;
-      password.value = '';
-      fetchAll();
-    } else {
-      const data = await res.json();
-      if (res.status === 403 && data.error === 'Turnstile verification failed') {
-        turnstile.reset();
-        turnstileError.value = 'Verification failed. Please try again.';
-      } else {
-        loginError.value = data.error || 'Login failed';
-      }
-    }
-  } catch {
-    loginError.value = 'Network error';
-  } finally {
-    isLoggingIn.value = false;
-  }
-};
-
-const logout = async () => {
-  await csrfFetch('/api/admin/logout', { method: 'POST' });
-  loggedIn.value = false;
-};
-
-const fetchAll = async () => {
-  const [pendingRes, contentRes, marketingRes, filtersRes, categoriesRes, legalRes, complementsRes, compareRowsRes] = await Promise.all([
-    csrfFetch('/api/admin/list'),
-    csrfFetch('/api/admin/content'),
-    csrfFetch('/api/admin/marketing'),
-    csrfFetch('/api/admin/filters'),
-    csrfFetch('/api/admin/categories'),
-    csrfFetch('/api/admin/legal'),
-    csrfFetch('/api/admin/complements'),
-    csrfFetch('/api/admin/compare-rows'),
-  ]);
-  if (pendingRes.status === 401) { loggedIn.value = false; return; }
-  const pData = await pendingRes.json();
-  pendingTools.value = pData.tools || [];
-  if (contentRes.ok) { const d = await contentRes.json(); siteContent.value = d.content || []; }
-  if (marketingRes.ok) { const d = await marketingRes.json(); marketingCards.value = d.cards || []; }
-  if (filtersRes.ok) { const d = await filtersRes.json(); filterOptions.value = d.options || []; }
-  if (categoriesRes.ok) { const d = await categoriesRes.json(); categories.value = d.categories || []; }
-  if (legalRes.ok) { const d = await legalRes.json(); legalPages.value = d.pages || []; }
-  if (complementsRes.ok) {
-    const d = await complementsRes.json();
-    complements.value = (d.complements || []).map(c => ({ ...c, _editing: false }));
-  }
-  if (compareRowsRes.ok) {
-    const d = await compareRowsRes.json();
-    compareRowsList.value = (d.rows || []).map(r => ({ ...r, _editing: false }));
-  }
+const fetchPending = async () => {
+  const res = await fetch('/api/admin/list');
+  if (res.status === 401) { loggedIn.value = false; return; }
+  const data = await res.json();
+  pendingTools.value = data.tools || [];
 };
 
 const approveTool = async (id) => {
   try {
-    const res = await csrfFetch(`/api/admin/tools/${id}/approve`, { method: 'POST' });
+    const res = await fetch(`/api/admin/tools/${id}/approve`, { method: 'POST' });
     if (res.ok) {
       const tool = pendingTools.value.find(t => t.id === id);
       if (tool) tool.status = 'approved';
@@ -217,7 +57,7 @@ const approveTool = async (id) => {
 
 const rejectTool = async (id, explanation) => {
   try {
-    const res = await csrfFetch(`/api/admin/tools/${id}/reject`, {
+    const res = await fetch(`/api/admin/tools/${id}/reject`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ explanation })
@@ -232,177 +72,11 @@ const rejectTool = async (id, explanation) => {
 
 const deleteTool = async (id) => {
   try {
-    const res = await csrfFetch(`/api/admin/tools/${id}/delete`, { method: 'POST' });
+    const res = await fetch(`/api/admin/tools/${id}/delete`, { method: 'POST' });
     if (res.ok) {
       pendingTools.value = pendingTools.value.filter(t => t.id !== id);
       showMessage('Tool removed from pending');
     } else { const d = await res.json(); showMessage(`Error: ${d.error}`, 'error'); }
   } catch { showMessage('Network error deleting tool', 'error'); }
-};
-
-const saveSiteContent = async (key, value) => {
-  try {
-    const res = await csrfFetch('/api/admin/content', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ key, value })
-    });
-    if (res.ok) {
-      showMessage(`Saved: ${key}`);
-      const idx = siteContent.value.findIndex(c => c.key === key);
-      if (idx >= 0) siteContent.value[idx].value = value;
-    } else { const d = await res.json(); showMessage(`Error: ${d.error}`, 'error'); }
-  } catch { showMessage('Network error saving content', 'error'); }
-};
-
-const saveMarketingCard = async (card) => {
-  try {
-    const res = await csrfFetch('/api/admin/marketing', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(card)
-    });
-    if (res.ok) {
-      showMessage(card.id ? 'Card updated' : 'Card created');
-      fetchAll();
-    } else { const d = await res.json(); showMessage(`Error: ${d.error}`, 'error'); }
-  } catch { showMessage('Network error saving card', 'error'); }
-};
-
-const addMarketingCard = async () => {
-  marketingCards.value.push({ type: 'featured', label: '', title: '', description: '', cta: '', url: '', logo: '', sort_order: 0, active: 1, _editing: true, _new: true });
-};
-
-const deleteMarketingCard = async (id) => {
-  try {
-    const res = await csrfFetch(`/api/admin/marketing?id=${id}`, { method: 'DELETE' });
-    if (res.ok) {
-      marketingCards.value = marketingCards.value.filter(c => c.id !== id);
-      showMessage('Card deleted');
-    } else { const d = await res.json(); showMessage(`Error: ${d.error}`, 'error'); }
-  } catch { showMessage('Network error deleting card', 'error'); }
-};
-
-const saveFilterOption = async (opt) => {
-  try {
-    const res = await csrfFetch('/api/admin/filters', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(opt)
-    });
-    if (res.ok) {
-      showMessage(opt.id ? 'Filter updated' : 'Filter created');
-      fetchAll();
-    } else { const d = await res.json(); showMessage(`Error: ${d.error}`, 'error'); }
-  } catch { showMessage('Network error saving filter', 'error'); }
-};
-
-const addFilterOption = async () => {
-  filterOptions.value.push({ group_key: '', value: '', label: '', sort_order: 0, active: 1, _editing: true, _new: true });
-};
-
-const deleteFilterOption = async (id) => {
-  try {
-    const res = await csrfFetch(`/api/admin/filters?id=${id}`, { method: 'DELETE' });
-    if (res.ok) {
-      filterOptions.value = filterOptions.value.filter(o => o.id !== id);
-      showMessage('Filter deleted');
-    } else { const d = await res.json(); showMessage(`Error: ${d.error}`, 'error'); }
-  } catch { showMessage('Network error deleting filter', 'error'); }
-};
-
-const saveCategory = async (slug, data) => {
-  try {
-    const res = await csrfFetch('/api/admin/categories', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ category_slug: slug, ...data })
-    });
-    if (res.ok) {
-      showMessage(`Saved category: ${slug}`);
-      fetchAll();
-    } else { const d = await res.json(); showMessage(`Error: ${d.error}`, 'error'); }
-  } catch { showMessage('Network error saving category', 'error'); }
-};
-
-const saveLegalPage = async (slug, data) => {
-  try {
-    const res = await csrfFetch('/api/admin/legal', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ slug, ...data })
-    });
-    if (res.ok) {
-      showMessage(`Saved page: ${slug}`);
-      fetchAll();
-    } else { const d = await res.json(); showMessage(`Error: ${d.error}`, 'error'); }
-  } catch { showMessage('Network error saving legal page', 'error'); }
-};
-
-const saveComplement = async (item) => {
-  try {
-    const res = await csrfFetch('/api/admin/complements', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ category_slug: item.category_slug, complements: item.complements })
-    });
-    if (res.ok) {
-      showMessage(item._new ? 'Complement created' : 'Complement updated');
-      fetchAll();
-    } else { const d = await res.json(); showMessage(`Error: ${d.error}`, 'error'); }
-  } catch { showMessage('Network error saving complement', 'error'); }
-};
-
-const addComplement = async () => {
-  complements.value.push({ category_slug: '', complements: [], complementsText: '', _editing: true, _new: true });
-};
-
-const deleteComplement = async (category_slug) => {
-  try {
-    const res = await csrfFetch(`/api/admin/complements?category_slug=${encodeURIComponent(category_slug)}`, { method: 'DELETE' });
-    if (res.ok) {
-      complements.value = complements.value.filter(c => c.category_slug !== category_slug);
-      showMessage('Complement deleted');
-    } else { const d = await res.json(); showMessage(`Error: ${d.error}`, 'error'); }
-  } catch { showMessage('Network error deleting complement', 'error'); }
-};
-
-const saveCompareRow = async (item) => {
-  try {
-    const res = await csrfFetch('/api/admin/compare-rows', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ id: item.id, label: item.label, field_key: item.field_key, sort_order: item.sort_order })
-    });
-    if (res.ok) {
-      showMessage(item.id ? 'Row updated' : 'Row created');
-      fetchAll();
-    } else { const d = await res.json(); showMessage(`Error: ${d.error}`, 'error'); }
-  } catch { showMessage('Network error saving compare row', 'error'); }
-};
-
-const addCompareRow = async () => {
-  compareRowsList.value.push({ label: '', field_key: '', sort_order: 0, _editing: true, _new: true });
-};
-
-const deleteCompareRow = async (id) => {
-  try {
-    const res = await csrfFetch(`/api/admin/compare-rows?id=${id}`, { method: 'DELETE' });
-    if (res.ok) {
-      compareRowsList.value = compareRowsList.value.filter(r => r.id !== id);
-      showMessage('Row deleted');
-    } else { const d = await res.json(); showMessage(`Error: ${d.error}`, 'error'); }
-  } catch { showMessage('Network error deleting compare row', 'error'); }
-};
-
-const rebuild = async () => {
-  isRebuilding.value = true;
-  rebuildMessage.value = '';
-  try {
-    const res = await csrfFetch('/api/admin/rebuild', { method: 'POST' });
-    if (res.ok) rebuildMessage.value = "Successfully triggered Cloudflare Pages build!";
-    else { const d = await res.json(); rebuildMessage.value = `Error: ${d.error}`; }
-  } catch { rebuildMessage.value = "Error triggering build."; }
-  finally { isRebuilding.value = false; }
 };
 </script>
