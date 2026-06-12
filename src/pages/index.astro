@@ -11,7 +11,9 @@ import siteContent from "../data/site-content.json";
 import filterOptions from "../data/filter-options.json";
 
 const c = siteContent as Record<string, string>;
-const PERSONA = (filterOptions as Record<string, any>).persona.map((p: any) => p.value);
+const PERSONA = (filterOptions as Record<string, any>).persona.map(
+    (p: any) => p.value,
+);
 
 const allTools = toolsData.tools.flatMap((cat: any) =>
     cat.content.map((tool: any) => ({
@@ -34,7 +36,6 @@ const categoryCounts = new Map(
     toolsData.tools.map((cat: any) => [cat.category, cat.content.length]),
 );
 
-
 const featuredFor = (persona: string) =>
     allTools
         .filter((tool: any) => tool.personas?.includes(persona))
@@ -53,8 +54,10 @@ const categoryTiles = categories.slice(0, 8).map((cat: any) => ({
 }));
 
 const featuredTools = PERSONA.map((_, i) => featuredFor(PERSONA[i]));
-const featuredCounts = PERSONA.map((_, i) =>
-    allTools.filter((tool: any) => tool.personas?.includes(PERSONA[i])).length,
+const featuredCounts = PERSONA.map(
+    (_, i) =>
+        allTools.filter((tool: any) => tool.personas?.includes(PERSONA[i]))
+            .length,
 );
 
 const hoverColors = [
@@ -222,9 +225,7 @@ const hoverColors = [
         ssr-tools={allTools}
         ssr-total={allTools.length}
     />
-    <div class="border-b-2 border-gray-900"></div>
-    <NewsletterSection siteContent={c} />
-    <div class="border-b-2 border-gray-900"></div>
+
     <UseCases
         client:visible
         featured-tools={featuredTools}
@@ -234,4 +235,6 @@ const hoverColors = [
         heading={c.home_usecase_heading ||
             "Start from the risk you need to control."}
     />
+
+    <NewsletterSection siteContent={c} />
 </Layout>

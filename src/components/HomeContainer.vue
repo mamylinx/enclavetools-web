@@ -81,21 +81,5 @@ const latestTools = computed(() => {
                 </a>
             </div>
         </section>
-
-        <section>
-            <div class="flex flex-row items-center justify-between mb-6">
-                <h3 class="text-2xl font-black text-gray-900 m-0">{{ c.section_latest_added || 'Latest Added' }}</h3>
-                <a href="/all" class="text-sm font-bold bg-white border-2 border-gray-900 text-gray-900 h-10 px-4 inline-flex items-center hover:bg-primary-500 hover:text-white hover:border-primary-500 transition-colors no-underline">{{ c.section_browse_all || 'Browse all' }}</a>
-            </div>
-            <ul data-cards-grid role="list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 m-0 p-0">
-                <Card v-for="(item, i) in latestTools" :key="`latest-${i}`"
-                    :href="item.url" :title="item.title" :body="item.body" :license="item.license"
-                    :date-added="item['date-added']" :slug="item.slug" :featured="item.featured"
-                    :github-stars="item.popularity_score" :last-updated="item.last_updated"
-                    :setup-difficulty="item.setup_difficulty" :features="item.features"
-                    :hardware="item.hardware" :commercial-use="item.commercial_use"
-                    :category="Array.isArray(item.category) ? item.category[0] : item.category" />
-            </ul>
-        </section>
     </div>
 </template>
