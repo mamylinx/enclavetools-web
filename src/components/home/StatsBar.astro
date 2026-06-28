@@ -1,0 +1,31 @@
+---
+interface Props {
+  totalTools: number;
+  totalCategories: number;
+  latestVerified: string;
+  siteContent: Record<string, string>;
+  formatDate: (date: string) => string;
+}
+
+const { totalTools, totalCategories, latestVerified, siteContent: c, formatDate } = Astro.props;
+---
+
+<section class="bg-gray-900 py-12 text-white border-b-2 border-gray-900">
+  <div class="max-w-[1400px] mx-auto px-4 md:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-gray-700">
+      <div class="py-4 md:py-0">
+        <p class="text-4xl lg:text-5xl font-black text-primary-500">{totalTools}</p>
+        <p class="text-xs text-gray-400 uppercase tracking-wider mt-1.5 font-black">{c.home_stat_tools_label || "tools listed"}</p>
+        <span class="block text-[0.7rem] text-gray-500 font-bold mt-1">independently audited</span>
+      </div>
+      <div class="py-4 md:py-0">
+        <p class="text-4xl lg:text-5xl font-black text-white">{totalCategories}</p>
+        <p class="text-xs text-gray-400 uppercase tracking-wider mt-1.5 font-black">{c.home_stat_categories_label || "categories"}</p>
+      </div>
+      <div class="py-4 md:py-0">
+        <p class="text-4xl lg:text-5xl font-black text-primary-500">{formatDate(latestVerified)}</p>
+        <p class="text-xs text-gray-400 uppercase tracking-wider mt-1.5 font-black">{c.home_stat_verification_label || "latest verification"}</p>
+      </div>
+    </div>
+  </div>
+</section>

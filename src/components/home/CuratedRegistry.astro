@@ -1,0 +1,138 @@
+---
+import SearchInput from "../SearchInput.vue";
+
+interface Props {
+  topTools: any[];
+  categoryTitleMap: Map<string, string>;
+  formatScore: (score: number) => string;
+  totalTools: number;
+}
+
+const { topTools, categoryTitleMap, formatScore, totalTools } = Astro.props;
+---
+
+<section id="browse" class="border-b-2 border-gray-900 py-16 lg:py-24">
+  <div class="max-w-[1400px] mx-auto px-4 md:px-8">
+    <div class="mb-12">
+      <p
+        class="text-xs font-black uppercase tracking-widest text-gray-900 mb-2"
+      >
+        Curated Registry
+      </p>
+      <h2
+        class="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 tracking-tight mb-4"
+      >
+        Browse Private AI Directory
+      </h2>
+      <p class="text-gray-500 font-medium text-base leading-relaxed max-w-2xl">
+        Use the filters below to refine the registry. Audit license
+        configurations, offline compatibility, and system requirements
+        instantly.
+      </p>
+    </div>
+
+    <div class="bg-white border-2 border-gray-900 p-6 lg:p-8">
+      <div
+        class="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4 pb-6 border-b-2 border-gray-200"
+      >
+        <div class="flex-1">
+          <SearchInput
+            client:load
+            placeholder="Search by name, tags, or deployment..."
+          />
+        </div>
+      </div>
+
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 py-6"
+      >
+        {
+          topTools.map((tool: any) => {
+            const catSlug = tool.category?.[0] || "";
+            const catBadge = categoryTitleMap.get(catSlug) || catSlug;
+            const safe = tool.commercial_use ? " (Safe)" : "";
+            const hw = Array.isArray(tool.hardware)
+              ? tool.hardware.slice(0, 2).join(" / ")
+              : tool.hardware || "N/A";
+            const toolSlug = tool.slug || "";
+            return (
+              <div class="flex flex-col h-full border-2 border-gray-900 p-6 transition-all duration-300 ease-out-expo hover:-translate-y-1 hover:shadow-card-hover">
+                <div class="flex-1">
+                  <div class="flex items-center justify-between gap-2 mb-4">
+                    <span class="px-2.5 py-1 bg-primary-100 border-2 border-primary-500 text-primary-700 text-xs font-black uppercase tracking-wider">
+                      {catBadge}
+                    </span>
+                    <span class="text-xs font-black text-gray-900 flex items-center gap-1">
+                      Score: {formatScore(tool.popularity_score)}
+                    </span>
+                  </div>
+                  <h3 class="text-xl font-black tracking-tight text-gray-900 mb-2 flex items-center gap-2">
+                    {tool.title}
+                    <span
+                      class="w-2.5 h-2.5 bg-primary-500 border-2 border-gray-900 inline-block"
+                      title="Active development"
+                    />
+                  </h3>
+                  <p class="text-gray-500 text-sm font-medium leading-relaxed mb-5">
+                    {tool.body || tool.plain_description}
+                  </p>
+                  <div class="grid grid-cols-2 gap-2 border-t-2 border-gray-900 pt-4">
+                    <p class="text-xs font-black text-gray-500 uppercase tracking-wider">
+                      License
+                    </p>
+                    <p class="text-sm font-black text-gray-900">
+                      {tool.license}
+                      {safe}
+                    </p>
+                    <p class="text-xs font-black text-gray-500 uppercase tracking-wider">
+                      Telemetry
+                    </p>
+                    <p class="text-sm font-black text-gray-900">
+                      {tool.telemetry || "None"}
+                    </p>
+                    <p class="text-xs font-black text-gray-500 uppercase tracking-wider">
+                      Hardware
+                    </p>
+                    <p class="text-sm font-black text-gray-900">{hw}</p>
+                    <p class="text-xs font-black text-gray-500 uppercase tracking-wider">
+                      Maturity
+                    </p>
+                    <p class="text-sm font-black text-gray-900">
+                      {tool.maturity || "N/A"}
+                    </p>
+                  </div>
+                </div>
+                <div class="pt-4">
+                  <div class="flex items-center gap-2">
+                    <a
+                      href={`/tools/${toolSlug}`}
+                      class="flex-1 text-center py-2.5 bg-gray-900 text-white border-2 border-gray-900 text-xs font-black uppercase tracking-wider hover:bg-primary-500 hover:border-primary-500 transition-all no-underline"
+                    >
+                      Explore tools
+                    </a>
+                    <button
+                      class="w-9 h-9 bg-white border-2 border-gray-900 flex items-center justify-center font-black text-base cursor-default opacity-40"
+                      title=""
+                      aria-label=""
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
+              </div>
+            );
+          })
+        }
+      </div>
+
+      <div class="mt-8 text-center">
+        <a
+          href="/all"
+          class="inline-flex items-center h-12 border-2 border-gray-900 px-8 font-black uppercase tracking-wider text-xs bg-gray-900 text-white hover:bg-primary-500 hover:border-primary-500 transition-all duration-300 ease-out-expo hover:-translate-y-1 hover:shadow-card-hover no-underline"
+        >
+          Load All {totalTools} Tools
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

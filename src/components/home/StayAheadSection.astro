@@ -1,0 +1,118 @@
+---
+interface Props {
+  categoryCounts: Record<string, number>;
+}
+
+const { categoryCounts } = Astro.props;
+const llmCount = categoryCounts["llm-inference"] || 14;
+const ragCount = categoryCounts["rag-engine"] || 8;
+---
+
+<section id="stay-ahead" class="border-b-2 border-gray-900 py-16 lg:py-24">
+  <div class="max-w-[1400px] mx-auto px-4 md:px-8">
+    <div
+      class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12"
+    >
+      <div class="max-w-xl">
+        <p
+          class="text-xs font-black uppercase tracking-widest text-gray-900 mb-2"
+        >
+          Stay Ahead
+        </p>
+        <h2
+          class="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 tracking-tight"
+        >
+          Deployed in production.
+        </h2>
+      </div>
+      <p
+        class="text-gray-500 font-medium text-base leading-relaxed max-w-sm lg:mb-2"
+      >
+        What the community is running right now. These categories are evolving
+        fastest — new tools, updated benchmarks, vetted configurations.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div
+        class="border-2 border-gray-900 p-6 lg:p-8 bg-white transition-all duration-300 ease-out-expo hover:-translate-y-1 hover:shadow-card-hover"
+      >
+        <span
+          class="px-2.5 py-0.5 bg-primary-100 border-2 border-primary-500 text-primary-700 text-xs font-black uppercase tracking-wider"
+          >Trending</span
+        >
+        <h3 class="text-2xl font-black tracking-tight text-gray-900 mt-4 mb-2">
+          LLM Inference Engine
+        </h3>
+        <p class="text-gray-500 font-medium text-base leading-relaxed mb-6">
+          Self-hosted large language models that keep inference inside your VPC.
+          No data leaves your hardware.
+        </p>
+        <div class="grid grid-cols-2 gap-4 border-t-2 border-gray-900 pt-4">
+          <div>
+            <p
+              class="text-xs font-black text-gray-500 uppercase tracking-wider"
+            >
+              Listed Tools
+            </p>
+            <p class="text-2xl font-black text-gray-900 mt-1">{llmCount}</p>
+          </div>
+          <div>
+            <p
+              class="text-xs font-black text-gray-500 uppercase tracking-wider"
+            >
+              Min RAM
+            </p>
+            <p class="text-2xl font-black text-gray-900 mt-1">8 GB</p>
+          </div>
+        </div>
+        <a
+          href="/llm-inference"
+          class="inline-flex items-center mt-6 h-12 border-2 border-gray-900 px-6 font-black uppercase tracking-wider text-xs bg-gray-900 text-white hover:bg-primary-500 hover:border-primary-500 transition-all no-underline"
+        >
+          Explore LLM Tools <span aria-hidden="true" class="ml-2">→</span>
+        </a>
+      </div>
+
+      <div
+        class="border-2 border-gray-900 p-6 lg:p-8 bg-white transition-all duration-300 ease-out-expo hover:-translate-y-1 hover:shadow-card-hover"
+      >
+        <span
+          class="px-2.5 py-0.5 bg-primary-100 border-2 border-primary-500 text-primary-700 text-xs font-black uppercase tracking-wider"
+          >High Velocity</span
+        >
+        <h3 class="text-2xl font-black tracking-tight text-gray-900 mt-4 mb-2">
+          RAG Engine
+        </h3>
+        <p class="text-gray-500 font-medium text-base leading-relaxed mb-6">
+          Retrieval Augmented Generation pipelines that connect your private
+          documents to LLMs without data exfiltration.
+        </p>
+        <div class="grid grid-cols-2 gap-4 border-t-2 border-gray-900 pt-4">
+          <div>
+            <p
+              class="text-xs font-black text-gray-500 uppercase tracking-wider"
+            >
+              Listed Tools
+            </p>
+            <p class="text-2xl font-black text-gray-900 mt-1">{ragCount}</p>
+          </div>
+          <div>
+            <p
+              class="text-xs font-black text-gray-500 uppercase tracking-wider"
+            >
+              Min RAM
+            </p>
+            <p class="text-2xl font-black text-gray-900 mt-1">4 GB</p>
+          </div>
+        </div>
+        <a
+          href="/rag-document"
+          class="inline-flex items-center mt-6 h-12 border-2 border-gray-900 px-6 font-black uppercase tracking-wider text-xs bg-gray-900 text-white hover:bg-primary-500 hover:border-primary-500 transition-all no-underline"
+        >
+          Explore RAG Tools <span aria-hidden="true" class="ml-2">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

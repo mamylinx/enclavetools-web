@@ -1,0 +1,49 @@
+---
+interface Props {
+  siteContent: Record<string, string>;
+}
+
+const { siteContent: c } = Astro.props;
+---
+
+<section class="border-b-2 border-gray-900 py-16 lg:py-24">
+  <div class="max-w-[1400px] mx-auto px-4 md:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <p class="text-xs font-black uppercase tracking-widest text-gray-900 mb-2">{c.home_submit_eyebrow || "Submit a Tool"}</p>
+        <h2 class="text-3xl sm:text-4xl font-black text-gray-900 tracking-tight mb-4">
+          {c.home_submit_heading || "Know a tool that belongs here?"}
+        </h2>
+        <p class="text-gray-500 font-medium text-base leading-relaxed mb-8">
+          {c.home_submit_description || "We review every submission for security, license compliance, and genuine self-hosting capability. If it passes, we add it to the directory with full audit notes."}
+        </p>
+        <a href="/submit"
+          class="inline-flex items-center h-12 border-2 border-gray-900 px-6 font-black uppercase tracking-wider text-xs bg-gray-900 text-white hover:bg-primary-500 hover:border-primary-500 transition-all no-underline">
+          {c.cta_submit_tool || "Suggest a Tool"} <span aria-hidden="true" class="ml-2">→</span>
+        </a>
+      </div>
+
+      <div class="bg-gray-50 border-2 border-gray-900 p-6 lg:p-8">
+        <p class="text-sm font-black text-gray-900 uppercase tracking-wider mb-5">Submission Checklist</p>
+        <ul class="space-y-3">
+          <li class="flex items-start gap-3 text-sm font-bold text-gray-600">
+            <span class="w-5 h-5 mt-0.5 bg-primary-200 border-2 border-primary-500 flex items-center justify-center text-primary-700 text-xs font-black flex-shrink-0">1</span>
+            Open-source or source-available license
+          </li>
+          <li class="flex items-start gap-3 text-sm font-bold text-gray-600">
+            <span class="w-5 h-5 mt-0.5 bg-primary-200 border-2 border-primary-500 flex items-center justify-center text-primary-700 text-xs font-black flex-shrink-0">2</span>
+            Verifiable self-hosting instructions
+          </li>
+          <li class="flex items-start gap-3 text-sm font-bold text-gray-600">
+            <span class="w-5 h-5 mt-0.5 bg-primary-200 border-2 border-primary-500 flex items-center justify-center text-primary-700 text-xs font-black flex-shrink-0">3</span>
+            No mandatory cloud dependency
+          </li>
+          <li class="flex items-start gap-3 text-sm font-bold text-gray-600">
+            <span class="w-5 h-5 mt-0.5 bg-primary-200 border-2 border-primary-500 flex items-center justify-center text-primary-700 text-xs font-black flex-shrink-0">4</span>
+            Telemetry disclosure acceptable
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

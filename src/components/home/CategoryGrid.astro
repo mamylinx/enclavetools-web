@@ -1,0 +1,45 @@
+---
+interface Props {
+  categoryTiles: any[];
+  hoverColors: string[];
+  tileDescriptions: string[];
+  siteContent: Record<string, string>;
+}
+
+const { categoryTiles, hoverColors, tileDescriptions, siteContent: c } = Astro.props;
+---
+
+<section id="categories" class="border-b-2 border-gray-900 py-16 lg:py-24">
+  <div class="max-w-[1400px] mx-auto px-4 md:px-8">
+    <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12">
+      <div class="max-w-xl">
+        <p class="text-xs font-black uppercase tracking-widest text-gray-900 mb-2">{c.home_category_eyebrow || "Start with the job"}</p>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 tracking-tight">{c.home_category_heading || "Choose a category."}</h2>
+      </div>
+      <p class="text-gray-500 font-medium text-base leading-relaxed max-w-sm lg:mb-2">
+        Every tool is cataloged by its specific purpose, making it easy to swap external API nodes with self-hosted instances.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {categoryTiles.map((cat: any, index: number) => {
+        const hoverClass = hoverColors[index % hoverColors.length];
+        return (
+          <a href={`/${cat.category}`}
+            class={`group flex flex-col h-full border-2 border-gray-900 p-6 transition-all duration-300 ease-out-expo hover:-translate-y-1 hover:shadow-card-hover no-underline ${hoverClass}`}>
+            <div class="flex-1 mb-6">
+              <div class="flex justify-between items-start">
+                <span class="text-lg font-black text-gray-900">{cat.title}</span>
+                <span class="text-lg font-black transform transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true">↗</span>
+              </div>
+              <p class="text-xs text-gray-500 font-bold mt-2">{tileDescriptions[index]}</p>
+            </div>
+            <div class="pt-4 border-t-2 border-gray-900 flex items-center">
+              <span class="inline-flex px-3 py-1 text-xs font-black uppercase tracking-wider bg-gray-900 text-white">{cat.count} {cat.count === 1 ? "tool" : "tools"}</span>
+            </div>
+          </a>
+        );
+      })}
+    </div>
+  </div>
+</section>

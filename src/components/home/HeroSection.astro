@@ -1,0 +1,64 @@
+---
+interface Props {
+  siteContent: Record<string, string>;
+  totalTools: number;
+}
+
+const { siteContent: c, totalTools } = Astro.props;
+---
+
+<section class="border-b-2 border-gray-900 overflow-hidden">
+  <div class="max-w-[1400px] mx-auto px-4 md:px-8 py-16 lg:py-24">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+      <div class="lg:col-span-7 flex flex-col items-start">
+        <p class="inline-flex items-center bg-primary-100 text-primary-700 border-2 border-primary-500 px-3 py-1 text-xs font-black uppercase tracking-wider mb-6">
+          {c.home_page_eyebrow || "Private AI tools directory"}
+        </p>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-gray-900 mb-8 leading-[1.05]">
+          {c.home_page_title || "AI tools that keep your data inside your walls."}
+        </h1>
+        <p class="text-lg text-gray-500 font-medium leading-relaxed mb-8 max-w-2xl">
+          {c.home_page_tagline || "Find self-hosted, local, and offline AI software for teams that cannot afford leaks. Compare setup difficulty, license risk, hardware needs, telemetry, and API support before you open GitHub."}
+        </p>
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto">
+          <a href="/all"
+            class="inline-flex items-center h-12 border-2 border-gray-900 px-6 font-black uppercase tracking-wider text-xs bg-gray-900 text-white hover:bg-primary-500 hover:border-primary-500 transition-all duration-300 ease-out-expo hover:-translate-y-1 hover:shadow-card-hover no-underline">
+            Browse {totalTools} verified tools
+            <svg class="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </a>
+          <a href="#use-cases"
+            class="inline-flex items-center h-12 font-black tracking-wider text-xs text-gray-900 underline hover:decoration-2 hover:underline-offset-4 hover:text-primary-500 transition-all duration-300 ease-out-expo">
+            {c.cta_use_cases || "Find tools for my use case"}
+          </a>
+        </div>
+      </div>
+
+      <div class="lg:col-span-5 flex justify-center lg:justify-end relative">
+        <div class="w-full max-w-[420px] bg-white border-2 border-gray-900 p-6 relative shadow-card-hover">
+          <div class="bg-gray-50 h-72 flex items-center justify-center overflow-hidden relative">
+            <svg class="w-4/5 h-4/5" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect x="50" y="40" width="100" height="110" rx="12" fill="#fff" stroke="#111827" stroke-width="1.8" />
+              <rect x="62" y="55" width="76" height="20" rx="6" fill="#E8F7F5" stroke="#05B2A3" stroke-width="1.2" />
+              <rect x="62" y="85" width="76" height="20" rx="6" fill="#F3EFFF" stroke="#5D3FD3" stroke-width="1.2" />
+              <circle cx="74" cy="65" r="3.5" fill="#05B2A3" />
+              <circle cx="86" cy="65" r="3.5" fill="#05B2A3" />
+              <circle cx="74" cy="95" r="3.5" fill="#BFFF00" />
+            </svg>
+          </div>
+          <div class="my-4 flex items-center justify-between">
+            <div>
+              <p class="text-xs font-black uppercase tracking-widest text-gray-500">Local Setup Check</p>
+              <p class="text-sm font-black text-gray-900">100% Offline Compatible</p>
+            </div>
+            <span class="px-3 py-1 bg-gray-900 text-white text-xs font-black uppercase tracking-wider">VERIFIED</span>
+          </div>
+          <div class="absolute bottom-3 left-3 bg-gray-900 text-white text-[10px] font-black px-2 py-1 uppercase tracking-wider">
+            Your data, your hardware
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

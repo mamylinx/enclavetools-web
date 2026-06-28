@@ -1,0 +1,29 @@
+---
+interface Props {
+  siteContent: Record<string, string>;
+}
+
+const { siteContent: c } = Astro.props;
+---
+
+<section class="bg-gray-900 py-16 lg:py-24 border-b-2 border-gray-900 text-white">
+  <div class="max-w-[900px] mx-auto px-4 md:px-8 text-center">
+    <p class="text-xs font-black uppercase tracking-widest text-primary-500 mb-4">{c.home_path_eyebrow || "One last thing"}</p>
+    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight mb-6">
+      {c.home_path_heading || "Find the right private AI stack for your team."}
+    </h2>
+    <p class="text-gray-400 text-base font-medium leading-relaxed max-w-2xl mx-auto mb-8">
+      {c.home_path_description || "Browse by category, compare side by side, and deploy with confidence. No data leaves your hardware."}
+    </p>
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+      <a href="/all"
+        class="inline-flex items-center h-12 border-2 border-gray-900 px-6 font-black uppercase tracking-wider text-xs bg-white text-gray-900 hover:bg-primary-500 hover:border-primary-500 hover:text-white transition-all no-underline">
+        {c.cta_browse_all || "Browse All Tools"} <span aria-hidden="true" class="ml-2">→</span>
+      </a>
+      <a href="#use-cases"
+        class="inline-flex items-center h-12 font-black tracking-wider text-xs text-white underline hover:decoration-2 hover:underline-offset-4 hover:text-primary-500 transition-all no-underline">
+        {c.cta_use_cases || "Use case guide"}
+      </a>
+    </div>
+  </div>
+</section>

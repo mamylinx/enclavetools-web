@@ -1,0 +1,123 @@
+---
+interface Props {
+  PERSONA: string[];
+  featuredTools: any[][];
+  filteredCounts: number[];
+  filterOptions: any;
+  useCaseContent: Record<string, { badge: string; heading: string; description: string; auditFocus: string }>;
+  siteContent: Record<string, string>;
+}
+
+const { PERSONA, featuredTools, filteredCounts, filterOptions, useCaseContent, siteContent: c } = Astro.props;
+---
+
+<section id="use-cases" class="bg-gray-900 py-16 lg:py-24 border-b-2 border-gray-900 text-white">
+  <div class="max-w-[1400px] mx-auto px-4 md:px-8">
+    <div class="max-w-2xl mb-12">
+      <p class="text-xs font-black uppercase tracking-widest text-primary-500 mb-2">{c.home_usecase_eyebrow || "Use cases"}</p>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">{c.home_usecase_heading || "Start from the risk you need to control."}</h2>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      <div class="lg:col-span-4 flex flex-col gap-3.5" role="tablist" aria-label="Use case options">
+        {PERSONA.map((p: string, i: number) => {
+          const label = (filterOptions as any).persona.find((fp: any) => fp.value === p)?.label || p;
+          return (
+            <button
+              id={`tab-${p.replace(/\s+/g, "-").toLowerCase()}`}
+              data-persona={p}
+              class={`use-case-tab w-full text-left p-5 border-2 font-black shadow-card-hover transition-all duration-150 ${
+                i === 0
+                  ? "bg-gray-900 text-white border-gray-900"
+                  : "bg-white text-gray-900 border-gray-700 hover:bg-primary-100 hover:border-primary-500"
+              }`}
+              role="tab"
+              aria-selected={i === 0 ? "true" : "false"}
+              aria-controls={`use-case-${p.replace(/\s+/g, "-").toLowerCase()}`}
+            >
+              {label}
+            </button>
+          );
+        })}
+      </div>
+
+      <div class="lg:col-span-8 bg-white border-2 border-gray-900 p-8 min-h-[350px] flex flex-col justify-between text-gray-900">
+        {PERSONA.map((p: string, i: number) => {
+          const content = useCaseContent[p];
+          const panelId = `use-case-${p.replace(/\s+/g, "-").toLowerCase()}`;
+          return (
+            <div id={panelId}
+              class={`use-case-content ${i === 0 ? "" : "hidden"}`}
+              role="tabpanel"
+              aria-labelledby={`tab-${p.replace(/\s+/g, "-").toLowerCase()}`}
+            >
+              <span class="inline-flex px-3 py-1 bg-primary-100 border-2 border-primary-500 text-primary-700 text-xs font-black uppercase tracking-wider mb-4">{content?.badge || "Curated View"}</span>
+              <h3 class="text-2xl font-black tracking-tight text-gray-900 mb-4">{content?.heading || p}</h3>
+              <p class="text-gray-500 text-base font-medium leading-relaxed mb-6">{content?.description || ""}</p>
+
+              {
+                featuredTools[i]?.length ? (
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                    {featuredTools[i].slice(0, 4).map((tool: any) => (
+                      <a
+                        href={`/tools/${tool.slug}`}
+                        class="border-2 border-gray-200 p-5 bg-white no-underline block group transition-all duration-300 ease-out-expo hover:border-gray-900 hover:-translate-y-1 hover:shadow-card-hover"
+                      >
+                        <strong class="block text-sm font-black text-gray-900 group-hover:text-primary-500 transition-colors">
+                          {tool.title}
+                        </strong>
+                        <span class="text-xs text-gray-500 mt-1 line-clamp-2 block">
+                          {tool.body}
+                        </span>
+                      </a>
+                    ))}
+                  </div>
+                ) : null
+              }
+
+              <div class="p-4 bg-gray-50 border-2 border-gray-900">
+                <p class="text-xs font-black text-gray-900 uppercase tracking-widest mb-1">Audit Metric Focus</p>
+                <p class="text-base font-bold text-gray-900">{content?.auditFocus || "—"}</p>
+              </div>
+            </div>
+          );
+        })}
+
+        <div class="mt-8 pt-6 border-t-2 border-gray-900 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p class="text-xs font-black uppercase tracking-wider text-gray-500">Filter tags are pre-applied for this view</p>
+          <a href="/all" class="text-xs font-black text-primary-500 uppercase tracking-wider hover:underline flex items-center gap-1.5 transition-colors no-underline">
+            Browse this view <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const initTabs = () => {
+    const tabs = document.querySelectorAll('.use-case-tab');
+    const panels = document.querySelectorAll('.use-case-content');
+
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        const persona = tab.dataset.persona;
+        tabs.forEach((t) => {
+          t.classList.remove('bg-gray-900', 'text-white', 'border-gray-900');
+          t.classList.add('bg-white', 'text-gray-900', 'border-gray-700');
+          t.setAttribute('aria-selected', 'false');
+        });
+        tab.classList.remove('bg-white', 'text-gray-900', 'border-gray-700');
+        tab.classList.add('bg-gray-900', 'text-white', 'border-gray-900');
+        tab.setAttribute('aria-selected', 'true');
+
+        panels.forEach((panel) => panel.classList.add('hidden'));
+        const panelId = `use-case-${persona.replace(/\s+/g, "-").toLowerCase()}`;
+        const target = document.getElementById(panelId);
+        if (target) target.classList.remove('hidden');
+      });
+    });
+  };
+
+  document.addEventListener('astro:page-load', initTabs);
+</script>

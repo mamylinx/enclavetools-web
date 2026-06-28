@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted } from 'vue';
 import CardsContainer from './CardsContainer.vue';
-import HomeContainer from './HomeContainer.vue';
+import HomeContainer from './home/HomeContainer.vue';
 import Sidebar from './Sidebar.vue';
 import HorizontalFilterBar from './HorizontalFilterBar.vue';
 import FilterBottomSheet from './FilterBottomSheet.vue';

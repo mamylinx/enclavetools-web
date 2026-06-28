@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import Card from './Card.vue';
-import type { ToolWithCategory } from '../utils/toolModel';
-import siteContent from '../data/site-content.json';
-import marketingData from '../data/marketing.json';
-import type { MarketingConfig } from '../interfaces/content';
+import Card from '../Card.vue';
+import type { ToolWithCategory } from '../../utils/toolModel';
+import siteContent from '../../data/site-content.json';
+import marketingData from '../../data/marketing.json';
+import type { MarketingConfig } from '../../interfaces/content';
 
 const c = siteContent as Record<string, string>;
 const m = marketingData as MarketingConfig;

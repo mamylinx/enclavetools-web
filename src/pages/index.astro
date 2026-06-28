@@ -1,21 +1,26 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Dashboard from "../components/Dashboard.vue";
-import UseCases from "../components/UseCases.vue";
 import NewsletterSection from "../components/NewsletterSection.astro";
-import QuickAction from "../components/QuickAction.astro";
 import OrganizationSchema from "../components/schema/OrganizationSchema.astro";
 import ItemListSchema from "../components/schema/ItemListSchema.astro";
+import HeroSection from "../components/home/HeroSection.astro";
+import StatsBar from "../components/home/StatsBar.astro";
+import CategoryGrid from "../components/home/CategoryGrid.astro";
+import CuratedRegistry from "../components/home/CuratedRegistry.astro";
+import UseCasesTabs from "../components/home/UseCasesTabs.astro";
+import StayAheadSection from "../components/home/StayAheadSection.astro";
+import LaunchStacksSection from "../components/home/LaunchStacksSection.astro";
+import SurveySection from "../components/home/SurveySection.astro";
+import ExpertCuratorsSection from "../components/home/ExpertCuratorsSection.astro";
+import SubmitCTASection from "../components/home/SubmitCTASection.astro";
+import FindPathSection from "../components/home/FindPathSection.astro";
+
 import toolsData from "../data/tools.json";
 import categories from "../data/categories.json";
 import siteContent from "../data/site-content.json";
 import filterOptions from "../data/filter-options.json";
 
 const c = siteContent as Record<string, string>;
-const PERSONA = (filterOptions as Record<string, any>).persona.map(
-    (p: any) => p.value,
-);
-
 const allTools = toolsData.tools.flatMap((cat: any) =>
     cat.content.map((tool: any) => ({
         ...tool,
@@ -37,29 +42,35 @@ const categoryCounts = new Map(
     toolsData.tools.map((cat: any) => [cat.category, cat.content.length]),
 );
 
-const featuredFor = (persona: string) =>
-    allTools
-        .filter((tool: any) => tool.personas?.includes(persona))
-        .sort(
-            (a: any, b: any) =>
-                (b.popularity_score || 0) - (a.popularity_score || 0),
-        )
-        .slice(0, 8);
+const formatDate = (dateStr: string) => {
+    if (!dateStr) return "Build data";
+    return new Date(dateStr).toLocaleDateString("en-US", {
+        month: "short",
+        day: "numeric",
+        year: "numeric",
+    });
+};
 
-const categoryTiles = categories.slice(0, 8).map((cat: any) => ({
-    ...cat,
-    count:
-        cat.category === "all"
-            ? totalTools
-            : categoryCounts.get(cat.category) || 0,
-}));
+const formatScore = (score: number) => {
+    if (!score) return "N/A";
+    if (score >= 1000) return Math.round(score / 1000) + "k";
+    return String(score);
+};
 
-const featuredTools = PERSONA.map((_, i) => featuredFor(PERSONA[i]));
-const featuredCounts = PERSONA.map(
-    (_, i) =>
-        allTools.filter((tool: any) => tool.personas?.includes(PERSONA[i]))
-            .length,
+const totalCategories = categories.filter(
+    (cat: any) => cat.category !== "all",
+).length;
+
+const categoryTitleMap = new Map(
+    categories.map((cat: any) => [cat.category, cat.title]),
 );
+
+const topTools = [...allTools]
+    .sort(
+        (a: any, b: any) =>
+            (b.popularity_score || 0) - (a.popularity_score || 0),
+    )
+    .slice(0, 6);
 
 const hoverColors = [
     "hover:bg-accent-hue-1 hover:text-gray-900",
@@ -71,6 +82,97 @@ const hoverColors = [
     "hover:bg-accent-hue-7 hover:text-gray-900",
     "hover:bg-accent-hue-8 hover:text-gray-900",
 ];
+
+const tileDescriptions = [
+    "Run local LLMs on GPUs/CPUs",
+    "Open-weight foundational models",
+    "High-performance private stores",
+    "Build autonomous local flows",
+    "Self-hosted UIs for teams",
+    "Local document ingestion & search",
+    "Local transcription on device",
+    "Local diffusion models",
+];
+
+const PERSONA = (filterOptions as Record<string, any>).persona.map(
+    (p: any) => p.value,
+);
+
+const featuredFor = (persona: string) =>
+    allTools
+        .filter((tool: any) => tool.personas?.includes(persona))
+        .sort(
+            (a: any, b: any) =>
+                (b.popularity_score || 0) - (a.popularity_score || 0),
+        )
+        .slice(0, 8);
+
+const featuredTools = PERSONA.map((_, i) => featuredFor(PERSONA[i]));
+const filteredCounts = PERSONA.map(
+    (_, i) =>
+        allTools.filter((tool: any) => tool.personas?.includes(PERSONA[i]))
+            .length,
+);
+
+const featuredCounts = PERSONA.map(
+    (_, i) =>
+        allTools.filter((tool: any) => tool.personas?.includes(PERSONA[i]))
+            .length,
+);
+
+const categoryTiles = categories
+    .filter((cat: any) => cat.category !== "all")
+    .slice(0, 8)
+    .map((cat: any) => ({
+        ...cat,
+        count: categoryCounts.get(cat.category) || 0,
+    }));
+
+const useCaseContent: Record<
+    string,
+    { badge: string; heading: string; description: string; auditFocus: string }
+> = {
+    Developer: {
+        badge: "Infrastructure Curated View",
+        heading: "Shortlist local stack pieces on metadata",
+        description:
+            c.usecase_developer_copy ||
+            "Shortlist self-hosted infrastructure by API support, licensing commercial safety, hardware targets, and container deployment options. Save hours of scraping GitHub READMEs.",
+        auditFocus: "Outbound Telemetry & License safety",
+    },
+    "Business Owner": {
+        badge: "Corporate Governance View",
+        heading: "Protect enterprise client data from leakages",
+        description:
+            c.usecase_business_copy ||
+            "Find tools that can be run internally or by an IT contractor without sending client records, contracts, or operations data to third-party model providers. Keep data strictly on prem.",
+        auditFocus: "Ease of deployment & GUI Availability",
+    },
+    Healthcare: {
+        badge: "Clinical & HIPAA-safe View",
+        heading: "Transcribe and summarise clinical notes offline",
+        description:
+            c.usecase_healthcare_copy ||
+            "Evaluate offline models that allow healthcare professionals to structure clinical diaries, dictate consultations, and extract patient diagnostic context safely within clinic walls.",
+        auditFocus: "100% Offline Capability after setup",
+    },
+    Legal: {
+        badge: "Confidential Discovery View",
+        heading: "Audit contracts and NDA cases locally",
+        description:
+            c.usecase_legal_copy ||
+            "Run text analysis, semantic document reviews, and litigation discovery setups on your local machine. Ensure NDA-bound materials remain completely private.",
+        auditFocus: "Document Ingestion & PDF processing",
+    },
+    "Indie Hacker": {
+        badge: "Solopreneur & Hobbyist View",
+        heading: "Build lightweight AI widgets without API costs",
+        description:
+            c.usecase_indie_copy ||
+            "Leverage open models running on your local Apple Silicon Mac, laptop, or home lab server to integrate AI summaries and speech models without any monthly bills.",
+        auditFocus: "Low RAM Usage & Swift/JS languages",
+    },
+};
 ---
 
 <Layout
@@ -79,154 +181,45 @@ const hoverColors = [
         "AI tools that keep your data inside your walls."}
     tagline={c.home_page_tagline ||
         "Find self-hosted, local, and offline AI software for teams that cannot afford leaks. Compare setup difficulty, license risk, hardware needs, telemetry, and API support before you open GitHub."}
-    eyebrow={c.home_page_eyebrow || "Private AI tools directory"}
+    pageTitle={c.home_page_title}
+    pageDescription={c.home_page_tagline}
     showSearch={true}
-    showHero={true}
 >
     <OrganizationSchema />
     <ItemListSchema
         items={allTools}
         listName={c.home_schema_list_name || "AI Tools Directory - All Tools"}
     />
-    <div class="px-4 md:px-8 pt-12 pb-16 border-b-2 border-gray-900">
-        <section class="flex flex-col items-center max-w-[1400px] mx-auto">
-            <div class="flex flex-wrap gap-12 justify-center">
-                <a
-                    href="/all"
-                    class="inline-flex items-center h-12 border-2 border-gray-900 px-4 font-black uppercase tracking-wider text-xs bg-gray-900 text-white hover:bg-primary-500 hover:border-primary-500 rounded-none transition-all duration-300 ease-out-expo hover:-translate-y-1 hover:shadow-card-hover no-underline"
-                    >{c.cta_browse_all || "Browse all tools"}</a
-                >
-            </div>
-            <a
-                href="#use-cases"
-                class="inline-flex items-center h-12 font-black tracking-wider text-xs text-gray-900 underline hover:decoration-2 hover:underline-offset-4 hover:text-primary-500 transition-all duration-300 ease-out-expo"
-                >{c.cta_use_cases || "Find tools for my use case"}</a
-            >
 
-            <dl
-                class="w-full grid grid-cols-1 md:grid-cols-3 mt-12 border-y-2 border-gray-900"
-                aria-label="Directory statistics"
-            >
-                <div
-                    class="p-6 border-b-2 md:border-b-0 md:border-r-2 border-gray-900"
-                >
-                    <dt class="text-xl font-black">{totalTools}</dt><dd
-                        class="text-xs font-black uppercase text-gray-500 tracking-wider"
-                    >
-                        {c.home_stat_tools_label || "tools listed"}
-                    </dd>
-                </div>
-                <div
-                    class="p-6 border-b-2 md:border-b-0 md:border-r-2 border-gray-900"
-                >
-                    <dt class="text-xl font-black">
-                        {toolsData.tools.length}
-                    </dt><dd
-                        class="text-xs font-black uppercase text-gray-500 tracking-wider"
-                    >
-                        {c.home_stat_categories_label || "categories"}
-                    </dd>
-                </div>
-                <div
-                    class="p-6 border-b-2 md:border-b-0 md:border-r-0 border-gray-900"
-                >
-                    <dt class="text-xl font-black">
-                        {
-                            latestVerified
-                                ? new Date(latestVerified).toLocaleDateString(
-                                      "en-US",
-                                      {
-                                          month: "short",
-                                          day: "numeric",
-                                          year: "numeric",
-                                      },
-                                  )
-                                : c.home_stat_build_data_fallback ||
-                                  "Build data"
-                        }
-                    </dt><dd
-                        class="text-xs font-black uppercase text-gray-500 tracking-wider"
-                    >
-                        {
-                            c.home_stat_verification_label ||
-                                "latest verification"
-                        }
-                    </dd>
-                </div>
-            </dl>
-        </section>
-
-        <section
-            class="grid grid-cols-1 md:grid-cols-[minmax(280px,0.8fr)_1.2fr] gap-12 max-w-[1400px] mx-auto pt-12"
-            aria-labelledby="category-heading"
-        >
-            <div class="flex flex-col py-auto items-start justify-center">
-                <p
-                    class="text-xs font-black uppercase tracking-widest text-gray-900"
-                >
-                    {c.home_category_eyebrow || "Start with the job"}
-                </p>
-                <h2
-                    id="category-heading"
-                    class="max-w-[620px] text-3xl md:text-4xl lg:text-5xl text-gray-900 leading-[0.98] font-black tracking-tight mt-4"
-                >
-                    {c.home_category_heading || "Choose a category."}
-                </h2>
-            </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {
-                    categoryTiles.map((cat: any, index: number) => {
-                        const hoverColorClass =
-                            hoverColors[index % hoverColors.length];
-                        return (
-                            <a
-                                href={`/${cat.category}`}
-                                class={`group flex flex-col justify-between min-h-0 p-6 bg-white border-2 border-gray-900 text-gray-900 transition-all duration-300 ease-out-expo hover:-translate-y-1 hover:shadow-card-hover shadow-[0_0_0_0_rgba(0,0,0,0)] no-underline ${hoverColorClass}`}
-                            >
-                                <div class="flex justify-between items-start w-full">
-                                    <span class="text-lg font-black leading-tight max-w-[85%]">
-                                        {cat.title}
-                                    </span>
-                                    <span
-                                        class="text-lg font-black transform transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                                        aria-hidden="true"
-                                    >
-                                        ↗
-                                    </span>
-                                </div>
-                                <div class="flex justify-between items-end mt-4">
-                                    <span class="inline-flex items-center px-2 py-1 text-xs font-black uppercase border-2 border-gray-900 bg-gray-900 text-white group-hover:bg-white group-hover:text-gray-900 transition-colors duration-150">
-                                        {cat.count}{" "}
-                                        {cat.count === 1 ? "tool" : "tools"}
-                                    </span>
-                                </div>
-                            </a>
-                        );
-                    })
-                }
-            </div>
-        </section>
-    </div>
-    <QuickAction />
-    <div id="browse"></div>
-    <Dashboard
-        client:visible
-        category="all"
-        isHomepage={true}
-        transition:persist
-        ssr-tools={allTools}
-        ssr-total={allTools.length}
+    <HeroSection siteContent={c} {totalTools} />
+    <StatsBar
+        siteContent={c}
+        {totalTools}
+        {totalCategories}
+        {latestVerified}
+        {formatDate}
     />
-
-    <UseCases
-        client:visible
-        featured-tools={featuredTools}
-        featured-counts={featuredCounts}
-        persona={PERSONA}
-        eyebrow={c.home_usecase_eyebrow || "Use cases"}
-        heading={c.home_usecase_heading ||
-            "Start from the risk you need to control."}
+    <CategoryGrid
+        {categoryTiles}
+        {hoverColors}
+        {tileDescriptions}
+        siteContent={c}
     />
+    <CuratedRegistry {topTools} {categoryTitleMap} {formatScore} {totalTools} />
+    <UseCasesTabs
+        {PERSONA}
+        {featuredTools}
+        {filteredCounts}
+        {filterOptions}
+        {useCaseContent}
+        siteContent={c}
+    />
+    <StayAheadSection categoryCounts={Object.fromEntries(categoryCounts)} />
+    <LaunchStacksSection />
+    <SurveySection />
+    <ExpertCuratorsSection />
+    <SubmitCTASection siteContent={c} />
+    <FindPathSection siteContent={c} />
 
     <NewsletterSection siteContent={c} />
 </Layout>
