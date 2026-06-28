@@ -11,41 +11,26 @@ interface Props {
 const { topTools, categoryTitleMap, formatScore, totalTools } = Astro.props;
 ---
 
-<section id="browse" class="border-b-2 border-gray-900 py-16 lg:py-24">
-  <div class="max-w-[1400px] mx-auto px-4 md:px-8">
+<section id="browse" class="bg-brand-slateTeal py-20 lg:py-24 border-b border-brand-forest/10 text-brand-forest">
+  <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
     <div class="mb-12">
-      <p
-        class="text-xs font-black uppercase tracking-widest text-gray-900 mb-2"
-      >
-        Curated Registry
-      </p>
-      <h2
-        class="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 tracking-tight mb-4"
-      >
+      <p class="text-xs font-bold uppercase tracking-[0.1em] text-brand-teal mb-2">Curated Registry</p>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-forest font-sans tracking-tight mb-4">
         Browse Private AI Directory
       </h2>
-      <p class="text-gray-500 font-medium text-base leading-relaxed max-w-2xl">
-        Use the filters below to refine the registry. Audit license
-        configurations, offline compatibility, and system requirements
-        instantly.
+      <p class="text-brand-muted font-medium text-base leading-relaxed max-w-2xl">
+        Use the filters below to refine the registry. Audit license configurations, offline compatibility, and system requirements instantly.
       </p>
     </div>
 
-    <div class="bg-white border-2 border-gray-900 p-6 lg:p-8">
-      <div
-        class="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4 pb-6 border-b-2 border-gray-200"
-      >
+    <div class="bg-brand-bg border border-brand-forest/10 rounded-4xl p-6 lg:p-8 shadow-sm text-brand-forest">
+      <div class="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4 pb-6 border-b border-brand-forest/10 mb-6">
         <div class="flex-1">
-          <SearchInput
-            client:load
-            placeholder="Search by name, tags, or deployment..."
-          />
+          <SearchInput client:load placeholder="Search by name, tags, or deployment..." />
         </div>
       </div>
 
-      <div
-        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 py-6"
-      >
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {
           topTools.map((tool: any) => {
             const catSlug = tool.category?.[0] || "";
@@ -56,67 +41,43 @@ const { topTools, categoryTitleMap, formatScore, totalTools } = Astro.props;
               : tool.hardware || "N/A";
             const toolSlug = tool.slug || "";
             return (
-              <div class="flex flex-col h-full border-2 border-gray-900 p-6 transition-all duration-300 ease-out-expo hover:-translate-y-1 hover:shadow-card-hover">
+              <div class="flex flex-col h-full bg-white border border-brand-forest/10 rounded-3xl p-6 shadow-sm card-hover">
                 <div class="flex-1">
                   <div class="flex items-center justify-between gap-2 mb-4">
-                    <span class="px-2.5 py-1 bg-primary-100 border-2 border-primary-500 text-primary-700 text-xs font-black uppercase tracking-wider">
+                    <span class="px-2.5 py-1 bg-brand-tealLight border border-brand-teal/20 text-brand-teal text-xs font-bold uppercase tracking-wider rounded-full">
                       {catBadge}
                     </span>
-                    <span class="text-xs font-black text-gray-900 flex items-center gap-1">
-                      Score: {formatScore(tool.popularity_score)}
+                    <span class="text-xs font-bold text-brand-forest flex items-center gap-1">
+                      ⭐ {formatScore(tool.popularity_score)}
                     </span>
                   </div>
-                  <h3 class="text-xl font-black tracking-tight text-gray-900 mb-2 flex items-center gap-2">
+                  <h3 class="text-xl font-bold tracking-tight text-brand-forest mb-2 font-sans flex items-center gap-2">
                     {tool.title}
-                    <span
-                      class="w-2.5 h-2.5 bg-primary-500 border-2 border-gray-900 inline-block"
-                      title="Active development"
-                    />
+                    <span class="w-2.5 h-2.5 bg-brand-lime border border-brand-forest/10 rounded-full" title="Active development" />
                   </h3>
-                  <p class="text-gray-500 text-sm font-medium leading-relaxed mb-5">
+                  <p class="text-brand-muted text-sm leading-relaxed mb-5">
                     {tool.body || tool.plain_description}
                   </p>
-                  <div class="grid grid-cols-2 gap-2 border-t-2 border-gray-900 pt-4">
-                    <p class="text-xs font-black text-gray-500 uppercase tracking-wider">
-                      License
-                    </p>
-                    <p class="text-sm font-black text-gray-900">
-                      {tool.license}
-                      {safe}
-                    </p>
-                    <p class="text-xs font-black text-gray-500 uppercase tracking-wider">
-                      Telemetry
-                    </p>
-                    <p class="text-sm font-black text-gray-900">
-                      {tool.telemetry || "None"}
-                    </p>
-                    <p class="text-xs font-black text-gray-500 uppercase tracking-wider">
-                      Hardware
-                    </p>
-                    <p class="text-sm font-black text-gray-900">{hw}</p>
-                    <p class="text-xs font-black text-gray-500 uppercase tracking-wider">
-                      Maturity
-                    </p>
-                    <p class="text-sm font-black text-gray-900">
-                      {tool.maturity || "N/A"}
-                    </p>
+                  <div class="grid grid-cols-2 gap-2 border-t border-brand-forest/10 pt-4">
+                    <p class="text-xs font-bold text-brand-muted uppercase tracking-wider">License</p>
+                    <p class="text-sm font-bold text-brand-forest">{tool.license}{safe}</p>
+                    <p class="text-xs font-bold text-brand-muted uppercase tracking-wider">Telemetry</p>
+                    <p class="text-sm font-bold text-brand-forest">{tool.telemetry || "None"}</p>
+                    <p class="text-xs font-bold text-brand-muted uppercase tracking-wider">Hardware</p>
+                    <p class="text-sm font-bold text-brand-forest">{hw}</p>
+                    <p class="text-xs font-bold text-brand-muted uppercase tracking-wider">Maturity</p>
+                    <p class="text-sm font-bold text-brand-forest">{tool.maturity || "N/A"}</p>
                   </div>
                 </div>
                 <div class="pt-4">
                   <div class="flex items-center gap-2">
-                    <a
-                      href={`/tools/${toolSlug}`}
-                      class="flex-1 text-center py-2.5 bg-gray-900 text-white border-2 border-gray-900 text-xs font-black uppercase tracking-wider hover:bg-primary-500 hover:border-primary-500 transition-all no-underline"
-                    >
-                      Explore tools
+                    <a href={`/tools/${toolSlug}`}
+                      class="flex-1 text-center py-2.5 bg-brand-teal text-white rounded-full text-xs font-bold uppercase tracking-wider shadow-sm hover:-translate-y-0.5 transition-all">
+                      Explore Tools
                     </a>
                     <button
-                      class="w-9 h-9 bg-white border-2 border-gray-900 flex items-center justify-center font-black text-base cursor-default opacity-40"
-                      title=""
-                      aria-label=""
-                    >
-                      +
-                    </button>
+                      class="w-9 h-9 bg-brand-bg border border-brand-forest/10 rounded-full flex items-center justify-center font-bold text-base hover:bg-brand-lime focus:outline-none transition-colors"
+                      title="Add to compare" aria-label="Add tool to comparison list">＋</button>
                   </div>
                 </div>
               </div>
@@ -126,10 +87,8 @@ const { topTools, categoryTitleMap, formatScore, totalTools } = Astro.props;
       </div>
 
       <div class="mt-8 text-center">
-        <a
-          href="/all"
-          class="inline-flex items-center h-12 border-2 border-gray-900 px-8 font-black uppercase tracking-wider text-xs bg-gray-900 text-white hover:bg-primary-500 hover:border-primary-500 transition-all duration-300 ease-out-expo hover:-translate-y-1 hover:shadow-card-hover no-underline"
-        >
+        <a href="/all"
+          class="px-8 py-3 bg-white border border-brand-forest/10 text-brand-forest rounded-full font-bold text-xs uppercase tracking-wider shadow-sm hover:-translate-y-0.5 transition-all duration-200">
           Load All {totalTools} Tools
         </a>
       </div>

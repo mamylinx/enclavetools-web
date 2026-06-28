@@ -8,110 +8,67 @@ const llmCount = categoryCounts["llm-inference"] || 14;
 const ragCount = categoryCounts["rag-engine"] || 8;
 ---
 
-<section id="stay-ahead" class="border-b-2 border-gray-900 py-16 lg:py-24">
-  <div class="max-w-[1400px] mx-auto px-4 md:px-8">
-    <div
-      class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12"
-    >
-      <div class="max-w-xl">
-        <p
-          class="text-xs font-black uppercase tracking-widest text-gray-900 mb-2"
-        >
-          Stay Ahead
-        </p>
-        <h2
-          class="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 tracking-tight"
-        >
-          Deployed in production.
+<section id="stay-ahead" class="bg-brand-lightCyan py-20 lg:py-24 border-b border-brand-forest/10">
+  <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+      <div>
+        <p class="text-xs font-bold uppercase tracking-[0.1em] text-brand-teal mb-2">Deep Dives</p>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-forest font-sans leading-tight tracking-tight">
+          Where teams building<br />with sensitive data<br />stay ahead
         </h2>
       </div>
-      <p
-        class="text-gray-500 font-medium text-base leading-relaxed max-w-sm lg:mb-2"
-      >
-        What the community is running right now. These categories are evolving
-        fastest — new tools, updated benchmarks, vetted configurations.
-      </p>
+      <div class="flex items-end lg:pl-10">
+        <p class="text-brand-muted font-medium text-base leading-relaxed">
+          Compare local AI utilities by license compliance, setup complexity, RAM limits, and telemetry. Choose the exact components for your self-hosted AI pipeline.
+        </p>
+      </div>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <div
-        class="border-2 border-gray-900 p-6 lg:p-8 bg-white transition-all duration-300 ease-out-expo hover:-translate-y-1 hover:shadow-card-hover"
-      >
-        <span
-          class="px-2.5 py-0.5 bg-primary-100 border-2 border-primary-500 text-primary-700 text-xs font-black uppercase tracking-wider"
-          >Trending</span
-        >
-        <h3 class="text-2xl font-black tracking-tight text-gray-900 mt-4 mb-2">
-          LLM Inference Engine
-        </h3>
-        <p class="text-gray-500 font-medium text-base leading-relaxed mb-6">
-          Self-hosted large language models that keep inference inside your VPC.
-          No data leaves your hardware.
-        </p>
-        <div class="grid grid-cols-2 gap-4 border-t-2 border-gray-900 pt-4">
-          <div>
-            <p
-              class="text-xs font-black text-gray-500 uppercase tracking-wider"
-            >
-              Listed Tools
-            </p>
-            <p class="text-2xl font-black text-gray-900 mt-1">{llmCount}</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="card-hover bg-brand-slateTeal border border-brand-forest/10 text-brand-forest rounded-4xl p-8 flex flex-col justify-between min-h-[440px] relative overflow-hidden shadow-sm">
+        <div>
+          <div class="flex justify-between items-start mb-6">
+            <span class="bg-white text-brand-forest text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full">
+              LLM Inference Engines
+            </span>
           </div>
-          <div>
-            <p
-              class="text-xs font-black text-gray-500 uppercase tracking-wider"
-            >
-              Min RAM
-            </p>
-            <p class="text-2xl font-black text-gray-900 mt-1">8 GB</p>
-          </div>
+          <h3 class="text-3xl font-bold font-sans leading-snug mb-4 max-w-sm">
+            Run models on your own hardware
+          </h3>
+          <p class="text-brand-muted text-base leading-relaxed max-w-md">
+            From Llama.cpp to vLLM, compare private inference hosts by token throughput, CPU acceleration, quantization support, and containerized deployment paths.
+          </p>
         </div>
-        <a
-          href="/llm-inference"
-          class="inline-flex items-center mt-6 h-12 border-2 border-gray-900 px-6 font-black uppercase tracking-wider text-xs bg-gray-900 text-white hover:bg-primary-500 hover:border-primary-500 transition-all no-underline"
-        >
-          Explore LLM Tools <span aria-hidden="true" class="ml-2">→</span>
-        </a>
+        <div class="mt-8 flex items-center justify-between z-10">
+          <span class="text-xs font-bold text-brand-teal uppercase tracking-wider">{llmCount} Verified Engines</span>
+          <a href="/llm-inference"
+            class="px-5 py-2.5 bg-brand-lime text-brand-forest text-xs font-bold rounded-full hover:bg-white transition-colors uppercase tracking-wider">
+            Explore engines
+          </a>
+        </div>
       </div>
 
-      <div
-        class="border-2 border-gray-900 p-6 lg:p-8 bg-white transition-all duration-300 ease-out-expo hover:-translate-y-1 hover:shadow-card-hover"
-      >
-        <span
-          class="px-2.5 py-0.5 bg-primary-100 border-2 border-primary-500 text-primary-700 text-xs font-black uppercase tracking-wider"
-          >High Velocity</span
-        >
-        <h3 class="text-2xl font-black tracking-tight text-gray-900 mt-4 mb-2">
-          RAG Engine
-        </h3>
-        <p class="text-gray-500 font-medium text-base leading-relaxed mb-6">
-          Retrieval Augmented Generation pipelines that connect your private
-          documents to LLMs without data exfiltration.
-        </p>
-        <div class="grid grid-cols-2 gap-4 border-t-2 border-gray-900 pt-4">
-          <div>
-            <p
-              class="text-xs font-black text-gray-500 uppercase tracking-wider"
-            >
-              Listed Tools
-            </p>
-            <p class="text-2xl font-black text-gray-900 mt-1">{ragCount}</p>
+      <div class="card-hover bg-brand-magenta border border-brand-forest/10 text-white rounded-4xl p-8 flex flex-col justify-between min-h-[440px] relative overflow-hidden shadow-sm">
+        <div>
+          <div class="flex justify-between items-start mb-6">
+            <span class="bg-white text-brand-teal text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full">
+              RAG &amp; Document Indexing
+            </span>
           </div>
-          <div>
-            <p
-              class="text-xs font-black text-gray-500 uppercase tracking-wider"
-            >
-              Min RAM
-            </p>
-            <p class="text-2xl font-black text-gray-900 mt-1">4 GB</p>
-          </div>
+          <h3 class="text-3xl font-bold font-sans leading-snug mb-4 max-w-sm">
+            Build private enterprise knowledge bases
+          </h3>
+          <p class="text-white/80 text-base leading-relaxed max-w-md">
+            Index internal documentation, legal contracts, and PDF archives using local embedding models and self-hosted vector databases. No data packets leak online.
+          </p>
         </div>
-        <a
-          href="/rag-document"
-          class="inline-flex items-center mt-6 h-12 border-2 border-gray-900 px-6 font-black uppercase tracking-wider text-xs bg-gray-900 text-white hover:bg-primary-500 hover:border-primary-500 transition-all no-underline"
-        >
-          Explore RAG Tools <span aria-hidden="true" class="ml-2">→</span>
-        </a>
+        <div class="mt-8 flex items-center justify-between z-10">
+          <span class="text-xs font-bold text-white uppercase tracking-wider">{ragCount} Verified Tools</span>
+          <a href="/rag-document"
+            class="px-5 py-2.5 bg-brand-forest text-white text-xs font-bold rounded-full hover:bg-black transition-colors uppercase tracking-wider">
+            Explore RAG tools
+          </a>
+        </div>
       </div>
     </div>
   </div>

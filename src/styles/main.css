@@ -1,2 +1,12 @@
 @import "tailwindcss";
 @config "../../tailwind.config.js";
+
+@theme {
+  --font-sans: "DM Sans", system-ui, sans-serif;
+  --font-mono: ui-monospace, monospace;
+  --leading-tight: 1.1;
+  --leading-snug: 1.375;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+  --leading-loose: 1.825;
+}

@@ -41,13 +41,13 @@ const {
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <SeoHead {...seoProps} />
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   </head>
 
-  <body>
+  <body class="bg-brand-bg font-sans text-brand-forest antialiased text-base">
     <NavHeader showSearch={seoProps.showSearch} searchPlaceholder={seoProps.searchPlaceholder} />
     <CategoryNav client:load />
 

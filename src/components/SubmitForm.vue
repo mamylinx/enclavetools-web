@@ -28,7 +28,7 @@
           <div class="flex-1">
             <h3 class="text-lg font-black mb-1 uppercase tracking-wide" :class="info.titleColor">{{ info.title }}</h3>
             <p class="font-bold text-sm m-0" :class="info.textColor">{{ info.message }}</p>
-            <a v-if="info.link" :href="info.link" class="inline-flex items-center gap-1 mt-3 font-black text-sm uppercase tracking-wider underline hover:no-underline">View Tool →</a>
+            <a v-if="info.link" :href="info.link" class="inline-flex items-center gap-1 mt-3 font-black text-sm uppercase tracking-wider underline hover:no-underline">View Tool<svg class="w-4 h-4 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" /></svg></a>
           </div>
         </div>
       </div>
@@ -56,7 +56,7 @@
 
       <button type="submit" :disabled="!isValid || isSubmitting" class="w-full h-14 inline-flex items-center justify-center gap-3 font-black uppercase tracking-wider text-base transition-all duration-150 cursor-pointer border-2 disabled:opacity-50 disabled:cursor-not-allowed bg-gray-900 text-white border-gray-900 hover:bg-primary-500 hover:border-primary-500">
         <span v-if="isSubmitting" class="animate-spin w-5 h-5 border-2 border-white border-t-transparent rounded-full inline-block"></span>
-        {{ isSubmitting ? 'Submitting...' : 'Submit Tool ↗' }}
+        {{ isSubmitting ? 'Submitting...' : 'Submit Tool ' }}<svg v-if="!isSubmitting" class="w-4 h-4 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
       </button>
     </form>
   </div>

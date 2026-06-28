@@ -308,7 +308,7 @@ watch(isOramaActive, (active) => {
             </span>
             <button v-if="currentPage < totalPages" @click="goToPage(currentPage + 1)"
                 class="inline-flex items-center h-12 px-4 border-2 border-gray-900 text-xs font-black uppercase tracking-wider text-gray-900 hover:bg-gray-900 hover:text-white transition-all duration-200 cursor-pointer">
-                Next →
+                Next <svg class="w-4 h-4 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
             </button>
         </div>
     </div>

@@ -26,7 +26,7 @@ const props = defineProps<{
             </p>
             <h2
                 id="use-cases-heading"
-                class="max-w-[640px] text-3xl md:text-4xl lg:text-5xl text-gray-900 leading-[0.98] font-black tracking-tight mb-6"
+                class="max-w-[640px] text-3xl md:text-4xl lg:text-5xl text-gray-900 font-black tracking-tight mb-6"
             >
                 {{ heading || "Start from the risk you need to control." }}
             </h2>
@@ -66,7 +66,7 @@ const props = defineProps<{
                     >
                         <span class="hidden md:inline">Browse tools for {{ p }}</span>
                         <span class="md:hidden">Browse</span>
-                        <span aria-hidden="true" class="text-lg leading-none ml-1">↗</span>
+                        <svg class="w-4 h-4 ml-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
                     </a>
                 </div>
 

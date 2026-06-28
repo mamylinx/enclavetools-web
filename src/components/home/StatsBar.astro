@@ -4,27 +4,31 @@ interface Props {
   totalCategories: number;
   latestVerified: string;
   siteContent: Record<string, string>;
-  formatDate: (date: string) => string;
 }
 
-const { totalTools, totalCategories, latestVerified, siteContent: c, formatDate } = Astro.props;
+const { totalTools, totalCategories, latestVerified, siteContent: c } = Astro.props;
+
+const formatMonthYear = (dateStr: string) => {
+  if (!dateStr) return "Build data";
+  return new Date(dateStr).toLocaleDateString("en-US", { month: "short", year: "numeric" });
+};
 ---
 
-<section class="bg-gray-900 py-12 text-white border-b-2 border-gray-900">
-  <div class="max-w-[1400px] mx-auto px-4 md:px-8">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-gray-700">
+<section class="bg-brand-darkGreen py-12 text-white border-b border-brand-forest/10">
+  <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-white/10">
       <div class="py-4 md:py-0">
-        <p class="text-4xl lg:text-5xl font-black text-primary-500">{totalTools}</p>
-        <p class="text-xs text-gray-400 uppercase tracking-wider mt-1.5 font-black">{c.home_stat_tools_label || "tools listed"}</p>
-        <span class="block text-[0.7rem] text-gray-500 font-bold mt-1">independently audited</span>
+        <p class="text-4xl lg:text-5xl font-extrabold text-brand-lime font-sans">{totalTools}</p>
+        <p class="text-xs text-white/60 uppercase tracking-wider mt-1.5 font-bold">{c.home_stat_tools_label || "Verified Local Tools"}</p>
+        <span class="trust-badge text-[0.7rem] block text-white/40 font-mono mt-1">independently audited</span>
       </div>
       <div class="py-4 md:py-0">
-        <p class="text-4xl lg:text-5xl font-black text-white">{totalCategories}</p>
-        <p class="text-xs text-gray-400 uppercase tracking-wider mt-1.5 font-black">{c.home_stat_categories_label || "categories"}</p>
+        <p class="text-4xl lg:text-5xl font-extrabold text-white font-sans">{totalCategories}</p>
+        <p class="text-xs text-white/60 uppercase tracking-wider mt-1.5 font-bold">{c.home_stat_categories_label || "Curated Categories"}</p>
       </div>
       <div class="py-4 md:py-0">
-        <p class="text-4xl lg:text-5xl font-black text-primary-500">{formatDate(latestVerified)}</p>
-        <p class="text-xs text-gray-400 uppercase tracking-wider mt-1.5 font-black">{c.home_stat_verification_label || "latest verification"}</p>
+        <p class="text-4xl lg:text-5xl font-extrabold text-brand-teal font-sans">{formatMonthYear(latestVerified)}</p>
+        <p class="text-xs text-white/60 uppercase tracking-wider mt-1.5 font-bold">{c.home_stat_verification_label || "Latest Compliance Audits"}</p>
       </div>
     </div>
   </div>

@@ -32,7 +32,7 @@
   "newsletter_placeholder": "your@email.com",
   "newsletter_cta": "Get the digest",
   "home_page_title": "AI tools that keep your data inside your walls.",
-  "home_page_tagline": "Find self-hosted, local, and offline AI software for teams that cannot afford leaks. Compare setup difficulty, license risk, hardware needs, telemetry, and API support before you open GitHub.",
+  "home_page_tagline": "Stop paying for AI APIs. Everything here runs on your own hardware. Shortlist self-hosted, local, and offline AI software for teams that cannot afford outbound leaks. ",
   "home_page_eyebrow": "Private AI tools directory",
   "home_schema_list_name": "AI Tools Directory - All Tools",
   "home_stat_tools_label": "tools listed",

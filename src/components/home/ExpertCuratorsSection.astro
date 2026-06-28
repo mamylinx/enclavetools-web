@@ -1,51 +1,63 @@
 ---
 ---
 
-<section class="bg-gray-900 text-white border-b-2 border-gray-900 py-16 lg:py-24">
-  <div class="max-w-[1400px] mx-auto px-4 md:px-8">
-    <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12">
-      <div class="max-w-xl">
-        <p class="text-xs font-black uppercase tracking-widest text-primary-500 mb-2">Expert Curators</p>
-        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">Audited by operators.</h2>
-      </div>
-      <p class="text-gray-400 font-medium text-base leading-relaxed max-w-sm lg:mb-2">
-        Every tool passes an infrastructure-level audit. Our curators run deployments, review licenses, and verify claims.
+<section class="bg-brand-lavenderBg py-20 lg:py-24 border-b border-brand-forest/10 text-brand-forest">
+  <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
+    <div class="max-w-2xl mb-12">
+      <p class="text-xs font-bold uppercase tracking-[0.1em] text-brand-teal mb-2">Systems Curation</p>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-forest font-sans tracking-tight">
+        Engineered &amp; Audited by a Solo AI Systems Specialist
+      </h2>
+      <p class="text-brand-forest/80 font-medium text-base leading-relaxed mt-4">
+        Directories that scrape GitHub READMEs lack depth. As an ambitious Software and Electrical Engineer with hands-on experience in building AI models and local systems, I manually audit and execute every single tool listed here on bare metal.
       </p>
     </div>
-
-    <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
-      <div class="lg:col-span-1 bg-white border-2 border-gray-900 p-6 text-gray-900">
-        <div class="w-14 h-14 bg-primary-100 border-2 border-primary-500 flex items-center justify-center text-xl font-black mb-4">JM</div>
-        <p class="font-black text-gray-900 text-base">Joanna M.</p>
-        <p class="text-xs text-gray-500 font-bold mb-4">Infrastructure Architect, ex-HashiCorp</p>
-        <p class="text-gray-600 text-sm font-medium leading-relaxed">
-          "We treat each tool as if we're deploying it on a client's air-gapped cluster. If it phones home, it's out."
-        </p>
-        <div class="mt-6 pt-4 border-t-2 border-gray-900">
-          <span class="text-xs font-black text-gray-900 uppercase tracking-wider">15 years in SRE</span>
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+      <div class="lg:col-span-5 bg-white border border-brand-forest/10 rounded-4xl p-8 shadow-sm flex flex-col justify-between text-brand-forest">
+        <div class="flex flex-col items-center text-center">
+          <div class="w-24 h-24 bg-brand-tealLight border border-brand-teal/20 rounded-full flex items-center justify-center overflow-hidden mb-5">
+            <svg class="w-14 h-14 text-brand-teal" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="50" cy="50" r="16" fill="none" stroke="#05B2A3" stroke-width="1.8" />
+              <circle cx="50" cy="50" r="6" fill="#C5F82A" />
+              <path d="M50 10v24M50 66v24M10 50h24M66 50h24" stroke="#05B2A3" stroke-width="1.5" stroke-linecap="round" />
+            </svg>
+          </div>
+          <span class="px-3 py-1 bg-brand-indigoLight border border-brand-indigo/10 text-brand-indigo text-xs font-bold uppercase tracking-wider rounded-full mb-3 shadow-sm">
+            Electrical &amp; Systems Engineer
+          </span>
+          <h3 class="text-2xl font-bold text-brand-forest font-sans">Mamy</h3>
+          <p class="text-xs text-brand-muted font-bold mb-4">Independent Registry Creator</p>
+          <p class="text-sm text-brand-muted leading-relaxed font-medium">
+            Combining hardware limits (registers, silicon caching architectures, electrical limits) with deep learning workflows (quantized matrices, model tensors, pipeline runtimes).
+          </p>
+        </div>
+        <div class="mt-8 pt-6 border-t border-brand-forest/10 flex flex-wrap items-center justify-center gap-2">
+          <span class="text-xs font-bold text-brand-muted uppercase tracking-wider">benchmarking targets:</span>
+          <span class="inline-flex px-2 py-0.5 bg-brand-bg border border-brand-forest/10 text-xs font-bold rounded-md">RTX CUDA</span>
+          <span class="inline-flex px-2 py-0.5 bg-brand-tealLight border border-brand-forest/10 text-xs font-bold rounded-md">M1/M2/M3</span>
         </div>
       </div>
-
-      <div class="lg:col-span-3 grid grid-cols-1 sm:grid-cols-3 gap-6">
-        <div class="bg-white border-2 border-gray-900 p-5 text-gray-900 transition-all duration-300 ease-out-expo hover:-translate-y-1 hover:shadow-card-hover">
-          <span class="px-2.5 py-0.5 bg-primary-100 border-2 border-primary-500 text-primary-700 text-xs font-black uppercase tracking-wider">Deep Dive</span>
-          <h3 class="text-base font-black text-gray-900 mt-4 mb-2">Runtime Audit</h3>
-          <p class="text-gray-500 text-xs font-medium leading-relaxed mb-4">Verified outbound calls, network sandbox escapes, and dependency supply chain.</p>
-          <p class="text-lg font-black text-gray-900">1,200+ <span class="text-xs text-gray-500 font-bold">runtimes tested</span></p>
+      <div class="lg:col-span-7 flex flex-col gap-4 text-brand-forest">
+        <div class="card-hover bg-white border border-brand-forest/10 rounded-2xl p-6 shadow-sm flex items-start gap-4">
+          <span class="w-10 h-10 bg-brand-tealLight border border-brand-teal/20 rounded-xl flex items-center justify-center font-bold text-sm text-brand-teal shrink-0">⚡</span>
+          <div>
+            <h4 class="font-sans font-bold text-lg text-brand-forest mb-1">Hardware &amp; Electrical Audits</h4>
+            <p class="text-sm text-brand-muted leading-relaxed">I benchmark token/sec generation rates relative to GPU memory bandwidth limitations, shared system RAM on unified silicon boards, and thermals to document exact minimal hardware bounds.</p>
+          </div>
         </div>
-
-        <div class="bg-white border-2 border-gray-900 p-5 text-gray-900 transition-all duration-300 ease-out-expo hover:-translate-y-1 hover:shadow-card-hover">
-          <span class="px-2.5 py-0.5 bg-primary-100 border-2 border-primary-500 text-primary-700 text-xs font-black uppercase tracking-wider">Verification</span>
-          <h3 class="text-base font-black text-gray-900 mt-4 mb-2">License Compliance</h3>
-          <p class="text-gray-500 text-xs font-medium leading-relaxed mb-4">Every tool's license, dependency licenses, and copyleft boundaries reviewed by legal ops.</p>
-          <p class="text-lg font-black text-gray-900">98.5% <span class="text-xs text-gray-500 font-bold">commercial-safe</span></p>
+        <div class="card-hover bg-white border border-brand-forest/10 rounded-2xl p-6 shadow-sm flex items-start gap-4">
+          <span class="w-10 h-10 bg-brand-bg border border-brand-forest/10 rounded-xl flex items-center justify-center font-bold text-sm text-brand-forest shrink-0">💻</span>
+          <div>
+            <h4 class="font-sans font-bold text-lg text-brand-forest mb-1">Software Configuration Audits</h4>
+            <p class="text-sm text-brand-muted leading-relaxed">I examine packaging builds—evaluating containerization configs (Docker, K8s), shared memory limits, local socket APIs, and bare-metal compilation logs to ensure secure integrations.</p>
+          </div>
         </div>
-
-        <div class="bg-white border-2 border-gray-900 p-5 text-gray-900 transition-all duration-300 ease-out-expo hover:-translate-y-1 hover:shadow-card-hover">
-          <span class="px-2.5 py-0.5 bg-primary-100 border-2 border-primary-500 text-primary-700 text-xs font-black uppercase tracking-wider">Benchmark</span>
-          <h3 class="text-base font-black text-gray-900 mt-4 mb-2">Hardware Profiling</h3>
-          <p class="text-gray-500 text-xs font-medium leading-relaxed mb-4">RAM, GPU, and disk benchmarks tested on standard infrastructure configurations.</p>
-          <p class="text-lg font-black text-gray-900">47 <span class="text-xs text-gray-500 font-bold">hardware configs</span></p>
+        <div class="card-hover bg-white border border-brand-forest/10 rounded-2xl p-6 shadow-sm flex items-start gap-4">
+          <span class="w-10 h-10 bg-brand-tealLight border border-brand-teal/20 rounded-xl flex items-center justify-center font-bold text-sm text-brand-teal shrink-0">🛡️</span>
+          <div>
+            <h4 class="font-sans font-bold text-lg text-brand-forest mb-1">AI Systems Telemetry Audits</h4>
+            <p class="text-sm text-brand-muted leading-relaxed">I run packet-sniffer monitoring tasks on the host nodes to verify that models, dependencies, and UIs make zero outbound server requests when configured to run in isolated states.</p>
+          </div>
         </div>
       </div>
     </div>

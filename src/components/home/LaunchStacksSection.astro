@@ -1,89 +1,61 @@
 ---
-
 ---
 
-<section
-  class="bg-gray-900 text-white border-b-2 border-gray-900 py-16 lg:py-24"
->
-  <div class="max-w-[1400px] mx-auto px-4 md:px-8">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-      <div>
-        <p
-          class="text-xs font-black uppercase tracking-widest text-primary-500 mb-2"
-        >
-          Launch Stacks
-        </p>
-        <h2
-          class="text-3xl sm:text-4xl font-black text-white tracking-tight mb-6"
-        >
-          Pick your stack, deploy locally.
+<section class="bg-brand-forest text-white py-20 lg:py-24 border-b border-brand-forest/10">
+  <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+      <div class="lg:col-span-6 flex flex-col items-start">
+        <span class="px-3.5 py-1.5 bg-brand-lime border border-brand-forest/10 text-brand-forest text-xs font-bold rounded-full uppercase tracking-wider mb-6 shadow-sm">
+          Stack Setup
+        </span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold font-sans leading-tight tracking-tight mb-6">
+          Where new teams launch their AI stack
         </h2>
-        <p class="text-gray-400 text-base font-medium leading-relaxed mb-8">
-          Combine a local LLM with a RAG pipeline, a vector database, and an API
-          gateway — all self-hosted, all no-call-home. We curate compatible
-          toolchains so you don't have to hunt dependencies.
+        <p class="text-white/80 text-base leading-relaxed mb-8 max-w-lg font-medium">
+          Build your ideal private stack step-by-step. Compare integration dependencies, deployment files (Docker/K8s), and hardware targets before compiling repository commands.
         </p>
-        <ul class="space-y-2.5 mb-8">
-          <li class="flex items-center gap-3 text-sm font-bold text-gray-300">
-            <span
-              class="w-5 h-5 bg-primary-500 border-2 border-gray-900 flex items-center justify-center text-gray-900 text-xs font-black flex-shrink-0"
-              aria-hidden="true">✓</span
-            >
-            LLM + RAG + Vector DB combos
-          </li>
-          <li class="flex items-center gap-3 text-sm font-bold text-gray-300">
-            <span
-              class="w-5 h-5 bg-primary-500 border-2 border-gray-900 flex items-center justify-center text-gray-900 text-xs font-black flex-shrink-0"
-              aria-hidden="true">✓</span
-            >
-            One-click hardware requirement estimates
-          </li>
-          <li class="flex items-center gap-3 text-sm font-bold text-gray-300">
-            <span
-              class="w-5 h-5 bg-primary-500 border-2 border-gray-900 flex items-center justify-center text-gray-900 text-xs font-black flex-shrink-0"
-              aria-hidden="true">✓</span
-            >
-            Verified compatibility matrices
-          </li>
-        </ul>
-        <a
-          href="/stack-builder"
-          class="inline-flex items-center h-12 border-2 border-gray-900 px-6 font-black uppercase tracking-wider text-xs bg-white text-gray-900 hover:bg-primary-500 hover:text-white hover:border-primary-500 transition-all no-underline"
-        >
-          Explore Launch Stacks <span aria-hidden="true" class="ml-2">→</span>
-        </a>
-      </div>
-
-      <div class="bg-white border-2 border-gray-900 p-6 lg:p-8 text-gray-900">
-        <div class="flex items-center gap-3 mb-6">
-          <div
-            class="w-10 h-10 bg-primary-100 border-2 border-primary-500 flex items-center justify-center font-black text-sm"
-          >
-            RK
+        <div class="grid grid-cols-2 gap-4 w-full mb-8">
+          <div class="bg-white/5 p-5 border border-white/10 rounded-2xl shadow-sm">
+            <p class="text-3xl font-extrabold text-brand-lime font-sans">2,400+</p>
+            <p class="text-xs font-bold uppercase text-white/50 tracking-wider mt-1">Stacks Configured</p>
           </div>
-          <div>
-            <p class="font-black text-gray-900 text-sm">Rajan K.</p>
-            <p class="text-xs text-gray-500 font-bold">
-              VP of Infrastructure, FinTech
-            </p>
+          <div class="bg-white/5 p-5 border border-white/10 rounded-2xl shadow-sm">
+            <p class="text-3xl font-extrabold text-brand-teal font-sans">0kb</p>
+            <p class="text-xs font-bold uppercase text-white/50 tracking-wider mt-1">Outbound Data Leaked</p>
           </div>
         </div>
-        <p class="text-gray-700 font-medium text-base leading-relaxed">
-          "We needed an internal RAG tool for compliance documents. Enclave
-          Tools matched us with three self-hosted options in under an hour.
-          Every suggestion had a license we could defend."
-        </p>
-        <div
-          class="mt-6 pt-6 border-t-2 border-gray-900 flex items-center justify-between"
-        >
-          <span
-            class="text-xs font-black text-gray-500 uppercase tracking-wider"
-            >Audience Risk Level</span
-          >
-          <span
-            class="px-3 py-1 bg-primary-100 border-2 border-primary-500 text-primary-700 text-xs font-black uppercase tracking-wider"
-            >High — Regulated</span
-          >
+        <a href="/stack-builder"
+          class="h-12 px-6 bg-brand-lime border border-brand-forest/10 text-brand-forest rounded-full font-bold text-xs uppercase tracking-wider inline-flex items-center gap-2 hover:-translate-y-0.5 transition-all duration-200">
+          Open Stack Builder
+          <svg class="w-4 h-4 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </a>
+      </div>
+      <div class="lg:col-span-6 flex justify-center">
+        <div class="w-full max-w-[440px] bg-white border border-brand-forest/10 rounded-4xl p-6 text-brand-forest shadow-sm">
+          <div class="bg-brand-tealLight border border-brand-forest/10 h-64 rounded-2xl flex items-center justify-center relative overflow-hidden">
+            <svg class="w-3/4 h-3/4" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+              <rect x="70" y="140" width="60" height="20" rx="3" fill="#fff" stroke="#111" stroke-width="1.5" />
+              <rect x="85" y="50" width="30" height="70" rx="15" fill="#fff" stroke="#111" stroke-width="1.8" />
+              <path d="M85 65c0-25 30-25 30 0" fill="#C5F82A" stroke="#111" stroke-width="1.8" />
+              <path d="M75 110l10-15v25l-10-10zM125 110l-10-15v25l10-10z" fill="#05B2A3" stroke="#111" stroke-width="1.8" />
+            </svg>
+          </div>
+          <div class="mt-5 p-4 bg-brand-bg border border-brand-forest/10 rounded-xl">
+            <p class="text-sm italic text-brand-muted font-medium leading-relaxed">
+              "We replaced three cloud AI API integrations with self-hosted vLLM nodes. Zero outbound customer data leaves our cluster now."
+            </p>
+            <div class="mt-3 flex items-center gap-2">
+              <div class="w-6 h-6 bg-brand-forest text-white text-xs font-bold rounded-full flex items-center justify-center">
+                IT
+              </div>
+              <div>
+                <p class="text-sm font-bold text-brand-forest">IT Director</p>
+                <p class="text-xs text-brand-muted">Healthcare Infrastructure Group</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

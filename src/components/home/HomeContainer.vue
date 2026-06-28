@@ -77,7 +77,7 @@ const latestTools = computed(() => {
             <div class="flex justify-center mt-6">
                 <a href="/submit"
                     class="text-sm font-bold bg-white border-2 border-gray-900 text-gray-900 h-10 px-4 inline-flex items-center hover:bg-primary-500 hover:text-white hover:border-primary-500 transition-colors no-underline">
-                    Sponsor the directory →
+                    Sponsor the directory <svg class="w-4 h-4 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
                 </a>
             </div>
         </section>
