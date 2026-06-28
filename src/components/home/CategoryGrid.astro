@@ -6,42 +6,73 @@ interface Props {
   siteContent: Record<string, string>;
 }
 
-const { categoryTiles, hoverColors, tileDescriptions, siteContent: c } = Astro.props;
+const {
+  categoryTiles,
+  hoverColors,
+  tileDescriptions,
+  siteContent: c,
+} = Astro.props;
 ---
 
-<section id="categories" class="bg-brand-lightCyan py-20 lg:py-24 border-b border-brand-forest/10">
+<section
+  id="categories"
+  class="bg-brand-lightCyan py-20 lg:py-24 border-b border-brand-forest/10"
+>
   <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
-    <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12">
+    <div
+      class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12"
+    >
       <div class="max-w-xl">
-        <p class="text-xs font-bold uppercase tracking-[0.1em] text-brand-teal mb-2">{c.home_category_eyebrow || "Start with the job"}</p>
-        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-forest font-sans tracking-tight">{c.home_category_heading || "Choose a category."}</h2>
+        <p
+          class="text-xs font-bold uppercase tracking-[0.1em] text-brand-teal mb-2"
+        >
+          {c.home_category_eyebrow || "Start with the job"}
+        </p>
+        <h2
+          class="text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-forest font-sans tracking-tight"
+        >
+          {c.home_category_heading || "Choose a category."}
+        </h2>
       </div>
-      <p class="text-brand-muted font-medium text-base leading-relaxed max-w-sm lg:mb-2">
-        Every tool is cataloged by its specific purpose, making it easy to swap external API nodes with self-hosted instances.
+      <p
+        class="text-brand-muted font-medium text-base leading-relaxed max-w-sm lg:mb-2"
+      >
+        Every tool is cataloged by its specific purpose, making it easy to swap
+        external API nodes with self-hosted instances.
       </p>
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-      {categoryTiles.map((cat: any, index: number) => {
-        const hoverClass = hoverColors[index % hoverColors.length];
-        return (
-          <a href={`/${cat.category}`}
-            class={`flex flex-col h-full bg-white border border-brand-forest/10 p-6 rounded-3xl shadow-sm card-hover group`}>
-            <div class="flex-1 mb-6">
-              <div class="flex justify-between items-start">
-                <span class="text-lg font-bold text-brand-forest font-sans group-hover:text-brand-teal transition-colors">{cat.title}</span>
-                <svg class="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
+      {
+        categoryTiles.map((cat: any, index: number) => {
+          const hoverClass = hoverColors[index % hoverColors.length];
+          return (
+            <a
+              href={`/${cat.category}`}
+              class={`flex flex-col h-full bg-white border border-brand-forest/10 p-6 rounded-3xl shadow-sm card-hover group`}
+            >
+              <div class="flex-1 mb-6">
+                <div class="flex justify-between items-start">
+                  <span class="text-lg font-bold text-brand-forest font-sans group-hover:text-brand-teal transition-colors">
+                    {cat.title}
+                  </span>
+                </div>
+                <p class="text-xs text-brand-muted mt-2">
+                  {tileDescriptions[index]}
+                </p>
               </div>
-              <p class="text-xs text-brand-muted mt-2">{tileDescriptions[index]}</p>
-            </div>
-            <div class="pt-4 border-t border-brand-forest/10 flex items-center">
-              <span class="inline-flex px-3 py-1 text-xs font-bold uppercase tracking-wider bg-brand-bg border border-brand-forest/10 rounded-full">{cat.count} {cat.count === 1 ? "Tool" : "Tools"}</span>
-            </div>
-          </a>
-        );
-      })}
+              <div class="pt-4 border-t border-brand-forest/10 flex items-center justify-between">
+                <span class="inline-flex px-3 py-1 text-xs font-bold uppercase tracking-wider bg-brand-bg border border-brand-forest/10 rounded-full">
+                  {cat.count} {cat.count === 1 ? "Tool" : "Tools"}
+                </span>
+                <span class="text-base transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                  ➔
+                </span>
+              </div>
+            </a>
+          );
+        })
+      }
     </div>
   </div>
 </section>

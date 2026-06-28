@@ -14,6 +14,7 @@ import SurveySection from "../components/home/SurveySection.astro";
 import ExpertCuratorsSection from "../components/home/ExpertCuratorsSection.astro";
 import SubmitCTASection from "../components/home/SubmitCTASection.astro";
 import FindPathSection from "../components/home/FindPathSection.astro";
+import CompareTray from "../components/CompareTray.vue";
 
 import toolsData from "../data/tools.json";
 import categories from "../data/categories.json";
@@ -221,4 +222,5 @@ const useCaseContent: Record<
     <FindPathSection siteContent={c} />
 
     <NewsletterSection siteContent={c} />
+    <CompareTray client:load tools={allTools as any} />
 </Layout>

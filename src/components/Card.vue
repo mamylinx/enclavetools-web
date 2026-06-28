@@ -54,7 +54,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, ref, onMounted, onUnmounted } from 'vue';
 import BookmarkButton from './BookmarkButton.vue';
 import categoryIcons from '../data/category-icons.json';
 import * as LucideIcons from 'lucide-vue-next';
@@ -80,13 +80,28 @@ const props = defineProps<{
 
 const linkUrl = computed(() => props.slug ? `/tools/${props.slug}` : props.href);
 const isFeatured = computed(() => props.featured);
-const isCompared = computed(() => {
-  if (typeof window === 'undefined' || !props.slug) return false;
-  try {
-    return JSON.parse(storage.getItem('enclavetools-compare') || '[]').includes(props.slug);
-  } catch {
-    return false;
+const isCompared = ref(false);
+
+function syncCompare() {
+  if (typeof window === 'undefined' || !props.slug) {
+    isCompared.value = false;
+    return;
   }
+  try {
+    const slugs = JSON.parse(storage.getItem('enclavetools-compare') || '[]');
+    isCompared.value = slugs.includes(props.slug);
+  } catch {
+    isCompared.value = false;
+  }
+}
+
+onMounted(() => {
+  syncCompare();
+  window.addEventListener('compare:changed', syncCompare);
+});
+
+onUnmounted(() => {
+  window.removeEventListener('compare:changed', syncCompare);
 });
 const primaryHardware = computed(() => props.hardware?.find((item) => item.includes('CPU') || item.includes('CUDA') || item.includes('Apple')) || props.hardware?.[0]);
 const formattedStars = computed(() => {

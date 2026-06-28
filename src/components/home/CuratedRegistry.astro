@@ -1,5 +1,6 @@
 ---
 import SearchInput from "../SearchInput.vue";
+import CompareToggle from "../CompareToggle.vue";
 
 interface Props {
   topTools: any[];
@@ -11,22 +12,42 @@ interface Props {
 const { topTools, categoryTitleMap, formatScore, totalTools } = Astro.props;
 ---
 
-<section id="browse" class="bg-brand-slateTeal py-20 lg:py-24 border-b border-brand-forest/10 text-brand-forest">
+<section
+  id="browse"
+  class="bg-brand-slateTeal py-20 lg:py-24 border-b border-brand-forest/10 text-brand-forest"
+>
   <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
     <div class="mb-12">
-      <p class="text-xs font-bold uppercase tracking-[0.1em] text-brand-teal mb-2">Curated Registry</p>
-      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-forest font-sans tracking-tight mb-4">
+      <p
+        class="text-xs font-bold uppercase tracking-[0.1em] text-brand-teal mb-2"
+      >
+        Curated Registry
+      </p>
+      <h2
+        class="text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-forest font-sans tracking-tight mb-4"
+      >
         Browse Private AI Directory
       </h2>
-      <p class="text-brand-muted font-medium text-base leading-relaxed max-w-2xl">
-        Use the filters below to refine the registry. Audit license configurations, offline compatibility, and system requirements instantly.
+      <p
+        class="text-brand-muted font-medium text-base leading-relaxed max-w-2xl"
+      >
+        Use the filters below to refine the registry. Audit license
+        configurations, offline compatibility, and system requirements
+        instantly.
       </p>
     </div>
 
-    <div class="bg-brand-bg border border-brand-forest/10 rounded-4xl p-6 lg:p-8 shadow-sm text-brand-forest">
-      <div class="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4 pb-6 border-b border-brand-forest/10 mb-6">
+    <div
+      class="bg-brand-bg border border-brand-forest/10 rounded-4xl p-6 lg:p-8 shadow-sm text-brand-forest"
+    >
+      <div
+        class="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4 pb-6 border-b border-brand-forest/10 mb-6"
+      >
         <div class="flex-1">
-          <SearchInput client:load placeholder="Search by name, tags, or deployment..." />
+          <SearchInput
+            client:load
+            placeholder="Search by name, tags, or deployment..."
+          />
         </div>
       </div>
 
@@ -53,31 +74,49 @@ const { topTools, categoryTitleMap, formatScore, totalTools } = Astro.props;
                   </div>
                   <h3 class="text-xl font-bold tracking-tight text-brand-forest mb-2 font-sans flex items-center gap-2">
                     {tool.title}
-                    <span class="w-2.5 h-2.5 bg-brand-lime border border-brand-forest/10 rounded-full" title="Active development" />
+                    <span
+                      class="w-2.5 h-2.5 bg-brand-lime border border-brand-forest/10 rounded-full"
+                      title="Active development"
+                    />
                   </h3>
                   <p class="text-brand-muted text-sm leading-relaxed mb-5">
                     {tool.body || tool.plain_description}
                   </p>
                   <div class="grid grid-cols-2 gap-2 border-t border-brand-forest/10 pt-4">
-                    <p class="text-xs font-bold text-brand-muted uppercase tracking-wider">License</p>
-                    <p class="text-sm font-bold text-brand-forest">{tool.license}{safe}</p>
-                    <p class="text-xs font-bold text-brand-muted uppercase tracking-wider">Telemetry</p>
-                    <p class="text-sm font-bold text-brand-forest">{tool.telemetry || "None"}</p>
-                    <p class="text-xs font-bold text-brand-muted uppercase tracking-wider">Hardware</p>
+                    <p class="text-xs font-bold text-brand-muted uppercase tracking-wider">
+                      License
+                    </p>
+                    <p class="text-sm font-bold text-brand-forest">
+                      {tool.license}
+                      {safe}
+                    </p>
+                    <p class="text-xs font-bold text-brand-muted uppercase tracking-wider">
+                      Telemetry
+                    </p>
+                    <p class="text-sm font-bold text-brand-forest">
+                      {tool.telemetry || "None"}
+                    </p>
+                    <p class="text-xs font-bold text-brand-muted uppercase tracking-wider">
+                      Hardware
+                    </p>
                     <p class="text-sm font-bold text-brand-forest">{hw}</p>
-                    <p class="text-xs font-bold text-brand-muted uppercase tracking-wider">Maturity</p>
-                    <p class="text-sm font-bold text-brand-forest">{tool.maturity || "N/A"}</p>
+                    <p class="text-xs font-bold text-brand-muted uppercase tracking-wider">
+                      Maturity
+                    </p>
+                    <p class="text-sm font-bold text-brand-forest">
+                      {tool.maturity || "N/A"}
+                    </p>
                   </div>
                 </div>
                 <div class="pt-4">
                   <div class="flex items-center gap-2">
-                    <a href={`/tools/${toolSlug}`}
-                      class="flex-1 text-center py-2.5 bg-brand-teal text-white rounded-full text-xs font-bold uppercase tracking-wider shadow-sm hover:-translate-y-0.5 transition-all">
+                    <a
+                      href={`/tools/${toolSlug}`}
+                      class="flex-1 text-center py-2.5 bg-brand-teal text-white rounded-full text-xs font-bold uppercase tracking-wider shadow-sm hover:-translate-y-0.5 transition-all"
+                    >
                       Explore Tools
                     </a>
-                    <button
-                      class="w-9 h-9 bg-brand-bg border border-brand-forest/10 rounded-full flex items-center justify-center font-bold text-base hover:bg-brand-lime focus:outline-none transition-colors"
-                      title="Add to compare" aria-label="Add tool to comparison list">＋</button>
+                    <CompareToggle client:load slug={toolSlug} />
                   </div>
                 </div>
               </div>
@@ -87,8 +126,10 @@ const { topTools, categoryTitleMap, formatScore, totalTools } = Astro.props;
       </div>
 
       <div class="mt-8 text-center">
-        <a href="/all"
-          class="px-8 py-3 bg-white border border-brand-forest/10 text-brand-forest rounded-full font-bold text-xs uppercase tracking-wider shadow-sm hover:-translate-y-0.5 transition-all duration-200">
+        <a
+          href="/all"
+          class="px-8 py-3 bg-white border border-brand-forest/10 text-brand-forest rounded-full font-bold text-xs uppercase tracking-wider shadow-sm hover:-translate-y-0.5 transition-all duration-200"
+        >
           Load All {totalTools} Tools
         </a>
       </div>
