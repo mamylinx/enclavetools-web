@@ -6,26 +6,44 @@ interface Props {
 const { siteContent: c } = Astro.props;
 ---
 
-<section class="bg-brand-royalBlue py-20 lg:py-24 border-b border-brand-forest/10 text-white">
+<section
+  class="bg-brand-royalBlue py-20 lg:py-24 border-b border-brand-forest/10 text-white"
+>
   <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
       <div>
-        <p class="text-xs font-bold uppercase tracking-[0.1em] text-white/60 mb-2">{c.home_path_eyebrow || "Get Started"}</p>
-        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold font-sans leading-tight tracking-tight mb-4">
+        <p
+          class="text-xs font-bold uppercase tracking-[0.1em] text-white/60 mb-2"
+        >
+          {c.home_path_eyebrow || "Get Started"}
+        </p>
+        <h2
+          class="text-3xl sm:text-4xl lg:text-5xl font-bold font-sans leading-tight tracking-tight mb-4"
+        >
           {c.home_path_heading || "Find the right path for your stack"}
         </h2>
         <p class="text-white/80 text-base max-w-md font-medium leading-relaxed">
-          {c.home_path_description || "Whether you are replacing an open API, building a clinical dictation framework, or hosting code models locally, we have the tools you need."}
+          {
+            c.home_path_description ||
+              "Whether you are replacing an open API, building a clinical dictation framework, or hosting code models locally, we have the tools you need."
+          }
         </p>
       </div>
-      <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 lg:justify-end">
-        <a href="/all"
-          class="h-12 px-6 bg-white text-brand-royalBlue hover:bg-brand-bg rounded-full font-bold text-xs uppercase tracking-wider inline-flex items-center justify-center gap-2 shadow-sm transition-all duration-200">
+      <div
+        class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 lg:justify-end"
+      >
+        <a
+          href="/all"
+          class="h-12 px-6 bg-white text-brand-royalBlue hover:bg-brand-bg rounded-full font-bold text-xs uppercase tracking-wider inline-flex items-center justify-center gap-2 shadow-sm transition-all duration-200"
+        >
           {c.cta_browse_all || "Browse all tools"}
         </a>
-        <a href="https://x.com/MamyLinx" target="_blank" rel="noopener noreferrer"
-          class="h-12 px-6 bg-white/20 hover:bg-white/35 text-white rounded-full font-bold text-xs uppercase tracking-wider inline-flex items-center justify-center gap-2 shadow-sm transition-all duration-200">
-          {c.cta_use_cases || "Join the community"}
+        <a
+          href="/#use-cases"
+          rel="noopener noreferrer"
+          class="h-12 px-6 bg-white/20 hover:bg-white/35 text-white rounded-full font-bold text-xs uppercase tracking-wider inline-flex items-center justify-center gap-2 shadow-sm transition-all duration-200"
+        >
+          {c.cta_use_cases || "Find tools from my use cases"}
         </a>
       </div>
     </div>
