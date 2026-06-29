@@ -9,6 +9,7 @@ const props = defineProps<{
 
 const selected = ref<string[]>([]);
 const limitHit = ref(false);
+const isComparePage = ref(false);
 
 const selectedTools = computed(() => selected.value
   .map((slug) => props.tools.find((tool) => tool.slug === slug))
@@ -42,6 +43,7 @@ function handleLimit() {
 const compareUrl = computed(() => `/compare?tools=${selected.value.join(',')}`);
 
 onMounted(() => {
+  isComparePage.value = window.location.pathname === '/compare';
   load();
   window.addEventListener('compare:changed', handleChanged);
   window.addEventListener('compare:limit', handleLimit);
@@ -57,15 +59,15 @@ onUnmounted(() => {
 
 <template>
   <Teleport to="body">
-    <div v-if="selected.length >= 2 || limitHit" class="fixed bottom-0 left-0 right-0 bg-gray-900 text-white p-4 flex flex-col md:flex-row md:justify-between md:items-center gap-3 z-[100]" role="status">
+    <div v-if="selected.length >= 2 || limitHit" class="fixed bottom-0 left-0 right-0 bg-brand-forest text-white p-4 flex flex-col md:flex-row md:justify-between md:items-center gap-3 z-[100]" role="status">
       <div class="min-w-0 flex-1">
-        <strong class="font-black tracking-wide">Comparing {{ selected.length }} tools</strong>
-        <span v-if="!limitHit" class="block md:inline md:ml-3 text-gray-400 text-sm truncate">{{ selectedTools.map((tool) => tool.title).join(' / ') }}</span>
+        <strong class="font-extrabold tracking-wide">Comparing {{ selected.length }} tools</strong>
+        <span v-if="!limitHit" class="block md:inline md:ml-3 text-brand-muted text-sm truncate">{{ selectedTools.map((tool) => tool.title).join(' / ') }}</span>
         <span v-else class="block md:inline md:ml-3 text-yellow-400 font-bold text-sm">Maximum 4 tools can be compared.</span>
       </div>
       <div class="flex gap-4 items-center shrink-0">
-        <button type="button" @click="clear" class="h-10 px-3 text-white opacity-70 hover:opacity-100 text-sm bg-transparent border-2 border-transparent cursor-pointer transition-opacity">Clear</button>
-        <a v-if="selected.length >= 2" :href="compareUrl" class="h-10 inline-flex items-center bg-gray-900 text-white px-4 font-bold no-underline hover:bg-primary-500 transition-colors border-2 border-white">View comparison</a>
+        <button type="button" @click="clear" class="h-10 px-3 text-white opacity-70 hover:opacity-100 text-sm bg-transparent border border-transparent cursor-pointer transition-opacity">Clear</button>
+        <a v-if="selected.length >= 2 && !isComparePage" :href="compareUrl" class="h-10 inline-flex items-center bg-brand-forest text-white px-4 font-bold no-underline hover:bg-brand-teal transition-colors border-2 border-white rounded-full">View comparison</a>
       </div>
     </div>
   </Teleport>

@@ -192,13 +192,13 @@ watch(activeId, () => { pushUrl(); refresh(); });
   <section class="max-w-[1400px] mx-auto px-4 md:px-8 py-12">
 
     <div v-if="stacks.length === 0 && !creating"
-      class="py-16 lg:py-24 text-center bg-gray-50 border-2 border-dashed border-gray-300">
-      <h2 class="text-2xl font-black text-gray-900 mb-4">No stacks yet</h2>
-      <p class="text-gray-600 font-bold mb-8 max-w-md mx-auto">
+      class="py-16 lg:py-24 text-center bg-brand-bg border border-dashed border-brand-forest/20 rounded-3xl">
+      <h2 class="text-2xl font-extrabold text-brand-forest mb-4">No stacks yet</h2>
+      <p class="text-brand-muted font-bold mb-8 max-w-md mx-auto">
         Create a stack to collect compatible self-hosted AI tools.
       </p>
       <button type="button" @click="handleCreate"
-        class="inline-flex items-center gap-2 px-4 h-12 bg-gray-900 text-white font-black hover:bg-primary-500 transition-colors cursor-pointer border-none text-sm uppercase tracking-wider">
+        class="inline-flex items-center gap-2 px-4 h-12 bg-brand-forest text-white font-extrabold hover:bg-brand-teal transition-colors cursor-pointer border-none rounded-full text-sm uppercase tracking-wider">
         + Create your first stack
       </button>
     </div>
@@ -223,7 +223,7 @@ watch(activeId, () => { pushUrl(); refresh(); });
       >
         <template #actions>
           <button v-if="!renaming" type="button" @click="copyStackLink"
-            class="shrink-0 w-12 h-12 bg-white border-2 border-gray-900 text-gray-900 hover:bg-primary-500 hover:text-white hover:border-primary-500 transition-colors cursor-pointer inline-flex items-center justify-center"
+            class="shrink-0 w-12 h-12 bg-white border border-brand-forest/10 text-brand-forest hover:bg-brand-teal hover:text-white hover:border-brand-teal transition-colors cursor-pointer inline-flex items-center justify-center"
             :aria-label="copyStatus === 'copied' ? 'Copied' : copyStatus === 'failed' ? 'Copy failed' : 'Copy stack link'"
             :title="copyStatus === 'copied' ? 'Copied' : copyStatus === 'failed' ? 'Copy failed' : 'Copy stack link'">
             <svg v-if="copyStatus === 'idle'" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
@@ -233,7 +233,7 @@ watch(activeId, () => { pushUrl(); refresh(); });
 
           <div v-if="!renaming" id="ow" class="relative shrink-0">
             <button type="button" @click="showOverflow = !showOverflow"
-              class="w-12 h-12 bg-white border-2 border-gray-900 text-gray-900 hover:bg-primary-500 hover:text-white hover:border-primary-500 transition-colors cursor-pointer inline-flex items-center justify-center"
+              class="w-12 h-12 bg-white border border-brand-forest/10 text-brand-forest hover:bg-brand-teal hover:text-white hover:border-brand-teal transition-colors cursor-pointer inline-flex items-center justify-center"
               aria-label="Stack actions">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -243,9 +243,9 @@ watch(activeId, () => { pushUrl(); refresh(); });
               </svg>
             </button>
             <div v-if="showOverflow"
-              class="absolute right-0 top-full mt-1 z-50 bg-white border-2 border-gray-900 shadow-brutal min-w-[180px]">
+              class="absolute right-0 top-full mt-1 z-50 bg-white border border-brand-forest/10 shadow-sm min-w-[180px] rounded-xl">
               <button type="button" @click="startRename"
-                class="flex items-center gap-3 w-full text-left px-4 h-12 text-sm font-bold text-gray-900 hover:bg-gray-100 border-b-2 border-gray-200 cursor-pointer bg-transparent">
+                class="flex items-center gap-3 w-full text-left px-4 h-12 text-sm font-bold text-brand-forest hover:bg-brand-bg border-b border-brand-forest/10 cursor-pointer bg-transparent">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M17 3a2.85 2.85 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
@@ -267,7 +267,7 @@ watch(activeId, () => { pushUrl(); refresh(); });
           </div>
 
           <button v-if="!renaming" type="button" @click="handleCreate"
-            class="shrink-0 w-12 h-12 bg-white border-2 border-gray-900 text-gray-900 hover:bg-primary-500 hover:text-white hover:border-primary-500 transition-colors cursor-pointer inline-flex items-center justify-center"
+            class="shrink-0 w-12 h-12 bg-white border border-brand-forest/10 text-brand-forest hover:bg-brand-teal hover:text-white hover:border-brand-teal transition-colors cursor-pointer inline-flex items-center justify-center"
             aria-label="Create new stack">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -293,16 +293,16 @@ watch(activeId, () => { pushUrl(); refresh(); });
         @mouseenter="search.highlightIndex.value = $event"
       />
 
-      <div v-if="showDeleteConfirm" class="flex items-center gap-4 mb-3 p-4 bg-red-50 border-2 border-red-600">
+      <div v-if="showDeleteConfirm" class="flex items-center gap-4 mb-3 p-4 bg-red-50 border-2 border-red-600 rounded-xl">
         <span class="font-bold text-red-800">Delete this stack?</span>
         <button type="button" @click="handleDelete"
-          class="px-4 h-10 bg-red-600 text-white font-black hover:bg-red-700 transition-colors cursor-pointer border-none">Delete</button>
+          class="px-4 h-10 bg-red-600 text-white font-extrabold hover:bg-red-700 transition-colors cursor-pointer border-none rounded-full">Delete</button>
         <button type="button" @click="showDeleteConfirm = false"
-          class="px-4 h-10 bg-white border-2 border-gray-900 text-gray-900 font-black hover:bg-gray-100 transition-colors cursor-pointer">Cancel</button>
+          class="px-4 h-10 bg-white border border-brand-forest/10 text-brand-forest font-extrabold hover:bg-brand-bg transition-colors cursor-pointer rounded-full">Cancel</button>
       </div>
 
       <div v-if="stackTools.length === 0"
-        class="py-16 text-center bg-gray-50 border-2 border-dashed border-gray-300 text-gray-500 font-bold text-lg">
+        class="py-16 text-center bg-brand-bg border border-dashed border-brand-forest/20 text-brand-muted font-bold text-lg rounded-3xl">
         Start with an inference engine, chat interface, document tool, or vector database.
       </div>
 

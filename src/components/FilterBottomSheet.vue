@@ -64,10 +64,10 @@ onUnmounted(() => {
 <template>
     <Teleport to="body">
         <div class="fixed inset-0 bg-black/40 z-40 transition-opacity duration-300" :class="isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'" @click="handleOverlayClick">
-            <div class="fixed inset-x-0 bottom-0 bg-white border-t-2 border-gray-900 z-50 transition-transform duration-300 max-h-[85vh] flex flex-col rounded-none" :class="isOpen ? 'translate-y-0' : 'translate-y-full'">
-                <div class="flex items-center justify-between px-4 md:px-8 py-4 border-b-2 border-gray-900">
-                    <span class="text-lg font-black text-gray-900 tracking-tight">Filters</span>
-                    <button class="flex items-center justify-center p-2 bg-transparent border-2 border-transparent text-gray-500 hover:text-gray-900 transition-colors cursor-pointer" @click="close" aria-label="Close filters">
+            <div class="fixed inset-x-0 bottom-0 bg-white border-t border-brand-forest/10 z-50 transition-transform duration-300 max-h-[85vh] flex flex-col rounded-t-3xl" :class="isOpen ? 'translate-y-0' : 'translate-y-full'">
+                <div class="flex items-center justify-between px-4 md:px-8 py-4 border-b border-brand-forest/10">
+                    <span class="text-lg font-extrabold text-brand-forest tracking-tight">Filters</span>
+                    <button class="flex items-center justify-center p-2 bg-transparent border border-transparent text-brand-muted hover:text-brand-forest transition-colors cursor-pointer" @click="close" aria-label="Close filters">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2">
                             <path d="M18 6L6 18M6 6l12 12" />

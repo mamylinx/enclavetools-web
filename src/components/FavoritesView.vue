@@ -34,7 +34,7 @@ onUnmounted(() => {
 
 <template>
   <section v-if="isLoading" class="py-16 text-center">
-    <p class="text-lg font-bold text-gray-500 uppercase tracking-widest">Loading saved tools...</p>
+    <p class="text-lg font-bold text-brand-muted uppercase tracking-widest">Loading saved tools...</p>
   </section>
 
   <section v-else-if="bookmarkedTools.length === 0" class="py-12">
@@ -44,9 +44,9 @@ onUnmounted(() => {
   </section>
 
   <section v-else class="py-12">
-    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8 pb-6 border-b-2 border-gray-900">
+    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8 pb-6 border-b border-brand-forest/10">
       <div class="favorites-info">
-        <p class="text-2xl font-black text-gray-900 m-0 tracking-tight">
+        <p class="text-2xl font-extrabold text-brand-forest m-0 tracking-tight">
           {{ bookmarkedTools.length }} {{ bookmarkedTools.length === 1 ? 'tool' : 'tools' }} saved
         </p>
       </div>

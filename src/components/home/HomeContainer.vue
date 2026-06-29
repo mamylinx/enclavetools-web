@@ -43,15 +43,15 @@ const latestTools = computed(() => {
 <template>
     <div class="flex flex-col gap-8">
         <section>
-            <h3 class="text-2xl font-black text-gray-900 mb-4">{{ c.section_featured_tools || 'Featured Tools' }}</h3>
+            <h3 class="text-2xl font-extrabold text-brand-forest mb-4">{{ c.section_featured_tools || 'Featured Tools' }}</h3>
             <ul data-cards-grid role="list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 m-0 p-0">
                 <li v-if="featured"
-                    class="col-span-1 border-2 border-gray-200 p-6 bg-white transition-all duration-300 ease-out-expo hover:border-gray-900 hover:-translate-y-1 hover:shadow-card-hover list-none flex flex-col h-full">
-                    <div class="text-xs font-black uppercase text-gray-400 tracking-wider mb-3">{{ c.featured_label || 'Featured' }}</div>
-                    <div class="text-lg font-black text-gray-900 mb-2">{{ featured.title }}</div>
-                    <p class="text-sm font-medium text-gray-600 mb-4 flex-1">{{ featured.description }}</p>
+                    class="col-span-1 border border-brand-forest/10 rounded-3xl p-6 bg-white transition-all duration-300 ease-out-expo hover:border-brand-forest hover:-translate-y-1 hover:shadow-lg list-none flex flex-col h-full">
+                    <div class="text-xs font-extrabold uppercase text-brand-muted tracking-wider mb-3">{{ c.featured_label || 'Featured' }}</div>
+                    <div class="text-lg font-extrabold text-brand-forest mb-2">{{ featured.title }}</div>
+                    <p class="text-sm font-medium text-brand-muted mb-4 flex-1">{{ featured.description }}</p>
                     <a :href="featured.url || '/submit'"
-                        class="block w-full h-10 bg-gray-900 text-white font-bold hover:bg-primary-500 transition-colors text-center no-underline border-none inline-flex items-center justify-center">{{ featured.cta }}</a>
+                        class="block w-full h-10 bg-brand-forest text-white font-bold hover:bg-brand-teal transition-colors text-center no-underline border-none rounded-full inline-flex items-center justify-center">{{ featured.cta }}</a>
                 </li>
                 <Card v-for="(item, i) in featuredTools" :key="`featured-${i}`" :href="item.url" :title="item.title"
                     :body="item.body" :license="item.license" :date-added="item['date-added']" :slug="item.slug"
@@ -63,20 +63,20 @@ const latestTools = computed(() => {
         </section>
 
         <section v-if="sponsors.length > 0">
-            <h3 class="text-2xl font-black text-gray-900 mb-4">{{ c.marketing_sponsor_label || 'Sponsor' }}</h3>
+            <h3 class="text-2xl font-extrabold text-brand-forest mb-4">{{ c.marketing_sponsor_label || 'Sponsor' }}</h3>
             <div class="grid gap-4"
                 :class="sponsors.length === 1 ? 'grid-cols-1' : sponsors.length === 2 ? 'grid-cols-1 sm:grid-cols-2' : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'">
                 <a v-for="sponsor in sponsors" :key="sponsor.title || sponsor.cta"
                     :href="sponsor.url || '#'"
-                    class="flex flex-col border-2 border-gray-200 p-6 bg-white transition-all duration-300 ease-out-expo hover:border-gray-900 hover:-translate-y-1 hover:shadow-card-hover no-underline">
-                    <div class="text-xs font-black uppercase text-gray-400 tracking-wider mb-3">{{ c.marketing_sponsor_label || 'Sponsor' }}</div>
-                    <div v-if="sponsor.title" class="text-xl font-black text-gray-900 mb-2">{{ sponsor.title }}</div>
-                    <p class="text-sm font-medium text-gray-600 flex-1">{{ sponsor.description }}</p>
+                    class="flex flex-col border border-brand-forest/10 rounded-3xl p-6 bg-white transition-all duration-300 ease-out-expo hover:border-brand-forest hover:-translate-y-1 hover:shadow-lg no-underline">
+                    <div class="text-xs font-extrabold uppercase text-brand-muted tracking-wider mb-3">{{ c.marketing_sponsor_label || 'Sponsor' }}</div>
+                    <div v-if="sponsor.title" class="text-xl font-extrabold text-brand-forest mb-2">{{ sponsor.title }}</div>
+                    <p class="text-sm font-medium text-brand-muted flex-1">{{ sponsor.description }}</p>
                 </a>
             </div>
             <div class="flex justify-center mt-6">
                 <a href="/submit"
-                    class="text-sm font-bold bg-white border-2 border-gray-900 text-gray-900 h-10 px-4 inline-flex items-center hover:bg-primary-500 hover:text-white hover:border-primary-500 transition-colors no-underline">
+                    class="text-sm font-bold bg-white border border-brand-forest/10 text-brand-forest h-10 px-4 inline-flex items-center hover:bg-brand-teal hover:text-white hover:border-brand-teal transition-colors no-underline rounded-full">
                     Sponsor the directory <svg class="w-4 h-4 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
                 </a>
             </div>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted, ref } from 'vue';
+import { computed, onMounted, onUnmounted, ref } from 'vue';
 import { compareRows, formatCompareValue, type ToolWithCategory } from '../utils/toolModel';
 import { localStorageAdapter as storage } from '../lib/storage';
 
@@ -48,6 +48,11 @@ function syncUrl() {
   storage.setItem('enclavetools-compare', JSON.stringify(selected.value));
 }
 
+function handleCompareChanged(event: Event) {
+  selected.value = ((event as CustomEvent<{ slugs?: string[] }>).detail?.slugs || []).slice(0, 4);
+  syncUrl();
+}
+
 function remove(slug?: string) {
   selected.value = selected.value.filter((item) => item !== slug);
   syncUrl();
@@ -55,7 +60,11 @@ function remove(slug?: string) {
 
 function addTool(event: Event) {
   const slug = (event.target as HTMLSelectElement).value;
-  if (!slug || selected.value.includes(slug) || selected.value.length >= 4) return;
+  if (!slug || selected.value.includes(slug)) return;
+  if (selected.value.length >= 4) {
+    window.dispatchEvent(new CustomEvent('compare:limit'));
+    return;
+  }
   selected.value.push(slug);
   syncUrl();
   (event.target as HTMLSelectElement).value = '';
@@ -97,49 +106,56 @@ function share() {
   navigator.clipboard.writeText(window.location.href);
 }
 
-onMounted(loadFromUrl);
+onMounted(() => {
+  loadFromUrl();
+  window.addEventListener('compare:changed', handleCompareChanged);
+});
+
+onUnmounted(() => {
+  window.removeEventListener('compare:changed', handleCompareChanged);
+});
 </script>
 
 <template>
   <section class="max-w-[1400px] mx-auto px-4 md:px-8 py-12">
-    <div class="flex flex-col md:flex-row items-center gap-3 mb-8 p-4 bg-gray-50 border-2 border-gray-900 flex-wrap">
-      <select class="flex-1 w-full bg-white border-2 border-gray-900 px-4 h-12 font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500  cursor-pointer min-w-[200px]" @change="addTool">
+    <div class="flex flex-col md:flex-row items-center gap-3 mb-8 p-4 bg-brand-bg border border-brand-forest/10 flex-wrap">
+      <select class="flex-1 w-full bg-white border border-brand-forest/10 px-4 h-12 font-bold text-brand-forest focus:outline-none focus:ring-2 focus:ring-brand-teal cursor-pointer min-w-[200px] rounded-full" @change="addTool">
         <option value="">Add a tool</option>
         <option v-for="tool in allTools" :key="tool.slug" :value="tool.slug" :disabled="selected.includes(tool.slug || '')">
           {{ tool.title }}
         </option>
       </select>
-      <label class="flex items-center gap-3 font-bold text-gray-700 cursor-pointer whitespace-nowrap h-12"><input class="w-5 h-5 border-2 border-gray-900 text-primary-500 focus:ring-primary-500  cursor-pointer" v-model="differencesOnly" type="checkbox" /> Show differences only</label>
-      <button class="w-full md:w-auto px-4 h-12 bg-gray-900 text-white font-black hover:bg-primary-500 transition-colors cursor-pointer border-none whitespace-nowrap inline-flex items-center" type="button" @click="copyMarkdown">Copy Markdown</button>
-      <button class="w-full md:w-auto px-4 h-12 bg-gray-900 text-white font-black hover:bg-primary-500 transition-colors cursor-pointer border-none whitespace-nowrap inline-flex items-center" type="button" @click="downloadCsv">Download CSV</button>
-      <button class="w-full md:w-auto px-4 h-12 bg-gray-900 text-white font-black hover:bg-primary-500 transition-colors cursor-pointer border-none whitespace-nowrap inline-flex items-center" type="button" @click="share">Share comparison</button>
+      <label class="flex items-center gap-3 font-bold text-brand-forest/80 cursor-pointer whitespace-nowrap h-12"><input class="w-5 h-5 border border-brand-forest/10 text-brand-teal focus:ring-brand-teal  cursor-pointer" v-model="differencesOnly" type="checkbox" /> Show differences only</label>
+      <button class="w-full md:w-auto px-4 h-12 bg-brand-forest text-white font-extrabold hover:bg-brand-teal transition-colors cursor-pointer border-none rounded-full whitespace-nowrap inline-flex items-center" type="button" @click="copyMarkdown">Copy Markdown</button>
+      <button class="w-full md:w-auto px-4 h-12 bg-brand-forest text-white font-extrabold hover:bg-brand-teal transition-colors cursor-pointer border-none rounded-full whitespace-nowrap inline-flex items-center" type="button" @click="downloadCsv">Download CSV</button>
+      <button class="w-full md:w-auto px-4 h-12 bg-brand-forest text-white font-extrabold hover:bg-brand-teal transition-colors cursor-pointer border-none rounded-full whitespace-nowrap inline-flex items-center" type="button" @click="share">Share comparison</button>
     </div>
 
-    <div v-if="selectedTools.length < 2" class="py-16 text-center bg-gray-50 border-2 border-dashed border-gray-300 text-gray-500 font-bold text-lg">
-      Select at least two tools from Browse or use the selector above.
+    <div v-if="selectedTools.length === 0" class="py-16 text-center bg-brand-bg border border-dashed border-brand-forest/20 text-brand-muted font-bold text-lg">
+      Select a tool to start comparing, or use the selector above.
     </div>
 
-    <div v-else class="overflow-x-auto w-full border-2 border-gray-900 bg-white">
+    <div v-else class="overflow-x-auto w-full border border-brand-forest/10 bg-white rounded-xl">
       <table class="w-full text-left border-collapse min-w-[800px] table-fixed">
         <colgroup>
-          <col class="w-40" />
+          <col />
           <col v-for="tool in selectedTools" :key="`col-${tool.slug}`" />
         </colgroup>
         <thead>
           <tr>
-            <th class="p-4 border-b-2 border-gray-900 border-r-2 bg-gray-50 font-black text-gray-900 uppercase tracking-wider text-sm align-bottom">Attribute</th>
-            <th class="p-4 border-b-2 border-gray-900 border-r-2 last:border-r-0 bg-gray-50 font-black text-gray-900 uppercase tracking-wider text-sm align-bottom" v-for="tool in selectedTools" :key="tool.slug">
+            <th class="p-4 border-b border-brand-forest/10 border-r border-brand-forest/10 bg-brand-bg font-extrabold text-brand-forest uppercase tracking-wider text-sm align-bottom">Attribute</th>
+            <th class="p-4 border-b border-brand-forest/10 border-r border-brand-forest/10 last:border-r-0 bg-brand-bg font-extrabold text-brand-forest uppercase tracking-wider text-sm align-bottom" v-for="tool in selectedTools" :key="tool.slug">
               <div class="flex flex-col gap-3 items-start">
-                <a class="text-primary-500 hover:text-primary-600 no-underline" :href="`/tools/${tool.slug}`">{{ tool.title }}</a>
-                <button class="px-3 h-10 bg-white border-2 border-gray-900 text-gray-900 text-xs font-bold hover:bg-primary-500 hover:text-white hover:border-primary-500 transition-colors cursor-pointer inline-flex items-center" type="button" @click="remove(tool.slug)">Remove</button>
+                <a class="text-brand-teal hover:text-brand-teal no-underline" :href="`/tools/${tool.slug}`">{{ tool.title }}</a>
+                <button class="px-3 h-10 bg-white border border-brand-forest/10 text-brand-forest text-xs font-bold hover:bg-brand-teal hover:text-white hover:border-brand-teal transition-colors cursor-pointer inline-flex items-center rounded-full" type="button" @click="remove(tool.slug)">Remove</button>
               </div>
             </th>
           </tr>
         </thead>
         <tbody>
-          <tr class="hover:bg-gray-50/50 transition-colors" v-for="[label, key] in visibleRows" :key="key">
-            <td class="p-4 border-b-2 border-gray-200 border-r-2 border-gray-900 font-bold text-gray-900">{{ label }}</td>
-            <td class="p-4 border-b-2 border-gray-200 border-r-2 last:border-r-0 text-gray-700 leading-relaxed break-words" v-for="tool in selectedTools" :key="`${tool.slug}-${key}`">
+          <tr class="hover:bg-brand-tealLight/50 transition-colors" v-for="[label, key] in visibleRows" :key="key">
+            <td class="p-4 border-b border-brand-forest/10 border-r border-brand-forest/10 font-bold text-brand-forest">{{ label }}</td>
+            <td class="p-4 border-b border-brand-forest/10 border-r border-brand-forest/10 last:border-r-0 text-brand-forest/80 leading-relaxed break-words" v-for="tool in selectedTools" :key="`${tool.slug}-${key}`">
               {{ valueFor(tool, key) }}
             </td>
           </tr>

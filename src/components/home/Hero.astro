@@ -13,21 +13,21 @@ const {
 ---
 
 <div
-  class="text-center relative overflow-hidden flex flex-col items-center justify-center py-16 lg:py-24 px-4 md:px-8 border-b-2 border-gray-900"
+  class="bg-brand-cyanBg relative overflow-hidden flex flex-col items-center justify-center py-16 lg:py-24 px-4 md:px-8 border-b border-brand-forest/10"
 >
-  <header class="max-w-3xl">
+  <header class="max-w-3xl text-center">
     {eyebrow && (
-      <p class="inline-flex items-center bg-primary-100 text-primary-700 border-2 border-primary-500 px-3 py-1 text-xs font-black uppercase tracking-wider mb-6 rounded-none">
+      <p class="inline-flex items-center bg-white text-brand-teal border border-brand-teal/30 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-[0.1em] mb-6">
         {eyebrow}
       </p>
     )}
     {title && (
-      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-gray-900 mb-8">
-        <strong class="font-black">{title}</strong>
+      <h1 class="hero-headline-inline text-2xl sm:text-5xl lg:text-[4.5rem] font-extrabold text-brand-forest tracking-tight font-sans mb-8">
+        {title}
       </h1>
     )}
     {tagline && (
-      <p class="text-lg text-gray-500 font-medium leading-relaxed max-w-2xl mx-auto">
+      <p class="font-sans text-brand-forest/90 text-lg lg:text-xl italic leading-relaxed max-w-2xl mx-auto">
         {tagline}
       </p>
     )}

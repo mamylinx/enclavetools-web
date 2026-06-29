@@ -77,15 +77,15 @@ const iconMap: Record<string, Component> = {
 </script>
 
 <template>
-    <div class="flex flex-col items-center justify-center py-16 text-center px-4 bg-gray-50/50 border-2 border-dashed border-gray-300">
-        <div v-if="iconComponent" class="text-gray-300 mb-6 w-16 h-16">
+    <div class="flex flex-col items-center justify-center py-16 text-center px-4 bg-brand-bg/50 border border-dashed border-brand-forest/20">
+        <div v-if="iconComponent" class="text-brand-forest/20 mb-6 w-16 h-16">
             <component :is="iconComponent" />
         </div>
-        <p v-if="props.message" class="text-lg font-bold text-gray-500 mb-6 max-w-[400px]">{{ props.message }}</p>
-        <a v-if="props.actionText && props.actionHref" :href="props.actionHref" class="inline-flex px-4 h-12 bg-gray-900 text-white font-bold no-underline hover:bg-primary-500 transition-colors border-none cursor-pointer rounded-none items-center justify-center">
+        <p v-if="props.message" class="text-lg font-bold text-brand-muted mb-6 max-w-[400px]">{{ props.message }}</p>
+        <a v-if="props.actionText && props.actionHref" :href="props.actionHref" class="inline-flex px-4 h-12 bg-brand-forest text-white font-bold no-underline hover:bg-brand-teal transition-colors border-none cursor-pointer rounded-full items-center justify-center">
             {{ props.actionText }}
         </a>
-        <button v-else-if="props.actionText" class="inline-flex px-4 h-12 bg-gray-900 text-white font-bold no-underline hover:bg-primary-500 transition-colors border-none cursor-pointer rounded-none items-center justify-center" @click="emit('action')">
+        <button v-else-if="props.actionText" class="inline-flex px-4 h-12 bg-brand-forest text-white font-bold no-underline hover:bg-brand-teal transition-colors border-none cursor-pointer rounded-full items-center justify-center" @click="emit('action')">
             {{ props.actionText }}
         </button>
     </div>

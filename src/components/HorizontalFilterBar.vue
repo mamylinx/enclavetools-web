@@ -123,13 +123,13 @@ function handleGlobalClick(e: MouseEvent) {
 
 <template>
   <div ref="dropdownEl" class="w-full">
-    <div class="max-w-[1400px] mx-auto px-4 md:px-8 py-4 flex flex-wrap items-center gap-2 bg-gray-50">
+    <div class="max-w-[1400px] mx-auto px-4 md:px-8 py-4 flex flex-wrap items-center gap-2 bg-brand-bg">
       <div v-for="group in visibleGroups" :key="group.key" class="relative">
         <button
-          class="h-10 px-4 text-xs font-black uppercase tracking-wider border-2 transition-colors duration-150 flex items-center gap-2 whitespace-nowrap"
+          class="h-10 px-4 text-xs font-extrabold uppercase tracking-wider border transition-colors duration-150 flex items-center gap-2 whitespace-nowrap rounded-full"
           :class="groupCount(group.key as keyof FilterState) > 0
-            ? 'bg-gray-900 text-white border-gray-900 hover:bg-primary-500 hover:border-primary-500'
-            : 'bg-white text-gray-900 border-gray-200 hover:border-gray-900'"
+            ? 'bg-brand-forest text-white border-brand-forest hover:bg-brand-teal hover:border-brand-teal'
+            : 'bg-white text-brand-forest border-brand-forest/10 hover:border-brand-forest'"
           @click.stop="toggleDropdown(group.key)"
           :aria-expanded="openDropdown === group.key"
         >
@@ -146,7 +146,7 @@ function handleGlobalClick(e: MouseEvent) {
 
         <div
           v-if="openDropdown === group.key"
-          class="absolute top-full left-0 mt-1 z-50 border-2 border-gray-900 bg-white shadow-card"
+          class="absolute top-full left-0 mt-1 z-50 border border-brand-forest/10 bg-white shadow-sm rounded-xl"
         >
           <div
             class="max-h-72 p-2 gap-1 overflow-x-hidden overflow-y-auto"
@@ -156,10 +156,10 @@ function handleGlobalClick(e: MouseEvent) {
               <button
                 v-for="opt in group.options"
                 :key="String(opt.value)"
-                class="block w-full text-left px-3 py-2 text-xs font-bold transition-all duration-150 border-2 whitespace-nowrap break-inside-avoid mb-1"
+                class="block w-full text-left px-3 py-2 text-xs font-bold transition-all duration-150 border whitespace-nowrap break-inside-avoid mb-1 rounded-lg"
                 :class="isOptionSelected(group.key, opt.value)
-                  ? 'bg-gray-900 text-white border-gray-900'
-                  : 'text-gray-600 bg-white border-transparent hover:border-gray-900 hover:text-gray-900'"
+                  ? 'bg-brand-forest text-white border-brand-forest'
+                  : 'text-brand-muted bg-white border-transparent hover:border-brand-forest hover:text-brand-forest'"
                 @click="handleSingleSelect(group.key, opt.value)"
               >
                 {{ optionLabel(group.key, opt.value) }}
@@ -169,10 +169,10 @@ function handleGlobalClick(e: MouseEvent) {
               <button
                 v-for="opt in group.options"
                 :key="String(opt.value)"
-                class="block w-full text-left px-3 py-2 text-xs font-bold transition-all duration-150 border-2 whitespace-nowrap break-inside-avoid mb-1"
+                class="block w-full text-left px-3 py-2 text-xs font-bold transition-all duration-150 border whitespace-nowrap break-inside-avoid mb-1 rounded-lg"
                 :class="isOptionSelected(group.key, opt.value)
-                  ? 'bg-gray-900 text-white border-gray-900'
-                  : 'text-gray-600 bg-white border-transparent hover:border-gray-900 hover:text-gray-900'"
+                  ? 'bg-brand-forest text-white border-brand-forest'
+                  : 'text-brand-muted bg-white border-transparent hover:border-brand-forest hover:text-brand-forest'"
                 @click="handleToggle(group.key, opt.value || '')"
               >
                 {{ opt.label }}
@@ -186,7 +186,7 @@ function handleGlobalClick(e: MouseEvent) {
 
       <button
         v-if="activeCount > 0"
-        class="h-10 px-4 text-xs font-black uppercase tracking-wider bg-white text-gray-500 border-2 border-gray-200 hover:border-red-500 hover:text-red-500 transition-colors duration-150"
+        class="h-10 px-4 text-xs font-extrabold uppercase tracking-wider bg-white text-brand-muted border border-brand-forest/10 hover:border-red-500 hover:text-red-500 transition-colors duration-150 rounded-full"
         @click="emit('clear-all')"
       >
         Clear all ({{ activeCount }})

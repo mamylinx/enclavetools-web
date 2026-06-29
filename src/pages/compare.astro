@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import CompareView from "../components/CompareView.vue";
+import CompareTray from "../components/CompareTray.vue";
 import toolsData from "../data/tools.json";
 
 const allTools = toolsData.tools.flatMap((cat: any) =>
@@ -23,4 +24,5 @@ const allTools = toolsData.tools.flatMap((cat: any) =>
   showHero={true}
 >
   <CompareView client:visible tools={allTools} />
+  <CompareTray client:load tools={allTools as any} />
 </Layout>

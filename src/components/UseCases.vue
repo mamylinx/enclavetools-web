@@ -17,16 +17,16 @@ const props = defineProps<{
 <template>
     <section
         id="use-cases"
-        class="max-w-[1400px] mx-auto px-4 md:px-8 py-12 scroll-mt-20 bg-gray-50"
+        class="max-w-[1400px] mx-auto px-4 md:px-8 py-12 scroll-mt-20 bg-brand-bg"
         aria-labelledby="use-cases-heading"
     >
         <div>
-            <p class="text-xs font-black uppercase tracking-widest text-gray-900 mb-2">
+            <p class="text-xs font-extrabold uppercase tracking-widest text-brand-forest mb-2">
                 {{ eyebrow || "Use cases" }}
             </p>
             <h2
                 id="use-cases-heading"
-                class="max-w-[640px] text-3xl md:text-4xl lg:text-5xl text-gray-900 font-black tracking-tight mb-6"
+                class="max-w-[640px] text-3xl md:text-4xl lg:text-5xl text-brand-forest font-extrabold tracking-tight mb-6"
             >
                 {{ heading || "Start from the risk you need to control." }}
             </h2>
@@ -36,23 +36,23 @@ const props = defineProps<{
             <div
                 v-for="(p, index) in persona"
                 :key="index"
-                class="border-2 border-gray-900 p-6 bg-white"
+                class="border border-brand-forest/10 p-6 bg-white rounded-xl"
                 :class="{ 'mt-8': index > 0 }"
             >
                 <div class="flex flex-col md:flex-row md:items-start gap-4 mb-6">
                     <div class="flex items-start gap-4 flex-1 min-w-0 w-full md:w-auto">
                         <span
-                            class="text-sm font-black shrink-0 bg-gray-900 text-white w-8 h-8 flex items-center justify-center"
+                            class="text-sm font-extrabold shrink-0 bg-brand-forest text-white w-8 h-8 flex items-center justify-center rounded-full"
                         >
                             {{ String(index + 1).padStart(2, "0") }}
                         </span>
                         <div class="flex-1 min-w-0">
                             <div class="flex items-center gap-2 md:gap-3 flex-wrap">
-                                <h3 class="text-lg md:text-xl font-black text-gray-900">
+                                <h3 class="text-lg md:text-xl font-extrabold text-brand-forest">
                                     {{ p }}
                                 </h3>
                                 <span
-                                    class="inline-flex items-center px-2 py-1 text-xs font-black uppercase border-2 border-gray-900 bg-gray-900 text-white"
+                                    class="inline-flex items-center px-2 py-1 text-xs font-extrabold uppercase border border-brand-forest/10 bg-brand-forest text-white rounded-full"
                                 >
                                     {{ featuredCounts[index] }}
                                     {{ featuredCounts[index] === 1 ? "tool" : "tools" }}
@@ -62,7 +62,7 @@ const props = defineProps<{
                     </div>
                     <a
                         :href="'/all?persona=' + encodeURIComponent(p)"
-                        class="shrink-0 inline-flex items-center justify-center h-10 border-2 border-gray-900 px-4 text-xs font-black uppercase tracking-wider bg-white text-gray-900 hover:bg-primary-500 hover:text-white hover:border-primary-500 transition-all duration-300 ease-out-expo hover:-translate-y-1 no-underline w-full md:w-auto"
+                        class="shrink-0 inline-flex items-center justify-center h-10 border border-brand-forest/10 px-4 text-xs font-extrabold uppercase tracking-wider bg-white text-brand-forest hover:bg-brand-teal hover:text-white hover:border-brand-teal transition-all duration-300 ease-out-expo hover:-translate-y-1 no-underline w-full md:w-auto"
                     >
                         <span class="hidden md:inline">Browse tools for {{ p }}</span>
                         <span class="md:hidden">Browse</span>
@@ -78,12 +78,12 @@ const props = defineProps<{
                         v-for="tool in featuredTools[index].slice(0, 4)"
                         :key="tool.slug"
                         :href="`/tools/${tool.slug}`"
-                        class="border-2 border-gray-200 p-6 bg-white no-underline block group transition-all duration-300 ease-out-expo hover:border-gray-900 hover:-translate-y-1 hover:shadow-card-hover"
+                        class="border border-brand-forest/10 p-6 bg-white no-underline block group transition-all duration-300 ease-out-expo hover:border-brand-forest hover:-translate-y-1 hover:shadow-lg"
                     >
-                        <strong class="block text-sm font-black text-gray-900 group-hover:text-primary-500 transition-colors">
+                        <strong class="block text-sm font-extrabold text-brand-forest group-hover:text-brand-teal transition-colors">
                             {{ tool.title }}
                         </strong>
-                        <span class="text-xs text-gray-500 mt-1 line-clamp-2">
+                        <span class="text-xs text-brand-muted mt-1 line-clamp-2">
                             {{ tool.body }}
                         </span>
                     </a>

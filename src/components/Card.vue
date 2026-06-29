@@ -1,46 +1,46 @@
 <template>
   <li
-    class="relative list-none flex flex-col gap-4 bg-white border-2 border-gray-200 p-6 transition-all duration-300 ease-out-expo cursor-pointer hover:border-gray-900 hover:-translate-y-1 hover:shadow-card-hover group"
-    :class="{ 'border-gray-900 bg-gray-50': isFeatured }">
+    class="relative list-none flex flex-col gap-4 bg-white border border-brand-forest/10 rounded-3xl p-6 transition-all duration-300 ease-out-expo cursor-pointer hover:border-brand-forest hover:-translate-y-1 hover:shadow-lg group"
+    :class="{ 'border-brand-teal bg-brand-tealLight': isFeatured }">
     <div v-if="slug" class="absolute top-2 right-2 z-10 hidden group-hover:block">
-      <label class="flex items-center gap-2 text-xs cursor-pointer bg-white/90 px-2 py-1 border-2 border-gray-200"
+      <label class="flex items-center gap-2 text-xs cursor-pointer bg-white/90 px-2 py-1 border border-brand-forest/10 rounded-full"
         @click.stop>
         <input type="checkbox" :checked="isCompared" @change="toggleCompare"
-          class="w-3 h-3 text-primary-500 border-gray-300 focus:ring-primary-500" />
-        <span class="text-gray-900 font-bold">Compare</span>
+          class="w-3 h-3 text-brand-teal border-brand-forest/20 focus:ring-brand-teal" />
+        <span class="text-brand-forest font-bold">Compare</span>
       </label>
     </div>
     <a :href="linkUrl" @click="handleClick"
       class="flex flex-col justify-between w-full h-full p-0 text-inherit no-underline gap-3">
       <div class="flex items-start gap-3">
         <div
-          class="w-10 h-10 bg-gray-50 border-2 border-gray-200 flex items-center justify-center shrink-0 text-gray-900 font-medium">
+          class="w-10 h-10 bg-brand-bg border border-brand-forest/10 flex items-center justify-center shrink-0 text-brand-forest font-medium rounded-xl">
           <component :is="categoryIcon" :size="18" :stroke-width="2" />
         </div>
         <div class="flex-1 min-w-0">
-          <div class="text-lg font-black text-gray-900 tracking-[-0.2px] truncate mb-1">
+          <div class="text-lg font-extrabold text-brand-forest tracking-[-0.2px] truncate mb-1">
             {{ title }}
             <span v-if="isFeatured"
-              class="inline-block text-xs font-black uppercase tracking-widest px-2 py-1 mb-2 bg-primary-100 text-primary-700">Featured</span>
+              class="inline-block text-xs font-extrabold uppercase tracking-widest px-2 py-1 mb-2 bg-brand-tealLight text-brand-teal">Featured</span>
           </div>
-          <div class="text-xs text-gray-500">{{ category }}</div>
+          <div class="text-xs text-brand-muted">{{ category }}</div>
         </div>
       </div>
-      <div class="text-sm leading-relaxed text-gray-600 m-0 line-clamp-2">{{ body }}</div>
+      <div class="text-sm leading-relaxed text-brand-muted m-0 line-clamp-2">{{ body }}</div>
       <div class="flex flex-wrap gap-2">
         <span v-if="setupDifficulty"
-          class="inline-flex items-center h-6 border-2 border-gray-200 px-2 text-xs font-bold text-gray-900 bg-white"
+          class="items-center h-6 border border-brand-forest/10 px-2.5 text-xs font-bold text-brand-forest bg-brand-tealLight rounded-full"
           :class="setupClass">{{ setupDifficulty }} setup</span>
         <span v-if="primaryHardware"
-          class="inline-flex items-center h-6 border-2 border-gray-200 px-2 text-xs font-bold text-gray-900 bg-white">{{
+          class="items-center h-6 border border-brand-forest/10 px-2.5 text-xs font-bold text-brand-forest bg-brand-tealLight rounded-full">{{
           primaryHardware }}</span>
         <span v-if="commercialUse"
-          class="inline-flex items-center h-6 border-2 border-gray-200 px-2 text-xs font-bold text-gray-900 bg-white">Commercial
+          class="items-center h-6 border border-brand-forest/10 px-2.5 text-xs font-bold text-brand-forest bg-brand-tealLight rounded-full">Commercial
           use</span>
       </div>
       <div class="flex items-center justify-between mt-1 gap-3 flex-wrap">
         <span class="text-xs font-bold px-2 py-1 font-sans" :class="priceClass">{{ license }}</span>
-        <span class="flex flex-wrap justify-end gap-2 text-gray-500 text-xs font-bold">
+        <span class="flex flex-wrap justify-end gap-2 text-brand-muted text-xs font-bold">
           <span v-if="githubStars" class="whitespace-nowrap">★ {{ formattedStars }}</span>
           <span v-if="lastUpdated" class="whitespace-nowrap">Updated {{ formattedUpdated }}</span>
         </span>
@@ -57,8 +57,7 @@
 import { computed, ref, onMounted, onUnmounted } from 'vue';
 import BookmarkButton from './BookmarkButton.vue';
 import categoryIcons from '../data/category-icons.json';
-import * as LucideIcons from 'lucide-vue-next';
-import type { Component } from 'vue';
+import { iconMap } from '../lib/icons';
 import { localStorageAdapter as storage } from '../lib/storage';
 
 const props = defineProps<{
@@ -129,10 +128,10 @@ const categoryIcon = computed(() => {
   const iconName = (categoryIcons as Record<string, string>)[props.category || ''];
   if (iconName) {
     const pascalName = iconName.replace(/(?:^|-)(\w)/g, (_, c) => c.toUpperCase());
-    const icon = (LucideIcons as Record<string, Component>)[pascalName];
+    const icon = iconMap[pascalName];
     if (icon) return icon;
   }
-  return LucideIcons.Circle;
+  return iconMap.Circle;
 });
 
 const priceClass = computed(() => {
