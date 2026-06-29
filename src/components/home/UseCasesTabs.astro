@@ -61,12 +61,12 @@ const { PERSONA, featuredTools, filteredCounts, filterOptions, useCaseContent, s
                     {featuredTools[i].slice(0, 4).map((tool: any) => (
                       <a
                         href={`/tools/${tool.slug}`}
-                        class="p-4 bg-brand-bg border border-brand-forest/10 rounded-xl block group transition-all hover:-translate-y-0.5"
+                        class="p-4 bg-brand-bg border border-brand-forest/10 rounded-xl group transition-all hover:-translate-y-0.5"
                       >
-                        <strong class="block text-sm font-bold text-brand-forest group-hover:text-brand-teal transition-colors">
+                        <strong class="text-sm font-bold text-brand-forest group-hover:text-brand-teal transition-colors">
                           {tool.title}
                         </strong>
-                        <span class="text-xs text-brand-muted mt-1 line-clamp-2 block">
+                        <span class="text-xs text-brand-muted mt-1 line-clamp-2">
                           {tool.body}
                         </span>
                       </a>
