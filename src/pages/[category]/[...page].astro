@@ -81,19 +81,19 @@ const tools = page.data;
             page.url.prev ? (
                 <a
                     href={page.url.prev}
-                    class="inline-flex items-center h-12 px-6 border border-brand-forest/10 text-xs font-extrabold uppercase tracking-wider text-brand-forest hover:bg-brand-forest hover:text-white transition-all duration-200 no-underline rounded-full"
+                    class="inline-flex items-center h-12 px-6 border border-brand-forest/10 text-xs font-bold uppercase tracking-wider text-brand-forest hover:bg-brand-forest hover:text-white transition-all duration-200 no-underline rounded-full"
                 >
                     ← Previous
                 </a>
             ) : null
         }
-        <span class="px-4 text-xs font-extrabold uppercase tracking-wider text-brand-muted">Page {page.currentPage} of {page.lastPage}</span
+        <span class="px-4 text-xs font-bold uppercase tracking-wider text-brand-muted">Page {page.currentPage} of {page.lastPage}</span
         >
         {
             page.url.next ? (
                 <a
                     href={page.url.next}
-                    class="inline-flex items-center h-12 px-6 border border-brand-forest/10 text-xs font-extrabold uppercase tracking-wider text-brand-forest hover:bg-brand-forest hover:text-white transition-all duration-200 no-underline rounded-full"
+                    class="inline-flex items-center h-12 px-6 border border-brand-forest/10 text-xs font-bold uppercase tracking-wider text-brand-forest hover:bg-brand-forest hover:text-white transition-all duration-200 no-underline rounded-full"
                 >
                     Next
                     <svg class="w-4 h-4 ml-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">

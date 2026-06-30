@@ -62,7 +62,7 @@ const emit = defineEmits<{
         </div>
 
         <template v-for="[cat, tools] in filteredGroups" :key="cat">
-          <div class="px-3 pt-2 pb-1 text-xs font-extrabold uppercase tracking-widest text-brand-muted bg-brand-bg border-b border-brand-forest/10 sticky top-0">
+          <div class="px-3 pt-2 pb-1 text-xs font-bold uppercase tracking-wider text-brand-muted bg-brand-bg border-b border-brand-forest/10 sticky top-0">
             {{ cat }}
           </div>
           <button
@@ -81,7 +81,7 @@ const emit = defineEmits<{
                 : 'bg-white text-brand-forest hover:bg-brand-tealLight'
             ]"
           >
-            <span class="font-extrabold text-sm leading-tight">{{ tool.title }}</span>
+            <span class="font-bold text-sm leading-tight">{{ tool.title }}</span>
             <span
               :class="['text-xs leading-snug truncate', isHighlighted(tool.slug) ? 'text-white/80' : 'text-brand-muted']"
             >{{ (tool.plain_description || tool.body || '').slice(0, 80) }}</span>

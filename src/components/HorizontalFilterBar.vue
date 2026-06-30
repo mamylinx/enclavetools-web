@@ -126,7 +126,7 @@ function handleGlobalClick(e: MouseEvent) {
     <div class="max-w-[1400px] mx-auto px-4 md:px-8 py-4 flex flex-wrap items-center gap-2 bg-brand-bg">
       <div v-for="group in visibleGroups" :key="group.key" class="relative">
         <button
-          class="h-10 px-4 text-xs font-extrabold uppercase tracking-wider border transition-colors duration-150 flex items-center gap-2 whitespace-nowrap rounded-full"
+          class="h-10 px-4 text-xs font-bold uppercase tracking-wider border transition-colors duration-150 flex items-center gap-2 whitespace-nowrap rounded-full"
           :class="groupCount(group.key as keyof FilterState) > 0
             ? 'bg-brand-forest text-white border-brand-forest hover:bg-brand-teal hover:border-brand-teal'
             : 'bg-white text-brand-forest border-brand-forest/10 hover:border-brand-forest'"
@@ -146,7 +146,7 @@ function handleGlobalClick(e: MouseEvent) {
 
         <div
           v-if="openDropdown === group.key"
-          class="absolute top-full left-0 mt-1 z-50 border border-brand-forest/10 bg-white shadow-sm rounded-xl"
+          class="absolute top-full left-0 mt-1 z-50 border border-brand-forest/10 bg-white shadow-sm rounded-2xl"
         >
           <div
             class="max-h-72 p-2 gap-1 overflow-x-hidden overflow-y-auto"
@@ -186,7 +186,7 @@ function handleGlobalClick(e: MouseEvent) {
 
       <button
         v-if="activeCount > 0"
-        class="h-10 px-4 text-xs font-extrabold uppercase tracking-wider bg-white text-brand-muted border border-brand-forest/10 hover:border-red-500 hover:text-red-500 transition-colors duration-150 rounded-full"
+        class="h-10 px-4 text-xs font-bold uppercase tracking-wider bg-white text-brand-muted border border-brand-forest/10 hover:border-red-500 hover:text-red-500 transition-colors duration-150 rounded-full"
         @click="emit('clear-all')"
       >
         Clear all ({{ activeCount }})

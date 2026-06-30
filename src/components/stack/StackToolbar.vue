@@ -26,7 +26,7 @@ const emit = defineEmits<{
 </script>
 
 <template>
-  <div class="mb-3 p-4 bg-brand-bg border border-brand-forest/10 rounded-2xl">
+  <div class="mb-3 p-4 bg-brand-bg border border-brand-forest/10 rounded-3xl">
     <!-- Create form -->
     <div v-if="creating" class="flex flex-col md:flex-row items-center gap-3 w-full">
       <input id="ci" type="text" :value="createDraft"
@@ -36,9 +36,9 @@ const emit = defineEmits<{
         maxlength="30" />
       <div class="flex gap-2 w-full md:w-auto">
         <button type="button" @click="$emit('submitCreate')"
-          class="px-4 h-12 bg-brand-forest text-white font-extrabold hover:bg-brand-teal transition-colors cursor-pointer border-none rounded-full">Create</button>
+          class="px-4 h-12 bg-brand-forest text-white font-bold text-xs uppercase tracking-wider hover:bg-black transition-colors cursor-pointer border-none rounded-full shadow-sm">Create</button>
         <button type="button" @click="$emit('cancelCreate')"
-          class="px-4 h-12 bg-white border border-brand-forest/10 text-brand-forest font-extrabold hover:bg-brand-bg transition-colors cursor-pointer rounded-full">Cancel</button>
+          class="px-4 h-12 bg-white border border-brand-forest/10 text-brand-forest font-bold text-xs uppercase tracking-wider  hover:bg-brand-bg transition-colors cursor-pointer rounded-full">Cancel</button>
       </div>
     </div>
 
@@ -51,9 +51,9 @@ const emit = defineEmits<{
         maxlength="30" />
       <div class="flex gap-2 w-full">
         <button type="button" @click="$emit('submitRename')"
-          class="flex-1 px-4 h-12 bg-brand-forest text-white font-extrabold hover:bg-brand-teal transition-colors cursor-pointer border-none text-sm rounded-full">Save</button>
+          class="flex-1 px-4 h-12 bg-brand-forest text-white font-bold text-xs uppercase tracking-wider hover:bg-black transition-colors cursor-pointer border-none rounded-full shadow-sm">Save</button>
         <button type="button" @click="$emit('cancelRename')"
-          class="flex-1 px-4 h-12 bg-white border border-brand-forest/10 text-brand-forest font-extrabold hover:bg-brand-bg transition-colors cursor-pointer text-sm rounded-full">Cancel</button>
+          class="flex-1 px-4 h-12 bg-white border border-brand-forest/10 text-brand-forest font-bold hover:bg-brand-bg transition-colors cursor-pointer text-xs uppercase tracking-wider rounded-full">Cancel</button>
       </div>
     </div>
 

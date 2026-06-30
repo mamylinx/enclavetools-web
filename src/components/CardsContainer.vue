@@ -214,21 +214,21 @@ watch(isOramaActive, (active) => {
     <div v-else>
         <div
             class="flex flex-col md:flex-row md:items-center justify-between pb-4 border-b border-brand-forest/10 gap-4 mb-6">
-            <span class="text-xs font-extrabold text-brand-forest uppercase tracking-wider">
+            <span class="text-xs font-bold text-brand-forest uppercase tracking-wider">
                 <span>{{ toolCount }} result{{ toolCount !== 1 ? 's' : '' }}</span>
             </span>
             <div class="flex items-center gap-2 overflow-x-auto pb-0 md:pb-0 scrollbar-hide">
                 <button
                     class="whitespace-nowrap px-3 h-10 rounded-full text-xs font-bold transition-colors border inline-flex items-center"
-                    :class="{ 'bg-brand-forest text-white border-brand-forest hover:bg-brand-teal hover:border-brand-teal': activeSort === 'newest', 'text-brand-muted border-brand-forest/10 hover:border-brand-forest hover:text-brand-forest': activeSort !== 'newest' }"
+                    :class="{ 'bg-brand-forest text-white border-brand-forest hover:bg-black hover:border-black': activeSort === 'newest', 'text-brand-muted border-brand-forest/10 hover:border-brand-forest hover:text-brand-forest': activeSort !== 'newest' }"
                     @click="setSort('newest')">Recently added</button>
                 <button
                     class="whitespace-nowrap px-3 h-10 rounded-full text-xs font-bold transition-colors border inline-flex items-center"
-                    :class="{ 'bg-brand-forest text-white border-brand-forest hover:bg-brand-teal hover:border-brand-teal': activeSort === 'recently-updated', 'text-brand-muted border-brand-forest/10 hover:border-brand-forest hover:text-brand-forest': activeSort !== 'recently-updated' }"
+                    :class="{ 'bg-brand-forest text-white border-brand-forest hover:bg-black hover:border-black': activeSort === 'recently-updated', 'text-brand-muted border-brand-forest/10 hover:border-brand-forest hover:text-brand-forest': activeSort !== 'recently-updated' }"
                     @click="setSort('recently-updated')">Last updated</button>
                 <button
                     class="whitespace-nowrap px-3 h-10 rounded-full text-xs font-bold transition-colors border inline-flex items-center"
-                    :class="{ 'bg-brand-forest text-white border-brand-forest hover:bg-brand-teal hover:border-brand-teal': activeSort === 'most-popular', 'text-brand-muted border-brand-forest/10 hover:border-brand-forest hover:text-brand-forest': activeSort !== 'most-popular' }"
+                    :class="{ 'bg-brand-forest text-white border-brand-forest hover:bg-black hover:border-black': activeSort === 'most-popular', 'text-brand-muted border-brand-forest/10 hover:border-brand-forest hover:text-brand-forest': activeSort !== 'most-popular' }"
                     @click="setSort('most-popular')">Most stars</button>
             </div>
         </div>
@@ -238,19 +238,19 @@ watch(isOramaActive, (active) => {
                 <div class="col-span-1 md:col-span-2 flex flex-col md:flex-row items-start md:items-center justify-between p-6 border border-brand-forest/10 bg-brand-bg rounded-3xl transition-all duration-300 ease-out-expo hover:shadow-lg hover:-translate-y-1"
                     v-if="i === 0" v-for="ad in promotedAds" :key="ad.title">
                     <div class="flex-1">
-                        <div class="text-xs font-extrabold uppercase text-brand-forest tracking-wider mb-2">{{ ad.label }}</div>
-                        <div class="text-xl font-extrabold text-brand-forest mb-1">{{ ad.title }}</div>
+                        <div class="text-xs font-bold uppercase text-brand-forest tracking-wider mb-2">{{ ad.label }}</div>
+                        <div class="text-xl font-bold text-brand-forest mb-1">{{ ad.title }}</div>
                         <p class="text-sm font-medium text-brand-muted m-0">{{ ad.description }}</p>
                     </div>
                     <a href="/submit"
-                        class="mt-4 md:mt-0 whitespace-nowrap px-6 h-12 bg-brand-forest text-white font-extrabold hover:bg-brand-teal transition-colors border-none inline-flex items-center rounded-full">{{ ad.cta }}</a>
+                        class="mt-4 md:mt-0 whitespace-nowrap px-6 h-12 bg-brand-forest text-white font-bold text-xs uppercase tracking-wider hover:bg-black transition-colors border-none inline-flex items-center rounded-full shadow-sm">{{ ad.cta }}</a>
                 </div>
 
                 <div class="lg:hidden col-span-1 border border-brand-forest/10 p-6 bg-white rounded-3xl transition-all duration-300 ease-out-expo hover:border-brand-forest hover:-translate-y-1 hover:shadow-lg"
                     v-if="i === positions.sponsor" v-for="sponsor in sponsors" :key="'sponsor-' + sponsor.logo">
                     <div class="flex flex-col h-full">
-                        <div class="text-xs font-extrabold uppercase text-brand-muted tracking-wider mb-3">Sponsor</div>
-                        <div class="text-xl font-extrabold text-brand-forest mb-2">{{ sponsor.logo }}</div>
+                        <div class="text-xs font-bold uppercase text-brand-muted tracking-wider mb-3">Sponsor</div>
+                        <div class="text-xl font-bold text-brand-forest mb-2">{{ sponsor.logo }}</div>
                         <p class="text-sm font-medium text-brand-muted mb-4 flex-1">{{ sponsor.description }}</p>
                         <button
                             class="w-full h-10 bg-white border border-brand-forest/10 text-brand-forest font-bold hover:bg-brand-teal hover:text-white hover:border-brand-teal transition-colors inline-flex items-center justify-center rounded-full">{{
@@ -261,8 +261,8 @@ watch(isOramaActive, (active) => {
                 <div class="lg:hidden col-span-1 border border-brand-forest/10 p-6 bg-white rounded-3xl transition-all duration-300 ease-out-expo hover:border-brand-forest hover:-translate-y-1 hover:shadow-lg"
                     v-if="i === positions.newsletter">
                     <div class="flex flex-col h-full">
-                        <div class="text-xs font-extrabold uppercase text-brand-muted tracking-wider mb-3">{{ c.marketing_newsletter_label || 'Newsletter' }}</div>
-                        <div class="text-lg font-extrabold text-brand-forest mb-2">{{ c.newsletter_title }}</div>
+                        <div class="text-xs font-bold uppercase text-brand-muted tracking-wider mb-3">{{ c.marketing_newsletter_label || 'Newsletter' }}</div>
+                        <div class="text-lg font-bold text-brand-forest mb-2">{{ c.newsletter_title }}</div>
                         <p class="text-sm font-medium text-brand-muted mb-4 flex-1">{{ c.newsletter_subtitle }}</p>
    
                         <form method="post" action="https://systeme.io/embedded/41620392/subscription">
@@ -270,7 +270,7 @@ watch(isOramaActive, (active) => {
                                 class="w-full px-3 h-10 border border-brand-forest/10 font-sans text-sm mb-2 focus:border-brand-teal focus:ring-2 focus:ring-brand-teal outline-none rounded-full"
                                 type="text" name="email" :placeholder="c.newsletter_placeholder || 'your@email.com'" />
                             <button
-                                class="w-full h-10 bg-brand-forest text-white font-bold hover:bg-brand-teal transition-colors border-none rounded-full inline-flex items-center justify-center"
+                                class="w-full h-10 bg-brand-forest text-white font-bold text-xs uppercase tracking-wider hover:bg-black transition-colors border-none rounded-full inline-flex items-center justify-center shadow-sm"
                                 type="submit">{{ c.newsletter_cta || 'Get the digest' }}</button>
                         </form>
                     </div>
@@ -279,11 +279,11 @@ watch(isOramaActive, (active) => {
                 <div class="lg:hidden col-span-1 border border-brand-forest/10 p-6 bg-white rounded-3xl transition-all duration-300 ease-out-expo hover:border-brand-forest hover:-translate-y-1 hover:shadow-lg"
                     v-if="i === positions.featured">
                     <div class="flex flex-col h-full">
-                        <div class="text-xs font-extrabold uppercase text-brand-muted tracking-wider mb-3">Get featured</div>
-                        <div class="text-lg font-extrabold text-brand-forest mb-2">{{ featured.title }}</div>
+                        <div class="text-xs font-bold uppercase text-brand-muted tracking-wider mb-3">Get featured</div>
+                        <div class="text-lg font-bold text-brand-forest mb-2">{{ featured.title }}</div>
                         <p class="text-sm font-medium text-brand-muted mb-4 flex-1">{{ featured.description }}</p>
                         <button
-                            class="w-full h-10 bg-brand-forest text-white font-bold hover:bg-brand-teal transition-colors border-none rounded-full inline-flex items-center justify-center">{{
+                            class="w-full h-10 bg-brand-forest text-white font-bold text-xs uppercase tracking-wider hover:bg-black transition-colors border-none rounded-full inline-flex items-center justify-center shadow-sm">{{
                             featured.cta }}</button>
                     </div>
                 </div>
@@ -300,14 +300,14 @@ watch(isOramaActive, (active) => {
         <div v-if="isOramaActive && totalPages > 1"
             class="flex justify-center items-center gap-3 py-12 px-4 md:px-8 border-t border-brand-forest/10 max-w-[1400px] mx-auto">
             <button v-if="currentPage > 1" @click="goToPage(currentPage - 1)"
-                class="inline-flex items-center h-12 px-6 border border-brand-forest/10 text-xs font-extrabold uppercase tracking-wider text-brand-forest hover:bg-black hover:text-white transition-all duration-200 cursor-pointer rounded-full">
+                class="inline-flex items-center h-12 px-6 border border-brand-forest/10 text-xs font-bold uppercase tracking-wider text-brand-forest hover:bg-brand-forest hover:text-white transition-all duration-200 cursor-pointer rounded-full">
                 ← Previous
             </button>
-            <span class="px-4 text-xs font-extrabold uppercase tracking-wider text-brand-muted">
+            <span class="px-4 text-xs font-bold uppercase tracking-wider text-brand-muted">
                 Page {{ currentPage }} of {{ totalPages }}
             </span>
             <button v-if="currentPage < totalPages" @click="goToPage(currentPage + 1)"
-                class="inline-flex items-center h-12 px-6 border border-brand-forest/10 text-xs font-extrabold uppercase tracking-wider text-brand-forest hover:bg-black hover:text-white transition-all duration-200 cursor-pointer rounded-full">
+                class="inline-flex items-center h-12 px-6 border border-brand-forest/10 text-xs font-bold uppercase tracking-wider text-brand-forest hover:bg-brand-forest hover:text-white transition-all duration-200 cursor-pointer rounded-full">
                 Next <svg class="w-4 h-4 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
             </button>
         </div>

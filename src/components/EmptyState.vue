@@ -82,10 +82,10 @@ const iconMap: Record<string, Component> = {
             <component :is="iconComponent" />
         </div>
         <p v-if="props.message" class="text-lg font-bold text-brand-muted mb-6 max-w-[400px]">{{ props.message }}</p>
-        <a v-if="props.actionText && props.actionHref" :href="props.actionHref" class="inline-flex px-4 h-12 bg-brand-forest text-white font-bold no-underline hover:bg-brand-teal transition-colors border-none cursor-pointer rounded-full items-center justify-center">
+        <a v-if="props.actionText && props.actionHref" :href="props.actionHref" class="inline-flex px-4 h-12 bg-brand-forest text-white font-bold text-xs uppercase tracking-wider no-underline hover:bg-black transition-colors border-none cursor-pointer rounded-full items-center justify-center shadow-sm">
             {{ props.actionText }}
         </a>
-        <button v-else-if="props.actionText" class="inline-flex px-4 h-12 bg-brand-forest text-white font-bold no-underline hover:bg-brand-teal transition-colors border-none cursor-pointer rounded-full items-center justify-center" @click="emit('action')">
+        <button v-else-if="props.actionText" class="inline-flex px-4 h-12 bg-brand-forest text-white font-bold text-xs uppercase tracking-wider no-underline hover:bg-black transition-colors border-none cursor-pointer rounded-full items-center justify-center shadow-sm" @click="emit('action')">
             {{ props.actionText }}
         </button>
     </div>

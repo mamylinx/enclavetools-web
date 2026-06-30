@@ -13,13 +13,13 @@ const emit = defineEmits<{
 
 <template>
   <section class="flex flex-col gap-4">
-    <h2 class="text-2xl font-extrabold text-brand-forest pb-4 border-b border-brand-forest/10">Current stack - {{ stackName }}</h2>
+    <h2 class="text-2xl font-bold text-brand-forest pb-4 border-b border-brand-forest/10">Current stack - {{ stackName }}</h2>
     <div v-for="[cat, tools] in groupedStack" :key="cat" class="mb-4">
-      <h3 class="text-sm font-extrabold text-brand-teal uppercase tracking-widest mb-4">{{ cat }}</h3>
+      <h3 class="text-sm font-bold text-brand-teal uppercase tracking-wider mb-4">{{ cat }}</h3>
       <article v-for="tool in tools" :key="tool.slug"
         class="flex flex-col sm:flex-row justify-between items-start sm:items-center p-6 bg-white border border-brand-forest/10 mb-4 gap-4 transition-colors hover:border-brand-forest rounded-3xl">
         <div class="flex-1">
-          <strong class="block text-lg font-extrabold text-brand-forest mb-1">{{ tool.title }}</strong>
+          <strong class="block text-xl font-bold text-brand-forest mb-1">{{ tool.title }}</strong>
           <p class="text-sm text-brand-muted m-0">{{ tool.plain_description || tool.body }}</p>
         </div>
         <button type="button" @click="$emit('remove', tool.slug)"

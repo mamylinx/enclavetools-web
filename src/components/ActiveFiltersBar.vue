@@ -100,7 +100,7 @@ const chips = computed(() => {
 </script>
 
 <template>
-    <div v-if="chips.length > 0" class="flex flex-wrap items-center gap-2 mb-6 p-4 bg-brand-bg border border-brand-forest/10">
+    <div v-if="chips.length > 0" class="flex flex-wrap items-center gap-2 mb-6 p-4 bg-brand-bg border border-brand-forest/10 rounded-3xl">
         <div v-for="(chip, i) in chips" :key="`${chip.group}-${chip.value}-${i}`" class="inline-flex items-center bg-white border border-brand-forest/10 pl-2 pr-2 py-1 text-xs gap-2 rounded-full transition-all duration-300 ease-out-expo hover:-translate-y-0.5">
             <span class="font-bold text-brand-muted uppercase tracking-wider text-xs">{{ getGroupLabel(chip.group) }}:</span>
             <span class="font-bold text-brand-forest">{{ chip.label }}</span>
