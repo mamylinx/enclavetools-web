@@ -1,0 +1,356 @@
+---
+import Layout from "../layouts/Layout.astro";
+import BreadcrumbSchema from "../components/schema/BreadcrumbSchema.astro";
+
+const breadcrumbs = [
+    { name: "Home", url: "https://enclavetools.com" },
+    { name: "About" },
+];
+---
+
+<Layout
+    site="Enclavetools"
+    title="About"
+    tagline="Your AI. Your hardware. Your data. No APIs. No surveillance."
+    pageTitle="About — Enclavetools"
+    pageDescription="Learn about Enclavetools — the curated directory of self-hosted AI tools that run on your hardware. Our mission, vision, and the story behind the project."
+>
+    <BreadcrumbSchema items={breadcrumbs} />
+
+    <!-- HERO: Simple -->
+    <section class="bg-brand-cyanBg relative overflow-hidden border-b border-brand-forest/10">
+        <div class="max-w-[1400px] mx-auto px-6 lg:px-12 py-20 lg:py-28">
+            <div class="max-w-3xl mx-auto text-center">
+                <p class="inline-flex items-center bg-white text-brand-teal border border-brand-teal/30 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-[0.1em] mb-6">
+                    The Mission
+                </p>
+                <h1 class="text-3xl sm:text-5xl lg:text-[4.5rem] font-extrabold text-brand-forest tracking-tight font-sans mb-6">
+                    Self-Hosted AI.<br />
+                    <span class="text-brand-teal">Full Control.</span> Zero Leakage.
+                </h1>
+                <p class="font-sans text-brand-forest/80 text-lg lg:text-xl max-w-2xl mx-auto">
+                    Enclavetools is the curated directory of private AI tools that run on your own hardware.
+                    No API keys. No surveillance. No vendor lock-in.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- THE PROBLEM: Unexpected -->
+    <section class="bg-brand-bg py-20 lg:py-24 border-b border-brand-forest/10">
+        <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+                <div class="lg:col-span-5">
+                    <p class="text-xs font-bold uppercase tracking-[0.1em] text-brand-teal mb-3">The Hidden Cost</p>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-brand-forest tracking-tight mb-6">
+                        Every "Free" AI Service<br />
+                        <span class="text-brand-muted">Has a Hidden Cost</span>
+                    </h2>
+                </div>
+                <div class="lg:col-span-7">
+                    <div class="space-y-6">
+                        <p class="text-base sm:text-lg  text-brand-forest/80 font-medium">
+                            Every time you use an AI API, you're trading something more valuable than money:
+                            your data, your independence, and your security.
+                        </p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="bg-white border border-red-200/50 rounded-2xl p-5 shadow-sm">
+                                <span class="text-xl font-bold text-red-500 block mb-1">Data Leakage</span>
+                                <p class="text-sm text-brand-muted ">Your prompts, code, and proprietary documents train the next model.</p>
+                            </div>
+                            <div class="bg-white border border-red-200/50 rounded-2xl p-5 shadow-sm">
+                                <span class="text-xl font-bold text-red-500 block mb-1">Vendor Lock-In</span>
+                                <p class="text-sm text-brand-muted ">Pricing changes overnight. Models deprecate. Features disappear.</p>
+                            </div>
+                            <div class="bg-white border border-red-200/50 rounded-2xl p-5 shadow-sm">
+                                <span class="text-xl font-bold text-red-500 block mb-1">Rate Limits</span>
+                                <p class="text-sm text-brand-muted ">You're capped, throttled, and queued behind paying customers.</p>
+                            </div>
+                            <div class="bg-white border border-red-200/50 rounded-2xl p-5 shadow-sm">
+                                <span class="text-xl font-bold text-red-500 block mb-1">Privacy Theater</span>
+                                <p class="text-sm text-brand-muted ">"Enterprise security" still means your data touches someone else's server.</p>
+                            </div>
+                        </div>
+                        <p class="text-base sm:text-lg font-bold text-brand-forest mt-2">
+                            The AI industry built a beautiful prison. The walls are convenience. The guards are API keys. And you're paying for the privilege of being locked in.
+                        </p>
+                        <p class="text-xl font-bold text-brand-teal">
+                            It doesn't have to be this way.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- THE SOLUTION: Simple -->
+    <section class="bg-brand-forest text-white py-20 lg:py-24 border-b border-brand-forest/10">
+        <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
+            <div class="max-w-3xl mb-14">
+                <p class="text-xs font-bold uppercase tracking-[0.1em] text-brand-lime mb-3">The Solution</p>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight mb-4">
+                    Your AI Stack.<br />
+                    <span class="text-brand-teal">Your Hardware.</span> Your Rules.
+                </h2>
+                <p class="text-white/80 text-base sm:text-lg  font-medium">
+                    Enclavetools is the definitive directory of self-hosted AI tools — software that runs
+                    entirely on your own infrastructure. Every tool listed here is verified by a human and
+                    audited to respect your privacy.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                <div class="bg-white/10 border border-white/10 rounded-3xl p-6 backdrop-blur-sm">
+                    <span class="w-10 h-10 bg-brand-teal/20 border border-brand-teal/30 rounded-xl flex items-center justify-center text-brand-teal text-lg font-bold mb-4">1</span>
+                    <h3 class="font-bold text-lg mb-2">Runs Locally</h3>
+                    <p class="text-white/60 text-sm ">On your laptop, your server, or your Raspberry Pi cluster. No cloud required.</p>
+                </div>
+                <div class="bg-white/10 border border-white/10 rounded-3xl p-6 backdrop-blur-sm">
+                    <span class="w-10 h-10 bg-brand-teal/20 border border-brand-teal/30 rounded-xl flex items-center justify-center text-brand-teal text-lg font-bold mb-4">2</span>
+                    <h3 class="font-bold text-lg mb-2">No API Keys</h3>
+                    <p class="text-white/60 text-sm ">Zero monthly bills. Zero per-token pricing. Pay for your hardware once.</p>
+                </div>
+                <div class="bg-white/10 border border-white/10 rounded-3xl p-6 backdrop-blur-sm">
+                    <span class="w-10 h-10 bg-brand-teal/20 border border-brand-teal/30 rounded-xl flex items-center justify-center text-brand-teal text-lg font-bold mb-4">3</span>
+                    <h3 class="font-bold text-lg mb-2">Data Stays Yours</h3>
+                    <p class="text-white/60 text-sm ">Zero telemetry. Zero outbound data leakage. Verified by packet-sniffer audits.</p>
+                </div>
+                <div class="bg-white/10 border border-white/10 rounded-3xl p-6 backdrop-blur-sm">
+                    <span class="w-10 h-10 bg-brand-teal/20 border border-brand-teal/30 rounded-xl flex items-center justify-center text-brand-teal text-lg font-bold mb-4">4</span>
+                    <h3 class="font-bold text-lg mb-2">Yours Forever</h3>
+                    <p class="text-white/60 text-sm ">No deprecation. No sunset. No enshittification. The software can't be taken from you.</p>
+                </div>
+            </div>
+            <blockquote class="border-l-4 border-brand-teal/50 pl-6 py-2 mt-10 text-white/60 italic text-sm sm:text-base max-w-2xl leading-relaxed">
+                "It was 3 AM. A production outage caused by a silent API policy change. I realized every prompt I'd sent over two years was training my competitor's model. That night, I started building what I wished existed: a directory of AI tools that answer to no one but you."
+            </blockquote>
+        </div>
+    </section>
+
+    <!-- THE DIRECTORY: Concrete -->
+    <section class="bg-brand-bg py-20 lg:py-24 border-b border-brand-forest/10">
+        <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-14">
+                <div class="lg:col-span-5">
+                    <p class="text-xs font-bold uppercase tracking-[0.1em] text-brand-teal mb-3">The Directory</p>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-brand-forest tracking-tight mb-4">
+                        Automated Discovery,<br />
+                        <span class="text-brand-teal">Human Verification</span>
+                    </h2>
+                    <p class="text-brand-forest/80 text-base  font-medium">
+                        Automation scans repos, tracks releases, and extracts metadata at scale. But every
+                        shortlisted tool goes through hands-on verification — installed, configured, and probed
+                        by a human who documents what works, what doesn't, and what data leaves your machine.
+                    </p>
+                </div>
+                <div class="lg:col-span-7">
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                        <div class="bg-white border border-brand-forest/10 rounded-2xl p-5 text-center shadow-sm">
+                            <span class="block text-3xl sm:text-4xl font-extrabold text-brand-forest">200+</span>
+                            <span class="text-xs text-brand-muted font-bold uppercase tracking-wider mt-1 block">Tools Listed</span>
+                        </div>
+                        <div class="bg-white border border-brand-forest/10 rounded-2xl p-5 text-center shadow-sm">
+                            <span class="block text-3xl sm:text-4xl font-extrabold text-brand-teal">19</span>
+                            <span class="text-xs text-brand-muted font-bold uppercase tracking-wider mt-1 block">Categories</span>
+                        </div>
+                        <div class="bg-white border border-brand-forest/10 rounded-2xl p-5 text-center shadow-sm">
+                            <span class="block text-3xl sm:text-4xl font-extrabold text-brand-indigo">100%</span>
+                            <span class="text-xs text-brand-muted font-bold uppercase tracking-wider mt-1 block">Human-Verified</span>
+                        </div>
+                        <div class="bg-white border border-brand-forest/10 rounded-2xl p-5 text-center shadow-sm">
+                            <span class="block text-3xl sm:text-4xl font-extrabold text-brand-forest">7</span>
+                            <span class="text-xs text-brand-muted font-bold uppercase tracking-wider mt-1 block">Stages of Due Diligence</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div class="bg-white border border-brand-forest/10 rounded-3xl p-6 md:p-8 shadow-sm">
+                    <div class="w-10 h-10 bg-brand-tealLight border border-brand-teal/20 rounded-xl flex items-center justify-center text-brand-teal text-lg mb-4">&#x1F50D;</div>
+                    <h3 class="font-bold text-xl text-brand-forest mb-2">Plain-English Overview</h3>
+                    <p class="text-sm text-brand-muted ">What the tool actually does, who it's for, and when you'd use it — not marketing copy.</p>
+                </div>
+                <div class="bg-white border border-brand-forest/10 rounded-3xl p-6 md:p-8 shadow-sm">
+                    <div class="w-10 h-10 bg-brand-tealLight border border-brand-teal/20 rounded-xl flex items-center justify-center text-brand-teal text-lg mb-4">&#x1F4CB;</div>
+                    <h3 class="font-bold text-xl text-brand-forest mb-2">Technical Scorecard</h3>
+                    <p class="text-sm text-brand-muted ">License safety, commercial use, API support, fine-tuning, quantization, Docker, GUI, telemetry, and offline capability — scored and compared.</p>
+                </div>
+                <div class="bg-white border border-brand-forest/10 rounded-3xl p-6 md:p-8 shadow-sm">
+                    <div class="w-10 h-10 bg-brand-tealLight border border-brand-teal/20 rounded-xl flex items-center justify-center text-brand-teal text-lg mb-4">&#x2699;&#xFE0F;</div>
+                    <h3 class="font-bold text-xl text-brand-forest mb-2">Hardware &amp; Setup</h3>
+                    <p class="text-sm text-brand-muted ">RAM, GPU, architecture, and setup difficulty — from Plug &amp; Play to Advanced — so you know before you clone.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY IT MATTERS: Emotional -->
+    <section class="bg-brand-lavenderBg py-20 lg:py-24 border-b border-brand-forest/10">
+        <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <p class="text-xs font-bold uppercase tracking-[0.1em] text-brand-indigo mb-3">Why It Matters</p>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-brand-forest tracking-tight mb-4">
+                    The Future of AI<br />
+                    <span class="text-brand-indigo">Is Personal</span>
+                </h2>
+                <p class="text-brand-forest/80 text-base sm:text-lg  font-medium">
+                    The AI industry is consolidating into a handful of walled gardens. But the most powerful
+                    AI applications won't run in someone else's data center — they'll run on your devices,
+                    in your context, with your data.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white border border-brand-forest/10 rounded-3xl p-6 md:p-8 shadow-sm text-center">
+                    <span class="w-14 h-14 bg-brand-indigoLight border border-brand-indigo/20 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4">&#x1F6E1;&#xFE0F;</span>
+                    <h3 class="font-bold text-lg text-brand-forest mb-2">Sovereignty</h3>
+                    <p class="text-sm text-brand-muted ">Your infrastructure, your rules. No external dependencies. No third-party can pull the plug.</p>
+                </div>
+                <div class="bg-white border border-brand-forest/10 rounded-3xl p-6 md:p-8 shadow-sm text-center">
+                    <span class="w-14 h-14 bg-brand-tealLight border border-brand-teal/20 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4">&#x1F4B0;</span>
+                    <h3 class="font-bold text-lg text-brand-forest mb-2">Economics</h3>
+                    <p class="text-sm text-brand-muted ">Pay for hardware once. No recurring API bills. The economics shift from OpEx to CapEx.</p>
+                </div>
+                <div class="bg-white border border-brand-forest/10 rounded-3xl p-6 md:p-8 shadow-sm text-center">
+                    <span class="w-14 h-14 bg-brand-indigoLight border border-brand-indigo/20 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4">&#x1F680;</span>
+                    <h3 class="font-bold text-lg text-brand-forest mb-2">Innovation</h3>
+                    <p class="text-sm text-brand-muted ">Experiment freely. Fine-tune. Break things. Learn. No approval process, no billing alerts.</p>
+                </div>
+                <div class="bg-white border border-brand-forest/10 rounded-3xl p-6 md:p-8 shadow-sm text-center">
+                    <span class="w-14 h-14 bg-brand-tealLight border border-brand-teal/20 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4">&#x26A1;</span>
+                    <h3 class="font-bold text-lg text-brand-forest mb-2">Resilience</h3>
+                    <p class="text-sm text-brand-muted ">Your tools work offline. No cloud outage, no API downtime can stop your workflow.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- THE METHODOLOGY: Concrete -->
+    <section class="bg-brand-forest text-white py-20 lg:py-24 border-b border-brand-forest/10">
+        <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
+            <div class="max-w-3xl mb-14">
+                <p class="text-xs font-bold uppercase tracking-[0.1em] text-brand-lime mb-3">The Methodology</p>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight mb-4">
+                    7 Stages of<br />
+                    <span class="text-brand-teal">Due Diligence</span>
+                </h2>
+                <p class="text-white/80 text-base sm:text-lg leading-relaxed font-medium">
+                    Every tool passes through a structured pipeline — from automated discovery to human-supervised
+                    verification. No listing is published without evidence.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-6 relative">
+                <div class="hidden lg:block absolute top-12 left-[16.6%] right-[16.6%] h-px bg-brand-teal/20"></div>
+
+                <div class="flex flex-col items-start">
+                    <span class="w-10 h-10 bg-brand-teal/20 border border-brand-teal/30 rounded-full flex items-center justify-center text-brand-teal text-lg font-bold mb-4 shrink-0">1</span>
+                    <h3 class="font-bold text-lg mb-2">Discover + Scan</h3>
+                    <p class="text-white/60 text-sm leading-relaxed mb-4">Mining GitHub Topics, HuggingFace Hub, and community sources for candidates. Automated license scan via ScanCode + FOSSology.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 bg-white/10 border border-white/10 rounded-full">GitHub API</span>
+                        <span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 bg-white/10 border border-white/10 rounded-full">HuggingFace</span>
+                        <span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 bg-white/10 border border-white/10 rounded-full">ScanCode</span>
+                        <span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 bg-white/10 border border-white/10 rounded-full">FOSSology</span>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-start">
+                    <span class="w-10 h-10 bg-brand-teal/20 border border-brand-teal/30 rounded-full flex items-center justify-center text-brand-teal text-lg font-bold mb-4 shrink-0">2</span>
+                    <h3 class="font-bold text-lg mb-2">Verify Offline</h3>
+                    <p class="text-white/60 text-sm leading-relaxed mb-4">Network-isolated sandbox. Packet capture via mitmproxy + tcpdump. Classify: clean, update-check, telemetry, or blocked.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 bg-white/10 border border-white/10 rounded-full">mitmproxy</span>
+                        <span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 bg-white/10 border border-white/10 rounded-full">tcpdump</span>
+                        <span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 bg-white/10 border border-white/10 rounded-full">iptables</span>
+                        <span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 bg-white/10 border border-white/10 rounded-full">Sandbox</span>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-start">
+                    <span class="w-10 h-10 bg-brand-teal/20 border border-brand-teal/30 rounded-full flex items-center justify-center text-brand-teal text-lg font-bold mb-4 shrink-0">3</span>
+                    <h3 class="font-bold text-lg mb-2">Test Hardware</h3>
+                    <p class="text-white/60 text-sm leading-relaxed mb-4">Benchmark RAM, VRAM, CPU-only operation, and OS compatibility. Monitor commit activity, release cadence, and maintenance health.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 bg-white/10 border border-white/10 rounded-full">Benchmarks</span>
+                        <span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 bg-white/10 border border-white/10 rounded-full">Health Signals</span>
+                        <span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 bg-white/10 border border-white/10 rounded-full">pip/npm audit</span>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-start">
+                    <span class="w-10 h-10 bg-brand-teal/20 border border-brand-teal/30 rounded-full flex items-center justify-center text-brand-teal text-lg font-bold mb-4 shrink-0">4</span>
+                    <h3 class="font-bold text-lg mb-2">Review + Publish</h3>
+                    <p class="text-white/60 text-sm leading-relaxed mb-4">Dependency supply chain audit. Edge cases, ambiguous licenses, unknown network calls — resolved by a human before going live.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 bg-white/10 border border-white/10 rounded-full">Dependency Scan</span>
+                        <span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 bg-white/10 border border-white/10 rounded-full">CVE Check</span>
+                        <span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 bg-white/10 border border-white/10 rounded-full">Human Review</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- THE VISION -->
+    <section class="bg-brand-forest text-white py-20 lg:py-24">
+        <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
+            <div class="max-w-3xl mb-14">
+                <p class="text-xs font-bold uppercase tracking-[0.1em] text-brand-lime mb-3">The Vision</p>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight mb-4">
+                    A World Where Every Developer<br />
+                    <span class="text-brand-teal">Runs Their Own AI</span>
+                </h2>
+                <p class="text-white/80 text-base sm:text-lg  font-medium">
+                    Not replacing cloud AI — giving you a real choice. A choice not between providers,
+                    but between their infrastructure and yours.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="border border-white/10 rounded-3xl p-6 md:p-8 relative">
+                    <span class="absolute top-0 left-8 -translate-y-1/2 bg-brand-teal text-white text-xs font-bold px-3 py-1 rounded-full">Phase 1</span>
+                    <h3 class="font-bold text-xl mt-4 mb-3">Comprehensive Coverage</h3>
+                    <p class="text-white/60 text-sm ">Every self-hosted AI tool worth knowing, across every category. If it runs on your hardware and respects your privacy, it belongs here.</p>
+                </div>
+                <div class="border border-white/10 rounded-3xl p-6 md:p-8 relative">
+                    <span class="absolute top-0 left-8 -translate-y-1/2 bg-brand-indigo text-white text-xs font-bold px-3 py-1 rounded-full">Phase 2</span>
+                    <h3 class="font-bold text-xl mt-4 mb-3">Compatibility Mapping</h3>
+                    <p class="text-white/60 text-sm ">Knowing exactly what works with what. Stack Builder already lets you compose compatible tools — we're mapping every integration path.</p>
+                </div>
+                <div class="border border-white/10 rounded-3xl p-6 md:p-8 relative">
+                    <span class="absolute top-0 left-8 -translate-y-1/2 bg-brand-lime text-brand-forest text-xs font-bold px-3 py-1 rounded-full">Phase 3</span>
+                    <h3 class="font-bold text-xl mt-4 mb-3">One-Click Deployments</h3>
+                    <p class="text-white/60 text-sm ">Self-hosting shouldn't require a PhD. We're building toward a future where deploying your own AI stack is as easy as using an API.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="bg-brand-tealLight border-b border-brand-forest/10 py-16 lg:py-20">
+        <div class="max-w-[1400px] mx-auto px-6 lg:px-12 text-center">
+            <p class="text-xs font-bold uppercase tracking-[0.1em] text-brand-teal mb-3">Join the Mission</p>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-forest tracking-tight mb-4">
+                Start Building on Your Terms
+            </h2>
+            <p class="text-brand-forest/80 text-base sm:text-lg max-w-xl mx-auto mb-8 font-medium">
+                This isn't a company. It's a mission. Browse the registry, find your stack, and take control of your AI infrastructure.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="/all"
+                    class="btn-arrow-hover h-12 px-8 bg-brand-forest text-white rounded-full font-bold text-xs uppercase tracking-wider inline-flex items-center gap-3 shadow-sm hover:bg-black transition-all">
+                    Browse the Registry
+                    <svg class="w-4 h-4 arrow-icon transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                </a>
+                <a href="/submit"
+                    class="h-12 px-8 bg-white border border-brand-forest/10 text-brand-forest rounded-full font-bold text-xs uppercase tracking-wider inline-flex items-center gap-2 hover:bg-white/80 transition-all">
+                    Submit a Tool
+                    <span>&#x2197;</span>
+                </a>
+            </div>
+            <p class="text-xs text-brand-muted font-bold mt-6">
+                Know a tool we're missing? <a href="/submit" class="text-brand-teal underline underline-offset-2 hover:no-underline">Send it in</a>.
+            </p>
+        </div>
+    </section>
+</Layout>
