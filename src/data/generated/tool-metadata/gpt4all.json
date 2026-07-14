@@ -3,7 +3,7 @@
   "description": "GPT4All: Run Local LLMs on Any Device. Open-source and available for commercial use.",
   "category": "chat-interfaces",
   "url": "https://www.nomic.ai/gpt4all",
-  "tag": "Free",
-  "date-added": "2026-05-17",
+  "tag": "MIT",
+  "date-added": "2026-07-10",
   "slug": "gpt4all"
 }

@@ -1,9 +1,9 @@
 {
   "title": "Unstructured",
-  "description": "Open-source document preprocessing library extracting and transforming 40+ file types for downstream LLM applications.",
+  "description": "Convert documents to structured data effortlessly. Unstructured is open-source ETL solution for transforming complex documents into clean, structured formats for language models.  Visit our website to learn more about our enterprise grade Platform product for production grade workflows, partitioning, enrichments, chunking and embedding.",
   "category": "rag-document",
   "url": "https://unstructured.io/",
-  "tag": "Free",
-  "date-added": "2026-05-17",
+  "tag": "Apache-2.0",
+  "date-added": "2026-07-10",
   "slug": "unstructured"
 }

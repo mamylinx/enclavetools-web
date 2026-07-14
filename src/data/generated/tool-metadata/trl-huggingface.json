@@ -1,9 +1,9 @@
 {
   "title": "TRL (Hugging Face)",
-  "description": "Hugging Face official RLHF library for PPO, DPO, and ORPO alignment training with native transformer support.",
+  "description": "Train transformer language models with reinforcement learning.",
   "category": "fine-tuning-training",
   "url": "https://github.com/huggingface/trl",
-  "tag": "Free",
-  "date-added": "2026-05-17",
+  "tag": "Apache-2.0",
+  "date-added": "2026-07-10",
   "slug": "trl-huggingface"
 }

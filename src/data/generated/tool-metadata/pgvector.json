@@ -1,9 +1,9 @@
 {
   "title": "pgvector",
-  "description": "Open-source vector similarity search for Postgres.",
+  "description": "Open-source vector similarity search for Postgres",
   "category": "vector-databases",
   "url": "https://github.com/pgvector/pgvector",
   "tag": "Other",
-  "date-added": "2026-05-17",
+  "date-added": "2026-07-10",
   "slug": "pgvector"
 }

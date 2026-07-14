@@ -1,9 +1,9 @@
 {
   "title": "Haystack (Deepset)",
-  "description": "Production-ready framework for building RAG and search systems with pipeline architecture and built-in evaluation tools.",
+  "description": "Open-source AI orchestration framework for building context-engineered, production-ready LLM applications. Design modular pipelines and agent workflows with explicit control over retrieval, routing, memory, and generation. Built for scalable agents, RAG, multimodal applications, semantic search, and conversational systems.",
   "category": "rag-document",
   "url": "https://haystack.deepset.ai/",
-  "tag": "Free",
-  "date-added": "2026-05-17",
+  "tag": "Apache-2.0",
+  "date-added": "2026-07-10",
   "slug": "haystack"
 }

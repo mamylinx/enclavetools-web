@@ -43,15 +43,6 @@ const categoryCounts = new Map(
     toolsData.tools.map((cat: any) => [cat.category, cat.content.length]),
 );
 
-const formatDate = (dateStr: string) => {
-    if (!dateStr) return "Build data";
-    return new Date(dateStr).toLocaleDateString("en-US", {
-        month: "short",
-        day: "numeric",
-        year: "numeric",
-    });
-};
-
 const formatScore = (score: number) => {
     if (!score) return "N/A";
     if (score >= 1000) return Math.round(score / 1000) + "k";
@@ -217,7 +208,7 @@ const useCaseContent: Record<
     <StayAheadSection categoryCounts={Object.fromEntries(categoryCounts)} />
     <LaunchStacksSection />
     <SurveySection />
-    <ExpertCuratorsSection />
+    <!-- <ExpertCuratorsSection /> -->
     <SubmitCTASection siteContent={c} />
     <FindPathSection siteContent={c} />
 

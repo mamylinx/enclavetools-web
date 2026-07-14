@@ -1,9 +1,9 @@
 {
   "title": "ChatTTS",
-  "description": "Conversational TTS model optimized for dialogue with natural prosody and emotional expression for offline voice generation.",
+  "description": "A generative speech model for daily dialogue.",
   "category": "text-to-speech",
   "url": "https://github.com/2noise/ChatTTS",
-  "tag": "AGPL 3.0",
-  "date-added": "2026-05-17",
+  "tag": "AGPL-3.0",
+  "date-added": "2026-07-10",
   "slug": "chattts"
 }

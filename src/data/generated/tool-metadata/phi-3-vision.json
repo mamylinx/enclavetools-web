@@ -1,9 +1,9 @@
 {
   "title": "Phi-3-Vision (Microsoft)",
-  "description": "Microsoft compact multimodal model combining vision and language reasoning for edge device deployment.",
+  "description": "",
   "category": "vision-multimodal",
   "url": "https://huggingface.co/microsoft/Phi-3-vision-128k-instruct",
-  "tag": "Free",
-  "date-added": "2026-05-17",
+  "tag": "MIT",
+  "date-added": "2026-07-10",
   "slug": "phi-3-vision"
 }

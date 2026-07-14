@@ -3,7 +3,7 @@
   "description": "The agent engineering platform.",
   "category": "agent-frameworks",
   "url": "https://python.langchain.com/",
-  "tag": "Free",
-  "date-added": "2026-05-17",
+  "tag": "MIT",
+  "date-added": "2026-07-10",
   "slug": "langchain"
 }

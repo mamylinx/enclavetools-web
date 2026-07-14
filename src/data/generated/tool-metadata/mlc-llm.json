@@ -1,9 +1,9 @@
 {
   "title": "MLC LLM",
-  "description": "Universal LLM Deployment Engine with ML Compilation.",
+  "description": "Universal LLM Deployment Engine with ML Compilation",
   "category": "llm-inference",
   "url": "https://github.com/mlc-ai/mlc-llm",
-  "tag": "Free",
-  "date-added": "2026-05-17",
+  "tag": "Apache-2.0",
+  "date-added": "2026-07-10",
   "slug": "mlc-llm"
 }

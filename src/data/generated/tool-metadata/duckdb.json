@@ -1,9 +1,9 @@
 {
   "title": "DuckDB",
-  "description": "In-process analytical database for fast SQL queries on local data files, ideal for offline data preparation pipelines.",
+  "description": "DuckDB is an analytical in-process SQL database management system",
   "category": "data-utilities",
   "url": "https://duckdb.org/",
-  "tag": "Free",
-  "date-added": "2026-05-17",
+  "tag": "MIT",
+  "date-added": "2026-07-10",
   "slug": "duckdb"
 }

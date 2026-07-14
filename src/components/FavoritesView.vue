@@ -54,8 +54,9 @@ onUnmounted(() => {
 
     <ul role="list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 m-0 p-0">
       <Card v-for="(tool, i) in sortedTools" :key="`${tool.slug}-${i}`" :href="tool.url" :title="tool.title"
-        :body="tool.body" :license="tool.license" :date-added="tool['date-added']" :slug="tool.slug"
-        :category="tool.category" />
+        :body="tool.body" :license="tool.license" :slug="tool.slug"
+        :telemetry="tool.telemetry" :maturity="tool.maturity" :popularity-score="tool.popularity_score"
+        :hardware="tool.hardware" :category="tool.category" />
     </ul>
   </section>
 </template>

@@ -1,9 +1,9 @@
 {
   "title": "Fooocus",
-  "description": "Simplified Stable Diffusion interface with proprietary inpainting and style controls for high-quality offline generation.",
+  "description": "Focus on prompting and generating",
   "category": "image-generation",
   "url": "https://github.com/lllyasviel/Fooocus",
-  "tag": "GPL 3.0",
-  "date-added": "2026-05-17",
+  "tag": "GPL-3.0",
+  "date-added": "2026-07-10",
   "slug": "fooocus"
 }

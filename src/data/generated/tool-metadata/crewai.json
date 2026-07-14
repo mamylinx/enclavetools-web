@@ -3,7 +3,7 @@
   "description": "Framework for orchestrating role-playing, autonomous AI agents. By fostering collaborative intelligence, CrewAI empowers agents to work together seamlessly, tackling complex tasks.",
   "category": "agent-frameworks",
   "url": "https://www.crewai.com/open-source",
-  "tag": "Free",
-  "date-added": "2026-05-17",
+  "tag": "MIT",
+  "date-added": "2026-07-10",
   "slug": "crewai"
 }

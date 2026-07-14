@@ -1,9 +1,9 @@
 {
   "title": "Piper",
-  "description": "Fast local neural TTS engine optimized for Raspberry Pi and low-resource devices with 20+ language voices.",
+  "description": "A fast, local neural text to speech system",
   "category": "text-to-speech",
   "url": "https://github.com/rhasspy/piper",
-  "tag": "Free",
-  "date-added": "2026-05-17",
+  "tag": "MIT",
+  "date-added": "2026-07-10",
   "slug": "piper"
 }

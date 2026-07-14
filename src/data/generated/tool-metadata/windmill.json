@@ -1,9 +1,9 @@
 {
   "title": "Windmill",
-  "description": "Open-source developer platform turning scripts into workflows and UIs with built-in scheduler and self-hosted execution.",
+  "description": "Open-source developer platform to power your entire infra and turn scripts into webhooks, workflows and UIs. Fastest workflow engine (13x vs Airflow). Open-source alternative to Retool and Temporal.",
   "category": "workflow-automation",
   "url": "https://www.windmill.dev/",
   "tag": "AGPL 3.0",
-  "date-added": "2026-05-17",
+  "date-added": "2026-07-10",
   "slug": "windmill"
 }

@@ -1,9 +1,9 @@
 {
   "title": "Draw Things",
-  "description": "Native macOS and iOS Stable Diffusion client running entirely on-device with Apple Metal acceleration.",
+  "description": "The community repository for the Draw Things app.",
   "category": "image-generation",
   "url": "https://drawthings.ai/",
-  "tag": "GPL 3.0",
-  "date-added": "2026-05-17",
+  "tag": "GPL-3.0",
+  "date-added": "2026-07-10",
   "slug": "draw-things"
 }

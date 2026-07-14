@@ -1,9 +1,9 @@
 {
   "title": "DataCleaner",
-  "description": "Open-source data cleaning and preprocessing tool with automated detection of missing values, outliers, and duplicates.",
+  "description": "The premier open source Data Quality solution",
   "category": "data-utilities",
   "url": "https://github.com/datacleaner/DataCleaner",
-  "tag": "Free",
-  "date-added": "2026-05-17",
+  "tag": "LGPL-3.0",
+  "date-added": "2026-07-10",
   "slug": "datacleaner"
 }

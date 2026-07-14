@@ -32,6 +32,7 @@
     "test": "vitest",
     "test:run": "vitest run",
     "lint:spacing": "bash scripts/lint-spacing.sh",
+    "build-data": "bun run scripts/build-data.ts",
     "generate-types": "wrangler types"
   },
   "dependencies": {

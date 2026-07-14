@@ -1,9 +1,9 @@
 {
   "title": "LangWatch",
-  "description": "Open-source LLM monitoring platform with automated quality evaluation, guardrails, and cost tracking for production AI.",
+  "description": "The platform for LLM evaluations and AI agent testing",
   "category": "monitoring-observability",
   "url": "https://github.com/langwatch/langwatch",
-  "tag": "AGPL 3.0",
-  "date-added": "2026-05-17",
+  "tag": "Apache-2.0",
+  "date-added": "2026-07-10",
   "slug": "langwatch"
 }

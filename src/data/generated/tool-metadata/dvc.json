@@ -1,9 +1,9 @@
 {
   "title": "DVC (Data Version Control)",
-  "description": "Version control system for ML datasets and models enabling reproducible data pipelines in air-gapped environments.",
+  "description": "🦉 Data Versioning and ML Experiments",
   "category": "data-utilities",
   "url": "https://dvc.org/",
-  "tag": "Free",
-  "date-added": "2026-05-17",
+  "tag": "Apache-2.0",
+  "date-added": "2026-07-10",
   "slug": "dvc"
 }

@@ -1,9 +1,9 @@
 {
   "title": "LLaVA (Large Language-and-Vision Assistant)",
-  "description": "Pioneering open-source vision-language model enabling visual question answering and image captioning with local LLMs.",
+  "description": "[NeurIPS'23 Oral] Visual Instruction Tuning (LLaVA) built towards GPT-4V level capabilities and beyond.",
   "category": "vision-multimodal",
   "url": "https://github.com/haotian-liu/LLaVA",
-  "tag": "Free",
-  "date-added": "2026-05-17",
+  "tag": "Apache-2.0",
+  "date-added": "2026-07-10",
   "slug": "llava"
 }

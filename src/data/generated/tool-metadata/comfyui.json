@@ -1,9 +1,9 @@
 {
   "title": "ComfyUI",
-  "description": "Node-based Stable Diffusion interface enabling complex image generation workflows with full offline control.",
+  "description": "The most powerful and modular diffusion model GUI, api and backend with a graph/nodes interface.",
   "category": "image-generation",
   "url": "https://github.com/comfyanonymous/ComfyUI",
-  "tag": "GPL 3.0",
-  "date-added": "2026-05-17",
+  "tag": "GPL-3.0",
+  "date-added": "2026-07-10",
   "slug": "comfyui"
 }

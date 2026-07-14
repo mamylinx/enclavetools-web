@@ -1,9 +1,9 @@
 {
   "title": "StarCoder2 (Hugging Face)",
-  "description": "Open-source code generation model trained on 600+ programming languages with permissive license for offline use.",
+  "description": "",
   "category": "code-assistants",
   "url": "https://huggingface.co/bigcode/starcoder2-15b",
   "tag": "bigcode openrail m",
-  "date-added": "2026-05-17",
+  "date-added": "2026-07-10",
   "slug": "starcoder2"
 }

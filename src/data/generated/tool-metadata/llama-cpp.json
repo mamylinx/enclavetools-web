@@ -1,9 +1,9 @@
 {
   "title": "llama.cpp",
-  "description": "LLM inference in C/C++.",
+  "description": "LLM inference in C/C++",
   "category": "llm-inference",
   "url": "https://github.com/ggml-org/llama.cpp",
-  "tag": "Free",
-  "date-added": "2026-05-17",
+  "tag": "MIT",
+  "date-added": "2026-07-10",
   "slug": "llama-cpp"
 }

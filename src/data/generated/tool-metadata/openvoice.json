@@ -1,9 +1,9 @@
 {
   "title": "OpenVoice (MyShell)",
-  "description": "Instant voice cloning framework generating natural speech with fine-grained voice style control for private TTS.",
+  "description": "Instant voice cloning by MIT and MyShell. Audio foundation model.",
   "category": "text-to-speech",
   "url": "https://github.com/myshell-ai/OpenVoice",
-  "tag": "Free",
-  "date-added": "2026-05-17",
+  "tag": "MIT",
+  "date-added": "2026-07-10",
   "slug": "openvoice"
 }

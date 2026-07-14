@@ -1,9 +1,9 @@
 {
   "title": "InvokeAI",
-  "description": "Professional creative engine for Stable Diffusion with unified canvas, model management, and offline-first design.",
+  "description": "Invoke is a leading creative engine for Stable Diffusion models, empowering professionals, artists, and enthusiasts to generate and create visual media using the latest AI-driven technologies. The solution offers an industry leading WebUI, and serves as the foundation for multiple commercial products.",
   "category": "image-generation",
   "url": "https://invoke.ai/",
-  "tag": "Free",
-  "date-added": "2026-05-17",
+  "tag": "Apache-2.0",
+  "date-added": "2026-07-10",
   "slug": "invokeai"
 }

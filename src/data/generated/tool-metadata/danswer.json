@@ -1,9 +1,9 @@
 {
   "title": "Danswer",
-  "description": "Enterprise knowledge management tool connecting to data sources with AI-powered search and answer generation offline.",
+  "description": "Open Source AI Platform - AI Chat with advanced features that works with every LLM",
   "category": "rag-document",
   "url": "https://github.com/danswer-ai/danswer",
-  "tag": "Free",
-  "date-added": "2026-05-17",
+  "tag": "MIT",
+  "date-added": "2026-07-10",
   "slug": "danswer"
 }

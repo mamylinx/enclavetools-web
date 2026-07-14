@@ -1,9 +1,9 @@
 {
   "title": "Wan 2.1 (Alibaba)",
-  "description": "Open-source video generation model with Mixture-of-Experts architecture for efficient text-to-video at 480P and 720P.",
+  "description": "Wan: Open and Advanced Large-Scale Video Generative Models",
   "category": "video-generation",
   "url": "https://github.com/Wan-Video/Wan2.1",
-  "tag": "Free",
-  "date-added": "2026-05-17",
+  "tag": "Apache-2.0",
+  "date-added": "2026-07-10",
   "slug": "wan-2-1"
 }

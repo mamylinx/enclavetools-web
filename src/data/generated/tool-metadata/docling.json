@@ -1,9 +1,9 @@
 {
   "title": "Docling (IBM)",
-  "description": "IBM open-source document parsing toolkit converting PDFs, DOCX, and HTML into structured markdown for RAG pipelines.",
+  "description": "Get your documents ready for gen AI",
   "category": "rag-document",
   "url": "https://github.com/DS4SD/docling",
-  "tag": "Free",
-  "date-added": "2026-05-17",
+  "tag": "MIT",
+  "date-added": "2026-07-10",
   "slug": "docling"
 }

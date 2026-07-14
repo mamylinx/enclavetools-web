@@ -1,9 +1,9 @@
 {
   "title": "KServe",
-  "description": "Kubernetes-native model serving platform with canary rollouts, auto-scaling, and multi-framework support for production AI.",
+  "description": "Standardized Distributed Generative and Predictive AI Inference Platform for Scalable, Multi-Framework Deployment on Kubernetes",
   "category": "deployment",
   "url": "https://github.com/kserve/kserve",
-  "tag": "Free",
-  "date-added": "2026-05-17",
+  "tag": "Apache-2.0",
+  "date-added": "2026-07-10",
   "slug": "kserve"
 }

@@ -289,10 +289,8 @@ watch(isOramaActive, (active) => {
                 </div>
 
                 <Card :href="item.url" :title="item.title" :body="item.body" :license="item.license"
-                    :date-added="item['date-added']" :slug="item.slug" :featured="item.featured"
-                    :github-stars="item.popularity_score" :last-updated="item.last_updated"
-                    :setup-difficulty="item.setup_difficulty" :features="item.features" :hardware="item.hardware"
-                    :commercial-use="item.commercial_use"
+                    :slug="item.slug" :telemetry="item.telemetry" :maturity="item.maturity"
+                    :popularity-score="item.popularity_score" :hardware="item.hardware"
                     :category="Array.isArray(item.category) ? item.category[0] : item.category" />
             </template>
         </ul>

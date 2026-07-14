@@ -1,48 +1,35 @@
 [
   {
     "title": "ActivePieces",
-    "body": "No-code integration platform with 200+ pieces for building automated workflows with AI actions and self-hosted deployment.",
-    "plain_description": "No-code integration platform with 200+ pieces for building automated workflows with AI actions and self-hosted deployment.",
-    "technical_description": "No-code integration platform with 200+ pieces for building automated workflows with AI actions and self-hosted deployment.",
-    "slug": "activepieces",
+    "body": "AI Agents & MCPs & AI Workflow Automation • (~400 MCP servers for AI agents) • AI Automation / AI Agent with MCPs • AI Workflows & AI Agents • MCPs for AI Agents",
+    "plain_description": "AI Agents & MCPs & AI Workflow Automation • (~400 MCP servers for AI agents) • AI Automation / AI Agent with MCPs • AI Workflows & AI Agents • MCPs for AI Agents",
+    "technical_description": "AI Agents & MCPs & AI Workflow Automation • (~400 MCP servers for AI agents) • AI Automation / AI Agent with MCPs • AI Workflows & AI Agents • MCPs for AI Agents",
+    "tag": "MIT",
     "url": "https://www.activepieces.com/",
-    "github_url": null,
-    "docs_url": "https://www.activepieces.com/",
-    "tag": "Free",
-    "date-added": "2026-05-17",
+    "github_url": "https://github.com/activepieces/activepieces",
+    "docs_url": "https://github.com/activepieces/activepieces",
+    "date-added": "2026-07-10",
+    "slug": "activepieces",
     "license": "MIT",
-    "language": [
-      "TypeScript / JavaScript"
-    ],
-    "hardware": [
-      "CPU Only"
-    ],
-    "deployment": [
-      "Docker",
-      "Bare Metal"
-    ],
-    "model_format": [],
     "maturity": "Production / Stable",
-    "last_updated": "2026-05-16",
-    "popularity_score": 22100,
+    "last_updated": "2026-07-10",
+    "setup_difficulty": "Medium",
     "featured": false,
-    "commercial_use": true,
-    "setup_difficulty": "Low",
-    "use_cases": [
-      "Workflow Automation"
+    "popularity_score": 23196,
+    "last_verified": "2026-07-10",
+    "language": [
+      "TypeScript"
     ],
-    "personas": [
-      "Developer",
-      "Business Owner"
-    ],
+    "hardware": [],
+    "deployment": [],
+    "model_format": [],
+    "use_cases": [],
+    "personas": [],
     "features": [],
     "works_with": [],
-    "community_guides": [],
-    "community_notes": [],
-    "min_ram_gb": 8,
-    "recommended_ram_gb": 16,
-    "telemetry": "None",
-    "offline_after_setup": 1,
+    "commercial_use": 1,
+    "telemetry": "Unknown",
+    "offline_after_setup": 0,
     "paid_support": 0,
     "gui_available": 0,
     "docker_available": 0,
@@ -50,55 +37,44 @@
     "rest_api": 0,
     "fine_tuning": 0,
     "quantization": 0,
+    "min_ram_gb": null,
+    "recommended_ram_gb": null,
+    "community_notes": [],
+    "community_guides": [],
     "community_notes_count": 0,
-    "community_guides_count": 0,
-    "last_verified": "2026-05-16"
+    "community_guides_count": 0
   },
   {
     "title": "Dify",
-    "body": "Open-source LLMOps platform with visual workflow builder, RAG engine, and model management for production AI apps.",
-    "plain_description": "Open-source LLMOps platform with visual workflow builder, RAG engine, and model management for production AI apps.",
-    "technical_description": "Open-source LLMOps platform with visual workflow builder, RAG engine, and model management for production AI apps.",
-    "slug": "dify",
+    "body": "Production-ready platform for agentic workflow development.",
+    "plain_description": "Production-ready platform for agentic workflow development.",
+    "technical_description": "Production-ready platform for agentic workflow development.",
+    "tag": "Apache 2.0",
     "url": "https://dify.ai/",
-    "github_url": null,
-    "docs_url": "https://dify.ai/",
-    "tag": "Free",
-    "date-added": "2026-05-17",
+    "github_url": "https://github.com/langgenius/dify",
+    "docs_url": "https://github.com/langgenius/dify",
+    "date-added": "2026-07-10",
+    "slug": "dify",
     "license": "Apache 2.0",
-    "language": [
-      "Python",
-      "TypeScript / JavaScript"
-    ],
-    "hardware": [
-      "CPU Only"
-    ],
-    "deployment": [
-      "Docker",
-      "Kubernetes"
-    ],
-    "model_format": [],
     "maturity": "Production / Stable",
-    "last_updated": "2026-05-16",
-    "popularity_score": 60000,
-    "featured": true,
-    "commercial_use": true,
-    "setup_difficulty": "Low",
-    "use_cases": [
-      "Workflow Automation"
+    "last_updated": "2026-07-10",
+    "setup_difficulty": "Medium",
+    "featured": false,
+    "popularity_score": 148400,
+    "last_verified": "2026-07-10",
+    "language": [
+      "TypeScript"
     ],
-    "personas": [
-      "Developer",
-      "Business Owner"
-    ],
+    "hardware": [],
+    "deployment": [],
+    "model_format": [],
+    "use_cases": [],
+    "personas": [],
     "features": [],
     "works_with": [],
-    "community_guides": [],
-    "community_notes": [],
-    "min_ram_gb": 8,
-    "recommended_ram_gb": 16,
-    "telemetry": "None",
-    "offline_after_setup": 1,
+    "commercial_use": 1,
+    "telemetry": "Unknown",
+    "offline_after_setup": 0,
     "paid_support": 0,
     "gui_available": 0,
     "docker_available": 0,
@@ -106,54 +82,44 @@
     "rest_api": 0,
     "fine_tuning": 0,
     "quantization": 0,
+    "min_ram_gb": null,
+    "recommended_ram_gb": null,
+    "community_notes": [],
+    "community_guides": [],
     "community_notes_count": 0,
-    "community_guides_count": 0,
-    "last_verified": "2026-05-16"
+    "community_guides_count": 0
   },
   {
     "title": "Flowise",
-    "body": "Drag-and-drop UI for building LangChain-based LLM workflows with visual node editor and self-hosted deployment.",
-    "plain_description": "Drag-and-drop UI for building LangChain-based LLM workflows with visual node editor and self-hosted deployment.",
-    "technical_description": "Drag-and-drop UI for building LangChain-based LLM workflows with visual node editor and self-hosted deployment.",
-    "slug": "flowise",
+    "body": "Build AI Agents, Visually",
+    "plain_description": "Build AI Agents, Visually",
+    "technical_description": "Build AI Agents, Visually",
+    "tag": "Apache 2.0",
     "url": "https://flowiseai.com/",
-    "github_url": null,
-    "docs_url": "https://flowiseai.com/",
-    "tag": "Free",
-    "date-added": "2026-05-17",
+    "github_url": "https://github.com/FlowiseAI/Flowise",
+    "docs_url": "https://github.com/FlowiseAI/Flowise",
+    "date-added": "2026-07-10",
+    "slug": "flowise",
     "license": "Apache 2.0",
-    "language": [
-      "TypeScript / JavaScript"
-    ],
-    "hardware": [
-      "CPU Only"
-    ],
-    "deployment": [
-      "Docker",
-      "Bare Metal"
-    ],
-    "model_format": [],
     "maturity": "Production / Stable",
-    "last_updated": "2026-05-14",
-    "popularity_score": 32000,
-    "featured": true,
-    "commercial_use": true,
-    "setup_difficulty": "Low",
-    "use_cases": [
-      "Workflow Automation"
+    "last_updated": "2026-07-06",
+    "setup_difficulty": "Medium",
+    "featured": false,
+    "popularity_score": 54494,
+    "last_verified": "2026-07-10",
+    "language": [
+      "TypeScript"
     ],
-    "personas": [
-      "Developer",
-      "Business Owner"
-    ],
+    "hardware": [],
+    "deployment": [],
+    "model_format": [],
+    "use_cases": [],
+    "personas": [],
     "features": [],
     "works_with": [],
-    "community_guides": [],
-    "community_notes": [],
-    "min_ram_gb": 8,
-    "recommended_ram_gb": 16,
-    "telemetry": "None",
-    "offline_after_setup": 1,
+    "commercial_use": 1,
+    "telemetry": "Unknown",
+    "offline_after_setup": 0,
     "paid_support": 0,
     "gui_available": 0,
     "docker_available": 0,
@@ -161,55 +127,44 @@
     "rest_api": 0,
     "fine_tuning": 0,
     "quantization": 0,
+    "min_ram_gb": null,
+    "recommended_ram_gb": null,
+    "community_notes": [],
+    "community_guides": [],
     "community_notes_count": 0,
-    "community_guides_count": 0,
-    "last_verified": "2026-05-14"
+    "community_guides_count": 0
   },
   {
     "title": "Kestra",
-    "body": "Declarative orchestration platform for data, AI, and automation pipelines with visual flow editor and self-hosted deployment.",
-    "plain_description": "Declarative orchestration platform for data, AI, and automation pipelines with visual flow editor and self-hosted deployment.",
-    "technical_description": "Declarative orchestration platform for data, AI, and automation pipelines with visual flow editor and self-hosted deployment.",
-    "slug": "kestra",
+    "body": "Event Driven Orchestration & Scheduling Platform for Mission Critical Applications",
+    "plain_description": "Event Driven Orchestration & Scheduling Platform for Mission Critical Applications",
+    "technical_description": "Event Driven Orchestration & Scheduling Platform for Mission Critical Applications",
+    "tag": "Apache-2.0",
     "url": "https://kestra.io/",
-    "github_url": null,
-    "docs_url": "https://kestra.io/",
-    "tag": "Free",
-    "date-added": "2026-05-17",
-    "license": "Apache 2.0",
-    "language": [
-      "Java / Kotlin"
-    ],
-    "hardware": [
-      "CPU Only"
-    ],
-    "deployment": [
-      "Docker",
-      "Kubernetes",
-      "Bare Metal"
-    ],
-    "model_format": [],
+    "github_url": "https://github.com/kestra-io/kestra",
+    "docs_url": "https://github.com/kestra-io/kestra",
+    "date-added": "2026-07-10",
+    "slug": "kestra",
+    "license": "Apache-2.0",
     "maturity": "Production / Stable",
-    "last_updated": "2026-05-16",
-    "popularity_score": 14000,
+    "last_updated": "2026-07-10",
+    "setup_difficulty": "Medium",
     "featured": false,
-    "commercial_use": true,
-    "setup_difficulty": "Low",
-    "use_cases": [
-      "Workflow Automation"
+    "popularity_score": 27386,
+    "last_verified": "2026-07-10",
+    "language": [
+      "Java"
     ],
-    "personas": [
-      "Developer",
-      "Business Owner"
-    ],
+    "hardware": [],
+    "deployment": [],
+    "model_format": [],
+    "use_cases": [],
+    "personas": [],
     "features": [],
     "works_with": [],
-    "community_guides": [],
-    "community_notes": [],
-    "min_ram_gb": 8,
-    "recommended_ram_gb": 16,
-    "telemetry": "None",
-    "offline_after_setup": 1,
+    "commercial_use": 1,
+    "telemetry": "Unknown",
+    "offline_after_setup": 0,
     "paid_support": 0,
     "gui_available": 0,
     "docker_available": 0,
@@ -217,55 +172,44 @@
     "rest_api": 0,
     "fine_tuning": 0,
     "quantization": 0,
+    "min_ram_gb": null,
+    "recommended_ram_gb": null,
+    "community_notes": [],
+    "community_guides": [],
     "community_notes_count": 0,
-    "community_guides_count": 0,
-    "last_verified": "2026-05-16"
+    "community_guides_count": 0
   },
   {
     "title": "n8n",
-    "body": "Open-source workflow automation with 500+ integrations, native AI nodes, and MCP support for self-hosted AI orchestration.",
-    "plain_description": "Open-source workflow automation with 500+ integrations, native AI nodes, and MCP support for self-hosted AI orchestration.",
-    "technical_description": "Open-source workflow automation with 500+ integrations, native AI nodes, and MCP support for self-hosted AI orchestration.",
-    "slug": "n8n",
-    "url": "https://n8n.io/",
-    "github_url": null,
-    "docs_url": "https://n8n.io/",
+    "body": "Fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code, self-host or cloud, 400+ integrations.",
+    "plain_description": "Fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code, self-host or cloud, 400+ integrations.",
+    "technical_description": "Fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code, self-host or cloud, 400+ integrations.",
     "tag": "Sustainable Use License",
-    "date-added": "2026-05-17",
+    "url": "https://n8n.io/",
+    "github_url": "https://github.com/n8n-io/n8n",
+    "docs_url": "https://github.com/n8n-io/n8n",
+    "date-added": "2026-07-10",
+    "slug": "n8n",
     "license": "Sustainable Use License",
-    "language": [
-      "TypeScript / JavaScript"
-    ],
-    "hardware": [
-      "CPU Only"
-    ],
-    "deployment": [
-      "Docker",
-      "Bare Metal",
-      "Kubernetes"
-    ],
-    "model_format": [],
     "maturity": "Production / Stable",
-    "last_updated": "2026-05-16",
-    "popularity_score": 187500,
-    "featured": true,
-    "commercial_use": true,
+    "last_updated": "2026-07-10",
     "setup_difficulty": "Medium",
-    "use_cases": [
-      "Workflow Automation"
+    "featured": false,
+    "popularity_score": 195933,
+    "last_verified": "2026-07-10",
+    "language": [
+      "TypeScript"
     ],
-    "personas": [
-      "Developer",
-      "Business Owner"
-    ],
+    "hardware": [],
+    "deployment": [],
+    "model_format": [],
+    "use_cases": [],
+    "personas": [],
     "features": [],
     "works_with": [],
-    "community_guides": [],
-    "community_notes": [],
-    "min_ram_gb": 8,
-    "recommended_ram_gb": 16,
-    "telemetry": "None",
-    "offline_after_setup": 1,
+    "commercial_use": null,
+    "telemetry": "Unknown",
+    "offline_after_setup": 0,
     "paid_support": 0,
     "gui_available": 0,
     "docker_available": 0,
@@ -273,55 +217,44 @@
     "rest_api": 0,
     "fine_tuning": 0,
     "quantization": 0,
+    "min_ram_gb": null,
+    "recommended_ram_gb": null,
+    "community_notes": [],
+    "community_guides": [],
     "community_notes_count": 0,
-    "community_guides_count": 0,
-    "last_verified": "2026-05-16"
+    "community_guides_count": 0
   },
   {
     "title": "Windmill",
-    "body": "Open-source developer platform turning scripts into workflows and UIs with built-in scheduler and self-hosted execution.",
-    "plain_description": "Open-source developer platform turning scripts into workflows and UIs with built-in scheduler and self-hosted execution.",
-    "technical_description": "Open-source developer platform turning scripts into workflows and UIs with built-in scheduler and self-hosted execution.",
-    "slug": "windmill",
-    "url": "https://www.windmill.dev/",
-    "github_url": null,
-    "docs_url": "https://www.windmill.dev/",
+    "body": "Open-source developer platform to power your entire infra and turn scripts into webhooks, workflows and UIs. Fastest workflow engine (13x vs Airflow). Open-source alternative to Retool and Temporal.",
+    "plain_description": "Open-source developer platform to power your entire infra and turn scripts into webhooks, workflows and UIs. Fastest workflow engine (13x vs Airflow). Open-source alternative to Retool and Temporal.",
+    "technical_description": "Open-source developer platform to power your entire infra and turn scripts into webhooks, workflows and UIs. Fastest workflow engine (13x vs Airflow). Open-source alternative to Retool and Temporal.",
     "tag": "AGPL 3.0",
-    "date-added": "2026-05-17",
+    "url": "https://www.windmill.dev/",
+    "github_url": "https://github.com/windmill-labs/windmill",
+    "docs_url": "https://github.com/windmill-labs/windmill",
+    "date-added": "2026-07-10",
+    "slug": "windmill",
     "license": "AGPL 3.0",
-    "language": [
-      "TypeScript / JavaScript",
-      "Python"
-    ],
-    "hardware": [
-      "CPU Only"
-    ],
-    "deployment": [
-      "Docker",
-      "Kubernetes"
-    ],
-    "model_format": [],
     "maturity": "Production / Stable",
-    "last_updated": "2026-05-15",
-    "popularity_score": 9200,
-    "featured": false,
-    "commercial_use": false,
+    "last_updated": "2026-07-10",
     "setup_difficulty": "Medium",
-    "use_cases": [
-      "Workflow Automation"
+    "featured": false,
+    "popularity_score": 17124,
+    "last_verified": "2026-07-10",
+    "language": [
+      "Rust"
     ],
-    "personas": [
-      "Developer",
-      "Business Owner"
-    ],
+    "hardware": [],
+    "deployment": [],
+    "model_format": [],
+    "use_cases": [],
+    "personas": [],
     "features": [],
     "works_with": [],
-    "community_guides": [],
-    "community_notes": [],
-    "min_ram_gb": 8,
-    "recommended_ram_gb": 16,
-    "telemetry": "None",
-    "offline_after_setup": 1,
+    "commercial_use": 1,
+    "telemetry": "Unknown",
+    "offline_after_setup": 0,
     "paid_support": 0,
     "gui_available": 0,
     "docker_available": 0,
@@ -329,8 +262,11 @@
     "rest_api": 0,
     "fine_tuning": 0,
     "quantization": 0,
+    "min_ram_gb": null,
+    "recommended_ram_gb": null,
+    "community_notes": [],
+    "community_guides": [],
     "community_notes_count": 0,
-    "community_guides_count": 0,
-    "last_verified": "2026-05-15"
+    "community_guides_count": 0
   }
 ]

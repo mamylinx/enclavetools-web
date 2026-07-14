@@ -1,9 +1,9 @@
 {
   "title": "Whisper (OpenAI)",
-  "description": "OpenAI robust speech recognition model supporting 99 languages with near-human accuracy for offline transcription.",
+  "description": "Robust Speech Recognition via Large-Scale Weak Supervision",
   "category": "speech-to-text",
   "url": "https://github.com/openai/whisper",
-  "tag": "Free",
-  "date-added": "2026-05-17",
+  "tag": "MIT",
+  "date-added": "2026-07-10",
   "slug": "whisper"
 }

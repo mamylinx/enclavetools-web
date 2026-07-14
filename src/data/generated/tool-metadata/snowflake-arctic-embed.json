@@ -1,9 +1,9 @@
 {
   "title": "Snowflake Arctic Embed",
-  "description": "High-performance embedding model optimized for retrieval tasks with strong MTEB benchmark scores under Apache 2.0.",
+  "description": "",
   "category": "embedding-models",
   "url": "https://huggingface.co/Snowflake/snowflake-arctic-embed-l-v2.0",
-  "tag": "Free",
-  "date-added": "2026-05-17",
+  "tag": "Apache 2.0",
+  "date-added": "2026-07-10",
   "slug": "snowflake-arctic-embed"
 }

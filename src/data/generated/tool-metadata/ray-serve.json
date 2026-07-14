@@ -1,9 +1,9 @@
 {
   "title": "Ray Serve",
-  "description": "Scalable model serving built on Ray with dynamic batching, GPU sharing, and multi-model composition for AI pipelines.",
+  "description": "Ray is an AI compute engine. Ray consists of a core distributed runtime and a set of AI Libraries for accelerating ML workloads.",
   "category": "deployment",
   "url": "https://docs.ray.io/en/latest/serve/index.html",
-  "tag": "Free",
-  "date-added": "2026-05-17",
+  "tag": "Apache-2.0",
+  "date-added": "2026-07-10",
   "slug": "ray-serve"
 }

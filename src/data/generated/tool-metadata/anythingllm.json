@@ -1,9 +1,9 @@
 {
   "title": "AnythingLLM",
-  "description": "The all-in-one AI productivity accelerator. On device and privacy first with no annoying setup or configuration.",
+  "description": "Stop renting your intelligence. Own it with AnythingLLM. Everything you need for a powerful local-first agent experience ",
   "category": "chat-interfaces",
   "url": "https://anythingllm.com/",
-  "tag": "Free",
-  "date-added": "2026-05-17",
+  "tag": "MIT",
+  "date-added": "2026-07-10",
   "slug": "anythingllm"
 }

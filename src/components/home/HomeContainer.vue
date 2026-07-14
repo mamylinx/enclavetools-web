@@ -54,10 +54,9 @@ const latestTools = computed(() => {
                         class="block w-full h-10 bg-brand-forest text-white font-bold hover:bg-brand-teal transition-colors text-center no-underline border-none rounded-full inline-flex items-center justify-center">{{ featured.cta }}</a>
                 </li>
                 <Card v-for="(item, i) in featuredTools" :key="`featured-${i}`" :href="item.url" :title="item.title"
-                    :body="item.body" :license="item.license" :date-added="item['date-added']" :slug="item.slug"
-                    :featured="item.featured" :github-stars="item.popularity_score" :last-updated="item.last_updated"
-                    :setup-difficulty="item.setup_difficulty" :features="item.features" :hardware="item.hardware"
-                    :commercial-use="item.commercial_use"
+                    :body="item.body" :license="item.license" :slug="item.slug"
+                    :telemetry="item.telemetry" :maturity="item.maturity"
+                    :popularity-score="item.popularity_score" :hardware="item.hardware"
                     :category="Array.isArray(item.category) ? item.category[0] : item.category" />
             </ul>
         </section>

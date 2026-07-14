@@ -1,9 +1,9 @@
 {
   "title": "Coqui TTS",
-  "description": "Deep learning TTS toolkit with voice cloning from 6 seconds of audio and cross-language voice transfer.",
+  "description": "🐸💬 - a deep learning toolkit for Text-to-Speech, battle-tested in research and production",
   "category": "text-to-speech",
   "url": "https://github.com/coqui-ai/TTS",
-  "tag": "GPL / LGPL",
-  "date-added": "2026-05-17",
+  "tag": "MPL-2.0",
+  "date-added": "2026-07-10",
   "slug": "coqui-tts"
 }

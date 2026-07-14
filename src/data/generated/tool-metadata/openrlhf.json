@@ -1,9 +1,9 @@
 {
   "title": "OpenRLHF",
-  "description": "High-performance RLHF framework with Ray-based distributed training for aligning LLMs with human preferences offline.",
+  "description": "An Easy-to-use, Scalable and High-performance Agentic RL Framework based on Ray (PPO & DAPO & REINFORCE++ &  VLM & TIS & vLLM & Ray & Async  RL)",
   "category": "fine-tuning-training",
   "url": "https://github.com/OpenRLHF/OpenRLHF",
-  "tag": "Free",
-  "date-added": "2026-05-17",
+  "tag": "Apache-2.0",
+  "date-added": "2026-07-10",
   "slug": "openrlhf"
 }

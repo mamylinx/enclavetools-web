@@ -1,9 +1,9 @@
 {
   "title": "Comet Opik",
-  "description": "Open-source platform for evaluating, testing, and monitoring LLM applications with automated scoring and tracing.",
+  "description": "Debug, evaluate, and monitor your LLM applications, RAG systems, and agentic workflows with comprehensive tracing, automated evaluations, and production-ready dashboards.",
   "category": "monitoring-observability",
   "url": "https://github.com/comet-ml/opik",
-  "tag": "Free",
-  "date-added": "2026-05-17",
+  "tag": "Apache-2.0",
+  "date-added": "2026-07-10",
   "slug": "comet-opik"
 }

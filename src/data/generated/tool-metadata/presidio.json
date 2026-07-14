@@ -1,9 +1,9 @@
 {
   "title": "Presidio (Microsoft)",
-  "description": "Microsoft PII detection and anonymization toolkit for redacting sensitive data before LLM processing in air-gapped systems.",
+  "description": "An open-source framework for detecting, redacting, masking, and anonymizing sensitive data (PII) across text, images, and structured data. Supports NLP, pattern matching, and customizable pipelines.",
   "category": "privacy-security",
   "url": "https://github.com/microsoft/presidio",
-  "tag": "Free",
-  "date-added": "2026-05-17",
+  "tag": "MIT",
+  "date-added": "2026-07-10",
   "slug": "presidio"
 }

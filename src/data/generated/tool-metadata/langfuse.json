@@ -1,9 +1,9 @@
 {
   "title": "Langfuse",
-  "description": "Open-source LLM engineering platform with tracing, evaluations, prompt management, and datasets for debugging AI apps.",
+  "description": "🪢 Open source AI engineering platform: LLM evals, observability, metrics, prompt management, playground, datasets. Integrates with OpenTelemetry, LangChain, OpenAI SDK, LiteLLM, and more. 🍊YC W23 ",
   "category": "monitoring-observability",
   "url": "https://langfuse.com/",
-  "tag": "Free",
-  "date-added": "2026-05-17",
+  "tag": "MIT",
+  "date-added": "2026-07-10",
   "slug": "langfuse"
 }

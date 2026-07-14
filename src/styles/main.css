@@ -105,7 +105,7 @@ html {
 }
 
 *:focus-visible {
-  outline: 3px solid #05B2A3 !important;
+  outline: 3px solid #b23305 !important;
   outline-offset: 3px;
   transition: outline 0.1s ease;
 }

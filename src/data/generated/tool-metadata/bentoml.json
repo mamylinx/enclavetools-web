@@ -1,9 +1,9 @@
 {
   "title": "BentoML",
-  "description": "Unified model serving framework supporting any model with optimized inference, batching, and auto-scaling for production.",
+  "description": "The easiest way to serve AI apps and models - Build Model Inference APIs, Job queues, LLM apps, Multi-model pipelines, and more!",
   "category": "deployment",
   "url": "https://github.com/bentoml/BentoML",
-  "tag": "Free",
-  "date-added": "2026-05-17",
+  "tag": "Apache-2.0",
+  "date-added": "2026-07-10",
   "slug": "bentoml"
 }

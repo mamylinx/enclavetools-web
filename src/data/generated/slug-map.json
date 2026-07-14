@@ -1,28 +1,4 @@
 {
-  "supertonic-0befb2f7": [
-    "llm-models"
-  ],
-  "deepseek-v3": [
-    "llm-models"
-  ],
-  "gemma-3-google": [
-    "llm-models"
-  ],
-  "llama-3-meta": [
-    "llm-models"
-  ],
-  "mistral": [
-    "llm-models"
-  ],
-  "olmo-allen-ai": [
-    "llm-models"
-  ],
-  "phi-3-microsoft": [
-    "llm-models"
-  ],
-  "qwen3-alibaba": [
-    "llm-models"
-  ],
   "exllamav2": [
     "llm-inference"
   ],
@@ -58,6 +34,27 @@
   ],
   "vllm": [
     "llm-inference"
+  ],
+  "supertonic-0befb2f7": [
+    "llm-models"
+  ],
+  "deepseek-v3": [
+    "llm-models"
+  ],
+  "gemma-3-google": [
+    "llm-models"
+  ],
+  "llama-3-meta": [
+    "llm-models"
+  ],
+  "olmo-allen-ai": [
+    "llm-models"
+  ],
+  "phi-3-microsoft": [
+    "llm-models"
+  ],
+  "qwen3-alibaba": [
+    "llm-models"
   ],
   "chroma": [
     "vector-databases"
@@ -261,9 +258,6 @@
     "monitoring-observability"
   ],
   "langwatch": [
-    "monitoring-observability"
-  ],
-  "lunary": [
     "monitoring-observability"
   ],
   "openllmetry": [
