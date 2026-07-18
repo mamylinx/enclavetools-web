@@ -1,0 +1,108 @@
+@layer components {
+  .gpu-table-container {
+    @apply @container overflow-x-auto -mx-2 px-2;
+  }
+  .gpu-table-container table {
+    @apply min-w-full;
+  }
+  .gpu-table-container th,
+  .gpu-table-container td {
+    @apply min-w-0 max-w-[200px] break-words;
+  }
+  @media (max-width: 640px) {
+    .gpu-table-container th,
+    .gpu-table-container td {
+      @apply px-2 py-1.5 text-xs;
+    }
+  }
+  .step-dot {
+    @apply w-9 h-9 min-w-[44px] min-h-[44px] rounded-full border-2 border-brand-forest/15 bg-white text-brand-muted flex items-center justify-center text-sm font-bold transition-all duration-300 shrink-0;
+  }
+  .step-dot.active { @apply border-brand-teal bg-brand-teal text-white shadow-[0_0_0_4px_rgba(5,178,163,0.18)]; }
+  .step-dot.done   { @apply border-brand-forest bg-brand-forest text-white; }
+  .step-line { @apply flex-1 h-0.5 bg-brand-forest/15 transition-all duration-300; }
+  .step-line.done  { @apply bg-brand-teal; }
+
+  .card { @apply bg-white border border-brand-forest/10 rounded-3xl p-5 sm:p-7 shadow-sm; }
+  .card-warn { @apply bg-amber-50 border border-amber-300 rounded-3xl p-4 sm:p-6; }
+
+  .field-label { @apply block text-xs font-bold text-brand-forest/80 uppercase tracking-wide mb-1; }
+  .field-sub   { @apply block text-xs text-brand-muted mb-2.5 leading-relaxed; }
+
+  input[type="text"], input[type="number"], select {
+    @apply w-full bg-white border border-brand-forest/10 rounded-xl text-brand-forest px-3.5 py-3 text-sm font-medium outline-none transition-colors focus:border-brand-teal min-h-[44px];
+  }
+  select { @apply appearance-none cursor-pointer; }
+  select option { @apply bg-brand-bg text-brand-forest; }
+
+  input[type="range"] {
+    @apply w-full h-5 rounded-full bg-brand-forest/15 appearance-none cursor-pointer outline-none accent-brand-teal touch-none;
+  }
+
+  .choice-btn {
+    @apply w-full text-left bg-white border border-brand-forest/10 rounded-2xl p-3.5 cursor-pointer transition-all duration-200 text-brand-forest font-sans min-h-[44px] flex flex-col justify-center;
+  }
+  .choice-btn:hover { @apply border-brand-teal bg-brand-tealLight; }
+  .choice-btn.sel   { @apply border-brand-teal bg-brand-tealLight shadow-[0_0_0_3px_rgba(5,178,163,0.15)]; }
+  .choice-btn .ct { @apply block text-sm font-bold text-brand-forest break-words; }
+  .choice-btn .cd { @apply block text-xs text-brand-muted mt-1 leading-relaxed break-words; }
+
+  .btn-primary {
+    @apply bg-brand-forest text-white border-none rounded-full px-7 py-3 text-sm font-bold cursor-pointer transition-all duration-200 shadow-sm hover:bg-black hover:-translate-y-0.5 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:translate-y-0 min-h-[44px];
+  }
+  .btn-ghost {
+    @apply bg-transparent text-brand-muted border border-brand-forest/15 rounded-full px-6 py-3 text-sm font-bold cursor-pointer transition-all duration-200 hover:border-brand-teal hover:text-brand-forest min-h-[44px];
+  }
+  .btn-sm {
+    @apply bg-brand-bg border border-brand-forest/10 text-brand-muted rounded-lg px-4 py-2.5 text-xs font-bold cursor-pointer transition-all duration-200 hover:border-brand-teal hover:text-brand-forest min-h-[44px] min-w-[44px] flex items-center justify-center;
+  }
+  .btn-sm.danger { @apply border-red-300 text-red-600 hover:bg-red-50; }
+
+  .metric-box { @apply bg-brand-bg border border-brand-forest/10 rounded-2xl p-3 sm:p-4; }
+  .metric-val {
+    @apply text-2xl font-extrabold leading-tight bg-linear-to-br from-brand-teal to-brand-indigo bg-clip-text text-transparent;
+  }
+  .metric-val.amber {
+    @apply bg-linear-to-br from-amber-500 to-amber-600 bg-clip-text text-transparent;
+  }
+  .metric-lbl { @apply text-[11px] text-brand-muted mt-1 font-bold uppercase tracking-wide; }
+
+  .pill { @apply inline-flex items-center rounded-full px-3 py-1 text-xs font-bold gap-1.5; }
+  .pill-blue  { @apply bg-brand-tealLight text-brand-teal; }
+  .pill-green { @apply bg-green-50 text-green-700; }
+  .pill-amber { @apply bg-amber-50 text-amber-700 border border-amber-300; }
+  .pill-red   { @apply bg-red-50 text-red-700 border border-red-300; }
+  .pill-slate { @apply bg-brand-bg text-brand-muted border border-brand-forest/10; }
+
+  .sec-hdr { @apply text-xs font-bold text-brand-teal uppercase tracking-[0.12em] mb-3.5 pb-2 border-b border-brand-forest/10; text-wrap: balance; }
+
+  .formula-box { @apply bg-brand-bg border border-brand-forest/10 rounded-2xl p-3 sm:p-4 font-mono text-sm text-brand-muted leading-relaxed; text-wrap: pretty; }
+  .formula-box .fh { @apply text-brand-teal font-bold; }
+  .formula-box .fv { @apply text-brand-indigo font-semibold; }
+
+  .info-box { @apply bg-brand-tealLight border border-brand-teal/30 rounded-2xl p-3 sm:p-4 text-sm text-brand-forest/80 leading-relaxed; text-wrap: pretty; }
+  .warn-box { @apply bg-amber-50 border border-amber-300 rounded-2xl p-3 sm:p-4 text-sm text-amber-700 leading-relaxed; text-wrap: pretty; }
+  .ok-box   { @apply bg-green-50 border border-green-300 rounded-2xl p-3 sm:p-4 text-sm text-green-700 leading-relaxed; text-wrap: pretty; }
+
+  .rec-card { @apply bg-brand-bg border border-brand-forest/10 rounded-2xl p-4 transition-colors; }
+  .rec-card.best { @apply border-brand-teal; }
+
+  .fade-in { animation: fi 0.3s ease; }
+  @keyframes fi { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
+
+  .range-row { @apply flex items-center gap-3.5; }
+  .range-val { @apply text-xl font-extrabold text-brand-teal min-w-[60px] text-right shrink-0; }
+
+  table { @apply w-full border-collapse text-sm; }
+  th { @apply text-left text-brand-muted font-bold text-[11px] uppercase tracking-wider px-2.5 py-2 border-b border-brand-forest/10; }
+  td { @apply px-2.5 py-2 border-b border-brand-forest/10 text-brand-forest align-middle; }
+  tr:last-child td { @apply border-b-0; }
+  tr:hover td { @apply bg-brand-tealLight/50; }
+
+  .note { @apply text-[11px] text-brand-muted italic; text-wrap: pretty; }
+
+  .gpu-input { @apply w-full bg-brand-bg border border-brand-forest/10 rounded-lg text-brand-forest px-2.5 py-3 text-sm outline-none focus:border-brand-teal min-h-[44px]; }
+}
+
+input[type="number"] { -moz-appearance: textfield; }
+input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }

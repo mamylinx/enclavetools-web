@@ -1,0 +1,88 @@
+{
+  "1.23|16|32|8|64":   { "label": "Llama 3.2 1B",                       "params": 1.23, "layers": 16, "attnH": 32, "kvH": 8,  "dHead": 64,  "note": "GQA. Head dim 64 (half standard). RoPE scaling 32x. 128K context." },
+  "7|32|32|32|128":    { "label": "Llama 3.2 / Mistral 7B",             "params": 7,   "layers": 32,  "attnH": 32, "kvH": 32, "dHead": 128, "note": "MHA — KV heads = attention heads (32)" },
+  "8|32|32|8|128":     { "label": "Llama 3 8B",                         "params": 8,   "layers": 32,  "attnH": 32, "kvH": 8,  "dHead": 128, "note": "GQA — 8 KV heads, 32 attn heads. Also DeepSeek-R1-Distill-Llama-8B." },
+  "13|40|40|40|128":   { "label": "Llama 2 13B",                        "params": 13,  "layers": 40,  "attnH": 40, "kvH": 40, "dHead": 128, "note": "MHA — KV heads = attention heads (40)" },
+  "30|60|52|52|128":   { "label": "Llama 2 30B",                        "params": 30,  "layers": 60,  "attnH": 52, "kvH": 52, "dHead": 128, "note": "MHA — KV heads = attention heads (52)" },
+  "70|80|64|8|128":    { "label": "Llama 3.1 / 3.3 70B",                "params": 70,  "layers": 80,  "attnH": 64, "kvH": 8,  "dHead": 128, "note": "GQA — 8 KV heads, 64 attn heads. 3.3 has improved post-training only." },
+  "109|48|40|8|128":   { "label": "Llama 4 Scout 17B-16E (MoE)",        "params": 109, "layers": 48,  "attnH": 40, "kvH": 8,  "dHead": 128, "note": "MoE — 17B active / 109B total, 16 experts. All 48 layers MoE. 10M context." },
+  "110|80|64|8|128":   { "label": "Llama 2 110B",                       "params": 110, "layers": 80,  "attnH": 64, "kvH": 8,  "dHead": 128, "note": "GQA — 8 KV heads, 64 attention heads" },
+  "400|48|40|8|128":   { "label": "Llama 4 Maverick 17B-128E (MoE)",    "params": 400, "layers": 48,  "attnH": 40, "kvH": 8,  "dHead": 128, "note": "MoE — 17B active / 400B total, 128 experts. 24 MoE layers. 1M context." },
+  "405|126|128|8|128": { "label": "Llama 3.1 405B",                     "params": 405, "layers": 126, "attnH": 128, "kvH": 8,  "dHead": 128, "note": "GQA — 8 KV heads, 128 attention heads" },
+
+  "1.5|28|12|2|128":   { "label": "Qwen2.5-1.5B",                       "params": 1.5, "layers": 28,  "attnH": 12, "kvH": 2,  "dHead": 128, "note": "GQA — 2 KV heads, 12 attention heads" },
+  "3|36|16|2|128":     { "label": "Qwen2.5-3B",                         "params": 3,   "layers": 36,  "attnH": 16, "kvH": 2,  "dHead": 128, "note": "GQA — 2 KV heads, 16 attention heads" },
+  "7|28|28|4|128":     { "label": "Qwen2.5-7B",                         "params": 7,   "layers": 28,  "attnH": 28, "kvH": 4,  "dHead": 128, "note": "GQA — 4 KV heads, 28 attention heads" },
+  "14|48|40|8|128":    { "label": "Qwen2.5-14B",                        "params": 14,  "layers": 48,  "attnH": 40, "kvH": 8,  "dHead": 128, "note": "GQA — 8 KV heads, 40 attention heads" },
+  "32|64|40|8|128":    { "label": "Qwen2.5-32B / OLMo 3.1 32B",         "params": 32,  "layers": 64,  "attnH": 40, "kvH": 8,  "dHead": 128, "note": "GQA — 8 KV heads, 40 attn heads. Also DeepSeek-R1-Distill-Qwen-32B, OLMo 3.1." },
+  "72|80|64|8|128":    { "label": "Qwen2.5-72B",                        "params": 72,  "layers": 80,  "attnH": 64, "kvH": 8,  "dHead": 128, "note": "GQA — 8 KV heads, 64 attention heads" },
+
+  "0.6|28|16|8|128":   { "label": "Qwen3-0.6B",                         "params": 0.6, "layers": 28,  "attnH": 16, "kvH": 8,  "dHead": 128, "note": "Dense GQA. hidden_size=1024. 32K context." },
+  "1.7|28|16|8|128":   { "label": "Qwen3-1.7B",                         "params": 1.7, "layers": 28,  "attnH": 16, "kvH": 8,  "dHead": 128, "note": "Dense GQA. hidden_size=2048. 32K context." },
+  "4|36|32|8|128":     { "label": "Qwen3-4B",                           "params": 4,   "layers": 36,  "attnH": 32, "kvH": 8,  "dHead": 128, "note": "Dense GQA. hidden_size=2560. 32K native, 131K YaRN." },
+  "8|36|32|8|128":     { "label": "Qwen3-8B",                           "params": 8,   "layers": 36,  "attnH": 32, "kvH": 8,  "dHead": 128, "note": "GQA — 8 KV heads, 32 attention heads" },
+  "14|40|40|8|128":    { "label": "Qwen3-14B",                          "params": 14,  "layers": 40,  "attnH": 40, "kvH": 8,  "dHead": 128, "note": "GQA — 8 KV heads, 40 attention heads" },
+  "30.5|48|32|4|128":  { "label": "Qwen3-30B-A3B (MoE)",                "params": 30.5,"layers": 48,  "attnH": 32, "kvH": 4,  "dHead": 128, "note": "MoE — 128 experts, 8 active. ~3.3B active. GQA 32:4." },
+  "32|64|64|8|128":    { "label": "Qwen3-32B",                          "params": 32,  "layers": 64,  "attnH": 64, "kvH": 8,  "dHead": 128, "note": "GQA — 8 KV heads, 64 attention heads" },
+  "235|94|64|4|128":   { "label": "Qwen3-235B-A22B (MoE)",              "params": 235, "layers": 94,  "attnH": 64, "kvH": 4,  "dHead": 128, "note": "MoE — 128 experts, ~22B active; GQA 4 KV heads, 64 attn heads. Also Qwen3-VL." },
+  "480|62|96|8|128":   { "label": "Qwen3-Coder-480B-A35B (MoE)",        "params": 480, "layers": 62,  "attnH": 96, "kvH": 8,  "dHead": 128, "note": "MoE — 160 experts, 8 active. ~35B active. GQA. 262K context." },
+
+  "27|64|24|4|256":    { "label": "Qwen3.6-27B",                        "params": 27,  "layers": 64,  "attnH": 24, "kvH": 4,  "dHead": 256, "note": "Dense. Hybrid attn (48 Gated DeltaNet linear + 16 full). full attn: dHead=256. 262K ctx." },
+  "35|40|16|2|256":    { "label": "Qwen3.6-35B-A3B (MoE)",              "params": 35,  "layers": 40,  "attnH": 16, "kvH": 2,  "dHead": 256, "note": "MoE. Hybrid attn (30 linear + 10 full). 256 experts, ~3B active. full attn: dHead=256. 262K ctx." },
+
+  "7|32|32|8|128":     { "label": "Mistral 7B v0.3",                    "params": 7,   "layers": 32,  "attnH": 32, "kvH": 8,  "dHead": 128, "note": "GQA — 8 KV heads, 32 attention heads" },
+  "24|40|32|8|128":    { "label": "Mistral-Small-3.1-24B",              "params": 24,  "layers": 40,  "attnH": 32, "kvH": 8,  "dHead": 128, "note": "Dense GQA. Multimodal (Pixtral vision encoder). 128K context. Apache 2.0." },
+  "47|32|32|8|128":    { "label": "Mixtral 8x7B (MoE)",                 "params": 47,  "layers": 32,  "attnH": 32, "kvH": 8,  "dHead": 128, "note": "MoE — 8 experts, 2 active; GQA 8 KV heads, 32 attention heads" },
+  "141|56|48|8|128":   { "label": "Mixtral 8x22B (MoE)",                "params": 141, "layers": 56,  "attnH": 48, "kvH": 8,  "dHead": 128, "note": "MoE — 8 experts, 2 active; GQA 8 KV heads, 48 attention heads" },
+  "675|61|128|128|192":{ "label": "Mistral Large 3 675B (MoE)",         "params": 675, "layers": 61,  "attnH": 128, "kvH": 128, "dHead": 192, "note": "MoE — 128 experts, 4 active. ~41B active. MLA with Q-LoRA (kv_lora_rank=512). 256K ctx." },
+
+  "9|42|16|8|256":     { "label": "Gemma 2 9B",                         "params": 9,   "layers": 42,  "attnH": 16, "kvH": 8,  "dHead": 256, "note": "GQA — 8 KV heads, 16 attention heads, head_dim 256" },
+  "27|46|32|16|128":   { "label": "Gemma 2 27B",                        "params": 27,  "layers": 46,  "attnH": 32, "kvH": 16, "dHead": 128, "note": "GQA — 16 KV heads, 32 attention heads" },
+  "12|48|16|8|256":    { "label": "Gemma 3 12B / Gemma 4 12B",          "params": 12,  "layers": 48,  "attnH": 16, "kvH": 8,  "dHead": 256, "note": "Hybrid 5:1 local/global attention. Gemma 4 global: MQA 1 KV head dHead=512. Unified KV cache." },
+  "27|62|32|16|128":   { "label": "Gemma 3 27B",                        "params": 27,  "layers": 62,  "attnH": 32, "kvH": 16, "dHead": 128, "note": "GQA — 16 KV heads, 32 attention heads" },
+  "8|35|8|2|256":      { "label": "Gemma 3n E4B",                       "params": 8,   "layers": 35,  "attnH": 8,  "kvH": 2,  "dHead": 256, "note": "MatFormer — ~4.5B effective. 28 sliding + 7 full layers. 15 shared KV tail layers." },
+  "25.2|30|16|8|256":  { "label": "Gemma 4 26B-A4B (MoE)",             "params": 25.2,"layers": 30,  "attnH": 16, "kvH": 8,  "dHead": 256, "note": "MoE — 128 experts, 8 active. ~3.8B active. Global: 2 KV heads dHead=512. 256K ctx." },
+  "30.7|60|32|16|256": { "label": "Gemma 4 31B",                        "params": 30.7,"layers": 60,  "attnH": 32, "kvH": 16, "dHead": 256, "note": "Dense. Hybrid 5:1 local/global. Global: 4 KV heads dHead=512. Unified KV cache. 256K ctx." },
+
+  "3.8|32|32|32|96":   { "label": "Phi-3-mini / Phi-3.5-mini",          "params": 3.8, "layers": 32,  "attnH": 32, "kvH": 32, "dHead": 96,  "note": "MHA — KV heads = attn heads (32), head_dim 96. Phi-3.5 adds LongRope 128K." },
+  "14|40|40|10|128":   { "label": "Phi-4",                              "params": 14,  "layers": 40,  "attnH": 40, "kvH": 10, "dHead": 128, "note": "GQA — 10 KV heads, 40 attention heads" },
+
+  "671|61|128|128|128":{ "label": "DeepSeek V3 / R1 671B (MoE)",        "params": 671, "layers": 61,  "attnH": 128, "kvH": 128, "dHead": 128, "note": "MoE — 256 experts, ~37B active. MLA (Multi-head Latent Attention) — KV compressed via kv_lora_rank=512. Also V3.1, V3.2, R1-0528." },
+  "284|43|64|1|512":   { "label": "DeepSeek V4 Flash (MoE)",            "params": 284, "layers": 43,  "attnH": 64, "kvH": 1,  "dHead": 512, "note": "MoE — 284B / 13B active. Hybrid CSA+HCA. MQA (kvH=1). 256 experts, top-6." },
+  "1600|61|128|1|512": { "label": "DeepSeek V4 Pro (MoE)",              "params": 1600,"layers": 61,  "attnH": 128, "kvH": 1,  "dHead": 512, "note": "MoE — 1.6T / 49B active. Hybrid CSA+HCA. MQA (kvH=1). 384 experts, top-6." },
+
+  "21|24|64|8|64":     { "label": "GPT-OSS 20B (MoE)",                  "params": 21,  "layers": 24,  "attnH": 64, "kvH": 8,  "dHead": 64,  "note": "MoE — 21B / 3.6B active. Alternating full/sliding_128 attn. 32 experts. MXFP4." },
+  "117|36|64|8|64":    { "label": "GPT-OSS 120B (MoE)",                 "params": 117, "layers": 36,  "attnH": 64, "kvH": 8,  "dHead": 64,  "note": "MoE — 117B / 5.1B active. Alternating full/sliding_128 attn. 128 experts. MXFP4." },
+
+  "357|92|96|8|128":   { "label": "GLM-4.6 (MoE)",                      "params": 357, "layers": 92,  "attnH": 96, "kvH": 8,  "dHead": 128, "note": "MoE — ~357B / 32B active. 160 routed experts, 8 active/tok. GQA. 202K ctx. MIT." },
+  "744|78|64|64|192":  { "label": "GLM-5.2 (MoE)",                      "params": 744, "layers": 78,  "attnH": 64, "kvH": 64, "dHead": 192, "note": "MoE — ~744B / 40B active. DSA + MLA (kv_lora_rank=512). 256 experts. 1M ctx. MIT." },
+
+  "1000|61|64|64|112": { "label": "Kimi K2 Instruct (MoE)",             "params": 1000,"layers": 61,  "attnH": 64, "kvH": 64, "dHead": 112, "note": "MoE — 1T / 32B active. 384 experts, 8 active. MLA (kv_lora_rank=512). 128K ctx." },
+
+  "200|64|48|8|128":   { "label": "Yi-Lightning (MoE)",                 "params": 200, "layers": 64,  "attnH": 48, "kvH": 8,  "dHead": 128, "note": "MoE — 200B / 22B active. 32 experts, 4 active/tok. GQA. 16K ctx." },
+
+  "8|48|32|2|128":     { "label": "InternLM3 8B",                       "params": 8,   "layers": 48,  "attnH": 32, "kvH": 2,  "dHead": 128, "note": "Dense. Aggressive GQA (32:2 = 16:1 ratio). SwiGLU. 32K ctx. Apache 2.0." },
+
+  "176|70|112|112|128":{ "label": "BLOOM 176B / BLOOMZ",                "params": 176, "layers": 70,  "attnH": 112, "kvH": 112, "dHead": 128, "note": "Dense MHA. ALiBi (no RoPE). GeLU. hidden_size=14336. 2K ctx." },
+
+  "3|40|40|8|64":      { "label": "Granite 4.1 3B",                     "params": 3,   "layers": 40,  "attnH": 40, "kvH": 8,  "dHead": 64,  "note": "Dense GQA. RoPE. SwiGLU. embedding_size=2560. 128K ctx. Apache 2.0." },
+  "8|40|32|8|128":     { "label": "Granite 4.1 8B / Granite 3.1 8B",    "params": 8,   "layers": 40,  "attnH": 32, "kvH": 8,  "dHead": 128, "note": "Dense GQA. RoPE. SwiGLU. 128K ctx. Apache 2.0." },
+
+  "340|96|96|8|192":   { "label": "Nemotron-4 340B",                    "params": 340, "layers": 96,  "attnH": 96, "kvH": 8,  "dHead": 192, "note": "Dense GQA. Squared ReLU. RoPE (50% rotary). 4K ctx. vocab=256K." },
+
+  "132|40|48|8|128":   { "label": "DBRX 132B (MoE)",                    "params": 132, "layers": 40,  "attnH": 48, "kvH": 8,  "dHead": 128, "note": "MoE — 16 experts, top-4. 36B active. GQA. GLU. RoPE. 4K ctx." },
+
+  "104|64|96|8|128":   { "label": "Command R+ 104B",                    "params": 104, "layers": 64,  "attnH": 96, "kvH": 8,  "dHead": 128, "note": "Dense GQA. SwiGLU. RoPE (theta=75M). qk_layernorm. 128K ctx." },
+
+  "398|72|64|8|128":   { "label": "Jamba 1.5 Large 398B (MoE)",         "params": 398, "layers": 72,  "attnH": 64, "kvH": 8,  "dHead": 128, "note": "Hybrid SSM-Transformer-MoE. 1:7 attn:mamba. MoE 16E top-2. 94B active. 256K ctx." },
+
+  "180|80|232|8|64":   { "label": "Falcon-180B",                        "params": 180, "layers": 80,  "attnH": 232,"kvH": 8,  "dHead": 64,  "note": "MultiGroup attn (KV=TP). Parallel attn/MLP. RoPE. GeLU. 2K ctx." },
+
+  "10|40|12|4|256":    { "label": "Falcon 3 10B",                       "params": 10,  "layers": 40,  "attnH": 12, "kvH": 4,  "dHead": 256, "note": "Dense GQA. Depth upscaled from Falcon3-7B. SwiGLU. RoPE. 32K ctx." },
+
+  "480|35|56|8|128":   { "label": "Arctic 480B (MoE)",                  "params": 480, "layers": 35,  "attnH": 56, "kvH": 8,  "dHead": 128, "note": "Dense-MoE hybrid (10B dense + 128 experts). 128E top-2. 17B active. GQA." },
+
+  "15|40|48|4|128":    { "label": "StarCoder2 15B",                     "params": 15,  "layers": 40,  "attnH": 48, "kvH": 4,  "dHead": 128, "note": "Dense GQA. Sliding window 4096. LayerNorm (not RMS). RoPE theta=100K." },
+
+  "428|60|64|4|128":   { "label": "MiniMax-M3 (MoE)",                   "params": 428, "layers": 60,  "attnH": 64, "kvH": 4,  "dHead": 128, "note": "MoE — 128 experts, 4 active. ~23B active. Lightning Indexer block-sparse attn. 1M ctx." }
+}
