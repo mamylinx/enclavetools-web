@@ -50,7 +50,7 @@ export interface CalcState {
   mode: FtMode;
 }
 
-/** Fine-tune memory lookup row (GB) from the guide's Table 1. */
+/** Fine-tune memory lookup row (GB) from the fine-tuning table. */
 export interface FtRow {
   full: number;
   lora: number;

@@ -9,7 +9,7 @@ export const MODEL_ARCH = modelsData as unknown as ModelArchMap;
 export const GPU_CATALOG = gpusData as unknown as GpuCatalogEntry[];
 
 /**
- * Fine-tuning memory table (GB) — Table 1 from the Lenovo guide.
+ * Fine-tuning memory table (GB).
  * Exact values only: 7B, 13B, 30B, 70B, 110B. Columns: full / lora / qlora8 / qlora4.
  */
 export const FT_TABLE: Record<number, FtRow> = {

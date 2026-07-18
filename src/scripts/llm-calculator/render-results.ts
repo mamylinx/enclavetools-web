@@ -4,7 +4,7 @@ import { getGpus } from './step5';
 import { calcModelMem, calcKvMem, calcTotal, calcFtMem } from './calculations';
 import { renderMetrics } from './render-metrics';
 import { renderGpus } from './render-gpus';
-import { renderFt, renderLatency, renderTco, renderConfigSummary } from './render-summary';
+import { renderFt, renderLatency, renderTco, renderConfigSummary, renderHeroAnswer } from './render-summary';
 
 /** Assemble and inject the full results section. No-op until a model is picked. */
 export function renderResults(): void {
@@ -23,17 +23,29 @@ export function renderResults(): void {
   const rpsVal = parseFloat(document.getElementById('rpsAvg')?.value as string) || 0;
   const peak95 = rpsVal > 0 ? rpsVal + 1.645 * Math.sqrt(rpsVal) : null;
 
-  const html = `
-    ${renderMetrics(s, mMem, kvMem, total, tSeq)}
-    ${renderFt(s, ftMem)}
-    <div class="card mb-5">
-      <p class="sec-hdr">GPUs you need</p>
-      <p class="text-brand-muted text-xs mb-4">GPUs needed = total memory ÷ memory per GPU (rounded up). The guide suggests linked servers when you need more than 2 GPUs.</p>
-      ${renderGpus(gpus, total, ftMem, rpsVal)}
+  const breakdownHtml = `
+    <div class="space-y-3">
+      ${renderMetrics(s, mMem, kvMem, total, tSeq)}
+      ${renderFt(s, ftMem)}
+      <div class="card">
+        <p class="sec-hdr">GPUs you need</p>
+        <p class="text-brand-muted text-xs mb-4">GPUs needed = total memory ÷ memory per GPU (rounded up). Link servers when you need more than 2 GPUs.</p>
+        ${renderGpus(gpus, total, ftMem, rpsVal)}
+      </div>
+      ${renderLatency(ttft, ttlt, rpsVal, peak95)}
+      ${renderConfigSummary(s, tSeq, rpsVal, peak95)}
     </div>
-    ${renderLatency(ttft, ttlt, rpsVal, peak95)}
+  `;
+
+  const html = `
+    ${renderHeroAnswer(total, gpus)}
     ${renderTco(gpus, rpsVal)}
-    ${renderConfigSummary(s, tSeq, rpsVal, peak95)}
+    <details class="collapsible-section card mb-5">
+      <summary>Full calculation breakdown</summary>
+      <div class="mt-4">
+        ${breakdownHtml}
+      </div>
+    </details>
   `;
 
   document.getElementById('resultsSection')!.innerHTML = html;

@@ -1,13 +1,15 @@
 import { store } from './store';
 import { FT_SUPPORTED } from './data';
+import { renderSummaryBar } from './nav';
 import type { FtMode } from '../../interfaces/llm-calculator';
 
 /** Step 4: training mode chosen — update state, highlight, re-check support. */
 export function selMode(mode: FtMode, btn: HTMLElement): void {
   store.state.mode = mode;
-  document.querySelectorAll('#step4 .choice-btn[data-action="selMode"]').forEach(b => b.classList.remove('sel'));
+  document.querySelectorAll('#step4 [data-action="selMode"]').forEach(b => b.classList.remove('sel'));
   btn.classList.add('sel');
   checkFtSupport();
+  renderSummaryBar();
 }
 
 /** Show/hide the fine-tune-not-supported warning for the current model + mode. */

@@ -1,4 +1,5 @@
 import { store } from './store';
+import { renderSummaryBar } from './nav';
 
 /** Step 2: range slider → number field sync (target is the number input id). */
 export function syncToken(id: string, val: string): void {
@@ -16,6 +17,7 @@ export function syncToken(id: string, val: string): void {
     (document.getElementById('outTokR') as HTMLInputElement).value = String(Math.min(v, 8000));
   }
   document.getElementById('ctxWindowLive')!.textContent = (s.inTok + s.outTok).toLocaleString();
+  renderSummaryBar();
 }
 
 /** Step 2: number field → range slider sync (ridId is the range id). */
@@ -28,6 +30,7 @@ export function syncSlider(ridId: string, val: string, vidId: string): void {
   if (ridId === 'outTokR') s.outTok = v;
   if (ridId === 'usersR') s.users = v;
   document.getElementById('ctxWindowLive')!.textContent = (s.inTok + s.outTok).toLocaleString();
+  renderSummaryBar();
 }
 
 /** Step 2: quick preset — set both token fields and highlight the preset. */
@@ -42,6 +45,7 @@ export function setTokens(inp: number, out: number, btn: HTMLElement): void {
   document.getElementById('outTokV')!.textContent = out.toLocaleString();
   (document.getElementById('outTokR') as HTMLInputElement).value = String(Math.min(out, 8000));
   document.getElementById('ctxWindowLive')!.textContent = (inp + out).toLocaleString();
-  document.querySelectorAll('#step2 .choice-btn').forEach(b => b.classList.remove('sel'));
+  document.querySelectorAll('#step2 [data-action="setTokens"]').forEach(b => b.classList.remove('sel'));
   btn.classList.add('sel');
+  renderSummaryBar();
 }

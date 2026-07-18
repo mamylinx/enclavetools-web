@@ -1,6 +1,7 @@
 import { store } from './store';
 import { MODEL_ARCH } from './data';
 import { checkFtSupport } from './step4';
+import { renderSummaryBar } from './nav';
 
 /** Step 1: model selected — load its architecture into state and show the note. */
 export function onModelChange(): void {
@@ -32,6 +33,7 @@ export function onModelChange(): void {
   (document.getElementById('s1next') as HTMLButtonElement).disabled = false;
 
   checkFtSupport();
+  renderSummaryBar();
 }
 
 /** Step 1: precision chosen — update state and highlight the selection. */
@@ -39,6 +41,6 @@ export function selPrec(label: string, z: number, btn: HTMLElement): void {
   const s = store.state;
   s.precision = z;
   s.precLabel = label;
-  document.querySelectorAll('#step1 .choice-btn[data-action="selPrec"]').forEach(b => b.classList.remove('sel'));
+  document.querySelectorAll('#step1 [data-action="selPrec"]').forEach(b => b.classList.remove('sel'));
   btn.classList.add('sel');
 }

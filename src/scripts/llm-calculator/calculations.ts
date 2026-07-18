@@ -1,7 +1,6 @@
 import type { CalcState } from '../../interfaces/llm-calculator';
 import { FT_TABLE, FT_SUPPORTED } from './data';
 
-/** M_model = P × Z × 1.2 (Guide p.2) */
 export function calcModelMem(s: CalcState): number {
   return s.params * s.precision * 1.2;
 }
@@ -16,7 +15,6 @@ export function calcKvMem(s: CalcState): number {
   return bytes / 1e9;
 }
 
-/** M_total = M_model + M_KV (Guide p.10) */
 export function calcTotal(s: CalcState): number {
   return calcModelMem(s) + calcKvMem(s);
 }
@@ -31,7 +29,6 @@ export function calcFtMem(s: CalcState): number | null {
   return row[col[s.mode]];
 }
 
-/** On-prem cost per 1M prompts: Z ≈ C / (X × 32) (Guide p.21) */
 export function calcCostPerM(annualCost: number, throughputRps: number): number | null {
   if (!throughputRps || throughputRps <= 0) return null;
   return annualCost / (throughputRps * 32);

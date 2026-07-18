@@ -1,4 +1,5 @@
 import { store } from './store';
+import { renderSummaryBar } from './nav';
 
 /** Step 3: toggle the advanced architecture override panel. */
 export function toggleArchOverride(): void {
@@ -25,5 +26,6 @@ export function calcPoissonPeak(): void {
     return;
   }
   const peak95 = rps + 1.645 * Math.sqrt(rps);
-  el.innerHTML = `Estimated peak: <strong class="text-brand-forest">${peak95.toFixed(2)}</strong> requests/sec &nbsp;·&nbsp; Peak per minute: <strong class="text-brand-forest">${(peak95 * 60).toFixed(0)}</strong><br/><span class="note">Formula: average + 1.645 × √average — the guide's method for on-prem sizing</span>`;
+  el.innerHTML = `Estimated peak: <strong class="text-brand-forest">${peak95.toFixed(2)}</strong> requests/sec &nbsp;·&nbsp; Peak per minute: <strong class="text-brand-forest">${(peak95 * 60).toFixed(0)}</strong><br/><span class="note">Formula: average + 1.645 × √average (95th-percentile peak)</span>`;
+  renderSummaryBar();
 }

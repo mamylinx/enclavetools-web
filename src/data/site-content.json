@@ -84,5 +84,9 @@
   "404_title": "Oops!",
   "404_description": "We can't seem to find the page you're looking for.",
   "marketing_featured_label": "Get Featured",
-  "marketing_newsletter_label": "Newsletter"
+  "marketing_newsletter_label": "Newsletter",
+  "calc_promo_eyebrow": "On-Premises · Offline AI",
+  "calc_promo_heading": "Calculate how much GPU memory your AI needs",
+  "calc_promo_copy": "Answer five quick questions — model, context length, users, speed, and GPUs — to see exactly how many cards you need and what they cost to run on your own servers. You set every spec; we assume no prices.",
+  "calc_promo_cta": "Open the calculator →"
 }
