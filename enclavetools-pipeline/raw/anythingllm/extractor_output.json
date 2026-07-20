@@ -1,0 +1,114 @@
+{
+  "fields": {
+    "title": "AnythingLLM",
+    "tag": "AI Application",
+    "technical_description": "AnythingLLM is an all-in-one, local-first AI application built as a monorepo with a Vite + React frontend, a NodeJS Express server handling LLM and vector database interactions, and a separate collector service for document parsing. It supports connecting to many local and cloud LLM providers, built-in agents, multi-user access, and document ingestion pipelines, with optional Docker, bare-metal, and cloud deployments.",
+    "docs_url": "https://docs.anythingllm.com",
+    "maturity": "Production / Stable",
+    "setup_difficulty": "Medium",
+    "openai_api": 1,
+    "rest_api": 1,
+    "gui_available": 1,
+    "hardware": [
+      "CPU",
+      "GPU (NVIDIA)",
+      "GPU (Apple Silicon)"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal",
+      "Cloud",
+      "Desktop App",
+      "Mobile",
+      "Browser Extension"
+    ],
+    "model_format": [
+      "GGUF",
+      "safetensors",
+      "PyTorch"
+    ],
+    "use_cases": [
+      "Chat Assistant",
+      "RAG",
+      "Agentic Workflows",
+      "Document Processing",
+      "Vector Search",
+      "Text-to-Speech",
+      "Speech-to-Text",
+      "Summarization",
+      "Translation"
+    ],
+    "personas": [
+      "Developer",
+      "Data Scientist",
+      "Hobbyist",
+      "Enterprise IT",
+      "Non-Technical User"
+    ],
+    "features": [
+      "Dynamic Model Routing",
+      "Automatic & User Managed Memories",
+      "Scheduled Tasks",
+      "Intelligent Skill Selection",
+      "No-code AI Agent builder",
+      "MCP-compatibility",
+      "Multi-modal support",
+      "Custom AI Agents",
+      "Multi-user instance support and permissioning",
+      "Embeddable Chat widget",
+      "Multiple document type support",
+      "Drag-and-drop uploads with source citations",
+      "Developer API"
+    ],
+    "works_with": [
+      "OpenAI",
+      "Azure OpenAI",
+      "AWS Bedrock",
+      "Anthropic",
+      "Google Gemini",
+      "Ollama",
+      "LM Studio",
+      "LocalAI",
+      "Together AI",
+      "Fireworks AI",
+      "Perplexity",
+      "OpenRouter",
+      "DeepSeek",
+      "Mistral",
+      "Groq",
+      "Cohere",
+      "xAI",
+      "LanceDB",
+      "PGVector",
+      "Astra DB"
+    ],
+    "telemetry": "Opt-out",
+    "paid_support": 1,
+    "min_ram_gb": null,
+    "recommended_ram_gb": null,
+    "field_confidence": {
+      "maturity": "medium",
+      "setup_difficulty": "medium",
+      "hardware": "medium",
+      "deployment": "high",
+      "model_format": "low",
+      "use_cases": "medium",
+      "personas": "medium",
+      "features": "high",
+      "works_with": "high",
+      "telemetry": "high",
+      "paid_support": "high",
+      "min_ram_gb": "low",
+      "recommended_ram_gb": "low"
+    },
+    "quantization": 0,
+    "offline_after_setup": 0,
+    "fine_tuning": 0
+  },
+  "_meta": {
+    "source_hash": "5ebd4d93c4932e8f",
+    "extracted_at": "2026-07-20T12:56:42.052608+00:00",
+    "agent": "extractor",
+    "attempts": 1
+  }
+}

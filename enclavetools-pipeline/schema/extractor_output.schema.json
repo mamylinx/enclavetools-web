@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://enclavetools.example/schema/extractor_output.schema.json",
+  "title": "ExtractorOutput",
+  "description": "Subset of dataset_entry.schema.json containing ONLY the fields the LLM is allowed to produce. Every field here must be traceable to the attached source files. Any field not present in this schema (github_url, popularity_score, license, language, last_updated, commercial_use, docker_available, slug, date-added, last_verified, featured, community_notes*, community_guides*) is owned by the deterministic Lane A fetcher and must never be guessed by the model.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "title", "technical_description", "tag",
+    "docs_url", "maturity", "setup_difficulty", "hardware", "deployment",
+    "model_format", "use_cases", "personas", "features", "works_with",
+    "telemetry", "offline_after_setup", "paid_support", "gui_available", "openai_api",
+    "rest_api", "fine_tuning", "quantization", "min_ram_gb", "recommended_ram_gb",
+    "field_confidence"
+  ],
+  "properties": {
+    "title": {
+      "type": "string", "minLength": 1, "maxLength": 120,
+      "description": "Clean display name. Ground this in repo_name_hint/full_name_hint plus the README's top heading or homepage <title> — normalize casing/spacing, do not invent a different product name."
+    },
+    "technical_description": { "type": "string", "minLength": 1, "maxLength": 1200 },
+    "tag": { "type": ["string", "null"], "maxLength": 60 },
+    "docs_url": { "type": ["string", "null"] },
+
+    "maturity": {
+      "type": ["string", "null"],
+      "enum": ["Experimental", "Alpha", "Beta", "Production / Stable", "Mature / Maintenance", "Inactive / Unmaintained", null]
+    },
+    "setup_difficulty": {
+      "type": ["string", "null"],
+      "enum": ["Trivial", "Easy", "Medium", "Hard", "Expert", null]
+    },
+    "hardware": {
+      "type": "array",
+      "items": { "type": "string", "enum": ["CPU", "GPU (NVIDIA)", "GPU (AMD)", "GPU (Apple Silicon)", "TPU", "NPU", "Edge Device"] }
+    },
+    "deployment": {
+      "type": "array",
+      "items": { "type": "string", "enum": ["Docker", "Bare Metal", "Kubernetes", "Cloud", "Desktop App", "Mobile", "Browser Extension", "Serverless"] }
+    },
+    "model_format": {
+      "type": "array",
+      "items": { "type": "string", "enum": ["GGUF", "GGML", "safetensors", "ONNX", "PyTorch", "TensorFlow", "MLX", "AWQ", "GPTQ", "ExLlama"] }
+    },
+    "use_cases": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Chat Assistant", "RAG", "Agentic Workflows", "Code Generation",
+          "Document Processing", "Image Generation", "Speech-to-Text",
+          "Text-to-Speech", "Fine-Tuning", "Model Serving", "Vector Search",
+          "Data Extraction", "Translation", "Summarization"
+        ]
+      }
+    },
+    "personas": {
+      "type": "array",
+      "items": { "type": "string", "enum": ["Developer", "Data Scientist", "Hobbyist", "Enterprise IT", "Researcher", "Non-Technical User"] }
+    },
+    "features": { "type": "array", "items": { "type": "string", "maxLength": 60 }, "maxItems": 20 },
+    "works_with": { "type": "array", "items": { "type": "string", "maxLength": 60 }, "maxItems": 20 },
+
+    "telemetry": { "type": "string", "enum": ["None", "Opt-in", "Opt-out", "Always-on", "Unknown"] },
+    "offline_after_setup": { "type": "integer", "enum": [0, 1] },
+    "paid_support": {
+      "type": "integer", "enum": [0, 1],
+      "description": "1 only if the README/docs explicitly mention a paid support, enterprise, or SLA offering. Default 0, not null — absence of a mention means no paid support tier is advertised."
+    },
+    "gui_available": { "type": "integer", "enum": [0, 1] },
+    "openai_api": { "type": "integer", "enum": [0, 1] },
+    "rest_api": { "type": "integer", "enum": [0, 1] },
+    "fine_tuning": { "type": "integer", "enum": [0, 1] },
+    "quantization": { "type": "integer", "enum": [0, 1] },
+    "min_ram_gb": { "type": ["number", "null"], "minimum": 0 },
+    "recommended_ram_gb": { "type": ["number", "null"], "minimum": 0 },
+
+    "field_confidence": {
+      "type": "object",
+      "description": "Per-field self-reported confidence so low-confidence guesses can be routed to manual review instead of silently shipped.",
+      "additionalProperties": { "type": "string", "enum": ["high", "medium", "low"] }
+    }
+  }
+}

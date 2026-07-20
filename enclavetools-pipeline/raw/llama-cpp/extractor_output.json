@@ -1,0 +1,94 @@
+{
+  "fields": {
+    "title": "llama.cpp",
+    "tag": "LLM Inference Engine",
+    "technical_description": "llama.cpp is a plain C/C++ library and set of command-line tools that performs LLM inference with minimal dependencies across a wide range of hardware, including CPUs, Apple Silicon, NVIDIA/AMD GPUs, and accelerators via backends like Metal, CUDA, HIP, Vulkan, and SYCL. It uses the GGUF model format with integer quantization and offers a lightweight OpenAI-compatible HTTP server (llama-server) plus a CLI for chat, completion, perplexity measurement, and benchmarking.",
+    "docs_url": null,
+    "maturity": "Production / Stable",
+    "openai_api": 1,
+    "rest_api": 1,
+    "gui_available": 0,
+    "setup_difficulty": "Medium",
+    "hardware": [
+      "CPU",
+      "GPU (NVIDIA)",
+      "GPU (AMD)",
+      "GPU (Apple Silicon)",
+      "Edge Device"
+    ],
+    "deployment": [
+      "Docker",
+      "Bare Metal",
+      "Cloud"
+    ],
+    "model_format": [
+      "GGUF"
+    ],
+    "use_cases": [
+      "Chat Assistant",
+      "Model Serving",
+      "Code Generation",
+      "Summarization",
+      "Translation",
+      "Text-to-Speech"
+    ],
+    "personas": [
+      "Developer",
+      "Hobbyist",
+      "Researcher",
+      "Enterprise IT"
+    ],
+    "features": [
+      "OpenAI-compatible API server",
+      "CLI conversation and completion",
+      "GGUF quantization",
+      "Multimodal inference",
+      "Speculative decoding",
+      "Embedding and reranking endpoints",
+      "Grammar-constrained output",
+      "CPU+GPU hybrid inference",
+      "Cross-platform backends (Metal/CUDA/HIP/Vulkan/SYCL)",
+      "WebGPU browser inference"
+    ],
+    "works_with": [
+      "Hugging Face",
+      "Ollama",
+      "Docker",
+      "Metal",
+      "CUDA",
+      "HIP",
+      "Vulkan",
+      "SYCL",
+      "WebGPU",
+      "GGUF"
+    ],
+    "telemetry": "Unknown",
+    "paid_support": 0,
+    "min_ram_gb": null,
+    "recommended_ram_gb": null,
+    "field_confidence": {
+      "maturity": "medium",
+      "setup_difficulty": "medium",
+      "hardware": "high",
+      "deployment": "high",
+      "model_format": "high",
+      "use_cases": "medium",
+      "personas": "medium",
+      "features": "high",
+      "works_with": "high",
+      "telemetry": "high",
+      "paid_support": "high",
+      "min_ram_gb": "low",
+      "recommended_ram_gb": "low"
+    },
+    "offline_after_setup": 0,
+    "quantization": 0,
+    "fine_tuning": 0
+  },
+  "_meta": {
+    "source_hash": "d0cbf4951864f94a",
+    "extracted_at": "2026-07-20T12:58:04.538112+00:00",
+    "agent": "extractor",
+    "attempts": 1
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "_comment": "Maps SPDX license identifiers (as returned by GitHub's license.spdx_id) to a commercial_use flag. This is a heuristic operational policy, NOT legal advice. GPL/AGPL/LGPL permit commercial use (they impose copyleft/distribution obligations, not a commercial-use ban) so they map to 1. Source-available licenses that explicitly restrict competing commercial/hosted use map to 0. Anything not listed falls back to `default_unknown` and is routed to manual review rather than guessed.",
+
+  "commercial_use_1": [
+    "MIT", "Apache-2.0", "BSD-2-Clause", "BSD-3-Clause", "BSD-3-Clause-Clear",
+    "ISC", "MPL-2.0", "Unlicense", "0BSD", "Zlib", "Artistic-2.0",
+    "GPL-2.0", "GPL-2.0-only", "GPL-2.0-or-later",
+    "GPL-3.0", "GPL-3.0-only", "GPL-3.0-or-later",
+    "LGPL-2.1", "LGPL-2.1-only", "LGPL-2.1-or-later",
+    "LGPL-3.0", "LGPL-3.0-only", "LGPL-3.0-or-later",
+    "AGPL-3.0", "AGPL-3.0-only", "AGPL-3.0-or-later",
+    "CC0-1.0", "WTFPL", "BSL-1.0", "EPL-2.0", "EPL-1.0"
+  ],
+
+  "commercial_use_0": [
+    "BUSL-1.1", "Elastic-2.0", "SSPL-1.0", "CC-BY-NC-4.0", "CC-BY-NC-SA-4.0",
+    "CC-BY-NC-ND-4.0", "PolyForm-Noncommercial-1.0.0", "PolyForm-Shield-1.0.0",
+    "Commons-Clause"
+  ],
+
+  "default_unknown": null
+}

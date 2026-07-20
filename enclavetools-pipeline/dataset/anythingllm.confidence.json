@@ -1,0 +1,15 @@
+{
+  "deployment": "high",
+  "features": "high",
+  "hardware": "medium",
+  "maturity": "medium",
+  "min_ram_gb": "low",
+  "model_format": "low",
+  "paid_support": "high",
+  "personas": "medium",
+  "recommended_ram_gb": "low",
+  "setup_difficulty": "medium",
+  "telemetry": "high",
+  "use_cases": "medium",
+  "works_with": "high"
+}

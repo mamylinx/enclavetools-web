@@ -1,0 +1,138 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://enclavetools.example/schema/dataset_entry.schema.json",
+  "title": "EnclavetoolsDatasetEntry",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "title", "body", "plain_description", "technical_description", "tag",
+    "url", "github_url", "docs_url", "date-added", "slug", "license",
+    "maturity", "last_updated", "setup_difficulty", "featured",
+    "popularity_score", "last_verified", "language", "hardware",
+    "deployment", "model_format", "use_cases", "personas", "features",
+    "works_with", "commercial_use", "telemetry", "offline_after_setup",
+    "paid_support", "gui_available", "docker_available", "openai_api",
+    "rest_api", "fine_tuning", "quantization", "min_ram_gb",
+    "recommended_ram_gb", "community_notes", "community_guides",
+    "community_notes_count", "community_guides_count"
+  ],
+  "properties": {
+    "title": { "type": "string", "minLength": 1, "maxLength": 120 },
+    "body": { "type": "string", "minLength": 1, "maxLength": 500 },
+    "plain_description": { "type": "string", "minLength": 1, "maxLength": 500 },
+    "technical_description": { "type": "string", "minLength": 1, "maxLength": 1200 },
+
+    "tag": { "type": ["string", "null"], "maxLength": 60 },
+
+    "url": { "type": ["string", "null"], "format": "uri" },
+    "github_url": { "type": "string", "format": "uri", "pattern": "^https://github\\.com/" },
+    "docs_url": { "type": ["string", "null"], "format": "uri" },
+
+    "date-added": { "type": "string", "format": "date" },
+    "slug": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+
+    "license": { "type": ["string", "null"], "maxLength": 60 },
+    "maturity": {
+      "type": ["string", "null"],
+      "enum": [
+        "Experimental", "Alpha", "Beta",
+        "Production / Stable", "Mature / Maintenance",
+        "Inactive / Unmaintained", null
+      ]
+    },
+    "last_updated": { "type": "string", "format": "date" },
+
+    "setup_difficulty": {
+      "type": ["string", "null"],
+      "enum": ["Trivial", "Easy", "Medium", "Hard", "Expert", null]
+    },
+    "featured": { "type": "boolean" },
+    "popularity_score": { "type": "integer", "minimum": 0 },
+    "last_verified": { "type": "string", "format": "date" },
+
+    "language": {
+      "type": "array",
+      "items": { "type": "string" },
+      "uniqueItems": true
+    },
+    "hardware": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["CPU", "GPU (NVIDIA)", "GPU (AMD)", "GPU (Apple Silicon)", "TPU", "NPU", "Edge Device"]
+      },
+      "uniqueItems": true
+    },
+    "deployment": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["Docker", "Bare Metal", "Kubernetes", "Cloud", "Desktop App", "Mobile", "Browser Extension", "Serverless"]
+      },
+      "uniqueItems": true
+    },
+    "model_format": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["GGUF", "GGML", "safetensors", "ONNX", "PyTorch", "TensorFlow", "MLX", "AWQ", "GPTQ", "ExLlama"]
+      },
+      "uniqueItems": true
+    },
+    "use_cases": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Chat Assistant", "RAG", "Agentic Workflows", "Code Generation",
+          "Document Processing", "Image Generation", "Speech-to-Text",
+          "Text-to-Speech", "Fine-Tuning", "Model Serving", "Vector Search",
+          "Data Extraction", "Translation", "Summarization"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "personas": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["Developer", "Data Scientist", "Hobbyist", "Enterprise IT", "Researcher", "Non-Technical User"]
+      },
+      "uniqueItems": true
+    },
+    "features": {
+      "type": "array",
+      "items": { "type": "string", "maxLength": 60 },
+      "uniqueItems": true,
+      "maxItems": 20
+    },
+    "works_with": {
+      "type": "array",
+      "items": { "type": "string", "maxLength": 60 },
+      "uniqueItems": true,
+      "maxItems": 20
+    },
+
+    "commercial_use": { "type": "integer", "enum": [0, 1] },
+    "telemetry": {
+      "type": "string",
+      "enum": ["None", "Opt-in", "Opt-out", "Always-on", "Unknown"]
+    },
+    "offline_after_setup": { "type": "integer", "enum": [0, 1] },
+    "paid_support": { "type": "integer", "enum": [0, 1] },
+    "gui_available": { "type": "integer", "enum": [0, 1] },
+    "docker_available": { "type": "integer", "enum": [0, 1] },
+    "openai_api": { "type": "integer", "enum": [0, 1] },
+    "rest_api": { "type": "integer", "enum": [0, 1] },
+    "fine_tuning": { "type": "integer", "enum": [0, 1] },
+    "quantization": { "type": "integer", "enum": [0, 1] },
+
+    "min_ram_gb": { "type": ["number", "null"], "minimum": 0 },
+    "recommended_ram_gb": { "type": ["number", "null"], "minimum": 0 },
+
+    "community_notes": { "type": "array", "items": { "type": "string" } },
+    "community_guides": { "type": "array", "items": { "type": "string" } },
+    "community_notes_count": { "type": "integer", "minimum": 0 },
+    "community_guides_count": { "type": "integer", "minimum": 0 }
+  }
+}
