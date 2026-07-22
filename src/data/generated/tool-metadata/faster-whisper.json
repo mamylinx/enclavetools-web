@@ -1,9 +1,9 @@
 {
-  "title": "faster-whisper",
+  "title": "Faster Whisper",
   "description": "Faster Whisper transcription with CTranslate2",
   "category": "speech-to-text",
   "url": "https://github.com/SYSTRAN/faster-whisper",
-  "tag": "MIT",
-  "date-added": "2026-07-10",
+  "tag": "Transcription",
+  "date-added": "2026-07-22",
   "slug": "faster-whisper"
 }

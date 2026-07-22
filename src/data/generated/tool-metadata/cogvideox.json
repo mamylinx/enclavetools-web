@@ -1,9 +1,9 @@
 {
-  "title": "CogVideoX (THUDM)",
+  "title": "CogVideoX",
   "description": "text and image to video generation: CogVideoX (2024) and CogVideo (ICLR 2023)",
   "category": "video-generation",
   "url": "https://github.com/THUDM/CogVideo",
-  "tag": "Apache-2.0",
-  "date-added": "2026-07-10",
+  "tag": "Video Generation",
+  "date-added": "2026-07-22",
   "slug": "cogvideox"
 }

@@ -3,7 +3,7 @@
   "description": "Universal LLM Deployment Engine with ML Compilation",
   "category": "llm-inference",
   "url": "https://github.com/mlc-ai/mlc-llm",
-  "tag": "Apache-2.0",
-  "date-added": "2026-07-10",
+  "tag": "LLM Deployment Engine",
+  "date-added": "2026-07-22",
   "slug": "mlc-llm"
 }

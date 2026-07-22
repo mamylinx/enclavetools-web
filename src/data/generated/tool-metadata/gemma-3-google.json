@@ -1,9 +1,9 @@
 {
-  "title": "Gemma 3 (Google)",
-  "description": "Gemma open-weight LLM library, from Google DeepMind",
+  "title": "Gemma",
+  "description": "image-text-to-text",
   "category": "llm-models",
   "url": "https://ai.google.dev/gemma/",
-  "tag": "Apache-2.0",
-  "date-added": "2026-07-10",
+  "tag": "LLM",
+  "date-added": "2026-07-22",
   "slug": "gemma-3-google"
 }

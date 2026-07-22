@@ -88,8 +88,8 @@ def build_prompt(tool_name: str, retry_error: Optional[str] = None) -> str:
     base = (
         f"Extract metadata for the project \"{tool_name}\" from the attached "
         f"github.json and readme.md. Follow every rule in your system prompt. "
-        f"Call the StructuredOutput tool with the single JSON object as your "
-        f"only output."
+        f"Output ONLY a single raw JSON object — no markdown fences, no prose "
+        f"before or after, no commentary."
     )
     if retry_error:
         base += (
@@ -160,6 +160,44 @@ def _extract_balanced_json_objects(text: str) -> list[str]:
     return candidates
 
 
+def _extract_json_from_text(text: str) -> list[Any]:
+    """Try to extract JSON object(s) from a text string that may contain
+    prose, markdown fences, or other wrapping.
+
+    Strategies tried in order:
+      1. Direct JSON parse (text is already bare JSON).
+      2. Strip markdown fences (```json … ```) and re-parse.
+      3. Balanced-brace scan for top-level {...} blocks.
+    Returns a list of parsed objects (may be empty).
+    """
+    candidates = []
+
+    # Strategy A: direct parse
+    parsed = _try_parse_json(text)
+    if parsed is not None:
+        candidates.append(parsed)
+        return candidates
+
+    # Strategy B: strip markdown fences
+    fence_stripped = re.sub(
+        r"^\s*```(?:json)?\s*\n?(.*?)\n?\s*```\s*$",
+        r"\1", text, count=1, flags=re.DOTALL,
+    )
+    if fence_stripped != text:
+        parsed = _try_parse_json(fence_stripped)
+        if parsed is not None:
+            candidates.append(parsed)
+            return candidates
+
+    # Strategy C: find any top-level {...} block via brace balancing
+    for blob in _extract_balanced_json_objects(text):
+        parsed = _try_parse_json(blob)
+        if parsed is not None:
+            candidates.append(parsed)
+
+    return candidates
+
+
 def extract_structured_payload(stdout: str, schema: dict) -> Optional[dict]:
     """
     Multi-strategy extraction, gated by schema validation at every step so a
@@ -220,9 +258,7 @@ def extract_structured_payload(stdout: str, schema: dict) -> Optional[dict]:
                 part = evt.get("part") if isinstance(evt.get("part"), dict) else {}
                 text_val = part.get("text") if isinstance(part.get("text"), str) else None
             if isinstance(text_val, str):
-                parsed = _try_parse_json(text_val)
-                if parsed is not None:
-                    candidates.append(parsed)
+                candidates.extend(_extract_json_from_text(text_val))
             if is_valid(evt):
                 candidates.append(evt)
         for c in candidates:

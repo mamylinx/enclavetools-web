@@ -1,9 +1,9 @@
 {
-  "title": "NeMo Guardrails (NVIDIA)",
+  "title": "NeMo Guardrails",
   "description": "NeMo Guardrails is an open-source toolkit for easily adding programmable guardrails to LLM-based conversational systems.",
   "category": "privacy-security",
   "url": "https://github.com/NVIDIA-NeMo/Guardrails",
-  "tag": "Apache 2.0",
-  "date-added": "2026-07-10",
+  "tag": "Guardrails",
+  "date-added": "2026-07-22",
   "slug": "nemo-guardrails"
 }

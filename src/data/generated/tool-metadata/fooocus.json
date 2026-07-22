@@ -3,7 +3,7 @@
   "description": "Focus on prompting and generating",
   "category": "image-generation",
   "url": "https://github.com/lllyasviel/Fooocus",
-  "tag": "GPL-3.0",
-  "date-added": "2026-07-10",
+  "tag": "Image Generation",
+  "date-added": "2026-07-22",
   "slug": "fooocus"
 }

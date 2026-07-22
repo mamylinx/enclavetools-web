@@ -3,7 +3,7 @@
   "description": "open-source coding agent",
   "category": "code-assistants",
   "url": "https://continue.dev/",
-  "tag": "Apache-2.0",
-  "date-added": "2026-07-10",
+  "tag": "coding-agent",
+  "date-added": "2026-07-22",
   "slug": "continue"
 }

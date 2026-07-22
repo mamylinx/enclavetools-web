@@ -4,8 +4,8 @@ interface Props {
 }
 
 const { categoryCounts } = Astro.props;
-const llmCount = categoryCounts["llm-inference"] || 14;
-const ragCount = categoryCounts["rag-engine"] || 8;
+const llmCount = categoryCounts["llm-inference"] || 0;
+const ragCount = categoryCounts["rag-engine"] || 0;
 ---
 
 <section id="stay-ahead" class="bg-brand-lightCyan py-20 lg:py-24 border-b border-brand-forest/10">

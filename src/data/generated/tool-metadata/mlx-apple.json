@@ -1,9 +1,9 @@
 {
-  "title": "MLX (Apple)",
+  "title": "MLX",
   "description": "MLX: An array framework for Apple silicon",
   "category": "llm-inference",
   "url": "https://github.com/ml-explore/mlx",
-  "tag": "MIT",
-  "date-added": "2026-07-10",
+  "tag": "Machine Learning Framework",
+  "date-added": "2026-07-22",
   "slug": "mlx-apple"
 }

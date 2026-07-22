@@ -3,7 +3,7 @@
   "description": "LocalAI is the open-source AI engine. Run any model - LLMs, vision, voice, image, video - on any hardware. No GPU required.",
   "category": "llm-inference",
   "url": "https://localai.io/",
-  "tag": "MIT",
-  "date-added": "2026-07-10",
+  "tag": "ai-engine",
+  "date-added": "2026-07-22",
   "slug": "localai"
 }

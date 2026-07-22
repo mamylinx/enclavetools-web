@@ -1,9 +1,9 @@
 {
-  "title": "Comet Opik",
+  "title": "Opik",
   "description": "Debug, evaluate, and monitor your LLM applications, RAG systems, and agentic workflows with comprehensive tracing, automated evaluations, and production-ready dashboards.",
   "category": "monitoring-observability",
   "url": "https://github.com/comet-ml/opik",
-  "tag": "Apache-2.0",
-  "date-added": "2026-07-10",
+  "tag": "LLM Observability",
+  "date-added": "2026-07-22",
   "slug": "comet-opik"
 }

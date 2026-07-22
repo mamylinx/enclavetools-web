@@ -33,6 +33,7 @@
     "test:run": "vitest run",
     "lint:spacing": "bash scripts/lint-spacing.sh",
     "build-data": "bun run scripts/build-data.ts",
+    "sync-pipeline": "bun run scripts/sync-pipeline.ts",
     "generate-types": "wrangler types"
   },
   "dependencies": {

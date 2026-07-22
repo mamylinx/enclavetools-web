@@ -3,7 +3,7 @@
   "description": "🪢 Open source AI engineering platform: LLM evals, observability, metrics, prompt management, playground, datasets. Integrates with OpenTelemetry, LangChain, OpenAI SDK, LiteLLM, and more. 🍊YC W23 ",
   "category": "monitoring-observability",
   "url": "https://langfuse.com/",
-  "tag": "MIT",
-  "date-added": "2026-07-10",
+  "tag": "Observability",
+  "date-added": "2026-07-22",
   "slug": "langfuse"
 }

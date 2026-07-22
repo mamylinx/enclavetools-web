@@ -1,9 +1,9 @@
 {
-  "title": "FLUX.1 (Black Forest Labs)",
+  "title": "FLUX",
   "description": "Official inference repo for FLUX.1 models",
   "category": "image-generation",
   "url": "https://github.com/black-forest-labs/flux",
-  "tag": "Apache-2.0",
-  "date-added": "2026-07-10",
+  "tag": "Image Generation",
+  "date-added": "2026-07-22",
   "slug": "flux-1"
 }

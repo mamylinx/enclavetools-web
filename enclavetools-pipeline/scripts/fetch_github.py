@@ -48,6 +48,7 @@ except ImportError:  # pragma: no cover
     from requests.packages.urllib3.util.retry import Retry  # type: ignore
 
 API_ROOT = "https://api.github.com"
+HF_API_ROOT = "https://huggingface.co/api"
 USER_AGENT = "enclavetools-pipeline/1.0 (+https://github.com/enclavetools)"
 REQUEST_TIMEOUT = 30
 INTER_REQUEST_DELAY_SECONDS = 0.15  # be a good citizen even when authenticated
@@ -58,7 +59,12 @@ MAX_RATE_LIMIT_WAIT_SECONDS = int(os.environ.get("MAX_RATE_LIMIT_WAIT_SECONDS", 
 # instead of hanging — better to see it in the failures log and retry the batch
 # later (or add a token) than to have a scheduled job silently stall.
 
-DOCKER_SIGNAL_FILES = {"dockerfile", "docker-compose.yml", "docker-compose.yaml", "compose.yaml", "compose.yml"}
+DOCKER_SIGNAL_FILES = {"dockerfile", "docker-compose.yml", "docker-compose.yaml", "compose.yaml", "compose.yml", ".dockerignore"}
+DOCKER_SIGNAL_TERMS = (
+    "docker pull", "docker-compose", "docker compose",
+    "dockerfile", "deploy on docker", "docker .env",
+    "ghcr.io", "docker.io", "container image",
+)
 OPENAI_API_SIGNAL_TERMS = (
     "openai-compatible", "openai compatible", "/v1/chat/completions",
     "drop-in replacement for openai", "openai api compatible",
@@ -172,8 +178,13 @@ def fetch_languages(session, owner: str, repo: str):
     status, payload, _ = get_json(session, f"{API_ROOT}/repos/{owner}/{repo}/languages")
     if status != "ok" or not payload:
         return []
-    # payload: {"Python": 123456, "JavaScript": 4567, ...} sorted by bytes desc
-    return [lang for lang, _bytes in sorted(payload.items(), key=lambda kv: kv[1], reverse=True)]
+    # payload: {"Python": 123456, "JavaScript": 4567, ...} — bytes per language
+    total = sum(payload.values())
+    if total == 0:
+        return []
+    sorted_langs = sorted(payload.items(), key=lambda kv: kv[1], reverse=True)
+    # Return all languages that account for >= 20% of codebase by bytes
+    return [lang for lang, bytes_count in sorted_langs if (bytes_count / total * 100) >= 20]
 
 
 def fetch_readme(session, owner: str, repo: str) -> Optional[str]:
@@ -193,15 +204,22 @@ def fetch_root_tree(session, owner: str, repo: str, default_branch: str) -> list
     status, payload, _ = get_json(
         session,
         f"{API_ROOT}/repos/{owner}/{repo}/git/trees/{default_branch}",
+        params={"recursive": "1"},
     )
     if status != "ok" or not payload:
         return []
-    return payload.get("tree", [])
+    tree = payload.get("tree", [])
+    if payload.get("truncated"):
+        log.warning("Tree truncated for %s/%s — some Docker signals may be missed", owner, repo)
+    return tree
 
 
 def derive_docker_available(tree: list[dict]) -> int:
-    names = {entry.get("path", "").lower() for entry in tree}
-    return 1 if names & DOCKER_SIGNAL_FILES else 0
+    for entry in tree:
+        basename = entry.get("path", "").lower().rsplit("/", 1)[-1]
+        if basename in DOCKER_SIGNAL_FILES:
+            return 1
+    return 0
 
 
 def derive_gui_signal(tree: list[dict]) -> int:
@@ -218,6 +236,7 @@ def derive_text_signals(readme_text: Optional[str], description: Optional[str]) 
     return {
         "openai_api_signal": 1 if any(t in haystack for t in OPENAI_API_SIGNAL_TERMS) else 0,
         "rest_api_signal": 1 if any(t in haystack for t in REST_API_SIGNAL_TERMS) else 0,
+        "docker_signal": 1 if any(t in haystack for t in DOCKER_SIGNAL_TERMS) else 0,
     }
 
 
@@ -237,6 +256,197 @@ def derive_commercial_use(spdx_id: Optional[str], license_lookup: dict) -> Optio
     return license_lookup.get(spdx_id, None)
 
 
+# ---------------------------------------------------------------------------
+# HuggingFace fallback helpers
+# ---------------------------------------------------------------------------
+
+def fetch_hf_model(session: requests.Session, owner: str, repo: str,
+                   etag: Optional[str] = None) -> tuple[str, Any, Optional[str]]:
+    """Fetch from HuggingFace model API. Returns (status, payload, etag)."""
+    return get_json(session, f"{HF_API_ROOT}/models/{owner}/{repo}", etag=etag)
+
+
+def normalize_hf_license(license_str: Optional[str]) -> Optional[str]:
+    """Normalize HuggingFace license string to SPDX format."""
+    if not license_str:
+        return None
+    spdx_map = {
+        "apache-2.0": "Apache-2.0",
+        "mit": "MIT",
+        "gpl-3.0": "GPL-3.0",
+        "gpl-2.0": "GPL-2.0",
+        "lgpl-3.0": "LGPL-3.0",
+        "lgpl-2.1": "LGPL-2.1",
+        "bsd-2-clause": "BSD-2-Clause",
+        "bsd-3-clause": "BSD-3-Clause",
+        "isc": "ISC",
+        "mpl-2.0": "MPL-2.0",
+        "cc-by-4.0": "CC-BY-4.0",
+        "cc-by-sa-4.0": "CC-BY-SA-4.0",
+        "cc-by-nc-4.0": "CC-BY-NC-4.0",
+        "cc-by-nc-sa-4.0": "CC-BY-NC-SA-4.0",
+        "cc0-1.0": "CC0-1.0",
+        "artistic-2.0": "Artistic-2.0",
+        "zlib": "Zlib",
+        "bsl-1.0": "BSL-1.0",
+    }
+    normalized = spdx_map.get(license_str.lower())
+    if normalized:
+        return normalized
+    # Fallback: capitalize first letter of each hyphen-separated segment
+    # e.g. "foo-bar" -> "Foo-bar" (best-effort, may not match SPDX exactly)
+    return license_str
+
+
+PRECISION_BYTES = {
+    "F32": 4, "FP32": 4,
+    "F16": 2, "FP16": 2, "BF16": 2,
+    "I8": 1, "INT8": 1,
+    "I4": 0.5, "INT4": 0.5, "FP4": 0.5,
+}
+
+
+def estimate_ram_from_hf(hf_json: dict) -> tuple[Optional[float], Optional[float]]:
+    params = hf_json.get("safetensors", {}).get("parameters", {})
+    if not params:
+        return None, None
+    total_bytes = sum(
+        count * PRECISION_BYTES.get(precision, 2)
+        for precision, count in params.items()
+    )
+    min_gb = round(total_bytes / 1e9, 1)
+    return min_gb, round(min_gb * 1.5, 1)
+
+
+def detect_model_format_from_hf(siblings: list[dict], tags: list[str]) -> list[str]:
+    """Detect model_format from HF siblings filenames and tags."""
+    formats = []
+    filenames = {s.get("rfilename", "").lower() for s in siblings}
+    for fn in filenames:
+        if fn.endswith(".safetensors"):
+            formats.append("safetensors")
+            break
+    for fn in filenames:
+        if fn.endswith(".bin") and "pytorch" in fn:
+            formats.append("PyTorch")
+            break
+    for fn in filenames:
+        if fn.endswith(".onnx"):
+            formats.append("ONNX")
+            break
+    for fn in filenames:
+        if fn.endswith(".gguf"):
+            formats.append("GGUF")
+            break
+    for fn in filenames:
+        if fn.endswith(".mlx"):
+            formats.append("MLX")
+            break
+    tag_set = set(tags)
+    if "awq" in tag_set:
+        formats.append("AWQ")
+    if "gptq" in tag_set:
+        formats.append("GPTQ")
+    return formats
+
+
+def build_record_from_hf(tool: ToolRow, hf_json: dict, readme_text: Optional[str],
+                         siblings: list[dict], etag: Optional[str],
+                         license_lookup: dict) -> dict:
+    """Build a normalized github.json-compatible record from HuggingFace API data."""
+    tags = hf_json.get("tags", [])
+    card_data = hf_json.get("cardData") or {}
+
+    license_str = card_data.get("license")
+    if not license_str:
+        for tag in tags:
+            if tag.startswith("license:"):
+                license_str = tag.split(":", 1)[1]
+                break
+    spdx_id = normalize_hf_license(license_str)
+    commercial_use = derive_commercial_use(spdx_id, license_lookup)
+
+    hf_languages = card_data.get("language") or []
+    if not hf_languages:
+        hf_languages = [t for t in tags if len(t) == 2 and t.isalpha()]
+
+    docker_available = 0
+    docker_signal = 0
+    for s in siblings:
+        fn = s.get("rfilename", "").lower()
+        if fn in ("dockerfile", "docker-compose.yml", "docker-compose.yaml",
+                   "compose.yaml", "compose.yml"):
+            docker_available = 1
+            break
+    tag_lower = " ".join(tags).lower()
+    if any(term in tag_lower for term in DOCKER_SIGNAL_TERMS):
+        docker_signal = 1
+
+    openai_api_signal = 1 if any(
+        t in tag_lower for t in OPENAI_API_SIGNAL_TERMS
+    ) else 0
+    rest_api_signal = 1 if any(
+        t in tag_lower for t in REST_API_SIGNAL_TERMS
+    ) else 0
+    gui_signal = 1 if hf_json.get("spaces") else 0
+
+    model_format = detect_model_format_from_hf(siblings, tags)
+    min_ram_gb, recommended_ram_gb = estimate_ram_from_hf(hf_json)
+
+    now = datetime.now(timezone.utc)
+    fields = {
+        "body": card_data.get("description") or hf_json.get("pipeline_tag"),
+        "plain_description": card_data.get("description") or hf_json.get("pipeline_tag"),
+        "url": tool.homepage_url or f"https://huggingface.co/{tool.owner}/{tool.repo}",
+        "github_url": None,
+        "slug": tool.slug,
+        "category": tool.category,
+        "license": spdx_id,
+        "last_updated": (hf_json.get("lastModified") or "")[:10] or None,
+        "popularity_score": hf_json.get("downloads", 0),
+        "last_verified": now.date().isoformat(),
+        "language": hf_languages,
+        "commercial_use": commercial_use,
+        "docker_available": docker_available or docker_signal,
+        "model_format": model_format,
+        "min_ram_gb": min_ram_gb,
+        "recommended_ram_gb": recommended_ram_gb,
+    }
+
+    tree_paths = sorted({
+        s.get("rfilename", "").split("/")[0]
+        for s in siblings
+        if "/" in s.get("rfilename", "")
+    })
+
+    record = {
+        "fields": fields,
+        "_signals": {
+            "openai_api_signal": openai_api_signal,
+            "rest_api_signal": rest_api_signal,
+            "docker_signal": docker_signal,
+            "gui_signal": gui_signal,
+            "root_tree_paths": tree_paths,
+        },
+        "_meta": {
+            "owner": tool.owner,
+            "repo": tool.repo,
+            "repo_name_hint": hf_json.get("id"),
+            "full_name_hint": hf_json.get("id"),
+            "pipeline_tag": hf_json.get("pipeline_tag"),
+            "library_name": hf_json.get("library_name"),
+            "downloads": hf_json.get("downloads", 0),
+            "likes": hf_json.get("likes", 0),
+            "fetched_at": now.isoformat(),
+            "etag": etag,
+            "api_url": f"{HF_API_ROOT}/models/{tool.owner}/{tool.repo}",
+            "spdx_id_raw": spdx_id,
+            "source": "huggingface",
+        },
+    }
+    return record
+
+
 @dataclass
 class ToolRow:
     slug: str
@@ -244,6 +454,7 @@ class ToolRow:
     owner: str
     repo: str
     homepage_url: Optional[str] = None
+    category: Optional[str] = None
 
 
 def load_tools_csv(path: Path) -> list[ToolRow]:
@@ -261,6 +472,7 @@ def load_tools_csv(path: Path) -> list[ToolRow]:
                 owner=r["owner"].strip(),
                 repo=r["repo"].strip(),
                 homepage_url=(r.get("homepage_url") or "").strip() or None,
+                category=(r.get("category") or "").strip() or None,
             ))
     return rows
 
@@ -281,10 +493,19 @@ def process_tool(session: requests.Session, tool: ToolRow, out_dir: Path,
         except (json.JSONDecodeError, OSError):
             pass
 
+    if tool.category == "llm-models":
+        try:
+            log.info("[%s] Category is llm-models — fetching from HuggingFace...", tool.slug)
+            return _process_tool_hf_fallback(session, tool, out_dir, license_lookup, prev_etag, prev_payload)
+        except GithubFetchError as hf_err:
+            log.info("[%s] HuggingFace fetch failed (%s), falling back to GitHub...", tool.slug, hf_err)
+
     status, repo_json, etag = fetch_repo(session, tool.owner, tool.repo, etag=prev_etag)
 
     if status == "not_found":
-        raise GithubFetchError(f"Repo not found: {tool.owner}/{tool.repo}")
+        # GitHub repo not found — fallback to HuggingFace
+        log.info("[%s] not found on GitHub, trying HuggingFace...", tool.slug)
+        return _process_tool_hf_fallback(session, tool, out_dir, license_lookup, prev_etag, prev_payload)
 
     if status == "not_modified" and prev_payload:
         log.info("[%s] unchanged since last fetch (ETag hit) — refreshing verification timestamp only", tool.slug)
@@ -297,9 +518,9 @@ def process_tool(session: requests.Session, tool: ToolRow, out_dir: Path,
     default_branch = repo_json.get("default_branch", "main")
     tree = fetch_root_tree(session, tool.owner, tool.repo, default_branch)
 
-    docker_available = derive_docker_available(tree)
     gui_signal = derive_gui_signal(tree)
     text_signals = derive_text_signals(readme_text, repo_json.get("description"))
+    docker_available = derive_docker_available(tree) or text_signals["docker_signal"]
 
     license_info = repo_json.get("license") or {}
     spdx_id = license_info.get("spdx_id")
@@ -316,11 +537,12 @@ def process_tool(session: requests.Session, tool: ToolRow, out_dir: Path,
         "url": tool.homepage_url or repo_json.get("homepage") or None,
         "github_url": repo_json.get("html_url"),
         "slug": tool.slug,
+        "category": tool.category,
         "license": spdx_id if spdx_id not in (None, "NOASSERTION") else None,
         "last_updated": (repo_json.get("pushed_at") or "")[:10] or None,
         "popularity_score": repo_json.get("stargazers_count", 0),
         "last_verified": now.date().isoformat(),
-        "language": languages[:3] if languages else ([repo_json.get("language")] if repo_json.get("language") else []),
+        "language": languages if languages else ([repo_json.get("language")] if repo_json.get("language") else []),
         "commercial_use": commercial_use,
         "docker_available": docker_available,
     }
@@ -333,6 +555,7 @@ def process_tool(session: requests.Session, tool: ToolRow, out_dir: Path,
             # values. They are NOT written directly into the dataset.
             "openai_api_signal": text_signals["openai_api_signal"],
             "rest_api_signal": text_signals["rest_api_signal"],
+            "docker_signal": text_signals["docker_signal"],
             "gui_signal": gui_signal,
             "root_tree_paths": sorted({e.get("path", "") for e in tree if e.get("type") == "tree"}),
         },
@@ -345,6 +568,7 @@ def process_tool(session: requests.Session, tool: ToolRow, out_dir: Path,
             "etag": etag,
             "api_url": f"{API_ROOT}/repos/{tool.owner}/{tool.repo}",
             "spdx_id_raw": spdx_id,
+            "source": "github",
         },
     }
 
@@ -357,11 +581,61 @@ def process_tool(session: requests.Session, tool: ToolRow, out_dir: Path,
     return record
 
 
+def _process_tool_hf_fallback(session: requests.Session, tool: ToolRow, out_dir: Path,
+                               license_lookup: dict, prev_etag: Optional[str],
+                               prev_payload: Optional[dict]) -> dict:
+    """Handle HuggingFace fallback when GitHub repo is not found."""
+    tool_dir = out_dir / tool.slug
+    tool_dir.mkdir(parents=True, exist_ok=True)
+    cache_path = tool_dir / "github.json"
+
+    # If we have a cached HF record, check ETag
+    if prev_payload and prev_payload.get("_meta", {}).get("source") == "huggingface":
+        status, hf_json, etag = fetch_hf_model(session, tool.owner, tool.repo, etag=prev_etag)
+        if status == "not_found":
+            raise GithubFetchError(f"Not found on GitHub or HuggingFace: {tool.owner}/{tool.repo}")
+        if status == "not_modified" and prev_payload:
+            log.info("[%s] HF unchanged (ETag hit) — refreshing verification timestamp only", tool.slug)
+            prev_payload["_meta"]["last_verified"] = datetime.now(timezone.utc).date().isoformat()
+            cache_path.write_text(json.dumps(prev_payload, indent=2, ensure_ascii=False))
+            return prev_payload
+    else:
+        status, hf_json, etag = fetch_hf_model(session, tool.owner, tool.repo)
+        if status == "not_found":
+            raise GithubFetchError(f"Not found on GitHub or HuggingFace: {tool.owner}/{tool.repo}")
+
+    siblings = hf_json.get("siblings", [])
+    readme_text = None
+    for s in siblings:
+        if s.get("rfilename") == "README.md":
+            # HF API doesn't return README content inline — fetch it separately
+            readme_url = f"https://huggingface.co/{tool.owner}/{tool.repo}/raw/main/README.md"
+            try:
+                resp = session.get(readme_url, timeout=REQUEST_TIMEOUT)
+                if resp.status_code == 200:
+                    readme_text = resp.text
+            except requests.RequestException:
+                pass
+            break
+
+    record = build_record_from_hf(tool, hf_json, readme_text, siblings, etag, license_lookup)
+
+    cache_path.write_text(json.dumps(record, indent=2, ensure_ascii=False))
+    (tool_dir / "readme.md").write_text(readme_text or "", encoding="utf-8")
+    (tool_dir / "tree.json").write_text(json.dumps(siblings, indent=2, ensure_ascii=False))
+
+    log.info("[%s] OK (HF) — %s downloads, license=%s, docker=%s",
+              tool.slug, record["fields"]["popularity_score"],
+              record["fields"]["license"], record["fields"]["docker_available"])
+    return record
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--tools", type=Path, required=True, help="Path to tools.csv")
     ap.add_argument("--out", type=Path, default=Path("raw"), help="Output raw/ directory")
     ap.add_argument("--slug", type=str, default=None, help="Only process this one slug (for testing)")
+    ap.add_argument("--category", type=str, default=None, help="Only process tools in this category (e.g. llm-models)")
     ap.add_argument("--license-policy", type=Path,
                      default=Path(__file__).resolve().parent.parent / "config" / "license_policy.json")
     args = ap.parse_args()
@@ -380,6 +654,10 @@ def main():
         tools = [t for t in tools if t.slug == args.slug]
         if not tools:
             raise SystemExit(f"No tool with slug={args.slug!r} found in {args.tools}")
+    if args.category:
+        tools = [t for t in tools if t.category == args.category]
+        if not tools:
+            raise SystemExit(f"No tools found with category={args.category!r} in {args.tools}")
 
     failures_path = args.out / "_failures.jsonl"
     ok, failed = 0, 0

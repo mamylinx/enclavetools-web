@@ -1,9 +1,9 @@
 {
-  "title": "Smolagents (Hugging Face)",
+  "title": "smolagents",
   "description": "🤗 smolagents: a barebones library for agents that think in code.",
   "category": "agent-frameworks",
   "url": "https://github.com/huggingface/smolagents",
-  "tag": "Apache-2.0",
-  "date-added": "2026-07-10",
+  "tag": "agent-framework",
+  "date-added": "2026-07-22",
   "slug": "smolagents"
 }

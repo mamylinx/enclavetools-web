@@ -1,9 +1,9 @@
 {
   "title": "Dify",
-  "description": "Production-ready platform for agentic workflow development.",
+  "description": "Build Agentic workflows, RAG pipelines, with rich AI model and tool support on one collaborative workspace. Deploy on cloud, VPC, or self-hosted, so teams move from prototype to production without rebuilding the stack.",
   "category": "workflow-automation",
   "url": "https://dify.ai/",
-  "tag": "Apache 2.0",
-  "date-added": "2026-07-10",
+  "tag": "LLM App Development Platform",
+  "date-added": "2026-07-22",
   "slug": "dify"
 }

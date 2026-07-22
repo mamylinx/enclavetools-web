@@ -3,7 +3,7 @@
   "description": "Event Driven Orchestration & Scheduling Platform for Mission Critical Applications",
   "category": "workflow-automation",
   "url": "https://kestra.io/",
-  "tag": "Apache-2.0",
-  "date-added": "2026-07-10",
+  "tag": "Orchestration",
+  "date-added": "2026-07-22",
   "slug": "kestra"
 }

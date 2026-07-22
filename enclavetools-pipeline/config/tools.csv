@@ -1,0 +1,164 @@
+slug,name,owner,repo,homepage_url,repo_url,category
+activepieces,ActivePieces,activepieces,activepieces,https://www.activepieces.com/,https://github.com/activepieces/activepieces,workflow-automation
+aider,Aider AI Pair Programmer,Aider-AI,aider,https://aider.chat/,https://github.com/Aider-AI/aider,code-assistants
+animatediff,AnimateDiff,guoyww,AnimateDiff,https://github.com/guoyww/AnimateDiff,https://github.com/guoyww/AnimateDiff,video-generation
+anythingllm,AnythingLLM,Mintplex-Labs,anything-llm,https://anythingllm.com/,https://github.com/Mintplex-Labs/anything-llm,chat-interfaces
+apache-spark,Apache Spark Engine,apache,spark,https://spark.apache.org/,https://github.com/apache/spark,data-utilities
+arize-phoenix,Arize Phoenix,Arize-ai,phoenix,https://github.com/Arize-ai/phoenix,https://github.com/Arize-ai/phoenix,monitoring-observability
+audiocraft,AudioCraft (MusicGen/AudioGen),facebookresearch,audiocraft,https://github.com/facebookresearch/audiocraft,https://github.com/facebookresearch/audiocraft,text-to-speech
+autogen-microsoft,AutoGen (Microsoft),microsoft,autogen,https://github.com/microsoft/autogen,https://github.com/microsoft/autogen,agent-frameworks
+autogpt,AutoGPT Platform,Significant-Gravitas,AutoGPT,https://github.com/Significant-Gravitas/AutoGPT,https://github.com/Significant-Gravitas/AutoGPT,agent-frameworks
+axolotl,Axolotl Fine-Tuning,axolotl-ai-cloud,axolotl,https://github.com/axolotl-ai-cloud/axolotl,https://github.com/axolotl-ai-cloud/axolotl,fine-tuning-training
+bark,Bark Audio Synthesizer,suno-ai,bark,https://github.com/suno-ai/bark,https://github.com/suno-ai/bark,text-to-speech
+bentoml,BentoML Serving,bentoml,BentoML,https://github.com/bentoml/BentoML,https://github.com/bentoml/BentoML,deployment
+bge-m3,BGE-M3 Embeddings,BAAI,bge-m3,https://huggingface.co/BAAI/bge-m3,https://huggingface.co/BAAI/bge-m3,embedding-models
+buzz,Buzz Transcribe,chidiwilliams,buzz,https://github.com/chidiwilliams/buzz,https://github.com/chidiwilliams/buzz,speech-to-text
+candle,Candle Framework (Rust),huggingface,candle,https://github.com/huggingface/candle,https://github.com/huggingface/candle,llm-inference
+chatbox-ai,Chatbox AI,chatboxai,chatbox,https://github.com/chatboxai/chatbox,https://github.com/chatboxai/chatbox,chat-interfaces
+chattts,ChatTTS,2noise,ChatTTS,https://github.com/2noise/ChatTTS,https://github.com/2noise/ChatTTS,text-to-speech
+chroma,Chroma DB,chroma-core,chroma,https://www.trychroma.com/,https://github.com/chroma-core/chroma,vector-databases
+codegeex,CodeGeeX,zai-org,CodeGeeX,https://github.com/THUDM/CodeGeeX,https://github.com/zai-org/CodeGeeX,code-assistants
+cogvideox,CogVideoX,zai-org,CogVideo,https://github.com/THUDM/CogVideo,https://github.com/zai-org/CogVideo,video-generation
+comet-opik,Comet Opik,comet-ml,opik,https://github.com/comet-ml/opik,https://github.com/comet-ml/opik,monitoring-observability
+comfyui,ComfyUI,Comfy-Org,ComfyUI,https://github.com/comfyanonymous/ComfyUI,https://github.com/Comfy-Org/ComfyUI,image-generation
+continue,Continue Code Assistant,continuedev,continue,https://continue.dev/,https://github.com/continuedev/continue,code-assistants
+coqui-tts,Coqui TTS,coqui-ai,TTS,https://github.com/coqui-ai/TTS,https://github.com/coqui-ai/TTS,text-to-speech
+crewai,CrewAI Framework,crewAIInc,crewAI,https://www.crewai.com/open-source,https://github.com/crewAIInc/crewAI,agent-frameworks
+datacleaner,DataCleaner,datacleaner,DataCleaner,https://github.com/datacleaner/DataCleaner,https://github.com/datacleaner/DataCleaner,data-utilities
+deepseek-coder,DeepSeek-Coder,deepseek-ai,DeepSeek-Coder,https://github.com/deepseek-ai/DeepSeek-Coder,https://github.com/deepseek-ai/DeepSeek-Coder,code-assistants
+deepseek-r1,DeepSeek R1,deepseek-ai,DeepSeek-R1,https://github.com/deepseek-ai/DeepSeek-R1,https://github.com/deepseek-ai/DeepSeek-R1,llm-models
+deepseek-v3,DeepSeek V3,deepseek-ai,DeepSeek-V3,https://deepseek.com/,https://github.com/deepseek-ai/DeepSeek-V3,llm-models
+deepseek-vl2,DeepSeek-VL2,deepseek-ai,DeepSeek-VL2,https://github.com/deepseek-ai/DeepSeek-VL2,https://github.com/deepseek-ai/DeepSeek-VL2,vision-multimodal
+demucs,Demucs Audio Separation,facebookresearch,demucs,https://github.com/facebookresearch/demucs,https://github.com/facebookresearch/demucs,data-utilities
+diffusionbee,DiffusionBee,divamgupta,diffusionbee-stable-diffusion-ui,https://diffusionbee.com/,https://github.com/divamgupta/diffusionbee-stable-diffusion-ui,image-generation
+dify,Dify Orchestration,langgenius,dify,https://dify.ai/,https://github.com/langgenius/dify,workflow-automation
+doctr,docTR,mindee,doctr,https://github.com/mindee/doctr,https://github.com/mindee/doctr,rag-document
+draw-things,Draw Things,drawthingsai,draw-things-community,https://drawthings.ai/,https://github.com/drawthingsai/draw-things-community,image-generation
+duckdb,DuckDB Embedded Analytics,duckdb,duckdb,https://duckdb.org/,https://github.com/duckdb/duckdb,data-utilities
+dvc,DVC (Data Version Control),treeverse,dvc,https://dvc.org/,https://github.com/treeverse/dvc,data-utilities
+e5-microsoft,E5 Embeddings,intfloat,multilingual-e5-large,https://huggingface.co/intfloat/multilingual-e5-large,https://huggingface.co/intfloat/multilingual-e5-large,embedding-models
+easyocr,EasyOCR,JaidedAI,EasyOCR,https://github.com/JaidedAI/EasyOCR,https://github.com/JaidedAI/EasyOCR,rag-document
+exllamav2,ExLlamaV2 Engine,turboderp-org,exllamav2,https://github.com/turboderp-org/exllamav2,https://github.com/turboderp-org/exllamav2,llm-inference
+faiss,FAISS (Meta),facebookresearch,faiss,https://github.com/facebookresearch/faiss,https://github.com/facebookresearch/faiss,vector-databases
+falcon-2-vlm,Falcon 2 VLM,tiiuae,falcon-11B-vlm,https://huggingface.co/tiiuae/falcon-11B-vlm,https://huggingface.co/tiiuae/falcon-11B-vlm,vision-multimodal
+faster-whisper,faster-whisper,SYSTRAN,faster-whisper,https://github.com/SYSTRAN/faster-whisper,https://github.com/SYSTRAN/faster-whisper,speech-to-text
+fish-speech,Fish Speech,fishaudio,fish-speech,https://github.com/fishaudio/fish-speech,https://github.com/fishaudio/fish-speech,text-to-speech
+florence-2,Florence-2 (Microsoft),microsoft,Florence-2-large,https://huggingface.co/microsoft/Florence-2-large,https://huggingface.co/microsoft/Florence-2-large,vision-multimodal
+flowise,Flowise No-Code AI,FlowiseAI,Flowise,https://flowiseai.com/,https://github.com/FlowiseAI/Flowise,workflow-automation
+flux-1,FLUX.1 Model,black-forest-labs,flux,https://github.com/black-forest-labs/flux,https://github.com/black-forest-labs/flux,image-generation
+fooocus,Fooocus,lllyasviel,Fooocus,https://github.com/lllyasviel/Fooocus,https://github.com/lllyasviel/Fooocus,image-generation
+garak,Garak Vulnerability Scanner,NVIDIA,garak,https://github.com/leondz/garak,https://github.com/NVIDIA/garak,privacy-security
+gaussian-splatting,3D Gaussian Splatting,graphdeco-inria,gaussian-splatting,https://repo-sam.inria.fr/gspd/gaussian-splatting/,https://github.com/graphdeco-inria/gaussian-splatting,vision-multimodal
+gemma-3-google,Gemma 3 (Google),google,gemma-3-27b-it,https://ai.google.dev/gemma/,https://huggingface.co/google/gemma-3-27b-it,llm-models
+gpt4all,GPT4All,nomic-ai,gpt4all,https://www.nomic.ai/gpt4all,https://github.com/nomic-ai/gpt4all,chat-interfaces
+gte-qwen2,GTE-Qwen2 Embeddings,Alibaba-NLP,gte-Qwen2-7B-instruct,https://huggingface.co/Alibaba-NLP/gte-Qwen2-7B-instruct,https://huggingface.co/Alibaba-NLP/gte-Qwen2-7B-instruct,embedding-models
+guardrails-ai,Guardrails AI,guardrails-ai,guardrails,https://github.com/guardrails-ai/guardrails,https://github.com/guardrails-ai/guardrails,privacy-security
+huggingface-chat-ui,Hugging Face Chat UI,huggingface,chat-ui,https://github.com/huggingface/chat-ui,https://github.com/huggingface/chat-ui,chat-interfaces
+hunyuanvideo,HunyuanVideo,Tencent-Hunyuan,HunyuanVideo,https://github.com/Tencent/HunyuanVideo,https://github.com/Tencent-Hunyuan/HunyuanVideo,video-generation
+internvl3,InternVL3,OpenGVLab,InternVL,https://github.com/OpenGVLab/InternVL,https://github.com/OpenGVLab/InternVL,vision-multimodal
+invokeai,InvokeAI,invoke-ai,InvokeAI,https://invoke.ai/,https://github.com/invoke-ai/InvokeAI,image-generation
+jan,Jan,janhq,jan,https://jan.ai/,https://github.com/janhq/jan,chat-interfaces
+jina-embeddings-v3,Jina Embeddings v3,jinaai,jina-embeddings-v3,https://huggingface.co/jinaai/jina-embeddings-v3,https://huggingface.co/jinaai/jina-embeddings-v3,embedding-models
+kestra,Kestra Workflow Engine,kestra-io,kestra,https://kestra.io/,https://github.com/kestra-io/kestra,workflow-automation
+koboldcpp,KoboldCpp Engine,LostRuins,koboldcpp,https://github.com/LostRuins/koboldcpp,https://github.com/LostRuins/koboldcpp,llm-inference
+kokoro,Kokoro TTS,hexgrad,kokoro,https://github.com/hexgrad/kokoro,https://github.com/hexgrad/kokoro,text-to-speech
+kserve,KServe Model Serving,kserve,kserve,https://github.com/kserve/kserve,https://github.com/kserve/kserve,deployment
+lancedb,LanceDB,lancedb,lancedb,https://www.lancedb.com/,https://github.com/lancedb/lancedb,vector-databases
+langchain,LangChain Framework,langchain-ai,langchain,https://python.langchain.com/,https://github.com/langchain-ai/langchain,agent-frameworks
+langfuse,Langfuse Open Observability,langfuse,langfuse,https://langfuse.com/,https://github.com/langfuse/langfuse,monitoring-observability
+langgraph,LangGraph,langchain-ai,langgraph,https://github.com/langchain-ai/langgraph,https://github.com/langchain-ai/langgraph,agent-frameworks
+langwatch,LangWatch,langwatch,langwatch,https://github.com/langwatch/langwatch,https://github.com/langwatch/langwatch,monitoring-observability
+latex-ocr,LaTeX OCR (pix2tex),lukas-blecher,LaTeX-OCR,https://github.com/lukas-blecher/LaTeX-OCR,https://github.com/lukas-blecher/LaTeX-OCR,rag-document
+librechat,LibreChat,danny-avila,LibreChat,https://www.librechat.ai/,https://github.com/danny-avila/LibreChat,chat-interfaces
+litgpt,LitGPT (Lightning AI),Lightning-AI,litgpt,https://github.com/Lightning-AI/litgpt,https://github.com/Lightning-AI/litgpt,fine-tuning-training
+llama-3-meta,Llama 3 (Meta),meta-llama,Meta-Llama-3-8B-Instruct,https://ai.meta.com/llama/,https://huggingface.co/meta-llama/Meta-Llama-3-8B-Instruct,llm-models
+llama-cpp,llama.cpp,ggml-org,llama.cpp,https://github.com/ggml-org/llama.cpp,https://github.com/ggml-org/llama.cpp,llm-inference
+llama-factory,LLaMA-Factory Suite,hiyouga,LlamaFactory,https://github.com/hiyouga/LLaMA-Factory,https://github.com/hiyouga/LlamaFactory,fine-tuning-training
+llamafile,llamafile (Mozilla),mozilla-ai,llamafile,https://github.com/Mozilla-Ocho/llamafile,https://github.com/mozilla-ai/llamafile,llm-inference
+llamaindex,LlamaIndex Framework,run-llama,llama_index,https://www.llamaindex.ai/,https://github.com/run-llama/llama_index,agent-frameworks
+llava,LLaVA,haotian-liu,LLaVA,https://github.com/haotian-liu/LLaVA,https://github.com/haotian-liu/LLaVA,vision-multimodal
+llmfarm,LLMFarm,guinmoon,LLMFarm,https://github.com/guinmoon/LLMFarm,https://github.com/guinmoon/LLMFarm,chat-interfaces
+lobechat,LobeChat,lobehub,lobehub,https://github.com/lobehub/lobehub,https://github.com/lobehub/lobehub,chat-interfaces
+localai,LocalAI Engine,mudler,LocalAI,https://localai.io/,https://github.com/mudler/LocalAI,llm-inference
+ltx-video,LTX-Video,Lightricks,LTX-Video,https://github.com/Lightricks/LTX-Video,https://github.com/Lightricks/LTX-Video,video-generation
+marker,Marker PDF Reader,datalab-to,marker,https://github.com/VikParuchuri/marker,https://github.com/datalab-to/marker,rag-document
+meshroom,Meshroom 3D,alicevision,meshroom,https://alicevision.org/#meshroom,https://github.com/alicevision/meshroom,vision-multimodal
+metagpt,MetaGPT Multi-Agent Framework,FoundationAgents,MetaGPT,https://github.com/FoundationAgents/MetaGPT,https://github.com/FoundationAgents/MetaGPT,agent-frameworks
+milvus,Milvus Vector DB,milvus-io,milvus,https://milvus.io/,https://github.com/milvus-io/milvus,vector-databases
+mlc-llm,MLC LLM Engine,mlc-ai,mlc-llm,https://github.com/mlc-ai/mlc-llm,https://github.com/mlc-ai/mlc-llm,llm-inference
+mlx-apple,MLX Framework (Apple),ml-explore,mlx,https://github.com/ml-explore/mlx,https://github.com/ml-explore/mlx,llm-inference
+mochi-1,Mochi 1 Video,genmoai,mochi,https://github.com/genmoai/models,https://github.com/genmoai/mochi,video-generation
+moondream,Moondream Vision,m87-labs,moondream,https://moondream.ai/,https://github.com/m87-labs/moondream,vision-multimodal
+moshi,Moshi Speech Model,kyutai-labs,moshi,https://moshi.chat/,https://github.com/kyutai-labs/moshi,text-to-speech
+n8n,n8n Automation,n8n-io,n8n,https://n8n.io/,https://github.com/n8n-io/n8n,workflow-automation
+ncnn,ncnn Engine (Tencent),Tencent,ncnn,https://github.com/Tencent/ncnn,https://github.com/Tencent/ncnn,deployment
+nemo-guardrails,NeMo Guardrails (NVIDIA),NVIDIA-NeMo,Guardrails,https://github.com/NVIDIA-NeMo/Guardrails,https://github.com/NVIDIA-NeMo/Guardrails,privacy-security
+nemo-nvidia,NeMo Toolkit (NVIDIA),NVIDIA-NeMo,Speech,https://github.com/NVIDIA/NeMo,https://github.com/NVIDIA-NeMo/Speech,speech-to-text
+nerfstudio,Nerfstudio 3D,nerfstudio-project,nerfstudio,https://docs.nerf.studio/,https://github.com/nerfstudio-project/nerfstudio,vision-multimodal
+nomic-embed,Nomic Embed,nomic-ai,nomic-embed-text-v2-moe,https://huggingface.co/nomic-ai/nomic-embed-text-v2-moe,https://huggingface.co/nomic-ai/nomic-embed-text-v2-moe,embedding-models
+ollama,Ollama,ollama,ollama,https://ollama.com/,https://github.com/ollama/ollama,llm-inference
+olmo-allen-ai,OLMo (Allen AI),allenai,OLMo-7B,https://allenai.org/olmo,https://huggingface.co/allenai/OLMo-7B,llm-models
+onnxruntime,ONNX Runtime Engine,microsoft,onnxruntime,https://onnxruntime.ai/,https://github.com/microsoft/onnxruntime,deployment
+open-interpreter,Open Interpreter,openinterpreter,openinterpreter,https://github.com/openinterpreter/open-interpreter,https://github.com/openinterpreter/openinterpreter,agent-frameworks
+open-sora,Open-Sora,hpcaitech,Open-Sora,https://github.com/hpcaitech/Open-Sora,https://github.com/hpcaitech/Open-Sora,video-generation
+open-webui,Open WebUI,open-webui,open-webui,https://openwebui.com/,https://github.com/open-webui/open-webui,chat-interfaces
+open3d,Open3D,isl-org,Open3D,http://www.open3d.org/,https://github.com/isl-org/Open3D,vision-multimodal
+openllmetry,OpenLLMetry,traceloop,openllmetry,https://github.com/traceloop/openllmetry,https://github.com/traceloop/openllmetry,monitoring-observability
+openrlhf,OpenRLHF,OpenRLHF,OpenRLHF,https://github.com/OpenRLHF/OpenRLHF,https://github.com/OpenRLHF/OpenRLHF,fine-tuning-training
+openvino,OpenVINO (Intel),openvinotoolkit,openvino,https://github.com/openvinotoolkit/openvino,https://github.com/openvinotoolkit/openvino,deployment
+openvoice,OpenVoice,myshell-ai,OpenVoice,https://github.com/myshell-ai/OpenVoice,https://github.com/myshell-ai/OpenVoice,text-to-speech
+paddleocr,PaddleOCR,PaddlePaddle,PaddleOCR,https://github.com/PaddlePaddle/PaddleOCR,https://github.com/PaddlePaddle/PaddleOCR,rag-document
+pandas,Pandas Library,pandas-dev,pandas,https://pandas.pydata.org/,https://github.com/pandas-dev/pandas,data-utilities
+parler-tts,Parler-TTS,huggingface,parler-tts,https://github.com/huggingface/parler-tts,https://github.com/huggingface/parler-tts,text-to-speech
+peft-huggingface,PEFT Parameter-Efficient Fine-Tuning,huggingface,peft,https://github.com/huggingface/peft,https://github.com/huggingface/peft,fine-tuning-training
+pgvector,pgvector Postgres,pgvector,pgvector,https://github.com/pgvector/pgvector,https://github.com/pgvector/pgvector,vector-databases
+phi-3-microsoft,Phi-3 (Microsoft),microsoft,Phi-3-mini-128k-instruct,https://huggingface.co/microsoft/Phi-3-mini-128k-instruct,https://huggingface.co/microsoft/Phi-3-mini-128k-instruct,llm-models
+phi-3-vision,Phi-3-Vision,microsoft,Phi-3-vision-128k-instruct,https://huggingface.co/microsoft/Phi-3-vision-128k-instruct,https://huggingface.co/microsoft/Phi-3-vision-128k-instruct,vision-multimodal
+piper,Piper TTS,rhasspy,piper,https://github.com/rhasspy/piper,https://github.com/rhasspy/piper,text-to-speech
+pixtral-12b,Pixtral 12B,mistralai,Pixtral-12B-2409,https://huggingface.co/mistralai/Pixtral-12B-2409,https://huggingface.co/mistralai/Pixtral-12B-2409,vision-multimodal
+pocketpal-ai,PocketPal AI,a-ghorbani,pocketpal-ai,https://github.com/a-ghorbani/pocketpal-ai,https://github.com/a-ghorbani/pocketpal-ai,chat-interfaces
+polars,Polars DataFrames,pola-rs,polars,https://github.com/pola-rs/polars,https://github.com/pola-rs/polars,data-utilities
+presidio,Presidio PII Anonymization,data-privacy-stack,presidio,https://github.com/microsoft/presidio,https://github.com/data-privacy-stack/presidio,privacy-security
+promptfoo,Promptfoo LLM Testing,promptfoo,promptfoo,https://github.com/promptfoo/promptfoo,https://github.com/promptfoo/promptfoo,privacy-security
+pydantic-ai,Pydantic AI,pydantic,pydantic-ai,https://ai.pydantic.dev/,https://github.com/pydantic/pydantic-ai,agent-frameworks
+qdrant,Qdrant,qdrant,qdrant,https://qdrant.tech/,https://github.com/qdrant/qdrant,vector-databases
+qwen2-5-vl,Qwen2.5-VL,QwenLM,Qwen3-VL,https://github.com/QwenLM/Qwen2.5-VL,https://github.com/QwenLM/Qwen3-VL,vision-multimodal
+qwen3-alibaba,Qwen3 (Alibaba),Qwen,Qwen2.5-7B-Instruct,https://qwenlm.github.io/,https://huggingface.co/Qwen/Qwen2.5-7B-Instruct,llm-models
+ray-serve,Ray Serve Framework,ray-project,ray,https://docs.ray.io/en/latest/serve/index.html,https://github.com/ray-project/ray,deployment
+rebuff,Rebuff Prompt Injection Detector,protectai,rebuff,https://github.com/protectai/rebuff,https://github.com/protectai/rebuff,privacy-security
+rvc,Retrieval-based Voice Conversion (RVC),RVC-Project,Retrieval-based-Voice-Conversion-WebUI,https://github.com/RVC-Project/Retrieval-based-Voice-Conversion-WebUI,https://github.com/RVC-Project/Retrieval-based-Voice-Conversion-WebUI,text-to-speech
+sam2,Segment Anything 2 (SAM 2),facebookresearch,sam2,https://github.com/facebookresearch/sam2,https://github.com/facebookresearch/sam2,vision-multimodal
+sd-webui-forge,Stable Diffusion WebUI Forge,lllyasviel,stable-diffusion-webui-forge,https://github.com/lllyasviel/stable-diffusion-webui-forge,https://github.com/lllyasviel/stable-diffusion-webui-forge,image-generation
+seldon-core,Seldon Core,SeldonIO,seldon-core,https://github.com/SeldonIO/seldon-core,https://github.com/SeldonIO/seldon-core,deployment
+sglang,SGLang Engine,sgl-project,sglang,https://github.com/sgl-project/sglang,https://github.com/sgl-project/sglang,llm-inference
+silero-vad,Silero VAD,snakers4,silero-vad,https://github.com/snakers4/silero-vad,https://github.com/snakers4/silero-vad,speech-to-text
+sillytavern,SillyTavern,SillyTavern,SillyTavern,https://github.com/SillyTavern/SillyTavern,https://github.com/SillyTavern/SillyTavern,chat-interfaces
+smolagents,Smolagents,huggingface,smolagents,https://github.com/huggingface/smolagents,https://github.com/huggingface/smolagents,agent-frameworks
+smollm,SmolLM (Hugging Face),HuggingFaceTB,SmolLM2-1.7B-Instruct,https://huggingface.co/blog/smollm,https://huggingface.co/HuggingFaceTB/SmolLM2-1.7B-Instruct,llm-models
+snowflake-arctic-embed,Snowflake Arctic Embed,Snowflake,snowflake-arctic-embed-l-v2.0,https://huggingface.co/Snowflake/snowflake-arctic-embed-l-v2.0,https://huggingface.co/Snowflake/snowflake-arctic-embed-l-v2.0,embedding-models
+so-vits-svc,so-vits-svc,svc-develop-team,so-vits-svc,https://github.com/svc-develop-team/so-vits-svc,https://github.com/svc-develop-team/so-vits-svc,text-to-speech
+speechbrain,SpeechBrain,speechbrain,speechbrain,https://speechbrain.github.io/,https://github.com/speechbrain/speechbrain,speech-to-text
+stable-diffusion-webui,Stable Diffusion WebUI (AUTOMATIC1111),AUTOMATIC1111,stable-diffusion-webui,https://github.com/AUTOMATIC1111/stable-diffusion-webui,https://github.com/AUTOMATIC1111/stable-diffusion-webui,image-generation
+starcoder2,StarCoder2,bigcode,starcoder2-15b,https://huggingface.co/bigcode/starcoder2-15b,https://huggingface.co/bigcode/starcoder2-15b,code-assistants
+surya,Surya OCR,datalab-to,surya,https://github.com/datalab-to/surya,https://github.com/datalab-to/surya,rag-document
+tabby,Tabby Self-Hosted Coding,TabbyML,tabby,https://tabby.tabbyml.com/,https://github.com/TabbyML/tabby,code-assistants
+tabbyapi,TabbyAPI Engine,theroyallab,tabbyAPI,https://github.com/theroyallab/tabbyAPI,https://github.com/theroyallab/tabbyAPI,llm-inference
+tensorrt-llm,TensorRT-LLM (NVIDIA),NVIDIA,TensorRT-LLM,https://github.com/NVIDIA/TensorRT-LLM,https://github.com/NVIDIA/TensorRT-LLM,llm-inference
+tesseract,Tesseract OCR,tesseract-ocr,tesseract,https://github.com/tesseract-ocr/tesseract,https://github.com/tesseract-ocr/tesseract,rag-document
+tesseract-js,Tesseract.js,naptha,tesseract.js,https://tesseract.projectnaptha.com/,https://github.com/naptha/tesseract.js,rag-document
+text-generation-inference,Text Generation Inference (TGI),huggingface,text-generation-inference,https://github.com/huggingface/text-generation-inference,https://github.com/huggingface/text-generation-inference,llm-inference
+text-generation-webui,Text Generation WebUI (Oobabooga),oobabooga,textgen,https://github.com/oobabooga/textgen,https://github.com/oobabooga/textgen,chat-interfaces
+triton-inference-server,Triton Inference Server (NVIDIA),triton-inference-server,server,https://github.com/triton-inference-server/server,https://github.com/triton-inference-server/server,deployment
+trl-huggingface,TRL Reinforcement Learning,huggingface,trl,https://github.com/huggingface/trl,https://github.com/huggingface/trl,fine-tuning-training
+typesense,Typesense Engine,typesense,typesense,https://typesense.org/,https://github.com/typesense/typesense,vector-databases
+unsloth,Unsloth Fast Fine-Tuning,unslothai,unsloth,https://github.com/unslothai/unsloth,https://github.com/unslothai/unsloth,fine-tuning-training
+vllm,vLLM Engine,vllm-project,vllm,https://github.com/vllm-project/vllm,https://github.com/vllm-project/vllm,llm-inference
+vocal-remover,Vocal Remover AI,tsurumeso,vocal-remover,https://github.com/tsurumeso/vocal-remover,https://github.com/tsurumeso/vocal-remover,data-utilities
+vosk,Vosk Speech Recognition,alphacep,vosk-api,https://github.com/alphacep/vosk-api,https://github.com/alphacep/vosk-api,speech-to-text
+wan-2-1,Wan 2.1 Video,Wan-Video,Wan2.1,https://github.com/Wan-Video/Wan2.1,https://github.com/Wan-Video/Wan2.1,video-generation
+weaviate,Weaviate Vector DB,weaviate,weaviate,https://weaviate.io/,https://github.com/weaviate/weaviate,vector-databases
+whisper,Whisper (OpenAI),openai,whisper,https://github.com/openai/whisper,https://github.com/openai/whisper,speech-to-text
+whisper-cpp,whisper.cpp,ggml-org,whisper.cpp,https://github.com/ggerganov/whisper.cpp,https://github.com/ggml-org/whisper.cpp,speech-to-text
+whisper-webui,Whisper WebUI,jhj0517,Whisper-WebUI,https://github.com/jhj0517/Whisper-WebUI,https://github.com/jhj0517/Whisper-WebUI,speech-to-text
+whisperx,WhisperX,m-bain,whisperX,https://github.com/m-bain/whisperX,https://github.com/m-bain/whisperX,speech-to-text
+windmill,Windmill Engine,windmill-labs,windmill,https://www.windmill.dev/,https://github.com/windmill-labs/windmill,workflow-automation

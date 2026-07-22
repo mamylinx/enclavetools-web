@@ -48,9 +48,10 @@ log = logging.getLogger("merge_and_validate")
 # Fields Lane A owns outright. If present in Lane B's output for any reason,
 # Lane A's value overwrites it unconditionally.
 LANE_A_FIELDS = {
-    "body", "plain_description", "url", "github_url", "slug", "license",
+    "body", "url", "github_url", "slug", "license", "category",
     "last_updated", "popularity_score", "last_verified", "language",
-    "commercial_use", "docker_available",
+    "commercial_use", "docker_available", "model_format",
+    "min_ram_gb", "recommended_ram_gb",
 }
 
 # Fields that are curation-only: never produced by either lane, only ever
@@ -61,6 +62,17 @@ CURATION_FIELDS_DEFAULTS = {
     "featured": False,
     "community_notes": [],
     "community_guides": [],
+}
+
+
+BOOLEAN_TO_FEATURE = {
+    "openai_api": "OpenAI-compatible API",
+    "docker_available": "Docker available",
+    "rest_api": "REST API",
+    "fine_tuning": "Fine-tuning",
+    "quantization": "Quantization",
+    "gui_available": "GUI/no-code",
+    "paid_support": "Paid support",
 }
 
 
@@ -100,6 +112,14 @@ def merge_one(slug: str, raw_dir: Path, out_dir: Path, schema: dict) -> dict:
         if key in lane_a:
             merged[key] = lane_a[key]
 
+    # Lane A couldn't determine commercial_use (no license detected) — default to 0
+    if merged.get("commercial_use") is None:
+        merged["commercial_use"] = 0
+
+    # Features are derived deterministically from boolean fields, not from the
+    # extractor agent. Overwrite any LLM-produced features with the derived list.
+    merged["features"] = [label for field, label in BOOLEAN_TO_FEATURE.items() if merged.get(field) == 1]
+
     # Curation-only fields: carry forward existing values, else default.
     for key, default in CURATION_FIELDS_DEFAULTS.items():
         merged[key] = existing.get(key, default)
@@ -138,6 +158,7 @@ def main():
     ap.add_argument("--out-dir", type=Path, default=Path("dataset"))
     ap.add_argument("--tools", type=Path, required=True)
     ap.add_argument("--slug", default=None)
+    ap.add_argument("--category", default=None, help="Only process tools in this category (e.g. llm-models)")
     args = ap.parse_args()
 
     with args.tools.open(newline="", encoding="utf-8") as f:
@@ -146,6 +167,10 @@ def main():
         rows = [r for r in rows if r["slug"] == args.slug]
         if not rows:
             raise SystemExit(f"No tool with slug={args.slug!r} in {args.tools}")
+    if args.category:
+        rows = [r for r in rows if r.get("category") == args.category]
+        if not rows:
+            raise SystemExit(f"No tool with category={args.category!r} in {args.tools}")
 
     schema = load_schema()
     ok, failed = 0, 0

@@ -1,311 +1,927 @@
 [
   {
-    "title": "DeepSeek-VL2",
     "body": "DeepSeek-VL2: Mixture-of-Experts Vision-Language Models for Advanced Multimodal Understanding",
-    "plain_description": "DeepSeek-VL2: Mixture-of-Experts Vision-Language Models for Advanced Multimodal Understanding",
-    "technical_description": "DeepSeek-VL2: Mixture-of-Experts Vision-Language Models for Advanced Multimodal Understanding",
-    "tag": "MIT",
-    "url": "https://github.com/deepseek-ai/DeepSeek-VL2",
+    "category": "vision-multimodal",
+    "commercial_use": 1,
+    "community_guides": [],
+    "community_guides_count": 0,
+    "community_notes": [],
+    "community_notes_count": 0,
+    "date-added": "2026-07-22",
+    "deployment": [
+      "Bare Metal"
+    ],
+    "docker_available": 0,
+    "docs_url": null,
+    "featured": false,
+    "features": [
+      "GUI/no-code"
+    ],
+    "fine_tuning": 0,
     "github_url": "https://github.com/deepseek-ai/DeepSeek-VL2",
-    "docs_url": "https://github.com/deepseek-ai/DeepSeek-VL2",
-    "date-added": "2026-07-10",
-    "slug": "deepseek-vl2",
-    "license": "MIT",
-    "maturity": "Production / Stable",
+    "gui_available": 1,
+    "hardware": [
+      "GPU (NVIDIA)"
+    ],
+    "language": [
+      "Python"
+    ],
     "last_updated": "2025-02-26",
-    "setup_difficulty": "Medium",
-    "featured": false,
-    "popularity_score": 5310,
-    "last_verified": "2026-07-10",
-    "language": [
-      "Python"
+    "last_verified": "2026-07-22",
+    "license": "MIT",
+    "maturity": "Production / Stable",
+    "min_ram_gb": 40,
+    "model_format": [
+      "PyTorch"
     ],
-    "hardware": [],
-    "deployment": [],
-    "model_format": [],
-    "use_cases": [],
-    "personas": [],
-    "features": [],
-    "works_with": [],
-    "commercial_use": 1,
-    "telemetry": "Unknown",
-    "offline_after_setup": 0,
-    "paid_support": 0,
-    "gui_available": 0,
-    "docker_available": 0,
+    "offline_after_setup": 1,
     "openai_api": 0,
-    "rest_api": 0,
-    "fine_tuning": 0,
+    "paid_support": 0,
+    "personas": [
+      "Developer"
+    ],
+    "plain_description": "DeepSeek-VL2 lets your applications see and reason about images, documents, tables, and charts through natural conversation. It handles visual question answering, OCR, and document analysis with advanced accuracy while using fewer compute resources than comparable models. The bottom line: add multimodal understanding to your product efficiently.",
+    "popularity_score": 5316,
     "quantization": 0,
-    "min_ram_gb": null,
-    "recommended_ram_gb": null,
-    "community_notes": [],
-    "community_guides": [],
-    "community_notes_count": 0,
-    "community_guides_count": 0
+    "recommended_ram_gb": 80,
+    "rest_api": 0,
+    "setup_difficulty": "Hard",
+    "slug": "deepseek-vl2",
+    "tag": "Vision-Language Model",
+    "technical_description": "DeepSeek-VL2 is a series of Mixture-of-Experts (MoE) Vision-Language Models implementing multimodal understanding via PyTorch and Hugging Face Transformers. The family comprises three variants — Tiny (1.0B activated params), Small (2.8B), and Full (4.5B) — each processing 4096-token sequences with multi-image and interleaved image-text support. Runtime targets CUDA-capable NVIDIA GPUs; the Tiny variant fits under 40GB VRAM, while Small and Full require 80GB+. An incremental prefilling mechanism reduces peak memory requirements for constrained hardware. Models support visual question answering, OCR, document/table/chart analysis, and visual grounding with bounding-box output. Deployment is bare-metal via Python scripts; a Gradio web demo is included for evaluation.",
+    "telemetry": "Unknown",
+    "title": "DeepSeek-VL2",
+    "url": "https://github.com/deepseek-ai/DeepSeek-VL2",
+    "use_cases": [
+      "Chat Assistant",
+      "Document Processing"
+    ],
+    "works_with": [
+      "Hugging Face Transformers"
+    ]
   },
   {
-    "title": "Falcon 2 VLM",
-    "body": "",
-    "plain_description": "",
-    "technical_description": "",
-    "tag": "Apache 2.0",
-    "url": "https://huggingface.co/tiiuae/falcon-11B-vlm",
-    "github_url": "https://huggingface.co/tiiuae/falcon-11B-vlm",
-    "docs_url": "https://huggingface.co/tiiuae/falcon-11B-vlm",
-    "date-added": "2026-07-10",
+    "body": "image-text-to-text",
+    "category": "vision-multimodal",
+    "commercial_use": 0,
+    "community_guides": [],
+    "community_guides_count": 0,
+    "community_notes": [],
+    "community_notes_count": 0,
+    "date-added": "2026-07-22",
+    "deployment": [],
+    "docker_available": 0,
+    "docs_url": "https://huggingface.co/blog/falcon",
+    "featured": false,
+    "features": [
+      "Fine-tuning",
+      "Quantization"
+    ],
+    "fine_tuning": 1,
+    "github_url": null,
+    "gui_available": 0,
+    "hardware": [
+      "GPU (NVIDIA)"
+    ],
+    "language": [
+      "en"
+    ],
+    "last_updated": "2024-06-12",
+    "last_verified": "2026-07-22",
+    "license": "unknown",
+    "maturity": "Experimental",
+    "min_ram_gb": 22.9,
+    "model_format": [
+      "safetensors"
+    ],
+    "offline_after_setup": 1,
+    "openai_api": 0,
+    "paid_support": 0,
+    "personas": [
+      "Developer"
+    ],
+    "plain_description": "Falcon2-11B-VLM gives computers the ability to see and understand images through natural conversation. It can describe what's in a photo, answer visual questions, and engage in image-based dialogue. The bottom line: it's a research-grade AI purpose-built for teams exploring how vision and language work together.",
+    "popularity_score": 84,
+    "quantization": 1,
+    "recommended_ram_gb": 34.3,
+    "rest_api": 0,
+    "setup_difficulty": "Medium",
     "slug": "falcon-2-vlm",
-    "license": "Apache 2.0",
-    "maturity": "Production / Stable",
-    "last_updated": "2026-07-10",
-    "setup_difficulty": "Medium",
-    "featured": false,
-    "popularity_score": 0,
-    "last_verified": "2026-07-10",
-    "language": [],
-    "hardware": [],
-    "deployment": [],
-    "model_format": [],
-    "use_cases": [],
-    "personas": [],
-    "features": [],
-    "works_with": [],
-    "commercial_use": 1,
+    "tag": "Vision-Language Model",
+    "technical_description": "Falcon2-11B-VLM is an 11-billion parameter causal decoder-only vision-language model developed by TII. It integrates a CLIP ViT-L/14 vision encoder with a Falcon2-11B language model via a multimodal projector trained on 5,000B+ tokens of RefinedWeb and 1.2M image-text instruction pairs. A dynamic high-resolution encoding mechanism enables fine-grained visual perception. Inference requires PyTorch 2.0 and the transformers library on a CUDA-capable GPU with a minimum of 22.9GB VRAM. Fine-tuning and quantization are supported. The model can be served via HuggingFace Text Generation Inference.",
     "telemetry": "Unknown",
-    "offline_after_setup": 0,
-    "paid_support": 0,
-    "gui_available": 0,
-    "docker_available": 0,
-    "openai_api": 0,
-    "rest_api": 0,
-    "fine_tuning": 0,
-    "quantization": 0,
-    "min_ram_gb": null,
-    "recommended_ram_gb": null,
-    "community_notes": [],
-    "community_guides": [],
-    "community_notes_count": 0,
-    "community_guides_count": 0
+    "title": "Falcon2-11B-VLM",
+    "url": "https://huggingface.co/tiiuae/falcon-11B-vlm",
+    "use_cases": [
+      "Chat Assistant",
+      "Summarization"
+    ],
+    "works_with": [
+      "transformers",
+      "PyTorch",
+      "Text Generation Inference"
+    ]
   },
   {
-    "title": "InternVL3 (Shanghai AI Lab)",
+    "body": "image-text-to-text",
+    "category": "vision-multimodal",
+    "commercial_use": 1,
+    "community_guides": [],
+    "community_guides_count": 0,
+    "community_notes": [],
+    "community_notes_count": 0,
+    "date-added": "2026-07-22",
+    "deployment": [],
+    "docker_available": 0,
+    "docs_url": "https://arxiv.org/abs/2311.06242",
+    "featured": false,
+    "features": [
+      "Fine-tuning"
+    ],
+    "fine_tuning": 1,
+    "github_url": null,
+    "gui_available": 0,
+    "hardware": [
+      "GPU (NVIDIA)",
+      "CPU"
+    ],
+    "language": [],
+    "last_updated": "2025-08-04",
+    "last_verified": "2026-07-22",
+    "license": "MIT",
+    "maturity": "Experimental",
+    "min_ram_gb": 1.6,
+    "model_format": [
+      "safetensors",
+      "PyTorch"
+    ],
+    "offline_after_setup": 1,
+    "openai_api": 0,
+    "paid_support": 0,
+    "personas": [
+      "Developer"
+    ],
+    "plain_description": "Florence-2 lets your applications understand images — describing scenes, detecting objects, and reading text — with a single unified AI model from Microsoft. Instead of maintaining separate tools for OCR, object detection, and image captioning, you get one system that handles them all. The bottom line: fewer integrations, simpler maintenance, and consistent vision capabilities across your products.",
+    "popularity_score": 787758,
+    "quantization": 0,
+    "recommended_ram_gb": 2.4,
+    "rest_api": 0,
+    "setup_difficulty": null,
+    "slug": "florence-2",
+    "tag": "vision",
+    "technical_description": "Florence-2 is a sequence-to-sequence vision foundation model from Microsoft that performs captioning, object detection, OCR, region segmentation, and visual grounding from text prompts. The model uses a transformer-based encoder-decoder architecture with 0.77B parameters, trained on the FLD-5B dataset containing 5.4 billion annotations across 126 million images. It integrates through HuggingFace's transformers library, accepting images paired with task-specific prompt tokens and generating structured outputs including bounding boxes, text strings, and region labels. The model runs on NVIDIA CUDA GPUs or CPU with float16 precision, supports beam search decoding, and can be fine-tuned for downstream task specialization.",
+    "telemetry": "Unknown",
+    "title": "Florence-2",
+    "url": "https://huggingface.co/microsoft/Florence-2-large",
+    "use_cases": [
+      "Data Extraction",
+      "Document Processing",
+      "Summarization"
+    ],
+    "works_with": []
+  },
+  {
+    "body": "Original reference implementation of \"3D Gaussian Splatting for Real-Time Radiance Field Rendering\"",
+    "category": "vision-multimodal",
+    "commercial_use": 0,
+    "community_guides": [],
+    "community_guides_count": 0,
+    "community_notes": [],
+    "community_notes_count": 0,
+    "date-added": "2026-07-22",
+    "deployment": [
+      "Bare Metal",
+      "Desktop App"
+    ],
+    "docker_available": 0,
+    "docs_url": "https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/",
+    "featured": false,
+    "features": [
+      "GUI/no-code"
+    ],
+    "fine_tuning": 0,
+    "github_url": "https://github.com/graphdeco-inria/gaussian-splatting",
+    "gui_available": 1,
+    "hardware": [
+      "GPU (NVIDIA)"
+    ],
+    "language": [
+      "Python"
+    ],
+    "last_updated": "2025-10-17",
+    "last_verified": "2026-07-22",
+    "license": null,
+    "maturity": "Mature / Maintenance",
+    "min_ram_gb": null,
+    "model_format": [],
+    "offline_after_setup": 1,
+    "openai_api": 0,
+    "paid_support": 0,
+    "personas": [
+      "Developer"
+    ],
+    "plain_description": "Transform ordinary photographs into photorealistic 3D scenes you can explore in real time — no expensive 3D modeling or manual work required. The technology renders immersive walkthroughs at 30+ frames per second on standard GPU hardware, making high-quality 3D capture practical for the first time. Originally a research breakthrough, it is now the foundation for a wave of new 3D visualization and digital twin products.",
+    "popularity_score": 22733,
+    "quantization": 0,
+    "recommended_ram_gb": null,
+    "rest_api": 0,
+    "setup_difficulty": "Hard",
+    "slug": "gaussian-splatting",
+    "tag": "3D Rendering",
+    "technical_description": "The official PyTorch reference implementation of 3D Gaussian Splatting for real-time novel-view synthesis. The system accepts multi-view image sets, runs COLMAP for Structure-from-Motion camera calibration, and optimizes a scene as a set of anisotropic 3D Gaussians with interleaved densification and adaptive density control. Training requires a CUDA-capable NVIDIA GPU (Compute Capability 7.0+) with ~24 GB VRAM for reference quality and uses a custom CUDA rasterizer for differentiable rendering. The trained representation renders at ≥30 fps at 1080p resolution via the SIBR OpenGL-based real-time viewer. The codebase includes the PyTorch optimizer, a network viewer for training monitoring, a standalone real-time viewer, and a COLMAP-based image-to-dataset conversion pipeline. Optional features: accelerated fused rasterizer (>2× training speedup), monocular depth regularization, per-image exposure compensation, and EWA anti-aliasing filtering.",
+    "telemetry": "Unknown",
+    "title": "3D Gaussian Splatting",
+    "url": "https://repo-sam.inria.fr/gspd/gaussian-splatting/",
+    "use_cases": [],
+    "works_with": [
+      "COLMAP"
+    ]
+  },
+  {
     "body": "[CVPR 2024 Oral] InternVL Family: A Pioneering Open-Source Alternative to GPT-4o.  接近GPT-4o表现的开源多模态对话模型",
-    "plain_description": "[CVPR 2024 Oral] InternVL Family: A Pioneering Open-Source Alternative to GPT-4o.  接近GPT-4o表现的开源多模态对话模型",
-    "technical_description": "[CVPR 2024 Oral] InternVL Family: A Pioneering Open-Source Alternative to GPT-4o.  接近GPT-4o表现的开源多模态对话模型",
-    "tag": "MIT",
-    "url": "https://github.com/OpenGVLab/InternVL",
+    "category": "vision-multimodal",
+    "commercial_use": 1,
+    "community_guides": [],
+    "community_guides_count": 0,
+    "community_notes": [],
+    "community_notes_count": 0,
+    "date-added": "2026-07-22",
+    "deployment": [
+      "Bare Metal",
+      "Cloud"
+    ],
+    "docker_available": 0,
+    "docs_url": "https://internvl.readthedocs.io/en/latest/",
+    "featured": false,
+    "features": [
+      "REST API",
+      "Fine-tuning",
+      "Quantization",
+      "GUI/no-code"
+    ],
+    "fine_tuning": 1,
     "github_url": "https://github.com/OpenGVLab/InternVL",
-    "docs_url": "https://github.com/OpenGVLab/InternVL",
-    "date-added": "2026-07-10",
-    "slug": "internvl3",
-    "license": "MIT",
-    "maturity": "Production / Stable",
+    "gui_available": 1,
+    "hardware": [
+      "GPU (NVIDIA)"
+    ],
+    "language": [
+      "Python",
+      "Jupyter Notebook"
+    ],
     "last_updated": "2025-09-22",
-    "setup_difficulty": "Medium",
-    "featured": false,
-    "popularity_score": 10088,
-    "last_verified": "2026-07-10",
-    "language": [
-      "Python"
-    ],
-    "hardware": [],
-    "deployment": [],
-    "model_format": [],
-    "use_cases": [],
-    "personas": [],
-    "features": [],
-    "works_with": [],
-    "commercial_use": 1,
-    "telemetry": "Unknown",
-    "offline_after_setup": 0,
-    "paid_support": 0,
-    "gui_available": 0,
-    "docker_available": 0,
-    "openai_api": 0,
-    "rest_api": 0,
-    "fine_tuning": 0,
-    "quantization": 0,
-    "min_ram_gb": null,
-    "recommended_ram_gb": null,
-    "community_notes": [],
-    "community_guides": [],
-    "community_notes_count": 0,
-    "community_guides_count": 0
-  },
-  {
-    "title": "LLaVA (Large Language-and-Vision Assistant)",
-    "body": "[NeurIPS'23 Oral] Visual Instruction Tuning (LLaVA) built towards GPT-4V level capabilities and beyond.",
-    "plain_description": "[NeurIPS'23 Oral] Visual Instruction Tuning (LLaVA) built towards GPT-4V level capabilities and beyond.",
-    "technical_description": "[NeurIPS'23 Oral] Visual Instruction Tuning (LLaVA) built towards GPT-4V level capabilities and beyond.",
-    "tag": "Apache-2.0",
-    "url": "https://github.com/haotian-liu/LLaVA",
-    "github_url": "https://github.com/haotian-liu/LLaVA",
-    "docs_url": "https://github.com/haotian-liu/LLaVA",
-    "date-added": "2026-07-10",
-    "slug": "llava",
-    "license": "Apache-2.0",
-    "maturity": "Production / Stable",
-    "last_updated": "2024-08-12",
-    "setup_difficulty": "Medium",
-    "featured": false,
-    "popularity_score": 24924,
-    "last_verified": "2026-07-10",
-    "language": [
-      "Python"
-    ],
-    "hardware": [],
-    "deployment": [],
-    "model_format": [],
-    "use_cases": [],
-    "personas": [],
-    "features": [],
-    "works_with": [],
-    "commercial_use": 1,
-    "telemetry": "Unknown",
-    "offline_after_setup": 0,
-    "paid_support": 0,
-    "gui_available": 0,
-    "docker_available": 0,
-    "openai_api": 0,
-    "rest_api": 0,
-    "fine_tuning": 0,
-    "quantization": 0,
-    "min_ram_gb": null,
-    "recommended_ram_gb": null,
-    "community_notes": [],
-    "community_guides": [],
-    "community_notes_count": 0,
-    "community_guides_count": 0
-  },
-  {
-    "title": "Phi-3-Vision (Microsoft)",
-    "body": "",
-    "plain_description": "",
-    "technical_description": "",
-    "tag": "MIT",
-    "url": "https://huggingface.co/microsoft/Phi-3-vision-128k-instruct",
-    "github_url": "https://huggingface.co/microsoft/Phi-3-vision-128k-instruct",
-    "docs_url": "https://huggingface.co/microsoft/Phi-3-vision-128k-instruct",
-    "date-added": "2026-07-10",
-    "slug": "phi-3-vision",
+    "last_verified": "2026-07-22",
     "license": "MIT",
     "maturity": "Production / Stable",
-    "last_updated": "2025-12-10",
-    "setup_difficulty": "Medium",
-    "featured": false,
-    "popularity_score": 257430,
-    "last_verified": "2026-07-10",
-    "language": [],
-    "hardware": [],
-    "deployment": [],
-    "model_format": [],
-    "use_cases": [],
-    "personas": [],
-    "features": [],
-    "works_with": [],
-    "commercial_use": 1,
-    "telemetry": "Unknown",
-    "offline_after_setup": 0,
-    "paid_support": 0,
-    "gui_available": 0,
-    "docker_available": 0,
-    "openai_api": 0,
-    "rest_api": 0,
-    "fine_tuning": 0,
-    "quantization": 0,
     "min_ram_gb": null,
+    "model_format": [
+      "PyTorch",
+      "AWQ"
+    ],
+    "offline_after_setup": 1,
+    "openai_api": 0,
+    "paid_support": 0,
+    "personas": [
+      "Developer"
+    ],
+    "plain_description": "InternVL delivers commercial-grade multimodal AI as a free, open-source model family — matching GPT-4o and GPT-5 on vision, document, and reasoning benchmarks without vendor lock-in. You get image understanding, OCR, chart analysis, video comprehension, and multilingual support that you can run, fine-tune, and deploy on your own infrastructure. No per-token fees, no data sharing required.",
+    "popularity_score": 10098,
+    "quantization": 1,
     "recommended_ram_gb": null,
-    "community_notes": [],
-    "community_guides": [],
-    "community_notes_count": 0,
-    "community_guides_count": 0
+    "rest_api": 1,
+    "setup_difficulty": "Medium",
+    "slug": "internvl3",
+    "tag": "Multimodal LLM",
+    "technical_description": "InternVL is an open-source multimodal large language model (MLLM) family from OpenGVLab, ranging from 1B to 241B parameters. The architecture pairs a vision encoder (InternViT, 300M-6B parameters) with a language backbone (Qwen2.5, InternLM, or Phi-3) via an MLP projector, supporting dynamic high-resolution image processing through variable visual position encoding (V2PE). Models are distributed in PyTorch via HuggingFace Transformers and support AWQ 4-bit quantization via lmdeploy. The codebase provides training, fine-tuning (full-parameter and LoRA), evaluation, and mixed preference optimization (MPO) pipelines. Inference runs locally on NVIDIA GPUs or through a hosted cloud API.",
+    "telemetry": "Unknown",
+    "title": "InternVL",
+    "url": "https://github.com/OpenGVLab/InternVL",
+    "use_cases": [
+      "Chat Assistant",
+      "Agentic Workflows",
+      "Document Processing",
+      "Fine-Tuning",
+      "Model Serving",
+      "Data Extraction",
+      "Translation",
+      "Summarization"
+    ],
+    "works_with": [
+      "PyTorch",
+      "HuggingFace Transformers",
+      "lmdeploy"
+    ]
   },
   {
-    "title": "Pixtral 12B (Mistral AI)",
-    "body": "",
-    "plain_description": "",
-    "technical_description": "",
-    "tag": "Apache 2.0",
-    "url": "https://huggingface.co/mistralai/Pixtral-12B-2409",
-    "github_url": "https://huggingface.co/mistralai/Pixtral-12B-2409",
-    "docs_url": "https://huggingface.co/mistralai/Pixtral-12B-2409",
-    "date-added": "2026-07-10",
-    "slug": "pixtral-12b",
-    "license": "Apache 2.0",
-    "maturity": "Production / Stable",
-    "last_updated": "2026-06-02",
-    "setup_difficulty": "Medium",
-    "featured": false,
-    "popularity_score": 5947,
-    "last_verified": "2026-07-10",
-    "language": [],
-    "hardware": [],
-    "deployment": [],
-    "model_format": [],
-    "use_cases": [],
-    "personas": [],
-    "features": [],
-    "works_with": [],
+    "body": "[NeurIPS'23 Oral] Visual Instruction Tuning (LLaVA) built towards GPT-4V level capabilities and beyond.",
+    "category": "vision-multimodal",
     "commercial_use": 1,
-    "telemetry": "Unknown",
-    "offline_after_setup": 0,
-    "paid_support": 0,
-    "gui_available": 0,
-    "docker_available": 0,
-    "openai_api": 0,
-    "rest_api": 0,
-    "fine_tuning": 0,
-    "quantization": 0,
-    "min_ram_gb": null,
-    "recommended_ram_gb": null,
-    "community_notes": [],
     "community_guides": [],
+    "community_guides_count": 0,
+    "community_notes": [],
     "community_notes_count": 0,
-    "community_guides_count": 0
-  },
-  {
-    "title": "Qwen2.5-VL (Alibaba)",
-    "body": "Qwen3-VL is the multimodal large language model series developed by Qwen team, Alibaba Cloud.",
-    "plain_description": "Qwen3-VL is the multimodal large language model series developed by Qwen team, Alibaba Cloud.",
-    "technical_description": "Qwen3-VL is the multimodal large language model series developed by Qwen team, Alibaba Cloud.",
-    "tag": "Apache-2.0",
-    "url": "https://github.com/QwenLM/Qwen2.5-VL",
-    "github_url": "https://github.com/QwenLM/Qwen2.5-VL",
-    "docs_url": "https://github.com/QwenLM/Qwen2.5-VL",
-    "date-added": "2026-07-10",
-    "slug": "qwen2-5-vl",
+    "date-added": "2026-07-22",
+    "deployment": [
+      "Docker",
+      "Bare Metal"
+    ],
+    "docker_available": 1,
+    "docs_url": "https://llava-vl.github.io/",
+    "featured": false,
+    "features": [
+      "Docker available",
+      "Fine-tuning",
+      "Quantization",
+      "GUI/no-code"
+    ],
+    "fine_tuning": 1,
+    "github_url": "https://github.com/haotian-liu/LLaVA",
+    "gui_available": 1,
+    "hardware": [
+      "GPU (NVIDIA)",
+      "GPU (Apple Silicon)",
+      "CPU"
+    ],
+    "language": [
+      "Python"
+    ],
+    "last_updated": "2024-08-12",
+    "last_verified": "2026-07-22",
     "license": "Apache-2.0",
     "maturity": "Production / Stable",
-    "last_updated": "2026-01-30",
+    "min_ram_gb": null,
+    "model_format": [
+      "PyTorch",
+      "GGUF"
+    ],
+    "offline_after_setup": 1,
+    "openai_api": 0,
+    "paid_support": 0,
+    "personas": [
+      "Developer"
+    ],
+    "plain_description": "LLaVA gives your business GPT-4 level vision AI — build assistants that can see, understand images, and answer questions about visual content. Fine-tune on your own data and deploy through a chat interface or API. Add vision capabilities to your products without building a model from scratch.",
+    "popularity_score": 24936,
+    "quantization": 1,
+    "recommended_ram_gb": null,
+    "rest_api": 0,
     "setup_difficulty": "Medium",
+    "slug": "llava",
+    "tag": "Vision-Language Model",
+    "technical_description": "LLaVA (Large Language and Vision Assistant) is an open-source visual instruction tuning framework that connects a frozen CLIP vision encoder to a large language model via a trainable two-layer MLP projection. Training proceeds in two stages: feature alignment pretraining on 558K image-caption pairs with a frozen vision encoder and LLM, followed by visual instruction tuning on 665K multimodal instruction-following and VQA data using DeepSpeed ZeRO-2/3. Inference supports 4-bit and 8-bit quantized inference, LoRA fine-tuning, and deployment via a Gradio web UI, SGLang backend for high-throughput serving, or CLI. Checkpoints are available in PyTorch on HuggingFace with community ports to GGUF via llama.cpp.",
+    "telemetry": "Unknown",
+    "title": "LLaVA",
+    "url": "https://github.com/haotian-liu/LLaVA",
+    "use_cases": [
+      "Chat Assistant",
+      "Fine-Tuning",
+      "Model Serving"
+    ],
+    "works_with": [
+      "HuggingFace",
+      "DeepSpeed",
+      "Gradio",
+      "SGLang",
+      "llama.cpp"
+    ]
+  },
+  {
+    "body": "Node-based Visual Programming Toolbox",
+    "category": "vision-multimodal",
+    "commercial_use": 0,
+    "community_guides": [],
+    "community_guides_count": 0,
+    "community_notes": [],
+    "community_notes_count": 0,
+    "date-added": "2026-07-22",
+    "deployment": [
+      "Desktop App",
+      "Bare Metal"
+    ],
+    "docker_available": 0,
+    "docs_url": "https://meshroom-manual.readthedocs.io",
     "featured": false,
-    "popularity_score": 19564,
-    "last_verified": "2026-07-10",
+    "features": [
+      "GUI/no-code"
+    ],
+    "fine_tuning": 0,
+    "github_url": "https://github.com/alicevision/Meshroom",
+    "gui_available": 1,
+    "hardware": [
+      "GPU (NVIDIA)"
+    ],
+    "language": [
+      "Python",
+      "QML"
+    ],
+    "last_updated": "2026-07-21",
+    "last_verified": "2026-07-22",
+    "license": null,
+    "maturity": "Production / Stable",
+    "min_ram_gb": null,
+    "model_format": [],
+    "offline_after_setup": 1,
+    "openai_api": 0,
+    "paid_support": 0,
+    "personas": [
+      "Developer"
+    ],
+    "plain_description": "Meshroom turns ordinary 2D photographs into detailed 3D models without writing code. Connect visual nodes to build custom photogrammetry pipelines for product digitization, cultural heritage preservation, or spatial mapping. Pre-built plugins handle camera tracking, HDR fusion, and panorama stitching out of the box.",
+    "popularity_score": 12844,
+    "quantization": 0,
+    "recommended_ram_gb": null,
+    "rest_api": 0,
+    "setup_difficulty": "Easy",
+    "slug": "meshroom",
+    "tag": "Photogrammetry",
+    "technical_description": "Meshroom is an open-source, node-based visual programming framework for 3D reconstruction and computer vision pipelines. Each node represents a processing operation; output attributes feed into downstream nodes with automatic invalidation and caching of intermediate results upon attribute changes. The Qt/QML-based desktop UI provides a graph editor, attribute inspector, 2D/3D output viewers, and an image gallery. Execution supports both local processing and distributed computation across render farms. The framework is extensible through a Python plugin API; official releases bundle plugins for photogrammetry (AliceVision), semantic segmentation, depth estimation, Gaussian splatting, dense feature matching, and geospatial integration.",
+    "telemetry": "Unknown",
+    "title": "Meshroom",
+    "url": "https://alicevision.org/#meshroom",
+    "use_cases": [],
+    "works_with": [
+      "AliceVision"
+    ]
+  },
+  {
+    "body": "tiny vision language model",
+    "category": "vision-multimodal",
+    "commercial_use": 1,
+    "community_guides": [],
+    "community_guides_count": 0,
+    "community_notes": [],
+    "community_notes_count": 0,
+    "date-added": "2026-07-22",
+    "deployment": [
+      "Bare Metal",
+      "Cloud"
+    ],
+    "docker_available": 0,
+    "docs_url": "https://moondream.ai/c/docs/quickstart",
+    "featured": false,
+    "features": [],
+    "fine_tuning": 0,
+    "github_url": "https://github.com/m87-labs/moondream",
+    "gui_available": 0,
+    "hardware": [
+      "CPU",
+      "GPU (NVIDIA)",
+      "GPU (Apple Silicon)",
+      "Edge Device"
+    ],
+    "language": [
+      "Python"
+    ],
+    "last_updated": "2026-04-20",
+    "last_verified": "2026-07-22",
+    "license": "Apache-2.0",
+    "maturity": "Production / Stable",
+    "min_ram_gb": null,
+    "model_format": [
+      "PyTorch"
+    ],
+    "offline_after_setup": 0,
+    "openai_api": 0,
+    "paid_support": 0,
+    "personas": [
+      "Developer"
+    ],
+    "plain_description": "Moondream is a tiny but powerful vision language model that runs anywhere — from cloud servers to edge devices. It lets you add image understanding (captioning, visual Q&A, object detection) to your applications without massive infrastructure. The big picture: a 2B parameter model that punches above its weight, plus a 0.5B variant for resource-constrained hardware.",
+    "popularity_score": 9874,
+    "quantization": 0,
+    "recommended_ram_gb": null,
+    "rest_api": 0,
+    "setup_difficulty": "Medium",
+    "slug": "moondream",
+    "tag": "Vision Language Model",
+    "technical_description": "Moondream is an open-source vision language model (VLM) available in two sizes: a 2-billion-parameter primary model and a 0.5-billion-parameter variant optimized for edge deployment. It supports captioning, visual question answering, and object detection. The model can be run locally or in the cloud via Python, with example integrations for Modal serverless compute. Inference is available through a Python library with a simple API, and the project provides quickstart examples in Python, Node.js, and bash.",
+    "telemetry": "Unknown",
+    "title": "moondream",
+    "url": "https://moondream.ai/",
+    "use_cases": [
+      "Image Generation"
+    ],
+    "works_with": []
+  },
+  {
+    "body": "A collaboration friendly studio for NeRFs",
+    "category": "vision-multimodal",
+    "commercial_use": 1,
+    "community_guides": [],
+    "community_guides_count": 0,
+    "community_notes": [],
+    "community_notes_count": 0,
+    "date-added": "2026-07-22",
+    "deployment": [
+      "Docker",
+      "Bare Metal"
+    ],
+    "docker_available": 1,
+    "docs_url": "https://docs.nerf.studio/",
+    "featured": false,
+    "features": [
+      "Docker available",
+      "GUI/no-code"
+    ],
+    "fine_tuning": 0,
+    "github_url": "https://github.com/nerfstudio-project/nerfstudio",
+    "gui_available": 1,
+    "hardware": [
+      "GPU (NVIDIA)"
+    ],
+    "language": [
+      "Python"
+    ],
+    "last_updated": "2025-07-29",
+    "last_verified": "2026-07-22",
+    "license": "Apache-2.0",
+    "maturity": "Production / Stable",
+    "min_ram_gb": null,
+    "model_format": [
+      "PyTorch"
+    ],
+    "offline_after_setup": 1,
+    "openai_api": 0,
+    "paid_support": 0,
+    "personas": [
+      "Developer"
+    ],
+    "plain_description": "Nerfstudio turns ordinary photos and videos into photorealistic 3D scenes you can explore, edit, and share — no 3D expertise required. It removes the technical complexity of neural radiance fields so any team can digitize real-world objects and spaces. The bottom line: capture any scene with a standard camera and get a production-ready 3D model.",
+    "popularity_score": 11833,
+    "quantization": 0,
+    "recommended_ram_gb": null,
+    "rest_api": 0,
+    "setup_difficulty": "Medium",
+    "slug": "nerfstudio",
+    "tag": "3D Reconstruction",
+    "technical_description": "Nerfstudio is a modular Python framework for neural radiance field (NeRF) development, providing a complete pipeline from data ingestion through training to export. It supports multiple NeRF architectures (nerfacto, instant-ngp, vanilla NeRF) with a pluggable component system for fields, encodings, and model components. The framework includes a real-time web-based viewer with WebSocket streaming, CLI tools for dataset processing and model training, and integrations with COLMAP, Polycam, Record3D, and other capture pipelines. Runtime requires NVIDIA GPU with CUDA 11.7+ and leverages PyTorch with tiny-cuda-nn for accelerated rendering.",
+    "telemetry": "Unknown",
+    "title": "nerfstudio",
+    "url": "https://docs.nerf.studio/",
+    "use_cases": [
+      "Image Generation"
+    ],
+    "works_with": [
+      "COLMAP",
+      "Polycam",
+      "KIRI Engine",
+      "Record3D",
+      "Spectacular AI",
+      "Metashape",
+      "RealityCapture",
+      "ODM",
+      "TensorBoard",
+      "Weights & Biases",
+      "Comet"
+    ]
+  },
+  {
+    "body": "Open3D: A Modern Library for 3D Data Processing",
+    "category": "vision-multimodal",
+    "commercial_use": 0,
+    "community_guides": [],
+    "community_guides_count": 0,
+    "community_notes": [],
+    "community_notes_count": 0,
+    "date-added": "2026-07-22",
+    "deployment": [
+      "Docker",
+      "Bare Metal",
+      "Desktop App"
+    ],
+    "docker_available": 1,
+    "docs_url": "https://www.open3d.org/docs",
+    "featured": false,
+    "features": [
+      "Docker available",
+      "GUI/no-code"
+    ],
+    "fine_tuning": 0,
+    "github_url": "https://github.com/isl-org/Open3D",
+    "gui_available": 1,
+    "hardware": [
+      "CPU",
+      "GPU (NVIDIA)"
+    ],
+    "language": [
+      "C++"
+    ],
+    "last_updated": "2026-07-21",
+    "last_verified": "2026-07-22",
+    "license": null,
+    "maturity": "Production / Stable",
+    "min_ram_gb": null,
+    "model_format": [
+      "PyTorch",
+      "TensorFlow"
+    ],
+    "offline_after_setup": 1,
+    "openai_api": 0,
+    "paid_support": 0,
+    "personas": [
+      "Developer"
+    ],
+    "plain_description": "Open3D gives your team a complete, production-ready toolkit for building 3D data applications — from point cloud processing to scene reconstruction — without building complex 3D math from scratch. It works in both Python and C++ with GPU acceleration and a large open-source community behind it. The bottom line: ship 3D features faster with fewer resources.",
+    "popularity_score": 13813,
+    "quantization": 0,
+    "recommended_ram_gb": null,
+    "rest_api": 0,
+    "setup_difficulty": "Easy",
+    "slug": "open3d",
+    "tag": "3D Data Processing",
+    "technical_description": "Open3D is an open-source library for 3D data processing, providing optimized data structures and algorithms in C++ and Python via pybind11 bindings. The backend is parallelized for CPU and GPU (CUDA) execution. Core modules include geometry processing, scene reconstruction, SLAM, registration, physically based rendering, and 3D visualization. The library integrates with PyTorch and TensorFlow for 3D machine learning tasks through the Open3D-ML extension. Deployment options include pip packages (Linux, macOS, Windows), C++ CMake integration, Docker containers, and a standalone desktop viewer application.",
+    "telemetry": "Unknown",
+    "title": "Open3D",
+    "url": "http://www.open3d.org/",
+    "use_cases": [],
+    "works_with": [
+      "Python",
+      "C++",
+      "PyTorch",
+      "TensorFlow",
+      "CMake",
+      "CUDA",
+      "Open3D-ML"
+    ]
+  },
+  {
+    "body": "text-generation",
+    "category": "vision-multimodal",
+    "commercial_use": 1,
+    "community_guides": [],
+    "community_guides_count": 0,
+    "community_notes": [],
+    "community_notes_count": 0,
+    "date-added": "2026-07-22",
+    "deployment": [
+      "Cloud"
+    ],
+    "docker_available": 0,
+    "docs_url": "https://github.com/microsoft/Phi-3CookBook",
+    "featured": false,
+    "features": [
+      "Fine-tuning"
+    ],
+    "fine_tuning": 1,
+    "github_url": null,
+    "gui_available": 0,
+    "hardware": [
+      "GPU (NVIDIA)"
+    ],
+    "language": [
+      "multilingual"
+    ],
+    "last_updated": "2025-12-10",
+    "last_verified": "2026-07-22",
+    "license": "MIT",
+    "maturity": "Production / Stable",
+    "min_ram_gb": 8.3,
+    "model_format": [
+      "safetensors"
+    ],
+    "offline_after_setup": 1,
+    "openai_api": 0,
+    "paid_support": 0,
+    "personas": [
+      "Developer"
+    ],
+    "plain_description": "Phi-3-Vision-128K-Instruct is a lightweight AI model that can analyze images and text together, making it ideal for cost-sensitive computer vision and document processing tasks. It understands charts, tables, handwriting, and general imagery with a large 128K token context window while running on modest hardware. The bottom line: you get multimodal AI capabilities without the infrastructure bill.",
+    "popularity_score": 247300,
+    "quantization": 0,
+    "recommended_ram_gb": 12.5,
+    "rest_api": 0,
+    "setup_difficulty": "Medium",
+    "slug": "phi-3-vision",
+    "tag": "multimodal",
+    "technical_description": "Phi-3-Vision-128K-Instruct is a 4.2B parameter multimodal language model that processes image and text inputs to generate text outputs. The architecture comprises an image encoder, connector, projector, and the Phi-3 Mini language model with a 128K token context window. The model is loaded via Hugging Face transformers with trust_remote_code=True and requires PyTorch, flash-attention, and NVIDIA GPUs (A100, A6000, H100). Training data includes 500B vision and text tokens, and the model supports supervised fine-tuning.",
+    "telemetry": "Unknown",
+    "title": "Phi-3-Vision-128K-Instruct",
+    "url": "https://huggingface.co/microsoft/Phi-3-vision-128k-instruct",
+    "use_cases": [
+      "Chat Assistant",
+      "Code Generation",
+      "Document Processing",
+      "Data Extraction"
+    ],
+    "works_with": [
+      "transformers",
+      "PyTorch",
+      "Flash-Attention",
+      "Azure AI Studio"
+    ]
+  },
+  {
+    "body": "Natively multimodal model with a 12B parameter decoder and 400M parameter vision encoder, supporting variable image sizes and 128k context length.",
+    "category": "vision-multimodal",
+    "commercial_use": 1,
+    "community_guides": [],
+    "community_guides_count": 0,
+    "community_notes": [],
+    "community_notes_count": 0,
+    "date-added": "2026-07-22",
+    "deployment": [
+      "Docker",
+      "Cloud"
+    ],
+    "docker_available": 0,
+    "docs_url": null,
+    "featured": false,
+    "features": [
+      "OpenAI-compatible API",
+      "REST API"
+    ],
+    "fine_tuning": 0,
+    "github_url": null,
+    "gui_available": 0,
+    "hardware": [
+      "GPU (NVIDIA)"
+    ],
+    "language": [
+      "en",
+      "fr",
+      "de",
+      "es",
+      "it",
+      "pt",
+      "ru",
+      "zh",
+      "ja"
+    ],
+    "last_updated": "2026-06-02",
+    "last_verified": "2026-07-22",
+    "license": "Apache-2.0",
+    "maturity": "Production / Stable",
+    "min_ram_gb": null,
+    "model_format": [
+      "safetensors"
+    ],
+    "offline_after_setup": 1,
+    "openai_api": 1,
+    "paid_support": 0,
+    "personas": [
+      "Developer"
+    ],
+    "plain_description": "Pixtral-12B-2409 gives your applications the power to understand both images and text in a single, efficient model. It reads documents, charts, and photos with industry-leading accuracy for its size — matching or beating models three times larger. The bottom line: add vision understanding to your product with a 12B-parameter model under the Apache 2.0 license.",
+    "popularity_score": 6015,
+    "quantization": 0,
+    "recommended_ram_gb": null,
+    "rest_api": 1,
+    "setup_difficulty": "Medium",
+    "slug": "pixtral-12b",
+    "tag": "Multimodal",
+    "technical_description": "Pixtral-12B-2409 is a multimodal transformer model with 12 billion parameters and a 400M parameter vision encoder, supporting 128k-token sequences and variable image sizes. It is distributed as safetensors weights under Apache 2.0 and is optimized for deployment via the vLLM inference engine, which provides an OpenAI-compatible REST API server for production inference. The model also supports local inference through the mistral-inference Python package and CLI.",
+    "telemetry": "Unknown",
+    "title": "Pixtral-12B-2409",
+    "url": "https://huggingface.co/mistralai/Pixtral-12B-2409",
+    "use_cases": [
+      "Chat Assistant",
+      "Document Processing",
+      "Code Generation"
+    ],
+    "works_with": [
+      "vLLM",
+      "mistral-inference",
+      "mistral_common"
+    ]
+  },
+  {
+    "body": "Qwen3-VL is the multimodal large language model series developed by Qwen team, Alibaba Cloud.",
+    "category": "vision-multimodal",
+    "commercial_use": 1,
+    "community_guides": [],
+    "community_guides_count": 0,
+    "community_notes": [],
+    "community_notes_count": 0,
+    "date-added": "2026-07-22",
+    "deployment": [
+      "Docker",
+      "Cloud"
+    ],
+    "docker_available": 0,
+    "docs_url": "https://help.aliyun.com/zh/model-studio/developer-reference/qwen-vl-api",
+    "featured": false,
+    "features": [
+      "OpenAI-compatible API",
+      "REST API",
+      "Fine-tuning",
+      "Quantization",
+      "GUI/no-code"
+    ],
+    "fine_tuning": 1,
+    "github_url": "https://github.com/QwenLM/Qwen3-VL",
+    "gui_available": 1,
+    "hardware": [
+      "GPU (NVIDIA)"
+    ],
     "language": [
       "Jupyter Notebook"
     ],
-    "hardware": [],
-    "deployment": [],
-    "model_format": [],
-    "use_cases": [],
-    "personas": [],
-    "features": [],
-    "works_with": [],
-    "commercial_use": 1,
-    "telemetry": "Unknown",
-    "offline_after_setup": 0,
-    "paid_support": 0,
-    "gui_available": 0,
-    "docker_available": 0,
-    "openai_api": 0,
-    "rest_api": 0,
-    "fine_tuning": 0,
-    "quantization": 0,
+    "last_updated": "2026-01-30",
+    "last_verified": "2026-07-22",
+    "license": "Apache-2.0",
+    "maturity": "Production / Stable",
     "min_ram_gb": null,
+    "model_format": [
+      "PyTorch",
+      "AWQ"
+    ],
+    "offline_after_setup": 1,
+    "openai_api": 1,
+    "paid_support": 0,
+    "personas": [
+      "Developer"
+    ],
+    "plain_description": "Qwen3-VL is a vision-language AI that understands images, video, and documents to automate complex business workflows. It extracts text from any image, generates code from visual inputs, and controls computer or mobile interfaces through visual agents. Deploy on your own hardware or via cloud API.",
+    "popularity_score": 19642,
+    "quantization": 1,
     "recommended_ram_gb": null,
-    "community_notes": [],
+    "rest_api": 1,
+    "setup_difficulty": "Medium",
+    "slug": "qwen2-5-vl",
+    "tag": "Vision-Language Model",
+    "technical_description": "Qwen3-VL is a multimodal large language model series (Qwen team, Alibaba Cloud) that processes images, video, and text inputs through a unified Transformer architecture. It employs Interleaved-MRoPE positional embeddings, DeepStack multi-level ViT feature fusion, and text–timestamp alignment for temporal video grounding. Available in dense and Mixture-of-Experts configurations from 2B to 235B-A22B parameters with Instruct and Thinking variants. Native context is 256K tokens, expandable to 1M via YaRN scaling. Supported inference runtimes include Hugging Face Transformers, vLLM (≥0.11.0), and SGLang with Flash Attention 2 acceleration and FP8 quantization. Fine-tuning code and AWQ-quantized model variants are available. Exposes an OpenAI-compatible REST API and a Gradio web UI. Docker images are provided for simplified deployment.",
+    "telemetry": "Unknown",
+    "title": "Qwen3-VL",
+    "url": "https://github.com/QwenLM/Qwen2.5-VL",
+    "use_cases": [
+      "Chat Assistant",
+      "Agentic Workflows",
+      "Code Generation",
+      "Document Processing",
+      "Data Extraction",
+      "Fine-Tuning"
+    ],
+    "works_with": [
+      "Hugging Face Transformers",
+      "vLLM",
+      "SGLang",
+      "Flash Attention 2",
+      "ModelScope",
+      "Docker"
+    ]
+  },
+  {
+    "body": "The repository provides code for running inference with the Meta Segment Anything Model 2 (SAM 2), links for downloading the trained model checkpoints, and example notebooks that show how to use the model.",
+    "category": "vision-multimodal",
+    "commercial_use": 1,
     "community_guides": [],
+    "community_guides_count": 0,
+    "community_notes": [],
     "community_notes_count": 0,
-    "community_guides_count": 0
+    "date-added": "2026-07-22",
+    "deployment": [
+      "Docker",
+      "Bare Metal"
+    ],
+    "docker_available": 1,
+    "docs_url": "https://ai.meta.com/sam2",
+    "featured": false,
+    "features": [
+      "Docker available",
+      "Fine-tuning",
+      "GUI/no-code"
+    ],
+    "fine_tuning": 1,
+    "github_url": "https://github.com/facebookresearch/sam2",
+    "gui_available": 1,
+    "hardware": [
+      "GPU (NVIDIA)"
+    ],
+    "language": [
+      "Jupyter Notebook"
+    ],
+    "last_updated": "2026-05-30",
+    "last_verified": "2026-07-22",
+    "license": "Apache-2.0",
+    "maturity": "Production / Stable",
+    "min_ram_gb": null,
+    "model_format": [
+      "PyTorch"
+    ],
+    "offline_after_setup": 1,
+    "openai_api": 0,
+    "paid_support": 0,
+    "personas": [
+      "Developer"
+    ],
+    "plain_description": "Automatically identify and isolate any object in images and videos with a single click — no manual masking or custom training needed. SAM 2 powers faster content moderation, visual search, video editing, and AR workflows. The bottom line: turn hours of manual pixel-level editing into seconds of automated segmentation.",
+    "popularity_score": 19572,
+    "quantization": 0,
+    "recommended_ram_gb": null,
+    "rest_api": 0,
+    "setup_difficulty": "Medium",
+    "slug": "sam2",
+    "tag": "Computer Vision",
+    "technical_description": "SAM 2 is a foundation model for promptable visual segmentation in images and videos from Meta FAIR. The architecture uses a hierarchical Hiera vision transformer encoder and a mask decoder, extended with streaming memory for real-time video processing and multi-object tracking across frames. The model is implemented in PyTorch with custom CUDA kernels and supports torch.compile for inference optimization. Checkpoints are released in four sizes (tiny 38.9M, small 46M, base_plus 80.8M, large 224.4M parameters) as PyTorch .pt files. The Python API provides SAM2ImagePredictor for image prompting and automatic mask generation, and SAM2VideoPredictor for video segmentation with point, box, and mask prompts. Models can also be loaded from Hugging Face via from_pretrained(). Training and fine-tuning code is included for custom image and video datasets.",
+    "telemetry": "Unknown",
+    "title": "SAM 2",
+    "url": "https://github.com/facebookresearch/sam2",
+    "use_cases": [
+      "Fine-Tuning"
+    ],
+    "works_with": [
+      "Hugging Face",
+      "PyTorch"
+    ]
   }
 ]

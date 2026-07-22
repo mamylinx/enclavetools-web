@@ -3,7 +3,7 @@
   "description": "An Easy-to-use, Scalable and High-performance Agentic RL Framework based on Ray (PPO & DAPO & REINFORCE++ &  VLM & TIS & vLLM & Ray & Async  RL)",
   "category": "fine-tuning-training",
   "url": "https://github.com/OpenRLHF/OpenRLHF",
-  "tag": "Apache-2.0",
-  "date-added": "2026-07-10",
+  "tag": "Framework",
+  "date-added": "2026-07-22",
   "slug": "openrlhf"
 }

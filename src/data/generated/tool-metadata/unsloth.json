@@ -1,9 +1,9 @@
 {
   "title": "Unsloth",
-  "description": "Unsloth Studio is a web UI for training and running open models like Gemma 4, Qwen3.6, DeepSeek, gpt-oss locally.",
+  "description": "Unsloth is a local UI for training and running Gemma 4, Qwen3.6, DeepSeek, Kimi, GLM and other models.",
   "category": "fine-tuning-training",
   "url": "https://github.com/unslothai/unsloth",
-  "tag": "Apache-2.0",
-  "date-added": "2026-07-10",
+  "tag": "LLM",
+  "date-added": "2026-07-22",
   "slug": "unsloth"
 }

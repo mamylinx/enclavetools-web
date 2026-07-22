@@ -6,9 +6,9 @@
   "type": "object",
   "additionalProperties": false,
   "required": [
-    "title", "technical_description", "tag",
+    "title", "plain_description", "technical_description", "tag",
     "docs_url", "maturity", "setup_difficulty", "hardware", "deployment",
-    "model_format", "use_cases", "personas", "features", "works_with",
+    "model_format", "use_cases", "personas", "works_with",
     "telemetry", "offline_after_setup", "paid_support", "gui_available", "openai_api",
     "rest_api", "fine_tuning", "quantization", "min_ram_gb", "recommended_ram_gb",
     "field_confidence"
@@ -17,6 +17,10 @@
     "title": {
       "type": "string", "minLength": 1, "maxLength": 120,
       "description": "Clean display name. Ground this in repo_name_hint/full_name_hint plus the README's top heading or homepage <title> — normalize casing/spacing, do not invent a different product name."
+    },
+    "plain_description": {
+      "type": "string", "minLength": 1, "maxLength": 500,
+      "description": "Business-owner-targeted description in smart brevity style. Lead with the business benefit in one bold sentence, then 1-2 concise supporting points. Use plain language — no jargon, no architecture details. Think Axios executive summary."
     },
     "technical_description": { "type": "string", "minLength": 1, "maxLength": 1200 },
     "tag": { "type": ["string", "null"], "maxLength": 60 },
@@ -56,9 +60,8 @@
     },
     "personas": {
       "type": "array",
-      "items": { "type": "string", "enum": ["Developer", "Data Scientist", "Hobbyist", "Enterprise IT", "Researcher", "Non-Technical User"] }
+      "items": { "type": "string", "enum": ["Developer", "Business Owner", "Legal", "Healthcare", "Indie Hacker"] }
     },
-    "features": { "type": "array", "items": { "type": "string", "maxLength": 60 }, "maxItems": 20 },
     "works_with": { "type": "array", "items": { "type": "string", "maxLength": 60 }, "maxItems": 20 },
 
     "telemetry": { "type": "string", "enum": ["None", "Opt-in", "Opt-out", "Always-on", "Unknown"] },

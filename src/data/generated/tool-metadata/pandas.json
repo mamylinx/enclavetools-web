@@ -1,9 +1,9 @@
 {
-  "title": "Pandas",
+  "title": "pandas",
   "description": "Flexible and powerful data analysis / manipulation library for Python, providing labeled data structures similar to R data.frame objects, statistical functions, and much more",
   "category": "data-utilities",
   "url": "https://pandas.pydata.org/",
-  "tag": "BSD-3-Clause",
-  "date-added": "2026-07-10",
+  "tag": "Data Analysis",
+  "date-added": "2026-07-22",
   "slug": "pandas"
 }

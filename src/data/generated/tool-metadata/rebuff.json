@@ -3,7 +3,7 @@
   "description": "LLM Prompt Injection Detector",
   "category": "privacy-security",
   "url": "https://github.com/protectai/rebuff",
-  "tag": "Apache-2.0",
-  "date-added": "2026-07-10",
+  "tag": "Security",
+  "date-added": "2026-07-22",
   "slug": "rebuff"
 }

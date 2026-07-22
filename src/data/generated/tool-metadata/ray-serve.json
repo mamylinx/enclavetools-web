@@ -1,9 +1,9 @@
 {
-  "title": "Ray Serve",
+  "title": "Ray",
   "description": "Ray is an AI compute engine. Ray consists of a core distributed runtime and a set of AI Libraries for accelerating ML workloads.",
   "category": "deployment",
   "url": "https://docs.ray.io/en/latest/serve/index.html",
-  "tag": "Apache-2.0",
-  "date-added": "2026-07-10",
+  "tag": "AI Compute Engine",
+  "date-added": "2026-07-22",
   "slug": "ray-serve"
 }

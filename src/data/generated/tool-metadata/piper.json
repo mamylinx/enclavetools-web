@@ -3,7 +3,7 @@
   "description": "A fast, local neural text to speech system",
   "category": "text-to-speech",
   "url": "https://github.com/rhasspy/piper",
-  "tag": "MIT",
-  "date-added": "2026-07-10",
+  "tag": "Text-to-Speech",
+  "date-added": "2026-07-22",
   "slug": "piper"
 }

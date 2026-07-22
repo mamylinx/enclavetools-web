@@ -1,9 +1,9 @@
 {
-  "title": "InternVL3 (Shanghai AI Lab)",
+  "title": "InternVL",
   "description": "[CVPR 2024 Oral] InternVL Family: A Pioneering Open-Source Alternative to GPT-4o.  接近GPT-4o表现的开源多模态对话模型",
   "category": "vision-multimodal",
   "url": "https://github.com/OpenGVLab/InternVL",
-  "tag": "MIT",
-  "date-added": "2026-07-10",
+  "tag": "Multimodal LLM",
+  "date-added": "2026-07-22",
   "slug": "internvl3"
 }

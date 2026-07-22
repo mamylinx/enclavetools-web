@@ -1,9 +1,9 @@
 {
-  "title": "OpenVINO (Intel)",
+  "title": "OpenVINO",
   "description": "OpenVINO™ is an open source toolkit for optimizing and deploying AI inference",
   "category": "deployment",
   "url": "https://github.com/openvinotoolkit/openvino",
-  "tag": "Apache-2.0",
-  "date-added": "2026-07-10",
+  "tag": "AI Inference Toolkit",
+  "date-added": "2026-07-22",
   "slug": "openvino"
 }

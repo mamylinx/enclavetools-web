@@ -1,9 +1,9 @@
 {
   "title": "Stable Diffusion WebUI Forge",
-  "description": "",
+  "description": "Platform built on top of Stable Diffusion WebUI to optimize resource management, speed up inference, and support experimental features like Flux and GGUF models.",
   "category": "image-generation",
   "url": "https://github.com/lllyasviel/stable-diffusion-webui-forge",
-  "tag": "AGPL-3.0",
-  "date-added": "2026-07-10",
+  "tag": "Image Generation",
+  "date-added": "2026-07-22",
   "slug": "sd-webui-forge"
 }

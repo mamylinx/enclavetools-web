@@ -1,9 +1,9 @@
 {
-  "title": "DVC (Data Version Control)",
+  "title": "DVC",
   "description": "🦉 Data Versioning and ML Experiments",
   "category": "data-utilities",
   "url": "https://dvc.org/",
-  "tag": "Apache-2.0",
-  "date-added": "2026-07-10",
+  "tag": "Data Version Control",
+  "date-added": "2026-07-22",
   "slug": "dvc"
 }

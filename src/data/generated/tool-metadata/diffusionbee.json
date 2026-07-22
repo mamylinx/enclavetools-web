@@ -1,9 +1,9 @@
 {
-  "title": "DiffusionBee",
+  "title": "Diffusion Bee",
   "description": "Diffusion Bee is the easiest way to run Stable Diffusion locally on your M1 Mac. Comes with a one-click installer. No dependencies or technical knowledge needed.",
   "category": "image-generation",
   "url": "https://diffusionbee.com/",
-  "tag": "AGPL-3.0",
-  "date-added": "2026-07-10",
+  "tag": "Image Generation",
+  "date-added": "2026-07-22",
   "slug": "diffusionbee"
 }

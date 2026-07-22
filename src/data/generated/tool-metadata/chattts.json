@@ -3,7 +3,7 @@
   "description": "A generative speech model for daily dialogue.",
   "category": "text-to-speech",
   "url": "https://github.com/2noise/ChatTTS",
-  "tag": "AGPL-3.0",
-  "date-added": "2026-07-10",
+  "tag": "text-to-speech",
+  "date-added": "2026-07-22",
   "slug": "chattts"
 }

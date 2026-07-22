@@ -448,7 +448,7 @@ const featureBadges = [
             Setup &amp; Installation
           </p>
           <div
-            class="grid grid-cols-1 md:grid-cols-2 gap-6"
+            class="grid grid-cols-1 gap-6"
           >
             <div class="bg-white border border-brand-forest/10 rounded-3xl p-6">
               <span
@@ -465,20 +465,7 @@ const featureBadges = [
                 }
               </p>
             </div>
-            <div class="bg-white border border-brand-forest/10 rounded-3xl p-6">
-              <h2 class="text-xl font-bold mb-2">Prerequisites</h2><p
-                class="text-base leading-relaxed text-brand-forest/80"
-              >
-                {
-                  [
-                    ...(enrichedTool.language || []),
-                    ...(enrichedTool.deployment || []),
-                  ]
-                    .slice(0, 5)
-                    .join(", ") || "Check upstream documentation."
-                }
-              </p>
-            </div>
+            
           </div>
           <pre
             class="border border-brand-forest/10 p-6 overflow-x-auto mt-4 text-sm bg-brand-bg rounded-3xl"><code>{`# Start with the official project documentation\n# ${enrichedTool.github_url || enrichedTool.url || canonicalUrl}`}</code></pre>
@@ -526,7 +513,7 @@ const featureBadges = [
               class="grid grid-cols-[minmax(180px,0.8fr)_1.2fr] border-b border-brand-forest/10"
             >
               <span class="p-6 text-sm text-brand-muted border-r border-brand-forest/10"
-                >Primary language</span
+                >Languages</span
               ><strong class="p-6 text-sm font-bold"
                 >{enrichedTool.language?.join(", ") || "Not specified"}</strong
               >

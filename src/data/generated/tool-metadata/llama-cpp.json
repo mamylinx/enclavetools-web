@@ -3,7 +3,7 @@
   "description": "LLM inference in C/C++",
   "category": "llm-inference",
   "url": "https://github.com/ggml-org/llama.cpp",
-  "tag": "MIT",
-  "date-added": "2026-07-10",
+  "tag": "LLM Inference Engine",
+  "date-added": "2026-07-22",
   "slug": "llama-cpp"
 }

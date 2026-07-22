@@ -43,3 +43,7 @@ enclavetools-pipeline/raw/
 
 # npm lockfile (Bun project uses bun.lock)
 package-lock.json
+
+# python cache
+enclavetools-pipeline/scripts/__pycache__/
+

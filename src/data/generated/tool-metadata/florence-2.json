@@ -1,0 +1,9 @@
+{
+  "title": "Florence-2",
+  "description": "image-text-to-text",
+  "category": "vision-multimodal",
+  "url": "https://huggingface.co/microsoft/Florence-2-large",
+  "tag": "vision",
+  "date-added": "2026-07-22",
+  "slug": "florence-2"
+}

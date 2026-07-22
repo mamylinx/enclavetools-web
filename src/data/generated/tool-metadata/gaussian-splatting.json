@@ -1,0 +1,9 @@
+{
+  "title": "3D Gaussian Splatting",
+  "description": "Original reference implementation of \"3D Gaussian Splatting for Real-Time Radiance Field Rendering\"",
+  "category": "vision-multimodal",
+  "url": "https://repo-sam.inria.fr/gspd/gaussian-splatting/",
+  "tag": "3D Rendering",
+  "date-added": "2026-07-22",
+  "slug": "gaussian-splatting"
+}

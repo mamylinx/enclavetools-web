@@ -1,9 +1,9 @@
 {
-  "title": "HunyuanVideo (Tencent)",
+  "title": "HunyuanVideo",
   "description": "HunyuanVideo: A Systematic Framework For Large Video Generation Model",
   "category": "video-generation",
   "url": "https://github.com/Tencent/HunyuanVideo",
-  "tag": "Apache 2.0",
-  "date-added": "2026-07-10",
+  "tag": "Video Generation",
+  "date-added": "2026-07-22",
   "slug": "hunyuanvideo"
 }

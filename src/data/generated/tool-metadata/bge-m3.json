@@ -1,9 +1,9 @@
 {
-  "title": "BGE-M3 (BAAI)",
-  "description": "",
+  "title": "BGE-M3",
+  "description": "sentence-similarity",
   "category": "embedding-models",
   "url": "https://huggingface.co/BAAI/bge-m3",
-  "tag": "MIT",
-  "date-added": "2026-07-10",
+  "tag": "embedding",
+  "date-added": "2026-07-22",
   "slug": "bge-m3"
 }

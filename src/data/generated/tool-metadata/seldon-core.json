@@ -1,9 +1,9 @@
 {
-  "title": "Seldon Core",
+  "title": "Seldon Core 2",
   "description": "An MLOps framework to package, deploy, monitor and manage thousands of production machine learning models",
   "category": "deployment",
   "url": "https://github.com/SeldonIO/seldon-core",
-  "tag": "Apache 2.0",
-  "date-added": "2026-07-10",
+  "tag": "MLOps",
+  "date-added": "2026-07-22",
   "slug": "seldon-core"
 }

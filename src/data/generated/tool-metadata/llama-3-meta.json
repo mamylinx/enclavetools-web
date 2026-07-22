@@ -1,9 +1,9 @@
 {
-  "title": "Llama 3 (Meta)",
-  "description": "The official Meta Llama 3 GitHub site",
+  "title": "Llama 3",
+  "description": "text-generation",
   "category": "llm-models",
   "url": "https://ai.meta.com/llama/",
-  "tag": "Llama 3 Community License",
-  "date-added": "2026-07-10",
+  "tag": "Large Language Model",
+  "date-added": "2026-07-22",
   "slug": "llama-3-meta"
 }

@@ -1,9 +1,9 @@
 {
-  "title": "DeepSeek V3 (DeepSeek AI)",
-  "description": "",
+  "title": "DeepSeek-V3",
+  "description": "text-generation",
   "category": "llm-models",
   "url": "https://deepseek.com/",
-  "tag": "MIT",
-  "date-added": "2026-07-10",
+  "tag": "Large Language Model",
+  "date-added": "2026-07-22",
   "slug": "deepseek-v3"
 }

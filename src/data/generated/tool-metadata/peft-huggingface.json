@@ -1,9 +1,9 @@
 {
-  "title": "PEFT (Hugging Face)",
+  "title": "PEFT",
   "description": "🤗 PEFT: State-of-the-art Parameter-Efficient Fine-Tuning.",
   "category": "fine-tuning-training",
   "url": "https://github.com/huggingface/peft",
-  "tag": "Apache-2.0",
-  "date-added": "2026-07-10",
+  "tag": "Fine-Tuning",
+  "date-added": "2026-07-22",
   "slug": "peft-huggingface"
 }

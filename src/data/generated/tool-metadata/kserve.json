@@ -3,7 +3,7 @@
   "description": "Standardized Distributed Generative and Predictive AI Inference Platform for Scalable, Multi-Framework Deployment on Kubernetes",
   "category": "deployment",
   "url": "https://github.com/kserve/kserve",
-  "tag": "Apache-2.0",
-  "date-added": "2026-07-10",
+  "tag": "Model Serving",
+  "date-added": "2026-07-22",
   "slug": "kserve"
 }

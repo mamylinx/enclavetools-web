@@ -1,9 +1,9 @@
 {
-  "title": "LobeChat",
+  "title": "LobeHub",
   "description": "🤯 LobeHub is your Chief Agent Operator, organizing your agents into 7×24 operations by hiring, scheduling, and reporting on your entire AI team.",
   "category": "chat-interfaces",
   "url": "https://github.com/lobehub/lobehub",
-  "tag": "Other",
-  "date-added": "2026-07-10",
+  "tag": "Agent Platform",
+  "date-added": "2026-07-22",
   "slug": "lobechat"
 }

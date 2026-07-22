@@ -3,7 +3,7 @@
   "description": "Search infrastructure for AI",
   "category": "vector-databases",
   "url": "https://www.trychroma.com/",
-  "tag": "Apache-2.0",
-  "date-added": "2026-07-10",
+  "tag": "Vector Database",
+  "date-added": "2026-07-22",
   "slug": "chroma"
 }

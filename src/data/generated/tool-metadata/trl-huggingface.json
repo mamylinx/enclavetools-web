@@ -1,9 +1,9 @@
 {
-  "title": "TRL (Hugging Face)",
+  "title": "TRL",
   "description": "Train transformer language models with reinforcement learning.",
   "category": "fine-tuning-training",
   "url": "https://github.com/huggingface/trl",
-  "tag": "Apache-2.0",
-  "date-added": "2026-07-10",
+  "tag": "reinforcement-learning",
+  "date-added": "2026-07-22",
   "slug": "trl-huggingface"
 }

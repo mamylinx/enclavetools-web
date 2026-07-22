@@ -1,4 +1,7 @@
 {
+  "candle": [
+    "llm-inference"
+  ],
   "exllamav2": [
     "llm-inference"
   ],
@@ -6,6 +9,9 @@
     "llm-inference"
   ],
   "llama-cpp": [
+    "llm-inference"
+  ],
+  "llamafile": [
     "llm-inference"
   ],
   "localai": [
@@ -35,7 +41,7 @@
   "vllm": [
     "llm-inference"
   ],
-  "supertonic-0befb2f7": [
+  "deepseek-r1": [
     "llm-models"
   ],
   "deepseek-v3": [
@@ -54,6 +60,9 @@
     "llm-models"
   ],
   "qwen3-alibaba": [
+    "llm-models"
+  ],
+  "smollm": [
     "llm-models"
   ],
   "chroma": [
@@ -128,10 +137,16 @@
   "librechat": [
     "chat-interfaces"
   ],
+  "llmfarm": [
+    "chat-interfaces"
+  ],
   "lobechat": [
     "chat-interfaces"
   ],
   "open-webui": [
+    "chat-interfaces"
+  ],
+  "pocketpal-ai": [
     "chat-interfaces"
   ],
   "sillytavern": [
@@ -140,29 +155,32 @@
   "text-generation-webui": [
     "chat-interfaces"
   ],
-  "danswer": [
+  "doctr": [
     "rag-document"
   ],
-  "docling": [
+  "easyocr": [
     "rag-document"
   ],
-  "haystack": [
+  "latex-ocr": [
     "rag-document"
   ],
   "marker": [
     "rag-document"
   ],
-  "privategpt": [
+  "paddleocr": [
     "rag-document"
   ],
-  "ragflow": [
+  "surya": [
     "rag-document"
   ],
-  "txtai": [
+  "tesseract": [
     "rag-document"
   ],
-  "unstructured": [
+  "tesseract-js": [
     "rag-document"
+  ],
+  "buzz": [
+    "speech-to-text"
   ],
   "faster-whisper": [
     "speech-to-text"
@@ -185,6 +203,15 @@
   "whisper-cpp": [
     "speech-to-text"
   ],
+  "whisper-webui": [
+    "speech-to-text"
+  ],
+  "whisperx": [
+    "speech-to-text"
+  ],
+  "audiocraft": [
+    "text-to-speech"
+  ],
   "bark": [
     "text-to-speech"
   ],
@@ -200,10 +227,22 @@
   "kokoro": [
     "text-to-speech"
   ],
+  "moshi": [
+    "text-to-speech"
+  ],
   "openvoice": [
     "text-to-speech"
   ],
+  "parler-tts": [
+    "text-to-speech"
+  ],
   "piper": [
+    "text-to-speech"
+  ],
+  "rvc": [
+    "text-to-speech"
+  ],
+  "so-vits-svc": [
     "text-to-speech"
   ],
   "comfyui": [
@@ -225,6 +264,9 @@
     "image-generation"
   ],
   "sd-webui-forge": [
+    "image-generation"
+  ],
+  "stable-diffusion-webui": [
     "image-generation"
   ],
   "axolotl": [
@@ -305,6 +347,12 @@
   "kserve": [
     "deployment"
   ],
+  "ncnn": [
+    "deployment"
+  ],
+  "onnxruntime": [
+    "deployment"
+  ],
   "openvino": [
     "deployment"
   ],
@@ -362,10 +410,28 @@
   "falcon-2-vlm": [
     "vision-multimodal"
   ],
+  "florence-2": [
+    "vision-multimodal"
+  ],
+  "gaussian-splatting": [
+    "vision-multimodal"
+  ],
   "internvl3": [
     "vision-multimodal"
   ],
   "llava": [
+    "vision-multimodal"
+  ],
+  "meshroom": [
+    "vision-multimodal"
+  ],
+  "moondream": [
+    "vision-multimodal"
+  ],
+  "nerfstudio": [
+    "vision-multimodal"
+  ],
+  "open3d": [
     "vision-multimodal"
   ],
   "phi-3-vision": [
@@ -375,6 +441,9 @@
     "vision-multimodal"
   ],
   "qwen2-5-vl": [
+    "vision-multimodal"
+  ],
+  "sam2": [
     "vision-multimodal"
   ],
   "aider": [
@@ -401,6 +470,9 @@
   "datacleaner": [
     "data-utilities"
   ],
+  "demucs": [
+    "data-utilities"
+  ],
   "duckdb": [
     "data-utilities"
   ],
@@ -411,6 +483,9 @@
     "data-utilities"
   ],
   "polars": [
+    "data-utilities"
+  ],
+  "vocal-remover": [
     "data-utilities"
   ]
 }

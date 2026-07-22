@@ -11,7 +11,7 @@ import UseCasesTabs from "../components/home/UseCasesTabs.astro";
 import StayAheadSection from "../components/home/StayAheadSection.astro";
 import LaunchStacksSection from "../components/home/LaunchStacksSection.astro";
 import SurveySection from "../components/home/SurveySection.astro";
-import ExpertCuratorsSection from "../components/home/ExpertCuratorsSection.astro";
+// import ExpertCuratorsSection from "../components/home/ExpertCuratorsSection.astro";
 import SubmitCTASection from "../components/home/SubmitCTASection.astro";
 import FindPathSection from "../components/home/FindPathSection.astro";
 import CompareTray from "../components/CompareTray.vue";
@@ -99,18 +99,18 @@ const featuredFor = (persona: string) =>
         )
         .slice(0, 8);
 
-const featuredTools = PERSONA.map((_, i) => featuredFor(PERSONA[i]));
+const featuredTools = PERSONA.map((_, i: number) => featuredFor(PERSONA[i]));
 const filteredCounts = PERSONA.map(
-    (_, i) =>
+    (_, i: number) =>
         allTools.filter((tool: any) => tool.personas?.includes(PERSONA[i]))
             .length,
 );
 
-const featuredCounts = PERSONA.map(
-    (_, i) =>
-        allTools.filter((tool: any) => tool.personas?.includes(PERSONA[i]))
-            .length,
-);
+// const featuredCounts = PERSONA.map(
+//     (_, i) =>
+//         allTools.filter((tool: any) => tool.personas?.includes(PERSONA[i]))
+//             .length,
+// );
 
 const categoryTiles = categories
     .filter((cat: any) => cat.category !== "all")

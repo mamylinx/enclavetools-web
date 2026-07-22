@@ -3,7 +3,7 @@
   "description": "Extremely fast Query Engine for DataFrames, written in Rust",
   "category": "data-utilities",
   "url": "https://github.com/pola-rs/polars",
-  "tag": "MIT",
-  "date-added": "2026-07-10",
+  "tag": null,
+  "date-added": "2026-07-22",
   "slug": "polars"
 }

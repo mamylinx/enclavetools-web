@@ -3,7 +3,7 @@
   "description": "The platform for LLM evaluations and AI agent testing",
   "category": "monitoring-observability",
   "url": "https://github.com/langwatch/langwatch",
-  "tag": "Apache-2.0",
-  "date-added": "2026-07-10",
+  "tag": "LLM Evaluation",
+  "date-added": "2026-07-22",
   "slug": "langwatch"
 }

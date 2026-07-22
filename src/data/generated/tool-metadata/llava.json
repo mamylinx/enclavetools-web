@@ -1,9 +1,9 @@
 {
-  "title": "LLaVA (Large Language-and-Vision Assistant)",
+  "title": "LLaVA",
   "description": "[NeurIPS'23 Oral] Visual Instruction Tuning (LLaVA) built towards GPT-4V level capabilities and beyond.",
   "category": "vision-multimodal",
   "url": "https://github.com/haotian-liu/LLaVA",
-  "tag": "Apache-2.0",
-  "date-added": "2026-07-10",
+  "tag": "Vision-Language Model",
+  "date-added": "2026-07-22",
   "slug": "llava"
 }

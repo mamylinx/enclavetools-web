@@ -3,7 +3,7 @@
   "description": "Test your prompts, agents, and RAGs. Red teaming/pentesting/vulnerability scanning for AI. Compare performance of GPT, Claude, Gemini, DeepSeek, and more. Simple declarative configs with command line and CI/CD integration.  Used by OpenAI and Anthropic.",
   "category": "privacy-security",
   "url": "https://github.com/promptfoo/promptfoo",
-  "tag": "MIT",
-  "date-added": "2026-07-10",
+  "tag": "Evaluation",
+  "date-added": "2026-07-22",
   "slug": "promptfoo"
 }

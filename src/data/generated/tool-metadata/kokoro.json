@@ -1,9 +1,9 @@
 {
-  "title": "Kokoro",
+  "title": "kokoro",
   "description": "https://hf.co/hexgrad/Kokoro-82M",
   "category": "text-to-speech",
   "url": "https://github.com/hexgrad/kokoro",
-  "tag": "Apache-2.0",
-  "date-added": "2026-07-10",
+  "tag": "Text-to-Speech",
+  "date-added": "2026-07-22",
   "slug": "kokoro"
 }

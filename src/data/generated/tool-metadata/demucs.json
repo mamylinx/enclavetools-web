@@ -1,0 +1,9 @@
+{
+  "title": "Demucs Music Source Separation",
+  "description": "Code for the paper Hybrid Spectrogram and Waveform Source Separation",
+  "category": "data-utilities",
+  "url": "https://github.com/facebookresearch/demucs",
+  "tag": "Audio Separation",
+  "date-added": "2026-07-22",
+  "slug": "demucs"
+}

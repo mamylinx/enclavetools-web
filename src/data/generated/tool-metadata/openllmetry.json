@@ -1,9 +1,9 @@
 {
-  "title": "OpenLLMetry (Traceloop)",
+  "title": "OpenLLMetry",
   "description": "Open-source observability for your GenAI or LLM application, based on OpenTelemetry",
   "category": "monitoring-observability",
   "url": "https://github.com/traceloop/openllmetry",
-  "tag": "Apache-2.0",
-  "date-added": "2026-07-10",
+  "tag": "Observability",
+  "date-added": "2026-07-22",
   "slug": "openllmetry"
 }

@@ -1,9 +1,9 @@
 {
-  "title": "Garak",
+  "title": "garak",
   "description": "the LLM vulnerability scanner",
   "category": "privacy-security",
   "url": "https://github.com/leondz/garak",
-  "tag": "Apache-2.0",
-  "date-added": "2026-07-10",
+  "tag": "Security",
+  "date-added": "2026-07-22",
   "slug": "garak"
 }

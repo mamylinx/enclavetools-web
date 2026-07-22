@@ -1,9 +1,9 @@
 {
-  "title": "Text Generation WebUI (Oobabooga)",
+  "title": "TextGen",
   "description": "Open-source desktop app for local LLMs. Text, vision, tool-calling, OpenAI/Anthropic-compatible API. 100% private.",
   "category": "chat-interfaces",
   "url": "https://github.com/oobabooga/textgen",
-  "tag": "AGPL-3.0",
-  "date-added": "2026-07-10",
+  "tag": null,
+  "date-added": "2026-07-22",
   "slug": "text-generation-webui"
 }

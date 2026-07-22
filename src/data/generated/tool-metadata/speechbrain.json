@@ -3,7 +3,7 @@
   "description": "A PyTorch-based Speech Toolkit",
   "category": "speech-to-text",
   "url": "https://speechbrain.github.io/",
-  "tag": "Apache-2.0",
-  "date-added": "2026-07-10",
+  "tag": "speech",
+  "date-added": "2026-07-22",
   "slug": "speechbrain"
 }

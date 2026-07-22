@@ -3,7 +3,7 @@
   "description": "Official implementation of AnimateDiff.",
   "category": "video-generation",
   "url": "https://github.com/guoyww/AnimateDiff",
-  "tag": "Apache-2.0",
-  "date-added": "2026-07-10",
+  "tag": "Animation",
+  "date-added": "2026-07-22",
   "slug": "animatediff"
 }

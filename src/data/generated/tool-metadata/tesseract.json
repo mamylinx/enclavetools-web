@@ -1,0 +1,9 @@
+{
+  "title": "Tesseract OCR",
+  "description": "Tesseract Open Source OCR Engine (main repository)",
+  "category": "rag-document",
+  "url": "https://github.com/tesseract-ocr/tesseract",
+  "tag": "OCR",
+  "date-added": "2026-07-22",
+  "slug": "tesseract"
+}
