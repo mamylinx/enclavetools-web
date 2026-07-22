@@ -42,13 +42,7 @@
           "license": "Apache-2.0",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [
-            "GGUF",
-            "GGML",
-            "safetensors",
-            "ONNX",
-            "PyTorch"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 0,
@@ -118,10 +112,7 @@
           "license": "MIT",
           "maturity": "Inactive / Unmaintained",
           "min_ram_gb": null,
-          "model_format": [
-            "GPTQ",
-            "ExLlama"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 0,
@@ -185,11 +176,7 @@
           "license": "AGPL-3.0",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [
-            "GGUF",
-            "GGML",
-            "safetensors"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 0,
           "openai_api": 1,
           "paid_support": 0,
@@ -273,9 +260,7 @@
           "license": "MIT",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [
-            "GGUF"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 0,
           "openai_api": 1,
           "paid_support": 0,
@@ -360,9 +345,7 @@
           "license": null,
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [
-            "GGUF"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 0,
@@ -437,14 +420,7 @@
           "license": "MIT",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [
-            "GGUF",
-            "GGML",
-            "safetensors",
-            "ONNX",
-            "PyTorch",
-            "MLX"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 1,
           "paid_support": 0,
@@ -532,9 +508,7 @@
           "license": "Apache-2.0",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [
-            "PyTorch"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 0,
           "openai_api": 1,
           "paid_support": 0,
@@ -594,9 +568,7 @@
           "license": "MIT",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [
-            "PyTorch"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 0,
           "openai_api": 0,
           "paid_support": 0,
@@ -671,12 +643,7 @@
           "license": "MIT",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [
-            "GGUF",
-            "GGML",
-            "safetensors",
-            "MLX"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 1,
           "paid_support": 0,
@@ -769,12 +736,7 @@
           "license": "Apache-2.0",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [
-            "PyTorch",
-            "safetensors",
-            "AWQ",
-            "GPTQ"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 1,
           "paid_support": 1,
@@ -842,9 +804,7 @@
           "license": "AGPL-3.0",
           "maturity": "Alpha",
           "min_ram_gb": null,
-          "model_format": [
-            "ExLlama"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 1,
           "paid_support": 0,
@@ -908,9 +868,7 @@
           "license": null,
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [
-            "PyTorch"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 0,
           "openai_api": 0,
           "paid_support": 0,
@@ -978,12 +936,7 @@
           "license": "Apache-2.0",
           "maturity": "Mature / Maintenance",
           "min_ram_gb": null,
-          "model_format": [
-            "safetensors",
-            "PyTorch",
-            "AWQ",
-            "GPTQ"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 1,
           "paid_support": 0,
@@ -1057,13 +1010,7 @@
           "license": "Apache-2.0",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [
-            "GGUF",
-            "safetensors",
-            "PyTorch",
-            "AWQ",
-            "GPTQ"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 1,
           "paid_support": 0,
@@ -1709,7 +1656,7 @@
           "license": "Apache-2.0",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 0,
@@ -1771,7 +1718,7 @@
           "license": "MIT",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 0,
@@ -1840,7 +1787,7 @@
           "license": "Apache-2.0",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 1,
@@ -1908,7 +1855,7 @@
           "license": "Apache-2.0",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [],
+          "model_format": "N/A",
           "offline_after_setup": 0,
           "openai_api": 0,
           "paid_support": 1,
@@ -1973,7 +1920,7 @@
           "license": null,
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 0,
@@ -2040,7 +1987,7 @@
           "license": "Apache-2.0",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 1,
@@ -2101,7 +2048,7 @@
           "license": "GPL-3.0",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 1,
@@ -2175,7 +2122,7 @@
           "license": "BSD-3-Clause",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 0,
@@ -2256,7 +2203,7 @@
           "license": "CC-BY-4.0",
           "maturity": "Mature / Maintenance",
           "min_ram_gb": null,
-          "model_format": [],
+          "model_format": "N/A",
           "offline_after_setup": 0,
           "openai_api": 0,
           "paid_support": 0,
@@ -2326,7 +2273,7 @@
           "license": null,
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [],
+          "model_format": "N/A",
           "offline_after_setup": 0,
           "openai_api": 0,
           "paid_support": 1,
@@ -2398,7 +2345,7 @@
           "license": "MIT",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [],
+          "model_format": "N/A",
           "offline_after_setup": 0,
           "openai_api": 0,
           "paid_support": 1,
@@ -2458,7 +2405,7 @@
           "license": "MIT",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [],
+          "model_format": "N/A",
           "offline_after_setup": 0,
           "openai_api": 0,
           "paid_support": 0,
@@ -2521,7 +2468,7 @@
           "license": "MIT",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [],
+          "model_format": "N/A",
           "offline_after_setup": 0,
           "openai_api": 0,
           "paid_support": 0,
@@ -2590,7 +2537,7 @@
           "license": "MIT",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 1,
@@ -2662,7 +2609,7 @@
           "license": "MIT",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [],
+          "model_format": "N/A",
           "offline_after_setup": 0,
           "openai_api": 1,
           "paid_support": 0,
@@ -2729,7 +2676,7 @@
           "license": "Apache-2.0",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [],
+          "model_format": "N/A",
           "offline_after_setup": 0,
           "openai_api": 0,
           "paid_support": 0,
@@ -2788,7 +2735,7 @@
           "license": "MIT",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [],
+          "model_format": "N/A",
           "offline_after_setup": 0,
           "openai_api": 0,
           "paid_support": 0,
@@ -2847,7 +2794,7 @@
           "license": "Apache-2.0",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 1,
           "paid_support": 0,
@@ -2932,9 +2879,7 @@
           "license": "MIT",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [
-            "GGUF"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 1,
           "paid_support": 0,
@@ -3017,7 +2962,7 @@
           "license": "GPL-3.0",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [],
+          "model_format": "N/A",
           "offline_after_setup": 0,
           "openai_api": 1,
           "paid_support": 0,
@@ -3087,9 +3032,7 @@
           "license": "MIT",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [
-            "GGUF"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 1,
           "paid_support": 0,
@@ -3160,7 +3103,7 @@
           "license": "Apache-2.0",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [],
+          "model_format": "N/A",
           "offline_after_setup": 0,
           "openai_api": 1,
           "paid_support": 0,
@@ -3232,10 +3175,7 @@
           "license": null,
           "maturity": "Production / Stable",
           "min_ram_gb": 8,
-          "model_format": [
-            "GGUF",
-            "MLX"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 1,
           "paid_support": 0,
@@ -3308,7 +3248,7 @@
           "license": "MIT",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 0,
@@ -3394,10 +3334,7 @@
           "license": "MIT",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [
-            "GGUF",
-            "GGML"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 0,
@@ -3457,7 +3394,7 @@
           "license": null,
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [],
+          "model_format": "N/A",
           "offline_after_setup": 0,
           "openai_api": 0,
           "paid_support": 0,
@@ -3527,7 +3464,7 @@
           "license": null,
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 1,
           "paid_support": 1,
@@ -3611,10 +3548,7 @@
           "license": "MIT",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [
-            "GGUF",
-            "ONNX"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 0,
@@ -3682,7 +3616,7 @@
           "license": "AGPL-3.0",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 0,
@@ -3762,12 +3696,7 @@
           "license": "AGPL-3.0",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [
-            "GGUF",
-            "ExLlama",
-            "PyTorch",
-            "safetensors"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 1,
           "paid_support": 0,
@@ -3840,9 +3769,7 @@
           "license": "Apache-2.0",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [
-            "PyTorch"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 1,
@@ -3906,9 +3833,7 @@
           "license": "Apache-2.0",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [
-            "PyTorch"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 1,
@@ -3972,9 +3897,7 @@
           "license": "MIT",
           "maturity": "Beta",
           "min_ram_gb": null,
-          "model_format": [
-            "PyTorch"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 0,
@@ -4037,7 +3960,7 @@
           "license": "Apache-2.0",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 1,
@@ -4117,9 +4040,7 @@
           "license": "Apache-2.0",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [
-            "ONNX"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 0,
@@ -4195,7 +4116,7 @@
           "license": "Apache-2.0",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 1,
           "paid_support": 0,
@@ -4255,7 +4176,7 @@
           "license": "Apache-2.0",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 0,
@@ -4312,7 +4233,7 @@
           "license": "Apache-2.0",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [],
+          "model_format": "N/A",
           "offline_after_setup": 0,
           "openai_api": 0,
           "paid_support": 0,
@@ -4378,9 +4299,7 @@
           "license": "MIT",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [
-            "PyTorch"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 0,
@@ -4443,7 +4362,7 @@
           "license": "MIT",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 0,
@@ -4506,9 +4425,7 @@
           "license": "Apache-2.0",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [
-            "PyTorch"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 0,
           "openai_api": 0,
           "paid_support": 0,
@@ -4568,11 +4485,7 @@
           "license": "MIT",
           "maturity": "Production / Stable",
           "min_ram_gb": 1,
-          "model_format": [
-            "PyTorch",
-            "ONNX",
-            "safetensors"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 0,
@@ -4634,9 +4547,7 @@
           "license": "Apache-2.0",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [
-            "PyTorch"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 0,
@@ -4701,7 +4612,7 @@
           "license": "Apache-2.0",
           "maturity": null,
           "min_ram_gb": null,
-          "model_format": [],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 0,
@@ -4756,9 +4667,7 @@
           "license": "MIT",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [
-            "PyTorch"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 0,
@@ -4832,9 +4741,7 @@
           "license": "MIT",
           "maturity": "Production / Stable",
           "min_ram_gb": 0.5,
-          "model_format": [
-            "GGML"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 1,
           "paid_support": 0,
@@ -4909,9 +4816,7 @@
           "license": "Apache-2.0",
           "maturity": null,
           "min_ram_gb": null,
-          "model_format": [
-            "PyTorch"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 0,
@@ -4965,9 +4870,7 @@
           "license": "BSD-2-Clause",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [
-            "PyTorch"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 0,
@@ -5038,9 +4941,7 @@
           "license": "MIT",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [
-            "PyTorch"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 0,
@@ -5094,9 +4995,7 @@
           "license": "MIT",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [
-            "PyTorch"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 0,
           "openai_api": 0,
           "paid_support": 0,
@@ -5153,9 +5052,7 @@
           "license": "AGPL-3.0",
           "maturity": "Beta",
           "min_ram_gb": null,
-          "model_format": [
-            "PyTorch"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 0,
           "openai_api": 0,
           "paid_support": 0,
@@ -5215,9 +5112,7 @@
           "license": "MPL-2.0",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [
-            "PyTorch"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 0,
@@ -5285,7 +5180,7 @@
           "license": null,
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 0,
@@ -5341,9 +5236,7 @@
           "license": "Apache-2.0",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [
-            "PyTorch"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 0,
           "openai_api": 0,
           "paid_support": 0,
@@ -5406,10 +5299,7 @@
           "license": "Apache-2.0",
           "maturity": "Beta",
           "min_ram_gb": null,
-          "model_format": [
-            "PyTorch",
-            "MLX"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 0,
           "openai_api": 0,
           "paid_support": 0,
@@ -5461,7 +5351,7 @@
           "license": "MIT",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 0,
@@ -5517,9 +5407,7 @@
           "license": "Apache-2.0",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [
-            "PyTorch"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 0,
           "openai_api": 0,
           "paid_support": 0,
@@ -5578,7 +5466,7 @@
           "license": "MIT",
           "maturity": "Inactive / Unmaintained",
           "min_ram_gb": null,
-          "model_format": [],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 0,
@@ -5635,10 +5523,7 @@
           "license": "MIT",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [
-            "PyTorch",
-            "ONNX"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 0,
@@ -5705,10 +5590,7 @@
           "license": "AGPL-3.0",
           "maturity": "Inactive / Unmaintained",
           "min_ram_gb": null,
-          "model_format": [
-            "PyTorch",
-            "ONNX"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 0,
@@ -5783,10 +5665,7 @@
           "license": "GPL-3.0",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [
-            "safetensors",
-            "PyTorch"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 0,
@@ -5844,10 +5723,7 @@
           "license": "AGPL-3.0",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [
-            "PyTorch",
-            "TensorFlow"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 0,
@@ -5909,7 +5785,7 @@
           "license": "GPL-3.0",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [],
+          "model_format": "N/A",
           "offline_after_setup": 0,
           "openai_api": 0,
           "paid_support": 0,
@@ -5967,9 +5843,7 @@
           "license": "Apache-2.0",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [
-            "PyTorch"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 0,
@@ -6038,10 +5912,7 @@
           "license": "GPL-3.0",
           "maturity": "Mature / Maintenance",
           "min_ram_gb": 8,
-          "model_format": [
-            "safetensors",
-            "PyTorch"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 0,
@@ -6101,11 +5972,7 @@
           "license": "Apache-2.0",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [
-            "GGUF",
-            "safetensors",
-            "PyTorch"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 0,
@@ -6165,10 +6032,7 @@
           "license": "AGPL-3.0",
           "maturity": "Beta",
           "min_ram_gb": null,
-          "model_format": [
-            "GGUF",
-            "PyTorch"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 0,
@@ -6230,10 +6094,7 @@
           "license": "AGPL-3.0",
           "maturity": "Production / Stable",
           "min_ram_gb": 8,
-          "model_format": [
-            "safetensors",
-            "PyTorch"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 0,
           "openai_api": 0,
           "paid_support": 0,
@@ -6305,10 +6166,7 @@
           "license": "Apache-2.0",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [
-            "PyTorch",
-            "GPTQ"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 1,
@@ -6373,10 +6231,7 @@
           "license": "Apache-2.0",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [
-            "PyTorch",
-            "safetensors"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 0,
           "openai_api": 0,
           "paid_support": 0,
@@ -6450,12 +6305,7 @@
           "license": "Apache-2.0",
           "maturity": "Production / Stable",
           "min_ram_gb": 4,
-          "model_format": [
-            "PyTorch",
-            "safetensors",
-            "AWQ",
-            "GPTQ"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 1,
           "paid_support": 0,
@@ -6535,10 +6385,7 @@
           "license": "Apache-2.0",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [
-            "PyTorch",
-            "safetensors"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 1,
           "paid_support": 0,
@@ -6611,9 +6458,7 @@
           "license": "Apache-2.0",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [
-            "PyTorch"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 0,
@@ -6679,9 +6524,7 @@
           "license": "Apache-2.0",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [
-            "PyTorch"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 0,
           "openai_api": 0,
           "paid_support": 0,
@@ -6754,12 +6597,7 @@
           "license": "Apache-2.0",
           "maturity": "Beta",
           "min_ram_gb": null,
-          "model_format": [
-            "GGUF",
-            "safetensors",
-            "PyTorch",
-            "MLX"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 1,
           "paid_support": 0,
@@ -6841,7 +6679,7 @@
           "license": null,
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 0,
@@ -6924,7 +6762,7 @@
           "license": "Apache-2.0",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 0,
@@ -7008,7 +6846,7 @@
           "license": null,
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [],
+          "model_format": "N/A",
           "offline_after_setup": 0,
           "openai_api": 1,
           "paid_support": 0,
@@ -7101,7 +6939,7 @@
           "license": "Apache-2.0",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 1,
           "paid_support": 1,
@@ -7173,7 +7011,7 @@
           "license": "Apache-2.0",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [],
+          "model_format": "N/A",
           "offline_after_setup": 0,
           "openai_api": 0,
           "paid_support": 0,
@@ -7254,11 +7092,7 @@
           "license": "Apache-2.0",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [
-            "GGUF",
-            "GGML",
-            "PyTorch"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 0,
@@ -7324,7 +7158,7 @@
           "license": "Apache-2.0",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [],
+          "model_format": "N/A",
           "offline_after_setup": 0,
           "openai_api": 1,
           "paid_support": 0,
@@ -7387,7 +7221,7 @@
           "license": null,
           "maturity": "Beta",
           "min_ram_gb": null,
-          "model_format": [],
+          "model_format": "N/A",
           "offline_after_setup": 0,
           "openai_api": 1,
           "paid_support": 0,
@@ -7449,7 +7283,7 @@
           "license": "MIT",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [],
+          "model_format": "N/A",
           "offline_after_setup": 0,
           "openai_api": 0,
           "paid_support": 0,
@@ -7507,7 +7341,7 @@
           "license": "MIT",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [],
+          "model_format": "N/A",
           "offline_after_setup": 0,
           "openai_api": 0,
           "paid_support": 0,
@@ -7573,7 +7407,7 @@
           "license": "Apache-2.0",
           "maturity": "Experimental",
           "min_ram_gb": null,
-          "model_format": [],
+          "model_format": "N/A",
           "offline_after_setup": 0,
           "openai_api": 1,
           "paid_support": 0,
@@ -7637,10 +7471,7 @@
           "license": "MIT",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [
-            "PyTorch",
-            "ONNX"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 0,
@@ -7792,11 +7623,7 @@
           "license": "MIT",
           "maturity": "Production / Stable",
           "min_ram_gb": 2.2,
-          "model_format": [
-            "safetensors",
-            "PyTorch",
-            "ONNX"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 0,
@@ -7858,9 +7685,7 @@
           "license": "Apache-2.0",
           "maturity": "Production / Stable",
           "min_ram_gb": 30.5,
-          "model_format": [
-            "safetensors"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 1,
@@ -8011,11 +7836,7 @@
           "license": "CC-BY-NC-4.0",
           "maturity": null,
           "min_ram_gb": 1.1,
-          "model_format": [
-            "safetensors",
-            "PyTorch",
-            "ONNX"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 0,
           "openai_api": 0,
           "paid_support": 0,
@@ -8167,9 +7988,7 @@
           "license": "Apache-2.0",
           "maturity": "Production / Stable",
           "min_ram_gb": 1.9,
-          "model_format": [
-            "safetensors"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 0,
@@ -8297,10 +8116,7 @@
           "license": "Apache-2.0",
           "maturity": null,
           "min_ram_gb": 2.3,
-          "model_format": [
-            "safetensors",
-            "ONNX"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 0,
@@ -8370,9 +8186,7 @@
           "license": "Apache-2.0",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [
-            "PyTorch"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 0,
           "openai_api": 0,
           "paid_support": 1,
@@ -8441,11 +8255,7 @@
           "license": "Apache-2.0",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [
-            "ONNX",
-            "PyTorch",
-            "TensorFlow"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 0,
           "openai_api": 1,
           "paid_support": 0,
@@ -8513,10 +8323,7 @@
           "license": null,
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [
-            "PyTorch",
-            "ONNX"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 0,
@@ -8580,9 +8387,7 @@
           "license": "MIT",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [
-            "ONNX"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 0,
@@ -8650,11 +8455,7 @@
           "license": "Apache-2.0",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [
-            "ONNX",
-            "PyTorch",
-            "TensorFlow"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 0,
@@ -8740,10 +8541,7 @@
           "license": "Apache-2.0",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [
-            "PyTorch",
-            "TensorFlow"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 0,
           "openai_api": 0,
           "paid_support": 1,
@@ -8816,7 +8614,7 @@
           "license": null,
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [],
+          "model_format": "N/A",
           "offline_after_setup": 0,
           "openai_api": 0,
           "paid_support": 1,
@@ -8882,11 +8680,7 @@
           "license": "BSD-3-Clause",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [
-            "ONNX",
-            "PyTorch",
-            "TensorFlow"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 1,
@@ -8965,7 +8759,7 @@
           "license": null,
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 1,
@@ -9040,7 +8834,7 @@
           "license": null,
           "maturity": "Production / Stable",
           "min_ram_gb": 4,
-          "model_format": [],
+          "model_format": "N/A",
           "offline_after_setup": 0,
           "openai_api": 1,
           "paid_support": 1,
@@ -9115,7 +8909,7 @@
           "license": null,
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [],
+          "model_format": "N/A",
           "offline_after_setup": 0,
           "openai_api": 0,
           "paid_support": 0,
@@ -9178,7 +8972,7 @@
           "license": "Apache-2.0",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [],
+          "model_format": "N/A",
           "offline_after_setup": 0,
           "openai_api": 0,
           "paid_support": 0,
@@ -9250,7 +9044,7 @@
           "license": null,
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [],
+          "model_format": "N/A",
           "offline_after_setup": 0,
           "openai_api": 0,
           "paid_support": 1,
@@ -9327,7 +9121,7 @@
           "license": null,
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 1,
@@ -9402,9 +9196,7 @@
           "license": "Apache-2.0",
           "maturity": "Beta",
           "min_ram_gb": null,
-          "model_format": [
-            "PyTorch"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 0,
@@ -9464,10 +9256,7 @@
           "license": "Apache-2.0",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [
-            "PyTorch",
-            "safetensors"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 0,
@@ -9533,9 +9322,7 @@
           "license": null,
           "maturity": "Production / Stable",
           "min_ram_gb": 60,
-          "model_format": [
-            "PyTorch"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 0,
@@ -9599,10 +9386,7 @@
           "license": "Apache-2.0",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [
-            "PyTorch",
-            "safetensors"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 0,
           "openai_api": 0,
           "paid_support": 0,
@@ -9663,10 +9447,7 @@
           "license": "Apache-2.0",
           "maturity": "Beta",
           "min_ram_gb": 60,
-          "model_format": [
-            "safetensors",
-            "PyTorch"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 0,
@@ -9726,9 +9507,7 @@
           "license": "Apache-2.0",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [
-            "PyTorch"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 1,
           "paid_support": 0,
@@ -9791,9 +9570,7 @@
           "license": "Apache-2.0",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [
-            "PyTorch"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 0,
@@ -9862,9 +9639,7 @@
           "license": "MIT",
           "maturity": "Production / Stable",
           "min_ram_gb": 40,
-          "model_format": [
-            "PyTorch"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 0,
@@ -9922,9 +9697,7 @@
           "license": "unknown",
           "maturity": "Experimental",
           "min_ram_gb": 22.9,
-          "model_format": [
-            "safetensors"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 0,
@@ -9982,10 +9755,7 @@
           "license": "MIT",
           "maturity": "Experimental",
           "min_ram_gb": 1.6,
-          "model_format": [
-            "safetensors",
-            "PyTorch"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 0,
@@ -10044,7 +9814,7 @@
           "license": null,
           "maturity": "Mature / Maintenance",
           "min_ram_gb": null,
-          "model_format": [],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 0,
@@ -10105,10 +9875,7 @@
           "license": "MIT",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [
-            "PyTorch",
-            "AWQ"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 0,
@@ -10181,10 +9948,7 @@
           "license": "Apache-2.0",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [
-            "PyTorch",
-            "GGUF"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 0,
@@ -10250,7 +10014,7 @@
           "license": null,
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 0,
@@ -10308,9 +10072,7 @@
           "license": "Apache-2.0",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [
-            "PyTorch"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 0,
           "openai_api": 0,
           "paid_support": 0,
@@ -10368,9 +10130,7 @@
           "license": "Apache-2.0",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [
-            "PyTorch"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 0,
@@ -10442,10 +10202,7 @@
           "license": null,
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [
-            "PyTorch",
-            "TensorFlow"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 0,
@@ -10507,9 +10264,7 @@
           "license": "MIT",
           "maturity": "Production / Stable",
           "min_ram_gb": 8.3,
-          "model_format": [
-            "safetensors"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 0,
@@ -10583,9 +10338,7 @@
           "license": "Apache-2.0",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [
-            "safetensors"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 1,
           "paid_support": 0,
@@ -10652,10 +10405,7 @@
           "license": "Apache-2.0",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [
-            "PyTorch",
-            "AWQ"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 1,
           "paid_support": 0,
@@ -10726,9 +10476,7 @@
           "license": "Apache-2.0",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [
-            "PyTorch"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 0,
@@ -10794,7 +10542,7 @@
           "license": "Apache-2.0",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [],
+          "model_format": "N/A",
           "offline_after_setup": 0,
           "openai_api": 0,
           "paid_support": 0,
@@ -10862,9 +10610,7 @@
           "license": "Apache-2.0",
           "maturity": "Mature / Maintenance",
           "min_ram_gb": null,
-          "model_format": [
-            "PyTorch"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 0,
@@ -10930,7 +10676,7 @@
           "license": "Apache-2.0",
           "maturity": "Inactive / Unmaintained",
           "min_ram_gb": null,
-          "model_format": [],
+          "model_format": "N/A",
           "offline_after_setup": 0,
           "openai_api": 0,
           "paid_support": 0,
@@ -10989,12 +10735,7 @@
           "license": "MIT",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [
-            "PyTorch",
-            "GGUF",
-            "GPTQ",
-            "ExLlama"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 0,
           "openai_api": 0,
           "paid_support": 0,
@@ -11051,9 +10792,7 @@
           "license": "bigcode-openrail-m",
           "maturity": "Production / Stable",
           "min_ram_gb": 63.8,
-          "model_format": [
-            "safetensors"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 0,
           "openai_api": 0,
           "paid_support": 0,
@@ -11115,7 +10854,7 @@
           "license": null,
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [],
+          "model_format": "N/A",
           "offline_after_setup": 0,
           "openai_api": 0,
           "paid_support": 0,
@@ -11184,7 +10923,7 @@
           "license": "Apache-2.0",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 0,
@@ -11243,7 +10982,7 @@
           "license": "LGPL-3.0",
           "maturity": "Mature / Maintenance",
           "min_ram_gb": null,
-          "model_format": [],
+          "model_format": "N/A",
           "offline_after_setup": 0,
           "openai_api": 0,
           "paid_support": 0,
@@ -11297,9 +11036,7 @@
           "license": "MIT",
           "maturity": "Inactive / Unmaintained",
           "min_ram_gb": 3,
-          "model_format": [
-            "PyTorch"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 0,
           "openai_api": 0,
           "paid_support": 0,
@@ -11355,7 +11092,7 @@
           "license": "MIT",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 0,
@@ -11418,7 +11155,7 @@
           "license": "Apache-2.0",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 0,
@@ -11473,7 +11210,7 @@
           "license": "BSD-3-Clause",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [],
+          "model_format": "N/A",
           "offline_after_setup": 0,
           "openai_api": 0,
           "paid_support": 0,
@@ -11529,7 +11266,7 @@
           "license": "MIT",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 0,
@@ -11586,9 +11323,7 @@
           "license": "MIT",
           "maturity": "Production / Stable",
           "min_ram_gb": null,
-          "model_format": [
-            "PyTorch"
-          ],
+          "model_format": "N/A",
           "offline_after_setup": 1,
           "openai_api": 0,
           "paid_support": 0,
