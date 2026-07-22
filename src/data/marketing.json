@@ -19,9 +19,10 @@
   ],
   "sponsors": [
     {
-      "logo": null,
-      "description": "Reach 50,000+ enterprise buyers looking for private AI solutions.",
-      "cta": "Sponsor the directory →",
+      "label": "Sponsor",
+      "title": "Reach 50,000+ buyers",
+      "description": "Enterprise buyers looking for private AI solutions see your brand here.",
+      "cta": "Become a sponsor",
       "url": "/submit"
     }
   ]

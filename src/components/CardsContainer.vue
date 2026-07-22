@@ -17,7 +17,7 @@ const c = siteContent as Record<string, string>;
 
 const promotedAds = ref(m.promoted || []);
 const sponsors = ref(m.sponsors || []);
-const featured = ref(m.featured?.[0] || null);
+const sponsor = ref(m.sponsors?.[0] || null);
 
 const props = defineProps<{
     filter: string;
@@ -277,14 +277,14 @@ watch(isOramaActive, (active) => {
                 </div>
 
                 <div class="lg:hidden col-span-1 border border-brand-forest/10 p-6 bg-white rounded-3xl transition-all duration-300 ease-out-expo hover:border-brand-forest hover:-translate-y-1 hover:shadow-lg"
-                    v-if="i === positions.featured">
+                    v-if="i === positions.sponsor_cta">
                     <div class="flex flex-col h-full">
-                        <div class="text-xs font-bold uppercase text-brand-muted tracking-wider mb-3">Get featured</div>
-                        <div class="text-lg font-bold text-brand-forest mb-2">{{ featured.title }}</div>
-                        <p class="text-sm font-medium text-brand-muted mb-4 flex-1">{{ featured.description }}</p>
+                        <div class="text-xs font-bold uppercase text-brand-muted tracking-wider mb-3">{{ sponsor.label || 'Sponsor' }}</div>
+                        <div class="text-lg font-bold text-brand-forest mb-2">{{ sponsor.title }}</div>
+                        <p class="text-sm font-medium text-brand-muted mb-4 flex-1">{{ sponsor.description }}</p>
                         <button
                             class="w-full h-10 bg-brand-forest text-white font-bold text-xs uppercase tracking-wider hover:bg-black transition-colors border-none rounded-full inline-flex items-center justify-center shadow-sm">{{
-                            featured.cta }}</button>
+                            sponsor.cta }}</button>
                     </div>
                 </div>
 

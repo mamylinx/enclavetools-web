@@ -9,12 +9,25 @@ const props = defineProps<{
 }>();
 
 const c = siteContent as Record<string, string>;
-const featured = ref((marketingData as MarketingConfig).featured?.[0] || null);
+const sponsor = ref((marketingData as MarketingConfig).sponsors?.[0] || null);
 
 </script>
 
 <template>
   <aside class="flex flex-col gap-6">
+    <!-- Sponsor CTA -->
+    <div
+      class="flex flex-col h-full border border-brand-forest/10 p-6 bg-white rounded-3xl transition-all duration-300 ease-out-expo hover:border-brand-forest hover:-translate-y-1 hover:shadow-lg"
+      v-if="sponsor">
+      <div class="text-xs font-bold uppercase text-brand-muted tracking-wider mb-3">{{ sponsor.label || 'Sponsor' }}
+      </div>
+      <div class="text-lg font-bold text-brand-forest mb-2">{{ sponsor.title }}</div>
+      <p class="text-sm font-medium text-brand-muted mb-4 flex-1">{{ sponsor.description }}</p>
+      <a :href="sponsor.url || '/submit'"
+        class="block w-full h-10 bg-brand-forest text-white font-bold text-xs uppercase tracking-wider hover:bg-black transition-colors text-center no-underline border-none rounded-full inline-flex items-center justify-center shadow-sm">{{
+          sponsor.cta }}</a>
+    </div>
+    
     <!-- Newsletter -->
     <div class="flex flex-col h-full border border-brand-forest/10 p-6 bg-white rounded-3xl transition-all duration-300 ease-out-expo hover:border-brand-forest hover:-translate-y-1 hover:shadow-lg" v-if="props.showNewsletter !== false">
       <div class="text-xs font-bold uppercase text-brand-muted tracking-wider mb-3">{{ c.newsletter_label || 'Newsletter' }}</div>
@@ -28,14 +41,6 @@ const featured = ref((marketingData as MarketingConfig).featured?.[0] || null);
           class="w-full h-10 bg-brand-forest text-white font-bold text-xs uppercase tracking-wider hover:bg-black transition-colors border-none rounded-full inline-flex items-center justify-center shadow-sm"
           type="submit">{{ c.newsletter_cta || 'Get the digest' }}</button>
       </form>
-    </div>
-
-    <!-- Featured CTA -->
-    <div class="flex flex-col h-full border border-brand-forest/10 p-6 bg-white rounded-3xl transition-all duration-300 ease-out-expo hover:border-brand-forest hover:-translate-y-1 hover:shadow-lg" v-if="featured">
-      <div class="text-xs font-bold uppercase text-brand-muted tracking-wider mb-3">{{ c.featured_label || 'Featured' }}</div>
-      <div class="text-lg font-bold text-brand-forest mb-2">{{ featured.title }}</div>
-      <p class="text-sm font-medium text-brand-muted mb-4 flex-1">{{ featured.description }}</p>
-      <a :href="featured.url || '/submit'" class="block w-full h-10 bg-brand-forest text-white font-bold text-xs uppercase tracking-wider hover:bg-black transition-colors text-center no-underline border-none rounded-full inline-flex items-center justify-center shadow-sm">{{ featured.cta }}</a>
     </div>
   </aside>
 </template>
