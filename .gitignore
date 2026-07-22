@@ -30,3 +30,16 @@ lerna-debug.log*
 .antigravitycli/
 .opencode
 HTMLtemplate/
+
+# local python environment
+.penv/
+
+# local agent config
+.agents/
+
+# pipeline build artifacts
+enclavetools-pipeline/dataset/
+enclavetools-pipeline/raw/
+
+# npm lockfile (Bun project uses bun.lock)
+package-lock.json
