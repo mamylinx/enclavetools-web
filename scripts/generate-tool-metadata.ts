@@ -26,15 +26,6 @@ try {
     }
     const toolsData: ToolsConfig = JSON.parse(fs.readFileSync(toolsPath, 'utf-8'));
 
-    // Read metadata.json
-    let metadataMap: Record<string, any> = {};
-    if (fs.existsSync(metadataPath)) {
-        metadataMap = JSON.parse(fs.readFileSync(metadataPath, 'utf-8'));
-        console.log(`✅ Loaded metadata.json with ${Object.keys(metadataMap).length} entries`);
-    } else {
-        console.log('⚠️  metadata.json not found, will use tool data only');
-    }
-
     let totalFiles = 0;
     let totalSize = 0;
 
@@ -46,13 +37,10 @@ try {
                 return;
             }
 
-            // Get metadata if available
-            const meta = metadataMap[tool.slug] || {};
-
             // Create minimal metadata object
             const toolMetadata = {
-                title: meta.title || tool.title,
-                description: meta.description || tool.body,
+                title: tool.title,
+                description: tool.body,
                 category: category.category,
                 url: tool.url,
                 tag: tool.tag,

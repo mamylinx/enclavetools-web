@@ -30,7 +30,9 @@
     "license": "Apache-2.0",
     "maturity": "Production / Stable",
     "min_ram_gb": null,
-    "model_format": [],
+    "model_format": [
+      "N/A"
+    ],
     "offline_after_setup": 1,
     "openai_api": 0,
     "paid_support": 0,
@@ -89,7 +91,9 @@
     "license": "LGPL-3.0",
     "maturity": "Mature / Maintenance",
     "min_ram_gb": null,
-    "model_format": [],
+    "model_format": [
+      "N/A"
+    ],
     "offline_after_setup": 0,
     "openai_api": 0,
     "paid_support": 0,
@@ -144,7 +148,7 @@
     "maturity": "Inactive / Unmaintained",
     "min_ram_gb": 3,
     "model_format": [
-      "PyTorch"
+      "N/A"
     ],
     "offline_after_setup": 0,
     "openai_api": 0,
@@ -201,7 +205,9 @@
     "license": "MIT",
     "maturity": "Production / Stable",
     "min_ram_gb": null,
-    "model_format": [],
+    "model_format": [
+      "N/A"
+    ],
     "offline_after_setup": 1,
     "openai_api": 0,
     "paid_support": 0,
@@ -264,7 +270,9 @@
     "license": "Apache-2.0",
     "maturity": "Production / Stable",
     "min_ram_gb": null,
-    "model_format": [],
+    "model_format": [
+      "N/A"
+    ],
     "offline_after_setup": 1,
     "openai_api": 0,
     "paid_support": 0,
@@ -319,7 +327,9 @@
     "license": "BSD-3-Clause",
     "maturity": "Production / Stable",
     "min_ram_gb": null,
-    "model_format": [],
+    "model_format": [
+      "N/A"
+    ],
     "offline_after_setup": 0,
     "openai_api": 0,
     "paid_support": 0,
@@ -375,7 +385,9 @@
     "license": "MIT",
     "maturity": "Production / Stable",
     "min_ram_gb": null,
-    "model_format": [],
+    "model_format": [
+      "N/A"
+    ],
     "offline_after_setup": 1,
     "openai_api": 0,
     "paid_support": 0,
@@ -433,7 +445,7 @@
     "maturity": "Production / Stable",
     "min_ram_gb": null,
     "model_format": [
-      "PyTorch"
+      "N/A"
     ],
     "offline_after_setup": 1,
     "openai_api": 0,

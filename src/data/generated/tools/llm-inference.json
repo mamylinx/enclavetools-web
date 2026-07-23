@@ -38,11 +38,7 @@
     "maturity": "Production / Stable",
     "min_ram_gb": null,
     "model_format": [
-      "GGUF",
-      "GGML",
-      "safetensors",
-      "ONNX",
-      "PyTorch"
+      "N/A"
     ],
     "offline_after_setup": 1,
     "openai_api": 0,
@@ -114,8 +110,7 @@
     "maturity": "Inactive / Unmaintained",
     "min_ram_gb": null,
     "model_format": [
-      "GPTQ",
-      "ExLlama"
+      "N/A"
     ],
     "offline_after_setup": 1,
     "openai_api": 0,
@@ -181,9 +176,7 @@
     "maturity": "Production / Stable",
     "min_ram_gb": null,
     "model_format": [
-      "GGUF",
-      "GGML",
-      "safetensors"
+      "N/A"
     ],
     "offline_after_setup": 0,
     "openai_api": 1,
@@ -269,7 +262,7 @@
     "maturity": "Production / Stable",
     "min_ram_gb": null,
     "model_format": [
-      "GGUF"
+      "N/A"
     ],
     "offline_after_setup": 0,
     "openai_api": 1,
@@ -356,7 +349,7 @@
     "maturity": "Production / Stable",
     "min_ram_gb": null,
     "model_format": [
-      "GGUF"
+      "N/A"
     ],
     "offline_after_setup": 1,
     "openai_api": 0,
@@ -433,12 +426,7 @@
     "maturity": "Production / Stable",
     "min_ram_gb": null,
     "model_format": [
-      "GGUF",
-      "GGML",
-      "safetensors",
-      "ONNX",
-      "PyTorch",
-      "MLX"
+      "N/A"
     ],
     "offline_after_setup": 1,
     "openai_api": 1,
@@ -528,7 +516,7 @@
     "maturity": "Production / Stable",
     "min_ram_gb": null,
     "model_format": [
-      "PyTorch"
+      "N/A"
     ],
     "offline_after_setup": 0,
     "openai_api": 1,
@@ -590,7 +578,7 @@
     "maturity": "Production / Stable",
     "min_ram_gb": null,
     "model_format": [
-      "PyTorch"
+      "N/A"
     ],
     "offline_after_setup": 0,
     "openai_api": 0,
@@ -667,10 +655,7 @@
     "maturity": "Production / Stable",
     "min_ram_gb": null,
     "model_format": [
-      "GGUF",
-      "GGML",
-      "safetensors",
-      "MLX"
+      "N/A"
     ],
     "offline_after_setup": 1,
     "openai_api": 1,
@@ -765,10 +750,7 @@
     "maturity": "Production / Stable",
     "min_ram_gb": null,
     "model_format": [
-      "PyTorch",
-      "safetensors",
-      "AWQ",
-      "GPTQ"
+      "N/A"
     ],
     "offline_after_setup": 1,
     "openai_api": 1,
@@ -838,7 +820,7 @@
     "maturity": "Alpha",
     "min_ram_gb": null,
     "model_format": [
-      "ExLlama"
+      "N/A"
     ],
     "offline_after_setup": 1,
     "openai_api": 1,
@@ -904,7 +886,7 @@
     "maturity": "Production / Stable",
     "min_ram_gb": null,
     "model_format": [
-      "PyTorch"
+      "N/A"
     ],
     "offline_after_setup": 0,
     "openai_api": 0,
@@ -974,10 +956,7 @@
     "maturity": "Mature / Maintenance",
     "min_ram_gb": null,
     "model_format": [
-      "safetensors",
-      "PyTorch",
-      "AWQ",
-      "GPTQ"
+      "N/A"
     ],
     "offline_after_setup": 1,
     "openai_api": 1,
@@ -1053,11 +1032,7 @@
     "maturity": "Production / Stable",
     "min_ram_gb": null,
     "model_format": [
-      "GGUF",
-      "safetensors",
-      "PyTorch",
-      "AWQ",
-      "GPTQ"
+      "N/A"
     ],
     "offline_after_setup": 1,
     "openai_api": 1,

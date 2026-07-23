@@ -34,7 +34,7 @@
     "maturity": "Production / Stable",
     "min_ram_gb": null,
     "model_format": [
-      "PyTorch"
+      "N/A"
     ],
     "offline_after_setup": 1,
     "openai_api": 0,
@@ -90,7 +90,7 @@
     "maturity": "Production / Stable",
     "min_ram_gb": null,
     "model_format": [
-      "PyTorch"
+      "N/A"
     ],
     "offline_after_setup": 0,
     "openai_api": 0,
@@ -149,7 +149,7 @@
     "maturity": "Beta",
     "min_ram_gb": null,
     "model_format": [
-      "PyTorch"
+      "N/A"
     ],
     "offline_after_setup": 0,
     "openai_api": 0,
@@ -211,7 +211,7 @@
     "maturity": "Production / Stable",
     "min_ram_gb": null,
     "model_format": [
-      "PyTorch"
+      "N/A"
     ],
     "offline_after_setup": 1,
     "openai_api": 0,
@@ -280,7 +280,9 @@
     "license": null,
     "maturity": "Production / Stable",
     "min_ram_gb": null,
-    "model_format": [],
+    "model_format": [
+      "N/A"
+    ],
     "offline_after_setup": 1,
     "openai_api": 0,
     "paid_support": 0,
@@ -337,7 +339,7 @@
     "maturity": "Production / Stable",
     "min_ram_gb": null,
     "model_format": [
-      "PyTorch"
+      "N/A"
     ],
     "offline_after_setup": 0,
     "openai_api": 0,
@@ -402,8 +404,7 @@
     "maturity": "Beta",
     "min_ram_gb": null,
     "model_format": [
-      "PyTorch",
-      "MLX"
+      "N/A"
     ],
     "offline_after_setup": 0,
     "openai_api": 0,
@@ -456,7 +457,9 @@
     "license": "MIT",
     "maturity": "Production / Stable",
     "min_ram_gb": null,
-    "model_format": [],
+    "model_format": [
+      "N/A"
+    ],
     "offline_after_setup": 1,
     "openai_api": 0,
     "paid_support": 0,
@@ -513,7 +516,7 @@
     "maturity": "Production / Stable",
     "min_ram_gb": null,
     "model_format": [
-      "PyTorch"
+      "N/A"
     ],
     "offline_after_setup": 0,
     "openai_api": 0,
@@ -573,7 +576,9 @@
     "license": "MIT",
     "maturity": "Inactive / Unmaintained",
     "min_ram_gb": null,
-    "model_format": [],
+    "model_format": [
+      "N/A"
+    ],
     "offline_after_setup": 1,
     "openai_api": 0,
     "paid_support": 0,
@@ -631,8 +636,7 @@
     "maturity": "Production / Stable",
     "min_ram_gb": null,
     "model_format": [
-      "PyTorch",
-      "ONNX"
+      "N/A"
     ],
     "offline_after_setup": 1,
     "openai_api": 0,
@@ -701,8 +705,7 @@
     "maturity": "Inactive / Unmaintained",
     "min_ram_gb": null,
     "model_format": [
-      "PyTorch",
-      "ONNX"
+      "N/A"
     ],
     "offline_after_setup": 1,
     "openai_api": 0,

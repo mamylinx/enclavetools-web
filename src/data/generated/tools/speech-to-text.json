@@ -35,7 +35,7 @@
     "maturity": "Production / Stable",
     "min_ram_gb": null,
     "model_format": [
-      "PyTorch"
+      "N/A"
     ],
     "offline_after_setup": 1,
     "openai_api": 0,
@@ -99,7 +99,9 @@
     "license": "MIT",
     "maturity": "Production / Stable",
     "min_ram_gb": null,
-    "model_format": [],
+    "model_format": [
+      "N/A"
+    ],
     "offline_after_setup": 1,
     "openai_api": 0,
     "paid_support": 0,
@@ -163,7 +165,7 @@
     "maturity": "Production / Stable",
     "min_ram_gb": null,
     "model_format": [
-      "PyTorch"
+      "N/A"
     ],
     "offline_after_setup": 0,
     "openai_api": 0,
@@ -225,9 +227,7 @@
     "maturity": "Production / Stable",
     "min_ram_gb": 1,
     "model_format": [
-      "PyTorch",
-      "ONNX",
-      "safetensors"
+      "N/A"
     ],
     "offline_after_setup": 1,
     "openai_api": 0,
@@ -291,7 +291,7 @@
     "maturity": "Production / Stable",
     "min_ram_gb": null,
     "model_format": [
-      "PyTorch"
+      "N/A"
     ],
     "offline_after_setup": 1,
     "openai_api": 0,
@@ -357,7 +357,9 @@
     "license": "Apache-2.0",
     "maturity": null,
     "min_ram_gb": null,
-    "model_format": [],
+    "model_format": [
+      "N/A"
+    ],
     "offline_after_setup": 1,
     "openai_api": 0,
     "paid_support": 0,
@@ -413,7 +415,7 @@
     "maturity": "Production / Stable",
     "min_ram_gb": null,
     "model_format": [
-      "PyTorch"
+      "N/A"
     ],
     "offline_after_setup": 1,
     "openai_api": 0,
@@ -489,7 +491,7 @@
     "maturity": "Production / Stable",
     "min_ram_gb": 0.5,
     "model_format": [
-      "GGML"
+      "N/A"
     ],
     "offline_after_setup": 1,
     "openai_api": 1,
@@ -566,7 +568,7 @@
     "maturity": null,
     "min_ram_gb": null,
     "model_format": [
-      "PyTorch"
+      "N/A"
     ],
     "offline_after_setup": 1,
     "openai_api": 0,
@@ -622,7 +624,7 @@
     "maturity": "Production / Stable",
     "min_ram_gb": null,
     "model_format": [
-      "PyTorch"
+      "N/A"
     ],
     "offline_after_setup": 1,
     "openai_api": 0,

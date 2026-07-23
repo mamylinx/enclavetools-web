@@ -39,7 +39,7 @@
     "maturity": "Production / Stable",
     "min_ram_gb": null,
     "model_format": [
-      "GGUF"
+      "N/A"
     ],
     "offline_after_setup": 1,
     "openai_api": 1,
@@ -123,7 +123,9 @@
     "license": "GPL-3.0",
     "maturity": "Production / Stable",
     "min_ram_gb": null,
-    "model_format": [],
+    "model_format": [
+      "N/A"
+    ],
     "offline_after_setup": 0,
     "openai_api": 1,
     "paid_support": 0,
@@ -194,7 +196,7 @@
     "maturity": "Production / Stable",
     "min_ram_gb": null,
     "model_format": [
-      "GGUF"
+      "N/A"
     ],
     "offline_after_setup": 1,
     "openai_api": 1,
@@ -266,7 +268,9 @@
     "license": "Apache-2.0",
     "maturity": "Production / Stable",
     "min_ram_gb": null,
-    "model_format": [],
+    "model_format": [
+      "N/A"
+    ],
     "offline_after_setup": 0,
     "openai_api": 1,
     "paid_support": 0,
@@ -339,8 +343,7 @@
     "maturity": "Production / Stable",
     "min_ram_gb": 8,
     "model_format": [
-      "GGUF",
-      "MLX"
+      "N/A"
     ],
     "offline_after_setup": 1,
     "openai_api": 1,
@@ -414,7 +417,9 @@
     "license": "MIT",
     "maturity": "Production / Stable",
     "min_ram_gb": null,
-    "model_format": [],
+    "model_format": [
+      "N/A"
+    ],
     "offline_after_setup": 1,
     "openai_api": 0,
     "paid_support": 0,
@@ -501,8 +506,7 @@
     "maturity": "Production / Stable",
     "min_ram_gb": null,
     "model_format": [
-      "GGUF",
-      "GGML"
+      "N/A"
     ],
     "offline_after_setup": 1,
     "openai_api": 0,
@@ -563,7 +567,9 @@
     "license": null,
     "maturity": "Production / Stable",
     "min_ram_gb": null,
-    "model_format": [],
+    "model_format": [
+      "N/A"
+    ],
     "offline_after_setup": 0,
     "openai_api": 0,
     "paid_support": 0,
@@ -633,7 +639,9 @@
     "license": null,
     "maturity": "Production / Stable",
     "min_ram_gb": null,
-    "model_format": [],
+    "model_format": [
+      "N/A"
+    ],
     "offline_after_setup": 1,
     "openai_api": 1,
     "paid_support": 1,
@@ -718,8 +726,7 @@
     "maturity": "Production / Stable",
     "min_ram_gb": null,
     "model_format": [
-      "GGUF",
-      "ONNX"
+      "N/A"
     ],
     "offline_after_setup": 1,
     "openai_api": 0,
@@ -788,7 +795,9 @@
     "license": "AGPL-3.0",
     "maturity": "Production / Stable",
     "min_ram_gb": null,
-    "model_format": [],
+    "model_format": [
+      "N/A"
+    ],
     "offline_after_setup": 1,
     "openai_api": 0,
     "paid_support": 0,
@@ -869,10 +878,7 @@
     "maturity": "Production / Stable",
     "min_ram_gb": null,
     "model_format": [
-      "GGUF",
-      "ExLlama",
-      "PyTorch",
-      "safetensors"
+      "N/A"
     ],
     "offline_after_setup": 1,
     "openai_api": 1,

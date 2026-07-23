@@ -39,8 +39,7 @@
     "maturity": "Production / Stable",
     "min_ram_gb": null,
     "model_format": [
-      "safetensors",
-      "PyTorch"
+      "N/A"
     ],
     "offline_after_setup": 1,
     "openai_api": 0,
@@ -100,8 +99,7 @@
     "maturity": "Production / Stable",
     "min_ram_gb": null,
     "model_format": [
-      "PyTorch",
-      "TensorFlow"
+      "N/A"
     ],
     "offline_after_setup": 1,
     "openai_api": 0,
@@ -164,7 +162,9 @@
     "license": "GPL-3.0",
     "maturity": "Production / Stable",
     "min_ram_gb": null,
-    "model_format": [],
+    "model_format": [
+      "N/A"
+    ],
     "offline_after_setup": 0,
     "openai_api": 0,
     "paid_support": 0,
@@ -223,7 +223,7 @@
     "maturity": "Production / Stable",
     "min_ram_gb": null,
     "model_format": [
-      "PyTorch"
+      "N/A"
     ],
     "offline_after_setup": 1,
     "openai_api": 0,
@@ -294,8 +294,7 @@
     "maturity": "Mature / Maintenance",
     "min_ram_gb": 8,
     "model_format": [
-      "safetensors",
-      "PyTorch"
+      "N/A"
     ],
     "offline_after_setup": 1,
     "openai_api": 0,
@@ -357,9 +356,7 @@
     "maturity": "Production / Stable",
     "min_ram_gb": null,
     "model_format": [
-      "GGUF",
-      "safetensors",
-      "PyTorch"
+      "N/A"
     ],
     "offline_after_setup": 1,
     "openai_api": 0,
@@ -421,8 +418,7 @@
     "maturity": "Beta",
     "min_ram_gb": null,
     "model_format": [
-      "GGUF",
-      "PyTorch"
+      "N/A"
     ],
     "offline_after_setup": 1,
     "openai_api": 0,
@@ -486,8 +482,7 @@
     "maturity": "Production / Stable",
     "min_ram_gb": 8,
     "model_format": [
-      "safetensors",
-      "PyTorch"
+      "N/A"
     ],
     "offline_after_setup": 0,
     "openai_api": 0,
