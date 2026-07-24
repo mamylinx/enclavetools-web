@@ -1,9 +1,0 @@
-{
-  "title": "GTE-Qwen2-7B-instruct",
-  "description": "sentence-similarity",
-  "category": "embedding-models",
-  "url": "https://huggingface.co/Alibaba-NLP/gte-Qwen2-7B-instruct",
-  "tag": "Text Embedding",
-  "date-added": "2026-07-22",
-  "slug": "gte-qwen2"
-}

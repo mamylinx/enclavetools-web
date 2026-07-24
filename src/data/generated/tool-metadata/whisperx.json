@@ -1,9 +1,0 @@
-{
-  "title": "WhisperX",
-  "description": "WhisperX:  Automatic Speech Recognition with Word-level Timestamps (& Diarization)",
-  "category": "speech-to-text",
-  "url": "https://github.com/m-bain/whisperX",
-  "tag": "ASR",
-  "date-added": "2026-07-22",
-  "slug": "whisperx"
-}

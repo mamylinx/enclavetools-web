@@ -1,9 +1,0 @@
-{
-  "title": "Triton Inference Server",
-  "description": "The Triton Inference Server provides an optimized cloud and edge inferencing solution. ",
-  "category": "deployment",
-  "url": "https://github.com/triton-inference-server/server",
-  "tag": "Inference Server",
-  "date-added": "2026-07-22",
-  "slug": "triton-inference-server"
-}

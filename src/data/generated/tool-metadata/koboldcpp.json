@@ -1,9 +1,0 @@
-{
-  "title": "koboldcpp",
-  "description": "Run GGUF models easily with a KoboldAI UI. One File. Zero Install.",
-  "category": "llm-inference",
-  "url": "https://github.com/LostRuins/koboldcpp",
-  "tag": "AI Text Generation",
-  "date-added": "2026-07-22",
-  "slug": "koboldcpp"
-}

@@ -1,9 +1,0 @@
-{
-  "title": "Faster Whisper",
-  "description": "Faster Whisper transcription with CTranslate2",
-  "category": "speech-to-text",
-  "url": "https://github.com/SYSTRAN/faster-whisper",
-  "tag": "Transcription",
-  "date-added": "2026-07-22",
-  "slug": "faster-whisper"
-}

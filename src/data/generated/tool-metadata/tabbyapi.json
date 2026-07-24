@@ -1,9 +1,0 @@
-{
-  "title": "TabbyAPI",
-  "description": "The official API server for Exllama. OAI compatible, lightweight, and fast.",
-  "category": "llm-inference",
-  "url": "https://github.com/theroyallab/tabbyAPI",
-  "tag": "Model Serving",
-  "date-added": "2026-07-22",
-  "slug": "tabbyapi"
-}

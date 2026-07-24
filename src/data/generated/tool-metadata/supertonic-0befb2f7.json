@@ -1,9 +1,0 @@
-{
-  "title": "supertonic",
-  "description": "Lightning-Fast, On-Device, Multilingual TTS — running natively via ONNX.",
-  "category": "llm-models",
-  "url": "https://github.com/supertone-inc/supertonic",
-  "tag": "MIT",
-  "date-added": "2026-07-10",
-  "slug": "supertonic-0befb2f7"
-}

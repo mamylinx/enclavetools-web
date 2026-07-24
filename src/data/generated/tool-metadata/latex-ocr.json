@@ -1,9 +1,0 @@
-{
-  "title": "LaTeX OCR",
-  "description": "pix2tex: Using a ViT to convert images of equations into LaTeX code.",
-  "category": "rag-document",
-  "url": "https://github.com/lukas-blecher/LaTeX-OCR",
-  "tag": "OCR",
-  "date-added": "2026-07-22",
-  "slug": "latex-ocr"
-}

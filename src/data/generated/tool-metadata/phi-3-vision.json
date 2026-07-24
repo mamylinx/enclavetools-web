@@ -1,9 +1,0 @@
-{
-  "title": "Phi-3-Vision-128K-Instruct",
-  "description": "text-generation",
-  "category": "vision-multimodal",
-  "url": "https://huggingface.co/microsoft/Phi-3-vision-128k-instruct",
-  "tag": "multimodal",
-  "date-added": "2026-07-22",
-  "slug": "phi-3-vision"
-}

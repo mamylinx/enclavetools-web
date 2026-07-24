@@ -1,9 +1,0 @@
-{
-  "title": "SmolLM",
-  "description": "text-generation",
-  "category": "llm-models",
-  "url": "https://huggingface.co/blog/smollm",
-  "tag": null,
-  "date-added": "2026-07-22",
-  "slug": "smollm"
-}

@@ -1,9 +1,0 @@
-{
-  "title": "ExLlamaV2",
-  "description": "A fast inference library for running LLMs locally on modern consumer-class GPUs",
-  "category": "llm-inference",
-  "url": "https://github.com/turboderp-org/exllamav2",
-  "tag": "Inference Library",
-  "date-added": "2026-07-22",
-  "slug": "exllamav2"
-}

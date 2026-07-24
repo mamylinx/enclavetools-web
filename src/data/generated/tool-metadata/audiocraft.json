@@ -1,9 +1,0 @@
-{
-  "title": "AudioCraft",
-  "description": "Audiocraft is a library for audio processing and generation with deep learning. It features the state-of-the-art EnCodec audio compressor / tokenizer, along with MusicGen, a simple and controllable music generation LM with textual and melodic conditioning.",
-  "category": "text-to-speech",
-  "url": "https://github.com/facebookresearch/audiocraft",
-  "tag": null,
-  "date-added": "2026-07-22",
-  "slug": "audiocraft"
-}

@@ -1,9 +1,0 @@
-{
-  "title": "Whisper",
-  "description": "Robust Speech Recognition via Large-Scale Weak Supervision",
-  "category": "speech-to-text",
-  "url": "https://github.com/openai/whisper",
-  "tag": "Speech Recognition",
-  "date-added": "2026-07-22",
-  "slug": "whisper"
-}

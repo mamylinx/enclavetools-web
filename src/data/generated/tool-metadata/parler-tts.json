@@ -1,9 +1,0 @@
-{
-  "title": "Parler-TTS",
-  "description": "Inference and training library for high-quality TTS models.",
-  "category": "text-to-speech",
-  "url": "https://github.com/huggingface/parler-tts",
-  "tag": "Text-to-Speech",
-  "date-added": "2026-07-22",
-  "slug": "parler-tts"
-}

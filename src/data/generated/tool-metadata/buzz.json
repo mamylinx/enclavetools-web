@@ -1,9 +1,0 @@
-{
-  "title": "Buzz",
-  "description": "Buzz transcribes and translates audio offline on your personal computer. Powered by OpenAI's Whisper.",
-  "category": "speech-to-text",
-  "url": "https://github.com/chidiwilliams/buzz",
-  "tag": "Transcription",
-  "date-added": "2026-07-22",
-  "slug": "buzz"
-}

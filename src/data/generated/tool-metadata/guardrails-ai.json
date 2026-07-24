@@ -1,9 +1,0 @@
-{
-  "title": "Guardrails",
-  "description": "Adding guardrails to large language models.",
-  "category": "privacy-security",
-  "url": "https://github.com/guardrails-ai/guardrails",
-  "tag": "LLM Validation",
-  "date-added": "2026-07-22",
-  "slug": "guardrails-ai"
-}

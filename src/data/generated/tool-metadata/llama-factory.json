@@ -1,9 +1,0 @@
-{
-  "title": "LLaMA Factory",
-  "description": "Unified Efficient Fine-Tuning of 100+ LLMs & VLMs (ACL 2024)",
-  "category": "fine-tuning-training",
-  "url": "https://github.com/hiyouga/LLaMA-Factory",
-  "tag": "Fine-tuning",
-  "date-added": "2026-07-22",
-  "slug": "llama-factory"
-}

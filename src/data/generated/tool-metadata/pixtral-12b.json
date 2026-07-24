@@ -1,9 +1,0 @@
-{
-  "title": "Pixtral-12B-2409",
-  "description": "Natively multimodal model with a 12B parameter decoder and 400M parameter vision encoder, supporting variable image sizes and 128k context length.",
-  "category": "vision-multimodal",
-  "url": "https://huggingface.co/mistralai/Pixtral-12B-2409",
-  "tag": "Multimodal",
-  "date-added": "2026-07-22",
-  "slug": "pixtral-12b"
-}

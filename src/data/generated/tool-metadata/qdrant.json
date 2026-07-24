@@ -1,9 +1,0 @@
-{
-  "title": "Qdrant",
-  "description": "Qdrant - High-performance, massive-scale Vector Database and Vector Search Engine for the next generation of AI. Also available in the cloud https://cloud.qdrant.io/",
-  "category": "vector-databases",
-  "url": "https://qdrant.tech/",
-  "tag": "vector-database",
-  "date-added": "2026-07-22",
-  "slug": "qdrant"
-}

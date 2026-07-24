@@ -1,9 +1,0 @@
-{
-  "title": "Presidio",
-  "description": "An open-source framework for detecting, redacting, masking, and anonymizing sensitive data (PII) across text, images, and structured data. Supports NLP, pattern matching, and customizable pipelines.",
-  "category": "privacy-security",
-  "url": "https://github.com/microsoft/presidio",
-  "tag": "Data Privacy",
-  "date-added": "2026-07-22",
-  "slug": "presidio"
-}

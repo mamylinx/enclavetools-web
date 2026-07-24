@@ -1,9 +1,0 @@
-{
-  "title": "ONNX Runtime",
-  "description": "ONNX Runtime: cross-platform, high performance ML inferencing and training accelerator",
-  "category": "deployment",
-  "url": "https://onnxruntime.ai/",
-  "tag": "ml-engine",
-  "date-added": "2026-07-22",
-  "slug": "onnxruntime"
-}

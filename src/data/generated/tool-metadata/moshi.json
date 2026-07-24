@@ -1,9 +1,0 @@
-{
-  "title": "Moshi",
-  "description": "Moshi is a speech-text foundation model and full-duplex spoken dialogue framework. It uses Mimi, a state-of-the-art streaming neural audio codec.",
-  "category": "text-to-speech",
-  "url": "https://moshi.chat/",
-  "tag": null,
-  "date-added": "2026-07-22",
-  "slug": "moshi"
-}

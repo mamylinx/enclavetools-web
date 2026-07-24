@@ -1,9 +1,0 @@
-{
-  "title": "Typesense",
-  "description": "Open Source alternative to Algolia + Pinecone and an Easier-to-Use alternative to ElasticSearch ⚡ 🔍 ✨ Fast, typo tolerant, in-memory fuzzy Search Engine for building delightful search experiences",
-  "category": "vector-databases",
-  "url": "https://typesense.org/",
-  "tag": "Search Engine",
-  "date-added": "2026-07-22",
-  "slug": "typesense"
-}

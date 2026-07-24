@@ -1,9 +1,0 @@
-{
-  "title": "ComfyUI",
-  "description": "The most powerful and modular diffusion model GUI, api and backend with a graph/nodes interface.",
-  "category": "image-generation",
-  "url": "https://github.com/comfyanonymous/ComfyUI",
-  "tag": "AI Content Creation",
-  "date-added": "2026-07-22",
-  "slug": "comfyui"
-}

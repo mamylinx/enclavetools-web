@@ -1,9 +1,0 @@
-{
-  "title": "Mistral (Mistral AI)",
-  "description": "Official inference library for Mistral models.",
-  "category": "llm-models",
-  "url": "https://mistral.ai/",
-  "tag": "Free",
-  "date-added": "2026-05-17",
-  "slug": "mistral"
-}

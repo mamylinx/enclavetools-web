@@ -1,9 +1,0 @@
-{
-  "title": "Falcon2-11B-VLM",
-  "description": "image-text-to-text",
-  "category": "vision-multimodal",
-  "url": "https://huggingface.co/tiiuae/falcon-11B-vlm",
-  "tag": "Vision-Language Model",
-  "date-added": "2026-07-22",
-  "slug": "falcon-2-vlm"
-}

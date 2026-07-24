@@ -1,9 +1,0 @@
-{
-  "title": "PrivateGPT",
-  "description": "Complete API layer for private AI applications on local models: RAG, skills, tools, MCP, text-to-sql, and more. Works with any OpenAI-compatible inference server.",
-  "category": "rag-document",
-  "url": "https://github.com/zylon-ai/private-gpt",
-  "tag": "Apache-2.0",
-  "date-added": "2026-07-10",
-  "slug": "privategpt"
-}

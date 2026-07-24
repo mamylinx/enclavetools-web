@@ -1,9 +1,0 @@
-{
-  "title": "Vocal Remover",
-  "description": "Vocal Remover using Deep Neural Networks",
-  "category": "data-utilities",
-  "url": "https://github.com/tsurumeso/vocal-remover",
-  "tag": "Audio Processing",
-  "date-added": "2026-07-22",
-  "slug": "vocal-remover"
-}

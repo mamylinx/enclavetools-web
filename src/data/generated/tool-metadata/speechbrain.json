@@ -1,9 +1,0 @@
-{
-  "title": "SpeechBrain",
-  "description": "A PyTorch-based Speech Toolkit",
-  "category": "speech-to-text",
-  "url": "https://speechbrain.github.io/",
-  "tag": "speech",
-  "date-added": "2026-07-22",
-  "slug": "speechbrain"
-}

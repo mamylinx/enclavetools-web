@@ -1,9 +1,0 @@
-{
-  "title": "LitGPT",
-  "description": "20+ high-performance LLMs with recipes to pretrain, finetune and deploy at scale.",
-  "category": "fine-tuning-training",
-  "url": "https://github.com/Lightning-AI/litgpt",
-  "tag": "framework",
-  "date-added": "2026-07-22",
-  "slug": "litgpt"
-}

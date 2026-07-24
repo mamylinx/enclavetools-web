@@ -1,9 +1,0 @@
-{
-  "title": "Windmill",
-  "description": "Open-source developer platform to power your entire infra and turn scripts into webhooks, workflows and UIs. Fastest workflow engine (13x vs Airflow). Open-source alternative to Retool and Temporal.",
-  "category": "workflow-automation",
-  "url": "https://www.windmill.dev/",
-  "tag": "developer-platform",
-  "date-added": "2026-07-22",
-  "slug": "windmill"
-}

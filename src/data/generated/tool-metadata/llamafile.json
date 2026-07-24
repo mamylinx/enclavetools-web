@@ -1,9 +1,0 @@
-{
-  "title": "llamafile",
-  "description": "Distribute and run LLMs with a single file.",
-  "category": "llm-inference",
-  "url": "https://github.com/Mozilla-Ocho/llamafile",
-  "tag": "LLM Runtime",
-  "date-added": "2026-07-22",
-  "slug": "llamafile"
-}

@@ -1,9 +1,0 @@
-{
-  "title": "Retrieval-based-Voice-Conversion-WebUI",
-  "description": "Easily train a good VC model with voice data <= 10 mins!",
-  "category": "text-to-speech",
-  "url": "https://github.com/RVC-Project/Retrieval-based-Voice-Conversion-WebUI",
-  "tag": "Voice Conversion",
-  "date-added": "2026-07-22",
-  "slug": "rvc"
-}

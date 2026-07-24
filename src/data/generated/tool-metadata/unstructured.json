@@ -1,9 +1,0 @@
-{
-  "title": "Unstructured",
-  "description": "Convert documents to structured data effortlessly. Unstructured is open-source ETL solution for transforming complex documents into clean, structured formats for language models.  Visit our website to learn more about our enterprise grade Platform product for production grade workflows, partitioning, enrichments, chunking and embedding.",
-  "category": "rag-document",
-  "url": "https://unstructured.io/",
-  "tag": "Apache-2.0",
-  "date-added": "2026-07-10",
-  "slug": "unstructured"
-}

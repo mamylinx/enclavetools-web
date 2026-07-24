@@ -1,9 +1,0 @@
-{
-  "title": "SAM 2",
-  "description": "The repository provides code for running inference with the Meta Segment Anything Model 2 (SAM 2), links for downloading the trained model checkpoints, and example notebooks that show how to use the model.",
-  "category": "vision-multimodal",
-  "url": "https://github.com/facebookresearch/sam2",
-  "tag": "Computer Vision",
-  "date-added": "2026-07-22",
-  "slug": "sam2"
-}

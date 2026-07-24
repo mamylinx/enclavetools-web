@@ -1,9 +1,0 @@
-{
-  "title": "nomic-embed-text-v2-moe",
-  "description": "sentence-similarity",
-  "category": "embedding-models",
-  "url": "https://huggingface.co/nomic-ai/nomic-embed-text-v2-moe",
-  "tag": "Embeddings",
-  "date-added": "2026-07-22",
-  "slug": "nomic-embed"
-}

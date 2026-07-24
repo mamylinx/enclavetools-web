@@ -1,9 +1,0 @@
-{
-  "title": "Silero VAD",
-  "description": "Silero VAD: pre-trained enterprise-grade Voice Activity Detector",
-  "category": "speech-to-text",
-  "url": "https://github.com/snakers4/silero-vad",
-  "tag": "Voice Activity Detection",
-  "date-added": "2026-07-22",
-  "slug": "silero-vad"
-}

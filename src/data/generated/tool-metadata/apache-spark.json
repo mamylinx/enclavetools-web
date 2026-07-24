@@ -1,9 +1,0 @@
-{
-  "title": "Apache Spark",
-  "description": "Apache Spark - A unified analytics engine for large-scale data processing",
-  "category": "data-utilities",
-  "url": "https://spark.apache.org/",
-  "tag": "Analytics Engine",
-  "date-added": "2026-07-22",
-  "slug": "apache-spark"
-}

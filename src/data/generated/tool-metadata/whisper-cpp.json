@@ -1,9 +1,0 @@
-{
-  "title": "whisper.cpp",
-  "description": "Port of OpenAI's Whisper model in C/C++",
-  "category": "speech-to-text",
-  "url": "https://github.com/ggerganov/whisper.cpp",
-  "tag": "ASR",
-  "date-added": "2026-07-22",
-  "slug": "whisper-cpp"
-}

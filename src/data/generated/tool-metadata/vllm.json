@@ -1,9 +1,0 @@
-{
-  "title": "vLLM",
-  "description": "A high-throughput and memory-efficient inference and serving engine for LLMs",
-  "category": "llm-inference",
-  "url": "https://github.com/vllm-project/vllm",
-  "tag": "LLM Serving",
-  "date-added": "2026-07-22",
-  "slug": "vllm"
-}

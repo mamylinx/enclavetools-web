@@ -1,9 +1,0 @@
-{
-  "title": "Candle",
-  "description": "Minimalist ML framework for Rust",
-  "category": "llm-inference",
-  "url": "https://github.com/huggingface/candle",
-  "tag": "ML Framework",
-  "date-added": "2026-07-22",
-  "slug": "candle"
-}

@@ -1,9 +1,0 @@
-{
-  "title": "Ollama",
-  "description": "Get up and running with Kimi-K2.6, GLM-5.2, MiniMax, DeepSeek, gpt-oss, Qwen, Gemma and other models.",
-  "category": "llm-inference",
-  "url": "https://ollama.com/",
-  "tag": "LLM Runtime",
-  "date-added": "2026-07-22",
-  "slug": "ollama"
-}

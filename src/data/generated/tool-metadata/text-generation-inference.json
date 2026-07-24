@@ -1,9 +1,0 @@
-{
-  "title": "Text Generation Inference",
-  "description": "Large Language Model Text Generation Inference",
-  "category": "llm-inference",
-  "url": "https://github.com/huggingface/text-generation-inference",
-  "tag": "Inference Server",
-  "date-added": "2026-07-22",
-  "slug": "text-generation-inference"
-}

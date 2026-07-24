@@ -1,9 +1,0 @@
-{
-  "title": "StarCoder2",
-  "description": "text-generation",
-  "category": "code-assistants",
-  "url": "https://huggingface.co/bigcode/starcoder2-15b",
-  "tag": "Code Generation",
-  "date-added": "2026-07-22",
-  "slug": "starcoder2"
-}

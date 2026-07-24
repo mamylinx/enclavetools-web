@@ -1,9 +1,0 @@
-{
-  "title": "RAGFlow",
-  "description": "RAGFlow is a leading open-source Retrieval-Augmented Generation (RAG) engine that fuses cutting-edge RAG with Agent capabilities to create a superior context layer for LLMs",
-  "category": "rag-document",
-  "url": "https://ragflow.io/",
-  "tag": "Apache-2.0",
-  "date-added": "2026-07-10",
-  "slug": "ragflow"
-}

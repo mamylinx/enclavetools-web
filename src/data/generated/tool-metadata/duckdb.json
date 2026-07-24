@@ -1,9 +1,0 @@
-{
-  "title": "DuckDB",
-  "description": "DuckDB is an analytical in-process SQL database management system",
-  "category": "data-utilities",
-  "url": "https://duckdb.org/",
-  "tag": "Analytical Database",
-  "date-added": "2026-07-22",
-  "slug": "duckdb"
-}

@@ -1,9 +1,0 @@
-{
-  "title": "llama.cpp",
-  "description": "LLM inference in C/C++",
-  "category": "llm-inference",
-  "url": "https://github.com/ggml-org/llama.cpp",
-  "tag": "LLM Inference Engine",
-  "date-added": "2026-07-22",
-  "slug": "llama-cpp"
-}
