@@ -1,33 +1,10 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import SeoHead from "../../components/SeoHead.astro";
-import path from "path";
-import fs from "fs";
+import { getCollection } from "astro:content";
 
-const blogDir = path.join(process.cwd(), "src", "content", "blog");
-const files = fs.readdirSync(blogDir).filter((f) => f.endsWith(".md"));
-
-const posts = files.map((file) => {
-    const content = fs.readFileSync(path.join(blogDir, file), "utf-8");
-    const frontmatter = content.match(/^---\n([\s\S]*?)\n---/);
-    let meta = {};
-    if (frontmatter) {
-        frontmatter[1].split("\n").forEach((line) => {
-            const match = line.match(/^(\w+):\s*(.+)$/);
-            if (match) {
-                const key = match[1];
-                let val = match[2].trim();
-                if (val.startsWith('"') && val.endsWith('"')) val = val.slice(1, -1);
-                if (key === "date") val = new Date(val).toISOString();
-                meta[key] = val;
-            }
-        });
-    }
-    const slug = file.replace(".md", "");
-    return { slug, ...meta };
-});
-
-posts.sort((a: any, b: any) => new Date(b.date).getTime() - new Date(a.date).getTime());
+const posts = await getCollection("blog");
+posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 ---
 
 <Layout
@@ -64,17 +41,17 @@ posts.sort((a: any, b: any) => new Date(b.date).getTime() - new Date(a.date).get
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
                 {posts.map((post: any) => (
                     <a
-                        href={`/blog/${post.slug}`}
+                        href={`/blog/${post.id}`}
                         class="bg-white border border-brand-forest/10 rounded-3xl p-8 md:p-10 shadow-sm hover:shadow-md transition-shadow block no-underline"
                     >
                         <p class="text-xs font-bold uppercase tracking-[0.1em] text-brand-teal mb-3">
-                            {new Date(post.date).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
+                            {post.data.date.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
                         </p>
                         <h2 class="text-xl font-extrabold text-brand-forest mb-3">
-                            {post.title}
+                            {post.data.title}
                         </h2>
                         <p class="text-brand-forest/80 text-base font-medium">
-                            {post.description}
+                            {post.data.description}
                         </p>
                         <span class="inline-flex items-center text-brand-teal text-sm font-bold mt-4">
                             Read more →

@@ -1,8 +1,8 @@
 ---
-title: Telemetry in AI Tools: What to Watch For
+title: "Telemetry in AI Tools: What to Watch For"
 date: 2026-07-22
-description: The most common telemetry patterns we find in AI tools — and why they matter for your data privacy. A practical guide to identifying what's really happening under the hood.
-author: Mamy Rakotomalala
+description: "The most common telemetry patterns we find in AI tools — and why they matter for your data privacy. A practical guide to identifying what's really happening under the hood."
+author: "Mamy Rakotomalala"
 ---
 
 Telemetry isn't always obvious. It's not always a phone-home call in the obvious places. Sometimes it's baked into a dependency you didn't scrutinize. Sometimes it's embedded in a model's default configuration.

@@ -1,8 +1,8 @@
 ---
-title: How We Audit AI Tools: A Behind-the-Scenes Look
+title: "How We Audit AI Tools: A Behind-the-Scenes Look"
 date: 2026-07-22
-description: Inside the four-stage due diligence pipeline that every tool in Enclavetools passes through before it gets listed. From automated discovery to human-supervised verification.
-author: Mamy Rakotomalala
+description: "Inside the four-stage due diligence pipeline that every tool in Enclavetools passes through before it gets listed. From automated discovery to human-supervised verification."
+author: "Mamy Rakotomalala"
 ---
 
 Anyone can scan a GitHub repo for dependencies. But verifying that a tool actually does what its README claims — and nothing more — requires a different approach entirely.

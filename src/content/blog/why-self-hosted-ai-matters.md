@@ -1,8 +1,8 @@
 ---
-title: Why Self-Hosted AI Matters More Than Ever
+title: "Why Self-Hosted AI Matters More Than Ever"
 date: 2026-07-22
-description: A deep dive into the risks of cloud AI APIs and why running models on your own hardware is the only way to guarantee data privacy and long-term independence.
-author: Mamy Rakotomalala
+description: "A deep dive into the risks of cloud AI APIs and why running models on your own hardware is the only way to guarantee data privacy and long-term independence."
+author: "Mamy Rakotomalala"
 ---
 
 Every day, more data crosses someone else's server. Your prompts, your code, your proprietary documents — all of it flows through APIs you don't control and can't audit. The convenience comes at a cost most organizations don't fully understand until it's too late.
