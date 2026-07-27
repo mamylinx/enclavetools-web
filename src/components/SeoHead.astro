@@ -18,6 +18,9 @@ export interface Props {
   twitterDescription?: string;
   twitterImage?: string;
   pageFavicon?: string;
+  keywords?: string[];
+  articleAuthor?: string;
+  articlePublishedTime?: string;
 }
 
 const {
@@ -36,6 +39,9 @@ const {
   twitterDescription,
   twitterImage,
   pageFavicon,
+  keywords,
+  articleAuthor,
+  articlePublishedTime,
 } = Astro.props;
 ---
 
@@ -61,6 +67,9 @@ const {
     "Stop paying for AI APIs. Browse self-hosted AI tools manually audited for zero data leakage. Everything runs on your hardware."}
 />
 {robots && <meta name="robots" content={robots} />}
+{keywords && <meta name="keywords" content={keywords.join(", ")} />}
+{articleAuthor && <meta property="article:author" content={articleAuthor} />}
+{articlePublishedTime && <meta property="article:published_time" content={articlePublishedTime} />}
 <link rel="sitemap" href="/sitemap-index.xml" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />

@@ -1,0 +1,87 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import SeoHead from "../../components/SeoHead.astro";
+import path from "path";
+import fs from "fs";
+
+const blogDir = path.join(process.cwd(), "src", "content", "blog");
+const files = fs.readdirSync(blogDir).filter((f) => f.endsWith(".md"));
+
+const posts = files.map((file) => {
+    const content = fs.readFileSync(path.join(blogDir, file), "utf-8");
+    const frontmatter = content.match(/^---\n([\s\S]*?)\n---/);
+    let meta = {};
+    if (frontmatter) {
+        frontmatter[1].split("\n").forEach((line) => {
+            const match = line.match(/^(\w+):\s*(.+)$/);
+            if (match) {
+                const key = match[1];
+                let val = match[2].trim();
+                if (val.startsWith('"') && val.endsWith('"')) val = val.slice(1, -1);
+                if (key === "date") val = new Date(val).toISOString();
+                meta[key] = val;
+            }
+        });
+    }
+    const slug = file.replace(".md", "");
+    return { slug, ...meta };
+});
+
+posts.sort((a: any, b: any) => new Date(b.date).getTime() - new Date(a.date).getTime());
+---
+
+<Layout
+    site="Enclavetools"
+    title="Blog"
+    tagline="Insights on self-hosted AI, privacy, and due diligence"
+    pageTitle="Blog — Enclavetools"
+    pageDescription="Articles on self-hosted AI, privacy-first infrastructure, and practical guidance for auditing your AI tools."
+    keywords={["self-hosted AI blog", "AI privacy", "AI due diligence", "telemetry auditing", "local AI"]}
+    articleAuthor="Mamy Rakotomalala"
+>
+    <SeoHead
+        pageTitle="Blog"
+        pageDescription="Articles on self-hosted AI, privacy-first infrastructure, and practical guidance for auditing your AI tools."
+        keywords={["self-hosted AI blog", "AI privacy", "AI due diligence", "telemetry auditing", "local AI"]}
+        articleAuthor="Mamy Rakotomalala"
+        articlePublishedTime="2026-07-22T00:00:00Z"
+    />
+
+    <section class="bg-brand-bg py-20 lg:py-24 border-b border-brand-forest/10">
+        <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
+            <div class="max-w-3xl mx-auto text-center mb-14">
+                <p class="text-xs font-bold uppercase tracking-[0.1em] text-brand-teal mb-3">
+                    Blog
+                </p>
+                <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-brand-forest tracking-tight mb-4">
+                    Practical AI Privacy &amp; Infrastructure Guidance
+                </h1>
+                <p class="text-brand-forest/80 text-base sm:text-lg font-medium">
+                    Deep dives into self-hosted AI, telemetry auditing, and due diligence — from the engineers who verify every tool listed on the directory.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+                {posts.map((post: any) => (
+                    <a
+                        href={`/blog/${post.slug}`}
+                        class="bg-white border border-brand-forest/10 rounded-3xl p-8 md:p-10 shadow-sm hover:shadow-md transition-shadow block no-underline"
+                    >
+                        <p class="text-xs font-bold uppercase tracking-[0.1em] text-brand-teal mb-3">
+                            {new Date(post.date).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
+                        </p>
+                        <h2 class="text-xl font-extrabold text-brand-forest mb-3">
+                            {post.title}
+                        </h2>
+                        <p class="text-brand-forest/80 text-base font-medium">
+                            {post.description}
+                        </p>
+                        <span class="inline-flex items-center text-brand-teal text-sm font-bold mt-4">
+                            Read more →
+                        </span>
+                    </a>
+                ))}
+            </div>
+        </div>
+    </section>
+</Layout>

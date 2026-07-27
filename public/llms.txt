@@ -1,31 +1,29 @@
 # Enclavetools
-1000+ AI tools curated by agents for founders and SMBs 
+163 verified self-hosted AI tools curated by agents for founders and SMBs
 
 ## Categories
 
-- [Art](https://enclavetools.com/art)
-- [Audio](https://enclavetools.com/audio)
-- [Code](https://enclavetools.com/code)
-- [Copywriting](https://enclavetools.com/copywriting)
-- [Design](https://enclavetools.com/design)
-- [Developer](https://enclavetools.com/developer)
-- [Education](https://enclavetools.com/education)
-- [Enterprise](https://enclavetools.com/enterprise)
-- [Fashion](https://enclavetools.com/fashion)
-- [Gaming](https://enclavetools.com/gaming)
-- [Health](https://enclavetools.com/health)
-- [Legal](https://enclavetools.com/legal)
-- [LLM](https://enclavetools.com/llm)
-- [Music](https://enclavetools.com/music)
-- [NoCode](https://enclavetools.com/nocode)
-- [Photos](https://enclavetools.com/photos)
-- [Productivity](https://enclavetools.com/productivity)
-- [Prompts](https://enclavetools.com/prompts)
-- [Research](https://enclavetools.com/research)
-- [SEO](https://enclavetools.com/seo)
-- [Social](https://enclavetools.com/social)
-- [Video](https://enclavetools.com/video)
-- [Xtras](https://enclavetools.com/xtras)
+- [All Tools](https://enclavetools.com/all)
+- [LLM Inference Engines](https://enclavetools.com/llm-inference)
+- [LLM Models](https://enclavetools.com/llm-models)
+- [Vector Databases](https://enclavetools.com/vector-databases)
+- [Agent Frameworks](https://enclavetools.com/agent-frameworks)
+- [Chat Interfaces](https://enclavetools.com/chat-interfaces)
+- [RAG & Document Processing](https://enclavetools.com/rag-document)
+- [Speech to Text](https://enclavetools.com/speech-to-text)
+- [Text to Speech](https://enclavetools.com/text-to-speech)
+- [Image Generation](https://enclavetools.com/image-generation)
+- [Fine-tuning & Training](https://enclavetools.com/fine-tuning-training)
+- [Monitoring & Observability](https://enclavetools.com/monitoring-observability)
+- [Privacy & Security](https://enclavetools.com/privacy-security)
+- [Embedding Models](https://enclavetools.com/embedding-models)
+- [Deployment](https://enclavetools.com/deployment)
+- [Agent &amp; Workflow Automation](https://enclavetools.com/workflow-automation)
+- [Video Generation](https://enclavetools.com/video-generation)
+- [Vision & Multimodal](https://enclavetools.com/vision-multimodal)
+- [Code Assistants](https://enclavetools.com/code-assistants)
+- [Data Utilities](https://enclavetools.com/data-utilities)
 
+## About
 
-
+Enclavetools is the directory of self-hosted AI tools that run on your own hardware. Every tool is manually audited for zero data leakage — no APIs, no surveillance, no vendor lock-in.

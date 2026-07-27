@@ -1048,7 +1048,8 @@
             "FlashAttention"
           ]
         }
-      ]
+      ],
+      "body": "Candle lets you deploy machine learning models in production without the bloat of Python frameworks — cutting server costs and startup times. You can run LLMs, image generators, and speech recognition on CPU or GPU with a small Rust binary. It is built for serverless inference, so you get fast scaling and lower infrastructure overhead."
     },
     {
       "title": "LLM Models",
@@ -1615,7 +1616,8 @@
             "PyTorch"
           ]
         }
-      ]
+      ],
+      "body": "DeepSeek-R1 delivers OpenAI-o1-class reasoning performance in math, code, and logic tasks — now open-source and MIT-licensed. It uses reinforcement learning to teach models to think step-by-step, and distilled versions run on hardware as small as 1.5B parameters. The bottom line: production-grade reasoning without the proprietary price tag."
     },
     {
       "title": "Vector Databases",
@@ -2165,7 +2167,8 @@
             "Java"
           ]
         }
-      ]
+      ],
+      "body": "The big picture: Chroma is an open-source vector database that lets any application search and retrieve data using AI embeddings. Here's why it matters: you can add semantic search, recommendations, and retrieval-augmented generation (RAG) in minutes with just a few lines of code — no need to manage complex infrastructure yourself. The bottom line: go from zero to production-grade AI search with a simple four-function API."
     },
     {
       "title": "Agent Frameworks",
@@ -2834,7 +2837,8 @@
             "LangChain"
           ]
         }
-      ]
+      ],
+      "body": "AutoGen enables you to build AI applications that coordinate multiple specialized agents to work together autonomously or with human oversight. You can create assistants, automated workflows, and code-generation agents with minimal setup, and prototype interactively using AutoGen Studio's no-code interface. Note: AutoGen is now in maintenance mode; Microsoft recommends its successor, Microsoft Agent Framework, for new production deployments."
     },
     {
       "title": "Chat Interfaces",
@@ -3726,7 +3730,8 @@
           ],
           "works_with": []
         }
-      ]
+      ],
+      "body": "AnythingLLM gives you a private AI assistant without monthly per-seat fees or vendor lock-in. Chat with your documents, automate complex workflows with AI agents, and deploy on your own terms—locally, in Docker, or in the cloud. Set up in minutes, scale as you grow."
     },
     {
       "title": "RAG & Document Processing",
@@ -4258,7 +4263,8 @@
           ],
           "works_with": []
         }
-      ]
+      ],
+      "body": "The big picture: docTR turns documents into structured data with deep-learning OCR that anyone can use — no AI expertise required. Here's why it matters: extract text from PDFs, images, and web pages with state-of-the-art accuracy, then integrate results via a simple API or Docker container. The bottom line: go from paper to searchable, usable data in minutes."
     },
     {
       "title": "Speech to Text",
@@ -4901,7 +4907,8 @@
             "CTranslate2"
           ]
         }
-      ]
+      ],
+      "body": "Buzz gives you accurate transcripts and translations from any audio or video — entirely offline on your own computer, no cloud fees or privacy worries. It handles recordings, YouTube links, and even live microphone input. The bottom line: get professional-quality transcripts powered by OpenAI's Whisper without sending your data anywhere."
     },
     {
       "title": "Text to Speech",
@@ -5620,7 +5627,8 @@
             "ONNX"
           ]
         }
-      ]
+      ],
+      "body": "Generate professional-quality music and audio from simple text descriptions using AudioCraft's AI models. MusicGen creates original compositions for content, advertising, and games; AudioGen produces custom sound effects on demand — without hiring composers or sound engineers. The bottom line: turn text prompts into studio-quality audio in seconds."
     },
     {
       "title": "Image Generation",
@@ -6122,7 +6130,8 @@
             "Stable Diffusion"
           ]
         }
-      ]
+      ],
+      "body": "ComfyUI is an AI creation engine that gives creative professionals complete control over every model, parameter, and output through a visual node-graph interface. Generate images, videos, 3D models, and audio using the latest open-source AI models—all running locally on your hardware. Complex workflows can be packaged as simple apps, and production pipelines integrate via API endpoints."
     },
     {
       "title": "Fine-tuning & Training",
@@ -6638,7 +6647,8 @@
             "Codex"
           ]
         }
-      ]
+      ],
+      "body": "Axolotl lets you fine-tune the best open-source LLMs on your own data — no vendor lock-in, no per-seat fees. Get production-quality custom models using your existing GPU hardware with one-click Docker deployment and built-in support for the latest training techniques. Train faster, cheaper, and keep full control of your intellectual property."
     },
     {
       "title": "Monitoring & Observability",
@@ -7054,7 +7064,8 @@
             "OpenTelemetry Collector"
           ]
         }
-      ]
+      ],
+      "body": "Make your AI applications reliable and observable. Phoenix is an open-source platform that lets you trace, evaluate, and debug LLM-powered features — from chatbots to agent workflows. The big picture: ship AI with confidence by catching issues before they reach users."
     },
     {
       "title": "Privacy & Security",
@@ -7434,7 +7445,8 @@
             "Chroma"
           ]
         }
-      ]
+      ],
+      "body": "Garak protects your business by automatically stress-testing LLM applications for security vulnerabilities before attackers can exploit them. It probes for jailbreaks, data leaks, prompt injection, hallucination, and dozens of other failure modes in a single automated scan. The bottom line: catch weaknesses early with the industry-standard penetration testing toolkit for language models."
     },
     {
       "title": "Embedding Models",
@@ -8143,7 +8155,8 @@
             "sentence-transformers"
           ]
         }
-      ]
+      ],
+      "body": "The big picture: BGE-M3 is a multilingual embedding model that makes search and retrieval dramatically more accurate across 100+ languages. Here's why it matters: It handles short queries and long documents equally well in a single model — no need to maintain separate systems for different search types. The bottom line: Teams using RAG or semantic search get better results with less complexity."
     },
     {
       "title": "Deployment",
@@ -8718,7 +8731,8 @@
             "MLflow"
           ]
         }
-      ]
+      ],
+      "body": "Ship AI models as production-ready APIs in minutes. BentoML turns any model into a scalable REST or gRPC endpoint with just a few lines of Python — no infrastructure expertise required. The bottom line: you focus on model logic, BentoML handles serving, batching, Docker packaging, and cloud deployment."
     },
     {
       "title": "Agent & Workflow Automation",
@@ -9157,7 +9171,8 @@
             "Bun"
           ]
         }
-      ]
+      ],
+      "body": "Activepieces is an open-source replacement for Zapier that lets you automate workflows and build AI agents without writing code. The big picture: connect 200+ apps through a visual drag-and-drop builder, with built-in AI capabilities and human-in-the-loop approvals. Here's why it matters: non-technical team members can create powerful automations, while developers can extend everything with custom TypeScript integrations."
     },
     {
       "title": "Video Generation",
@@ -9601,7 +9616,8 @@
             "ModelScope"
           ]
         }
-      ]
+      ],
+      "body": "Turn any AI image model into an animation generator with zero extra training. AnimateDiff plugs into your existing Stable Diffusion workflow to add motion, creating smooth videos from still images. The bottom line: bring your AI-generated visuals to life in minutes."
     },
     {
       "title": "Vision & Multimodal",
@@ -10503,7 +10519,8 @@
             "PyTorch"
           ]
         }
-      ]
+      ],
+      "body": "DeepSeek-VL2 lets your applications see and reason about images, documents, tables, and charts through natural conversation. It handles visual question answering, OCR, and document analysis with advanced accuracy while using fewer compute resources than comparable models. The bottom line: add multimodal understanding to your product efficiently."
     },
     {
       "title": "Code Assistants",
@@ -10886,7 +10903,8 @@
             "OpenAPI"
           ]
         }
-      ]
+      ],
+      "body": "Aider turns your ideas into working code by pairing you with AI right in your terminal. It understands your entire codebase, makes surgical changes, and automatically commits them — so you ship faster without losing control. No need to leave your editor or learn a new workflow."
     },
     {
       "title": "Data Utilities",
@@ -11345,7 +11363,8 @@
           "use_cases": [],
           "works_with": []
         }
-      ]
+      ],
+      "body": "Apache Spark processes massive datasets at lightning speed, turning raw data into actionable business insights. It handles SQL analytics, machine learning, real-time stream processing, and graph analysis in a single unified platform. The bottom line: Make faster, data-driven decisions without waiting hours for batch jobs to finish."
     }
   ]
 }

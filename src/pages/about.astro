@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import BreadcrumbSchema from "../components/schema/BreadcrumbSchema.astro";
+import AuthorSchema from "../components/schema/AuthorSchema.astro";
 
 const breadcrumbs = [
     { name: "Home", url: "https://enclavetools.com" },
@@ -14,8 +15,30 @@ const breadcrumbs = [
     tagline="Your AI. Your hardware. Your data. No APIs. No surveillance."
     pageTitle="About — Enclavetools"
     pageDescription="Learn about Enclavetools — the curated directory of self-hosted AI tools that run on your hardware. Our mission, vision, and the story behind the project."
+    keywords={[
+        "self-hosted AI",
+        "privacy-first AI",
+        "local AI tools",
+        "no API keys",
+        "data leakage",
+        "offline AI",
+        "AI due diligence",
+        "self-hosted AI directory",
+    ]}
+    articleAuthor="Mamy Rakotomalala"
+    articlePublishedTime="2025-07-22T00:00:00Z"
 >
     <BreadcrumbSchema items={breadcrumbs} />
+    <AuthorSchema
+        name="Mamy Rakotomalala"
+        url="https://enclavetools.com/about"
+        affiliation="Enclavetools"
+        description="Founder and lead auditor at Enclavetools. Over a decade of experience in infrastructure engineering and AI systems. Started Enclavetools after discovering how much sensitive data closed-source AI vendors silently collect."
+        sameAs={[
+            "https://github.com/mamylinx",
+            "https://x.com/MamyLinx",
+        ]}
+    />
 
     <!-- HERO: Simple -->
     <section
@@ -227,6 +250,38 @@ const breadcrumbs = [
                 I wished existed: a directory of privacy-first, local-capable AI
                 tools that answer to no one but you."
             </blockquote>
+        </div>
+    </section>
+
+    <!-- FOUNDER BIO -->
+    <section class="bg-brand-bg py-20 lg:py-24 border-b border-brand-forest/10">
+        <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+                <div class="lg:col-span-4">
+                    <div class="w-24 h-24 bg-brand-tealLight border border-brand-teal/20 rounded-3xl flex items-center justify-center text-4xl font-extrabold text-brand-teal">
+                        MR
+                    </div>
+                </div>
+                <div class="lg:col-span-8">
+                    <p class="text-xs font-bold uppercase tracking-[0.1em] text-brand-teal mb-3">
+                        The Founder
+                    </p>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-brand-forest tracking-tight mb-4">
+                        Mamy Rakotomalala
+                    </h2>
+                    <p class="text-brand-forest/80 text-base sm:text-lg font-medium mb-4">
+                        Infrastructure engineer and AI privacy advocate. After years of building ML systems on cloud APIs, I dug into our network traffic during a production outage and discovered how much sensitive user data closed-source AI vendors silently scrape. That moment changed everything.
+                    </p>
+                    <p class="text-brand-forest/80 text-base font-medium mb-6">
+                        I started Enclavetools to build a directory of AI tools that answer to no one but you. Every tool is manually audited — not because we trust code, but because we don't trust anything we haven't verified.
+                    </p>
+                    <div class="flex flex-wrap gap-4 text-sm font-bold">
+                        <a href="https://github.com/mamylinx" class="text-brand-teal hover:text-brand-forest transition-colors" target="_blank" rel="noopener noreferrer">GitHub →</a>
+                        <a href="https://x.com/MamyLinx" class="text-brand-teal hover:text-brand-forest transition-colors" target="_blank" rel="noopener noreferrer">X →</a>
+                        <a href="mailto:mamy.else@gmail.com" class="text-brand-teal hover:text-brand-forest transition-colors">Email →</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -443,7 +498,7 @@ const breadcrumbs = [
                 <h2
                     class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-brand-forest tracking-tight mb-4"
                 >
-                    4 Stages of.<br />
+                    4 Stages of<br />
                     <span class="text-brand-teal">Due Diligence.</span>
                 </h2>
                 <p
@@ -466,11 +521,9 @@ const breadcrumbs = [
                     <h3 class="text-xl font-extrabold text-brand-forest mb-3">
                         Discover + Scan
                     </h3>
-                    <p class="text-brand-forest/80 text-base font-medium mb-5">
-                        Mining GitHub Topics, HuggingFace Hub, and community
-                        sources for candidates. Automated license scan via
-                        ScanCode + FOSSology.
-                    </p>
+<p class="text-brand-forest/80 text-base font-medium mb-5">
+                            Mining GitHub Topics, HuggingFace Hub, and community sources for candidates. Automated license scan via <a href="https://github.com/nexB/scancode-toolkit" class="text-brand-teal hover:underline" target="_blank" rel="noopener noreferrer">ScanCode</a> + <a href="https://www.foossology.org/" class="text-brand-teal hover:underline" target="_blank" rel="noopener noreferrer">FOSSology</a>.
+                        </p>
                     <div class="flex flex-wrap gap-2">
                         <span
                             class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 bg-brand-forest/5 border border-brand-forest/10 rounded-full text-brand-forest/70"
@@ -501,12 +554,9 @@ const breadcrumbs = [
                     <h3 class="text-xl font-extrabold text-brand-forest mb-3">
                         Static Code Review
                     </h3>
-                    <p class="text-brand-forest/80 text-base font-medium mb-5">
-                        A coding agent reads the source: dependency tree, known
-                        telemetry SDKs, outbound-call patterns, and how the
-                        code's behavior compares to what the docs claim.
-                        Unresolved cases are flagged for human review.
-                    </p>
+<p class="text-brand-forest/80 text-base font-medium mb-5">
+                            A coding agent reads the source tree via the <a href="https://docs.github.com/en/rest" class="text-brand-teal hover:underline" target="_blank" rel="noopener noreferrer">GitHub API</a>: dependency tree, known telemetry/analytics SDKs, outbound-call patterns, and how the code's behavior compares to what the docs claim. Unresolved cases are flagged for human review.
+                        </p>
                     <div class="flex flex-wrap gap-2">
                         <span
                             class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 bg-brand-forest/5 border border-brand-forest/10 rounded-full text-brand-forest/70"
@@ -533,11 +583,9 @@ const breadcrumbs = [
                     <h3 class="text-xl font-extrabold text-brand-forest mb-3">
                         Declared Requirements Check
                     </h3>
-                    <p class="text-brand-forest/80 text-base font-medium mb-5">
-                        Confirm stated RAM/VRAM, OS support, and hardware
-                        targets from the repo and docs. Check commit activity
-                        and release cadence for maintenance health.
-                    </p>
+<p class="text-brand-forest/80 text-base font-medium mb-5">
+                            Confirm stated RAM/VRAM, OS support, and hardware targets from the repo and docs. Check commit activity and release cadence via <a href="https://pip.pypa.org/en/stable/tools/pip-audit/" class="text-brand-teal hover:underline" target="_blank" rel="noopener noreferrer">pip-audit</a> and <a href="https://github.com/npm/audit" class="text-brand-teal hover:underline" target="_blank" rel="noopener noreferrer">npm audit</a> for known vulnerabilities.
+                        </p>
                     <div class="flex flex-wrap gap-2">
                         <span
                             class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 bg-brand-forest/5 border border-brand-forest/10 rounded-full text-brand-forest/70"
@@ -560,11 +608,9 @@ const breadcrumbs = [
                     <h3 class="text-xl font-extrabold text-brand-forest mb-3">
                         Review + Publish
                     </h3>
-                    <p class="text-brand-forest/80 text-base font-medium mb-5">
-                        Dependency supply chain audit. Edge cases, ambiguous
-                        licenses, unknown network calls — resolved by a human
-                        before going live.
-                    </p>
+<p class="text-brand-forest/80 text-base font-medium mb-5">
+                            Dependency supply chain audit via <a href="https://nvd.nist.gov/" class="text-brand-teal hover:underline" target="_blank" rel="noopener noreferrer">NVD CVE database</a>. Edge cases, ambiguous licenses, unknown network calls — resolved by a human before going live.
+                        </p>
                     <div class="flex flex-wrap gap-2">
                         <span
                             class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 bg-brand-forest/5 border border-brand-forest/10 rounded-full text-brand-forest/70"
@@ -623,12 +669,9 @@ const breadcrumbs = [
                     <h3 class="text-xl font-extrabold text-brand-forest mb-3">
                         Deep Network Audit
                     </h3>
-                    <p class="text-brand-forest/80 text-base font-medium">
-                        Extended runtime packet capture (mitmproxy + tcpdump)
-                        across real usage sessions. Every outbound endpoint
-                        identified, classified, and documented in a report you
-                        keep.
-                    </p>
+<p class="text-brand-forest/80 text-base font-medium">
+                            Extended runtime packet capture with <a href="https://mitmproxy.org/" class="text-brand-teal hover:underline" target="_blank" rel="noopener noreferrer">mitmproxy</a> and <a href="https://www.tcpdump.org/" class="text-brand-teal hover:underline" target="_blank" rel="noopener noreferrer">tcpdump</a> across real usage sessions. Every outbound endpoint identified, classified, and documented in a report you keep.
+                        </p>
                 </div>
                 <div
                     class="bg-white border border-brand-forest/10 rounded-3xl p-8 md:p-10 shadow-sm"
@@ -655,7 +698,7 @@ const breadcrumbs = [
                     href="#"
                     class="btn-arrow-hover h-12 px-8 bg-brand-forest text-white rounded-full font-bold text-xs uppercase tracking-wider inline-flex items-center gap-3 shadow-sm hover:bg-black transition-all"
                 >
-                    Request a Deep Audit →
+                    Request a Deep Audit
                     <svg
                         class="w-4 h-4 arrow-icon transition-transform"
                         fill="none"
@@ -669,6 +712,8 @@ const breadcrumbs = [
                 </a>
                 <a
                     href="llm-sizing-calculator"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     class="h-12 px-8 bg-white border border-brand-forest/10 text-brand-forest rounded-full font-bold text-xs uppercase tracking-wider inline-flex items-center gap-2 hover:bg-white/80 transition-all"
                 >
                     Open the Calculator
@@ -895,6 +940,8 @@ const breadcrumbs = [
             <p class="text-xs text-brand-muted font-bold mt-6">
                 Know a tool we're missing? <a
                     href="/submit"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     class="text-brand-teal underline underline-offset-2 hover:no-underline"
                     >Send it in</a
                 >.
