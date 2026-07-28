@@ -13,7 +13,9 @@ import Layout from "../layouts/Layout.astro";
 >
   <div class="max-w-3xl mx-auto px-4 py-12 lg:py-16">
     <div id="app">
-      <h1 class="text-3xl md:text-4xl font-extrabold text-brand-forest tracking-tight mb-2 text-center">
+      <h1
+        class="text-3xl md:text-4xl font-extrabold text-brand-forest tracking-tight mb-2 text-center"
+      >
         Get Your Server Blueprint
       </h1>
       <p class="text-brand-muted text-center mb-10">
@@ -21,20 +23,42 @@ import Layout from "../layouts/Layout.astro";
         and benchmark report before you spend a dollar.
       </p>
 
-      <form id="contactForm" class="bg-white border border-brand-forest/10 rounded-2xl p-6 sm:p-8 shadow-sm">
+      <form
+        id="contactForm"
+        action="/api/contact"
+        method="POST"
+        class="bg-white border border-brand-forest/10 rounded-2xl p-6 sm:p-8 shadow-sm"
+      >
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
           <div>
             <label class="field-label" for="cName">Your name</label>
-            <input type="text" id="cName" required class="gpu-input" placeholder="Jane Doe" />
+            <input
+              type="text"
+              id="cName"
+              required
+              class="gpu-input"
+              placeholder="Jane Doe"
+            />
           </div>
           <div>
             <label class="field-label" for="cCompany">Company / Org</label>
-            <input type="text" id="cCompany" class="gpu-input" placeholder="Acme Corp" />
+            <input
+              type="text"
+              id="cCompany"
+              class="gpu-input"
+              placeholder="Acme Corp"
+            />
           </div>
         </div>
         <div class="mb-4">
           <label class="field-label" for="cEmail">Work email</label>
-          <input type="email" id="cEmail" required class="gpu-input" placeholder="jane@acme.com" />
+          <input
+            type="email"
+            id="cEmail"
+            required
+            class="gpu-input"
+            placeholder="jane@acme.com"
+          />
         </div>
         <div class="mb-4">
           <label class="field-label" for="cSubject">Subject</label>
@@ -42,7 +66,11 @@ import Layout from "../layouts/Layout.astro";
         </div>
         <div class="mb-6">
           <label class="field-label" for="cBody">Your specs</label>
-          <textarea id="cBody" rows="6" class="gpu-input font-mono text-xs" readonly></textarea>
+          <textarea
+            id="cBody"
+            rows="6"
+            class="gpu-input font-mono text-xs"
+            readonly></textarea>
         </div>
         <button type="submit" class="btn-primary block w-full py-4 text-base">
           Send My Blueprint
@@ -50,34 +78,40 @@ import Layout from "../layouts/Layout.astro";
       </form>
 
       <div id="cSuccess" class="hidden text-center py-12">
-        <div class="w-16 h-16 bg-brand-teal text-white flex items-center justify-center text-3xl font-extrabold rounded-full mx-auto mb-4">
+        <div
+          class="w-16 h-16 bg-brand-teal text-white flex items-center justify-center text-3xl font-extrabold rounded-full mx-auto mb-4"
+        >
           ✓
         </div>
-        <h2 class="text-2xl font-extrabold text-brand-forest mb-3">Message Sent</h2>
-        <p class="text-brand-muted">We will email you the full benchmark report within 24 hours.</p>
+        <h2 class="text-2xl font-extrabold text-brand-forest mb-3">
+          Message Sent
+        </h2>
+        <p class="text-brand-muted">
+          We will email you the full benchmark report within 24 hours.
+        </p>
       </div>
     </div>
   </div>
 
   <script>
-    (function() {
+    (function () {
       const params = new URLSearchParams(window.location.search);
-      const subject = params.get('subject') || 'Hardware Sizing & Benchmark';
-      const body = params.get('body') || '';
+      const subject = params.get("subject") || "Hardware Sizing & Benchmark";
+      const body = params.get("body") || "";
 
-      const subjectEl = document.getElementById('cSubject');
-      const bodyEl = document.getElementById('cBody');
+      const subjectEl = document.getElementById("cSubject");
+      const bodyEl = document.getElementById("cBody");
       if (subjectEl) subjectEl.value = subject;
       if (bodyEl) bodyEl.value = body;
 
-      const form = document.getElementById('contactForm');
-      const success = document.getElementById('cSuccess');
+      const form = document.getElementById("contactForm");
+      const success = document.getElementById("cSuccess");
       if (!form) return;
 
-      form.addEventListener('submit', function(e) {
+      form.addEventListener("submit", function (e) {
         e.preventDefault();
-        form.classList.add('hidden');
-        if (success) success.classList.remove('hidden');
+        form.classList.add("hidden");
+        if (success) success.classList.remove("hidden");
       });
     })();
   </script>
