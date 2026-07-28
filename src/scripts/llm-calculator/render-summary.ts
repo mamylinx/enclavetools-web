@@ -69,7 +69,21 @@ export function renderFt(s: CalcState, ftMem: number | null): string {
 }
 
 /** Build the "Reply speed and volume" card. */
-export function renderLatency(ttft: number, ttlt: number, rps: number, peak95: number | null): string {
+export function renderLatency(s: CalcState, ttft: number, ttlt: number, rps: number, peak95: number | null): string {
+  const payload = {
+    model: s.modelLabel,
+    params: s.params,
+    precision: s.precLabel,
+    inTok: s.inTok,
+    outTok: s.outTok,
+    users: s.users,
+    rps: rps,
+    ttft: ttft,
+    ttlt: ttlt,
+    mode: s.mode
+  };
+  const encodedData = btoa(encodeURIComponent(JSON.stringify(payload)));
+  
   return `
     <div class="card">
       <p class="sec-hdr">Reply speed and volume</p>
@@ -80,8 +94,15 @@ export function renderLatency(ttft: number, ttlt: number, rps: number, peak95: n
         <div class="metric-box"><div class="metric-val" style="font-size:22px">${peak95 ? peak95.toFixed(2) : '—'} rps</div><div class="metric-lbl">Peak requests per second</div></div>` : ''}
       </div>
       <div class="warn-box text-xs">
-        ⚠️ <strong>These are planning targets only.</strong> Real speed depends on your GPU's benchmarks at this load. Check the maker's benchmark data before you buy.<br/><br/>
-        Tighter speed limits cut how much the system can do at once. Check benchmark graphs (speed vs prompts per second) to find the point that meets both targets.
+        ⚠️ <strong>These are planning targets only.</strong> Real speed depends on your GPU's benchmarks at this load.<br/>
+        <div class="text-center my-4">
+          <a href="/benchmark-offer?d=${encodedData}" id="benchmarkOfferLink" class="btn-primary
+          block
+          w-full
+          md:w-auto
+          md:inline-block
+          text-center">Get Custom LLM Hardware Sizing & Benchmark Data</a>
+        </div>
       </div>
     </div>`;
 }

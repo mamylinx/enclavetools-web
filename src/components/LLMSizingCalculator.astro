@@ -1,35 +1,91 @@
 ---
-import modelsData from '../data/llm-calculator-models.json';
+import modelsData from "../data/llm-calculator-models.json";
 ---
 
 <div id="calcRoot" class="max-w-3xl mx-auto px-4 py-6 lg:py-8 min-w-0">
-
   <!-- Header -->
   <div class="text-center mb-4">
-    <h1 class="text-xl font-extrabold text-brand-forest tracking-tight mb-2 leading-tight text-wrap-balance max-w-lg mx-auto">AI Hardware Sizing Calculator</h1>
+    <h1
+      class="text-xl font-extrabold text-brand-forest tracking-tight mb-2 leading-tight text-wrap-balance max-w-lg mx-auto"
+    >
+      AI Hardware Sizing Calculator
+    </h1>
   </div>
 
   <!-- Sticky summary bar (hidden until model selected) -->
   <div id="summaryBar" class="summary-bar hidden">
     <div class="summary-bar-inner" id="summaryBarInner">
-      <div class="summary-chip" data-action="goStep" data-step="1">Model: <span class="sc-val" id="sbModel">—</span></div>
-      <div class="summary-chip" data-action="goStep" data-step="2">Tokens: <span class="sc-val" id="sbTokens">—</span></div>
-      <div class="summary-chip" data-action="goStep" data-step="3">Users: <span class="sc-val" id="sbUsers">—</span></div>
-      <div class="summary-chip" data-action="goStep" data-step="4">Mode: <span class="sc-val" id="sbMode">Inference</span></div>
+      <div class="summary-chip" data-action="goStep" data-step="1">
+        Model: <span class="sc-val" id="sbModel">—</span>
+      </div>
+      <div class="summary-chip" data-action="goStep" data-step="2">
+        Tokens: <span class="sc-val" id="sbTokens">—</span>
+      </div>
+      <div class="summary-chip" data-action="goStep" data-step="3">
+        Users: <span class="sc-val" id="sbUsers">—</span>
+      </div>
+      <div class="summary-chip" data-action="goStep" data-step="4">
+        Mode: <span class="sc-val" id="sbMode">Inference</span>
+      </div>
     </div>
   </div>
 
   <!-- Step indicator -->
-  <div class="flex items-center mb-6 px-1 overflow-x-auto snap-x snap-mandatory -mx-1 pb-2" id="stepTrack" role="tablist" aria-label="Calculator steps">
-    <div class="step-dot active shrink-0 snap-start" id="sd1" role="tab" aria-selected="true" aria-label="Step 1: Model">1</div>
+  <div
+    class="flex items-center mb-6 px-1 overflow-x-auto snap-x snap-mandatory -mx-1 pb-2"
+    id="stepTrack"
+    role="tablist"
+    aria-label="Calculator steps"
+  >
+    <div
+      class="step-dot active shrink-0 snap-start"
+      id="sd1"
+      role="tab"
+      aria-selected="true"
+      aria-label="Step 1: Model"
+    >
+      1
+    </div>
     <div class="step-line shrink-0" id="sl1"></div>
-    <div class="step-dot shrink-0" id="sd2" role="tab" aria-selected="false" aria-label="Step 2: Prompts">2</div>
+    <div
+      class="step-dot shrink-0"
+      id="sd2"
+      role="tab"
+      aria-selected="false"
+      aria-label="Step 2: Prompts"
+    >
+      2
+    </div>
     <div class="step-line shrink-0" id="sl2"></div>
-    <div class="step-dot shrink-0" id="sd3" role="tab" aria-selected="false" aria-label="Step 3: Users">3</div>
+    <div
+      class="step-dot shrink-0"
+      id="sd3"
+      role="tab"
+      aria-selected="false"
+      aria-label="Step 3: Users"
+    >
+      3
+    </div>
     <div class="step-line shrink-0" id="sl3"></div>
-    <div class="step-dot shrink-0" id="sd4" role="tab" aria-selected="false" aria-label="Step 4: Speed">4</div>
+    <div
+      class="step-dot shrink-0"
+      id="sd4"
+      role="tab"
+      aria-selected="false"
+      aria-label="Step 4: Speed"
+    >
+      4
+    </div>
     <div class="step-line shrink-0" id="sl4"></div>
-    <div class="step-dot shrink-0 snap-end" id="sd5" role="tab" aria-selected="false" aria-label="Step 5: GPUs">5</div>
+    <div
+      class="step-dot shrink-0 snap-end"
+      id="sd5"
+      role="tab"
+      aria-selected="false"
+      aria-label="Step 5: GPUs"
+    >
+      5
+    </div>
   </div>
 
   <!-- STEP 1 -->
@@ -37,51 +93,108 @@ import modelsData from '../data/llm-calculator-models.json';
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-3">
       <div class="card">
         <p class="sec-hdr">Step 1 of 5 — Pick your AI model</p>
-        <h2 class="text-base font-bold text-brand-forest mb-1">Which AI model will you use?</h2>
-        <p class="text-brand-muted text-xs mb-4">The model you pick decides most of your cost. Bigger models work better but need more memory.</p>
+        <h2 class="text-base font-bold text-brand-forest mb-1">
+          Which AI model will you use?
+        </h2>
+        <p class="text-brand-muted text-xs mb-4">
+          The model you pick decides most of your cost. Bigger models work
+          better but need more memory.
+        </p>
 
         <label class="field-label">Select a model</label>
-        <span class="field-sub">Not sure? Llama 3.1 70B is a common choice that balances quality and cost.</span>
+        <span class="field-sub"
+          >Not sure? Llama 3.1 70B is a common choice that balances quality and
+          cost.</span
+        >
         <select id="modelSelect" data-action="onModelChange">
           <option value="" disabled selected>— Choose a model —</option>
-          {Object.entries(modelsData).map(([key, model]) => (
-            <option value={key}>{model.label}  ({model.params}B parameters)</option>
-          ))}
+          {
+            Object.entries(modelsData).map(([key, model]) => (
+              <option value={key}>
+                {model.label} ({model.params}B parameters)
+              </option>
+            ))
+          }
         </select>
 
         <div id="modelNote" class="mt-3 hidden info-box">
-          <strong class="text-brand-teal">What the model needs (from its maker):</strong>
+          <strong class="text-brand-teal"
+            >What the model needs (from its maker):</strong
+          >
           <div id="modelNoteText" class="mt-1 text-brand-forest/80"></div>
-          <p class="note mt-1">We get these details from the model's public specs. You can change them in step 3 if you know better. (The AI holds some memory while it works — the calculator uses these details to work that out.)</p>
+          <p class="note mt-1">
+            We get these details from the model's public specs. You can change
+            them in step 3 if you know better. (The AI holds some memory while
+            it works — the calculator uses these details to work that out.)
+          </p>
         </div>
       </div>
 
       <div class="card">
-        <h3 class="text-base font-bold text-brand-forest mb-1">How precise should the AI be?</h3>
-        <p class="text-brand-muted text-xs mb-3">This sets how the AI stores numbers. More precise means better results but more memory.</p>
+        <h3 class="text-base font-bold text-brand-forest mb-1">
+          How precise should the AI be?
+        </h3>
+        <p class="text-brand-muted text-xs mb-3">
+          This sets how the AI stores numbers. More precise means better results
+          but more memory.
+        </p>
         <div class="grid grid-cols-1 gap-2">
-          <button class="choice-btn-sm" data-action="selPrec" data-prec="INT4" data-z="0.5">
-            <div class="ct">INT4  ·  Z = 0.5</div>
-            <div class="cd">Smallest. Slight loss in quality. Uses the least memory.</div>
+          <button
+            class="choice-btn-sm"
+            data-action="selPrec"
+            data-prec="INT4"
+            data-z="0.5"
+          >
+            <div class="ct">INT4 · Z = 0.5</div>
+            <div class="cd">
+              Smallest. Slight loss in quality. Uses the least memory.
+            </div>
           </button>
-          <button class="choice-btn-sm" data-action="selPrec" data-prec="FP8" data-z="1">
-            <div class="ct">FP8 / INT8  ·  Z = 1</div>
+          <button
+            class="choice-btn-sm"
+            data-action="selPrec"
+            data-prec="FP8"
+            data-z="1"
+          >
+            <div class="ct">FP8 / INT8 · Z = 1</div>
             <div class="cd">Half the memory of FP16. Works on modern GPUs.</div>
           </button>
-          <button class="choice-btn-sm sel" data-action="selPrec" data-prec="FP16" data-z="2">
-            <div class="ct">FP16  ·  Z = 2  ✓ Recommended</div>
-            <div class="cd">The standard for running AI in production. Best balance of quality and memory.</div>
+          <button
+            class="choice-btn-sm sel"
+            data-action="selPrec"
+            data-prec="FP16"
+            data-z="2"
+          >
+            <div class="ct">FP16 · Z = 2 ✓ Recommended</div>
+            <div class="cd">
+              The standard for running AI in production. Best balance of quality
+              and memory.
+            </div>
           </button>
-          <button class="choice-btn-sm" data-action="selPrec" data-prec="FP32" data-z="4">
-            <div class="ct">FP32  ·  Z = 4</div>
-            <div class="cd">Highest quality. Twice the memory of FP16. For research or critical work.</div>
+          <button
+            class="choice-btn-sm"
+            data-action="selPrec"
+            data-prec="FP32"
+            data-z="4"
+          >
+            <div class="ct">FP32 · Z = 4</div>
+            <div class="cd">
+              Highest quality. Twice the memory of FP16. For research or
+              critical work.
+            </div>
           </button>
         </div>
       </div>
     </div>
 
     <div class="flex justify-end">
-      <button class="btn-primary min-w-[200px] sm:min-w-auto" id="s1next" data-action="goStep" data-step="2" disabled>Next: prompts and responses →</button>
+      <button
+        class="btn-primary min-w-[200px] sm:min-w-auto"
+        id="s1next"
+        data-action="goStep"
+        data-step="2"
+        disabled>Next: prompts and responses →</button
+      >
     </div>
   </div>
 
@@ -89,53 +202,153 @@ import modelsData from '../data/llm-calculator-models.json';
   <div id="step2" class="hidden fade-in">
     <div class="card mb-3">
       <p class="sec-hdr">Step 2 of 5 — Prompts and responses</p>
-      <h2 class="text-base font-bold text-brand-forest mb-1">How long are your prompts and responses?</h2>
-      <p class="text-brand-muted text-xs mb-1">The full length is the <strong class="text-brand-forest/70">context window</strong>: your prompt plus the response. This length drives how much memory the AI holds while it works — longer prompts and responses need more memory per person.</p>
-      <p class="note mb-4">A token is a short piece of text — about 4 characters. A 1,000-word document is roughly 1,333 tokens.</p>
+      <h2 class="text-base font-bold text-brand-forest mb-1">
+        How long are your prompts and responses?
+      </h2>
+      <p class="text-brand-muted text-xs mb-1">
+        The full length is the <strong class="text-brand-forest/70"
+          >context window</strong
+        >: your prompt plus the response. This length drives how much memory the
+        AI holds while it works — longer prompts and responses need more memory
+        per person.
+      </p>
+      <p class="note mb-4">
+        A token is a short piece of text — about 4 characters. A 1,000-word
+        document is roughly 1,333 tokens.
+      </p>
 
       <div class="info-box mb-4">
         <strong class="text-brand-teal">Total length = </strong>
-        <span id="ctxWindowLive" class="text-brand-forest text-xl font-extrabold">4,500</span>
+        <span
+          id="ctxWindowLive"
+          class="text-brand-forest text-xl font-extrabold">4,500</span
+        >
         <span class="text-brand-muted text-sm"> tokens</span>
-        <span class="text-brand-muted block text-xs mt-1">(your prompt plus the response — this is what the AI holds in memory)</span>
+        <span class="text-brand-muted block text-xs mt-1"
+          >(your prompt plus the response — this is what the AI holds in memory)</span
+        >
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
         <div>
           <label class="field-label">Average input tokens per request</label>
-          <span class="field-sub">Your system instructions, the user's message, and any documents you include.</span>
+          <span class="field-sub"
+            >Your system instructions, the user's message, and any documents you
+            include.</span
+          >
           <div class="range-row mb-2">
-            <input type="range" id="inTokR" min="100" max="100000" step="100" value="4000" data-input="syncToken" data-target="inTok" />
+            <input
+              type="range"
+              id="inTokR"
+              min="100"
+              max="100000"
+              step="100"
+              value="4000"
+              data-input="syncToken"
+              data-target="inTok"
+            />
             <span class="range-val" id="inTokV">4,000</span>
           </div>
-          <input type="number" id="inTok" value="4000" min="1" max="128000" data-input="syncSlider" data-range="inTokR" data-view="inTokV" class="mt-1" />
-          <div class="flex justify-between mt-1"><span class="note">100</span><span class="note">128,000 (max Llama 3.1)</span></div>
+          <input
+            type="number"
+            id="inTok"
+            value="4000"
+            min="1"
+            max="128000"
+            data-input="syncSlider"
+            data-range="inTokR"
+            data-view="inTokV"
+            class="mt-1"
+          />
+          <div class="flex justify-between mt-1">
+            <span class="note">100</span><span class="note"
+              >128,000 (max Llama 3.1)</span
+            >
+          </div>
         </div>
         <div>
           <label class="field-label">Average output tokens per response</label>
-          <span class="field-sub">How long the AI's reply typically is. A short answer ≈ 100–300 tokens; a full report ≈ 1,000–4,000.</span>
+          <span class="field-sub"
+            >How long the AI's reply typically is. A short answer ≈ 100–300
+            tokens; a full report ≈ 1,000–4,000.</span
+          >
           <div class="range-row mb-2">
-            <input type="range" id="outTokR" min="50" max="8000" step="50" value="500" data-input="syncToken" data-target="outTok" />
+            <input
+              type="range"
+              id="outTokR"
+              min="50"
+              max="8000"
+              step="50"
+              value="500"
+              data-input="syncToken"
+              data-target="outTok"
+            />
             <span class="range-val" id="outTokV">500</span>
           </div>
-          <input type="number" id="outTok" value="500" min="1" max="8000" data-input="syncSlider" data-range="outTokR" data-view="outTokV" class="mt-1" />
+          <input
+            type="number"
+            id="outTok"
+            value="500"
+            min="1"
+            max="8000"
+            data-input="syncSlider"
+            data-range="outTokR"
+            data-view="outTokV"
+            class="mt-1"
+          />
         </div>
       </div>
 
       <div>
         <label class="field-label mb-2">Quick presets</label>
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
-          <button class="choice-btn-sm" data-action="setTokens" data-in="500" data-out="200"><div class="ct">Short Q&amp;A</div><div class="cd">700 tokens</div></button>
-          <button class="choice-btn-sm" data-action="setTokens" data-in="2000" data-out="800"><div class="ct">Document summary</div><div class="cd">2,800 tokens</div></button>
-          <button class="choice-btn-sm" data-action="setTokens" data-in="7000" data-out="1000"><div class="ct">Long document</div><div class="cd">8,000 tokens</div></button>
-          <button class="choice-btn-sm" data-action="setTokens" data-in="60000" data-out="4000"><div class="ct">RAG knowledge base</div><div class="cd">64,000 tokens</div></button>
+          <button
+            class="choice-btn-sm"
+            data-action="setTokens"
+            data-in="500"
+            data-out="200"
+            ><div class="ct">Short Q&amp;A</div><div class="cd">
+              700 tokens
+            </div></button
+          >
+          <button
+            class="choice-btn-sm"
+            data-action="setTokens"
+            data-in="2000"
+            data-out="800"
+            ><div class="ct">Document summary</div><div class="cd">
+              2,800 tokens
+            </div></button
+          >
+          <button
+            class="choice-btn-sm"
+            data-action="setTokens"
+            data-in="7000"
+            data-out="1000"
+            ><div class="ct">Long document</div><div class="cd">
+              8,000 tokens
+            </div></button
+          >
+          <button
+            class="choice-btn-sm"
+            data-action="setTokens"
+            data-in="60000"
+            data-out="4000"
+            ><div class="ct">RAG knowledge base</div><div class="cd">
+              64,000 tokens
+            </div></button
+          >
         </div>
       </div>
     </div>
 
     <div class="flex flex-col sm:flex-row sm:justify-between gap-3">
-      <button class="btn-ghost" data-action="goStep" data-step="1">← Back</button>
-      <button class="btn-primary" data-action="goStep" data-step="3">Next: how many people →</button>
+      <button class="btn-ghost" data-action="goStep" data-step="1"
+        >← Back</button
+      >
+      <button class="btn-primary" data-action="goStep" data-step="3"
+        >Next: how many people →</button
+      >
     </div>
   </div>
 
@@ -143,49 +356,124 @@ import modelsData from '../data/llm-calculator-models.json';
   <div id="step3" class="hidden fade-in">
     <div class="card mb-3">
       <p class="sec-hdr">Step 3 of 5 — Concurrent users</p>
-      <h2 class="text-base font-bold text-brand-forest mb-1">How many concurrent users will use the AI at peak?</h2>
-      <p class="text-brand-muted text-xs mb-1">Size for your busiest moment, not your average. Your true peak is derived from your average requests per second.</p>
-      <p class="note mb-4">If you don't plan for peak use, each prompt can cost you more.</p>
+      <h2 class="text-base font-bold text-brand-forest mb-1">
+        How many concurrent users will use the AI at peak?
+      </h2>
+      <p class="text-brand-muted text-xs mb-1">
+        Size for your busiest moment, not your average. Your true peak is
+        derived from your average requests per second.
+      </p>
+      <p class="note mb-4">
+        If you don't plan for peak use, each prompt can cost you more.
+      </p>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
         <div>
           <label class="field-label">Concurrent users at peak</label>
-          <span class="field-sub">How many people send a request at the same moment during your busiest hour.</span>
+          <span class="field-sub"
+            >How many people send a request at the same moment during your
+            busiest hour.</span
+          >
           <div class="range-row mb-2">
-            <input type="range" id="usersR" min="1" max="500" value="10" data-input="syncToken" data-target="usersN" />
+            <input
+              type="range"
+              id="usersR"
+              min="1"
+              max="500"
+              value="10"
+              data-input="syncToken"
+              data-target="usersN"
+            />
             <span class="range-val" id="usersV">10</span>
           </div>
-          <input type="number" id="usersN" value="10" min="1" max="10000" data-input="syncSlider" data-range="usersR" data-view="usersV" />
+          <input
+            type="number"
+            id="usersN"
+            value="10"
+            min="1"
+            max="10000"
+            data-input="syncSlider"
+            data-range="usersR"
+            data-view="usersV"
+          />
         </div>
         <div>
-          <label class="field-label">Average requests per second (RPS) <span class="optional-pill">optional</span></label>
-          <span class="field-sub">Optional but useful: we use this to work out your peak load and your cost per prompt.</span>
-          <input type="number" id="rpsAvg" value="1" min="0.01" max="1000" step="0.1" data-input="calcPoissonPeak" />
-          <div id="rpsPeak" class="info-box mt-2 text-xs">Enter your requests per second to see your estimated peak.</div>
+          <label class="field-label"
+            >Average requests per second (RPS) <span class="optional-pill"
+              >optional</span
+            ></label
+          >
+          <span class="field-sub"
+            >Optional but useful: we use this to work out your peak load and
+            your cost per prompt.</span
+          >
+          <input
+            type="number"
+            id="rpsAvg"
+            value="1"
+            min="0.01"
+            max="1000"
+            step="0.1"
+            data-input="calcPoissonPeak"
+          />
+          <div id="rpsPeak" class="info-box mt-2 text-xs">
+            Enter your requests per second to see your estimated peak.
+          </div>
         </div>
       </div>
 
       <div class="mt-2">
-        <button class="btn-sm mb-3" data-action="toggleArchOverride">Override model architecture <span class="optional-pill">optional</span></button>
+        <button class="btn-sm mb-3" data-action="toggleArchOverride"
+          >Override model architecture <span class="optional-pill"
+            >optional</span
+          ></button
+        >
         <div id="archOverride" class="hidden">
-          <div class="warn-box mb-3 text-xs">These details come from the model itself and feed the memory formula. The values are pre-filled from the model's public specs.</div>
+          <div class="warn-box mb-3 text-xs">
+            These details come from the model itself and feed the memory
+            formula. The values are pre-filled from the model's public specs.
+          </div>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
               <label class="field-label">Layers</label>
-              <input type="number" id="ovrLayers" class="gpu-input" data-input="recalcLive" />
+              <input
+                type="number"
+                id="ovrLayers"
+                class="gpu-input"
+                data-input="recalcLive"
+              />
             </div>
             <div>
               <label class="field-label">Attention heads</label>
-              <input type="number" id="ovrAttnH" class="gpu-input" data-input="recalcLive" />
+              <input
+                type="number"
+                id="ovrAttnH"
+                class="gpu-input"
+                data-input="recalcLive"
+              />
             </div>
             <div>
               <label class="field-label">KV heads</label>
-              <span class="field-sub">If your model gives a KV head count directly, enter it here. Same as attention heads for standard models; 1 for the simplest design.</span>
-              <input type="number" id="ovrKvH" class="gpu-input" data-input="recalcLive" />
+              <span class="field-sub"
+                >If your model gives a KV head count directly, enter it here.
+                Same as attention heads for standard models; 1 for the simplest
+                design.</span
+              >
+              <input
+                type="number"
+                id="ovrKvH"
+                class="gpu-input"
+                data-input="recalcLive"
+              />
             </div>
             <div>
               <label class="field-label">Head dimension</label>
-              <input type="number" id="ovrDHead" class="gpu-input" data-input="recalcLive" />
+              <input
+                type="number"
+                id="ovrDHead"
+                class="gpu-input"
+                data-input="recalcLive"
+              />
             </div>
           </div>
         </div>
@@ -193,8 +481,12 @@ import modelsData from '../data/llm-calculator-models.json';
     </div>
 
     <div class="flex flex-col sm:flex-row sm:justify-between gap-3">
-      <button class="btn-ghost" data-action="goStep" data-step="2">← Back</button>
-      <button class="btn-primary" data-action="goStep" data-step="4">Next: reply speed →</button>
+      <button class="btn-ghost" data-action="goStep" data-step="2"
+        >← Back</button
+      >
+      <button class="btn-primary" data-action="goStep" data-step="4"
+        >Next: reply speed →</button
+      >
     </div>
   </div>
 
@@ -203,68 +495,158 @@ import modelsData from '../data/llm-calculator-models.json';
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-3 mb-3">
       <div class="card">
         <p class="sec-hdr">Step 4 of 5 — Reply speed</p>
-        <h2 class="text-base font-bold text-brand-forest mb-1">How fast does the AI need to respond?</h2>
-        <p class="text-brand-muted text-xs mb-3">Two speeds affect your hardware. Tighter limits mean the system handles fewer people at once.</p>
+        <h2 class="text-base font-bold text-brand-forest mb-1">
+          How fast does the AI need to respond?
+        </h2>
+        <p class="text-brand-muted text-xs mb-3">
+          Two speeds affect your hardware. Tighter limits mean the system
+          handles fewer people at once.
+        </p>
 
         <div class="info-box mb-3 text-xs">
-          <strong class="text-brand-teal">Time to first word (TTFT)</strong> — how long until the first word shows up.<br/>
-          <strong class="text-brand-teal mt-1 block">Total time for the reply (TTLT)</strong> — from sending the prompt to getting the whole response.
+          <strong class="text-brand-teal">Time to first word (TTFT)</strong> — how
+          long until the first word shows up.<br />
+          <strong class="text-brand-teal mt-1 block"
+            >Total time for the reply (TTLT)</strong
+          > — from sending the prompt to getting the whole response.
         </div>
 
         <div class="grid grid-cols-1 gap-3">
           <div>
-            <label class="field-label">Max time to first word (TTFT), in seconds <span class="optional-pill">optional</span></label>
-            <input type="number" id="ttft" value="2" min="0.1" max="60" step="0.1" />
+            <label class="field-label"
+              >Max time to first word (TTFT), in seconds <span
+                class="optional-pill">optional</span
+              ></label
+            >
+            <input
+              type="number"
+              id="ttft"
+              value="2"
+              min="0.1"
+              max="60"
+              step="0.1"
+            />
           </div>
           <div>
-            <label class="field-label">Max total time for the reply (TTLT), in seconds <span class="optional-pill">optional</span></label>
-            <input type="number" id="ttlt" value="30" min="1" max="600" step="1" />
+            <label class="field-label"
+              >Max total time for the reply (TTLT), in seconds <span
+                class="optional-pill">optional</span
+              ></label
+            >
+            <input
+              type="number"
+              id="ttlt"
+              value="30"
+              min="1"
+              max="600"
+              step="1"
+            />
           </div>
         </div>
 
         <div class="warn-box text-xs mt-3">
-          ⚠️ Tighter speed limits cut how much the system can do at once. These are planning targets — check your GPU's real benchmarks before you buy.
+          ⚠️ Tighter speed limits cut how much the system can do at once. These
+          are planning targets — check your GPU's real benchmarks before you
+          buy.
+        </div>
+
+        <div
+          class="card mb-5 border-brand-teal bg-brand-forest/5 text-center p-6 mt-4"
+        >
+          <h2 class="text-xl font-bold text-brand-forest mb-2">
+            Don't guess your hardware needs.
+          </h2>
+          <p class="text-brand-muted text-sm mb-4">
+            Calculators give you targets, but real-world performance varies. Get
+            certainty before you buy.
+          </p>
+          <a
+            href="/benchmark-offer"
+            class="
+            btn-primary
+            block
+            w-full
+            md:w-auto
+            md:inline-block
+            text-center">Get Custom Sizing & Benchmark Data</a
+          >
         </div>
       </div>
 
       <div class="card">
-        <h3 class="text-base font-bold text-brand-forest mb-1">Do you also train the AI?</h3>
-        <p class="text-brand-muted text-xs mb-3">Training needs much more memory than just running it, but only while training runs.</p>
+        <h3 class="text-base font-bold text-brand-forest mb-1">
+          Do you also train the AI?
+        </h3>
+        <p class="text-brand-muted text-xs mb-3">
+          Training needs much more memory than just running it, but only while
+          training runs.
+        </p>
         <div class="flex flex-col gap-2">
-          <button class="choice-btn-sm sel" data-action="selMode" data-mode="inference">
+          <button
+            class="choice-btn-sm sel"
+            data-action="selMode"
+            data-mode="inference"
+          >
             <div class="ct">✓ Inference only — just run the AI</div>
           </button>
           <details class="collapsible-section">
-            <summary>Training methods <span class="optional-pill">optional</span></summary>
+            <summary
+              >Training methods <span class="optional-pill">optional</span
+              ></summary
+            >
             <div class="mt-2 flex flex-col gap-2">
-              <button class="choice-btn-sm" data-action="selMode" data-mode="qlora4">
+              <button
+                class="choice-btn-sm"
+                data-action="selMode"
+                data-mode="qlora4"
+              >
                 <div class="ct">Train with QLoRA 4-bit</div>
                 <div class="cd">Uses ~93% less memory than full training.</div>
               </button>
-              <button class="choice-btn-sm" data-action="selMode" data-mode="qlora8">
+              <button
+                class="choice-btn-sm"
+                data-action="selMode"
+                data-mode="qlora8"
+              >
                 <div class="ct">Train with QLoRA 8-bit</div>
                 <div class="cd">Uses ~87% less memory than full training.</div>
               </button>
-              <button class="choice-btn-sm" data-action="selMode" data-mode="lora">
+              <button
+                class="choice-btn-sm"
+                data-action="selMode"
+                data-mode="lora"
+              >
                 <div class="ct">Train with LoRA 16-bit</div>
                 <div class="cd">Uses ~78% less memory. High quality.</div>
               </button>
-              <button class="choice-btn-sm" data-action="selMode" data-mode="full">
+              <button
+                class="choice-btn-sm"
+                data-action="selMode"
+                data-mode="full"
+              >
                 <div class="ct">Train fully (16-bit)</div>
-                <div class="cd">Best quality. Needs a lot of memory. For expert teams.</div>
+                <div class="cd">
+                  Best quality. Needs a lot of memory. For expert teams.
+                </div>
               </button>
             </div>
           </details>
         </div>
         <div id="ftNotSupported" class="warn-box mt-3 text-xs hidden">
-          ⚠️ The fine-tuning memory table only covers 7B, 13B, 30B, 70B, and 110B models. Training memory for this size is not estimated, to avoid guessing.
+          ⚠️ The fine-tuning memory table only covers 7B, 13B, 30B, 70B, and
+          110B models. Training memory for this size is not estimated, to avoid
+          guessing.
         </div>
       </div>
     </div>
 
     <div class="flex flex-col sm:flex-row sm:justify-between gap-3">
-      <button class="btn-ghost" data-action="goStep" data-step="3">← Back</button>
-      <button class="btn-primary" data-action="goStep" data-step="5">Next: your GPUs and results →</button>
+      <button class="btn-ghost" data-action="goStep" data-step="3"
+        >← Back</button
+      >
+      <button class="btn-primary" data-action="goStep" data-step="5"
+        >Next: your GPUs and results →</button
+      >
     </div>
   </div>
 
@@ -273,27 +655,42 @@ import modelsData from '../data/llm-calculator-models.json';
     <div class="card mb-3">
       <p class="sec-hdr">Your GPUs</p>
       <h2 class="text-base font-bold text-brand-forest mb-1">Add your GPUs</h2>
-      <p class="text-brand-muted text-xs mb-4">Pick from the list or enter your own. We'll show how many GPUs you need and, once you add prices, what it costs to run per million prompts.</p>
+      <p class="text-brand-muted text-xs mb-4">
+        Pick from the list or enter your own. We'll show how many GPUs you need
+        and, once you add prices, what it costs to run per million prompts.
+      </p>
 
       <div class="mb-4">
         <label class="field-label">Pick from GPU catalog</label>
-        <span class="field-sub">Includes datacenter, workstation, and consumer GPUs from NVIDIA, AMD, and Intel. Add more than one to compare.</span>
+        <span class="field-sub"
+          >Includes datacenter, workstation, and consumer GPUs from NVIDIA, AMD,
+          and Intel. Add more than one to compare.</span
+        >
         <div class="flex flex-col sm:flex-row gap-2">
           <div class="flex-1 relative min-w-0">
             <select id="gpuCatalogSelect" class="pr-9 w-full">
               <option value="">— Choose a GPU to add —</option>
             </select>
           </div>
-          <button class="btn-primary" style="padding:11px 18px;white-space:nowrap;" data-action="addFromCatalog">+ Add</button>
+          <button
+            class="btn-primary"
+            style="padding:11px 18px;white-space:nowrap;"
+            data-action="addFromCatalog">+ Add</button
+          >
         </div>
       </div>
 
       <div class="flex items-center gap-3 mb-3">
         <div class="flex-1 h-px bg-brand-forest/10"></div>
-        <span class="text-brand-muted text-xs font-bold uppercase tracking-widest">or add your own GPU</span>
+        <span
+          class="text-brand-muted text-xs font-bold uppercase tracking-widest"
+          >or add your own GPU</span
+        >
         <div class="flex-1 h-px bg-brand-forest/10"></div>
       </div>
-      <button class="btn-sm mb-4" data-action="addGpuRow">+ Add a GPU manually</button>
+      <button class="btn-sm mb-4" data-action="addGpuRow"
+        >+ Add a GPU manually</button
+      >
 
       <div id="gpuTableWrap" class="hidden gpu-table-container">
         <div class="overflow-x-auto mb-2">
@@ -302,28 +699,38 @@ import modelsData from '../data/llm-calculator-models.json';
               <tr>
                 <th style="min-width:200px">GPU name</th>
                 <th style="min-width:110px">Memory per GPU (GB)</th>
-                <th style="min-width:160px">Price per GPU <span class="optional-pill">optional</span></th>
-                <th style="min-width:160px">Yearly opex per GPU <span class="optional-pill">optional</span></th>
+                <th style="min-width:160px"
+                  >Price per GPU <span class="optional-pill">optional</span></th
+                >
+                <th style="min-width:160px"
+                  >Yearly opex per GPU <span class="optional-pill"
+                    >optional</span
+                  ></th
+                >
                 <th style="width:36px"></th>
               </tr>
             </thead>
             <tbody id="gpuBody"></tbody>
           </table>
         </div>
-        <p class="note">Yearly opex = power + space + upkeep for each GPU. Add price and opex to see your cost per prompt.</p>
+        <p class="note">
+          Yearly opex = power + space + upkeep for each GPU. Add price and opex
+          to see your cost per prompt.
+        </p>
       </div>
     </div>
 
     <div id="resultsSection"></div>
 
     <div class="flex flex-col sm:flex-row sm:justify-between gap-3 mt-4">
-      <button class="btn-ghost" data-action="goStep" data-step="4">← Back</button>
+      <button class="btn-ghost" data-action="goStep" data-step="4"
+        >← Back</button
+      >
       <button class="btn-primary" data-action="resetAll">↺ Start Over</button>
     </div>
   </div>
-
 </div>
 
 <script>
-  import '../scripts/llm-calculator/main.ts';
+  import "../scripts/llm-calculator/main.ts";
 </script>
