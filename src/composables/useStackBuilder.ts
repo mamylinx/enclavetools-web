@@ -1,6 +1,6 @@
 import { computed, onMounted, ref, watch, nextTick } from 'vue';
 import { getWorksWith, type ToolWithCategory } from '../utils/toolModel';
-import { create as createStack, setActive } from '../utils/stacks';
+import { create as createStack, setActive, addTool } from '../utils/stacks';
 import { useStackCrud } from './useStackCrud';
 import { useToolSearch } from './useToolSearch';
 import { useClipboard } from './useClipboard';
@@ -151,7 +151,7 @@ export function useStackBuilder(props: { tools: ToolWithCategory[] }) {
     if (toolsParam) {
       const ids = toolsParam.split(',').map((s) => s.trim()).filter(Boolean).slice(0, 8);
       const s = createStack('Shared Stack');
-      ids.forEach((slug) => addToolToStack(slug));
+      ids.forEach((slug) => addTool(s.id, slug));
       activeId.value = s.id;
       refresh();
       pushUrl();
