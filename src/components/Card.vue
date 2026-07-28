@@ -1,6 +1,6 @@
 <template>
   <li
-    class="flex flex-col h-full bg-white border border-brand-forest/10 rounded-3xl p-6 shadow-sm card-hover"
+    class="flex flex-col h-full bg-white border border-brand-forest/10 rounded-3xl p-6 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(27,54,27,0.08)]"
   >
     <div class="flex items-center justify-between gap-2 mb-4">
       <span

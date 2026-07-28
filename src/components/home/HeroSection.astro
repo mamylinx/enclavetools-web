@@ -26,9 +26,9 @@ const { siteContent: c, totalTools } = Astro.props;
         </p>
         <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto">
           <a href="/all"
-            class="btn-arrow-hover h-12 px-6 bg-brand-forest text-white rounded-full font-bold text-xs uppercase tracking-wider inline-flex items-center justify-center gap-3 shadow-sm hover:bg-black transition-all">
+            class="group h-12 px-6 bg-brand-forest text-white rounded-full font-bold text-xs uppercase tracking-wider inline-flex items-center justify-center gap-3 shadow-sm hover:bg-black transition-all">
             Browse {totalTools} verified tools
-            <svg class="w-4 h-4 arrow-icon transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+            <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
           </a>

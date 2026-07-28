@@ -62,7 +62,7 @@ const { topTools, categoryTitleMap, formatScore, totalTools } = Astro.props;
               : tool.hardware || "N/A";
             const toolSlug = tool.slug || "";
             return (
-              <div class="flex flex-col h-full bg-white border border-brand-forest/10 rounded-3xl p-6 shadow-sm card-hover">
+              <div class="flex flex-col h-full bg-white border border-brand-forest/10 rounded-3xl p-6 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(27,54,27,0.08)]">
                 <div class="flex-1">
                   <div class="flex items-center justify-between gap-2 mb-4">
                     <span class="px-2.5 py-1 bg-brand-tealLight border border-brand-teal/20 text-brand-teal text-xs font-bold uppercase tracking-wider rounded-full">

@@ -545,7 +545,7 @@ const featureBadges = [
               worksWithTools.map((t: any) => (
                 <a
                   href={`/tools/${t.slug}`}
-                  class="flex flex-col gap-2 bg-white border border-brand-forest/10 rounded-3xl p-6 no-underline hover:bg-brand-tealLight transition-colors group card-hover"
+                  class="flex flex-col gap-2 bg-white border border-brand-forest/10 rounded-3xl p-6 no-underline hover:bg-brand-tealLight transition-all duration-200 group hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(27,54,27,0.08)]"
                 >
                   <strong class="text-xl font-bold text-brand-forest group-hover:text-brand-teal transition-colors">
                     {t.title}
@@ -577,7 +577,7 @@ const featureBadges = [
                 {relatedTools.map((t: any) => (
                   <a
                     href={`/tools/${t.slug}`}
-                    class="flex flex-col gap-2 bg-white border border-brand-forest/10 rounded-3xl p-6 no-underline hover:bg-brand-tealLight transition-colors group card-hover"
+                    class="flex flex-col gap-2 bg-white border border-brand-forest/10 rounded-3xl p-6 no-underline hover:bg-brand-tealLight transition-all duration-200 group hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(27,54,27,0.08)]"
                   >
                     <strong class="text-xl font-bold text-brand-forest group-hover:text-brand-teal transition-colors">
                       {t.title}

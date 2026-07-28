@@ -1,5 +1,4 @@
 /** @type {import('tailwindcss').Config} */
-import forms from '@tailwindcss/forms';
 
 export default {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
@@ -14,7 +13,7 @@ export default {
           tealLight: '#E8F7F5',
           lime: '#BFFF00',
           sand: '#FFFFFF',
-          muted: '#5F6368',
+          muted: '#2D4A2D',
           tag: '#E8F7F5',
           indigo: '#5D3FD3',
           indigoLight: '#F3EFFF',
@@ -45,20 +44,6 @@ export default {
         '4xl': ['3.5rem', { lineHeight: '1.15' }],
         '5xl': ['4.5rem', { lineHeight: '1.1' }],
         '6xl': ['5.625rem', { lineHeight: '1.05' }],
-        'dl-tiny': ['0.875rem', { lineHeight: '1.5' }],
-        'dl-small': ['1.125rem', { lineHeight: '1.5' }],
-        'dl-normal': ['1.4375rem', { lineHeight: '1.6' }],
-        'dl-medium': ['1.75rem', { lineHeight: '1.5' }],
-        'dl-regular': ['2.125rem', { lineHeight: '1.4' }],
-        'dl-large': ['2.5rem', { lineHeight: '1.3' }],
-        'dl-xl': ['3rem', { lineHeight: '1.2' }],
-        'dl-2xl': ['3.5rem', { lineHeight: '1.15' }],
-        'dl-h6': ['2.125rem', { lineHeight: '1.2' }],
-        'dl-h5': ['2.5rem', { lineHeight: '1.2' }],
-        'dl-h4': ['3.5rem', { lineHeight: '1.15' }],
-        'dl-h3': ['4rem', { lineHeight: '1.125' }],
-        'dl-h2': ['4.5rem', { lineHeight: '1.11' }],
-        'dl-h1': ['5.625rem', { lineHeight: '1.06' }],
       },
       borderRadius: {
         '3xl': '1.5rem',
@@ -66,7 +51,4 @@ export default {
       }
     },
   },
-  plugins: [
-    forms,
-  ],
 }

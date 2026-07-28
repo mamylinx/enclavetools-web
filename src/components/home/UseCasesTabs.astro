@@ -26,7 +26,8 @@ const { PERSONA, featuredTools, filteredCounts, filterOptions, useCaseContent, s
             <button
               id={`tab-${p.replace(/\s+/g, "-").toLowerCase()}`}
               data-persona={p}
-              class={`use-case-tab w-full text-left p-5 rounded-2xl font-bold text-base shadow-sm transition-all focus:outline-none ${
+              data-tab-role="tab"
+              class={`w-full text-left p-5 rounded-2xl font-bold text-base shadow-sm transition-all duration-200 focus:outline-none ${
                 i === 0
                   ? "bg-brand-forest text-white border border-brand-forest/10"
                   : "bg-white text-brand-forest border border-brand-forest/10 hover:bg-brand-tealLight"
@@ -99,7 +100,7 @@ const { PERSONA, featuredTools, filteredCounts, filterOptions, useCaseContent, s
 
 <script>
   const initTabs = () => {
-    const tabs = document.querySelectorAll('.use-case-tab');
+    const tabs = document.querySelectorAll('[data-tab-role="tab"]');
     const panels = document.querySelectorAll('.use-case-content');
 
     tabs.forEach((tab) => {
