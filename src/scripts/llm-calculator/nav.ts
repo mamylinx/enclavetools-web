@@ -1,5 +1,5 @@
 import { store, resetStore } from './store';
-import { renderResults } from './render-results';
+import { renderResults, buildEncodedData } from './render-results';
 
 const MODE_LABELS: Record<string, string> = {
   inference: 'Inference',
@@ -51,6 +51,10 @@ export function goStep(n: number): void {
   });
 
   renderSummaryBar();
+  if (n === 4) {
+    const cta = document.getElementById('step4Cta') as HTMLAnchorElement | null;
+    if (cta) cta.href = '/benchmark-offer?d=' + buildEncodedData();
+  }
   if (n === 5) renderResults();
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }

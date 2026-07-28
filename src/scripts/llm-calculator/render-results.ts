@@ -6,6 +6,28 @@ import { renderMetrics } from './render-metrics';
 import { renderGpus } from './render-gpus';
 import { renderFt, renderLatency, renderTco, renderConfigSummary, renderHeroAnswer } from './render-summary';
 
+/** Build the encoded state payload for benchmark-offer links. */
+export function buildEncodedData(): string {
+  const s: CalcState = store.state;
+  if (!s.params) return '';
+  const ttft = parseFloat(document.getElementById('ttft')?.value as string) || s.ttft;
+  const ttlt = parseFloat(document.getElementById('ttlt')?.value as string) || s.ttlt;
+  const rpsVal = parseFloat(document.getElementById('rpsAvg')?.value as string) || 0;
+  const payload = {
+    model: s.modelLabel,
+    params: s.params,
+    precision: s.precLabel,
+    inTok: s.inTok,
+    outTok: s.outTok,
+    users: s.users,
+    rps: rpsVal,
+    ttft: ttft,
+    ttlt: ttlt,
+    mode: s.mode
+  };
+  return btoa(encodeURIComponent(JSON.stringify(payload)));
+}
+
 /** Assemble and inject the full results section. No-op until a model is picked. */
 export function renderResults(): void {
   const s: CalcState = store.state;
@@ -37,19 +59,7 @@ export function renderResults(): void {
     </div>
   `;
 
-  const payload = {
-    model: s.modelLabel,
-    params: s.params,
-    precision: s.precLabel,
-    inTok: s.inTok,
-    outTok: s.outTok,
-    users: s.users,
-    rps: rpsVal,
-    ttft: ttft,
-    ttlt: ttlt,
-    mode: s.mode
-  };
-  const encodedData = btoa(encodeURIComponent(JSON.stringify(payload)));
+  const encodedData = buildEncodedData();
 
   const html = `
     ${renderHeroAnswer(total, gpus)}
@@ -69,4 +79,7 @@ export function renderResults(): void {
   `;
 
   document.getElementById('resultsSection')!.innerHTML = html;
+
+  const cta = document.getElementById('step4Cta') as HTMLAnchorElement | null;
+  if (cta) cta.href = '/benchmark-offer?d=' + buildEncodedData();
 }

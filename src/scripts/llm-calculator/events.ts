@@ -4,7 +4,7 @@ import { syncToken, syncSlider, setTokens } from './step2';
 import { toggleArchOverride, recalcLive, calcPoissonPeak } from './step3';
 import { selMode } from './step4';
 import { addFromCatalog, addGpuRow, removeGpuRow } from './step5';
-import { renderResults } from './render-results';
+import { renderResults, buildEncodedData } from './render-results';
 import type { FtMode } from '../../interfaces/llm-calculator';
 
 /**
@@ -41,6 +41,11 @@ export function bindEvents(): void {
       case 'recalcLive': recalcLive(); break;
       case 'calcPoissonPeak': calcPoissonPeak(); break;
       case 'renderResults': renderResults(); break;
+      case 'updateStep4Cta': {
+        const cta = document.getElementById('step4Cta') as HTMLAnchorElement | null;
+        if (cta) cta.href = '/benchmark-offer?d=' + buildEncodedData();
+        break;
+      }
     }
   });
 
