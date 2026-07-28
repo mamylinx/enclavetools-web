@@ -1,7 +1,8 @@
-import type { FilterGroupConfig, FilterOptionValueValue } from '../types';
+import type { FilterGroupConfig, FilterOptionValue } from '../types';
 import categoriesData from '../data/categories.json';
 import filterOptions from '../data/filter-options.json';
 
+/** Filter options derived from the categories data file. */
 export const CATEGORY_OPTIONS: FilterOptionValue[] = categoriesData.map(category => ({
     value: category.category,
     label: category.title
@@ -9,9 +10,13 @@ export const CATEGORY_OPTIONS: FilterOptionValue[] = categoriesData.map(category
 
 const opts = filterOptions as Record<string, Array<{ value: string; label: string }>>;
 
+/** Use-case filter options loaded from filter-options.json. */
 export const USE_CASE_OPTIONS: FilterOptionValue[] = opts.use_case || [];
+/** Persona filter options loaded from filter-options.json. */
 export const PERSONA_OPTIONS: FilterOptionValue[] = opts.persona || [];
+/** Setup-difficulty filter options loaded from filter-options.json. */
 export const SETUP_OPTIONS: FilterOptionValue[] = opts.setup_difficulty || [];
+/** License filter options with fallback defaults. */
 export const LICENSE_OPTIONS: FilterOptionValue[] = opts.license || [
   { value: 'MIT', label: 'MIT' },
   { value: 'Apache 2.0', label: 'Apache 2.0' },
@@ -20,16 +25,19 @@ export const LICENSE_OPTIONS: FilterOptionValue[] = opts.license || [
   { value: 'Commercial-Friendly', label: 'Commercial-Friendly' },
   { value: 'Restricted / Custom', label: 'Restricted / Custom' },
 ];
+/** Maturity filter options with fallback defaults. */
 export const MATURITY_OPTIONS: FilterOptionValue[] = opts.maturity || [
   { value: 'Production / Stable', label: 'Production / Stable' },
   { value: 'Beta', label: 'Beta' },
   { value: 'Experimental', label: 'Experimental' },
   { value: 'Archived / Unmaintained', label: 'Archived / Unmaintained' },
 ];
+/** Telemetry filter options, with a prepended "Any" option. */
 export const TELEMETRY_OPTIONS: FilterOptionValue[] = opts.telemetry
   ? [{ value: '', label: 'Any' }, ...opts.telemetry.map((o) => ({ value: o.value, label: o.label === 'None' ? 'None only' : o.label }))]
   : [{ value: '', label: 'Any' }, { value: 'None', label: 'None only' }];
 
+/** Language / runtime filter options. */
 export const LANGUAGE_OPTIONS: FilterOptionValue[] = [
   { value: 'Python', label: 'Python' },
   { value: 'Rust', label: 'Rust' },
@@ -39,6 +47,7 @@ export const LANGUAGE_OPTIONS: FilterOptionValue[] = [
   { value: 'Java / Kotlin', label: 'Java / Kotlin' },
 ];
 
+/** Hardware / accelerator filter options. */
 export const HARDWARE_OPTIONS: FilterOptionValue[] = [
   { value: 'CPU Only', label: 'CPU Only' },
   { value: 'NVIDIA GPU (CUDA)', label: 'NVIDIA GPU (CUDA)' },
@@ -47,6 +56,7 @@ export const HARDWARE_OPTIONS: FilterOptionValue[] = [
   { value: 'Low-resource (< 8GB RAM)', label: 'Low-resource (< 8GB RAM)' },
 ];
 
+/** Deployment method filter options. */
 export const DEPLOYMENT_OPTIONS: FilterOptionValue[] = [
   { value: 'Docker', label: 'Docker' },
   { value: 'Bare Metal', label: 'Bare Metal' },
@@ -55,6 +65,7 @@ export const DEPLOYMENT_OPTIONS: FilterOptionValue[] = [
   { value: 'Embedded / Edge', label: 'Embedded / Edge' },
 ];
 
+/** Model file format filter options. */
 export const MODEL_FORMAT_OPTIONS: FilterOptionValue[] = [
   { value: 'GGUF', label: 'GGUF' },
   { value: 'GPTQ', label: 'GPTQ' },
@@ -63,6 +74,7 @@ export const MODEL_FORMAT_OPTIONS: FilterOptionValue[] = [
   { value: 'ONNX', label: 'ONNX' },
 ];
 
+/** Feature toggle filter options (OpenAI API, REST API, fine-tuning, etc.). */
 export const FEATURE_OPTIONS: FilterOptionValue[] = [
   { value: 'openai_api', label: 'OpenAI-compatible API' },
   { value: 'rest_api', label: 'REST API' },
@@ -73,11 +85,13 @@ export const FEATURE_OPTIONS: FilterOptionValue[] = [
   { value: 'paid_support', label: 'Paid support' },
 ];
 
+/** Generic yes-only toggle options (Any / Yes only). */
 export const YES_ONLY_OPTIONS: FilterOptionValue[] = [
   { value: '', label: 'Any' },
   { value: 'yes', label: 'Yes only' },
 ];
 
+/** Last-updated time-range filter options. */
 export const LAST_UPDATED_OPTIONS: FilterOptionValue[] = [
   { value: null, label: 'Any time' },
   { value: '30d', label: 'Past 30 days' },
@@ -85,6 +99,7 @@ export const LAST_UPDATED_OPTIONS: FilterOptionValue[] = [
   { value: '1y', label: 'Past 1 year' },
 ];
 
+/** Master configuration of all filter groups and their options. */
 export const FILTER_GROUPS: FilterGroupConfig[] = [
   { key: 'category', label: 'Category', type: 'multi', options: CATEGORY_OPTIONS },
   { key: 'use_case', label: 'Use Case', type: 'multi', options: USE_CASE_OPTIONS },
@@ -107,4 +122,5 @@ export const FILTER_GROUPS: FilterGroupConfig[] = [
   { key: 'last_updated', label: 'Last Updated', type: 'single', options: LAST_UPDATED_OPTIONS },
 ];
 
+/** Categories that should show the model-format filter. */
 export const MODEL_FORMAT_CATEGORIES = ['llm-models', 'embedding-models'];

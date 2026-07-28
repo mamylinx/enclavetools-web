@@ -1,6 +1,7 @@
 import type { CalcState } from '../../interfaces/llm-calculator';
 import { FT_TABLE, FT_SUPPORTED } from './data';
 
+/** Calculates model memory in GB: params × precision × 1.2. */
 export function calcModelMem(s: CalcState): number {
   return s.params * s.precision * 1.2;
 }
@@ -15,6 +16,7 @@ export function calcKvMem(s: CalcState): number {
   return bytes / 1e9;
 }
 
+/** Total memory = model memory + KV cache memory, in GB. */
 export function calcTotal(s: CalcState): number {
   return calcModelMem(s) + calcKvMem(s);
 }
@@ -29,6 +31,7 @@ export function calcFtMem(s: CalcState): number | null {
   return row[col[s.mode]];
 }
 
+/** Cost per million tokens based on annual cost and requests/second throughput. */
 export function calcCostPerM(annualCost: number, throughputRps: number): number | null {
   if (!throughputRps || throughputRps <= 0) return null;
   return annualCost / (throughputRps * 32);

@@ -1,5 +1,6 @@
 import type { IStorage, IStorageEventEmitter } from '../interfaces/storage';
 
+/** Wraps localStorage with null-safe get/set/remove methods. */
 export const localStorageAdapter: IStorage = {
   getItem: (key) => {
     try { return localStorage.getItem(key); } catch { return null; }
@@ -12,6 +13,7 @@ export const localStorageAdapter: IStorage = {
   },
 };
 
+/** Dispatches custom events on window for cross-component communication. */
 export const windowEventEmitter: IStorageEventEmitter = {
   dispatch: (event, detail) => {
     if (typeof window !== 'undefined') {

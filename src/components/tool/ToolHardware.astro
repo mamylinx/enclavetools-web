@@ -1,0 +1,54 @@
+---
+interface Props {
+  enrichedTool: any;
+}
+
+const { enrichedTool } = Astro.props;
+---
+
+<section id="hardware" class="py-12 border-b border-brand-forest/10">
+  <p class="text-xs font-bold uppercase mb-4 text-brand-muted tracking-wider">
+    Hardware Requirements
+  </p>
+  <div class="border border-brand-forest/10 rounded-3xl overflow-hidden border-b-0">
+    <div class="grid grid-cols-[minmax(180px,0.8fr)_1.2fr] border-b border-brand-forest/10">
+    {
+      enrichedTool.model_format &&
+        enrichedTool.model_format.length > 0 && (
+          <span class="p-6 text-sm text-brand-muted border-r border-brand-forest/10"
+            >RAM</span>
+            <strong class="p-6 text-sm font-bold">
+              {enrichedTool.min_ram_gb} GB minimum / {enrichedTool.recommended_ram_gb} GB recommended
+            </strong>
+        )
+    }
+    </div>
+    <div class="grid grid-cols-[minmax(180px,0.8fr)_1.2fr] border-b border-brand-forest/10">
+      <span class="p-6 text-sm text-brand-muted border-r border-brand-forest/10"
+        >Hardware tags</span
+      ><strong class="p-6 text-sm font-bold"
+        >{enrichedTool.hardware?.join(", ") || "Not specified"}</strong
+      >
+    </div>
+    <div class="grid grid-cols-[minmax(180px,0.8fr)_1.2fr] border-b border-brand-forest/10">
+      {
+        enrichedTool.model_format &&
+          enrichedTool.model_format.length > 0 && (
+              <span class="p-6 text-sm text-brand-muted border-r border-brand-forest/10">
+                Model formats
+              </span>
+              <strong class="p-6 text-sm font-bold">
+                {enrichedTool.model_format?.join(", ") || "Not specified"}
+              </strong>
+          )
+      }
+    </div>
+    <div class="grid grid-cols-[minmax(180px,0.8fr)_1.2fr] border-b border-brand-forest/10">
+      <span class="p-6 text-sm text-brand-muted border-r border-brand-forest/10"
+        >Languages</span
+      ><strong class="p-6 text-sm font-bold"
+        >{enrichedTool.language?.join(", ") || "Not specified"}</strong
+      >
+    </div>
+  </div>
+</section>

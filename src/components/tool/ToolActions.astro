@@ -1,0 +1,130 @@
+---
+interface Props {
+  enrichedTool: any;
+  slug: string;
+  category: string;
+}
+
+const { enrichedTool, slug, category } = Astro.props;
+import BookmarkButton from "../BookmarkButton.vue";
+---
+
+<div class="flex flex-wrap gap-3 justify-center">
+  {
+    enrichedTool.github_url || enrichedTool.url ? (
+      <a
+        href={enrichedTool.github_url || enrichedTool.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center h-12 border border-brand-forest/10 px-4 font-bold uppercase tracking-wider text-xs bg-brand-forest text-white hover:bg-black rounded-full transition-colors no-underline shadow-sm"
+      >
+        View on GitHub
+      </a>
+    ) : null
+  }
+
+  {
+    enrichedTool.url ? (
+      <a
+        href={enrichedTool.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center h-12 border border-brand-forest/10 px-4 font-bold uppercase tracking-wider text-xs bg-white text-brand-forest hover:bg-brand-teal hover:text-white hover:border-brand-teal rounded-full transition-colors no-underline"
+      >
+        Official site
+      </a>
+    ) : null
+  }
+  <button
+    class="inline-flex items-center h-12 border border-brand-forest/10 px-4 font-bold uppercase tracking-wider text-xs bg-white text-brand-forest hover:bg-brand-teal hover:text-white hover:border-brand-teal rounded-full transition-colors no-underline"
+    data-tool-action="share"
+  >
+    Share
+  </button>
+  <button
+    class="inline-flex items-center h-12 border border-brand-forest/10 px-4 font-bold uppercase tracking-wider text-xs bg-white text-brand-forest hover:bg-brand-teal hover:text-white hover:border-brand-teal rounded-full transition-colors no-underline"
+    data-tool-action="compare"
+    data-slug={slug}
+  >
+    Add to compare
+  </button>
+  <div class="relative" id="stack-picker-anchor">
+    <button
+      class="inline-flex items-center h-12 border border-brand-forest/10 px-4 font-bold uppercase tracking-wider text-xs bg-white text-brand-forest hover:bg-brand-teal hover:text-white hover:border-brand-teal rounded-full transition-colors no-underline"
+      data-tool-action="stack"
+      data-slug={slug}
+      id="add-to-stack-btn"
+      aria-haspopup="true"
+      aria-expanded="false"
+      aria-controls="stack-picker-dropdown"
+    >
+      Add to stack
+    </button>
+    <div
+      id="stack-picker-dropdown"
+      role="dialog"
+      aria-label="Choose a stack"
+      aria-modal="true"
+      class="hidden absolute left-0 top-full mt-1 z-50 min-w-[260px] border border-brand-forest/10 bg-white shadow-sm rounded-2xl"
+    >
+      <p
+        class="px-4 pt-3 pb-2 text-xs font-bold uppercase tracking-wider text-brand-muted"
+      >
+        Choose a stack
+      </p>
+      <div
+        id="stack-picker-list"
+        class="flex flex-col max-h-56 overflow-y-auto border-t border-brand-forest/10"
+      >
+      </div>
+      <div
+        class="border-t border-brand-forest/10"
+        id="stack-picker-footer"
+      >
+        <button
+          id="stack-picker-new"
+          class="w-full text-left px-4 py-3 text-xs font-bold uppercase tracking-wider text-brand-forest hover:bg-brand-teal hover:text-white transition-colors"
+        >
+          + Create new stack
+        </button>
+        <div
+          id="stack-picker-create-form"
+          class="hidden px-3 py-3 flex flex-col gap-2"
+        >
+          <input
+            id="stack-picker-name-input"
+            type="text"
+            maxlength="30"
+            placeholder="Stack name"
+            class="w-full border border-brand-forest/10 px-3 h-10 text-xs font-bold text-brand-forest focus:outline-none focus:border-brand-teal transition-colors rounded-full"
+          />
+          <div class="flex gap-2">
+            <button
+              id="stack-picker-confirm"
+              type="button"
+              class="flex-1 h-10 bg-brand-forest text-white text-xs font-bold uppercase tracking-wider hover:bg-black transition-colors border-none cursor-pointer rounded-full shadow-sm"
+            >
+              Create
+            </button>
+            <button
+              id="stack-picker-cancel"
+              type="button"
+              class="flex-1 h-10 border border-brand-forest/10 text-brand-forest text-xs font-bold uppercase tracking-wider hover:bg-brand-bg transition-colors cursor-pointer bg-white rounded-full"
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <BookmarkButton
+    client:load
+    slug={slug}
+    title={enrichedTool.title}
+    body={enrichedTool.body}
+    url={enrichedTool.url}
+    category={category}
+    variant="default"
+  />
+</div>

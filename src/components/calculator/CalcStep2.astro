@@ -1,0 +1,152 @@
+<div id="step2" class="hidden fade-in">
+  <div class="card mb-3">
+    <p class="sec-hdr">Step 2 of 5 — Prompts and responses</p>
+    <h2 class="text-base font-bold text-brand-forest mb-1">
+      How long are your prompts and responses?
+    </h2>
+    <p class="text-brand-muted text-xs mb-1">
+      The full length is the <strong class="text-brand-forest/70"
+        >context window</strong
+      >: your prompt plus the response. This length drives how much memory the
+      AI holds while it works — longer prompts and responses need more memory
+      per person.
+    </p>
+    <p class="note mb-4">
+      A token is a short piece of text — about 4 characters. A 1,000-word
+      document is roughly 1,333 tokens.
+    </p>
+
+    <div class="info-box mb-4">
+      <strong class="text-brand-teal">Total length = </strong>
+      <span
+        id="ctxWindowLive"
+        class="text-brand-forest text-xl font-extrabold">4,500</span
+      >
+      <span class="text-brand-muted text-sm"> tokens</span>
+      <span class="text-brand-muted block text-xs mt-1"
+        >(your prompt plus the response — this is what the AI holds in memory)</span
+      >
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
+      <div>
+        <label class="field-label">Average input tokens per request</label>
+        <span class="field-sub"
+          >Your system instructions, the user's message, and any documents you
+          include.</span
+        >
+        <div class="range-row mb-2">
+          <input
+            type="range"
+            id="inTokR"
+            min="100"
+            max="100000"
+            step="100"
+            value="4000"
+            data-input="syncToken"
+            data-target="inTok"
+          />
+          <span class="range-val" id="inTokV">4,000</span>
+        </div>
+        <input
+          type="number"
+          id="inTok"
+          value="4000"
+          min="1"
+          max="128000"
+          data-input="syncSlider"
+          data-range="inTokR"
+          data-view="inTokV"
+          class="mt-1"
+        />
+        <div class="flex justify-between mt-1">
+          <span class="note">100</span><span class="note"
+            >128,000 (max Llama 3.1)</span
+          >
+        </div>
+      </div>
+      <div>
+        <label class="field-label">Average output tokens per response</label>
+        <span class="field-sub"
+          >How long the AI's reply typically is. A short answer ≈ 100–300
+          tokens; a full report ≈ 1,000–4,000.</span
+        >
+        <div class="range-row mb-2">
+          <input
+            type="range"
+            id="outTokR"
+            min="50"
+            max="8000"
+            step="50"
+            value="500"
+            data-input="syncToken"
+            data-target="outTok"
+          />
+          <span class="range-val" id="outTokV">500</span>
+        </div>
+        <input
+          type="number"
+          id="outTok"
+          value="500"
+          min="1"
+          max="8000"
+          data-input="syncSlider"
+          data-range="outTokR"
+          data-view="outTokV"
+          class="mt-1"
+        />
+      </div>
+    </div>
+
+    <div>
+      <label class="field-label mb-2">Quick presets</label>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+        <button
+          class="choice-btn-sm"
+          data-action="setTokens"
+          data-in="500"
+          data-out="200"
+          ><div class="ct">Short Q&amp;A</div><div class="cd">
+            700 tokens
+          </div></button
+        >
+        <button
+          class="choice-btn-sm"
+          data-action="setTokens"
+          data-in="2000"
+          data-out="800"
+          ><div class="ct">Document summary</div><div class="cd">
+            2,800 tokens
+          </div></button
+        >
+        <button
+          class="choice-btn-sm"
+          data-action="setTokens"
+          data-in="7000"
+          data-out="1000"
+          ><div class="ct">Long document</div><div class="cd">
+            8,000 tokens
+          </div></button
+        >
+        <button
+          class="choice-btn-sm"
+          data-action="setTokens"
+          data-in="60000"
+          data-out="4000"
+          ><div class="ct">RAG knowledge base</div><div class="cd">
+            64,000 tokens
+          </div></button
+        >
+      </div>
+    </div>
+  </div>
+
+  <div class="flex flex-col sm:flex-row sm:justify-between gap-3">
+    <button class="btn-ghost" data-action="goStep" data-step="1"
+      >← Back</button
+    >
+    <button class="btn-primary" data-action="goStep" data-step="3"
+      >Next: how many people →</button
+    >
+  </div>
+</div>

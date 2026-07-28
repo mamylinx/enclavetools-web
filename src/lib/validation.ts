@@ -2,6 +2,7 @@ import { z } from 'zod';
 
 const ALLOWED_DOMAINS = ['github.com', 'huggingface.co', 'kaggle.com', 'bitbucket.org', 'gitlab.com'];
 
+/** Zod schema for validating tool submission URL and Turnstile token. */
 export const submitUrlSchema = z.object({
   url: z.string().url("Must be a valid URL")
     .max(500, "URL too long")

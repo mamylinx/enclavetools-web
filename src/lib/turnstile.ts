@@ -1,5 +1,6 @@
 import type { CloudflareEnv } from '../interfaces/env';
 
+/** Verifies a Turnstile token via the configured Turnstile worker endpoint. */
 export async function verifyTurnstileToken(
   env: CloudflareEnv,
   token: string

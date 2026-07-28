@@ -9,6 +9,7 @@ const MODE_LABELS: Record<string, string> = {
   full: 'Full FT 16-bit',
 };
 
+/** Updates the summary bar at the top with current model/tokens/users/mode. */
 export function renderSummaryBar(): void {
   const s = store.state;
   const bar = document.getElementById('summaryBar')!;

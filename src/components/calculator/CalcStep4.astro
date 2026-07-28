@@ -1,0 +1,161 @@
+<div id="step4" class="hidden fade-in">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-3 mb-3">
+    <div class="card">
+      <p class="sec-hdr">Step 4 of 5 — Reply speed</p>
+      <h2 class="text-base font-bold text-brand-forest mb-1">
+        How fast does the AI need to respond?
+      </h2>
+      <p class="text-brand-muted text-xs mb-3">
+        Two speeds affect your hardware. Tighter limits mean the system
+        handles fewer people at once.
+      </p>
+
+      <div class="info-box mb-3 text-xs">
+        <strong class="text-brand-teal">Time to first word (TTFT)</strong> — how
+        long until the first word shows up.<br />
+        <strong class="text-brand-teal mt-1 block"
+          >Total time for the reply (TTLT)</strong
+        > — from sending the prompt to getting the whole response.
+      </div>
+
+      <div class="grid grid-cols-1 gap-3">
+        <div>
+          <label class="field-label"
+            >Max time to first word (TTFT), in seconds <span
+              class="optional-pill">optional</span
+            ></label
+          >
+          <input
+            type="number"
+            id="ttft"
+            value="2"
+            min="0.1"
+            max="60"
+            step="0.1"
+            data-input="updateStep4Cta"
+          />
+        </div>
+        <div>
+          <label class="field-label"
+            >Max total time for the reply (TTLT), in seconds <span
+              class="optional-pill">optional</span
+            ></label
+          >
+          <input
+            type="number"
+            id="ttlt"
+            value="30"
+            min="1"
+            max="600"
+            step="1"
+            data-input="updateStep4Cta"
+          />
+        </div>
+      </div>
+
+      <div class="warn-box text-xs mt-3">
+        ⚠️ Tighter speed limits cut how much the system can do at once. These
+        are planning targets — check your GPU's real benchmarks before you
+        buy.
+      </div>
+
+      <div
+        class="card mb-5 border-brand-teal bg-brand-forest/5 text-center p-6 mt-4"
+      >
+        <h2 class="text-xl font-bold text-brand-forest mb-2">
+          Don't guess your hardware needs.
+        </h2>
+        <p class="text-brand-muted text-sm mb-4">
+          Calculators give you targets, but real-world performance varies. Get
+          certainty before you buy.
+        </p>
+        <a
+          href="/benchmark-offer"
+          id="step4Cta"
+          class="
+          btn-primary
+          block
+          w-full
+          md:w-auto
+          md:inline-block
+          text-center">Get Custom Sizing & Benchmark Data</a
+        >
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 class="text-base font-bold text-brand-forest mb-1">
+        Do you also train the AI?
+      </h3>
+      <p class="text-brand-muted text-xs mb-3">
+        Training needs much more memory than just running it, but only while
+        training runs.
+      </p>
+      <div class="flex flex-col gap-2">
+        <button
+          class="choice-btn-sm sel"
+          data-action="selMode"
+          data-mode="inference"
+        >
+          <div class="ct">✓ Inference only — just run the AI</div>
+        </button>
+        <details class="collapsible-section">
+          <summary
+            >Training methods <span class="optional-pill">optional</span
+            ></summary
+          >
+          <div class="mt-2 flex flex-col gap-2">
+            <button
+              class="choice-btn-sm"
+              data-action="selMode"
+              data-mode="qlora4"
+            >
+              <div class="ct">Train with QLoRA 4-bit</div>
+              <div class="cd">Uses ~93% less memory than full training.</div>
+            </button>
+            <button
+              class="choice-btn-sm"
+              data-action="selMode"
+              data-mode="qlora8"
+            >
+              <div class="ct">Train with QLoRA 8-bit</div>
+              <div class="cd">Uses ~87% less memory than full training.</div>
+            </button>
+            <button
+              class="choice-btn-sm"
+              data-action="selMode"
+              data-mode="lora"
+            >
+              <div class="ct">Train with LoRA 16-bit</div>
+              <div class="cd">Uses ~78% less memory. High quality.</div>
+            </button>
+            <button
+              class="choice-btn-sm"
+              data-action="selMode"
+              data-mode="full"
+            >
+              <div class="ct">Train fully (16-bit)</div>
+              <div class="cd">
+                Best quality. Needs a lot of memory. For expert teams.
+              </div>
+            </button>
+          </div>
+        </details>
+      </div>
+      <div id="ftNotSupported" class="warn-box mt-3 text-xs hidden">
+        ⚠️ The fine-tuning memory table only covers 7B, 13B, 30B, 70B, and
+        110B models. Training memory for this size is not estimated, to avoid
+        guessing.
+      </div>
+    </div>
+  </div>
+
+  <div class="flex flex-col sm:flex-row sm:justify-between gap-3">
+    <button class="btn-ghost" data-action="goStep" data-step="3"
+      >← Back</button
+    >
+    <button class="btn-primary" data-action="goStep" data-step="5"
+      >Next: your GPUs and results →</button
+    >
+  </div>
+</div>

@@ -1,0 +1,27 @@
+---
+interface Props {
+  scorecard: [string, string][];
+}
+
+const { scorecard } = Astro.props;
+---
+
+<section id="technical" class="py-12 border-b border-brand-forest/10">
+  <p class="text-xs font-bold uppercase mb-4 text-brand-muted tracking-wider">
+    Technical scorecard
+  </p>
+  <div class="border border-brand-forest/10 rounded-3xl overflow-hidden border-b-0">
+    {
+      scorecard.map(([label, value]) => (
+        <div class="grid grid-cols-[minmax(180px,0.8fr)_1.2fr] border-b border-brand-forest/10">
+          <>
+            <span class="p-6 text-sm text-brand-muted border-r border-brand-forest/10">
+              {label}
+            </span>
+            <strong class="p-6 text-sm font-bold">{value}</strong>
+          </>
+        </div>
+      ))
+    }
+  </div>
+</section>

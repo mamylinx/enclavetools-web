@@ -6,6 +6,7 @@ const LEGACY_KEY = 'enclavetools-stack';
 const MAX_TOOLS = 8;
 const MAX_NAME_LENGTH = 30;
 
+/** A saved tool stack with a name and list of tool slugs. */
 export interface StoredStack {
   id: string;
   name: string;
@@ -53,15 +54,18 @@ function migrate(): void {
   }
 }
 
+/** Returns all saved stacks, running legacy migration if needed. */
 export function getAll(): StoredStack[] {
   migrate();
   return read();
 }
 
+/** Returns a single stack by ID, or undefined if not found. */
 export function get(id: string): StoredStack | undefined {
   return getAll().find((s) => s.id === id);
 }
 
+/** Creates a new empty stack and sets it as active. */
 export function create(name: string): StoredStack {
   const stacks = getAll();
   const trimmed = name.trim().slice(0, MAX_NAME_LENGTH) || 'New Stack';
@@ -72,6 +76,7 @@ export function create(name: string): StoredStack {
   return stack;
 }
 
+/** Deletes a stack by ID; switches active stack if the deleted one was active. */
 export function remove(id: string): void {
   let stacks = getAll();
   stacks = stacks.filter((s) => s.id !== id);
@@ -83,6 +88,7 @@ export function remove(id: string): void {
   }
 }
 
+/** Renames an existing stack. Returns the updated stack or undefined if not found. */
 export function rename(id: string, name: string): StoredStack | undefined {
   const stacks = getAll();
   const stack = stacks.find((s) => s.id === id);
@@ -93,6 +99,7 @@ export function rename(id: string, name: string): StoredStack | undefined {
   return stack;
 }
 
+/** Duplicates a stack with a copy suffix. Returns the new stack or undefined if original not found. */
 export function duplicate(id: string): StoredStack | undefined {
   const original = get(id);
   if (!original) return;
@@ -109,6 +116,7 @@ export function duplicate(id: string): StoredStack | undefined {
   return stack;
 }
 
+/** Adds a tool slug to a stack. Returns false if stack is full or slug already present. */
 export function addTool(id: string, slug: string): boolean {
   const stacks = getAll();
   const stack = stacks.find((s) => s.id === id);
@@ -119,6 +127,7 @@ export function addTool(id: string, slug: string): boolean {
   return true;
 }
 
+/** Removes a tool slug from a stack. Returns false if stack or slug not found. */
 export function removeTool(id: string, slug: string): boolean {
   const stacks = getAll();
   const stack = stacks.find((s) => s.id === id);
@@ -131,19 +140,23 @@ export function removeTool(id: string, slug: string): boolean {
   return true;
 }
 
+/** Returns the ID of the currently active stack, or null. */
 export function getActive(): string | null {
   return storage.getItem(ACTIVE_KEY);
 }
 
+/** Sets the active stack by ID. */
 export function setActive(id: string): void {
   storage.setItem(ACTIVE_KEY, id);
 }
 
+/** Returns the full active stack object, or undefined if none. */
 export function getActiveStack(): StoredStack | undefined {
   const a = getActive();
   return a ? get(a) : undefined;
 }
 
+/** Returns the number of tools in a given stack. */
 export function toolCount(id: string): number {
   return get(id)?.tools.length || 0;
 }

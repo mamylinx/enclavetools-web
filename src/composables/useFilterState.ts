@@ -1,9 +1,8 @@
 import { reactive, computed, watch, onMounted } from 'vue';
-import type { FilterState } from '../interfaces/tool';
+import type { FilterState } from '../types';
 import { MODEL_FORMAT_CATEGORIES } from './filterConfig';
+import { PARAM_MAP, ARRAY_KEYS } from './filterDefinitions';
 import {
-  PARAM_MAP,
-  ARRAY_GROUPS,
   createDefaultState,
   loadFromStorage,
   saveToStorage,
@@ -12,10 +11,11 @@ import {
   hasActiveFilters,
   clearAllStorage,
 } from './filterSerializer';
-import { getActiveFiltersForDisplay } from './filterDisplay';
-import { toApiParams } from './filterApiParams';
+import { getActiveFiltersForDisplay } from './filterDefinitions';
+import { toApiParams } from './filterDefinitions';
 import { useActiveFilterCount } from './filterCounter';
 
+/** Composable that manages filter state, URL sync, localStorage persistence, and filter actions. */
 export function useFilterState() {
   const state = reactive<FilterState>(createDefaultState());
   let hasLoadedFromStorage = false;
@@ -71,18 +71,12 @@ export function useFilterState() {
   }
 
   function clearFilter<K extends keyof FilterState>(key: K) {
-    if (ARRAY_GROUPS.includes(key)) {
+    if (ARRAY_KEYS.has(key)) {
       (state[key] as string[]) = [];
     } else if (key === 'sort') {
       state.sort = 'featured';
-    } else if (key === 'commercial_use') {
-      state.commercial_use = null;
-    } else if (key === 'offline_after_setup') {
-      state.offline_after_setup = null;
-    } else if (key === 'telemetry') {
-      state.telemetry = null;
-    } else if (key === 'last_updated') {
-      state.last_updated = null;
+    } else {
+      (state[key] as string | null) = null;
     }
   }
 
@@ -108,7 +102,7 @@ export function useFilterState() {
       clearAllStorage();
       const params = new URLSearchParams(window.location.search);
       for (const [key] of params) {
-        if (!Object.keys(PARAM_MAP).includes(key)) continue;
+        if (!PARAM_MAP.has(key)) continue;
         params.delete(key);
       }
       const qs = params.toString();

@@ -2,6 +2,7 @@ import type { ToolWithCategory } from '../utils/toolModel';
 import type { FilterState } from '../interfaces/tool';
 import { FILTER_REGISTRY } from './filterRegistry';
 
+/** Checks if a tool's last-updated date falls within the given range (30d/6m/1y). */
 export function matchesDateFilter(tool: ToolWithCategory, lastUpdated: string): boolean {
   const ts = tool.last_updated || tool['date-added'];
   if (!ts) return false;
@@ -14,10 +15,12 @@ export function matchesDateFilter(tool: ToolWithCategory, lastUpdated: string): 
   return true;
 }
 
+/** Returns true if any element of arr2 exists in arr1. */
 export function intersection(arr1: string[], arr2: string[]): boolean {
   return arr2.length === 0 || arr2.some((v) => arr1.includes(v));
 }
 
+/** Filters tools in-memory using the full FILTER_REGISTRY predicates. */
 export function postFilter(tools: ToolWithCategory[], filters: FilterState): ToolWithCategory[] {
   return tools.filter((tool) =>
     FILTER_REGISTRY.every(({ key, match }) => match(tool, filters[key])),

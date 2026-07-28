@@ -5,6 +5,7 @@ import { checkRateLimit } from '../../lib/rate-limit';
 import { submitUrlSchema } from '../../lib/validation';
 import { verifyTurnstileToken } from '../../lib/turnstile';
 
+/** Handles tool submission: validates URL, checks Turnstile, inserts into pending_tools. */
 export const POST: APIRoute = async (context) => {
   const ip = context.request.headers.get('CF-Connecting-IP') || '127.0.0.1';
 

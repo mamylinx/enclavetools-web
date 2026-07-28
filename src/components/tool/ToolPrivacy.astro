@@ -1,0 +1,58 @@
+---
+interface Props {
+  enrichedTool: any;
+  formatDate: (dateStr: string) => string;
+}
+
+const { enrichedTool, formatDate } = Astro.props;
+---
+
+<section id="privacy" class="py-12 border-b border-brand-forest/10">
+  <p class="text-xs font-bold uppercase mb-4 text-brand-muted tracking-wider">
+    Data &amp; Privacy
+  </p>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div class="bg-white border border-brand-forest/10 rounded-3xl p-6">
+      <h2 class="text-xl font-bold mb-2">
+        Does it send data online?
+      </h2><p class="text-sm leading-relaxed text-brand-forest/80">
+        {
+          enrichedTool.offline_after_setup
+            ? "After setup, this listing is marked as usable offline. Confirm network behavior against the upstream project before regulated deployment."
+            : "This listing is not marked offline after setup."
+        }
+      </p>
+    </div>
+    <div class="bg-white border border-brand-forest/10 rounded-3xl p-6">
+      <h2 class="text-xl font-bold mb-2">Does it store history?</h2><p
+        class="text-sm leading-relaxed text-brand-forest/80"
+      >
+        Not verified in this directory yet. Review the upstream docs for
+        persistence, logs, and workspace storage.
+      </p>
+    </div>
+    <div class="bg-white border border-brand-forest/10 rounded-3xl p-6">
+      <h2 class="text-xl font-bold mb-2">License checks?</h2><p
+        class="text-sm leading-relaxed text-brand-forest/80"
+      >
+        {
+          enrichedTool.commercial_use
+            ? "Commercial use is marked as allowed or likely allowed by the listed license."
+            : "The listed license needs review before commercial use."
+        }
+      </p>
+    </div>
+    <div class="bg-white border border-brand-forest/10 rounded-3xl p-6">
+      <h2 class="text-xl font-bold mb-2">Telemetry?</h2><p
+        class="text-sm leading-relaxed text-brand-forest/80"
+      >
+        {enrichedTool.telemetry}
+      </p>
+    </div>
+  </div>
+  <p class="mt-4 text-brand-muted text-sm">
+    Last verified: {formatDate(enrichedTool.last_verified)}. Maintainer
+    verification should be treated as directory guidance, not legal
+    advice.
+  </p>
+</section>

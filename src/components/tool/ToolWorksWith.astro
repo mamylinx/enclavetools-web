@@ -1,0 +1,39 @@
+---
+interface Props {
+  slug: string;
+  worksWithTools: any[];
+}
+
+const { slug, worksWithTools } = Astro.props;
+---
+
+<section id="works-with" class="py-12 border-b border-brand-forest/10">
+  <p class="text-xs font-bold uppercase mb-4 text-brand-muted tracking-wider">
+    Works Well With
+  </p>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    {
+      worksWithTools.map((t: any) => (
+        <a
+          href={`/tools/${t.slug}`}
+          class="flex flex-col gap-2 bg-white border border-brand-forest/10 rounded-3xl p-6 no-underline hover:bg-brand-tealLight transition-all duration-200 group hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(27,54,27,0.08)]"
+        >
+          <strong class="text-xl font-bold text-brand-forest group-hover:text-brand-teal transition-colors">
+            {t.title}
+          </strong>
+          <span class="text-brand-muted leading-snug text-sm">
+            {t.body?.slice(0, 120)}...
+          </span>
+        </a>
+      ))
+    }
+  </div>
+  <div class="mt-4">
+    <a
+      href={`/stack-builder?stack=${[slug, ...worksWithTools.slice(0, 3).map((item: any) => item.slug)].join(",")}`}
+      class="border border-brand-forest/10 bg-white text-brand-forest px-4 h-12 font-bold cursor-pointer hover:bg-brand-teal hover:text-white transition-colors no-underline text-sm inline-flex items-center rounded-full"
+    >
+      Open suggested stack
+    </a>
+  </div>
+</section>

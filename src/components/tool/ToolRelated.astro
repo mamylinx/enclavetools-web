@@ -1,0 +1,32 @@
+---
+interface Props {
+  relatedTools: any[];
+}
+
+const { relatedTools } = Astro.props;
+---
+
+{
+  relatedTools.length > 0 && (
+    <section id="related" class="py-12 border-b border-brand-forest/10">
+      <p class="text-xs font-bold uppercase mb-4 text-brand-muted tracking-wider">
+        You might also evaluate
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {relatedTools.map((t: any) => (
+          <a
+            href={`/tools/${t.slug}`}
+            class="flex flex-col gap-2 bg-white border border-brand-forest/10 rounded-3xl p-6 no-underline hover:bg-brand-tealLight transition-all duration-200 group hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(27,54,27,0.08)]"
+          >
+            <strong class="text-xl font-bold text-brand-forest group-hover:text-brand-teal transition-colors">
+              {t.title}
+            </strong>
+            <span class="text-brand-muted leading-snug text-sm">
+              {t.body?.slice(0, 120)}...
+            </span>
+          </a>
+        ))}
+      </div>
+    </section>
+  )
+}

@@ -1,0 +1,67 @@
+<div class="card mb-3">
+  <p class="sec-hdr">Your GPUs</p>
+  <h2 class="text-base font-bold text-brand-forest mb-1">Add your GPUs</h2>
+  <p class="text-brand-muted text-xs mb-4">
+    Pick from the list or enter your own. We'll show how many GPUs you need
+    and, once you add prices, what it costs to run per million prompts.
+  </p>
+
+  <div class="mb-4">
+    <label class="field-label">Pick from GPU catalog</label>
+    <span class="field-sub"
+      >Includes datacenter, workstation, and consumer GPUs from NVIDIA, AMD,
+      and Intel. Add more than one to compare.</span
+    >
+    <div class="flex flex-col sm:flex-row gap-2">
+      <div class="flex-1 relative min-w-0">
+        <select id="gpuCatalogSelect" class="pr-9 w-full">
+          <option value="">— Choose a GPU to add —</option>
+        </select>
+      </div>
+      <button
+        class="btn-primary"
+        style="padding:11px 18px;white-space:nowrap;"
+        data-action="addFromCatalog">+ Add</button
+      >
+    </div>
+  </div>
+
+  <div class="flex items-center gap-3 mb-3">
+    <div class="flex-1 h-px bg-brand-forest/10"></div>
+    <span
+      class="text-brand-muted text-xs font-bold uppercase tracking-widest"
+      >or add your own GPU</span
+    >
+    <div class="flex-1 h-px bg-brand-forest/10"></div>
+  </div>
+  <button class="btn-sm mb-4" data-action="addGpuRow"
+    >+ Add a GPU manually</button
+  >
+
+  <div id="gpuTableWrap" class="hidden gpu-table-container">
+    <div class="overflow-x-auto mb-2">
+      <table id="gpuTable">
+        <thead>
+          <tr>
+            <th style="min-width:200px">GPU name</th>
+            <th style="min-width:110px">Memory per GPU (GB)</th>
+            <th style="min-width:160px"
+              >Price per GPU <span class="optional-pill">optional</span></th
+            >
+            <th style="min-width:160px"
+              >Yearly opex per GPU <span class="optional-pill"
+                >optional</span
+              ></th
+            >
+            <th style="width:36px"></th>
+          </tr>
+        </thead>
+        <tbody id="gpuBody"></tbody>
+      </table>
+    </div>
+    <p class="note">
+      Yearly opex = power + space + upkeep for each GPU. Add price and opex
+      to see your cost per prompt.
+    </p>
+  </div>
+</div>

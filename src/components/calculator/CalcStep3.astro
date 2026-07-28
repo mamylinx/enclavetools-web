@@ -1,0 +1,136 @@
+<div id="step3" class="hidden fade-in">
+  <div class="card mb-3">
+    <p class="sec-hdr">Step 3 of 5 — Concurrent users</p>
+    <h2 class="text-base font-bold text-brand-forest mb-1">
+      How many concurrent users will use the AI at peak?
+    </h2>
+    <p class="text-brand-muted text-xs mb-1">
+      Size for your busiest moment, not your average. Your true peak is
+      derived from your average requests per second.
+    </p>
+    <p class="note mb-4">
+      If you don't plan for peak use, each prompt can cost you more.
+    </p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+      <div>
+        <label class="field-label">Concurrent users at peak</label>
+        <span class="field-sub"
+          >How many people send a request at the same moment during your
+          busiest hour.</span
+        >
+        <div class="range-row mb-2">
+          <input
+            type="range"
+            id="usersR"
+            min="1"
+            max="500"
+            value="10"
+            data-input="syncToken"
+            data-target="usersN"
+          />
+          <span class="range-val" id="usersV">10</span>
+        </div>
+        <input
+          type="number"
+          id="usersN"
+          value="10"
+          min="1"
+          max="10000"
+          data-input="syncSlider"
+          data-range="usersR"
+          data-view="usersV"
+        />
+      </div>
+      <div>
+        <label class="field-label"
+          >Average requests per second (RPS) <span class="optional-pill"
+            >optional</span
+          ></label
+        >
+        <span class="field-sub"
+          >Optional but useful: we use this to work out your peak load and
+          your cost per prompt.</span
+        >
+        <input
+          type="number"
+          id="rpsAvg"
+          value="1"
+          min="0.01"
+          max="1000"
+          step="0.1"
+          data-input="calcPoissonPeak"
+        />
+        <div id="rpsPeak" class="info-box mt-2 text-xs">
+          Enter your requests per second to see your estimated peak.
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-2">
+      <button class="btn-sm mb-3" data-action="toggleArchOverride"
+        >Override model architecture <span class="optional-pill"
+          >optional</span
+        ></button
+      >
+      <div id="archOverride" class="hidden">
+        <div class="warn-box mb-3 text-xs">
+          These details come from the model itself and feed the memory
+          formula. The values are pre-filled from the model's public specs.
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="field-label">Layers</label>
+            <input
+              type="number"
+              id="ovrLayers"
+              class="gpu-input"
+              data-input="recalcLive"
+            />
+          </div>
+          <div>
+            <label class="field-label">Attention heads</label>
+            <input
+              type="number"
+              id="ovrAttnH"
+              class="gpu-input"
+              data-input="recalcLive"
+            />
+          </div>
+          <div>
+            <label class="field-label">KV heads</label>
+            <span class="field-sub"
+              >If your model gives a KV head count directly, enter it here.
+              Same as attention heads for standard models; 1 for the simplest
+              design.</span
+            >
+            <input
+              type="number"
+              id="ovrKvH"
+              class="gpu-input"
+              data-input="recalcLive"
+            />
+          </div>
+          <div>
+            <label class="field-label">Head dimension</label>
+            <input
+              type="number"
+              id="ovrDHead"
+              class="gpu-input"
+              data-input="recalcLive"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex flex-col sm:flex-row sm:justify-between gap-3">
+    <button class="btn-ghost" data-action="goStep" data-step="2"
+      >← Back</button
+    >
+    <button class="btn-primary" data-action="goStep" data-step="4"
+      >Next: reply speed →</button
+    >
+  </div>
+</div>

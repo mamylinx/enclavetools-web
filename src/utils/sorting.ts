@@ -1,6 +1,7 @@
 import type { Tool } from '../types';
 import { isRecentlyAdded } from './dates';
 
+/** Comparator functions for each available sort key. */
 export const toolComparators = {
     nameAsc: (a: Tool, b: Tool): number => a.title.localeCompare(b.title),
     nameDesc: (a: Tool, b: Tool): number => b.title.localeCompare(a.title),
@@ -31,13 +32,16 @@ export const toolComparators = {
     },
 } as const;
 
+/** Available sort keys, including tool-based comparators and 'random'. */
 export type SortKey = keyof typeof toolComparators | 'random';
 
+/** Sorts a copy of the tools array by the given key. */
 export function sortTools(tools: Tool[], sortKey: keyof typeof toolComparators): Tool[] {
     const comparator = toolComparators[sortKey];
     return [...tools].sort(comparator);
 }
 
+/** Creates a seeded PRNG using the Mulberry32 algorithm. */
 export function mulberry32(seed: number): () => number {
     return function (): number {
         let a = seed;
@@ -50,6 +54,7 @@ export function mulberry32(seed: number): () => number {
     };
 }
 
+/** Shuffles an array deterministically using a seeded PRNG. */
 export function seededShuffle<T>(arr: T[], seed: number): T[] {
     const rnd = mulberry32(seed || 1);
     const result: T[] = [...arr];

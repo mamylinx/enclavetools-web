@@ -16,6 +16,7 @@ function booleanFilter(toolField: boolean, filterValue: string | null): boolean 
   return filterValue !== 'yes' || toolField;
 }
 
+/** Registry of filter key → predicate functions for post-filtering tools. */
 export const FILTER_REGISTRY: Array<{
   key: keyof FilterState;
   match: FilterPredicate;

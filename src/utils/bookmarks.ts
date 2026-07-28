@@ -3,6 +3,7 @@ import { localStorageAdapter as storage, windowEventEmitter as events } from '..
 
 const STORAGE_KEY = 'rom_bookmarks';
 
+/** Returns all bookmarked tools from storage. */
 export function getBookmarks(): BookmarkedTool[] {
     try {
         const stored = storage.getItem(STORAGE_KEY);
@@ -22,12 +23,14 @@ function saveBookmarks(bookmarks: BookmarkedTool[]): void {
     }
 }
 
+/** Checks whether a tool is bookmarked by its slug. */
 export function isBookmarked(slug: string): boolean {
     if (!slug) return false;
     const bookmarks = getBookmarks();
     return bookmarks.some(b => b.slug === slug);
 }
 
+/** Adds a tool to bookmarks. Returns true if added, false if already present. */
 export function addBookmark(tool: BookmarkedTool): boolean {
     if (!tool.slug) return false;
 
@@ -40,6 +43,7 @@ export function addBookmark(tool: BookmarkedTool): boolean {
     return false;
 }
 
+/** Removes a bookmark by slug. Returns true if removed, false if not found. */
 export function removeBookmark(slug: string): boolean {
     if (!slug) return false;
 
@@ -53,6 +57,7 @@ export function removeBookmark(slug: string): boolean {
     return false;
 }
 
+/** Toggles a tool's bookmark state. Returns true if now bookmarked, false if unbookmarked. */
 export function toggleBookmark(tool: BookmarkedTool): boolean {
     if (isBookmarked(tool.slug)) {
         removeBookmark(tool.slug);
@@ -63,10 +68,12 @@ export function toggleBookmark(tool: BookmarkedTool): boolean {
     }
 }
 
+/** Returns the full list of bookmarked tools (alias for getBookmarks). */
 export function getBookmarkedTools(): BookmarkedTool[] {
     return getBookmarks();
 }
 
+/** Returns the number of bookmarked tools. */
 export function getBookmarkCount(): number {
     return getBookmarks().length;
 }

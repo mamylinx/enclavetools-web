@@ -4,6 +4,7 @@ function randomIndex(min: number, max: number) {
   return Math.floor(Math.random() * (max - min)) + min
 }
 
+/** Returns a computed set of random sidebar slot positions based on card count. */
 export function randomSidebarPositions(cardCount: Ref<number>) {
   return computed(() => {
     const count = cardCount.value

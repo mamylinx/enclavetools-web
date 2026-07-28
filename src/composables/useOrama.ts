@@ -22,6 +22,7 @@ async function getOrama() {
   return oramaInstance;
 }
 
+/** Parameters for a full Orama search query. */
 export type OramaSearchParams = {
   urlCategory: string;
   filters: FilterState;
@@ -31,11 +32,13 @@ export type OramaSearchParams = {
   offset?: number;
 };
 
+/** Result of an Orama search: matching tools slice and total count. */
 export type OramaSearchResult = {
   tools: ToolWithCategory[];
   total: number;
 };
 
+/** Full-text search over tools via Orama, with post-filtering, sorting, and pagination. */
 export async function searchTools(params: OramaSearchParams): Promise<OramaSearchResult> {
   const db = await getOrama();
 
@@ -88,6 +91,7 @@ export async function searchTools(params: OramaSearchParams): Promise<OramaSearc
   return { tools, total };
 }
 
+/** Quick search returning a small set of results for the dropdown suggest. */
 export async function searchDropdown(term: string) {
   const db = await getOrama();
 

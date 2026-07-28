@@ -3,6 +3,7 @@ export const prerender = false;
 import { errorResponse, withErrorHandling } from '../../../../../lib/api-helpers';
 import { checkRateLimit } from '../../../../../lib/rate-limit';
 
+/** Approves a pending tool submission by ID. */
 export const POST: APIRoute = withErrorHandling(async (context, env) => {
   const ip = context.request.headers.get('CF-Connecting-IP') || '127.0.0.1';
   const allowed = await checkRateLimit(env, ip, 'admin-approve', 30, 60);

@@ -1,0 +1,112 @@
+---
+import modelsData from "../../data/llm-calculator-models.json";
+---
+
+<div id="step1" class="fade-in">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-3">
+    <div class="card">
+      <p class="sec-hdr">Step 1 of 5 — Pick your AI model</p>
+      <h2 class="text-base font-bold text-brand-forest mb-1">
+        Which AI model will you use?
+      </h2>
+      <p class="text-brand-muted text-xs mb-4">
+        The model you pick decides most of your cost. Bigger models work
+        better but need more memory.
+      </p>
+
+      <label class="field-label">Select a model</label>
+      <span class="field-sub"
+        >Not sure? Llama 3.1 70B is a common choice that balances quality and
+        cost.</span
+      >
+      <select id="modelSelect" data-action="onModelChange">
+        <option value="" disabled selected>— Choose a model —</option>
+        {
+          Object.entries(modelsData).map(([key, model]) => (
+            <option value={key}>
+              {model.label} ({model.params}B parameters)
+            </option>
+          ))
+        }
+      </select>
+
+      <div id="modelNote" class="mt-3 hidden info-box">
+        <strong class="text-brand-teal"
+          >What the model needs (from its maker):</strong
+        >
+        <div id="modelNoteText" class="mt-1 text-brand-forest/80"></div>
+        <p class="note mt-1">
+          We get these details from the model's public specs. You can change
+          them in step 3 if you know better. (The AI holds some memory while
+          it works — the calculator uses these details to work that out.)
+        </p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 class="text-base font-bold text-brand-forest mb-1">
+        How precise should the AI be?
+      </h3>
+      <p class="text-brand-muted text-xs mb-3">
+        This sets how the AI stores numbers. More precise means better results
+        but more memory.
+      </p>
+      <div class="grid grid-cols-1 gap-2">
+        <button
+          class="choice-btn-sm"
+          data-action="selPrec"
+          data-prec="INT4"
+          data-z="0.5"
+        >
+          <div class="ct">INT4 · Z = 0.5</div>
+          <div class="cd">
+            Smallest. Slight loss in quality. Uses the least memory.
+          </div>
+        </button>
+        <button
+          class="choice-btn-sm"
+          data-action="selPrec"
+          data-prec="FP8"
+          data-z="1"
+        >
+          <div class="ct">FP8 / INT8 · Z = 1</div>
+          <div class="cd">Half the memory of FP16. Works on modern GPUs.</div>
+        </button>
+        <button
+          class="choice-btn-sm sel"
+          data-action="selPrec"
+          data-prec="FP16"
+          data-z="2"
+        >
+          <div class="ct">FP16 · Z = 2 ✓ Recommended</div>
+          <div class="cd">
+            The standard for running AI in production. Best balance of quality
+            and memory.
+          </div>
+        </button>
+        <button
+          class="choice-btn-sm"
+          data-action="selPrec"
+          data-prec="FP32"
+          data-z="4"
+        >
+          <div class="ct">FP32 · Z = 4</div>
+          <div class="cd">
+            Highest quality. Twice the memory of FP16. For research or
+            critical work.
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex justify-end">
+    <button
+      class="btn-primary min-w-[200px] sm:min-w-auto"
+      id="s1next"
+      data-action="goStep"
+      data-step="2"
+      disabled>Next: prompts and responses →</button
+    >
+  </div>
+</div>

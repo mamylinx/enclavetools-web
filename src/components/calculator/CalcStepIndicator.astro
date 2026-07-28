@@ -1,0 +1,63 @@
+---
+interface Props {
+  currentStep: number;
+}
+const { currentStep } = Astro.props;
+---
+
+<div
+  class="flex items-center mb-6 px-1 overflow-x-auto snap-x snap-mandatory -mx-1 pb-2"
+  id="stepTrack"
+  role="tablist"
+  aria-label="Calculator steps"
+>
+  <div
+    class="step-dot active shrink-0 snap-start"
+    id="sd1"
+    role="tab"
+    aria-selected="true"
+    aria-label="Step 1: Model"
+  >
+    1
+  </div>
+  <div class="step-line shrink-0" id="sl1"></div>
+  <div
+    class="step-dot shrink-0"
+    id="sd2"
+    role="tab"
+    aria-selected="false"
+    aria-label="Step 2: Prompts"
+  >
+    2
+  </div>
+  <div class="step-line shrink-0" id="sl2"></div>
+  <div
+    class="step-dot shrink-0"
+    id="sd3"
+    role="tab"
+    aria-selected="false"
+    aria-label="Step 3: Users"
+  >
+    3
+  </div>
+  <div class="step-line shrink-0" id="sl3"></div>
+  <div
+    class="step-dot shrink-0"
+    id="sd4"
+    role="tab"
+    aria-selected="false"
+    aria-label="Step 4: Speed"
+  >
+    4
+  </div>
+  <div class="step-line shrink-0" id="sl4"></div>
+  <div
+    class="step-dot shrink-0 snap-end"
+    id="sd5"
+    role="tab"
+    aria-selected="false"
+    aria-label="Step 5: GPUs"
+  >
+    5
+  </div>
+</div>

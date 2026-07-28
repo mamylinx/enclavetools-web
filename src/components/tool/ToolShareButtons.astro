@@ -1,0 +1,25 @@
+---
+interface Props {
+  xShareUrl: string;
+  linkedinShareUrl: string;
+}
+
+const { xShareUrl, linkedinShareUrl } = Astro.props;
+---
+
+<div class="flex gap-3 pt-8 font-bold">
+  <a
+    href={xShareUrl}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="border border-brand-forest/10 bg-white text-brand-forest px-6 h-12 font-bold cursor-pointer hover:bg-brand-teal hover:text-white transition-colors no-underline text-sm inline-flex items-center rounded-full"
+    >Share on X</a
+  >
+  <a
+    href={linkedinShareUrl}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="border border-brand-forest/10 bg-white text-brand-forest px-6 h-12 font-bold cursor-pointer hover:bg-brand-teal hover:text-white transition-colors no-underline text-sm inline-flex items-center rounded-full"
+    >Share on LinkedIn</a
+  >
+</div>

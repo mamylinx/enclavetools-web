@@ -2,11 +2,20 @@
 import Layout from "../../layouts/Layout.astro";
 import SoftwareApplicationSchema from "../../components/schema/SoftwareApplicationSchema.astro";
 import BreadcrumbSchema from "../../components/schema/BreadcrumbSchema.astro";
-import BookmarkButton from "../../components/BookmarkButton.vue";
+import ToolActions from "../../components/tool/ToolActions.astro";
+import ToolBreadcrumb from "../../components/tool/ToolBreadcrumb.astro";
+import ToolSidebar from "../../components/tool/ToolSidebar.astro";
+import ToolOverview from "../../components/tool/ToolOverview.astro";
+import ToolTechnical from "../../components/tool/ToolTechnical.astro";
+import ToolPrivacy from "../../components/tool/ToolPrivacy.astro";
+import ToolSetup from "../../components/tool/ToolSetup.astro";
+import ToolHardware from "../../components/tool/ToolHardware.astro";
+import ToolWorksWith from "../../components/tool/ToolWorksWith.astro";
+import ToolRelated from "../../components/tool/ToolRelated.astro";
+import ToolShareButtons from "../../components/tool/ToolShareButtons.astro";
 import toolsData from "../../data/tools.json";
 import { getWorksWith } from "../../utils/toolModel";
 
-// Generate all tool slugs for static paths
 export function getStaticPaths() {
   const allTools = toolsData.tools.flatMap((cat: any) =>
     cat.content.map((tool: any) => ({
@@ -21,7 +30,6 @@ export function getStaticPaths() {
 
 const { slug } = Astro.params;
 
-// Flatten all tools with category info
 const allTools = toolsData.tools.flatMap((cat: any) =>
   cat.content.map((tool: any) => ({
     ...tool,
@@ -29,19 +37,15 @@ const allTools = toolsData.tools.flatMap((cat: any) =>
   })),
 );
 
-// Find the requested tool
 const tool = allTools.find((t: any) => t.slug === slug);
 if (!tool) {
   return Astro.redirect("/404");
 }
 
-// Get category (should exist since tool was found)
 const category = tool.category;
-
 const enrichedTool = tool;
 const worksWithTools = getWorksWith(enrichedTool, allTools, 4);
 
-// Get related tools (same category, different slug, deterministic order)
 const relatedTools = allTools
   .filter((t: any) => t.category === category && t.slug !== slug)
   .sort(
@@ -49,7 +53,6 @@ const relatedTools = allTools
   )
   .slice(0, 4);
 
-// Format date helper
 const formatDate = (dateStr: string) => {
   try {
     return new Date(dateStr).toLocaleDateString("en-US", {
@@ -68,7 +71,6 @@ const faviconUrl = `/favicons/${slug}.png`;
 const seoTitle = tool.title;
 const seoDescription = tool.body;
 
-// Get category display name (capitalize first letter of each word)
 const categoryTitle = category
   .split("-")
   .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
@@ -151,463 +153,25 @@ const featureBadges = [
 
   <div class="px-4 md:px-8 pt-12 pb-8">
     <section class="grid grid-cols-1 gap-12 max-w-[1400px] mx-auto items-end">
-      <div class="flex flex-wrap gap-3 justify-center">
-        {
-          enrichedTool.github_url || enrichedTool.url ? (
-            <a
-              href={enrichedTool.github_url || enrichedTool.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="inline-flex items-center h-12 border border-brand-forest/10 px-4 font-bold uppercase tracking-wider text-xs bg-brand-forest text-white hover:bg-black rounded-full transition-colors no-underline shadow-sm"
-            >
-              View on GitHub
-            </a>
-          ) : null
-        }
-
-        {
-          enrichedTool.url ? (
-            <a
-              href={enrichedTool.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="inline-flex items-center h-12 border border-brand-forest/10 px-4 font-bold uppercase tracking-wider text-xs bg-white text-brand-forest hover:bg-brand-teal hover:text-white hover:border-brand-teal rounded-full transition-colors no-underline"
-            >
-              Official site
-            </a>
-          ) : null
-        }
-        <button
-          class="inline-flex items-center h-12 border border-brand-forest/10 px-4 font-bold uppercase tracking-wider text-xs bg-white text-brand-forest hover:bg-brand-teal hover:text-white hover:border-brand-teal rounded-full transition-colors no-underline"
-          data-tool-action="share"
-        >
-          Share
-        </button>
-        <button
-          class="inline-flex items-center h-12 border border-brand-forest/10 px-4 font-bold uppercase tracking-wider text-xs bg-white text-brand-forest hover:bg-brand-teal hover:text-white hover:border-brand-teal rounded-full transition-colors no-underline"
-          data-tool-action="compare"
-          data-slug={slug}
-        >
-          Add to compare
-        </button>
-        <div class="relative" id="stack-picker-anchor">
-          <button
-            class="inline-flex items-center h-12 border border-brand-forest/10 px-4 font-bold uppercase tracking-wider text-xs bg-white text-brand-forest hover:bg-brand-teal hover:text-white hover:border-brand-teal rounded-full transition-colors no-underline"
-            data-tool-action="stack"
-            data-slug={slug}
-            id="add-to-stack-btn"
-            aria-haspopup="true"
-            aria-expanded="false"
-            aria-controls="stack-picker-dropdown"
-          >
-            Add to stack
-          </button>
-          <div
-            id="stack-picker-dropdown"
-            role="dialog"
-            aria-label="Choose a stack"
-            aria-modal="true"
-            class="hidden absolute left-0 top-full mt-1 z-50 min-w-[260px] border border-brand-forest/10 bg-white shadow-sm rounded-2xl"
-          >
-            <p
-              class="px-4 pt-3 pb-2 text-xs font-bold uppercase tracking-wider text-brand-muted"
-            >
-              Choose a stack
-            </p>
-            <div
-              id="stack-picker-list"
-              class="flex flex-col max-h-56 overflow-y-auto border-t border-brand-forest/10"
-            >
-            </div>
-            <div
-              class="border-t border-brand-forest/10"
-              id="stack-picker-footer"
-            >
-              <!-- Default: show the create button -->
-              <button
-                id="stack-picker-new"
-                class="w-full text-left px-4 py-3 text-xs font-bold uppercase tracking-wider text-brand-forest hover:bg-brand-teal hover:text-white transition-colors"
-              >
-                + Create new stack
-              </button>
-              <!-- Inline create form (hidden by default) -->
-              <div
-                id="stack-picker-create-form"
-                class="hidden px-3 py-3 flex flex-col gap-2"
-              >
-                <input
-                  id="stack-picker-name-input"
-                  type="text"
-                  maxlength="30"
-                  placeholder="Stack name"
-                  class="w-full border border-brand-forest/10 px-3 h-10 text-xs font-bold text-brand-forest focus:outline-none focus:border-brand-teal transition-colors rounded-full"
-                />
-                <div class="flex gap-2">
-                  <button
-                    id="stack-picker-confirm"
-                    type="button"
-                    class="flex-1 h-10 bg-brand-forest text-white text-xs font-bold uppercase tracking-wider hover:bg-black transition-colors border-none cursor-pointer rounded-full shadow-sm"
-                  >
-                    Create
-                  </button>
-                  <button
-                    id="stack-picker-cancel"
-                    type="button"
-                    class="flex-1 h-10 border border-brand-forest/10 text-brand-forest text-xs font-bold uppercase tracking-wider hover:bg-brand-bg transition-colors cursor-pointer bg-white rounded-full"
-                  >
-                    Cancel
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <BookmarkButton
-          client:load
-          slug={slug}
-          title={enrichedTool.title}
-          body={enrichedTool.body}
-          url={enrichedTool.url}
-          category={category}
-          variant="default"
-        />
-      </div>
+      <ToolActions {enrichedTool} {slug} {category} />
     </section>
   </div>
 
   <div class="max-w-[1400px] mx-auto px-4 md:px-8 py-12">
-    <nav class="flex gap-2 text-xs font-bold mb-6 text-brand-muted">
-      <a
-        href="/"
-        class="text-brand-forest hover:text-brand-teal transition-colors"
-        >Home</a
-      ><span>/</span><a
-        href={`/${category}`}
-        class="text-brand-forest hover:text-brand-teal transition-colors"
-        >{categoryTitle}</a
-      ><span>/</span><span>{enrichedTool.title}</span>
-    </nav>
+    <ToolBreadcrumb {category} {categoryTitle} {enrichedTool} />
 
     <article class="grid grid-cols-1 lg:grid-cols-[220px_minmax(0,1fr)]">
-      <aside
-        class="sticky top-24 flex flex-col gap-3 self-start hidden lg:flex"
-        aria-label="Tool page sections"
-      >
-        <a
-          href="#overview"
-          class="text-brand-forest font-bold text-xs uppercase hover:text-brand-teal transition-colors"
-          >Overview</a
-        >
-        <a
-          href="#technical"
-          class="text-brand-forest font-bold text-xs uppercase hover:text-brand-teal transition-colors"
-          >Technical</a
-        >
-        <a
-          href="#privacy"
-          class="text-brand-forest font-bold text-xs uppercase hover:text-brand-teal transition-colors"
-          >Privacy &amp; Data</a
-        >
-        <a
-          href="#setup"
-          class="text-brand-forest font-bold text-xs uppercase hover:text-brand-teal transition-colors"
-          >Setup</a
-        >
-        <a
-          href="#hardware"
-          class="text-brand-forest font-bold text-xs uppercase hover:text-brand-teal transition-colors"
-          >Hardware</a
-        >
-        <a
-          href="#works-with"
-          class="text-brand-forest font-bold text-xs uppercase hover:text-brand-teal transition-colors"
-          >Works With</a
-        >
-        <!-- <a
-          href="#community"
-          class="text-brand-forest font-bold text-xs uppercase hover:text-brand-teal transition-colors"
-          >Community</a
-        > -->
-        <a
-          href="#related"
-          class="text-brand-forest font-bold text-xs uppercase hover:text-brand-teal transition-colors"
-          >Related</a
-        >
-      </aside>
+      <ToolSidebar />
 
       <div class="flex flex-col gap-8">
-        <div class="flex flex-wrap gap-2 mt-8">
-          {
-            featureBadges.map((badge: string) => (
-              <span class="px-2.5 py-1 bg-brand-tealLight border border-brand-teal/20 text-brand-teal text-xs font-bold uppercase tracking-wider rounded-full">
-                {badge}
-              </span>
-            ))
-          }
-        </div>
-
-        <section id="overview" class="py-12 border-b border-brand-forest/10">
-          <p
-            class="text-xs font-bold uppercase mb-4 text-brand-muted tracking-wider"
-          >
-            Overview
-          </p>
-          <div class="grid grid-cols-1 gap-6">
-            <div class="bg-white border border-brand-forest/10 rounded-3xl p-6">
-              <h2 class="text-xl font-bold mb-2">Plain Description</h2>
-              <p class="text-sm leading-relaxed text-brand-forest/80">
-                {enrichedTool.plain_description}
-              </p>
-            </div>
-            <div class="bg-white border border-brand-forest/10 rounded-3xl p-6">
-              <h2 class="text-xl font-bold mb-2">Technical Description</h2>
-              <p class="text-sm leading-relaxed text-brand-forest/80">
-                {enrichedTool.technical_description}
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section id="technical" class="py-12 border-b border-brand-forest/10">
-          <p
-            class="text-xs font-bold uppercase mb-4 text-brand-muted tracking-wider"
-          >
-            Technical scorecard
-          </p>
-          <div
-            class="border border-brand-forest/10 rounded-3xl overflow-hidden border-b-0"
-          >
-            {
-              scorecard.map(([label, value]) => (
-                <div class="grid grid-cols-[minmax(180px,0.8fr)_1.2fr] border-b border-brand-forest/10">
-                  <>
-                    <span class="p-6 text-sm text-brand-muted border-r border-brand-forest/10">
-                      {label}
-                    </span>
-                    <strong class="p-6 text-sm font-bold">{value}</strong>
-                  </>
-                </div>
-              ))
-            }
-          </div>
-        </section>
-
-        <section id="privacy" class="py-12 border-b border-brand-forest/10">
-          <p
-            class="text-xs font-bold uppercase mb-4 text-brand-muted tracking-wider"
-          >
-            Data &amp; Privacy
-          </p>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="bg-white border border-brand-forest/10 rounded-3xl p-6">
-              <h2 class="text-xl font-bold mb-2">
-                Does it send data online?
-              </h2><p class="text-sm leading-relaxed text-brand-forest/80">
-                {
-                  enrichedTool.offline_after_setup
-                    ? "After setup, this listing is marked as usable offline. Confirm network behavior against the upstream project before regulated deployment."
-                    : "This listing is not marked offline after setup."
-                }
-              </p>
-            </div>
-            <div class="bg-white border border-brand-forest/10 rounded-3xl p-6">
-              <h2 class="text-xl font-bold mb-2">Does it store history?</h2><p
-                class="text-sm leading-relaxed text-brand-forest/80"
-              >
-                Not verified in this directory yet. Review the upstream docs for
-                persistence, logs, and workspace storage.
-              </p>
-            </div>
-            <div class="bg-white border border-brand-forest/10 rounded-3xl p-6">
-              <h2 class="text-xl font-bold mb-2">License checks?</h2><p
-                class="text-sm leading-relaxed text-brand-forest/80"
-              >
-                {
-                  enrichedTool.commercial_use
-                    ? "Commercial use is marked as allowed or likely allowed by the listed license."
-                    : "The listed license needs review before commercial use."
-                }
-              </p>
-            </div>
-            <div class="bg-white border border-brand-forest/10 rounded-3xl p-6">
-              <h2 class="text-xl font-bold mb-2">Telemetry?</h2><p
-                class="text-sm leading-relaxed text-brand-forest/80"
-              >
-                {enrichedTool.telemetry}
-              </p>
-            </div>
-          </div>
-          <p class="mt-4 text-brand-muted text-sm">
-            Last verified: {formatDate(enrichedTool.last_verified)}. Maintainer
-            verification should be treated as directory guidance, not legal
-            advice.
-          </p>
-        </section>
-
-        <section id="setup" class="py-12 border-b border-brand-forest/10">
-          <p
-            class="text-xs font-bold uppercase mb-4 text-brand-muted tracking-wider"
-          >
-            Setup &amp; Installation
-          </p>
-          <div class="grid grid-cols-1 gap-6">
-            <div class="bg-white border border-brand-forest/10 rounded-3xl p-6">
-              <span
-                class={`inline-block w-3 h-3 rounded-full mr-2 ${String(enrichedTool.setup_difficulty).toLowerCase() === "low" ? "bg-green-600" : String(enrichedTool.setup_difficulty).toLowerCase() === "high" ? "bg-red-500" : "bg-yellow-400"}`}
-              ></span><strong class="font-bold text-lg"
-                >{enrichedTool.setup_difficulty}</strong
-              ><p class="text-sm leading-relaxed text-brand-forest/80 mt-2">
-                {
-                  enrichedTool.setup_difficulty === "Low"
-                    ? "GUI, low-resource, or simple install path likely available."
-                    : enrichedTool.setup_difficulty === "High"
-                      ? "Expect GPU, framework, or production deployment work."
-                      : "A developer can usually get this running with standard docs."
-                }
-              </p>
-            </div>
-          </div>
-          <pre
-            class="border border-brand-forest/10 p-6 overflow-x-auto mt-4 text-sm bg-brand-bg rounded-3xl"><code>{`# Start with the official project repository\n# ${enrichedTool.github_url || enrichedTool.url || canonicalUrl}`}</code></pre>
-        </section>
-
-        <section id="hardware" class="py-12 border-b border-brand-forest/10">
-          <p
-            class="text-xs font-bold uppercase mb-4 text-brand-muted tracking-wider"
-          >
-            Hardware Requirements
-          </p>
-          <div
-            class="border border-brand-forest/10 rounded-3xl overflow-hidden border-b-0"
-          >
-            <div
-              class="grid grid-cols-[minmax(180px,0.8fr)_1.2fr] border-b border-brand-forest/10"
-            >
-            {
-              enrichedTool.model_format &&
-                enrichedTool.model_format.length > 0 && (
-                  <span
-                    class="p-6 text-sm text-brand-muted border-r border-brand-forest/10"
-                    >RAM</span>
-                    <strong class="p-6 text-sm font-bold">
-                      {enrichedTool.min_ram_gb} GB minimum / {enrichedTool.recommended_ram_gb} GB recommended
-                    </strong>
-                )
-            }
-            </div>
-            <div
-              class="grid grid-cols-[minmax(180px,0.8fr)_1.2fr] border-b border-brand-forest/10"
-            >
-              <span
-                class="p-6 text-sm text-brand-muted border-r border-brand-forest/10"
-                >Hardware tags</span
-              ><strong class="p-6 text-sm font-bold"
-                >{enrichedTool.hardware?.join(", ") || "Not specified"}</strong
-              >
-            </div>
-            <div
-              class="grid grid-cols-[minmax(180px,0.8fr)_1.2fr] border-b border-brand-forest/10"
-            >
-              {
-                enrichedTool.model_format &&
-                  enrichedTool.model_format.length > 0 && (
-                      <span class="p-6 text-sm text-brand-muted border-r border-brand-forest/10">
-                        Model formats
-                      </span>
-                      <strong class="p-6 text-sm font-bold">
-                        {enrichedTool.model_format?.join(", ") ||
-                          "Not specified"}
-                      </strong>
-                  )
-              }
-            </div>
-            <div
-              class="grid grid-cols-[minmax(180px,0.8fr)_1.2fr] border-b border-brand-forest/10"
-            >
-              <span
-                class="p-6 text-sm text-brand-muted border-r border-brand-forest/10"
-                >Languages</span
-              ><strong class="p-6 text-sm font-bold"
-                >{enrichedTool.language?.join(", ") || "Not specified"}</strong
-              >
-            </div>
-          </div>
-        </section>
-
-        <section id="works-with" class="py-12 border-b border-brand-forest/10">
-          <p
-            class="text-xs font-bold uppercase mb-4 text-brand-muted tracking-wider"
-          >
-            Works Well With
-          </p>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {
-              worksWithTools.map((t: any) => (
-                <a
-                  href={`/tools/${t.slug}`}
-                  class="flex flex-col gap-2 bg-white border border-brand-forest/10 rounded-3xl p-6 no-underline hover:bg-brand-tealLight transition-all duration-200 group hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(27,54,27,0.08)]"
-                >
-                  <strong class="text-xl font-bold text-brand-forest group-hover:text-brand-teal transition-colors">
-                    {t.title}
-                  </strong>
-                  <span class="text-brand-muted leading-snug text-sm">
-                    {t.body?.slice(0, 120)}...
-                  </span>
-                </a>
-              ))
-            }
-          </div>
-          <div class="mt-4">
-            <a
-              href={`/stack-builder?stack=${[slug, ...worksWithTools.slice(0, 3).map((item: any) => item.slug)].join(",")}`}
-              class="border border-brand-forest/10 bg-white text-brand-forest px-4 h-12 font-bold cursor-pointer hover:bg-brand-teal hover:text-white transition-colors no-underline text-sm inline-flex items-center rounded-full"
-            >
-              Open suggested stack
-            </a>
-          </div>
-        </section>
-
-        {
-          relatedTools.length > 0 && (
-            <section id="related" class="py-12 border-b border-brand-forest/10">
-              <p class="text-xs font-bold uppercase mb-4 text-brand-muted tracking-wider">
-                You might also evaluate
-              </p>
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {relatedTools.map((t: any) => (
-                  <a
-                    href={`/tools/${t.slug}`}
-                    class="flex flex-col gap-2 bg-white border border-brand-forest/10 rounded-3xl p-6 no-underline hover:bg-brand-tealLight transition-all duration-200 group hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(27,54,27,0.08)]"
-                  >
-                    <strong class="text-xl font-bold text-brand-forest group-hover:text-brand-teal transition-colors">
-                      {t.title}
-                    </strong>
-                    <span class="text-brand-muted leading-snug text-sm">
-                      {t.body?.slice(0, 120)}...
-                    </span>
-                  </a>
-                ))}
-              </div>
-            </section>
-          )
-        }
-
-        <div class="flex gap-3 pt-8 font-bold">
-          <a
-            href={xShareUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="border border-brand-forest/10 bg-white text-brand-forest px-6 h-12 font-bold cursor-pointer hover:bg-brand-teal hover:text-white transition-colors no-underline text-sm inline-flex items-center rounded-full"
-            >Share on X</a
-          >
-          <a
-            href={linkedinShareUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="border border-brand-forest/10 bg-white text-brand-forest px-6 h-12 font-bold cursor-pointer hover:bg-brand-teal hover:text-white transition-colors no-underline text-sm inline-flex items-center rounded-full"
-            >Share on LinkedIn</a
-          >
-        </div>
+        <ToolOverview {enrichedTool} {featureBadges} />
+        <ToolTechnical {scorecard} />
+        <ToolPrivacy {enrichedTool} {formatDate} />
+        <ToolSetup {enrichedTool} {canonicalUrl} />
+        <ToolHardware {enrichedTool} />
+        <ToolWorksWith {slug} {worksWithTools} />
+        <ToolRelated {relatedTools} />
+        <ToolShareButtons {xShareUrl} {linkedinShareUrl} />
       </div>
     </article>
   </div>

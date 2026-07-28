@@ -1,5 +1,6 @@
 import { ref } from 'vue';
 
+/** Composable providing a copy-to-clipboard helper with status tracking. */
 export function useClipboard(resetMs = 2400) {
   const status = ref<'idle' | 'copied' | 'failed'>('idle');
 
