@@ -1,0 +1,198 @@
+---
+---
+
+<div
+  id="auditModal"
+  class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-4 transition-opacity"
+>
+  <div class="bg-white border border-brand-forest/15 rounded-3xl p-6 sm:p-8 max-w-lg w-full shadow-2xl relative">
+    <button
+      id="closeAuditModal"
+      type="button"
+      class="absolute top-5 right-5 text-brand-forest/50 hover:text-brand-forest font-bold text-xl w-8 h-8 flex items-center justify-center rounded-full bg-brand-forest/5 transition-colors"
+      aria-label="Close"
+    >
+      ✕
+    </button>
+
+    <div class="flex items-center gap-2 mb-2">
+      <span class="text-2xl">🛡️</span>
+      <h3 class="text-xl font-extrabold text-brand-forest">
+        Step 1: Configure Audit Target
+      </h3>
+    </div>
+    <p class="text-sm text-brand-muted mb-6">
+      Specify your tool and deployment environment to generate your custom Airgap Certainty Blueprint:
+    </p>
+
+    <form id="auditModalForm" class="space-y-4">
+      <div>
+        <label for="modalToolName" class="block text-xs font-bold uppercase tracking-wider text-brand-forest/70 mb-1.5">
+          1. Tool / Project / Repository Name
+        </label>
+        <input
+          type="text"
+          id="modalToolName"
+          required
+          placeholder="e.g. Open WebUI, Ollama, ComfyUI, Dify..."
+          class="w-full bg-brand-forest/5 border border-brand-forest/15 rounded-xl px-4 py-3 text-brand-forest font-semibold focus:outline-none focus:border-brand-teal transition-colors"
+        />
+      </div>
+
+      <div>
+        <span class="text-xs font-bold uppercase tracking-wider text-brand-forest/60 block mb-2">
+          Popular Tool Presets:
+        </span>
+        <div class="flex flex-wrap gap-2">
+          <button type="button" class="modal-chip px-3 py-1 rounded-full text-xs font-bold bg-brand-forest/5 text-brand-forest border border-brand-forest/10 hover:bg-brand-teal hover:text-white transition-colors" data-tool="Open WebUI">Open WebUI</button>
+          <button type="button" class="modal-chip px-3 py-1 rounded-full text-xs font-bold bg-brand-forest/5 text-brand-forest border border-brand-forest/10 hover:bg-brand-teal hover:text-white transition-colors" data-tool="Ollama">Ollama</button>
+          <button type="button" class="modal-chip px-3 py-1 rounded-full text-xs font-bold bg-brand-forest/5 text-brand-forest border border-brand-forest/10 hover:bg-brand-teal hover:text-white transition-colors" data-tool="ComfyUI">ComfyUI</button>
+          <button type="button" class="modal-chip px-3 py-1 rounded-full text-xs font-bold bg-brand-forest/5 text-brand-forest border border-brand-forest/10 hover:bg-brand-teal hover:text-white transition-colors" data-tool="Dify">Dify</button>
+          <button type="button" class="modal-chip px-3 py-1 rounded-full text-xs font-bold bg-brand-forest/5 text-brand-forest border border-brand-forest/10 hover:bg-brand-teal hover:text-white transition-colors" data-tool="Custom Container">Custom Stack</button>
+        </div>
+      </div>
+
+      <div>
+        <label for="modalEnvSelect" class="block text-xs font-bold uppercase tracking-wider text-brand-forest/70 mb-1.5">
+          2. Target Environment
+        </label>
+        <select
+          id="modalEnvSelect"
+          class="w-full bg-brand-forest/5 border border-brand-forest/15 rounded-xl px-4 py-3 text-brand-forest font-semibold focus:outline-none focus:border-brand-teal transition-colors"
+        >
+          <option value="Docker Container">Docker Container</option>
+          <option value="Directly on Server">Directly on a Server (no containers)</option>
+          <option value="Kubernetes Cluster">Kubernetes Cluster</option>
+          <option value="Isolated Local Network">Isolated Local Network (no internet access)</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="modalWorkEmail" class="block text-xs font-bold uppercase tracking-wider text-brand-forest/70 mb-1.5">
+          3. Work Email <span class="text-brand-muted font-normal lowercase">(optional for blueprint copy)</span>
+        </label>
+        <input
+          type="email"
+          id="modalWorkEmail"
+          placeholder="jane@company.com"
+          class="w-full bg-brand-forest/5 border border-brand-forest/15 rounded-xl px-4 py-3 text-brand-forest font-semibold focus:outline-none focus:border-brand-teal transition-colors"
+        />
+      </div>
+
+      <div class="pt-4">
+        <button
+          type="submit"
+          class="btn-primary w-full text-center font-bold text-sm py-3.5 px-6 shadow-md hover:scale-[1.02] transition-transform"
+        >
+          Generate My Airgap Certainty Blueprint (Step 2) &rarr;
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script is:inline>
+  function initAuditModal() {
+    const modal = document.getElementById("auditModal");
+    const closeBtn = document.getElementById("closeAuditModal");
+    const form = document.getElementById("auditModalForm");
+    const input = document.getElementById("modalToolName");
+    const envSelect = document.getElementById("modalEnvSelect");
+    const emailInput = document.getElementById("modalWorkEmail");
+    const chips = document.querySelectorAll(".modal-chip");
+
+    function openModal(defaultTool) {
+      if (!modal) return;
+      modal.classList.remove("hidden");
+      document.body.style.overflow = "hidden";
+      if (input) {
+        if (defaultTool) input.value = defaultTool;
+        setTimeout(function() { input.focus(); }, 100);
+      }
+      updateChipStyles();
+    }
+
+    function closeModal() {
+      if (!modal) return;
+      modal.classList.add("hidden");
+      document.body.style.overflow = "";
+    }
+
+    function updateChipStyles() {
+      var currentVal = input ? input.value.trim().toLowerCase() : "";
+      chips.forEach(function(chip) {
+        var chipVal = (chip.getAttribute("data-tool") || "").toLowerCase();
+        if (chipVal && chipVal === currentVal) {
+          chip.classList.add("bg-brand-teal", "text-white", "border-brand-teal");
+          chip.classList.remove("bg-brand-forest/5", "text-brand-forest", "border-brand-forest/10");
+        } else {
+          chip.classList.remove("bg-brand-teal", "text-white", "border-brand-teal");
+          chip.classList.add("bg-brand-forest/5", "text-brand-forest", "border-brand-forest/10");
+        }
+      });
+    }
+
+    if (closeBtn) closeBtn.addEventListener("click", closeModal);
+
+    if (modal) {
+      modal.addEventListener("click", function(e) {
+        if (e.target === modal) closeModal();
+      });
+    }
+
+    document.addEventListener("keydown", function(e) {
+      if (e.key === "Escape" && modal && !modal.classList.contains("hidden")) {
+        closeModal();
+      }
+    });
+
+    chips.forEach(function(chip) {
+      chip.addEventListener("click", function() {
+        var val = chip.getAttribute("data-tool");
+        if (val && input) {
+          input.value = val;
+          updateChipStyles();
+        }
+      });
+    });
+
+    if (input) {
+      input.addEventListener("input", updateChipStyles);
+    }
+
+    if (form) {
+      form.addEventListener("submit", function(e) {
+        e.preventDefault();
+        var tool = input ? input.value.trim() : "";
+        var env = envSelect ? envSelect.value : "Docker Container";
+        var email = emailInput ? emailInput.value.trim() : "";
+        if (!tool) {
+          if (input) input.focus();
+          return;
+        }
+        var targetUrl = "/privacy-offer?tool=" + encodeURIComponent(tool) + "&env=" + encodeURIComponent(env);
+        if (email) {
+          targetUrl += "&email=" + encodeURIComponent(email);
+        }
+        window.location.href = targetUrl;
+      });
+    }
+
+    document.addEventListener("click", function(e) {
+      var target = e.target;
+      var trigger = target.closest ? target.closest(".open-audit-modal") : null;
+      if (trigger) {
+        e.preventDefault();
+        e.stopPropagation();
+        var initial = trigger.getAttribute("data-tool") || "";
+        openModal(initial);
+      }
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initAuditModal);
+  } else {
+    initAuditModal();
+  }
+</script>

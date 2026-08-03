@@ -1,0 +1,480 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  site="Enclavetools"
+  title="Airgap Certainty Blueprint | Deep AI Telemetry Audit & Privacy Verification"
+  pageTitle="Airgap Certainty Blueprint"
+  pageDescription="Eliminate silent data leaks in self-hosted AI stacks. Get a personalized Airgap Certainty Blueprint: runtime packet capture matrices, static AST source code audits, zero-trust Docker firewall policies, continuous eBPF telemetry watchdogs, and an executive privacy report. $2,497 (total value $8,500) backed by a 100% Airgap Guarantee."
+  canonicalUrl="https://enclavetools.com/privacy-offer"
+  showSearch={false}
+  showNav={false}
+  showFooter={false}
+  ogTitle="Airgap Certainty Blueprint: AI Telemetry Audit & Privacy Verification"
+  ogDescription="Complete runtime packet capture, AST source scan, zero-trust firewall scripts, and executive privacy report for your self-hosted AI stack. $2,497 (value $8,500)."
+  ogImage="https://enclavetools.com/og-privacy-blueprint.png"
+  ogUrl="https://enclavetools.com/privacy-offer"
+  ogType="product"
+  ogSiteName="Enclavetools"
+  twitterCard="summary_large_image"
+  twitterTitle="Airgap Certainty Blueprint: AI Telemetry Audit & Verification"
+  twitterDescription="Eliminate silent telemetry & data leaks in your self-hosted AI stack. Complete audit matrix, zero-trust firewall scripts & executive report. $2,497."
+  twitterImage="https://enclavetools.com/og-privacy-blueprint.png"
+  keywords={[
+    "AI telemetry audit",
+    "AI privacy due diligence",
+    "self-hosted AI security",
+    "airgap AI deployment",
+    "packet capture audit",
+    "eBPF container monitoring",
+    "zero telemetry verification",
+    "data leak prevention"
+  ]}
+  robots="index, follow"
+>
+  <div class="max-w-4xl mx-auto px-4 py-12 lg:py-16">
+    <div id="app">
+      <!-- HEADER -->
+      <h1
+        class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-brand-forest tracking-tight mb-6 leading-tight text-center md:text-left"
+      >
+        Stop Silent Telemetry Leaks in <span
+          class="text-brand-teal"
+          id="displayTool">Your AI Stack</span
+        >.<br />
+        Before They Trigger an <span class="text-amber-500">Unintended Data Leak</span>.
+      </h1>
+
+      <div
+        class="text-lg md:text-xl text-brand-muted border-l-4 border-amber-500 pl-5 mb-8 font-medium"
+        id="subheadline"
+      >
+        Auditing <strong class="text-brand-forest" id="displayToolSub">Your AI Stack</strong> in <strong class="text-brand-forest" id="displayEnv">Docker Container</strong> mode for <strong class="text-brand-forest" id="displayTarget">Zero Outbound Telemetry</strong>.
+      </div>
+
+      <!-- AUDIT TARGET CONFIGURATOR CARD -->
+      <div class="bg-white border-2 border-brand-teal/30 p-6 md:p-8 rounded-3xl mb-10 shadow-md">
+        <h2 class="text-xl font-extrabold text-brand-forest mb-2 flex items-center gap-2">
+          <span>🎯</span> Tell Us What to Audit
+        </h2>
+        <p class="text-sm text-brand-muted mb-5">
+          Select the AI tool you want us to check and how you run it:
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-5">
+          <div class="md:col-span-3">
+            <label for="cfgToolInput" class="block text-xs font-bold uppercase tracking-wider text-brand-forest/70 mb-2">Which AI Tool?</label>
+            <input
+              type="text"
+              id="cfgToolInput"
+              class="w-full bg-brand-forest/5 border border-brand-forest/15 rounded-xl px-4 py-3 text-brand-forest font-semibold focus:outline-none focus:border-brand-teal transition-colors"
+              placeholder="e.g. Open WebUI, Ollama, ComfyUI, Dify..."
+              value=""
+            />
+          </div>
+          <div>
+            <label for="cfgEnvSelect" class="block text-xs font-bold uppercase tracking-wider text-brand-forest/70 mb-2">How Do You Run It?</label>
+            <select
+              id="cfgEnvSelect"
+              class="w-full bg-brand-forest/5 border border-brand-forest/15 rounded-xl px-4 py-3 text-brand-forest font-semibold focus:outline-none focus:border-brand-teal transition-colors"
+            >
+              <option value="Docker Container">Docker Container</option>
+              <option value="Directly on Server">Directly on a Server (no containers)</option>
+              <option value="Kubernetes Cluster">Kubernetes Cluster</option>
+              <option value="Isolated Local Network">Isolated Local Network (no internet access)</option>
+            </select>
+          </div>
+          <div class="md:col-span-2">
+            <label for="cfgTargetSelect" class="block text-xs font-bold uppercase tracking-wider text-brand-forest/70 mb-2">What Do You Need?</label>
+            <select
+              id="cfgTargetSelect"
+              class="w-full bg-brand-forest/5 border border-brand-forest/15 rounded-xl px-4 py-3 text-brand-forest font-semibold focus:outline-none focus:border-brand-teal transition-colors"
+            >
+              <option value="Zero External Telemetry">Block all outbound connections (full offline mode)</option>
+              <option value="Strict Prompt & IP Isolation">Keep prompts and data on-premise (no third-party calls)</option>
+              <option value="Offline Verification Audit">Verify the software is safe to install offline</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-brand-forest/60 block mb-2">Quick Presets:</span>
+          <div class="flex flex-wrap gap-2" id="presetChips">
+            <button type="button" data-preset="Open WebUI" class="preset-chip px-3.5 py-1.5 rounded-full text-xs font-bold bg-brand-forest/5 text-brand-forest border border-brand-forest/10 hover:bg-brand-teal hover:text-white transition-colors">Open WebUI</button>
+            <button type="button" data-preset="Ollama" class="preset-chip px-3.5 py-1.5 rounded-full text-xs font-bold bg-brand-forest/5 text-brand-forest border border-brand-forest/10 hover:bg-brand-teal hover:text-white transition-colors">Ollama</button>
+            <button type="button" data-preset="ComfyUI" class="preset-chip px-3.5 py-1.5 rounded-full text-xs font-bold bg-brand-forest/5 text-brand-forest border border-brand-forest/10 hover:bg-brand-teal hover:text-white transition-colors">ComfyUI</button>
+            <button type="button" data-preset="Dify" class="preset-chip px-3.5 py-1.5 rounded-full text-xs font-bold bg-brand-forest/5 text-brand-forest border border-brand-forest/10 hover:bg-brand-teal hover:text-white transition-colors">Dify</button>
+            <button type="button" data-preset="vLLM Inference Cluster" class="preset-chip px-3.5 py-1.5 rounded-full text-xs font-bold bg-brand-forest/5 text-brand-forest border border-brand-forest/10 hover:bg-brand-teal hover:text-white transition-colors">vLLM Cluster</button>
+            <button type="button" data-preset="Custom LLM Stack" class="preset-chip px-3.5 py-1.5 rounded-full text-xs font-bold bg-brand-forest/5 text-brand-forest border border-brand-forest/10 hover:bg-brand-teal hover:text-white transition-colors">Custom LLM Stack</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SPEC BADGE GRID -->
+      <div
+        class="flex flex-wrap gap-3 bg-brand-forest/5 p-5 md:p-6 rounded-2xl mb-10 border border-brand-forest/10"
+      >
+        <div
+          class="bg-white px-4 py-2 rounded-full text-sm font-medium text-brand-muted border border-brand-forest/10 shadow-sm"
+        >
+          🛠️ Target Tool: <span class="text-brand-forest font-bold" id="badgeTool">Open WebUI / Self-Hosted Stack</span>
+        </div>
+        <div
+          class="bg-white px-4 py-2 rounded-full text-sm font-medium text-brand-muted border border-brand-forest/10 shadow-sm"
+        >
+          📦 Environment: <span class="text-brand-forest font-bold" id="badgeEnv">Docker Container</span>
+        </div>
+        <div
+          class="bg-white px-4 py-2 rounded-full text-sm font-medium text-brand-muted border border-brand-forest/10 shadow-sm"
+        >
+          🔒 Target Goal: <span class="text-brand-forest font-bold" id="badgeTarget">Zero External Telemetry</span>
+        </div>
+        <div
+          class="bg-white px-4 py-2 rounded-full text-sm font-medium text-brand-muted border border-brand-forest/10 shadow-sm"
+        >
+          📡 Scope: <span class="text-brand-forest font-bold" id="badgeScope">Network Traffic + Source Code Review</span>
+        </div>
+        <div
+          class="bg-brand-forest text-white px-4 py-2 rounded-full text-sm font-bold shadow-sm"
+        >
+          ⏱️ Turnaround: <span class="text-white" id="badgeTurnaround">72-Hour Guaranteed Delivery</span>
+        </div>
+      </div>
+
+      <!-- AGITATION -->
+      <h2 class="text-2xl md:text-3xl font-bold text-brand-forest mt-12 mb-4">
+        The <span class="text-amber-500">$250,000 "Shadow Telemetry" Trap</span>
+      </h2>
+
+      <p class="text-lg text-brand-muted mb-4">
+        Deploying an open-source AI project or downloading a pre-packaged Docker container behind your firewall gives teams a false sense of security: <em>"It's running on our hardware, so it must be private."</em>
+      </p>
+
+      <p class="text-lg text-brand-muted mb-4">
+        Here is what standard code reviews consistently miss:
+      </p>
+
+      <ul class="list-disc pl-8 mb-4 text-lg text-brand-muted space-y-3">
+        <li>
+          <strong class="text-red-600">Hidden Analytics & Crash Reporters:</strong> Tracking tools (PostHog, Segment, Sentry, Google Analytics) baked into the code that quietly send usage data the moment the software starts, processes a prompt, or hits an error.
+        </li>
+        <li>
+          <strong class="text-red-600">Silent Auto-Updaters:</strong> Background requests that check for new versions or download model files — leaking your internal IP address, system info, and timestamps to external servers without asking.
+        </li>
+        <li>
+          <strong class="text-red-600">Hidden Fallback Connections:</strong> Add-on libraries that silently call public servers when a local resource is missing — even in tools that claim to work offline.
+        </li>
+      </ul>
+
+      <blockquote
+        class="text-lg text-brand-muted font-medium my-6 border-l-4 border-amber-500 pl-5"
+      >
+        Assuming your AI tool is private just because you didn't enter an API key is like locking your front door while leaving every window wide open.
+      </blockquote>
+
+      <p class="text-lg text-brand-muted font-medium">
+        You don't need vendor promises. You need recorded proof of every connection your software makes, a line-by-line review of the source code, and ready-to-use firewall rules that shut it all down.
+      </p>
+
+      <!-- OFFER -->
+      <h2 class="text-2xl md:text-3xl font-bold text-brand-forest mt-12 mb-2">
+        The <span class="text-amber-500">Complete Airgap Certainty Blueprint</span>
+      </h2>
+      <p class="text-brand-muted mb-6 text-lg">
+        Built specifically for <strong class="text-brand-forest" id="offerTool">Open WebUI / Self-Hosted Stack</strong> and your privacy requirements. Conducted by experienced engineers on dedicated test hardware.
+      </p>
+
+      <table class="w-full text-left border-collapse my-8">
+        <thead>
+          <tr class="bg-brand-forest/10">
+            <th
+              class="p-4 border border-brand-forest/10 font-bold text-brand-forest"
+              >#</th
+            >
+            <th
+              class="p-4 border border-brand-forest/10 font-bold text-brand-forest"
+              >Deliverable</th
+            >
+            <th
+              class="p-4 border border-brand-forest/10 font-bold text-brand-forest"
+              >Value</th
+            >
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="p-4 border border-brand-forest/10 text-brand-muted">1</td>
+            <td class="p-4 border border-brand-forest/10 text-brand-muted"
+              ><strong class="text-brand-forest"
+                >Live Network Traffic Recording</strong
+              > — We run your AI tool through real-world usage sessions while recording every network connection it makes. You get a complete log of every server it contacts, what data it sends, and when.</td
+            >
+            <td
+              class="p-4 border border-brand-forest/10 text-brand-muted font-bold"
+              >$2,500</td
+            >
+          </tr>
+          <tr>
+            <td class="p-4 border border-brand-forest/10 text-brand-muted">2</td>
+            <td class="p-4 border border-brand-forest/10 text-brand-muted"
+              ><strong class="text-brand-forest"
+                >Source Code & Dependency Review</strong
+              > — We read through the actual source code and every add-on library it uses, tracing hidden network calls, tracking code, update checks, and external download links that could leak data.</td
+            >
+            <td
+              class="p-4 border border-brand-forest/10 text-brand-muted font-bold"
+              >$1,800</td
+            >
+          </tr>
+          <tr>
+            <td class="p-4 border border-brand-forest/10 text-brand-muted">3</td>
+            <td class="p-4 border border-brand-forest/10 text-brand-muted"
+              ><strong class="text-brand-forest"
+                >Ready-to-Use Lockdown Rules</strong
+              > — Copy-paste firewall rules, network isolation configs, DNS blocklists, and settings overrides that block all outbound connections. Works out of the box with your setup.</td
+            >
+            <td
+              class="p-4 border border-brand-forest/10 text-brand-muted font-bold"
+              >$1,700</td
+            >
+          </tr>
+          <tr>
+            <td class="p-4 border border-brand-forest/10 text-brand-muted">4</td>
+            <td class="p-4 border border-brand-forest/10 text-brand-muted"
+              ><strong class="text-brand-forest"
+                >Executive Privacy Report</strong
+              > — A clear, signed PDF report with network diagrams, a risk-scored list of every connection found, and a plain-language privacy summary your leadership team can actually read.</td
+            >
+            <td
+              class="p-4 border border-brand-forest/10 text-brand-muted font-bold"
+              >$1,500</td
+            >
+          </tr>
+          <tr>
+            <td class="p-4 border border-brand-forest/10 text-brand-muted">5</td>
+            <td class="p-4 border border-brand-forest/10 text-brand-muted"
+              ><strong class="text-brand-forest"
+                >Bonus #1: Ongoing Connection Monitor Script</strong
+              > — A lightweight script you run on your own server that watches for any new outbound connection attempts and alerts your team instantly — so nothing slips through after a software update.</td
+            >
+            <td
+              class="p-4 border border-brand-forest/10 text-brand-muted font-bold"
+              >$600</td
+            >
+          </tr>
+          <tr>
+            <td class="p-4 border border-brand-forest/10 text-brand-muted">6</td>
+            <td class="p-4 border border-brand-forest/10 text-brand-muted"
+              ><strong class="text-brand-forest"
+                >Bonus #2: 5-Min Video Walkthrough</strong
+              > — A pre-recorded video explaining exactly what we found and how to apply the lockdown rules — so your whole team gets up to speed in 5 minutes without scheduling a meeting.</td
+            >
+            <td
+              class="p-4 border border-brand-forest/10 text-brand-muted font-bold"
+              >$400</td
+            >
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="text-brand-muted font-bold text-lg mt-2">
+        Total Stack Value: <span class="text-amber-500">$8,500</span>
+      </p>
+
+      <!-- PRICE -->
+      <div class="text-center my-10">
+        <h3 class="text-2xl md:text-3xl font-bold text-brand-forest mb-2">
+          Today's Investment
+        </h3>
+        <div class="flex items-center justify-center gap-3">
+          <span class="text-2xl text-brand-muted line-through">$4,997</span>
+          <p class="text-4xl md:text-5xl font-extrabold text-amber-500">$2,497</p>
+        </div>
+        <p class="text-brand-muted mt-3 italic">
+          A single avoided privacy incident or prompt leak pays for this entire audit 10x over on day one.
+        </p>
+      </div>
+
+      <!-- SOCIAL PROOF -->
+      <div
+        class="bg-brand-forest/5 border border-brand-forest/10 p-6 md:p-8 rounded-2xl my-8 italic text-brand-muted relative"
+      >
+        <div
+          class="absolute text-8xl text-amber-500/20 -top-4 left-4 font-serif"
+        >
+          "
+        </div>
+        <p class="relative z-10 text-lg">
+          "We were preparing to deploy a local LLM assistant across our engineering team. Enclavetools ran a deep packet audit on our container stack and uncovered two third-party telemetry calls to analytics servers firing on startup. Their lockdown blueprint fixed it in under an hour."
+        </p>
+        <span class="block mt-4 font-semibold text-brand-teal not-italic"
+          >— Chief Information Security Officer, Enterprise Tech Provider</span
+        >
+      </div>
+
+      <!-- GUARANTEE -->
+      <h2 class="text-2xl md:text-3xl font-bold text-brand-forest mt-12 mb-4">
+        The <span class="text-amber-500">"No-Stone-Unturned" $500 Penalty</span> Guarantee
+      </h2>
+      <p class="text-brand-muted mb-4 text-lg">
+        When you hire us for privacy due diligence, you are paying for absolute certainty. We guarantee our audit will uncover <strong>every single outbound connection, tracker, and silent network call</strong> hidden in your AI stack.
+      </p>
+
+      <div class="bg-amber-50 border-2 border-amber-200 p-6 md:p-8 rounded-2xl mt-8 relative shadow-sm">
+        <div class="absolute -top-5 -right-2 md:-right-5 text-5xl drop-shadow-md">🛡️</div>
+        <h3 class="text-xl font-extrabold text-brand-forest mb-3">
+          Our Unconditional Risk-Reversal Promise:
+        </h3>
+        <p class="text-brand-muted text-lg mb-6">
+          If your internal security team, a third-party auditor, or anyone else discovers a telemetry beacon, hidden API call, or crash reporter in the <strong>exact software version and configuration</strong> we audited that we failed to document in our Executive Privacy Report...
+        </p>
+        <div class="border-l-4 border-amber-500 pl-5 py-2">
+          <p class="text-brand-forest font-bold text-xl mb-0">
+            We will refund 100% of your audit fee, AND send you an extra <span class="text-amber-600">$500</span> out of our own pocket to compensate for our oversight.
+          </p>
+        </div>
+      </div>
+
+      <p class="text-brand-muted mt-5 text-sm font-medium italic">
+        * Guarantee applies exclusively to the specific version tag (e.g., v2.4.1), commit hash, and deployment configuration documented in your final report. New telemetry introduced by the vendor in subsequent software updates is naturally not covered.
+      </p>
+
+      <!-- SCARCITY -->
+      <div class="text-center my-8">
+        <div
+          class="bg-red-50 text-red-700 px-6 py-3 rounded-full inline-block font-bold border border-red-200 shadow-sm"
+        >
+          ⚠️ <span id="slotCount">3</span> audit slots remaining for this cycle.
+        </div>
+        <p class="text-brand-muted text-sm mt-3">
+          Each audit requires dedicated test hardware, hands-on source code review, and real-time network recording across multiple usage sessions. To keep quality high, we only take <strong id="slotCount2">3 audits per batch</strong>.
+        </p>
+      </div>
+
+      <!-- CTA -->
+      <div class="text-center mb-8">
+        <a
+          href="/contact"
+          id="contactCtaBtn"
+          class="btn-primary block w-full md:w-auto md:inline-block text-xl font-bold px-8 py-5 shadow-xl hover:scale-105 transition-transform text-center mx-auto"
+        >
+          🛡️ YES — Secure My Audit &amp; Lock Down My Stack
+        </a>
+        <p class="text-brand-muted text-sm mt-4">
+          Takes 90 seconds to submit your stack details. Delivered in 72 hours.
+        </p>
+      </div>
+
+      <!-- PS -->
+      <div class="border-t border-brand-forest/10 pt-8 mt-10 text-brand-muted">
+        <strong class="text-amber-600">P.S.</strong> The cost of waiting: a single hidden tracking tool can quietly leak your confidential prompts or internal server data to outside servers. <strong id="psSlots">Only 3 slots remaining.</strong> Lock in your audit today.
+      </div>
+    </div>
+  </div>
+
+  <script is:inline>
+    function initPrivacyCalculator() {
+      const params = new URLSearchParams(window.location.search);
+      let initialTool = params.get("tool") || params.get("name") || "";
+      let initialEnv = params.get("env") || "Docker Container";
+      let initialTarget = params.get("target") || params.get("sensitivity") || "Zero External Telemetry";
+
+      if (initialTarget.includes("HIPAA") || initialTarget.includes("GDPR") || initialTarget.includes("Enterprise")) {
+        initialTarget = "Zero External Telemetry";
+      }
+
+      const el = (id) => document.getElementById(id);
+      const toolInput = el("cfgToolInput");
+      const envSelect = el("cfgEnvSelect");
+      const targetSelect = el("cfgTargetSelect");
+      const presetChips = document.querySelectorAll(".preset-chip");
+
+      if (initialTool && toolInput) {
+        toolInput.value = initialTool;
+      }
+      if (initialEnv && envSelect) {
+        envSelect.value = initialEnv;
+      }
+      if (initialTarget && targetSelect) {
+        targetSelect.value = initialTarget;
+      }
+
+      function updatePage() {
+        const tInput = el("cfgToolInput");
+        const eSelect = el("cfgEnvSelect");
+        const tgSelect = el("cfgTargetSelect");
+
+        const currentTool = tInput && tInput.value.trim() ? tInput.value.trim() : "Your AI Stack";
+        const currentEnv = eSelect ? eSelect.value : "Docker Container";
+        const currentTarget = tgSelect ? tgSelect.value : "Zero External Telemetry";
+
+        const displayTool = el("displayTool");
+        if (displayTool) displayTool.textContent = currentTool;
+
+        const displayToolSub = el("displayToolSub");
+        if (displayToolSub) displayToolSub.textContent = currentTool;
+
+        const displayEnv = el("displayEnv");
+        if (displayEnv) displayEnv.textContent = currentEnv;
+
+        const displayTarget = el("displayTarget");
+        if (displayTarget) displayTarget.textContent = currentTarget;
+
+        const badgeTool = el("badgeTool");
+        if (badgeTool) badgeTool.textContent = currentTool;
+
+        const badgeEnv = el("badgeEnv");
+        if (badgeEnv) badgeEnv.textContent = currentEnv;
+
+        const badgeTarget = el("badgeTarget");
+        if (badgeTarget) badgeTarget.textContent = currentTarget;
+
+        const offerTool = el("offerTool");
+        if (offerTool) offerTool.textContent = currentTool;
+
+        let userEmail = params.get("email") || "";
+
+        let bodyText = `Hi, I'm interested in the Airgap Certainty Blueprint (Privacy & Telemetry Audit).\n\nHere are my target stack details:\n`;
+        bodyText += `- Target Tool / AI Stack: ${currentTool}\n`;
+        bodyText += `- Environment: ${currentEnv}\n`;
+        bodyText += `- Privacy & Telemetry Goal: ${currentTarget}\n`;
+        if (userEmail) {
+          bodyText += `- Work Email: ${userEmail}\n`;
+        }
+
+        const ctaBtn = el("contactCtaBtn");
+        if (ctaBtn) {
+          let contactUrl = `/contact?subject=Airgap%20Certainty%20Blueprint%20Audit&body=${encodeURIComponent(bodyText)}`;
+          if (userEmail) {
+            contactUrl += `&email=${encodeURIComponent(userEmail)}`;
+          }
+          ctaBtn.setAttribute("href", contactUrl);
+        }
+      }
+
+      if (toolInput) toolInput.addEventListener("input", updatePage);
+      if (envSelect) envSelect.addEventListener("change", updatePage);
+      if (targetSelect) targetSelect.addEventListener("change", updatePage);
+
+      presetChips.forEach((chip) => {
+        chip.addEventListener("click", () => {
+          const toolName = chip.getAttribute("data-preset");
+          const tInput = el("cfgToolInput");
+          if (toolName && tInput) {
+            tInput.value = toolName;
+            updatePage();
+          }
+        });
+      });
+
+      updatePage();
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", initPrivacyCalculator);
+    } else {
+      initPrivacyCalculator();
+    }
+  </script>
+</Layout>

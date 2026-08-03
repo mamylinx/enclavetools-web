@@ -1,0 +1,19 @@
+---
+const { category, toolName } = Astro.props;
+
+if (category === "llm-models") {
+  return null;
+}
+---
+<div class="bg-amber-50 border-2 border-amber-200 p-6 md:p-8 rounded-2xl relative shadow-sm">
+  <div class="absolute -top-4 -right-2 text-4xl drop-shadow-md">🛡️</div>
+  <h3 class="text-xl font-extrabold text-brand-forest mb-2">
+    Deploying {toolName} in production?
+  </h3>
+  <p class="text-brand-muted mb-4">
+    Stop silent telemetry leaks before they trigger an unintended data leak. Get our <strong>Airgap Certainty Blueprint</strong> for <strong>{toolName}</strong>.
+  </p>
+  <a href={`/privacy-offer?tool=${encodeURIComponent(toolName)}&env=Docker%20Container`} class="inline-flex items-center justify-center text-center bg-brand-forest text-white font-bold px-6 py-3 rounded-full hover:bg-brand-teal transition-colors shadow-sm">
+    Request Privacy and Telemetry Audit
+  </a>
+</div>

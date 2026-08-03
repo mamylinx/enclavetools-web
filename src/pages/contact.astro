@@ -5,20 +5,21 @@ import Layout from "../layouts/Layout.astro";
 <Layout
   site="Enclavetools - Contact"
   title="Contact | Enclavetools"
-  tagline="Get your custom LLM hardware sizing and benchmark data."
-  pageTitle="Get Custom Hardware Sizing"
-  pageDescription="Tell us about your AI workload and we will send you a complete server blueprint with benchmarks."
+  tagline="Get your custom LLM hardware sizing or privacy due diligence audit."
+  pageTitle="Get Custom Sizing & Privacy Audits"
+  pageDescription="Tell us about your AI workload or target stack and we will send you a complete blueprint."
   canonicalUrl="https://enclavetools.com/contact"
   showSearch={false}
 >
   <div class="max-w-3xl mx-auto px-4 py-12 lg:py-16">
     <div id="app">
       <h1
+        id="contactTitle"
         class="text-3xl md:text-4xl font-extrabold text-brand-forest tracking-tight mb-2 text-center"
       >
         Get Your Server Blueprint
       </h1>
-      <p class="text-brand-muted text-center mb-10">
+      <p id="contactSub" class="text-brand-muted text-center mb-10">
         Tell us about your workload and we will send a complete hardware sizing
         and benchmark report before you spend a dollar.
       </p>
@@ -65,14 +66,14 @@ import Layout from "../layouts/Layout.astro";
           <input type="text" id="cSubject" class="gpu-input" readonly />
         </div>
         <div class="mb-6">
-          <label class="field-label" for="cBody">Your specs</label>
+          <label class="field-label" for="cBody">Your target stack specs</label>
           <textarea
             id="cBody"
             rows="6"
             class="gpu-input font-mono text-xs"
             readonly></textarea>
         </div>
-        <button type="submit" class="btn-primary block w-full py-4 text-base">
+        <button type="submit" id="cSubmitBtn" class="btn-primary block w-full py-4 text-base">
           Send My Blueprint
         </button>
       </form>
@@ -83,26 +84,43 @@ import Layout from "../layouts/Layout.astro";
         >
           ✓
         </div>
-        <h2 class="text-2xl font-extrabold text-brand-forest mb-3">
+        <h2 id="cSuccessTitle" class="text-2xl font-extrabold text-brand-forest mb-3">
           Message Sent
         </h2>
-        <p class="text-brand-muted">
+        <p id="cSuccessSub" class="text-brand-muted">
           We will email you the full benchmark report within 24 hours.
         </p>
       </div>
     </div>
   </div>
 
-  <script>
-    (function () {
+  <script is:inline>
+    function initContactForm() {
       const params = new URLSearchParams(window.location.search);
       const subject = params.get("subject") || "Hardware Sizing & Benchmark";
       const body = params.get("body") || "";
+      const email = params.get("email") || "";
 
       const subjectEl = document.getElementById("cSubject");
       const bodyEl = document.getElementById("cBody");
+      const emailEl = document.getElementById("cEmail");
+      const titleEl = document.getElementById("contactTitle");
+      const subEl = document.getElementById("contactSub");
+      const submitBtn = document.getElementById("cSubmitBtn");
+      const successTitle = document.getElementById("cSuccessTitle");
+      const successSub = document.getElementById("cSuccessSub");
+
       if (subjectEl) subjectEl.value = subject;
       if (bodyEl) bodyEl.value = body;
+      if (emailEl && email) emailEl.value = email;
+
+      if (subject.includes("Airgap") || subject.includes("Privacy") || subject.includes("Audit")) {
+        if (titleEl) titleEl.textContent = "Request Your Airgap Certainty Blueprint";
+        if (subEl) subEl.textContent = "Review your stack details below and submit to lock in your audit slot.";
+        if (submitBtn) submitBtn.textContent = "🛡️ Submit Audit Request";
+        if (successTitle) successTitle.textContent = "Audit Request Submitted";
+        if (successSub) successSub.textContent = "We will email your audit confirmation within 24 hours.";
+      }
 
       const form = document.getElementById("contactForm");
       const success = document.getElementById("cSuccess");
@@ -113,6 +131,12 @@ import Layout from "../layouts/Layout.astro";
         form.classList.add("hidden");
         if (success) success.classList.remove("hidden");
       });
-    })();
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", initContactForm);
+    } else {
+      initContactForm();
+    }
   </script>
 </Layout>

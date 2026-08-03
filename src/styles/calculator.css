@@ -59,13 +59,13 @@
   .choice-btn-sm .cd { @apply block text-[11px] text-brand-muted mt-0.5 leading-relaxed break-words; }
 
   .btn-primary {
-    @apply bg-brand-forest text-white border-none rounded-full px-7 py-3 text-sm font-bold cursor-pointer transition-all duration-200 shadow-sm hover:bg-black hover:-translate-y-0.5 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:translate-y-0 min-h-[44px];
+    @apply bg-brand-forest text-white border-none rounded-full px-7 py-3 text-sm font-bold cursor-pointer transition-all duration-200 shadow-sm hover:bg-black hover:-translate-y-0.5 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:translate-y-0 min-h-[44px] text-center inline-flex items-center justify-center;
   }
   .btn-ghost {
-    @apply bg-transparent text-brand-muted border border-brand-forest/15 rounded-full px-6 py-3 text-sm font-bold cursor-pointer transition-all duration-200 hover:border-brand-teal hover:text-brand-forest min-h-[44px];
+    @apply bg-transparent text-brand-muted border border-brand-forest/15 rounded-full px-6 py-3 text-sm font-bold cursor-pointer transition-all duration-200 hover:border-brand-teal hover:text-brand-forest min-h-[44px] text-center inline-flex items-center justify-center;
   }
   .btn-sm {
-    @apply bg-brand-bg border border-brand-forest/10 text-brand-muted rounded-lg px-4 py-2.5 text-xs font-bold cursor-pointer transition-all duration-200 hover:border-brand-teal hover:text-brand-forest min-h-[44px] min-w-[44px] flex items-center justify-center;
+    @apply bg-brand-bg border border-brand-forest/10 text-brand-muted rounded-lg px-4 py-2.5 text-xs font-bold cursor-pointer transition-all duration-200 hover:border-brand-teal hover:text-brand-forest min-h-[44px] min-w-[44px] flex items-center justify-center text-center;
   }
   .btn-sm.danger { @apply border-red-300 text-red-600 hover:bg-red-50; }
 
