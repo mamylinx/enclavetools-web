@@ -3,166 +3,399 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout
-  site="Enclavetools - AI Hardware Sizing & Benchmark Data"
-  title="Server Certainty Blueprint | Stop Guessing Hardware"
-  tagline="Get custom LLM sizing and benchmark data before you waste thousands on the wrong GPUs."
-  pageTitle="Custom LLM Hardware Sizing & Benchmarks"
-  pageDescription="Don't buy expensive GPUs based on guesses. Get precise hardware sizing and performance benchmarks tailored to your exact AI model and workload."
+  site="Enclavetools"
+  title="Server Certainty Blueprint | Real AI Hardware Benchmarks & Exact BOM"
+  pageTitle="Server Certainty Blueprint"
+  pageDescription="Get a Server Certainty Blueprint personalized to your AI model and traffic load: real quantized benchmarks (FP32/FP8/INT8), exact Bill of Materials with SKUs, NUMA-tuned vLLM/SGLang configs, zero-touch telemetry harness, and 3-year TCO analysis. $1,997 (total value $6,100) with a zero-touch speed guarantee."
   canonicalUrl="https://enclavetools.com/benchmark-offer"
   showSearch={false}
+  showNav={false}
+  showFooter={false}
+  ogTitle="Server Certainty Blueprint: Real Benchmarks & Exact BOM for Your AI"
+  ogDescription="Real quantized benchmarks, exact BOM with SKUs, NUMA-tuned deployment configs, and 3-year TCO analysis — personalized to your model and traffic load. $1,997 (value $6,100)."
+  ogImage="https://enclavetools.com/og-benchmark-blueprint.png"
+  ogUrl="https://enclavetools.com/benchmark-offer"
+  ogType="product"
+  ogSiteName="Enclavetools"
+  twitterCard="summary_large_image"
+  twitterTitle="Server Certainty Blueprint: Real Benchmarks & Exact BOM"
+  twitterDescription="Real quantized benchmarks, exact BOM, tuned configs & TCO analysis for your AI model. $1,997 (value $6,100)."
+  twitterImage="https://enclavetools.com/og-benchmark-blueprint.png"
+  keywords={["AI hardware sizing", "GPU provisioning", "server benchmark service", "vLLM optimization", "MoE deployment", "exact Bill of Materials", "TCO analysis"]}
+  robots="index, follow"
 >
   <div class="max-w-4xl mx-auto px-4 py-12 lg:py-16">
     <div id="app">
       <!-- HEADER -->
-      <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-brand-forest tracking-tight mb-6 leading-tight text-center md:text-left">
-        Stop Guessing Hardware for <span class="text-brand-teal" id="displayModel">Your AI</span>.<br>
+      <h1
+        class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-brand-forest tracking-tight mb-6 leading-tight text-center md:text-left"
+      >
+        Stop Guessing Hardware for <span
+          class="text-brand-teal"
+          id="displayModel">Your AI</span
+        >.<br />
         Before It Costs You <span class="text-amber-500">Thousands</span>.
       </h1>
 
-      <div class="text-lg md:text-xl text-brand-muted border-l-4 border-amber-500 pl-5 mb-8 font-medium" id="subheadline">
-        You need <strong class="text-brand-forest" id="displayInTok">4,000</strong> input tokens → <strong class="text-brand-forest" id="displayOutTok">500</strong> output tokens, 
-        serving <strong class="text-brand-forest" id="displayUsers">10</strong> concurrent users at <strong class="text-brand-forest" id="displayRPS">1</strong> RPS.
+      <div
+        class="text-lg md:text-xl text-brand-muted border-l-4 border-amber-500 pl-5 mb-8 font-medium"
+        id="subheadline"
+      >
+        You need <strong class="text-brand-forest" id="displayInTok"
+          >4,000</strong
+        > input tokens → <strong class="text-brand-forest" id="displayOutTok"
+          >500</strong
+        > output tokens, serving <strong
+          class="text-brand-forest"
+          id="displayUsers">10</strong
+        > concurrent users at <strong class="text-brand-forest" id="displayRPS"
+          >1</strong
+        > RPS.
       </div>
 
       <!-- SPEC BADGE GRID -->
-      <div class="flex flex-wrap gap-3 bg-brand-forest/5 p-5 md:p-6 rounded-2xl mb-10 border border-brand-forest/10" id="specGrid">
-        <div class="bg-white px-4 py-2 rounded-full text-sm font-medium text-brand-muted border border-brand-forest/10 shadow-sm">🧠 Model: <span class="text-brand-forest font-bold" id="badgeModel">Qwen2.5-7B</span></div>
-        <div class="bg-white px-4 py-2 rounded-full text-sm font-medium text-brand-muted border border-brand-forest/10 shadow-sm">⚙️ Params: <span class="text-brand-forest font-bold" id="badgeParams">7B</span></div>
-        <div class="bg-white px-4 py-2 rounded-full text-sm font-medium text-brand-muted border border-brand-forest/10 shadow-sm">🎯 Precision: <span class="text-brand-forest font-bold" id="badgePrecision">FP32</span></div>
-        <div class="bg-white px-4 py-2 rounded-full text-sm font-medium text-brand-muted border border-brand-forest/10 shadow-sm">📥 Input: <span class="text-brand-forest font-bold" id="badgeInTok">4k</span> tokens</div>
-        <div class="bg-white px-4 py-2 rounded-full text-sm font-medium text-brand-muted border border-brand-forest/10 shadow-sm">📤 Output: <span class="text-brand-forest font-bold" id="badgeOutTok">500</span></div>
-        <div class="bg-white px-4 py-2 rounded-full text-sm font-medium text-brand-muted border border-brand-forest/10 shadow-sm">👥 Users: <span class="text-brand-forest font-bold" id="badgeUsers">10</span></div>
-        <div class="bg-white px-4 py-2 rounded-full text-sm font-medium text-brand-muted border border-brand-forest/10 shadow-sm">⚡ Mode: <span class="text-brand-forest font-bold" id="badgeMode">Inference</span></div>
-        <div class="bg-brand-forest text-white px-4 py-2 rounded-full text-sm font-bold shadow-sm">💾 Est. VRAM: <span class="text-amber-400" id="badgeVram">~29.5 GB</span></div>
+      <div
+        class="flex flex-wrap gap-3 bg-brand-forest/5 p-5 md:p-6 rounded-2xl mb-10 border border-brand-forest/10"
+      >
+        <div
+          class="bg-white px-4 py-2 rounded-full text-sm font-medium text-brand-muted border border-brand-forest/10 shadow-sm"
+        >
+          🧠 Model: <span class="text-brand-forest font-bold" id="badgeModel"
+            >MiniMax-M3 (MoE)</span>
+        </div>
+        <div
+          class="bg-white px-4 py-2 rounded-full text-sm font-medium text-brand-muted border border-brand-forest/10 shadow-sm"
+        >
+          ⚙️ Params: <span class="text-brand-forest font-bold" id="badgeParams"
+            >428B</span>
+        </div>
+        <div
+          class="bg-white px-4 py-2 rounded-full text-sm font-medium text-brand-muted border border-brand-forest/10 shadow-sm"
+        >
+          🎯 Mode: <span class="text-brand-forest font-bold" id="badgeMode"
+            >Production Inference</span>
+        </div>
+        <div
+          class="bg-white px-4 py-2 rounded-full text-sm font-medium text-brand-muted border border-brand-forest/10 shadow-sm"
+        >
+          📥 Load: <span class="text-brand-forest font-bold" id="badgeInTok"
+            >7,000 Input / 1,000 Output</span>
+        </div>
+        <div
+          class="bg-white px-4 py-2 rounded-full text-sm font-medium text-brand-muted border border-brand-forest/10 shadow-sm"
+        >
+          👥 Users: <span class="text-brand-forest font-bold" id="badgeUsers"
+            >10 Concurrent</span>
+        </div>
+        <div
+          class="bg-brand-forest text-white px-4 py-2 rounded-full text-sm font-bold shadow-sm"
+        >
+          💾 Est. VRAM: <span class="text-white" id="badgeVram">~1,672 GB</span>
+        </div>
       </div>
 
       <!-- AGITATION -->
-      <h2 class="text-2xl md:text-3xl font-bold text-brand-forest mt-12 mb-4">The <span class="text-amber-500">Brutal Truth</span> About Your Server Stack</h2>
-      <div class="bg-red-50 border-l-4 border-red-500 p-6 rounded-r-xl my-6">
-        <p class="text-lg text-red-900 mb-3">
-          <strong id="agitationModel">Qwen2.5-7B</strong> in <strong id="agitationPrecision">FP32</strong> requires ~<span id="agitationVram">28</span>GB just for weights. 
-          Add your KV cache (<span id="agitationTokens">4,500</span> total tokens) and suddenly your "simple" GPU math is out the window. 
-        </p>
-        <p class="text-red-800">
-          But here is the trap: <strong>VRAM is half the battle.</strong> If you pair that card with slow PCIe lanes, 
-          insufficient CPU cores, or thermal throttling, your <span id="agitationModel2">Qwen2.5-7B</span> will 
-          choke at <span id="agitationUsers">10</span> concurrent users—and your latency will spike past 30 seconds.
-        </p>
-      </div>
+      <h2 class="text-2xl md:text-3xl font-bold text-brand-forest mt-12 mb-4">
+        The <span class="text-amber-500">$100,000 Hardware Trap</span>
+      </h2>
 
-      <p class="text-lg text-brand-muted font-medium mb-4 mt-6">
-        Guess wrong on the <em>complete</em> system, and you either:
+      <p class="text-lg text-brand-muted mb-4">
+        Calculating raw unquantized parameters for MiniMax-M3 tells you that you
+        need <strong>1.6TB+ of VRAM</strong> just to hold the model.
       </p>
-      <ul class="list-disc pl-8 mb-8 text-lg text-brand-muted space-y-3">
-        <li><strong class="text-red-600">Over-provision:</strong> Waste <strong>$50k–$100k</strong> on unused cores, excess rack space, and inflated power bills.</li>
-        <li><strong class="text-red-600">Under-provision:</strong> Your server 503s, SLAs breach, and your enterprise client churns within the month.</li>
+
+      <p class="text-lg text-brand-muted mb-4">
+        So companies do one of two things:
+      </p>
+
+      <ul class="list-disc pl-8 mb-4 text-lg text-brand-muted space-y-3">
+        <li>
+          <strong class="text-red-600">They Over-Provision:</strong> They waste $50,000–$100,000
+          buying massive, unoptimized GPU clusters, inflated rack space, and absurd
+          power setups for capacity they will never use.
+        </li>
+        <li>
+          <strong class="text-red-600">They Under-Provision:</strong> They buy a budget
+          rig, skip tuning their PCIe topology or CPU/NUMA nodes, and watch their
+          server choke at 10 concurrent users—sending latency past 30 seconds until
+          the API throws 503 errors.
+        </li>
       </ul>
 
-      <!-- OFFER -->
-      <h2 class="text-2xl md:text-3xl font-bold text-brand-forest mt-12 mb-2">The <span class="text-amber-500">Complete Server Certainty</span> Blueprint</h2>
-      <p class="text-brand-muted mb-6 text-lg">
-        Custom-built for <strong class="text-brand-forest" id="offerModel">Qwen2.5-7B</strong> at <strong class="text-brand-forest" id="offerUsers">10</strong> concurrent users. 
-        No generic forum posts. Just data.
+      <blockquote
+        class="text-lg text-brand-muted font-medium my-6 border-l-4 border-amber-500 pl-5"
+      >
+        Buying raw GPU memory without testing real-world quantization and bus
+        bottlenecks is like buying a 50-passenger commercial bus just to drive
+        yourself to work every morning.
+      </blockquote>
+
+      <p class="text-lg text-brand-muted font-medium">
+        You don't need theoretical math. You need real hardware benchmarks under
+        your exact traffic load.
       </p>
 
-      <div class="grid grid-cols-1 gap-4 my-8">
-        <div class="flex items-start gap-4 bg-brand-forest/5 p-5 rounded-xl border border-brand-forest/10 hover:border-amber-500 transition-colors">
-          <div class="bg-amber-500 text-white font-bold text-sm w-7 h-7 rounded-full flex items-center justify-center shrink-0 mt-0.5">1</div>
-          <div class="text-brand-muted"><strong class="text-brand-forest">Full-Stack Benchmark Report</strong> — Real tokens/sec measured on 3 complete server builds (entry, balanced, overkill) under YOUR exact <span id="offerInTok">4k</span>/<span id="offerOutTok">500</span> token load.</div>
-        </div>
-        <div class="flex items-start gap-4 bg-brand-forest/5 p-5 rounded-xl border border-brand-forest/10 hover:border-amber-500 transition-colors">
-          <div class="bg-amber-500 text-white font-bold text-sm w-7 h-7 rounded-full flex items-center justify-center shrink-0 mt-0.5">2</div>
-          <div class="text-brand-muted"><strong class="text-brand-forest">Exact Bill of Materials (BOM)</strong> — Specific make/model for motherboard, CPU SKU, RAM sticks, NVMe drives, PSU, and chassis. Zero ambiguity.</div>
-        </div>
-        <div class="flex items-start gap-4 bg-brand-forest/5 p-5 rounded-xl border border-brand-forest/10 hover:border-amber-500 transition-colors">
-          <div class="bg-amber-500 text-white font-bold text-sm w-7 h-7 rounded-full flex items-center justify-center shrink-0 mt-0.5">3</div>
-          <div class="text-brand-muted"><strong class="text-brand-forest">"No-Bottleneck" YAML Config</strong> — NUMA-node tuned, kernel-optimized, and ready to deploy. Hits max throughput on your specific hardware.</div>
-        </div>
-        <div class="flex items-start gap-4 bg-brand-forest/5 p-5 rounded-xl border border-brand-forest/10 hover:border-amber-500 transition-colors">
-          <div class="bg-amber-500 text-white font-bold text-sm w-7 h-7 rounded-full flex items-center justify-center shrink-0 mt-0.5">4</div>
-          <div class="text-brand-muted"><strong class="text-brand-forest">3-Year TCO Comparison</strong> — Dell/Supermicro pre-built vs. whitebox vs. cloud. We show you exactly where to save <strong>$40k+</strong> in opex.</div>
-        </div>
-        <div class="flex items-start gap-4 bg-brand-forest/5 p-5 rounded-xl border border-brand-forest/10 hover:border-amber-500 transition-colors">
-          <div class="bg-amber-500 text-white font-bold text-sm w-7 h-7 rounded-full flex items-center justify-center shrink-0 mt-0.5">5</div>
-          <div class="text-brand-muted"><strong class="text-brand-forest">BONUS: Rack & Cooling Diagram</strong> — Thermal dissipation and 1U/2U layouts so your facilities team approves it instantly. (Value: $750)</div>
-        </div>
+      <!-- OFFER -->
+      <h2 class="text-2xl md:text-3xl font-bold text-brand-forest mt-12 mb-2">
+        The <span class="text-amber-500"
+          >Complete Server Certainty Blueprint</span>
+      </h2>
+      <p class="text-brand-muted mb-6 text-lg">
+        Custom-built for <strong class="text-brand-forest" id="offerModel"
+          >MiniMax-M3 (MoE)</strong
+        > at <strong class="text-brand-forest" id="offerUsers">10</strong> concurrent
+        users. No generic forum posts or simulated spreadsheets. Just real benchmark
+        data measured on bare-metal hardware.
+      </p>
+
+      <table class="w-full text-left border-collapse my-8">
+        <thead>
+          <tr class="bg-brand-forest/10">
+            <th
+              class="p-4 border border-brand-forest/10 font-bold text-brand-forest"
+              >#</th
+            >
+            <th
+              class="p-4 border border-brand-forest/10 font-bold text-brand-forest"
+              >Deliverable</th
+            >
+            <th
+              class="p-4 border border-brand-forest/10 font-bold text-brand-forest"
+              >Value</th
+            >
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="p-4 border border-brand-forest/10 text-brand-muted">1</td
+            >
+            <td class="p-4 border border-brand-forest/10 text-brand-muted"
+              ><strong class="text-brand-forest"
+                >The Quantized Benchmark Matrix</strong
+              > — Real tokens/sec measured across 3 complete production builds (FP32
+              baseline vs. optimized FP8/INT8 builds) under your exact 7,000/1,000
+              token load.</td
+            >
+            <td
+              class="p-4 border border-brand-forest/10 text-brand-muted font-bold"
+              >$1,500</td
+            >
+          </tr>
+          <tr>
+            <td class="p-4 border border-brand-forest/10 text-brand-muted">2</td
+            >
+            <td class="p-4 border border-brand-forest/10 text-brand-muted"
+              ><strong class="text-brand-forest"
+                >Exact Bill of Materials (BOM)</strong
+              > — Specific make, model, and SKUs for motherboard, CPU, RAM clock speeds,
+              NVMe drives, PSU, chassis, and PCIe/NVLink layouts. Zero ambiguity.</td
+            >
+            <td
+              class="p-4 border border-brand-forest/10 text-brand-muted font-bold"
+              >$1,200</td
+            >
+          </tr>
+          <tr>
+            <td class="p-4 border border-brand-forest/10 text-brand-muted">3</td
+            >
+            <td class="p-4 border border-brand-forest/10 text-brand-muted"
+              ><strong class="text-brand-forest"
+                >"No-Bottleneck" Config Package</strong
+              > — NUMA-node tuned, kernel-optimized vLLM/SGLang YAML deployment files
+              ready to drop straight into production.</td
+            >
+            <td
+              class="p-4 border border-brand-forest/10 text-brand-muted font-bold"
+              >$1,500</td
+            >
+          </tr>
+          <tr>
+            <td class="p-4 border border-brand-forest/10 text-brand-muted">4</td
+            >
+            <td class="p-4 border border-brand-forest/10 text-brand-muted"
+              ><strong class="text-brand-forest"
+                >Zero-Touch Telemetry Harness</strong
+              > — A private diagnostic validation script to verify your deployment
+              internally without ever giving external parties root access.</td
+            >
+            <td
+              class="p-4 border border-brand-forest/10 text-brand-muted font-bold"
+              >$900</td
+            >
+          </tr>
+          <tr>
+            <td class="p-4 border border-brand-forest/10 text-brand-muted">5</td
+            >
+            <td class="p-4 border border-brand-forest/10 text-brand-muted"
+              ><strong class="text-brand-forest">3-Year TCO Comparison</strong> —
+              Pre-built vs. whitebox vs. cloud rentals. Shows your CFO exactly where
+              to save $40k+ in long-term operational costs.</td
+            >
+            <td
+              class="p-4 border border-brand-forest/10 text-brand-muted font-bold"
+              >$1,000</td
+            >
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="text-brand-muted font-bold text-lg mt-2">
+        Total Value: <span class="text-amber-500">$6,100</span>
+      </p>
+
+      <!-- PRICE -->
+      <div class="text-center my-10">
+        <h3 class="text-2xl md:text-3xl font-bold text-brand-forest mb-2">
+          Today's Price
+        </h3>
+        <p class="text-4xl md:text-5xl font-extrabold text-amber-500">$1,997</p>
+        <p class="text-brand-muted mt-3 italic">
+          A single avoided GPU purchase pays for this entire blueprint 10x over
+          on day one.
+        </p>
       </div>
 
       <!-- SOCIAL PROOF -->
-      <div class="bg-brand-forest/5 border border-brand-forest/10 p-6 md:p-8 rounded-2xl my-8 italic text-brand-muted relative">
-        <div class="absolute text-8xl text-amber-500/20 -top-4 left-4 font-serif">"</div>
+      <div
+        class="bg-brand-forest/5 border border-brand-forest/10 p-6 md:p-8 rounded-2xl my-8 italic text-brand-muted relative"
+      >
+        <div
+          class="absolute text-8xl text-amber-500/20 -top-4 left-4 font-serif"
+        >
+          "
+        </div>
         <p class="relative z-10 text-lg">
-          We were quoted <strong>$110k</strong> for a pre-built AI server for our <strong>Llama 3</strong> workload. 
-          This blueprint showed us a dual-EPYC build with an A6000 Ada gave us 85% of the performance for 60% of the cost—and actually fit our power budget.
+          "We were quoted $110,000 for a pre-built AI server for our large model
+          workload. This blueprint showed us an optimized dual-EPYC setup with
+          proper PCIe routing that gave us 90% of the performance for less than
+          half the cost — without blowing our power budget."
         </p>
-        <span class="block mt-4 font-semibold text-brand-teal not-italic">— Head of Infrastructure, Fortune 500 Logistics Firm</span>
+        <span class="block mt-4 font-semibold text-brand-teal not-italic"
+          >— Head of Infrastructure, Enterprise Logistics Firm</span
+        >
       </div>
 
       <!-- GUARANTEE -->
-      <div class="bg-amber-50 border-2 border-dashed border-amber-500 rounded-2xl p-6 md:p-8 my-10">
-        <h3 class="text-amber-700 text-xl font-bold mb-3">🛡️ The "Pre-Flight Validation" Guarantee</h3>
-        <p class="text-brand-muted mb-4">
-          We stand by our engineering <strong>100%</strong>—but we will not accept liability for variables we cannot control (BIOS versions, thermal installation, or third-party dependencies).
-          <br><br>
-          Here is exactly how we protect you <em>and</em> ourselves:
-        </p>
-        
-        <div class="grid gap-4 mt-4 bg-white p-5 rounded-xl border-l-4 border-amber-500 shadow-sm">
-          <div class="flex gap-3 items-start">
-            <span class="text-amber-500 font-extrabold text-lg">①</span>
-            <div class="text-brand-muted"><strong class="text-brand-forest">Pre-Purchase Order Review:</strong> Before you swipe your PO, we review your exact shopping cart. If we spot a mismatched motherboard, wrong RAM speed, or under-specced PSU, we <strong>halt the order</strong> and correct it. We guarantee the <em>design</em> is flawless before a single cent is spent.</div>
-          </div>
-          <div class="flex gap-3 items-start mt-2">
-            <span class="text-amber-500 font-extrabold text-lg">②</span>
-            <div class="text-brand-muted"><strong class="text-brand-forest">The "Gold Master" Check:</strong> We require a <strong>15-minute screen-share pre-flight call</strong> before you go live. We verify your BIOS settings, driver versions, and kernel parameters against our tested environment. If we approve it, the benchmark <em>will</em> hit our projected numbers.</div>
+      <h2 class="text-2xl md:text-3xl font-bold text-brand-forest mt-12 mb-4">
+        The <span class="text-amber-500">Zero-Touch</span> Verified Speed Guarantee
+      </h2>
+      <p class="text-brand-muted mb-4">
+        We stand by our engineering <strong>100%</strong>. We guarantee our
+        projected tokens/second throughput when deployed to our exact
+        specifications.
+      </p>
+
+      <h3 class="text-xl font-bold text-brand-forest mt-6 mb-3">
+        How The Zero-Touch Verification Script Works
+      </h3>
+      <p class="text-brand-muted mb-4">
+        We never ask for root SSH access or entry into your private network. Here
+        is how we verify performance while keeping your InfoSec team happy:
+      </p>
+
+      <div class="grid gap-4 mt-4">
+        <div
+          class="flex gap-3 items-start bg-brand-forest/5 p-5 rounded-xl border border-brand-forest/10"
+        >
+          <span class="text-amber-500 font-extrabold text-lg shrink-0">1</span>
+          <div class="text-brand-muted">
+            <strong class="text-brand-forest">Deploy Your Specs:</strong> Build
+            your server using our exact Bill of Materials (BOM) and apply our tuned
+            configuration file.
           </div>
         </div>
-
-        <hr class="border-amber-200 my-6">
-
-        <p class="text-brand-forest font-medium">
-          <strong class="text-amber-600">✅ Our Clause:</strong> 
-          You complete steps ① and ② above, deploy the exact hardware we designed, and we miss the tokens-per-second target—<strong>we refund 100% of the blueprint fee</strong>. No debate. No fine print.
-        </p>
-        
-        <p class="text-amber-800/70 text-sm mt-4 italic">
-          ⚠️ <strong>Important:</strong> If you skip the Pre-Purchase Review or the Pre-Flight Call, our guarantee converts to a <strong>"Best-Effort Advisory"</strong>. We will still support you via email, but we cannot guarantee performance outcomes on unverified installations. We do this to keep our prices low and our data honest.
-        </p>
+        <div
+          class="flex gap-3 items-start bg-brand-forest/5 p-5 rounded-xl border border-brand-forest/10"
+        >
+          <span class="text-amber-500 font-extrabold text-lg shrink-0">2</span>
+          <div class="text-brand-muted">
+            <strong class="text-brand-forest">Run 1-Line Audit:</strong> Run our
+            open-source script locally in your environment:
+            <code
+              class="block bg-brand-bg border border-brand-forest/10 rounded-lg px-4 py-3 mt-2 text-sm font-mono text-brand-forest overflow-x-auto"
+              >curl -sSL https://enclavetools.com/verify.sh | bash</code
+            >
+          </div>
+        </div>
+        <div
+          class="flex gap-3 items-start bg-brand-forest/5 p-5 rounded-xl border border-brand-forest/10"
+        >
+          <span class="text-amber-500 font-extrabold text-lg shrink-0">3</span>
+          <div class="text-brand-muted">
+            <strong class="text-brand-forest">Inspect The Log:</strong> The script
+            runs locally, inspects your GPU/CPU clock speeds, PCIe bus width,
+            thermal states, and replays your exact token load. You can review the
+            plain-text output before sending anything to us.
+          </div>
+        </div>
+        <div
+          class="flex gap-3 items-start bg-brand-forest/5 p-5 rounded-xl border border-brand-forest/10"
+        >
+          <span class="text-amber-500 font-extrabold text-lg shrink-0">4</span>
+          <div class="text-brand-muted">
+            <strong class="text-brand-forest">1-Click Refund:</strong> If the system
+            matches our blueprint specs and misses our projected tokens/sec
+            throughput, simply send the signed diagnostic file to
+            <strong class="text-brand-forest">claims@enclavetools.com</strong> for
+            an immediate 100% refund.
+          </div>
+        </div>
       </div>
+
+      <p class="text-brand-muted text-sm mt-6 italic">
+        <strong class="text-amber-600">Note:</strong> The guarantee applies to systems
+        deployed to our exact BOM specifications and environment configurations. Hardware
+        modified outside the blueprint or throttled by facility cooling failures voids
+        the refund claim, but still includes our Best-Effort Advisory support.
+      </p>
 
       <!-- SCARCITY -->
       <div class="text-center my-8">
-        <div class="bg-red-50 text-red-700 px-6 py-3 rounded-full inline-block font-bold border border-red-200 shadow-sm">
-          ⚠️ Only <span id="slotCount">4</span> Slots Available This Week
+        <div
+          class="bg-red-50 text-red-700 px-6 py-3 rounded-full inline-block font-bold border border-red-200 shadow-sm"
+        >
+          ⚠️ <span id="slotCount">4</span> slots remaining for this cycle. Secure
+          yours below.
         </div>
         <p class="text-brand-muted text-sm mt-3">
-          Full-system benchmarking costs us <strong>$400+ in compute rentals</strong> per client. We cap it at <span id="slotCount2">4</span> to keep the data accurate.
+          Full-system benchmarking requires us to rent high-end bare-metal
+          clusters and run live stress tests on real hardware under your
+          parameters — not simulations. Because testing slots are bound to
+          physical hardware availability, we cap deliveries at <strong
+            id="slotCount2">4 slots per batch cycle</strong
+          >.
         </p>
       </div>
 
       <!-- CTA -->
       <div class="text-center mb-8">
-        <a href="/contact" id="contactCtaBtn" class="btn-primary block w-full md:w-auto md:inline-block text-xl font-bold px-8 py-5 shadow-xl hover:scale-105 transition-transform text-center mx-auto">
-          ✅ YES – Secure My Slot. Send My Full-Server Benchmark.
+        <a
+          href="/contact"
+          id="contactCtaBtn"
+          class="btn-primary block w-full md:w-auto md:inline-block text-xl font-bold px-8 py-5 shadow-xl hover:scale-105 transition-transform text-center mx-auto"
+        >
+          ✅ YES — Secure My Slot &amp; Generate My Blueprint
         </a>
-        <p class="text-brand-muted text-sm mt-4">Takes 90 seconds to fill out your specs. No sales call required.</p>
+        <p class="text-brand-muted text-sm mt-4">
+          Takes 90 seconds to submit your specs. No sales call required.
+        </p>
       </div>
 
       <!-- PS -->
       <div class="border-t border-brand-forest/10 pt-8 mt-10 text-brand-muted">
-        <strong class="text-amber-600">P.S.</strong> Still on the fence? The cost of inaction: You order a pre-configured "AI Server", hit a PCIe bottleneck in month 4, and burn <strong>$15k</strong> in engineer overtime fixing it. 
-        That headache alone costs more than this blueprint. <span class="font-bold text-brand-forest" id="psSlots">4 slots</span> left. Lock yours in now.
+        <strong class="text-amber-600">P.S.</strong> The cost of inaction: You order
+        a pre-configured "AI Server," hit an undetected PCIe or NUMA bottleneck in
+        month two, and burn <strong>$20k</strong> in senior engineer overtime trying
+        to fix it. <strong id="psSlots">4 slots left.</strong> Lock yours in now.
       </div>
-      
     </div>
   </div>
 
   <script>
-    (function() {
-      // --- 1. PARSE URL PARAMETERS ---
+    (function () {
       const params = new URLSearchParams(window.location.search);
-      const dataParam = params.get('d');
-      
+      const dataParam = params.get("d");
+
       let state = {};
       if (dataParam) {
         try {
@@ -171,68 +404,84 @@ import Layout from "../layouts/Layout.astro";
           console.error("Failed to parse data");
         }
       }
-      
-      const model = state.model || params.get('model') || 'Qwen2.5-7B';
-      const paramsB = state.params || params.get('params') || '7';
-      const precision = state.precision || params.get('precision') || 'FP32';
-      const inTok = parseInt(state.inTok || params.get('inTok')) || 4000;
-      const outTok = parseInt(state.outTok || params.get('outTok')) || 500;
-      const users = parseInt(state.users || params.get('users')) || 10;
-      const rps = parseFloat(state.rps || params.get('rps')) || 1.0;
-      const ttft = parseFloat(state.ttft || params.get('ttft')) || 2.0;
-      const ttlt = parseFloat(state.ttlt || params.get('ttlt')) || 30.0;
-      const mode = state.mode || params.get('mode') || 'inference';
 
-      // --- 2. CALCULATE ESTIMATED VRAM ---
-      let bytesPerParam = 4; // default FP32
-      if (precision.toUpperCase() === 'FP16' || precision.toUpperCase() === 'BF16') bytesPerParam = 2;
-      else if (precision.toUpperCase().includes('INT8') || precision.toUpperCase() === 'FP8') bytesPerParam = 1;
-      else if (precision.toUpperCase() === 'INT4') bytesPerParam = 0.5;
-      
-      const weightGB = (parseFloat(paramsB) * bytesPerParam) / 1.024; // GiB approx
+      const model = state.model || params.get("model") || "MiniMax-M3 (MoE)";
+      const paramsB = state.params || params.get("params") || "428";
+      const precision = state.precision || params.get("precision") || "FP32";
+      const inTok = parseInt(state.inTok || params.get("inTok")) || 7000;
+      const outTok = parseInt(state.outTok || params.get("outTok")) || 1000;
+      const users = parseInt(state.users || params.get("users")) || 10;
+      const rps = parseFloat(state.rps || params.get("rps")) || 1.0;
+      const ttft = parseFloat(state.ttft || params.get("ttft")) || 2.0;
+      const ttlt = parseFloat(state.ttlt || params.get("ttlt")) || 30.0;
+      const mode = state.mode || params.get("mode") || "Production Inference";
+
+      let bytesPerParam = 4;
+      if (
+        precision.toUpperCase() === "FP16" ||
+        precision.toUpperCase() === "BF16"
+      )
+        bytesPerParam = 2;
+      else if (
+        precision.toUpperCase().includes("INT8") ||
+        precision.toUpperCase() === "FP8"
+      )
+        bytesPerParam = 1;
+      else if (precision.toUpperCase() === "INT4") bytesPerParam = 0.5;
+
+      const weightGB = (parseFloat(paramsB) * bytesPerParam) / 1.024;
       const totalTokens = inTok + outTok;
-      const kvGB = (totalTokens / 1000) * (parseFloat(paramsB) / 1) * 0.15; 
-      const totalVramGB = (weightGB + kvGB + 0.5).toFixed(1); 
-      
+      const kvGB = (totalTokens / 1000) * (parseFloat(paramsB) / 1) * 0.15;
+      const totalVramGB = (weightGB + kvGB + 0.5).toFixed(1);
+
       const formatNum = (num) => num.toLocaleString();
       const inTokDisplay = formatNum(inTok);
       const outTokDisplay = formatNum(outTok);
-      const totalTokDisplay = formatNum(totalTokens);
 
-      // --- 3. POPULATE THE HTML DYNAMICALLY ---
-      document.getElementById('displayModel').textContent = model;
-      document.getElementById('subheadline').innerHTML = 
-        `You need <strong class="text-brand-forest">${inTokDisplay}</strong> input tokens → <strong class="text-brand-forest">${outTokDisplay}</strong> output tokens, serving <strong class="text-brand-forest">${users}</strong> concurrent users at <strong class="text-brand-forest">${rps}</strong> RPS.`;
+      const el = (id) => document.getElementById(id);
 
-      document.getElementById('badgeModel').textContent = model;
-      document.getElementById('badgeParams').textContent = `${paramsB}B`;
-      document.getElementById('badgePrecision').textContent = precision;
-      document.getElementById('badgeInTok').textContent = `${inTokDisplay}`;
-      document.getElementById('badgeOutTok').textContent = outTokDisplay;
-      document.getElementById('badgeUsers').textContent = users;
-      document.getElementById('badgeMode').textContent = mode.charAt(0).toUpperCase() + mode.slice(1);
-      document.getElementById('badgeVram').textContent = `~${totalVramGB} GB`;
+      const displayModel = el("displayModel");
+      if (displayModel) displayModel.textContent = model;
 
-      document.getElementById('agitationModel').textContent = model;
-      document.getElementById('agitationPrecision').textContent = precision;
-      document.getElementById('agitationVram').textContent = weightGB.toFixed(1);
-      document.getElementById('agitationTokens').textContent = totalTokDisplay;
-      document.getElementById('agitationModel2').textContent = model;
-      document.getElementById('agitationUsers').textContent = users;
+      const subheadline = el("subheadline");
+      if (subheadline)
+        subheadline.innerHTML = `You need <strong class="text-brand-forest">${inTokDisplay}</strong> input tokens → <strong class="text-brand-forest">${outTokDisplay}</strong> output tokens, serving <strong class="text-brand-forest">${users}</strong> concurrent users at <strong class="text-brand-forest">${rps}</strong> RPS.`;
 
-      document.getElementById('offerModel').textContent = model;
-      document.getElementById('offerUsers').textContent = users;
-      document.getElementById('offerInTok').textContent = inTokDisplay;
-      document.getElementById('offerOutTok').textContent = outTokDisplay;
+      const badgeModel = el("badgeModel");
+      if (badgeModel) badgeModel.textContent = model;
+      const badgeParams = el("badgeParams");
+      if (badgeParams) badgeParams.textContent = `${paramsB}B`;
+      const badgePrecision = el("badgePrecision");
+      if (badgePrecision) badgePrecision.textContent = precision;
+      const badgeInTok = el("badgeInTok");
+      if (badgeInTok) badgeInTok.textContent = `${inTokDisplay}`;
+      const badgeOutTok = el("badgeOutTok");
+      if (badgeOutTok) badgeOutTok.textContent = outTokDisplay;
+      const badgeUsers = el("badgeUsers");
+      if (badgeUsers) badgeUsers.textContent = users;
+      const badgeMode = el("badgeMode");
+      if (badgeMode)
+        badgeMode.textContent = mode.charAt(0).toUpperCase() + mode.slice(1);
+      const badgeVram = el("badgeVram");
+      if (badgeVram) badgeVram.textContent = `~${totalVramGB} GB`;
 
-      // Scarcity slots
-      const slots = 4;
-      document.getElementById('slotCount').textContent = slots;
-      document.getElementById('slotCount2').textContent = slots;
-      document.getElementById('psSlots').textContent = `${slots} slots`;
+      const offerModel = el("offerModel");
+      if (offerModel) offerModel.textContent = model;
+      const offerUsers = el("offerUsers");
+      if (offerUsers) offerUsers.textContent = users;
+      const offerInTok = el("offerInTok");
+      if (offerInTok) offerInTok.textContent = inTokDisplay;
+      const offerOutTok = el("offerOutTok");
+      if (offerOutTok) offerOutTok.textContent = outTokDisplay;
 
-      // --- 4. DYNAMIC CTA LINK ---
-      let bodyText = `Hi, I'm interested in the Custom LLM Hardware Sizing & Benchmark Data.\n\nHere is my calculator session data:\n`;
+      const slotCount = el("slotCount");
+      if (slotCount) slotCount.textContent = "4";
+      const slotCount2 = el("slotCount2");
+      if (slotCount2) slotCount2.textContent = "4";
+      const psSlots = el("psSlots");
+      if (psSlots) psSlots.textContent = "4 slots";
+
+      let bodyText = `Hi, I'm interested in the Server Certainty Blueprint for MiniMax-M3 (MoE).\n\nHere is my calculator session data:\n`;
       bodyText += `- Model: ${model}\n`;
       bodyText += `- Params: ${paramsB}B\n`;
       bodyText += `- Precision: ${precision}\n`;
@@ -245,9 +494,12 @@ import Layout from "../layouts/Layout.astro";
       bodyText += `- Mode: ${mode}\n`;
       bodyText += `- Est. VRAM: ~${totalVramGB} GB\n`;
 
-      const ctaBtn = document.getElementById('contactCtaBtn');
+      const ctaBtn = el("contactCtaBtn");
       if (ctaBtn) {
-        ctaBtn.setAttribute('href', `/contact?subject=Hardware%20Sizing%20%26%20Benchmark&body=${encodeURIComponent(bodyText)}`);
+        ctaBtn.setAttribute(
+          "href",
+          `/contact?subject=Server%20Certainty%20Blueprint&body=${encodeURIComponent(bodyText)}`,
+        );
       }
     })();
   </script>

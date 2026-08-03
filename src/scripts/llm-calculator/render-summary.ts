@@ -101,7 +101,7 @@ export function renderLatency(s: CalcState, ttft: number, ttlt: number, rps: num
           w-full
           md:w-auto
           md:inline-block
-          text-center">Get Custom LLM Hardware Sizing & Benchmark Data</a>
+          text-center">Get Custom Sizing & Benchmark Data</a>
         </div>
       </div>
     </div>`;

@@ -28,6 +28,8 @@ export interface Props {
   showSearch?: boolean;
   searchPlaceholder?: string;
   showHero?: boolean;
+  showNav?: boolean;
+  showFooter?: boolean;
   eyebrow?: string;
 }
 
@@ -35,6 +37,8 @@ const {
   title,
   tagline,
   showHero = false,
+  showNav = true,
+  showFooter = true,
   eyebrow,
   ...seoProps
 } = Astro.props;
@@ -48,8 +52,12 @@ const {
   </head>
 
   <body class="bg-brand-bg font-sans text-brand-forest antialiased text-base">
-    <NavHeader showSearch={seoProps.showSearch} searchPlaceholder={seoProps.searchPlaceholder} />
-    <CategoryNav client:load />
+    {showNav && (
+      <>
+        <NavHeader showSearch={seoProps.showSearch} searchPlaceholder={seoProps.searchPlaceholder} />
+        <CategoryNav client:load />
+      </>
+    )}
 
     {showHero && <Hero eyebrow={eyebrow} title={title} tagline={tagline} />}
 
@@ -57,7 +65,7 @@ const {
       <slot />
     </main>
 
-    <SiteFooter />
+    {showFooter && <SiteFooter />}
   </body>
 </html>
 
