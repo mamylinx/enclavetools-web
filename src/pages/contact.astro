@@ -97,9 +97,16 @@ import Layout from "../layouts/Layout.astro";
   <script is:inline>
     function initContactForm() {
       const params = new URLSearchParams(window.location.search);
-      const subject = params.get("subject") || "Hardware Sizing & Benchmark";
-      const body = params.get("body") || "";
-      const email = params.get("email") || "";
+
+      // Read from sessionStorage first (set by offer pages), fall back to URL params
+      const subject = sessionStorage.getItem("contactSubject") || params.get("subject") || "Hardware Sizing & Benchmark";
+      const body = sessionStorage.getItem("contactBody") || params.get("body") || "";
+      const email = sessionStorage.getItem("contactEmail") || params.get("email") || "";
+
+      // Clear sessionStorage after reading so it doesn't persist across future visits
+      sessionStorage.removeItem("contactSubject");
+      sessionStorage.removeItem("contactBody");
+      sessionStorage.removeItem("contactEmail");
 
       const subjectEl = document.getElementById("cSubject");
       const bodyEl = document.getElementById("cBody");
@@ -126,10 +133,50 @@ import Layout from "../layouts/Layout.astro";
       const success = document.getElementById("cSuccess");
       if (!form) return;
 
-      form.addEventListener("submit", function (e) {
+      form.addEventListener("submit", async function (e) {
         e.preventDefault();
-        form.classList.add("hidden");
-        if (success) success.classList.remove("hidden");
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.dataset.originalText = submitBtn.textContent;
+          submitBtn.textContent = "Sending...";
+        }
+
+        const nameEl = document.getElementById("cName");
+        const companyEl = document.getElementById("cCompany");
+
+        const payload = {
+          name: nameEl ? nameEl.value : "",
+          company: companyEl ? companyEl.value : "",
+          email: emailEl ? emailEl.value : "",
+          subject: subjectEl ? subjectEl.value : "",
+          text: bodyEl ? bodyEl.value : ""
+        };
+
+        try {
+          const res = await fetch("/api/contact", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload)
+          });
+          
+          if (res.ok) {
+            form.classList.add("hidden");
+            if (success) success.classList.remove("hidden");
+          } else {
+            alert("Failed to send message. Please try again later.");
+            if (submitBtn) {
+              submitBtn.disabled = false;
+              submitBtn.textContent = submitBtn.dataset.originalText;
+            }
+          }
+        } catch (err) {
+          console.error(err);
+          alert("A network error occurred. Please try again.");
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = submitBtn.dataset.originalText;
+          }
+        }
       });
     }
 

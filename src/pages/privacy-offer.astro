@@ -445,11 +445,15 @@ import Layout from "../layouts/Layout.astro";
 
         const ctaBtn = el("contactCtaBtn");
         if (ctaBtn) {
-          let contactUrl = `/contact?subject=Airgap%20Certainty%20Blueprint%20Audit&body=${encodeURIComponent(bodyText)}`;
-          if (userEmail) {
-            contactUrl += `&email=${encodeURIComponent(userEmail)}`;
-          }
-          ctaBtn.setAttribute("href", contactUrl);
+          ctaBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+            sessionStorage.setItem("contactSubject", "Airgap Certainty Blueprint Audit");
+            sessionStorage.setItem("contactBody", bodyText);
+            if (userEmail) {
+              sessionStorage.setItem("contactEmail", userEmail);
+            }
+            window.location.href = "/contact";
+          });
         }
       }
 

@@ -496,10 +496,12 @@ import Layout from "../layouts/Layout.astro";
 
       const ctaBtn = el("contactCtaBtn");
       if (ctaBtn) {
-        ctaBtn.setAttribute(
-          "href",
-          `/contact?subject=Server%20Certainty%20Blueprint&body=${encodeURIComponent(bodyText)}`,
-        );
+        ctaBtn.addEventListener("click", function (e) {
+          e.preventDefault();
+          sessionStorage.setItem("contactSubject", "Server Certainty Blueprint");
+          sessionStorage.setItem("contactBody", bodyText);
+          window.location.href = "/contact";
+        });
       }
     })();
   </script>
