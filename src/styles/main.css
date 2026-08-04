@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 @import "./calculator.css";
 @config "../../tailwind.config.js";
 
