@@ -481,7 +481,7 @@ import Layout from "../layouts/Layout.astro";
       const psSlots = el("psSlots");
       if (psSlots) psSlots.textContent = "4 slots";
 
-      let bodyText = `Hi, I'm interested in the Server Certainty Blueprint for MiniMax-M3 (MoE).\n\nHere is my calculator session data:\n`;
+      let bodyText = `Task: Server Certainty Blueprint for ${model}.\n`;
       bodyText += `- Model: ${model}\n`;
       bodyText += `- Params: ${paramsB}B\n`;
       bodyText += `- Precision: ${precision}\n`;
@@ -498,7 +498,7 @@ import Layout from "../layouts/Layout.astro";
       if (ctaBtn) {
         ctaBtn.addEventListener("click", function (e) {
           e.preventDefault();
-          sessionStorage.setItem("contactSubject", "Server Certainty Blueprint");
+          sessionStorage.setItem("contactSubject", `Server Certainty Blueprint for ${model}`);
           sessionStorage.setItem("contactBody", bodyText);
           window.location.href = "/contact";
         });

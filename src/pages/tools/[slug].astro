@@ -14,6 +14,7 @@ import ToolWorksWith from "../../components/tool/ToolWorksWith.astro";
 import ToolRelated from "../../components/tool/ToolRelated.astro";
 import ToolShareButtons from "../../components/tool/ToolShareButtons.astro";
 import ToolPrivacyAuditCta from "../../components/tool/ToolPrivacyAuditCta.astro";
+import ToolLlmSizingCta from "../../components/tool/ToolLlmSizingCta.astro";
 import toolsData from "../../data/tools.json";
 import { getWorksWith } from "../../utils/toolModel";
 
@@ -169,6 +170,7 @@ const featureBadges = [
         <ToolTechnical {scorecard} />
         <ToolPrivacy {enrichedTool} {formatDate} />
         <ToolPrivacyAuditCta category={category} toolName={tool.title} />
+        <ToolLlmSizingCta category={category} toolName={tool.title} />
         <ToolSetup {enrichedTool} {canonicalUrl} />
         <ToolHardware {enrichedTool} />
         <ToolWorksWith {slug} {worksWithTools} />

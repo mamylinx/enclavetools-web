@@ -435,7 +435,7 @@ import Layout from "../layouts/Layout.astro";
 
         let userEmail = params.get("email") || "";
 
-        let bodyText = `Hi, I'm interested in the Airgap Certainty Blueprint (Privacy & Telemetry Audit).\n\nHere are my target stack details:\n`;
+        let bodyText = `Task: Airgap Certainty Blueprint (Privacy & Telemetry Audit) for ${currentTool}.\n`;
         bodyText += `- Target Tool / AI Stack: ${currentTool}\n`;
         bodyText += `- Environment: ${currentEnv}\n`;
         bodyText += `- Privacy & Telemetry Goal: ${currentTarget}\n`;
@@ -447,7 +447,7 @@ import Layout from "../layouts/Layout.astro";
         if (ctaBtn) {
           ctaBtn.addEventListener("click", function (e) {
             e.preventDefault();
-            sessionStorage.setItem("contactSubject", "Airgap Certainty Blueprint Audit");
+            sessionStorage.setItem("contactSubject", `Airgap Certainty Blueprint Audit for ${currentTool}`);
             sessionStorage.setItem("contactBody", bodyText);
             if (userEmail) {
               sessionStorage.setItem("contactEmail", userEmail);

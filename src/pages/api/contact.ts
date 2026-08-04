@@ -26,8 +26,6 @@ export const POST: APIRoute = async (context) => {
 <b>Company:</b> ${company || 'N/A'}
 <b>Email:</b> ${email}
 <b>Subject:</b> ${subject || 'None'}
-
-<b>Message/Specs:</b>
 <pre>${text || 'No message provided'}</pre>
     `.trim();
 
