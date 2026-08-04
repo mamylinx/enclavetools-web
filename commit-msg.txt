@@ -1,0 +1,9 @@
+fix(csp): migrate inline scripts to external files and refine CSP
+
+- Extracted form initialization logic into external scripts (`public/scripts/*.js`) for contact, sponsor, benchmark-offer, privacy-offer, and AuditModal.
+- Switched from `<script is:inline>` to `<script src=... defer>` to bypass Astro's module bundling causing inline CSP violations.
+- Bound initialization to `astro:page-load` event for consistent execution on both hard reloads and Astro View Transitions.
+- Added listener deduplication (via node cloning) on form elements to prevent multiple submissions during client-side navigation.
+- Relaxed `X-Frame-Options` to `SAMEORIGIN` in `public/_headers` to support Partytown sandboxed iframes.
+- Added missing sha256 hashes to `script-src` CSP directive to whitelist Astro's inline router and layout scripts.
+- Removed unused import in LLMSizingCalculator component.
