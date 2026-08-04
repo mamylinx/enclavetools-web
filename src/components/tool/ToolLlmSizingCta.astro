@@ -11,15 +11,15 @@ if (category !== "llm-models") {
 >
   <div class="absolute -top-4 -right-2 text-4xl drop-shadow-md">🧮</div>
   <h3 class="text-xl font-extrabold text-brand-forest mb-2">
-    Deploying {toolName} in production?
+    Planning to deploy {toolName}?
   </h3>
   <p class="text-brand-muted mb-4">
-    Stop guessing hardware deployment. Get our <strong>Hardware Certainty Blueprint</strong> for <strong>{toolName}</strong> — validated hardware estimates, and cost projections before you commit to infrastructure.
+    Estimate exact GPU VRAM requirements, context limits, fine-tuning memory, and infrastructure costs for <strong>{toolName}</strong> before committing to hardware.
   </p>
   <a
-    href={`/privacy-offer?tool=${encodeURIComponent(toolName)}&env=On-Prem%20Server`}
+    href={`/llm-sizing-calculator?model=${encodeURIComponent(toolName)}`}
     class="inline-flex items-center justify-center text-center bg-brand-forest text-white font-bold px-6 py-3 rounded-full hover:bg-brand-teal transition-colors shadow-sm"
   >
-    Request Hardware Sizing Audit
+    Calculate Hardware & GPU Sizing →
   </a>
 </div>
