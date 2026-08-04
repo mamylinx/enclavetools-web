@@ -1,20 +1,21 @@
 ---
-title: "Telemetry in AI Tools: What to Watch For"
-date: 2026-07-22
-description: "The most common telemetry patterns we find in AI tools — and why they matter for your data privacy. A practical guide to identifying what's really happening under the hood."
-author: "Mamy Rakotomalala"
+title: "Telemetry: What to Watch For"
+date: 2026-07-18
+description: "Key background network signals, telemetry SDKs, and update behaviors to inspect when evaluating local AI tools."
+author: "Mamy Rakotomalala "
 ---
 
-Telemetry isn't always obvious. It's not always a phone-home call in the obvious places. Sometimes it's baked into a dependency you didn't scrutinize. Sometimes it's embedded in a model's default configuration.
+Many software tools labeled as "local" still trigger silent background network connections upon startup or model loading.
 
-The patterns we see most often include:
+### WHY IT MATTERS
+Unnoticed network traffic can compromise air-gapped security boundaries and send hardware telemetry to third parties. Identifying hidden pings **ensures complete data privacy before deploying local AI software**.
 
-- Anonymous usage reporting packaged with analytics SDKs that weren't mentioned in the README
-- Outbound calls to model providers during inference — even for "offline" tools
-- Crash reporters that exfiltrate system information to third-party endpoints
-- Update checkers that leak your installed version and hardware profile
-- Background sync features that send usage metrics to a vendor's telemetry infrastructure
+### GO DEEPER
+- **Automatic update checkers:** Background version pings expose operating system and IP details.
+- **Embedded analytics SDKs:** Compiled tracking tools like **PostHog** or **Segment** gather app interaction metrics.
+- **Remote model manifests:** Pulling model metadata calls external registry servers unless cached locally.
+- **Crash reporting services:** Unhandled exceptions can transmit active prompt strings inside stack traces.
+- **Remote UI assets:** Desktop GUI wrappers may attempt to fetch remote CSS scripts or web fonts.
 
-Each of these patterns was found and documented during our audits. Tools that ship any of them without explicit user consent don't make the directory.
-
-The bottom line: if you can't verify what a tool sends out, you can't trust what it keeps private.
+### THE BOTTOM LINE
+Audit binary network activity to ensure local AI software remains completely offline.
