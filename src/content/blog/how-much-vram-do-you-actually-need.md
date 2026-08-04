@@ -1,6 +1,6 @@
 ---
 title: "VRAM Cheat Sheet for Local LLMs"
-date: 2026-08-04
+date: 2026-07-21
 description: "A hardware cheat sheet comparing model parameter count, quantization levels, and required GPU VRAM."
 author: "Mamy Rakotomalala "
 ---

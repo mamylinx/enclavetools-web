@@ -1,6 +1,6 @@
 ---
 title: "Docker and Offline AI Deployment"
-date: 2026-08-04
+date: 2026-07-17
 description: "How to package Docker containers, model weights, and Python dependencies for reliable offline AI deployment."
 author: "Mamy Rakotomalala "
 ---

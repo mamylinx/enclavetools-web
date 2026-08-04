@@ -1,6 +1,6 @@
 ---
 title: "Local LLMs for Regulated Sectors"
-date: 2026-08-04
+date: 2026-07-26
 description: "Deploying air-gapped local LLMs in finance, healthcare, and legal sectors to ensure strict data privacy and compliance."
 author: "Mamy Rakotomalala "
 ---

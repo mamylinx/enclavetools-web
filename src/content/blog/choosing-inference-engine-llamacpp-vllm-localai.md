@@ -1,6 +1,6 @@
 ---
 title: "llama.cpp vs vLLM vs LocalAI"
-date: 2026-08-04
+date: 2026-07-14
 description: "Comparing llama.cpp, vLLM, and LocalAI inference engines for memory efficiency, throughput, and API compatibility."
 author: "Mamy Rakotomalala "
 ---

@@ -1,6 +1,6 @@
 ---
 title: "Fine-Tuning vs Inference Hardware Limits"
-date: 2026-08-04
+date: 2026-07-18
 description: "Comparing GPU VRAM, compute, and memory bandwidth requirements for LLM fine-tuning versus inference."
 author: "Mamy Rakotomalala "
 ---

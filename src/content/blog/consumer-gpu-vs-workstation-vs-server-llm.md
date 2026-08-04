@@ -1,6 +1,6 @@
 ---
 title: "Consumer vs Workstation vs Server GPUs"
-date: 2026-08-04
+date: 2026-07-15
 description: "Choosing between consumer, workstation, and server GPU tiers for self-hosted LLM inference workloads."
 author: "Mamy Rakotomalala "
 ---

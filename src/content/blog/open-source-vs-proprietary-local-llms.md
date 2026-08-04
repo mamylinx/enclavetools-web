@@ -1,6 +1,6 @@
 ---
 title: "Open-Source vs Proprietary Local LLMs"
-date: 2026-08-04
+date: 2026-07-30
 description: "Comparing open-source and proprietary local LLM tools for code auditability, privacy, and vendor trust."
 author: "Mamy Rakotomalala "
 ---

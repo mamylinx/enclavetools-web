@@ -1,6 +1,6 @@
 ---
 title: "CPU-Only LLM Inference in 2026"
-date: 2026-08-04
+date: 2026-07-16
 description: "Evaluating the performance, memory bandwidth limits, and viability of CPU-only local LLM inference."
 author: "Mamy Rakotomalala "
 ---

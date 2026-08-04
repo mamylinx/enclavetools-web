@@ -1,6 +1,6 @@
 ---
 title: "Local Llama DeepSeek vs GPT API"
-date: 2026-08-04
+date: 2026-07-24
 description: "A total cost of ownership comparison between hosting Llama or DeepSeek locally versus calling GPT cloud APIs."
 author: "Mamy Rakotomalala "
 ---

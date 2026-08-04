@@ -1,6 +1,6 @@
 ---
 title: "How We Audit Local AI Telemetry"
-date: 2026-08-04
+date: 2026-07-23
 description: "Our methodology for auditing local AI tools using static analysis, dynamic network capture, and sandbox testing."
 author: "Mamy Rakotomalala"
 ---

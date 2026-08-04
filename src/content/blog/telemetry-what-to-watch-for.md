@@ -1,6 +1,6 @@
 ---
 title: "Telemetry: What to Watch For"
-date: 2026-07-18
+date: 2026-08-01
 description: "Key background network signals, telemetry SDKs, and update behaviors to inspect when evaluating local AI tools."
 author: "Mamy Rakotomalala "
 ---

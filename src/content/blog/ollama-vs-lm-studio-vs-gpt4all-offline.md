@@ -1,6 +1,6 @@
 ---
 title: "Ollama vs LM Studio vs GPT4All Offline"
-date: 2026-08-04
+date: 2026-07-28
 description: "A privacy and telemetry comparison of Ollama, LM Studio, and GPT4All to determine which stays strictly offline."
 author: "Mamy Rakotomalala "
 ---

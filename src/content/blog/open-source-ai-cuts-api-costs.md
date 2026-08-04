@@ -1,6 +1,6 @@
 ---
 title: "Open Source AI Cuts API Costs"
-date: 2026-07-15
+date: 2026-07-29
 description: "How switching to local open-source models eliminates recurring cloud LLM API fees for high-volume workloads."
 author: "Mamy Rakotomalala "
 ---

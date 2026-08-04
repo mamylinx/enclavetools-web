@@ -1,6 +1,6 @@
 ---
 title: "Why Self-Hosted AI Matters"
-date: 2026-07-10
+date: 2026-08-03
 description: "Why self-hosting local AI models provides superior data privacy, latency control, and operational resilience."
 author: "Mamy Rakotomalala "
 ---

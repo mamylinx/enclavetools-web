@@ -1,6 +1,6 @@
 ---
 title: "Air-Gapped LLMs: What Breaks and Telemeters"
-date: 2026-08-04
+date: 2026-07-12
 description: "What breaks when you air-gap local LLMs and how to prevent silent background network dependencies."
 author: "Mamy Rakotomalala "
 ---

@@ -1,6 +1,6 @@
 ---
 title: "Multi-GPU Setups for Local LLMs"
-date: 2026-08-04
+date: 2026-07-27
 description: "When and how to deploy multi-GPU configurations using tensor and pipeline parallelism for large local LLMs."
 author: "Mamy Rakotomalala "
 ---

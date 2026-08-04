@@ -1,6 +1,6 @@
 ---
 title: "Verify Vendor No-Telemetry Claims Yourself"
-date: 2026-08-04
+date: 2026-07-22
 description: "A step-by-step technical guide to independently verifying vendor zero-telemetry claims using packet captures and binary audits."
 author: "Mamy Rakotomalala "
 ---

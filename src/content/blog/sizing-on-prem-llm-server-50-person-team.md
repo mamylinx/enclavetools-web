@@ -1,6 +1,6 @@
 ---
 title: "Sizing LLM Hardware for 50 Users"
-date: 2026-08-04
+date: 2026-07-31
 description: "A worked example calculating GPU, VRAM, RAM, and server specs for a 50-person engineering team."
 author: "Mamy Rakotomalala "
 ---

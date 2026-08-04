@@ -1,6 +1,6 @@
 ---
 title: "Privacy Tradeoffs of Local RAG"
-date: 2026-08-04
+date: 2026-07-25
 description: "Auditing document parsing and vector databases for privacy leaks in local LLM tools with built-in RAG."
 author: "Mamy Rakotomalala "
 ---

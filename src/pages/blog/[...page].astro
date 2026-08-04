@@ -3,21 +3,28 @@ import Layout from "../../layouts/Layout.astro";
 import SeoHead from "../../components/SeoHead.astro";
 import { getCollection } from "astro:content";
 
-const posts = await getCollection("blog");
-posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+export async function getStaticPaths({ paginate }: any) {
+    const posts = await getCollection("blog");
+    posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+    return paginate(posts, { pageSize: 10 });
+}
+
+const { page } = Astro.props as { page: any };
+const posts = page.data;
 ---
 
 <Layout
     site="Enclavetools"
     title="Blog"
     tagline="Insights on self-hosted AI, privacy, and due diligence"
-    pageTitle="Blog — Enclavetools"
+    pageTitle={page.currentPage > 1 ? `Blog — Page ${page.currentPage} — Enclavetools` : "Blog — Enclavetools"}
     pageDescription="Articles on self-hosted AI, privacy-first infrastructure, and practical guidance for auditing your AI tools."
     keywords={["self-hosted AI blog", "AI privacy", "AI due diligence", "telemetry auditing", "local AI"]}
     articleAuthor="Mamy Rakotomalala"
 >
     <SeoHead
-        pageTitle="Blog"
+        pageTitle={page.currentPage > 1 ? `Blog — Page ${page.currentPage}` : "Blog"}
         pageDescription="Articles on self-hosted AI, privacy-first infrastructure, and practical guidance for auditing your AI tools."
         keywords={["self-hosted AI blog", "AI privacy", "AI due diligence", "telemetry auditing", "local AI"]}
         articleAuthor="Mamy Rakotomalala"
@@ -27,9 +34,6 @@ posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
     <section class="bg-brand-bg py-20 lg:py-24 border-b border-brand-forest/10">
         <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
             <div class="max-w-3xl mx-auto text-center mb-14">
-                <p class="text-xs font-bold uppercase tracking-[0.1em] text-brand-teal mb-3">
-                    Blog
-                </p>
                 <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-brand-forest tracking-tight mb-4">
                     Practical AI Privacy &amp; Infrastructure Guidance
                 </h1>
@@ -59,6 +63,37 @@ posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
                     </a>
                 ))}
             </div>
+
+            {page.lastPage > 1 && (
+                <div id="ssr-pagination"
+                    class="flex justify-center items-center gap-3 mt-16 pt-12 border-t border-brand-forest/10"
+                >
+                    {
+                        page.url.prev ? (
+                            <a
+                                href={page.url.prev}
+                                class="inline-flex items-center h-12 px-6 border border-brand-forest/10 text-xs font-bold uppercase tracking-wider text-brand-forest hover:bg-brand-forest hover:text-white transition-all duration-200 no-underline rounded-full"
+                            >
+                                ← Previous
+                            </a>
+                        ) : null
+                    }
+                    <span class="px-4 text-xs font-bold uppercase tracking-wider text-brand-muted">Page {page.currentPage} of {page.lastPage}</span>
+                    {
+                        page.url.next ? (
+                            <a
+                                href={page.url.next}
+                                class="inline-flex items-center h-12 px-6 border border-brand-forest/10 text-xs font-bold uppercase tracking-wider text-brand-forest hover:bg-brand-forest hover:text-white transition-all duration-200 no-underline rounded-full"
+                            >
+                                Next
+                                <svg class="w-4 h-4 ml-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                                  <path d="M5 12h14M12 5l7 7-7 7" />
+                                </svg>
+                            </a>
+                        ) : null
+                    }
+                </div>
+            )}
         </div>
     </section>
 </Layout>

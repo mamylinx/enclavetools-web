@@ -1,6 +1,6 @@
 ---
 title: "GDPR HIPAA Compliance with Local LLMs"
-date: 2026-08-04
+date: 2026-07-19
 description: "Why running local LLMs offline doesn't guarantee compliance with GDPR or HIPAA without strict local controls."
 author: "Mamy Rakotomalala "
 ---

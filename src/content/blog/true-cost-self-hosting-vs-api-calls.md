@@ -1,6 +1,6 @@
 ---
 title: "Self-Hosting vs API Break-Even Analysis"
-date: 2026-08-04
+date: 2026-08-02
 description: "Break-even cost analysis comparing self-hosted LLM infrastructure against cloud API token costs."
 author: "Mamy Rakotomalala "
 ---

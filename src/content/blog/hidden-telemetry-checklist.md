@@ -1,6 +1,6 @@
 ---
 title: "12-Point Audit for Local LLM Telemetry"
-date: 2026-08-04
+date: 2026-07-20
 description: "A 12-step technical checklist to audit local LLM tools for background telemetry and phone-home behavior before deployment."
 author: "Mamy Rakotomalala "
 ---

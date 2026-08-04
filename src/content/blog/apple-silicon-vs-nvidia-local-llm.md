@@ -1,6 +1,6 @@
 ---
 title: "Apple Silicon vs NVIDIA Local LLMs"
-date: 2026-08-04
+date: 2026-07-13
 description: "Comparing Apple Silicon unified memory against NVIDIA discrete VRAM for local LLM inference speed and capacity."
 author: "Mamy Rakotomalala "
 ---
