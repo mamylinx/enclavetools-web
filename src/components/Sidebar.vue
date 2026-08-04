@@ -23,7 +23,7 @@ const sponsor = ref((marketingData as MarketingConfig).sponsors?.[0] || null);
       </div>
       <div class="text-lg font-bold text-brand-forest mb-2">{{ sponsor.title }}</div>
       <p class="text-sm font-medium text-brand-muted mb-4 flex-1">{{ sponsor.description }}</p>
-      <a :href="sponsor.url || '/submit'"
+      <a :href="sponsor.url || '/sponsor'"
         class="block w-full h-10 bg-brand-teal text-white font-bold text-xs uppercase tracking-wider hover:bg-brand-forest transition-colors text-center no-underline border-none rounded-full inline-flex items-center justify-center shadow-sm">{{
           sponsor.cta }}</a>
     </div>

@@ -6,32 +6,30 @@ import { sendTelegramMessage } from '../../lib/telegram';
 
 export const POST: APIRoute = async (context) => {
   const ip = context.request.headers.get('CF-Connecting-IP') || '127.0.0.1';
-  
-  const allowed = await checkRateLimit(env, ip, 'contact', 5, 3600);
+
+  const allowed = await checkRateLimit(env, ip, 'sponsor', 5, 3600);
   if (!allowed) {
     return new Response(JSON.stringify({ error: "Rate limit exceeded. Please try again later." }), { status: 429 });
   }
 
   try {
     const body = await context.request.json();
-    const { name, company, email, subject, text } = body;
+    const { name, company, email, message } = body;
 
     if (!name || !email) {
       return new Response(JSON.stringify({ error: "Missing required fields" }), { status: 400 });
     }
 
-    const message = `
-<b>New Contact / Audit Request</b> 🛡️
+    const messageText = `
+<b>New Sponsorship Request</b> 📣
 <b>Name:</b> ${name}
 <b>Company:</b> ${company || 'N/A'}
 <b>Email:</b> ${email}
-<b>Subject:</b> ${subject || 'None'}
-<pre>${text || 'No message provided'}</pre>
+<pre>${message || 'No message provided'}</pre>
     `.trim();
 
-    const telegramPromise = sendTelegramMessage(env, message);
+    const telegramPromise = sendTelegramMessage(env, messageText);
 
-    // waitUntil is only available in the Cloudflare Workers runtime, not in local Vite dev
     const runtime = context.locals?.runtime;
     if (runtime && typeof runtime.waitUntil === 'function') {
       runtime.waitUntil(telegramPromise);
@@ -41,7 +39,7 @@ export const POST: APIRoute = async (context) => {
 
     return new Response(JSON.stringify({ status: "success" }), { status: 200 });
   } catch (err) {
-    console.error("Contact form error:", err);
+    console.error("Sponsor form error:", err);
     return new Response(JSON.stringify({ error: "Invalid request payload" }), { status: 400 });
   }
 };

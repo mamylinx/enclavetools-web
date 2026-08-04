@@ -4,4 +4,6 @@ export interface CloudflareEnv {
   ASSETS: Fetcher;
   TURNSTILE_SITEKEY: string;
   TURNSTILE_WORKER_URL: string;
+  TELEGRAM_BOT_TOKEN: string;
+  TELEGRAM_CHAT_ID: string;
 }

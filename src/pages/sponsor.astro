@@ -1,0 +1,152 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  site="Enclavetools - Become a Sponsor"
+  title="Become a Sponsor | Enclavetools"
+  tagline="Partner with us to reach 50,000+ builders and decision-makers building with private AI."
+  pageTitle="Become a Sponsor"
+  pageDescription="Tell us about your business and how you'd like to partner with Enclavetools."
+  canonicalUrl="https://enclavetools.com/sponsor"
+  showSearch={false}
+>
+  <div class="max-w-3xl mx-auto px-4 py-12 lg:py-16">
+    <div id="app">
+      <h1
+        id="sponsorTitle"
+        class="text-3xl md:text-4xl font-extrabold text-brand-forest tracking-tight mb-2 text-center"
+      >
+        Become a Sponsor
+      </h1>
+      <p id="sponsorSub" class="text-brand-muted text-center mb-10">
+        Tell us about your business and how you'd like to partner with Enclavetools.
+      </p>
+
+      <form
+        id="sponsorForm"
+        action="/api/sponsor"
+        method="POST"
+        class="bg-white border border-brand-forest/10 rounded-2xl p-6 sm:p-8 shadow-sm"
+      >
+        <div class="mb-4">
+          <label class="field-label" for="sName">Contact Name</label>
+          <input
+            type="text"
+            id="sName"
+            required
+            class="gpu-input"
+            placeholder="Jane Doe"
+          />
+        </div>
+        <div class="mb-4">
+          <label class="field-label" for="sCompany">Company Name & Website</label>
+          <input
+            type="text"
+            id="sCompany"
+            required
+            class="gpu-input"
+            placeholder="Acme Corp — https://acme.com"
+          />
+        </div>
+        <div class="mb-4">
+          <label class="field-label" for="sEmail">Email Address</label>
+          <input
+            type="email"
+            id="sEmail"
+            required
+            class="gpu-input"
+            placeholder="jane@acme.com"
+          />
+        </div>
+        <div class="mb-6">
+          <label class="field-label" for="sMessage">Message / What are you looking to achieve?</label>
+          <textarea
+            id="sMessage"
+            rows="5"
+            class="gpu-input"
+            placeholder="Tell us about your sponsorship goals..."></textarea>
+        </div>
+        <button type="submit" id="sSubmitBtn" class="btn-primary block w-full py-4 text-base">
+          Send Sponsorship Request
+        </button>
+      </form>
+
+      <div id="sSuccess" class="hidden text-center py-12">
+        <div
+          class="w-16 h-16 bg-brand-teal text-white flex items-center justify-center text-3xl font-extrabold rounded-full mx-auto mb-4"
+        >
+          ✓
+        </div>
+        <h2 id="sSuccessTitle" class="text-2xl font-extrabold text-brand-forest mb-3">
+          Request Sent
+        </h2>
+        <p id="sSuccessSub" class="text-brand-muted">
+          We will get back to you within 24 hours.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script is:inline>
+    function initSponsorForm() {
+      const form = document.getElementById("sponsorForm");
+      const success = document.getElementById("sSuccess");
+      if (!form) return;
+
+      form.addEventListener("submit", async function (e) {
+        e.preventDefault();
+        const submitBtn = document.getElementById("sSubmitBtn");
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.dataset.originalText = submitBtn.textContent;
+          submitBtn.textContent = "Sending...";
+        }
+
+        const nameEl = document.getElementById("sName");
+        const companyEl = document.getElementById("sCompany");
+        const emailEl = document.getElementById("sEmail");
+        const messageEl = document.getElementById("sMessage");
+
+        const payload = {
+          name: nameEl ? nameEl.value : "",
+          company: companyEl ? companyEl.value : "",
+          email: emailEl ? emailEl.value : "",
+          message: messageEl ? messageEl.value : ""
+        };
+
+        try {
+          const res = await fetch("/api/sponsor", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload)
+          });
+
+          if (res.ok) {
+            form.classList.add("hidden");
+            if (success) success.classList.remove("hidden");
+          } else {
+            alert("Failed to send message. Please try again later.");
+            if (submitBtn) {
+              submitBtn.disabled = false;
+              submitBtn.textContent = submitBtn.dataset.originalText;
+            }
+          }
+        } catch (err) {
+          console.error(err);
+          alert("A network error occurred. Please try again.");
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = submitBtn.dataset.originalText;
+          }
+        }
+      });
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", initSponsorForm);
+    } else {
+      initSponsorForm();
+    }
+  </script>
+</Layout>
