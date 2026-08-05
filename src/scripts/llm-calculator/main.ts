@@ -11,15 +11,34 @@ function checkUrlParams(): void {
   const sel = document.getElementById('modelSelect') as HTMLSelectElement | null;
   if (!sel) return;
 
-  const target = modelParam.toLowerCase();
+  // 1) Exact match on the option value (the catalog key), e.g. "671|61|128|128|128".
   for (let i = 0; i < sel.options.length; i++) {
-    const opt = sel.options[i];
-    const text = opt.textContent?.toLowerCase() || '';
-    if (text.includes(target) || target.includes(text)) {
+    if (sel.options[i].value === modelParam) {
       sel.selectedIndex = i;
       onModelChange();
-      break;
+      return;
     }
+  }
+
+  // 2) Normalized fuzzy match against option labels, as a compatibility fallback.
+  const normalize = (s: string) => s.toLowerCase().replace(/[\s-_.]+/g, '').replace(/bparameters$/g, '');
+  const target = normalize(modelParam);
+  let matchedIndex = -1;
+  let matchedText = '';
+  for (let i = 0; i < sel.options.length; i++) {
+    const text = normalize(sel.options[i].textContent || '');
+    if (
+      target &&
+      (text.includes(target) || target.includes(text)) &&
+      (matchedIndex === -1 || text.length < matchedText.length)
+    ) {
+      matchedIndex = i;
+      matchedText = text;
+    }
+  }
+  if (matchedIndex > 0) {
+    sel.selectedIndex = matchedIndex;
+    onModelChange();
   }
 }
 

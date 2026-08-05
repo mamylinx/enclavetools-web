@@ -1,7 +1,7 @@
 ---
 const { category, toolName } = Astro.props;
 
-if (category === "llm-models") {
+if (category === "llm-models" || category === "embedding-models") {
   return null;
 }
 ---

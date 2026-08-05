@@ -170,7 +170,7 @@ const featureBadges = [
         <ToolTechnical {scorecard} />
         <ToolPrivacy {enrichedTool} {formatDate} />
         <ToolPrivacyAuditCta category={category} toolName={tool.title} />
-        <ToolLlmSizingCta category={category} toolName={tool.title} />
+        <ToolLlmSizingCta category={category} toolName={tool.title} calculatorModel={enrichedTool.calculator_model} />
         <ToolSetup {enrichedTool} {canonicalUrl} />
         <ToolHardware {enrichedTool} />
         <ToolWorksWith {slug} {worksWithTools} />

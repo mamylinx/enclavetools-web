@@ -84,5 +84,14 @@
 
   "15|40|48|4|128":    { "label": "StarCoder2 15B",                     "params": 15,  "layers": 40,  "attnH": 48, "kvH": 4,  "dHead": 128, "note": "Dense GQA. Sliding window 4096. LayerNorm (not RMS). RoPE theta=100K." },
 
-  "428|60|64|4|128":   { "label": "MiniMax-M3 (MoE)",                   "params": 428, "layers": 60,  "attnH": 64, "kvH": 4,  "dHead": 128, "note": "MoE — 128 experts, 4 active. ~23B active. Lightning Indexer block-sparse attn. 1M ctx." }
+  "428|60|64|4|128":   { "label": "MiniMax-M3 (MoE)",                   "params": 428, "layers": 60,  "attnH": 64, "kvH": 4,  "dHead": 128, "note": "MoE — 128 experts, 4 active. ~23B active. Lightning Indexer block-sparse attn. 1M ctx." },
+
+  "1.7|24|32|32|64":   { "label": "SmolLM2 1.7B",                       "params": 1.7, "layers": 24,  "attnH": 32, "kvH": 32, "dHead": 64,  "note": "Small on-device LLM. Dense Llama2-style. 32 heads. 8K ctx. SmolLM family (135M–1.7B)." },
+
+  "0.568|24|16|16|64": { "label": "BGE-M3",                           "params": 0.568, "layers": 24, "attnH": 16, "kvH": 16, "dHead": 64, "note": "Multilingual embedding (XLM-R large backbone). Dense MHA. 8K ctx." },
+  "0.56|24|16|16|64":  { "label": "Multilingual E5 Large",            "params": 0.56, "layers": 24, "attnH": 16, "kvH": 16, "dHead": 64, "note": "Microsoft embedding (XLM-R large). Dense MHA. 512 ctx." },
+  "0.57|24|16|16|64":  { "label": "Jina Embeddings v3",               "params": 0.57, "layers": 24, "attnH": 16, "kvH": 16, "dHead": 64, "note": "Multilingual embedding (XLM-R large). Task LoRA heads. 8K ctx." },
+  "0.335|24|16|16|64": { "label": "Snowflake Arctic Embed L",         "params": 0.335, "layers": 24, "attnH": 16, "kvH": 16, "dHead": 64, "note": "Embedding (BERT large). Dense MHA. 512 ctx." },
+  "0.305|12|12|12|64": { "label": "Nomic Embed Text v2 MoE",          "params": 0.305, "layers": 12, "attnH": 12, "kvH": 12, "dHead": 64, "note": "Multilingual embedding MoE — 8 experts top-2. ~0.475B total / ~0.305B active. 512 ctx." },
+  "7.6|28|28|4|128":   { "label": "GTE-Qwen2 7B Instruct",            "params": 7.6, "layers": 28, "attnH": 28, "kvH": 4, "dHead": 128, "note": "Alibaba embedding on Qwen2-7B. GQA. 4096-dim, 32K ctx." }
 }

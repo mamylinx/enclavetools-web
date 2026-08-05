@@ -1119,7 +1119,8 @@
             "vLLM",
             "SGLang",
             "Hugging Face Transformers"
-          ]
+          ],
+          "calculator_model": "671|61|128|128|128"
         },
         {
           "body": "text-generation",
@@ -1189,7 +1190,8 @@
             "TensorRT-LLM",
             "LightLLM",
             "DeepSeek-Infer"
-          ]
+          ],
+          "calculator_model": "671|61|128|128|128"
         },
         {
           "body": "image-text-to-text",
@@ -1250,7 +1252,8 @@
           ],
           "works_with": [
             "JAX"
-          ]
+          ],
+          "calculator_model": "12|48|16|8|256"
         },
         {
           "body": "text-generation",
@@ -1309,7 +1312,8 @@
           ],
           "works_with": [
             "Hugging Face Transformers"
-          ]
+          ],
+          "calculator_model": "8|32|32|8|128"
         },
         {
           "body": "text-generation",
@@ -1379,7 +1383,8 @@
             "bitsandbytes",
             "Modal.com",
             "Weights & Biases"
-          ]
+          ],
+          "calculator_model": "32|64|40|8|128"
         },
         {
           "body": "text-generation",
@@ -1456,7 +1461,8 @@
             "Azure AI Studio",
             "TRL",
             "Accelerate"
-          ]
+          ],
+          "calculator_model": "3.8|32|32|32|96"
         },
         {
           "body": "text-generation",
@@ -1550,7 +1556,8 @@
             "UnSloth",
             "LLaMA-Factory",
             "Swift"
-          ]
+          ],
+          "calculator_model": "8|36|32|8|128"
         },
         {
           "body": "text-generation",
@@ -1614,7 +1621,8 @@
           "works_with": [
             "Hugging Face Transformers",
             "PyTorch"
-          ]
+          ],
+          "calculator_model": "1.7|24|32|32|64"
         }
       ],
       "body": "DeepSeek-R1 delivers OpenAI-o1-class reasoning performance in math, code, and logic tasks — now open-source and MIT-licensed. It uses reinforcement learning to teach models to think step-by-step, and distilled versions run on hardware as small as 1.5B parameters. The bottom line: production-grade reasoning without the proprietary price tag."
@@ -7511,7 +7519,8 @@
           "works_with": [
             "Vespa",
             "Milvus"
-          ]
+          ],
+          "calculator_model": "0.568|24|16|16|64"
         },
         {
           "body": "feature-extraction",
@@ -7662,7 +7671,8 @@
             "Hugging Face Transformers",
             "Sentence Transformers",
             "PyTorch"
-          ]
+          ],
+          "calculator_model": "0.56|24|16|16|64"
         },
         {
           "body": "sentence-similarity",
@@ -7727,7 +7737,8 @@
             "transformers",
             "SWIFT",
             "infinity"
-          ]
+          ],
+          "calculator_model": "7.6|28|28|4|128"
         },
         {
           "body": "feature-extraction",
@@ -7866,7 +7877,8 @@
           "title": "Jina Embeddings v3",
           "url": "https://huggingface.co/jinaai/jina-embeddings-v3",
           "use_cases": [],
-          "works_with": []
+          "works_with": [],
+          "calculator_model": "0.57|24|16|16|64"
         },
         {
           "body": "sentence-similarity",
@@ -8027,7 +8039,8 @@
             "SentenceTransformers",
             "Transformers",
             "AWS SageMaker"
-          ]
+          ],
+          "calculator_model": "0.305|12|12|12|64"
         },
         {
           "body": "sentence-similarity",
@@ -8153,7 +8166,8 @@
           ],
           "works_with": [
             "sentence-transformers"
-          ]
+          ],
+          "calculator_model": "0.335|24|16|16|64"
         }
       ],
       "body": "The big picture: BGE-M3 is a multilingual embedding model that makes search and retrieval dramatically more accurate across 100+ languages. Here's why it matters: It handles short queries and long documents equally well in a single model — no need to maintain separate systems for different search types. The bottom line: Teams using RAG or semantic search get better results with less complexity."

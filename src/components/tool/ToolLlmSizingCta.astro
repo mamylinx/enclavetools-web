@@ -1,5 +1,6 @@
 ---
-const { category, toolName } = Astro.props;
+const { category, toolName, calculatorModel } = Astro.props;
+const modelKey = calculatorModel || toolName;
 
 if (category !== "llm-models") {
   return null;
@@ -17,7 +18,7 @@ if (category !== "llm-models") {
     Estimate exact GPU VRAM requirements, context limits, fine-tuning memory, and infrastructure costs for <strong>{toolName}</strong> before committing to hardware.
   </p>
   <a
-    href={`/llm-sizing-calculator?model=${encodeURIComponent(toolName)}`}
+    href={`/llm-sizing-calculator?model=${encodeURIComponent(modelKey)}`}
     class="inline-flex items-center justify-center text-center bg-brand-forest text-white font-bold px-6 py-3 rounded-full hover:bg-brand-teal transition-colors shadow-sm"
   >
     Calculate Hardware & GPU Sizing →
