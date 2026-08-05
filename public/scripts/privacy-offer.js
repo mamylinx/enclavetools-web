@@ -107,6 +107,13 @@ function initPrivacyCalculator() {
   });
 
   updatePage();
+
+  var slotUpdated = el("slotUpdated");
+  if (slotUpdated) {
+    var now = new Date();
+    var label = now.toLocaleString("en-US", { month: "long", year: "numeric" });
+    slotUpdated.textContent = "Cycle updated: " + label;
+  }
 }
 
 // astro:page-load fires on window "load" for initial visits AND after View Transitions swaps

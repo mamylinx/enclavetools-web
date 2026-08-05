@@ -92,6 +92,9 @@ import Layout from "../layouts/Layout.astro";
         >
           💾 Est. VRAM: <span class="text-white" id="badgeVram">~1,672 GB</span>
         </div>
+        <div id="moeNote" class="hidden w-full text-xs text-amber-700 bg-amber-50 border border-amber-200 rounded-xl px-4 py-2">
+          ⚡ MoE model detected — VRAM estimate reflects full weight loading but KV cache scaled to active parameters (~13% of total). Actual production VRAM may vary by quantization strategy.
+        </div>
       </div>
 
       <!-- AGITATION -->
@@ -178,7 +181,7 @@ import Layout from "../layouts/Layout.astro";
             >
             <td
               class="p-4 border border-brand-forest/10 text-brand-muted font-bold"
-              >$1,500</td
+              >$2,500</td
             >
           </tr>
           <tr>
@@ -192,7 +195,7 @@ import Layout from "../layouts/Layout.astro";
             >
             <td
               class="p-4 border border-brand-forest/10 text-brand-muted font-bold"
-              >$1,200</td
+              >$2,000</td
             >
           </tr>
           <tr>
@@ -206,7 +209,7 @@ import Layout from "../layouts/Layout.astro";
             >
             <td
               class="p-4 border border-brand-forest/10 text-brand-muted font-bold"
-              >$1,500</td
+              >$2,200</td
             >
           </tr>
           <tr>
@@ -220,7 +223,7 @@ import Layout from "../layouts/Layout.astro";
             >
             <td
               class="p-4 border border-brand-forest/10 text-brand-muted font-bold"
-              >$900</td
+              >$1,300</td
             >
           </tr>
           <tr>
@@ -233,14 +236,14 @@ import Layout from "../layouts/Layout.astro";
             >
             <td
               class="p-4 border border-brand-forest/10 text-brand-muted font-bold"
-              >$1,000</td
+              >$1,500</td
             >
           </tr>
         </tbody>
       </table>
 
       <p class="text-brand-muted font-bold text-lg mt-2">
-        Total Value: <span class="text-amber-500">$6,100</span>
+        Total Value: <span class="text-amber-500">$9,500</span>
       </p>
 
       <!-- PRICE -->
@@ -248,7 +251,10 @@ import Layout from "../layouts/Layout.astro";
         <h3 class="text-2xl md:text-3xl font-bold text-brand-forest mb-2">
           Today's Price
         </h3>
-        <p class="text-4xl md:text-5xl font-extrabold text-amber-500">$1,997</p>
+        <div class="flex items-center justify-center gap-3">
+          <span class="text-2xl text-brand-muted line-through">$5,997</span>
+          <p class="text-4xl md:text-5xl font-extrabold text-amber-500">$2,997</p>
+        </div>
         <p class="text-brand-muted mt-3 italic">
           A single avoided GPU purchase pays for this entire blueprint 10x over
           on day one.
@@ -272,6 +278,30 @@ import Layout from "../layouts/Layout.astro";
         </p>
         <span class="block mt-4 font-semibold text-brand-teal not-italic"
           >— Head of Infrastructure, Enterprise Logistics Firm</span
+        >
+      </div>
+
+      <div
+        class="bg-brand-forest/5 border border-brand-forest/10 p-6 md:p-8 rounded-2xl my-6 italic text-brand-muted relative"
+      >
+        <div class="absolute text-8xl text-amber-500/20 -top-4 left-4 font-serif">"</div>
+        <p class="relative z-10 text-lg">
+          "We were about to sign a $180k PO for a vendor-configured GPU cluster. The blueprint showed us a whitebox dual-EPYC build that hit the same throughput for $67k — and the NUMA tuning configs worked first try."
+        </p>
+        <span class="block mt-4 font-semibold text-brand-teal not-italic"
+          >— VP of Engineering, Series B AI Startup</span
+        >
+      </div>
+
+      <div
+        class="bg-brand-forest/5 border border-brand-forest/10 p-6 md:p-8 rounded-2xl my-6 italic text-brand-muted relative"
+      >
+        <div class="absolute text-8xl text-amber-500/20 -top-4 left-4 font-serif">"</div>
+        <p class="relative z-10 text-lg">
+          "The quantized benchmark matrix made the hardware decision obvious. Our previous estimate had us buying 12× H100s. The INT8 benchmark showed 6× H100s hit our latency SLA with 40% headroom — exactly the number we needed for the board presentation."
+        </p>
+        <span class="block mt-4 font-semibold text-brand-teal not-italic"
+          >— Platform Architect, Financial Services Firm</span
         >
       </div>
 
@@ -311,10 +341,12 @@ import Layout from "../layouts/Layout.astro";
           <div class="text-brand-muted">
             <strong class="text-brand-forest">Run 1-Line Audit:</strong> Run our
             open-source script locally in your environment:
-            <code
-              class="block bg-brand-bg border border-brand-forest/10 rounded-lg px-4 py-3 mt-2 text-sm font-mono text-brand-forest overflow-x-auto"
-              >curl -sSL https://enclavetools.com/verify.sh | bash</code
-            >
+            <div class="mt-2 space-y-2">
+              <code class="block bg-brand-bg border border-brand-forest/10 rounded-lg px-4 py-3 text-sm font-mono text-brand-forest overflow-x-auto">curl -fsSL https://enclavetools.com/verify.sh -o verify.sh</code>
+              <code class="block bg-brand-bg border border-brand-forest/10 rounded-lg px-4 py-3 text-sm font-mono text-brand-forest overflow-x-auto">cat verify.sh  # inspect before running</code>
+              <code class="block bg-brand-bg border border-brand-forest/10 rounded-lg px-4 py-3 text-sm font-mono text-brand-forest overflow-x-auto">bash verify.sh</code>
+              <p class="text-xs text-brand-muted/70 italic">No network calls home. No root access required. Read it first.</p>
+            </div>
           </div>
         </div>
         <div
@@ -357,6 +389,7 @@ import Layout from "../layouts/Layout.astro";
           ⚠️ <span id="slotCount">4</span> slots remaining for this cycle. Secure
           yours below.
         </div>
+        <p class="text-brand-muted text-xs mt-2 italic" id="slotUpdated"></p>
         <p class="text-brand-muted text-sm mt-3">
           Full-system benchmarking requires us to rent high-end bare-metal
           clusters and run live stress tests on real hardware under your

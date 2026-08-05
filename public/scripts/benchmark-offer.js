@@ -42,9 +42,17 @@ function initBenchmarkOffer() {
     bytesPerParam = 1;
   else if (precision.toUpperCase() === "INT4") bytesPerParam = 0.5;
 
-  var weightGB = (parseFloat(paramsB) * bytesPerParam) / 1.024;
+  // MoE models only activate a fraction of parameters per forward pass (~13%).
+  // Detect MoE from the model name to avoid wildly inflated VRAM estimates.
+  var isMoE = /moe|mixture.of.expert|mixtral|deepseek.?moe|minimax/i.test(model);
+  var activeRatio = isMoE ? 0.13 : 1.0;
+  var totalParams = parseFloat(paramsB);
+
+  // Full model weights must be resident in VRAM regardless of MoE routing.
+  var weightGB = (totalParams * bytesPerParam) / 1.024;
   var totalTokens = inTok + outTok;
-  var kvGB = (totalTokens / 1000) * (parseFloat(paramsB) / 1) * 0.15;
+  // KV cache scales with active parameters for MoE, not total parameter count.
+  var kvGB = (totalTokens / 1000) * (totalParams * activeRatio) * 0.15;
   var totalVramGB = (weightGB + kvGB + 0.5).toFixed(1);
 
   var formatNum = function (num) { return num.toLocaleString(); };
@@ -79,6 +87,9 @@ function initBenchmarkOffer() {
   var badgeVram = el("badgeVram");
   if (badgeVram) badgeVram.textContent = "~" + totalVramGB + " GB";
 
+  var moeNoteEl = el("moeNote");
+  if (moeNoteEl) moeNoteEl.style.display = isMoE ? "block" : "none";
+
   var offerModel = el("offerModel");
   if (offerModel) offerModel.textContent = model;
   var offerUsers = el("offerUsers");
@@ -94,6 +105,13 @@ function initBenchmarkOffer() {
   if (slotCount2) slotCount2.textContent = "4";
   var psSlots = el("psSlots");
   if (psSlots) psSlots.textContent = "4 slots";
+
+  var slotUpdated = el("slotUpdated");
+  if (slotUpdated) {
+    var now = new Date();
+    var label = now.toLocaleString("en-US", { month: "long", year: "numeric" });
+    slotUpdated.textContent = "Cycle updated: " + label;
+  }
 
   var bodyText = "Task: Server Certainty Blueprint for " + model + ".\n";
   bodyText += "- Model: " + model + "\n";

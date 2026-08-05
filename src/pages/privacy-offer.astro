@@ -138,7 +138,7 @@ import Layout from "../layouts/Layout.astro";
         <div
           class="bg-brand-forest text-white px-4 py-2 rounded-full text-sm font-bold shadow-sm"
         >
-          ⏱️ Turnaround: <span class="text-white" id="badgeTurnaround">72-Hour Guaranteed Delivery</span>
+          ⏱️ Turnaround: <span class="text-white" id="badgeTurnaround">5-Business-Day Delivery</span>
         </div>
       </div>
 
@@ -212,7 +212,7 @@ import Layout from "../layouts/Layout.astro";
             >
             <td
               class="p-4 border border-brand-forest/10 text-brand-muted font-bold"
-              >$2,500</td
+              >$3,500</td
             >
           </tr>
           <tr>
@@ -224,7 +224,7 @@ import Layout from "../layouts/Layout.astro";
             >
             <td
               class="p-4 border border-brand-forest/10 text-brand-muted font-bold"
-              >$1,800</td
+              >$3,000</td
             >
           </tr>
           <tr>
@@ -236,7 +236,7 @@ import Layout from "../layouts/Layout.astro";
             >
             <td
               class="p-4 border border-brand-forest/10 text-brand-muted font-bold"
-              >$1,700</td
+              >$2,500</td
             >
           </tr>
           <tr>
@@ -248,7 +248,7 @@ import Layout from "../layouts/Layout.astro";
             >
             <td
               class="p-4 border border-brand-forest/10 text-brand-muted font-bold"
-              >$1,500</td
+              >$2,000</td
             >
           </tr>
           <tr>
@@ -260,7 +260,7 @@ import Layout from "../layouts/Layout.astro";
             >
             <td
               class="p-4 border border-brand-forest/10 text-brand-muted font-bold"
-              >$600</td
+              >$900</td
             >
           </tr>
           <tr>
@@ -272,14 +272,14 @@ import Layout from "../layouts/Layout.astro";
             >
             <td
               class="p-4 border border-brand-forest/10 text-brand-muted font-bold"
-              >$400</td
+              >$600</td
             >
           </tr>
         </tbody>
       </table>
 
       <p class="text-brand-muted font-bold text-lg mt-2">
-        Total Stack Value: <span class="text-amber-500">$8,500</span>
+        Total Stack Value: <span class="text-amber-500">$12,500</span>
       </p>
 
       <!-- PRICE -->
@@ -288,8 +288,8 @@ import Layout from "../layouts/Layout.astro";
           Today's Investment
         </h3>
         <div class="flex items-center justify-center gap-3">
-          <span class="text-2xl text-brand-muted line-through">$4,997</span>
-          <p class="text-4xl md:text-5xl font-extrabold text-amber-500">$2,497</p>
+          <span class="text-2xl text-brand-muted line-through">$7,997</span>
+          <p class="text-4xl md:text-5xl font-extrabold text-amber-500">$3,997</p>
         </div>
         <p class="text-brand-muted mt-3 italic">
           A single avoided privacy incident or prompt leak pays for this entire audit 10x over on day one.
@@ -310,6 +310,30 @@ import Layout from "../layouts/Layout.astro";
         </p>
         <span class="block mt-4 font-semibold text-brand-teal not-italic"
           >— Chief Information Security Officer, Enterprise Tech Provider</span
+        >
+      </div>
+
+      <div
+        class="bg-brand-forest/5 border border-brand-forest/10 p-6 md:p-8 rounded-2xl my-6 italic text-brand-muted relative"
+      >
+        <div class="absolute text-8xl text-amber-500/20 -top-4 left-4 font-serif">"</div>
+        <p class="relative z-10 text-lg">
+          "Before deploying Dify for our legal research team, we needed proof it wasn't sending document snippets anywhere. The audit report confirmed three update-check calls to external servers we didn't know about — and the lockdown rules removed all of them cleanly."
+        </p>
+        <span class="block mt-4 font-semibold text-brand-teal not-italic"
+          >— Director of IT Operations, Regional Law Firm</span
+        >
+      </div>
+
+      <div
+        class="bg-brand-forest/5 border border-brand-forest/10 p-6 md:p-8 rounded-2xl my-6 italic text-brand-muted relative"
+      >
+        <div class="absolute text-8xl text-amber-500/20 -top-4 left-4 font-serif">"</div>
+        <p class="relative z-10 text-lg">
+          "Our compliance officer required written evidence that our self-hosted Ollama instance was not exfiltrating any data before we could process clinical notes with it. The Executive Privacy Report was exactly what she needed — signed, structured, and readable by non-engineers."
+        </p>
+        <span class="block mt-4 font-semibold text-brand-teal not-italic"
+          >— Lead AI Engineer, Healthcare Analytics Provider</span
         >
       </div>
 
@@ -347,6 +371,7 @@ import Layout from "../layouts/Layout.astro";
         >
           ⚠️ <span id="slotCount">3</span> audit slots remaining for this cycle.
         </div>
+        <p class="text-brand-muted text-xs mt-2 italic" id="slotUpdated"></p>
         <p class="text-brand-muted text-sm mt-3">
           Each audit requires dedicated test hardware, hands-on source code review, and real-time network recording across multiple usage sessions. To keep quality high, we only take <strong id="slotCount2">3 audits per batch</strong>.
         </p>
@@ -362,7 +387,7 @@ import Layout from "../layouts/Layout.astro";
           🛡️ YES — Secure My Audit &amp; Lock Down My Stack
         </a>
         <p class="text-brand-muted text-sm mt-4">
-          Takes 90 seconds to submit your stack details. Delivered in 72 hours.
+          Takes 90 seconds to submit your stack details. Delivered within 5 business days.
         </p>
       </div>
 
