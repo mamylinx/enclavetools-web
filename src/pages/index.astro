@@ -213,5 +213,5 @@ const useCaseContent: Record<
     <FindPathSection siteContent={c} />
 
     <NewsletterSection siteContent={c} />
-    <CompareTray client:load tools={allTools as any} />
+    <CompareTray client:visible transition:persist tools={allTools as any} />
 </Layout>

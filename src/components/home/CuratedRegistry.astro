@@ -126,7 +126,7 @@ const { topTools, categoryTitleMap, formatScore, totalTools } = Astro.props;
                     >
                       Explore Tools
                     </a>
-                    <CompareToggle client:load slug={toolSlug} />
+                    <CompareToggle client:load transition:persist slug={toolSlug} />
                   </div>
                 </div>
               </div>
