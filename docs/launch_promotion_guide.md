@@ -58,7 +58,7 @@ I built this using Astro 6, Vue 3, and Cloudflare Pages. Every public page pre-r
 
 Try it out and tell me what you think. What local AI tools do you rely on every day?
 
-Drop a comment below or send feedback on Telegram: https://t.me/your_telegram_username
+Drop a comment below or send feedback on Telegram: https://t.me/Mamylinx
 ```
 
 ---
@@ -84,7 +84,7 @@ The tech stack:
 All public pages pre-render at build time. Client-side search and tag filtering run instantly in your browser without hitting a server on every keypress.
 
 Take a look. I'd love your feedback on the UX, taxonomy, or missing tools.
-You can reply here or message me on Telegram: https://t.me/your_telegram_username
+You can reply here or message me on Telegram: https://t.me/Mamylinx
 ```
 
 ---
@@ -112,7 +112,7 @@ I built the site using Astro 6 and Cloudflare Pages for instant page loads.
 
 Check out the directory: https://enclavetools.com
 
-Got feedback or building a local tool? Reach out on Telegram: https://t.me/your_telegram_username
+Got feedback or building a local tool? Reach out on Telegram: https://t.me/Mamylinx
 
 #AI #OpenSource #LocalAI #DeveloperTools #DataPrivacy #Cloudflare
 ```
@@ -141,7 +141,7 @@ Features:
 The site is free and community-focused. 
 
 Check it out. Tell me what tools I missed.
-DM me or reach out on Telegram: https://t.me/your_telegram_username
+DM me or reach out on Telegram: https://t.me/Mamylinx
 ```
 
 ### B. `r/opensource` & `r/DeveloperTools`
@@ -158,7 +158,7 @@ Finding self-hosted alternatives to commercial AI APIs takes too much research t
 Built with Astro 6, Vue 3, and Cloudflare Pages.
 
 Try it out and let me know your thoughts.
-Send feedback here or on Telegram: https://t.me/your_telegram_username
+Send feedback here or on Telegram: https://t.me/Mamylinx
 ```
 
 ---
@@ -191,7 +191,7 @@ Send feedback here or on Telegram: https://t.me/your_telegram_username
 **Tweet 4**:
 > Building a local AI tool? Submit it on the site.
 >
-> Have feedback? DM me or ping me on Telegram: https://t.me/your_telegram_username 📲
+> Have feedback? DM me or ping me on Telegram: https://t.me/Mamylinx 📲
 >
 > Check us out on Product Hunt & Hacker News today!
 
@@ -214,7 +214,7 @@ Key details:
 - Open community submission flow with GitHub auto-fill.
 
 Let me know if you need any extra details.
-Contact on Telegram: https://t.me/your_telegram_username
+Contact on Telegram: https://t.me/Mamylinx
 
 Best,
 [Your Name]
