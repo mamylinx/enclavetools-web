@@ -4,6 +4,7 @@ import NavHeader from "../components/NavHeader.astro";
 import Hero from "../components/home/Hero.astro";
 import CategoryNav from "../components/CategoryNav.vue";
 import SiteFooter from "../components/SiteFooter.astro";
+import CookieBanner from "../components/CookieBanner.vue";
 import { ClientRouter } from "astro:transitions";
 import "../styles/main.css";
 
@@ -51,6 +52,8 @@ const {
     <SeoHead {...seoProps} />
     <ClientRouter />
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    <script src="https://www.googletagmanager.com/gtag/js?id=G-S9K7BBRYW1" async></script>
+    <script src="/scripts/cookie-consent.js" defer></script>
   </head>
 
   <body class="bg-brand-bg font-sans text-brand-forest antialiased text-base">
@@ -68,6 +71,7 @@ const {
     </main>
 
     {showFooter && <SiteFooter />}
+    <CookieBanner client:load />
   </body>
 </html>
 

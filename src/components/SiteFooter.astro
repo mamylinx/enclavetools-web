@@ -119,6 +119,14 @@ const c = siteContent as Record<string, string>;
               class="text-white/60 text-sm hover:text-white transition-colors"
               >Terms of Service</a>
           </li>
+          <li>
+            <button
+              type="button"
+              onclick="window.EnclaveConsent && window.EnclaveConsent.open()"
+              class="text-white/60 text-sm hover:text-white transition-colors bg-transparent border-none cursor-pointer p-0 font-[inherit]"
+              >Cookie Settings</button
+            >
+          </li>
         </ul>
       </div>
     </div>

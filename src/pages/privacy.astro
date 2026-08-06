@@ -69,8 +69,12 @@ const breadcrumbs = [
                     We use Google Analytics to understand how visitors interact
                     with our website. Google Analytics uses cookies to track
                     anonymized data (e.g., pages visited, session duration).
-                    This helps us improve the user experience. You can opt-out
-                    by installing the Google Analytics Opt-out Browser Add-on.
+                    This helps us improve the user experience.
+                </p>
+                <p class="text-base leading-relaxed mb-4 font-medium">
+                    <strong class="text-brand-forest font-extrabold">We do not load Google Analytics until you give explicit consent.</strong>
+                    Our implementation uses Google Consent Mode v2 — no analytics cookies are set and no data is sent to Google until you
+                    actively opt in through our cookie consent banner.
                 </p>
 
                 <h2
@@ -79,10 +83,20 @@ const breadcrumbs = [
                     4. Cookies
                 </h2>
                 <p class="text-base leading-relaxed mb-4 font-medium">
-                    Like most modern websites, we use cookies to optimize your
-                    experience. Cookies are small text files stored on your
-                    device that help us remember your preferences (like theme
-                    settings) and analyze traffic patterns.
+                    We use two categories of cookies on our website:
+                </p>
+                <ul class="list-disc pl-6 space-y-2 text-base font-medium text-brand-forest/80 mb-4">
+                    <li><strong class="text-brand-forest">Strictly Necessary</strong> — Required for the website to function. These cannot be disabled.</li>
+                    <li><strong class="text-brand-forest">Analytics</strong> — Used by Google Analytics to collect anonymous usage data. Only active if you explicitly consent.</li>
+                </ul>
+                <p class="text-base leading-relaxed mb-4 font-medium">
+                    You can change your cookie preferences at any time by clicking <strong class="text-brand-forest">"Cookie Settings"</strong>
+                    in the footer of any page. If you have previously consented and wish to withdraw, doing so will immediately stop all analytics tracking.
+                </p>
+                <p class="text-base leading-relaxed mb-4 font-medium">
+                    We also honor the <strong class="text-brand-forest">Global Privacy Control (GPC)</strong> signal.
+                    If your browser sends a GPC opt-out signal, analytics cookies will be automatically disabled regardless of your consent banner selection,
+                    in compliance with CCPA/CPRA requirements.
                 </p>
 
                 <h2
@@ -103,8 +117,14 @@ const breadcrumbs = [
                     6. Consent
                 </h2>
                 <p class="text-base leading-relaxed mb-4 font-medium">
-                    By using our website, you hereby consent to our Privacy
-                    Policy and agree to its terms.
+                    By using our website, you agree to our Privacy Policy.
+                    However, <strong class="text-brand-forest">non-essential cookies (analytics) are only activated if you explicitly opt in</strong>
+                    through our cookie consent banner. Continuing to browse without making a choice does not constitute consent.
+                    You have the right to withdraw your consent at any time via the "Cookie Settings" link in our footer.
+                </p>
+                <p class="text-base leading-relaxed mb-4 font-medium">
+                    Our consent mechanism is designed to comply with major worldwide regulations including the GDPR (EU), ePrivacy Directive (EU),
+                    UK GDPR, CCPA/CPRA (California), LGPD (Brazil), and PIPEDA (Canada).
                 </p>
 
                 <h2
