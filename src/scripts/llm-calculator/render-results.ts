@@ -74,12 +74,12 @@ export function renderResults(): void {
     <div class="card mb-5 border-brand-teal bg-brand-forest/5 text-center p-6">
       <h2 class="text-xl font-bold text-brand-forest mb-2">Don't guess your hardware needs.</h2>
       <p class="text-brand-muted text-sm mb-4">Calculators give you targets, but real-world performance varies. Get certainty before you buy.</p>
-      <a href="/benchmark-offer?d=${encodedData}" class="btn-primary block w-full md:w-auto md:inline-block text-center">Get Custom Sizing & Benchmark Data</a>
+      <a href="/benchmark-waitlist" class="btn-primary block w-full md:w-auto md:inline-block text-center">Get Custom Sizing & Benchmark Data</a>
     </div>
   `;
 
   document.getElementById('resultsSection')!.innerHTML = html;
 
   const cta = document.getElementById('step4Cta') as HTMLAnchorElement | null;
-  if (cta) cta.href = '/benchmark-offer?d=' + buildEncodedData();
+  if (cta) cta.href = '/benchmark-waitlist';
 }

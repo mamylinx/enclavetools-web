@@ -43,7 +43,7 @@ export function bindEvents(): void {
       case 'renderResults': renderResults(); break;
       case 'updateStep4Cta': {
         const cta = document.getElementById('step4Cta') as HTMLAnchorElement | null;
-        if (cta) cta.href = '/benchmark-offer?d=' + buildEncodedData();
+        if (cta) cta.href = '/benchmark-waitlist';
         break;
       }
     }

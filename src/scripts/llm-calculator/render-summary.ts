@@ -96,7 +96,7 @@ export function renderLatency(s: CalcState, ttft: number, ttlt: number, rps: num
       <div class="warn-box text-xs">
         ⚠️ <strong>These are planning targets only.</strong> Real speed depends on your GPU's benchmarks at this load.<br/>
         <div class="text-center my-4">
-          <a href="/benchmark-offer?d=${encodedData}" id="benchmarkOfferLink" class="btn-primary
+          <a href="/benchmark-waitlist" id="benchmarkOfferLink" class="btn-primary
           block
           w-full
           md:w-auto
