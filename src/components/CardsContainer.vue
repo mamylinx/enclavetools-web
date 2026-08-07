@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Card from './Card.vue';
+import ToolRow from './ToolRow.vue';
 import EmptyState from './EmptyState.vue';
 import SortBar from './cards/SortBar.vue';
 import PromotedAd from './cards/PromotedAd.vue';
@@ -10,7 +10,7 @@ import { useCardsContainer } from '../composables/useCardsContainer';
 import marketingData from '../data/marketing.json';
 import siteContent from '../data/site-content.json';
 import type { MarketingConfig } from '../interfaces/content';
-import type { ToolWithCategory } from '../utils/toolModel';
+import type { ToolWithCategory } from '../types';
 import type { SortKey } from '../utils/sorting';
 import type { FilterState } from '../types';
 
@@ -52,13 +52,13 @@ const sponsors = (m.sponsors || []);
   <div v-else>
     <SortBar :tool-count="toolCount" :active-sort="activeSort" @set-sort="setSort" />
 
-    <ul role="list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 m-0 p-0">
-      <template v-for="(item, i) in filteredCards" :key="`${item.title}-${i}`">
+    <ul role="list" class="flex flex-col gap-1 m-0 p-0">
+      <template v-for="(item, i) in filteredCards" :key="item.title + '-' + i">
         <PromotedAd :ad="promotedAds[0]" v-if="i === 0 && promotedAds.length" />
         <SponsorCard :sponsor="sponsors[0]" v-if="i === positions.sponsor && sponsors.length" class="lg:hidden" />
         <NewsletterCard :content="c" v-if="i === positions.newsletter" class="lg:hidden" />
         <li v-if="i === positions.sponsor_cta"
-          class="lg:hidden col-span-1 border border-brand-teal/20 p-6 bg-brand-tealLight rounded-3xl transition-all duration-300 ease-out-expo hover:border-brand-teal hover:-translate-y-1 hover:shadow-lg">
+          class="lg:hidden border border-brand-teal/20 p-6 bg-brand-tealLight rounded-3xl transition-all duration-300 ease-out-expo hover:border-brand-teal hover:-translate-y-1 hover:shadow-lg">
           <div class="flex flex-col h-full">
             <div class="text-xs font-bold uppercase text-brand-teal tracking-wider mb-3">{{ sponsor.label || 'Sponsor' }}</div>
             <div class="text-lg font-bold text-brand-forest mb-2">{{ sponsor.title }}</div>
@@ -67,10 +67,7 @@ const sponsors = (m.sponsors || []);
               class="w-full h-10 bg-brand-teal text-white font-bold text-xs uppercase tracking-wider hover:bg-brand-forest transition-colors border-none rounded-full inline-flex items-center justify-center shadow-sm">{{ sponsor.cta }}</button>
           </div>
         </li>
-        <Card :href="item.url" :title="item.title" :body="item.body" :license="item.license"
-          :slug="item.slug" :telemetry="item.telemetry" :maturity="item.maturity"
-          :popularity-score="item.popularity_score" :hardware="item.hardware"
-          :category="Array.isArray(item.category) ? item.category[0] : item.category" />
+        <ToolRow :tool="item" />
       </template>
     </ul>
 

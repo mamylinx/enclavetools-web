@@ -31,6 +31,7 @@ export function useCardsContainer(
   const currentPage = ref(1)
   const oramaResults = ref<ToolWithCategory[]>([])
   const oramaTotal = ref(0)
+  const isSearching = ref(false)
 
   const baseTools = computed((): ToolWithCategory[] => {
     if (props.ssrTools && props.ssrTools.length > 0) return props.ssrTools
@@ -64,7 +65,10 @@ export function useCardsContainer(
   })
 
   const filteredCards = computed((): ToolWithCategory[] => {
-    if (isOramaActive.value) return oramaResults.value
+    if (isOramaActive.value) {
+      if (isSearching.value) return baseTools.value
+      return oramaResults.value
+    }
     let base = baseTools.value
     if (props.filter !== 'all') {
       base = base.filter((tool) => {
@@ -96,7 +100,7 @@ export function useCardsContainer(
   )
 
   const hasNoFilterResults = computed(
-    () => isOramaActive.value && filteredCards.value.length === 0,
+    () => isOramaActive.value && !isSearching.value && filteredCards.value.length === 0,
   )
 
   const positions = randomSidebarPositions(computed(() => filteredCards.value.length))
@@ -118,6 +122,7 @@ export function useCardsContainer(
       oramaTotal.value = 0
       return
     }
+    isSearching.value = true
     try {
       const result = await searchTools({
         urlCategory: props.filter,
@@ -131,6 +136,8 @@ export function useCardsContainer(
       oramaTotal.value = result.total
     } catch (e) {
       console.error('Orama search failed:', e)
+    } finally {
+      isSearching.value = false
     }
   }
 
