@@ -49,10 +49,10 @@ function toggle() {
 
 <template>
   <button type="button" @click="toggle"
-    class="w-9 h-9 rounded-full flex items-center justify-center font-bold text-base transition-colors focus:outline-none"
+    class="w-9 h-9 rounded-full flex items-center justify-center font-bold text-base transition-all duration-200 focus:outline-none"
     :class="isCompared
-      ? 'bg-brand-lime text-brand-forest border border-brand-lime'
-      : 'bg-brand-bg text-brand-forest border border-brand-forest/10 hover:bg-brand-lime'"
+      ? 'bg-gradient-cool text-white border border-transparent shadow-sm shadow-accent-green/25'
+      : 'bg-white/90 text-brand-forest border border-brand-forest/5 hover:border-accent-teal/30 hover:text-accent-teal hover:shadow-sm'"
     :title="isCompared ? 'Remove from comparison' : 'Add to comparison'"
     :aria-label="isCompared ? 'Remove from comparison' : 'Add to comparison'">
     <svg v-if="isCompared" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" aria-hidden="true">

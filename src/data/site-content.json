@@ -33,7 +33,7 @@
   "newsletter_placeholder": "your@email.com",
   "newsletter_cta": "Get the digest",
   "home_page_title": "Stop paying for AI APIs. Keep your data inside your walls.",
-  "home_page_tagline": "Stop paying for AI APIs. Everything here runs on your own hardware. Browse self-hosted AI tools manually audited for zero data leakage. Shortlist by license safety, telemetry, and deployment path.",
+  "home_page_tagline": "Stop paying for AI APIs. Everything here runs on your own hardware. Browse self-hosted AI tools audited for zero data leakage.",
   "home_page_eyebrow": "Private AI tools directory",
   "home_schema_list_name": "AI Tools Directory - All Tools",
   "home_stat_tools_label": "Verified Local Tools",

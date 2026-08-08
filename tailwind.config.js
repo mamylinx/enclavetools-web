@@ -27,6 +27,9 @@ export default {
           royalBlue: '#0052CC',
           footerBg: '#140B0B',
           lightCyan: '#E8F7F5',
+          red: '#EA4335',
+          yellow: '#FBBC04',
+          green: '#34A853',
         },
       },
       fontFamily: {

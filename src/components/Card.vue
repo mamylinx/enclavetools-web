@@ -1,10 +1,10 @@
 <template>
   <li
-    class="flex flex-col h-full bg-white border border-brand-forest/10 rounded-3xl p-6 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(27,54,27,0.08)]"
+    class="flex flex-col h-full bg-white/95 backdrop-blur-sm border border-brand-forest/5 rounded-3xl p-6 shadow-sm shadow-brand-forest/5 transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(27,54,27,0.08)]"
   >
     <div class="flex items-center justify-between gap-2 mb-4">
       <span
-        class="px-2.5 py-1 bg-brand-tealLight border border-brand-teal/20 text-brand-teal text-xs font-bold uppercase tracking-wider rounded-full"
+        class="px-2.5 py-1 bg-accent-teal/10 border border-accent-teal/20 text-accent-teal text-xs font-bold uppercase tracking-wider rounded-full"
       >{{ category }}</span>
       <span class="text-xs font-bold text-brand-forest flex items-center gap-1 shrink-0">
         <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
@@ -15,7 +15,7 @@
     </div>
     <h3 class="text-xl font-bold tracking-tight text-brand-forest mb-2 font-sans flex items-center gap-2">
       {{ title }}
-      <span class="w-2.5 h-2.5 bg-brand-lime border border-brand-forest/10 rounded-full shrink-0"></span>
+      <span class="w-2.5 h-2.5 bg-accent-green rounded-full shrink-0"></span>
     </h3>
     <p class="text-brand-muted text-sm leading-relaxed mb-5">{{ body }}</p>
     <div class="grid grid-cols-2 gap-2 border-t border-brand-forest/10 pt-4 mt-auto">
@@ -39,7 +39,7 @@
 
     <div class="flex items-center gap-2 mt-4">
       <a :href="'/tools/' + slug"
-        class="flex-1 text-center py-2.5 bg-brand-teal text-white rounded-full text-xs font-bold uppercase tracking-wider shadow-sm hover:-translate-y-0.5 transition-all">Explore Tools</a>
+        class="flex-1 text-center py-2.5 bg-gradient-cool text-white rounded-full text-xs font-bold uppercase tracking-wider shadow-sm shadow-accent-green/20 hover:shadow-md hover:shadow-accent-green/30 hover:scale-[1.02] transition-all">Explore Tools</a>
       <CompareToggle v-if="slug" :slug="slug" />
     </div>
   </li>

@@ -65,8 +65,8 @@ onUnmounted(() => {
   <button
     class="bg-transparent cursor-pointer flex items-center justify-center transition-all duration-150 rounded-full"
     :class="[
-      props.variant === 'small' ? 'w-8 h-8 border border-brand-forest/10 hover:border-brand-forest' : 'w-12 h-12 border border-brand-forest/10',
-      bookmarked ? 'text-brand-teal border-brand-teal hover:text-brand-teal hover:border-brand-teal bg-brand-tealLight' : 'text-brand-muted bg-white',
+      props.variant === 'small' ? 'w-8 h-8 border border-brand-forest/5 hover:border-accent-teal/30' : 'w-12 h-12 border border-brand-forest/5',
+      bookmarked ? 'text-accent-teal border-accent-teal/30 bg-accent-teal/10 shadow-sm shadow-accent-teal/10' : 'text-brand-muted bg-white/90 hover:text-accent-teal hover:border-accent-teal/30 hover:shadow-sm',
       props.className
     ]" @click="handleClick" :aria-label="bookmarked ? `Remove ${title} from saved list` : `Add ${title} to saved list`"
     :title="bookmarked ? `Remove ${title} from saved list` : `Add ${title} to saved list`" type="button">

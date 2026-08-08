@@ -21,14 +21,15 @@ const label = c.marketing_newsletter_label || "Newsletter";
   aria-labelledby="newsletter-heading"
 >
   <div
-    class="relative bg-white border border-brand-forest/10 rounded-4xl p-8 md:p-12 lg:p-16 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(27,54,27,0.08)]"
+    class="relative bg-white/95 backdrop-blur-sm border border-brand-forest/5 rounded-4xl p-8 md:p-12 lg:p-16 shadow-md shadow-brand-forest/5 transition-all duration-200 hover:-translate-y-1 hover:shadow-xl hover:shadow-brand-forest/8 card-accent-border"
   >
+
     <div
       class="flex flex-col items-center gap-8"
     >
       <div class="flex-1 text-center">
         <p
-          class="inline-flex items-center text-brand-teal border border-brand-teal/20 px-4 py-1.5 text-xs font-bold uppercase tracking-wider rounded-full mb-4"
+          class="inline-flex items-center text-accent-teal border border-accent-teal/20 px-4 py-1.5 text-xs font-bold uppercase tracking-wider rounded-full mb-4"
         >
           {label}
         </p>
@@ -52,14 +53,14 @@ const label = c.marketing_newsletter_label || "Newsletter";
           class="flex flex-col sm:flex-row gap-3"
         >
           <input
-            class="w-full sm:min-w-[360px] h-12 px-5 border border-brand-forest/10 rounded-full font-sans text-sm font-medium placeholder-gray-400 focus:outline-none focus:border-brand-teal transition-colors"
+            class="w-full sm:min-w-[360px] h-12 px-5 border border-brand-forest/10 rounded-full font-sans text-sm font-medium placeholder-gray-400 focus:outline-none focus:border-accent-teal transition-colors"
             type="email"
             name="email"
             placeholder={placeholder}
             required
           />
           <button
-            class="h-12 px-6 bg-brand-forest text-white font-bold uppercase tracking-wider text-xs rounded-full hover:bg-black transition-all inline-flex items-center justify-center whitespace-nowrap shadow-sm"
+            class="h-12 px-6 bg-gradient-cool text-white font-bold uppercase tracking-wider text-xs rounded-full inline-flex items-center justify-center whitespace-nowrap shadow-md shadow-accent-green/20 hover:shadow-lg hover:shadow-accent-green/30 hover:scale-[1.02] transition-all"
             type="submit"
           >
             {cta}

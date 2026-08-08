@@ -26,4 +26,4 @@
 
 ## About
 
-Enclavetools is the directory of self-hosted AI tools that run on your own hardware. Every tool is manually audited for zero data leakage — no APIs, no surveillance, no vendor lock-in.
+Enclavetools is the directory of self-hosted AI tools that run on your own hardware. Every tool is audited for zero data leakage — no APIs, no surveillance, no vendor lock-in.

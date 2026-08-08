@@ -9,6 +9,73 @@
   --leading-tight: 1.1;
   --leading-snug: 1.375;
   --leading-relaxed: 1.625;
+
+  --accent-red: #EA4335;
+  --accent-yellow: #FBBC04;
+  --accent-green: #34A853;
+  --accent-teal: #05B2A3;
+
+  --color-accent-red: #EA4335;
+  --color-accent-yellow: #FBBC04;
+  --color-accent-green: #34A853;
+  --color-accent-teal: #05B2A3;
+}
+
+@utility bg-gradient-brand {
+  background: linear-gradient(135deg, #EA4335 0%, #FBBC04 33%, #34A853 66%, #05B2A3 100%);
+}
+
+@utility bg-gradient-warm {
+  background: linear-gradient(135deg, #EA4335 0%, #FBBC04 100%);
+}
+
+@utility bg-gradient-cool {
+  background: linear-gradient(135deg, #34A853 0%, #05B2A3 100%);
+}
+
+@utility text-gradient-brand {
+  background: linear-gradient(135deg, #EA4335 0%, #FBBC04 33%, #34A853 66%, #05B2A3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@utility card-elevated {
+  @apply bg-white/95 backdrop-blur-sm border border-white/60 rounded-4xl p-6;
+  @apply shadow-sm shadow-brand-forest/5;
+  @apply transition-all duration-200;
+  @apply hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(27,54,27,0.08)];
+}
+
+@utility card-accent-border {
+  @apply relative overflow-hidden;
+  &::before {
+    content: '';
+    @apply absolute top-0 left-0 right-0 h-1 rounded-t-4xl;
+    background: linear-gradient(90deg, #EA4335, #FBBC04, #34A853, #05B2A3);
+  }
+}
+
+@utility btn-primary {
+  @apply inline-flex items-center gap-2 px-8 py-3 rounded-full;
+  background: linear-gradient(135deg, #34A853 0%, #05B2A3 100%);
+  @apply text-white font-bold text-xs uppercase tracking-wider;
+  @apply shadow-md shadow-accent-green/20;
+  @apply hover:shadow-lg hover:shadow-accent-green/30 hover:scale-[1.02];
+  @apply transition-all duration-200;
+}
+
+@utility btn-secondary {
+  @apply inline-flex items-center gap-2 px-8 py-3 rounded-full;
+  @apply bg-white/90 border border-brand-forest/10;
+  @apply text-brand-forest font-bold text-xs uppercase tracking-wider;
+  @apply hover:bg-white hover:shadow-md;
+  @apply transition-all duration-200;
+}
+
+@utility hover-lift {
+  @apply transition-all duration-200 ease-out;
+  @apply hover:-translate-y-1 hover:shadow-lg;
 }
 
 @layer base {

@@ -123,13 +123,13 @@ function handleGlobalClick(e: MouseEvent) {
 
 <template>
   <div ref="dropdownEl" class="w-full">
-    <div class="max-w-[1400px] mx-auto px-4 md:px-8 py-4 flex flex-wrap items-center gap-2 bg-brand-bg">
+    <div class="max-w-[1400px] mx-auto px-4 md:px-8 py-4 flex flex-wrap items-center gap-2 bg-linear-to-r from-brand-tealLight/25 via-brand-bg to-accent-yellow/5">
       <div v-for="group in visibleGroups" :key="group.key" class="relative">
         <button
           class="h-10 px-4 text-xs font-bold uppercase tracking-wider border transition-colors duration-150 flex items-center gap-2 whitespace-nowrap rounded-full"
           :class="groupCount(group.key as keyof FilterState) > 0
-            ? 'bg-brand-forest text-white border-brand-forest hover:bg-brand-teal hover:border-brand-teal'
-            : 'bg-white text-brand-forest border-brand-forest/10 hover:border-brand-forest'"
+            ? 'bg-gradient-cool text-white border-transparent shadow-sm shadow-accent-green/20'
+            : 'bg-white/90 backdrop-blur-sm text-brand-forest border-brand-forest/5 hover:border-accent-teal/30 hover:text-accent-teal hover:shadow-sm'"
           @click.stop="toggleDropdown(group.key)"
           :aria-expanded="openDropdown === group.key"
         >
@@ -146,7 +146,7 @@ function handleGlobalClick(e: MouseEvent) {
 
         <div
           v-if="openDropdown === group.key"
-          class="absolute top-full left-0 mt-1 z-50 border border-brand-forest/10 bg-white shadow-sm rounded-2xl"
+          class="absolute top-full left-0 mt-2 z-50 border border-brand-forest/5 bg-white/98 backdrop-blur-md shadow-lg shadow-brand-forest/10 rounded-2xl"
         >
           <div
             class="max-h-72 p-2 gap-1 overflow-x-hidden overflow-y-auto"
@@ -158,8 +158,8 @@ function handleGlobalClick(e: MouseEvent) {
                 :key="String(opt.value)"
                 class="block w-full text-left px-3 py-2 text-xs font-bold transition-all duration-150 border whitespace-nowrap break-inside-avoid mb-1 rounded-lg"
                 :class="isOptionSelected(group.key, opt.value)
-                  ? 'bg-brand-forest text-white border-brand-forest'
-                  : 'text-brand-muted bg-white border-transparent hover:border-brand-forest hover:text-brand-forest'"
+                  ? 'bg-accent-teal/10 text-accent-teal border-accent-teal/20 font-bold'
+                  : 'text-brand-muted bg-transparent border-transparent hover:bg-accent-teal/5 hover:text-accent-teal'"
                 @click="handleSingleSelect(group.key, opt.value)"
               >
                 {{ optionLabel(group.key, opt.value) }}
@@ -171,8 +171,8 @@ function handleGlobalClick(e: MouseEvent) {
                 :key="String(opt.value)"
                 class="block w-full text-left px-3 py-2 text-xs font-bold transition-all duration-150 border whitespace-nowrap break-inside-avoid mb-1 rounded-lg"
                 :class="isOptionSelected(group.key, opt.value)
-                  ? 'bg-brand-forest text-white border-brand-forest'
-                  : 'text-brand-muted bg-white border-transparent hover:border-brand-forest hover:text-brand-forest'"
+                  ? 'bg-accent-teal/10 text-accent-teal border-accent-teal/20 font-bold'
+                  : 'text-brand-muted bg-transparent border-transparent hover:bg-accent-teal/5 hover:text-accent-teal'"
                 @click="handleToggle(group.key, opt.value || '')"
               >
                 {{ opt.label }}
@@ -186,7 +186,7 @@ function handleGlobalClick(e: MouseEvent) {
 
       <button
         v-if="activeCount > 0"
-        class="h-10 px-4 text-xs font-bold uppercase tracking-wider bg-white text-brand-muted border border-brand-forest/10 hover:border-red-500 hover:text-red-500 transition-colors duration-150 rounded-full"
+        class="h-10 px-4 text-xs font-bold uppercase tracking-wider bg-white/90 backdrop-blur-sm text-brand-muted border border-brand-forest/5 hover:border-accent-red/30 hover:text-accent-red hover:bg-accent-red/5 transition-all duration-150 rounded-full"
         @click="emit('clear-all')"
       >
         Clear all ({{ activeCount }})

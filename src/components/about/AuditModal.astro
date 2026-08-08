@@ -5,7 +5,7 @@
   id="auditModal"
   class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-4 transition-opacity"
 >
-  <div class="bg-white border border-brand-forest/15 rounded-3xl p-6 sm:p-8 max-w-lg w-full shadow-2xl relative">
+  <div class="bg-white/98 backdrop-blur-md border border-brand-forest/5 rounded-3xl p-6 sm:p-8 max-w-lg w-full shadow-2xl shadow-brand-forest/20 relative card-accent-border">
     <button
       id="closeAuditModal"
       type="button"
@@ -35,7 +35,7 @@
           id="modalToolName"
           required
           placeholder="e.g. Open WebUI, Ollama, ComfyUI, Dify..."
-          class="w-full bg-brand-forest/5 border border-brand-forest/15 rounded-xl px-4 py-3 text-brand-forest font-semibold focus:outline-none focus:border-brand-teal transition-colors"
+          class="w-full bg-brand-forest/5 border border-brand-forest/10 rounded-xl px-4 py-3 text-brand-forest font-semibold focus:outline-none focus:border-accent-teal focus:bg-white transition-colors"
         />
       </div>
 
@@ -44,11 +44,11 @@
           Popular Tool Presets:
         </span>
         <div class="flex flex-wrap gap-2">
-          <button type="button" class="modal-chip px-3 py-1 rounded-full text-xs font-bold bg-brand-forest/5 text-brand-forest border border-brand-forest/10 hover:bg-brand-teal hover:text-white transition-colors" data-tool="Open WebUI">Open WebUI</button>
-          <button type="button" class="modal-chip px-3 py-1 rounded-full text-xs font-bold bg-brand-forest/5 text-brand-forest border border-brand-forest/10 hover:bg-brand-teal hover:text-white transition-colors" data-tool="Ollama">Ollama</button>
-          <button type="button" class="modal-chip px-3 py-1 rounded-full text-xs font-bold bg-brand-forest/5 text-brand-forest border border-brand-forest/10 hover:bg-brand-teal hover:text-white transition-colors" data-tool="ComfyUI">ComfyUI</button>
-          <button type="button" class="modal-chip px-3 py-1 rounded-full text-xs font-bold bg-brand-forest/5 text-brand-forest border border-brand-forest/10 hover:bg-brand-teal hover:text-white transition-colors" data-tool="Dify">Dify</button>
-          <button type="button" class="modal-chip px-3 py-1 rounded-full text-xs font-bold bg-brand-forest/5 text-brand-forest border border-brand-forest/10 hover:bg-brand-teal hover:text-white transition-colors" data-tool="Custom Container">Custom Stack</button>
+          <button type="button" class="modal-chip px-3 py-1 rounded-full text-xs font-bold bg-white/90 text-brand-forest border border-brand-forest/5 hover:bg-accent-teal hover:border-accent-teal hover:text-white transition-colors" data-tool="Open WebUI">Open WebUI</button>
+          <button type="button" class="modal-chip px-3 py-1 rounded-full text-xs font-bold bg-white/90 text-brand-forest border border-brand-forest/5 hover:bg-accent-teal hover:border-accent-teal hover:text-white transition-colors" data-tool="Ollama">Ollama</button>
+          <button type="button" class="modal-chip px-3 py-1 rounded-full text-xs font-bold bg-white/90 text-brand-forest border border-brand-forest/5 hover:bg-accent-teal hover:border-accent-teal hover:text-white transition-colors" data-tool="ComfyUI">ComfyUI</button>
+          <button type="button" class="modal-chip px-3 py-1 rounded-full text-xs font-bold bg-white/90 text-brand-forest border border-brand-forest/5 hover:bg-accent-teal hover:border-accent-teal hover:text-white transition-colors" data-tool="Dify">Dify</button>
+          <button type="button" class="modal-chip px-3 py-1 rounded-full text-xs font-bold bg-white/90 text-brand-forest border border-brand-forest/5 hover:bg-accent-teal hover:border-accent-teal hover:text-white transition-colors" data-tool="Custom Container">Custom Stack</button>
         </div>
       </div>
 
@@ -58,7 +58,7 @@
         </label>
         <select
           id="modalEnvSelect"
-          class="w-full bg-brand-forest/5 border border-brand-forest/15 rounded-xl px-4 py-3 text-brand-forest font-semibold focus:outline-none focus:border-brand-teal transition-colors"
+          class="w-full bg-brand-forest/5 border border-brand-forest/10 rounded-xl px-4 py-3 text-brand-forest font-semibold focus:outline-none focus:border-accent-teal focus:bg-white transition-colors"
         >
           <option value="Docker Container">Docker Container</option>
           <option value="Directly on Server">Directly on a Server (no containers)</option>
@@ -75,7 +75,7 @@
           type="email"
           id="modalWorkEmail"
           placeholder="jane@company.com"
-          class="w-full bg-brand-forest/5 border border-brand-forest/15 rounded-xl px-4 py-3 text-brand-forest font-semibold focus:outline-none focus:border-brand-teal transition-colors"
+          class="w-full bg-brand-forest/5 border border-brand-forest/10 rounded-xl px-4 py-3 text-brand-forest font-semibold focus:outline-none focus:border-accent-teal focus:bg-white transition-colors"
         />
       </div>
 

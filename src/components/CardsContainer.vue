@@ -58,13 +58,13 @@ const sponsors = (m.sponsors || []);
         <SponsorCard :sponsor="sponsors[0]" v-if="i === positions.sponsor && sponsors.length" class="lg:hidden" />
         <NewsletterCard :content="c" v-if="i === positions.newsletter" class="lg:hidden" />
         <li v-if="i === positions.sponsor_cta"
-          class="lg:hidden border border-brand-teal/20 p-6 bg-brand-tealLight rounded-3xl transition-all duration-300 ease-out-expo hover:border-brand-teal hover:-translate-y-1 hover:shadow-lg">
+          class="lg:hidden border border-accent-teal/20 p-6 bg-linear-to-br from-brand-tealLight/60 via-white to-accent-green/8 backdrop-blur-sm rounded-3xl shadow-sm shadow-brand-forest/5 transition-all duration-300 ease-out-expo hover:border-accent-teal/40 hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(27,54,27,0.08)]">
           <div class="flex flex-col h-full">
-            <div class="text-xs font-bold uppercase text-brand-teal tracking-wider mb-3">{{ sponsor.label || 'Sponsor' }}</div>
+            <div class="text-xs font-bold uppercase text-accent-teal tracking-wider mb-3">{{ sponsor.label || 'Sponsor' }}</div>
             <div class="text-lg font-bold text-brand-forest mb-2">{{ sponsor.title }}</div>
             <p class="text-sm font-medium text-brand-muted mb-4 flex-1">{{ sponsor.description }}</p>
             <button
-              class="w-full h-10 bg-brand-teal text-white font-bold text-xs uppercase tracking-wider hover:bg-brand-forest transition-colors border-none rounded-full inline-flex items-center justify-center shadow-sm">{{ sponsor.cta }}</button>
+              class="w-full h-10 bg-gradient-cool text-white font-bold text-xs uppercase tracking-wider hover:shadow-md hover:shadow-accent-green/30 hover:scale-[1.02] transition-all border-none rounded-full inline-flex items-center justify-center shadow-sm shadow-accent-green/20">{{ sponsor.cta }}</button>
           </div>
         </li>
         <ToolRow :tool="item" />

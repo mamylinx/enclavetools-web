@@ -16,7 +16,7 @@ import BookmarkButton from "../BookmarkButton.vue";
         href={enrichedTool.github_url || enrichedTool.url}
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center h-12 border border-brand-forest/10 px-4 font-bold uppercase tracking-wider text-xs bg-brand-forest text-white hover:bg-black rounded-full transition-colors no-underline shadow-sm"
+        class="inline-flex items-center h-12 px-6 font-bold uppercase tracking-wider text-xs bg-gradient-cool text-white rounded-full transition-all no-underline shadow-md shadow-accent-green/20 hover:shadow-lg hover:shadow-accent-green/30 hover:scale-[1.02]"
       >
         View on GitHub
       </a>
@@ -29,20 +29,20 @@ import BookmarkButton from "../BookmarkButton.vue";
         href={enrichedTool.url}
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center h-12 border border-brand-forest/10 px-4 font-bold uppercase tracking-wider text-xs bg-white text-brand-forest hover:bg-brand-teal hover:text-white hover:border-brand-teal rounded-full transition-colors no-underline"
+        class="inline-flex items-center h-12 border border-brand-forest/5 px-4 font-bold uppercase tracking-wider text-xs bg-white/90 backdrop-blur-sm text-brand-forest hover:bg-accent-teal hover:text-white hover:border-accent-teal rounded-full transition-all no-underline hover:shadow-md"
       >
         Official site
       </a>
     ) : null
   }
   <button
-    class="inline-flex items-center h-12 border border-brand-forest/10 px-4 font-bold uppercase tracking-wider text-xs bg-white text-brand-forest hover:bg-brand-teal hover:text-white hover:border-brand-teal rounded-full transition-colors no-underline"
+    class="inline-flex items-center h-12 border border-brand-forest/5 px-4 font-bold uppercase tracking-wider text-xs bg-white/90 backdrop-blur-sm text-brand-forest hover:bg-accent-teal hover:text-white hover:border-accent-teal rounded-full transition-all no-underline hover:shadow-md"
     data-tool-action="share"
   >
     Share
   </button>
   <button
-    class="inline-flex items-center h-12 border border-brand-forest/10 px-4 font-bold uppercase tracking-wider text-xs bg-white text-brand-forest hover:bg-brand-teal hover:text-white hover:border-brand-teal rounded-full transition-colors no-underline"
+    class="inline-flex items-center h-12 border border-brand-forest/5 px-4 font-bold uppercase tracking-wider text-xs bg-white/90 backdrop-blur-sm text-brand-forest hover:bg-accent-teal hover:text-white hover:border-accent-teal rounded-full transition-all no-underline hover:shadow-md"
     data-tool-action="compare"
     data-slug={slug}
   >
@@ -50,7 +50,7 @@ import BookmarkButton from "../BookmarkButton.vue";
   </button>
   <div class="relative" id="stack-picker-anchor">
     <button
-      class="inline-flex items-center h-12 border border-brand-forest/10 px-4 font-bold uppercase tracking-wider text-xs bg-white text-brand-forest hover:bg-brand-teal hover:text-white hover:border-brand-teal rounded-full transition-colors no-underline"
+      class="inline-flex items-center h-12 border border-brand-forest/5 px-4 font-bold uppercase tracking-wider text-xs bg-white/90 backdrop-blur-sm text-brand-forest hover:bg-accent-teal hover:text-white hover:border-accent-teal rounded-full transition-all no-underline hover:shadow-md"
       data-tool-action="stack"
       data-slug={slug}
       id="add-to-stack-btn"
@@ -65,7 +65,7 @@ import BookmarkButton from "../BookmarkButton.vue";
       role="dialog"
       aria-label="Choose a stack"
       aria-modal="true"
-      class="hidden absolute left-0 top-full mt-1 z-50 min-w-[260px] border border-brand-forest/10 bg-white shadow-sm rounded-2xl"
+      class="hidden absolute left-0 top-full mt-2 z-50 min-w-[260px] border border-brand-forest/5 bg-white/98 backdrop-blur-md shadow-lg shadow-brand-forest/10 rounded-2xl"
     >
       <p
         class="px-4 pt-3 pb-2 text-xs font-bold uppercase tracking-wider text-brand-muted"
@@ -74,16 +74,16 @@ import BookmarkButton from "../BookmarkButton.vue";
       </p>
       <div
         id="stack-picker-list"
-        class="flex flex-col max-h-56 overflow-y-auto border-t border-brand-forest/10"
+        class="flex flex-col max-h-56 overflow-y-auto border-t border-brand-forest/5"
       >
       </div>
       <div
-        class="border-t border-brand-forest/10"
+        class="border-t border-brand-forest/5"
         id="stack-picker-footer"
       >
         <button
           id="stack-picker-new"
-          class="w-full text-left px-4 py-3 text-xs font-bold uppercase tracking-wider text-brand-forest hover:bg-brand-teal hover:text-white transition-colors"
+          class="w-full text-left px-4 py-3 text-xs font-bold uppercase tracking-wider text-brand-forest hover:bg-accent-teal hover:text-white transition-colors"
         >
           + Create new stack
         </button>
@@ -96,20 +96,20 @@ import BookmarkButton from "../BookmarkButton.vue";
             type="text"
             maxlength="30"
             placeholder="Stack name"
-            class="w-full border border-brand-forest/10 px-3 h-10 text-xs font-bold text-brand-forest focus:outline-none focus:border-brand-teal transition-colors rounded-full"
+            class="w-full border border-brand-forest/5 px-3 h-10 text-xs font-bold text-brand-forest focus:outline-none focus:border-accent-teal transition-colors rounded-full"
           />
           <div class="flex gap-2">
             <button
               id="stack-picker-confirm"
               type="button"
-              class="flex-1 h-10 bg-brand-forest text-white text-xs font-bold uppercase tracking-wider hover:bg-black transition-colors border-none cursor-pointer rounded-full shadow-sm"
+              class="flex-1 h-10 bg-gradient-cool text-white text-xs font-bold uppercase tracking-wider hover:shadow-md hover:shadow-accent-green/30 transition-all border-none cursor-pointer rounded-full shadow-sm shadow-accent-green/20"
             >
               Create
             </button>
             <button
               id="stack-picker-cancel"
               type="button"
-              class="flex-1 h-10 border border-brand-forest/10 text-brand-forest text-xs font-bold uppercase tracking-wider hover:bg-brand-bg transition-colors cursor-pointer bg-white rounded-full"
+              class="flex-1 h-10 border border-brand-forest/5 text-brand-forest text-xs font-bold uppercase tracking-wider hover:bg-brand-bg transition-colors cursor-pointer bg-white rounded-full"
             >
               Cancel
             </button>

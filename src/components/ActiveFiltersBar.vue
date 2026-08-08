@@ -100,11 +100,11 @@ const chips = computed(() => {
 </script>
 
 <template>
-    <div v-if="chips.length > 0" class="flex flex-wrap items-center gap-2 mb-6 p-4 bg-brand-bg border border-brand-forest/10 rounded-3xl">
-        <div v-for="(chip, i) in chips" :key="`${chip.group}-${chip.value}-${i}`" class="inline-flex items-center bg-white border border-brand-forest/10 pl-2 pr-2 py-1 text-xs gap-2 rounded-full transition-all duration-300 ease-out-expo hover:-translate-y-0.5">
+    <div v-if="chips.length > 0" class="flex flex-wrap items-center gap-2 mb-6 p-4 bg-linear-to-br from-brand-tealLight/30 via-white/60 to-accent-yellow/5 backdrop-blur-sm border border-brand-forest/5 rounded-3xl shadow-sm shadow-brand-forest/5">
+        <div v-for="(chip, i) in chips" :key="`${chip.group}-${chip.value}-${i}`" class="inline-flex items-center bg-white/95 backdrop-blur-sm border border-accent-teal/20 pl-2 pr-2 py-1 text-xs gap-2 rounded-full shadow-sm transition-all duration-300 ease-out-expo hover:-translate-y-0.5 hover:shadow-md">
             <span class="font-bold text-brand-muted uppercase tracking-wider text-xs">{{ getGroupLabel(chip.group) }}:</span>
             <span class="font-bold text-brand-forest">{{ chip.label }}</span>
-            <button class="text-brand-muted hover:text-red-500 bg-transparent border border-transparent cursor-pointer p-1 flex items-center justify-center transition-colors" @click="emit('remove', chip.group, chip.value)"
+            <button class="text-brand-muted hover:text-accent-red bg-transparent border border-transparent cursor-pointer p-1 flex items-center justify-center transition-colors" @click="emit('remove', chip.group, chip.value)"
                 aria-label="Remove filter">
                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2.5">
@@ -112,6 +112,6 @@ const chips = computed(() => {
                 </svg>
             </button>
         </div>
-        <button class="text-xs font-bold text-brand-muted hover:text-brand-forest border border-transparent bg-transparent cursor-pointer ml-auto transition-colors" @click="emit('clear-all')">Clear all</button>
+        <button class="text-xs font-bold text-brand-muted hover:text-accent-red border border-transparent bg-transparent cursor-pointer ml-auto transition-colors" @click="emit('clear-all')">Clear all</button>
     </div>
 </template>

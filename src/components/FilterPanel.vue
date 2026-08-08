@@ -98,17 +98,17 @@ const visibleGroups = computed(() => FILTER_GROUPS.filter(
 
 <template>
     <div class="w-full flex flex-col gap-2">
-        <div class="flex justify-end pb-2 mb-2 border-b border-brand-forest/10">
-            <button class="text-xs text-brand-muted hover:text-brand-forest transition-colors py-1 px-2 bg-transparent border border-transparent cursor-pointer" @click="handleClearAll">
+        <div class="flex justify-end pb-2 mb-2 border-b border-brand-forest/5">
+            <button class="text-xs font-bold text-brand-muted hover:text-accent-teal transition-colors py-1 px-2 bg-transparent border border-transparent cursor-pointer" @click="handleClearAll">
                 Reset
             </button>
         </div>
-        <div v-for="group in visibleGroups" :key="group.key" class="border-b border-brand-forest/10 last:border-b-0">
+        <div v-for="group in visibleGroups" :key="group.key" class="border-b border-brand-forest/5 last:border-b-0">
             <button class="flex w-full items-center justify-between py-3 bg-transparent border border-transparent cursor-pointer text-left" @click="toggleGroup(group.key)"
                 :aria-expanded="expandedGroups[group.key]">
                 <span class="text-xs font-bold uppercase text-brand-forest tracking-wider flex items-center gap-2">
                     {{ group.label }}
-                    <span v-if="groupCount(group.key as keyof FilterState) > 0" class="bg-brand-tealLight text-brand-teal px-2 py-1 border border-brand-teal/20 rounded-full font-bold text-[10px]">
+                    <span v-if="groupCount(group.key as keyof FilterState) > 0" class="bg-accent-teal/10 text-accent-teal px-2 py-1 border border-accent-teal/20 rounded-full font-bold text-[10px]">
                         {{ groupCount(group.key as keyof FilterState) }}
                     </span>
                 </span>
@@ -123,7 +123,7 @@ const visibleGroups = computed(() => FILTER_GROUPS.filter(
                 <div class="flex flex-wrap gap-2">
                     <template v-if="group.type === 'single'">
                         <button v-for="opt in group.options" :key="String(opt.value)" class="px-3 py-2 text-xs font-bold transition-all duration-150 border rounded-full"
-                            :class="isOptionSelected(group.key, opt.value) ? 'bg-brand-forest text-white border border-brand-forest/10 hover:bg-brand-teal hover:border-brand-teal' : 'text-brand-muted bg-white border border-brand-forest/10 hover:border-brand-forest hover:text-brand-forest'"
+                            :class="isOptionSelected(group.key, opt.value) ? 'bg-gradient-cool text-white border-transparent shadow-sm shadow-accent-green/20' : 'text-brand-muted bg-white/90 border-brand-forest/5 hover:border-accent-teal/30 hover:text-accent-teal hover:-translate-y-0.5'"
                             @click="handleSingleSelect(group.key, opt.value)">
                             {{ optionLabel(group.key, opt.value) }}
                         </button>
@@ -131,7 +131,7 @@ const visibleGroups = computed(() => FILTER_GROUPS.filter(
 
                     <template v-else>
                         <button v-for="opt in group.options" :key="String(opt.value)" class="px-3 py-2 text-xs font-bold transition-all duration-150 border rounded-full"
-                            :class="isOptionSelected(group.key, opt.value) ? 'bg-brand-forest text-white border border-brand-forest/10 hover:bg-brand-teal hover:border-brand-teal' : 'text-brand-muted bg-white border border-brand-forest/10 hover:border-brand-forest hover:text-brand-forest'"
+                            :class="isOptionSelected(group.key, opt.value) ? 'bg-gradient-cool text-white border-transparent shadow-sm shadow-accent-green/20' : 'text-brand-muted bg-white/90 border-brand-forest/5 hover:border-accent-teal/30 hover:text-accent-teal hover:-translate-y-0.5'"
                             @click="handleToggle(group.key, opt.value || '')">
                             {{ opt.label }}
                         </button>

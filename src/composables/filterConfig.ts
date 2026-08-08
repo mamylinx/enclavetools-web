@@ -42,18 +42,25 @@ export const LANGUAGE_OPTIONS: FilterOptionValue[] = [
   { value: 'Python', label: 'Python' },
   { value: 'Rust', label: 'Rust' },
   { value: 'Go', label: 'Go' },
-  { value: 'TypeScript / JavaScript', label: 'TypeScript / JavaScript' },
-  { value: 'C / C++', label: 'C / C++' },
-  { value: 'Java / Kotlin', label: 'Java / Kotlin' },
+  { value: 'JavaScript', label: 'JavaScript' },
+  { value: 'TypeScript', label: 'TypeScript' },
+  { value: 'C', label: 'C' },
+  { value: 'C++', label: 'C++' },
+  { value: 'Java', label: 'Java' },
+  { value: 'Swift', label: 'Swift' },
+  { value: 'Scala', label: 'Scala' },
+  { value: 'Shell', label: 'Shell' },
 ];
 
 /** Hardware / accelerator filter options. */
 export const HARDWARE_OPTIONS: FilterOptionValue[] = [
-  { value: 'CPU Only', label: 'CPU Only' },
-  { value: 'NVIDIA GPU (CUDA)', label: 'NVIDIA GPU (CUDA)' },
-  { value: 'AMD GPU (ROCm)', label: 'AMD GPU (ROCm)' },
-  { value: 'Apple Silicon (Metal)', label: 'Apple Silicon (Metal)' },
-  { value: 'Low-resource (< 8GB RAM)', label: 'Low-resource (< 8GB RAM)' },
+  { value: 'CPU', label: 'CPU' },
+  { value: 'GPU (NVIDIA)', label: 'GPU (NVIDIA)' },
+  { value: 'GPU (AMD)', label: 'GPU (AMD)' },
+  { value: 'GPU (Apple Silicon)', label: 'GPU (Apple Silicon)' },
+  { value: 'Edge Device', label: 'Edge Device' },
+  { value: 'NPU', label: 'NPU' },
+  { value: 'TPU', label: 'TPU' },
 ];
 
 /** Deployment method filter options. */
@@ -61,8 +68,10 @@ export const DEPLOYMENT_OPTIONS: FilterOptionValue[] = [
   { value: 'Docker', label: 'Docker' },
   { value: 'Bare Metal', label: 'Bare Metal' },
   { value: 'Kubernetes', label: 'Kubernetes' },
-  { value: 'Systemd / Linux Service', label: 'Systemd / Linux Service' },
-  { value: 'Embedded / Edge', label: 'Embedded / Edge' },
+  { value: 'Serverless', label: 'Serverless' },
+  { value: 'Cloud', label: 'Cloud' },
+  { value: 'Desktop App', label: 'Desktop App' },
+  { value: 'Mobile', label: 'Mobile' },
 ];
 
 /** Model file format filter options. */

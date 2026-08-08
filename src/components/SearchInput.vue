@@ -102,12 +102,12 @@ onUnmounted(() => {
         <path d="m21 21-4.35-4.35" />
       </svg>
       <input ref="inputRef" type="text"
-        class="w-full bg-white border border-brand-forest/10 rounded-full py-3 pl-10 pr-12 h-12 text-brand-forest outline-none focus:border-brand-teal transition-colors placeholder:text-gray-400 text-sm font-medium"
+        class="w-full bg-white/95 backdrop-blur-sm border border-brand-forest/5 shadow-sm shadow-brand-forest/5 rounded-full py-3 pl-10 pr-12 h-12 text-brand-forest outline-none focus:border-accent-teal focus:shadow-md focus:shadow-accent-teal/10 transition-all placeholder:text-gray-400 text-sm font-medium"
         :placeholder="placeholder || 'Search by name, category, or feature...'" :value="query"
         @input="handleInput" @focus="query.length > 0 && searchResults.length > 0 ? isDropdownOpen = true : null"
         aria-label="Search AI tools" />
       <button v-if="query"
-        class="absolute right-[44px] bg-transparent border-none text-brand-muted cursor-pointer p-1 flex items-center justify-center hover:text-brand-forest transition-colors"
+        class="absolute right-[44px] bg-transparent border-none text-brand-muted cursor-pointer p-1 flex items-center justify-center hover:text-accent-red transition-colors"
         @click="handleClear" aria-label="Clear search" type="button">
         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
           stroke="currentColor" stroke-width="2">
@@ -115,20 +115,20 @@ onUnmounted(() => {
         </svg>
       </button>
       <kbd v-if="!query"
-        class="absolute right-3.5 top-1/2 -translate-y-1/2 text-xs text-brand-muted bg-brand-bg border border-brand-forest/10 rounded-md px-1.5 py-0.5 font-mono pointer-events-none">⌘K</kbd>
+        class="absolute right-3.5 top-1/2 -translate-y-1/2 text-xs text-brand-muted bg-brand-tealLight/60 border border-brand-forest/5 rounded-md px-1.5 py-0.5 font-mono pointer-events-none">⌘K</kbd>
     </div>
 
     <div v-if="isDropdownOpen && searchResults.length > 0"
-      class="absolute left-0 right-0 w-full mt-2 bg-white border border-brand-forest/10 rounded-2xl shadow-2xl overflow-hidden z-[400]">
+      class="absolute left-0 right-0 w-full mt-2 bg-white/98 backdrop-blur-md border border-brand-forest/5 rounded-2xl shadow-2xl shadow-brand-forest/15 overflow-hidden z-[400]">
       <ul class="max-h-[400px] overflow-y-auto py-1 m-0 p-0 list-none">
         <li v-for="result in searchResults" :key="result.slug"
-          class="m-0 p-0 border-b border-brand-forest/10 last:border-0">
+          class="m-0 p-0 border-b border-brand-forest/5 last:border-0">
           <a :href="`/tools/${result.slug}`" @click="handleResultClick"
-            class="flex items-start gap-3 px-4 py-3 hover:bg-brand-tealLight transition-colors group no-underline text-left cursor-pointer">
+            class="flex items-start gap-3 px-4 py-3 hover:bg-accent-teal/5 transition-colors group no-underline text-left cursor-pointer">
 
             <div class="flex-1 min-w-0">
               <div
-                class="text-sm font-bold text-brand-forest truncate mb-0.5 group-hover:text-brand-teal transition-colors">
+                class="text-sm font-bold text-brand-forest truncate mb-0.5 group-hover:text-accent-teal transition-colors">
                 {{ result.title }}
               </div>
               <div class="text-xs text-brand-muted capitalize leading-tight mb-0.5">{{ result.category.replace(/-/g,

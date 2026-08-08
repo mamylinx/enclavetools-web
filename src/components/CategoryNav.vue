@@ -55,10 +55,10 @@ const closeBottomSheet = () => {
 </script>
 
 <template>
-  <div class="sticky top-16 relative w-full max-w-[1400px] mx-auto px-4 flex sm:hidden items-center justify-between border-b border-brand-forest/10 bg-white z-20">
+  <div class="sticky top-16 relative w-full max-w-[1400px] mx-auto px-4 flex sm:hidden items-center justify-between border-b border-brand-forest/5 bg-white/90 backdrop-blur-sm z-20">
     <nav ref="navRef" class="flex items-center gap-2 overflow-x-auto whitespace-nowrap py-4 flex-1 scrollbar-hide" tabindex="-1" @scroll="checkScroll">
-      <a v-for="item in navItems" :key="item.category" class="px-4 py-2 text-sm font-bold border no-underline transition-all duration-300 ease-out-expo rounded-full"
-        :class="activeFilter === item.category ? 'bg-brand-forest text-white border-brand-forest' : 'bg-white text-brand-muted border-brand-forest/10 hover:text-brand-forest hover:border-brand-forest hover:-translate-y-0.5'" :href="item.href">
+      <a v-for="(item, i) in navItems" :key="item.category" class="px-4 py-2 text-sm font-bold border no-underline transition-all duration-300 ease-out-expo rounded-full"
+        :class="activeFilter === item.category ? 'bg-gradient-cool text-white border-transparent shadow-sm shadow-accent-green/20' : 'bg-white/90 text-brand-muted border-brand-forest/5 hover:text-accent-teal hover:border-accent-teal/20 hover:-translate-y-0.5'" :href="item.href">
         {{ item.title }}
       </a>
     </nav>
@@ -75,7 +75,7 @@ const closeBottomSheet = () => {
 
     <div class="fixed inset-0 bg-black/40 z-[60] transition-opacity duration-300" :class="showBottomSheet ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'" @click="closeBottomSheet"></div>
 
-    <div class="fixed inset-x-0 bottom-0 bg-white border-t border-brand-forest/10 z-[70] transition-transform duration-300 max-h-[85vh] flex flex-col rounded-full shadow-[0_-4px_0_0_rgba(17,24,39,1)]" :class="showBottomSheet ? 'translate-y-0' : 'translate-y-full'">
+    <div class="fixed inset-x-0 bottom-0 bg-white/95 backdrop-blur-md border-t border-brand-forest/5 z-[70] transition-transform duration-300 max-h-[85vh] flex flex-col rounded-t-4xl shadow-xl shadow-brand-forest/10" :class="showBottomSheet ? 'translate-y-0' : 'translate-y-full'">
       <div class="flex items-center justify-between px-4 md:px-8 py-4 border-b border-brand-forest/10 shrink-0">
         <span class="text-lg font-extrabold text-brand-forest tracking-tight">All Categories</span>
         <button class="flex items-center justify-center p-2 bg-transparent border border-transparent text-brand-muted hover:text-brand-forest transition-colors cursor-pointer" @click="closeBottomSheet" aria-label="Close">

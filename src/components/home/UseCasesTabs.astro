@@ -11,10 +11,12 @@ interface Props {
 const { PERSONA, featuredTools, filteredCounts, filterOptions, useCaseContent, siteContent: c } = Astro.props;
 ---
 
-<section id="use-cases" class="bg-brand-deepViolet py-20 lg:py-24 border-b border-brand-forest/10 text-white">
-  <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
+<section id="use-cases" class="relative py-20 lg:py-24 border-b border-brand-forest/5 text-white overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-brand opacity-90"></div>
+  <div class="absolute inset-0 bg-brand-deepViolet/70"></div>
+  <div class="relative max-w-[1400px] mx-auto px-6 lg:px-12">
     <div class="max-w-2xl mb-12">
-      <p class="text-xs font-bold uppercase tracking-[0.1em] text-brand-lime mb-2">{c.home_usecase_eyebrow || "Use Cases"}</p>
+      <p class="text-xs font-bold uppercase tracking-[0.1em] text-accent-yellow mb-2">{c.home_usecase_eyebrow || "Use Cases"}</p>
       <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white font-sans tracking-tight">{c.home_usecase_heading || "Start from the risk you need to control"}</h2>
     </div>
 
@@ -29,8 +31,8 @@ const { PERSONA, featuredTools, filteredCounts, filterOptions, useCaseContent, s
               data-tab-role="tab"
               class={`w-full text-left p-5 rounded-2xl font-bold text-base shadow-sm transition-all duration-200 focus:outline-none ${
                 i === 0
-                  ? "bg-brand-forest text-white border border-brand-forest/10"
-                  : "bg-white text-brand-forest border border-brand-forest/10 hover:bg-brand-tealLight"
+                  ? "bg-gradient-cool text-white border-transparent shadow-md shadow-accent-green/20"
+                  : "bg-white text-brand-forest border border-brand-forest/5 hover:bg-accent-teal/5"
               }`}
               role="tab"
               aria-selected={i === 0 ? "true" : "false"}
@@ -42,7 +44,7 @@ const { PERSONA, featuredTools, filteredCounts, filterOptions, useCaseContent, s
         })}
       </div>
 
-      <div class="lg:col-span-8 bg-white border border-brand-forest/10 rounded-3xl p-8 shadow-sm min-h-[350px] flex flex-col justify-between text-brand-forest">
+      <div class="lg:col-span-8 bg-white/95 backdrop-blur-sm border border-brand-forest/5 rounded-3xl p-8 shadow-md shadow-brand-forest/5 min-h-[350px] flex flex-col justify-between text-brand-forest">
         {PERSONA.map((p: string, i: number) => {
           const content = useCaseContent[p];
           const panelId = `use-case-${p.replace(/\s+/g, "-").toLowerCase()}`;
@@ -52,7 +54,7 @@ const { PERSONA, featuredTools, filteredCounts, filterOptions, useCaseContent, s
               role="tabpanel"
               aria-labelledby={`tab-${p.replace(/\s+/g, "-").toLowerCase()}`}
             >
-              <span class="inline-flex px-3 py-1 bg-brand-tealLight border border-brand-teal/20 text-brand-teal text-xs font-bold uppercase tracking-wider rounded-full mb-4 shadow-sm">{content?.badge || "Infrastructure Curated View"}</span>
+              <span class="inline-flex px-3 py-1 bg-accent-teal/10 border border-accent-teal/20 text-accent-teal text-xs font-bold uppercase tracking-wider rounded-full mb-4 shadow-sm">{content?.badge || "Infrastructure Curated View"}</span>
               <h3 class="text-2xl font-bold tracking-tight text-brand-forest mb-4 font-sans">{content?.heading || p}</h3>
               <p class="text-brand-muted text-base leading-relaxed mb-6 font-medium">{content?.description || ""}</p>
 
@@ -62,7 +64,7 @@ const { PERSONA, featuredTools, filteredCounts, filterOptions, useCaseContent, s
                     {featuredTools[i].slice(0, 4).map((tool: any) => (
                       <a
                         href={`/tools/${tool.slug}`}
-                        class="p-4 bg-brand-bg border border-brand-forest/10 rounded-xl group transition-all hover:-translate-y-0.5"
+                         class="p-4 bg-brand-bg/80 backdrop-blur-sm border border-brand-forest/5 rounded-xl group transition-all hover:-translate-y-1 hover:shadow-md"
                       >
                         <strong class="text-sm font-bold text-brand-forest group-hover:text-brand-teal transition-colors">
                           {tool.title}
@@ -86,7 +88,7 @@ const { PERSONA, featuredTools, filteredCounts, filterOptions, useCaseContent, s
 
         <div class="mt-8 pt-6 border-t border-brand-forest/10 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p class="text-xs font-bold uppercase tracking-wider text-brand-muted">Filter tags are pre-applied for this view</p>
-          <a href="/all" class="text-xs font-bold text-brand-teal uppercase tracking-wider hover:underline flex items-center gap-1.5 font-sans transition-colors">
+               <a href="/all" class="text-xs font-bold text-accent-teal uppercase tracking-wider hover:underline flex items-center gap-1.5 font-sans transition-colors">
             Browse this view
             <svg class="w-4 h-4 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
               <path d="M5 12h14M12 5l7 7-7 7" />
@@ -98,30 +100,4 @@ const { PERSONA, featuredTools, filteredCounts, filterOptions, useCaseContent, s
   </div>
 </section>
 
-<script>
-  const initTabs = () => {
-    const tabs = document.querySelectorAll('[data-tab-role="tab"]');
-    const panels = document.querySelectorAll('.use-case-content');
-
-    tabs.forEach((tab) => {
-      tab.addEventListener('click', () => {
-        const persona = tab.dataset.persona;
-        tabs.forEach((t) => {
-          t.classList.remove('bg-brand-forest', 'text-white', 'border-brand-forest/10');
-          t.classList.add('bg-white', 'text-brand-forest', 'border-brand-forest/10');
-          t.setAttribute('aria-selected', 'false');
-        });
-        tab.classList.remove('bg-white', 'text-brand-forest', 'border-brand-forest/10');
-        tab.classList.add('bg-brand-forest', 'text-white', 'border-brand-forest/10');
-        tab.setAttribute('aria-selected', 'true');
-
-        panels.forEach((panel) => panel.classList.add('hidden'));
-        const panelId = `use-case-${persona.replace(/\s+/g, "-").toLowerCase()}`;
-        const target = document.getElementById(panelId);
-        if (target) target.classList.remove('hidden');
-      });
-    });
-  };
-
-  document.addEventListener('astro:page-load', initTabs);
-</script>
+<script src="/scripts/use-case-tabs.js" defer></script>

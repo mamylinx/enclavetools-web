@@ -14,21 +14,22 @@ const formatMonthYear = (dateStr: string) => {
 };
 ---
 
-<section class="bg-brand-darkGreen py-12 text-white border-b border-brand-forest/10">
-  <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-white/10">
+    <section class="relative py-12 text-white border-b border-brand-forest/10 overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-brand opacity-90"></div>
+  <div class="absolute inset-0 bg-brand-darkGreen/80"></div>
+  <div class="relative max-w-[1400px] mx-auto px-6 lg:px-12">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-white/15">
       <div class="py-4 md:py-0">
-        <p class="text-4xl lg:text-5xl font-extrabold text-brand-lime font-sans">{totalTools}</p>
-        <p class="text-xs text-white/60 uppercase tracking-wider mt-1.5 font-bold">{c.home_stat_tools_label || "Verified Local Tools"}</p>
-        <span class="trust-badge text-[0.7rem] block text-white/40 font-mono mt-1">manually audited</span>
+        <p class="text-4xl lg:text-5xl font-extrabold text-accent-yellow font-sans drop-shadow-sm">{totalTools}</p>
+        <p class="text-xs text-white/70 uppercase tracking-wider mt-1.5 font-bold">{c.home_stat_tools_label || "Verified Local Tools"}</p>
       </div>
       <div class="py-4 md:py-0">
-        <p class="text-4xl lg:text-5xl font-extrabold text-white font-sans">{totalCategories}</p>
-        <p class="text-xs text-white/60 uppercase tracking-wider mt-1.5 font-bold">{c.home_stat_categories_label || "Curated Categories"}</p>
+        <p class="text-4xl lg:text-5xl font-extrabold text-white font-sans drop-shadow-sm">{totalCategories}</p>
+        <p class="text-xs text-white/70 uppercase tracking-wider mt-1.5 font-bold">{c.home_stat_categories_label || "Curated Categories"}</p>
       </div>
       <div class="py-4 md:py-0">
-        <p class="text-4xl lg:text-5xl font-extrabold text-brand-teal font-sans">{formatMonthYear(latestVerified)}</p>
-        <p class="text-xs text-white/60 uppercase tracking-wider mt-1.5 font-bold">{c.home_stat_verification_label || "Latest Compliance Audits"}</p>
+        <p class="text-4xl lg:text-5xl font-extrabold text-accent-teal font-sans drop-shadow-sm">{formatMonthYear(latestVerified)}</p>
+        <p class="text-xs text-white/70 uppercase tracking-wider mt-1.5 font-bold">{c.home_stat_verification_label || "Latest Compliance Audits"}</p>
       </div>
     </div>
   </div>

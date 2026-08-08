@@ -7,33 +7,38 @@ interface Props {
 const { siteContent: c, totalTools } = Astro.props;
 ---
 
-<section class="bg-brand-cyanBg relative overflow-hidden border-b border-brand-forest/10">
-  <div class="max-w-[1400px] mx-auto px-6 lg:px-12 py-20 lg:py-28">
+<section class="relative overflow-hidden border-b border-brand-forest/10">
+  <div class="absolute inset-0 bg-linear-to-br from-brand-tealLight/60 via-brand-bg to-accent-yellow/5"></div>
+  <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-linear-to-bl from-accent-green/8 via-transparent to-transparent rounded-full blur-3xl -translate-y-1/2 translate-x-1/4"></div>
+  <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-linear-to-tr from-accent-teal/6 via-transparent to-transparent rounded-full blur-2xl translate-y-1/2 -translate-x-1/4"></div>
+
+  <div class="relative max-w-[1400px] mx-auto px-6 lg:px-12 py-20 lg:py-32">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
       <div class="lg:col-span-7 flex flex-col items-start">
-        <p class="inline-flex items-center bg-white text-brand-teal border border-brand-teal/30 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-[0.1em] mb-6">
-          🔒 {c.home_page_eyebrow || "Private AI Tools Directory"}
-        </p>
-        <h1 class="hero-headline-inline text-2xl sm:text-5xl lg:text-[4.5rem] font-extrabold text-brand-forest tracking-tight font-sans mb-8">
-          <span class="inline-block bg-brand-forest text-white px-6 py-2 rounded-4xl mb-2 mr-2">Stop paying</span>
-          <span class="font-sans font-normal text-brand-forest tracking-normal">for</span><br />
-          <span class="inline-block bg-brand-forest text-white px-6 py-2 rounded-4xl mb-2 mr-2">AI APIs</span>
-          <span class="font-sans font-normal text-brand-forest tracking-normal">— run on</span>
-          <span class="inline-block bg-brand-forest text-brand-lime px-6 py-2 rounded-4xl">your hardware</span>
+        <span class="inline-flex items-center bg-white/80 backdrop-blur-sm text-accent-teal border border-accent-teal/20 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-[0.1em] mb-6 shadow-sm">
+          <span class="w-2 h-2 rounded-full bg-accent-teal animate-pulse mr-2"></span>
+          {c.home_page_eyebrow || "Private AI Tools Directory"}
+        </span>
+        <h1 class="hero-headline-inline text-2xl sm:text-5xl lg:text-[4.5rem] font-extrabold text-brand-forest tracking-tight font-sans mb-8 leading-[1.05]">
+          <span class="inline-block text-gradient-brand px-2 py-2">Stop paying</span>
+          <span class="font-sans text-brand-forest tracking-normal">for</span><br />
+          <span class="inline-block text-gradient-brand px-2 py-2">AI APIs</span>
+          <span class="font-sans text-brand-forest tracking-normal">— run on</span>
+          <span class="inline-block text-gradient-brand px-2 py-2">your hardware</span>
         </h1>
-        <p class="font-sans text-brand-forest/90 text-lg lg:text-xl mb-8 max-w-2xl">
+        <p class="font-sans text-brand-forest/80 text-lg lg:text-xl mb-10 max-w-2xl leading-relaxed">
           {c.home_page_tagline || "Stop paying for AI APIs. Everything here runs on your own hardware. Shortlist self-hosted, local, and offline AI software for teams that cannot afford outbound leaks."}
         </p>
         <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto">
           <a href="/all"
-            class="group h-12 px-6 bg-brand-forest text-white rounded-full font-bold text-xs uppercase tracking-wider inline-flex items-center justify-center gap-3 shadow-sm hover:bg-black transition-all">
+            class="group h-12 px-8 bg-gradient-cool text-white rounded-full font-bold text-xs uppercase tracking-wider inline-flex items-center justify-center gap-3 shadow-md shadow-accent-green/20 hover:shadow-lg hover:shadow-accent-green/30 hover:scale-[1.02] transition-all duration-200">
             Browse {totalTools} verified tools
             <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
           </a>
           <a href="#use-cases"
-            class="h-12 px-6 bg-white/80 hover:bg-white text-brand-forest border border-brand-forest/10 rounded-full font-bold text-xs uppercase tracking-wider inline-flex items-center justify-center gap-2 transition-all">
+            class="h-12 px-8 bg-white/90 hover:bg-white text-brand-forest border border-brand-forest/10 rounded-full font-bold text-xs uppercase tracking-wider inline-flex items-center justify-center gap-2 shadow-sm hover:shadow-md transition-all duration-200">
             {c.cta_use_cases || "Find by use case"}
             <span>👉</span>
           </a>
@@ -41,8 +46,9 @@ const { siteContent: c, totalTools } = Astro.props;
       </div>
 
       <div class="lg:col-span-5 flex justify-center lg:justify-end relative">
-        <div class="w-full max-w-[420px] bg-white border border-brand-forest/10 rounded-3xl p-6 shadow-sm relative">
-          <div class="bg-brand-cyanBg/40 h-72 rounded-2xl flex items-center justify-center overflow-hidden relative">
+        <div class="w-full max-w-[420px] bg-white/95 backdrop-blur-sm border border-white/60 rounded-3xl p-6 shadow-lg shadow-brand-forest/5 relative card-accent-border">
+
+          <div class="bg-linear-to-br from-brand-tealLight/40 to-accent-yellow/10 h-72 rounded-2xl flex items-center justify-center overflow-hidden relative">
             <svg class="w-4/5 h-4/5" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
               <rect x="50" y="40" width="100" height="110" rx="12" fill="#fff" stroke="#1B361B" stroke-width="1.8" />
               <rect x="62" y="55" width="76" height="20" rx="6" fill="#E8F7F5" stroke="#05B2A3" stroke-width="1.2" />
@@ -57,7 +63,7 @@ const { siteContent: c, totalTools } = Astro.props;
               <p class="text-xs font-bold text-brand-muted uppercase tracking-wider">Local Setup Check</p>
               <p class="text-sm font-bold text-brand-forest">100% Offline Compatible</p>
             </div>
-            <span class="px-3 py-1 bg-brand-cyanBg text-brand-forest text-xs font-bold rounded-full uppercase tracking-wider">
+            <span class="px-3 py-1 bg-accent-green/10 text-accent-green text-xs font-bold rounded-full uppercase tracking-wider">
               VERIFIED
             </span>
           </div>

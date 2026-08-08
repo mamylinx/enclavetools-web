@@ -10,25 +10,25 @@ const { enrichedTool, featureBadges } = Astro.props;
 <div class="flex flex-wrap gap-2 mt-8">
   {
     featureBadges.map((badge: string) => (
-      <span class="px-2.5 py-1 bg-brand-tealLight border border-brand-teal/20 text-brand-teal text-xs font-bold uppercase tracking-wider rounded-full">
+      <span class="px-2.5 py-1 bg-accent-teal/10 border border-accent-teal/20 text-accent-teal text-xs font-bold uppercase tracking-wider rounded-full">
         {badge}
       </span>
     ))
   }
 </div>
 
-<section id="overview" class="py-12 border-b border-brand-forest/10">
-  <p class="text-xs font-bold uppercase mb-4 text-brand-muted tracking-wider">
+<section id="overview" class="py-12 border-b border-brand-forest/5">
+  <p class="text-xs font-bold uppercase mb-4 text-accent-teal tracking-wider">
     Overview
   </p>
   <div class="grid grid-cols-1 gap-6">
-    <div class="bg-white border border-brand-forest/10 rounded-3xl p-6">
+    <div class="bg-white/95 backdrop-blur-sm border border-brand-forest/5 rounded-3xl p-6 shadow-sm shadow-brand-forest/5 transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(27,54,27,0.08)]">
       <h2 class="text-xl font-bold mb-2">Plain Description</h2>
       <p class="text-sm leading-relaxed text-brand-forest/80">
         {enrichedTool.plain_description}
       </p>
     </div>
-    <div class="bg-white border border-brand-forest/10 rounded-3xl p-6">
+    <div class="bg-white/95 backdrop-blur-sm border border-brand-forest/5 rounded-3xl p-6 shadow-sm shadow-brand-forest/5 transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(27,54,27,0.08)]">
       <h2 class="text-xl font-bold mb-2">Technical Description</h2>
       <p class="text-sm leading-relaxed text-brand-forest/80">
         {enrichedTool.technical_description}

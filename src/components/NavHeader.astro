@@ -17,7 +17,7 @@ const {
 >
 
 <nav
-  class="sticky top-0 z-[1000] bg-white/95 backdrop-blur-sm border-b border-brand-forest/10"
+  class="sticky top-0 z-[1000] bg-white/80 backdrop-blur-md border-b border-brand-forest/5 shadow-sm shadow-brand-forest/5"
   transition:persist="header-nav"
 >
   <div
@@ -30,7 +30,7 @@ const {
       aria-label="Enclavetools homepage"
     >
       <span
-        class="w-11 h-11 bg-brand-forest rounded-xl flex items-center justify-center border border-brand-forest/10"
+        class="w-11 h-11 bg-gradient-cool rounded-xl flex items-center justify-center shadow-sm shadow-accent-green/20"
       >
         <svg
           class="w-6 h-6 text-white"
@@ -85,7 +85,7 @@ const {
 
         <!-- Categories Dropdown -->
         <div
-          class="absolute left-0 top-full mt-0 w-[700px] bg-white border border-brand-forest/10 shadow-2xl rounded-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-[1000] p-6"
+          class="absolute left-0 top-full mt-0 w-[700px] bg-white/95 backdrop-blur-md border border-brand-forest/5 shadow-xl shadow-brand-forest/10 rounded-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-[1000] p-6"
         >
           <div class="grid grid-cols-2 lg:grid-cols-3 gap-2">
             {
@@ -94,7 +94,7 @@ const {
                 .map((cat) => (
                   <a
                     href={`/${cat.category}`}
-                    class="flex items-center px-3 py-2 text-xs font-bold uppercase tracking-wider text-brand-forest hover:bg-brand-tealLight hover:text-brand-teal rounded-xl transition-colors"
+                    class="flex items-center px-3 py-2 text-xs font-bold uppercase tracking-wider text-brand-forest hover:bg-gradient-cool hover:text-white rounded-xl transition-all duration-200"
                     data-category={cat.category}
                   >
                     {cat.title}
@@ -107,7 +107,7 @@ const {
               href="/all"
               class="text-sm font-bold text-brand-forest uppercase tracking-[0.1em] hover:text-brand-teal inline-flex items-center gap-1.5 font-sans transition-colors"
             >
-              ➔ Browse All Categories
+              → Browse All Categories
             </a>
           </div>
         </div>
@@ -134,7 +134,7 @@ const {
     <div class="flex items-center gap-3">
       <a
         href="/submit"
-        class="h-10 px-5 bg-brand-forest text-white text-xs font-bold rounded-full uppercase tracking-wider hover:bg-black inline-flex items-center transition-all shadow-sm"
+        class="h-10 px-5 bg-gradient-cool text-white text-xs font-bold rounded-full uppercase tracking-wider inline-flex items-center transition-all shadow-sm shadow-accent-green/20 hover:shadow-md hover:shadow-accent-green/30 hover:scale-[1.02]"
       >
         Submit
         <svg

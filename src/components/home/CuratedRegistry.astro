@@ -12,14 +12,15 @@ interface Props {
 const { topTools, categoryTitleMap, formatScore, totalTools } = Astro.props;
 ---
 
-<section
+    <section
   id="browse"
-  class="bg-brand-slateTeal py-20 lg:py-24 border-b border-brand-forest/10 text-brand-forest"
+  class="relative py-20 lg:py-24 border-b border-brand-forest/5 text-brand-forest overflow-hidden"
 >
-  <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
+  <div class="absolute inset-0 bg-linear-to-b from-brand-tealLight/30 via-brand-bg to-brand-bg"></div>
+  <div class="relative max-w-[1400px] mx-auto px-6 lg:px-12">
     <div class="mb-12">
       <p
-        class="text-xs font-bold uppercase tracking-[0.1em] text-brand-teal mb-2"
+        class="text-xs font-bold uppercase tracking-[0.1em] text-accent-teal mb-2"
       >
         Curated Registry
       </p>
@@ -38,7 +39,7 @@ const { topTools, categoryTitleMap, formatScore, totalTools } = Astro.props;
     </div>
 
     <div
-      class="bg-brand-bg border border-brand-forest/10 rounded-4xl p-6 lg:p-8 shadow-sm text-brand-forest"
+      class="bg-white/80 backdrop-blur-sm border border-brand-forest/5 rounded-4xl p-6 lg:p-8 shadow-sm shadow-brand-forest/5 text-brand-forest"
     >
       <div
         class="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4 pb-6 border-b border-brand-forest/10 mb-6"
@@ -62,10 +63,10 @@ const { topTools, categoryTitleMap, formatScore, totalTools } = Astro.props;
               : tool.hardware || "N/A";
             const toolSlug = tool.slug || "";
             return (
-              <div class="flex flex-col h-full bg-white border border-brand-forest/10 rounded-3xl p-6 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(27,54,27,0.08)]">
+              <div class="flex flex-col h-full bg-white/95 backdrop-blur-sm border border-brand-forest/5 rounded-3xl p-6 shadow-sm shadow-brand-forest/5 transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(27,54,27,0.08)]">
                 <div class="flex-1">
                   <div class="flex items-center justify-between gap-2 mb-4">
-                    <span class="px-2.5 py-1 bg-brand-tealLight border border-brand-teal/20 text-brand-teal text-xs font-bold uppercase tracking-wider rounded-full">
+                     <span class="px-2.5 py-1 bg-accent-teal/10 border border-accent-teal/20 text-accent-teal text-xs font-bold uppercase tracking-wider rounded-full">
                       {catBadge}
                     </span>
                     <span class="text-xs font-bold text-brand-forest flex items-center gap-1">
@@ -122,7 +123,7 @@ const { topTools, categoryTitleMap, formatScore, totalTools } = Astro.props;
                   <div class="flex items-center gap-2">
                     <a
                       href={`/tools/${toolSlug}`}
-                      class="flex-1 text-center py-2.5 bg-brand-teal text-white rounded-full text-xs font-bold uppercase tracking-wider shadow-sm hover:-translate-y-0.5 transition-all"
+                       class="flex-1 text-center py-2.5 bg-gradient-cool text-white rounded-full text-xs font-bold uppercase tracking-wider shadow-sm shadow-accent-green/20 hover:shadow-md hover:shadow-accent-green/30 hover:scale-[1.02] transition-all"
                     >
                       Explore Tools
                     </a>
@@ -138,7 +139,7 @@ const { topTools, categoryTitleMap, formatScore, totalTools } = Astro.props;
       <div class="mt-8 text-center">
         <a
           href="/all"
-          class="px-8 py-3 bg-white border border-brand-forest/10 text-brand-forest rounded-full font-bold text-xs uppercase tracking-wider shadow-sm hover:-translate-y-0.5 transition-all duration-200"
+          class="px-8 py-3 bg-white/90 backdrop-blur-sm border border-brand-forest/5 text-brand-forest rounded-full font-bold text-xs uppercase tracking-wider shadow-sm shadow-brand-forest/5 hover:-translate-y-1 hover:shadow-md transition-all duration-200"
         >
           Load All {totalTools} Tools
         </a>

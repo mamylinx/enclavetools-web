@@ -44,7 +44,7 @@ onUnmounted(() => {
   </section>
 
   <section v-else class="py-12">
-    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8 pb-6 border-b border-brand-forest/10">
+    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8 pb-6 border-b border-brand-forest/5">
       <div class="favorites-info">
         <p class="text-2xl font-bold text-brand-forest m-0 tracking-tight">
           {{ bookmarkedTools.length }} {{ bookmarkedTools.length === 1 ? 'tool' : 'tools' }} saved

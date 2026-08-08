@@ -7,9 +7,11 @@ const { siteContent: c } = Astro.props;
 ---
 
 <section
-  class="bg-brand-royalBlue py-20 lg:py-24 border-b border-brand-forest/10 text-white"
+  class="relative py-20 lg:py-24 border-b border-brand-forest/5 text-white overflow-hidden"
 >
-  <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
+  <div class="absolute inset-0 bg-gradient-cool"></div>
+  <div class="absolute inset-0 bg-brand-royalBlue/30"></div>
+  <div class="relative max-w-[1400px] mx-auto px-6 lg:px-12">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
       <div>
         <p
@@ -34,14 +36,14 @@ const { siteContent: c } = Astro.props;
       >
         <a
           href="/all"
-          class="h-12 px-6 bg-white text-brand-royalBlue hover:bg-brand-bg rounded-full font-bold text-xs uppercase tracking-wider inline-flex items-center justify-center gap-2 shadow-sm transition-all duration-200"
+          class="h-12 px-6 bg-white text-accent-teal hover:bg-brand-bg rounded-full font-bold text-xs uppercase tracking-wider inline-flex items-center justify-center gap-2 shadow-md transition-all duration-200 hover:scale-[1.02]"
         >
           {c.cta_browse_all || "Browse all tools"}
         </a>
         <a
           href="/#use-cases"
           rel="noopener noreferrer"
-          class="h-12 px-6 bg-white/20 hover:bg-white/35 text-white rounded-full font-bold text-xs uppercase tracking-wider inline-flex items-center justify-center gap-2 shadow-sm transition-all duration-200"
+          class="h-12 px-6 bg-white/15 backdrop-blur-sm hover:bg-white/25 text-white border border-white/20 rounded-full font-bold text-xs uppercase tracking-wider inline-flex items-center justify-center gap-2 shadow-sm transition-all duration-200"
         >
           {c.cta_use_cases || "Find tools from my use cases"}
         </a>

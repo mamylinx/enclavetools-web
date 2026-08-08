@@ -1,11 +1,12 @@
     <section
-        class="bg-brand-bg py-20 lg:py-24 border-b border-brand-forest/10"
+        class="relative py-20 lg:py-24 border-b border-brand-forest/5 overflow-hidden"
         id="methodology"
     >
-        <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
+        <div class="absolute inset-0 bg-linear-to-b from-brand-tealLight/25 via-brand-bg to-accent-yellow/5"></div>
+        <div class="relative max-w-[1400px] mx-auto px-6 lg:px-12">
             <div class="max-w-3xl mx-auto text-center mb-14">
                 <p
-                    class="text-xs font-bold uppercase tracking-[0.1em] text-brand-teal mb-3"
+                    class="text-xs font-bold uppercase tracking-[0.1em] text-accent-teal mb-3"
                 >
                     The Methodology
                 </p>
@@ -13,7 +14,7 @@
                     class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-brand-forest tracking-tight mb-4"
                 >
                     4 Stages of<br />
-                    <span class="text-brand-teal">Due Diligence.</span>
+                    <span class="text-gradient-brand">Due Diligence.</span>
                 </h2>
                 <p
                     class="text-brand-forest/80 text-base sm:text-lg font-medium"
@@ -25,10 +26,10 @@
             </div>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 mt-10">
                 <div
-                    class="bg-white border border-brand-forest/10 rounded-3xl p-8 md:p-10 shadow-sm"
+                    class="bg-white/95 backdrop-blur-sm border border-brand-forest/5 rounded-3xl p-8 md:p-10 shadow-sm shadow-brand-forest/5 transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(27,54,27,0.08)]"
                 >
                     <span
-                        class="inline-flex items-center bg-brand-teal/10 text-brand-teal border border-brand-teal/20 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-[0.1em] mb-5 w-fit"
+                        class="inline-flex items-center bg-accent-red/10 text-accent-red border border-accent-red/20 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-[0.1em] mb-5 w-fit"
                     >
                         Stage 1
                     </span>
@@ -36,32 +37,32 @@
                         Discover + Scan
                     </h3>
 <p class="text-brand-forest/80 text-base font-medium mb-5">
-                            Mining GitHub Topics, HuggingFace Hub, and community sources for candidates. Automated license scan via <a href="https://github.com/nexB/scancode-toolkit" class="text-brand-teal hover:underline" target="_blank" rel="noopener noreferrer">ScanCode</a> + <a href="https://www.foossology.org/" class="text-brand-teal hover:underline" target="_blank" rel="noopener noreferrer">FOSSology</a>.
+                            Mining GitHub Topics, HuggingFace Hub, and community sources for candidates. Automated license scan via <a href="https://github.com/nexB/scancode-toolkit" class="text-accent-teal hover:underline font-semibold" target="_blank" rel="noopener noreferrer">ScanCode</a> + <a href="https://www.foossology.org/" class="text-accent-teal hover:underline font-semibold" target="_blank" rel="noopener noreferrer">FOSSology</a>.
                         </p>
                     <div class="flex flex-wrap gap-2">
                         <span
-                            class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 bg-brand-forest/5 border border-brand-forest/10 rounded-full text-brand-forest/70"
+                            class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 bg-brand-forest/5 border border-brand-forest/5 rounded-full text-brand-forest/70"
                             >GitHub API</span
                         >
                         <span
-                            class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 bg-brand-forest/5 border border-brand-forest/10 rounded-full text-brand-forest/70"
+                            class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 bg-brand-forest/5 border border-brand-forest/5 rounded-full text-brand-forest/70"
                             >HuggingFace</span
                         >
                         <span
-                            class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 bg-brand-forest/5 border border-brand-forest/10 rounded-full text-brand-forest/70"
+                            class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 bg-brand-forest/5 border border-brand-forest/5 rounded-full text-brand-forest/70"
                             >ScanCode</span
                         >
                         <span
-                            class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 bg-brand-forest/5 border border-brand-forest/10 rounded-full text-brand-forest/70"
+                            class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 bg-brand-forest/5 border border-brand-forest/5 rounded-full text-brand-forest/70"
                             >FOSSology</span
                         >
                     </div>
                 </div>
                 <div
-                    class="bg-white border border-brand-forest/10 rounded-3xl p-8 md:p-10 shadow-sm"
+                    class="bg-white/95 backdrop-blur-sm border border-brand-forest/5 rounded-3xl p-8 md:p-10 shadow-sm shadow-brand-forest/5 transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(27,54,27,0.08)]"
                 >
                     <span
-                        class="inline-flex items-center bg-brand-teal/10 text-brand-teal border border-brand-teal/20 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-[0.1em] mb-5 w-fit"
+                        class="inline-flex items-center bg-accent-yellow/10 text-accent-yellow border border-accent-yellow/20 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-[0.1em] mb-5 w-fit"
                     >
                         Stage 2
                     </span>
@@ -69,28 +70,28 @@
                         Static Code Review
                     </h3>
 <p class="text-brand-forest/80 text-base font-medium mb-5">
-                            A coding agent reads the source tree via the <a href="https://docs.github.com/en/rest" class="text-brand-teal hover:underline" target="_blank" rel="noopener noreferrer">GitHub API</a>: dependency tree, known telemetry/analytics SDKs, outbound-call patterns, and how the code's behavior compares to what the docs claim. Unresolved cases are flagged for human review.
+                            A coding agent reads the source tree via the <a href="https://docs.github.com/en/rest" class="text-accent-teal hover:underline font-semibold" target="_blank" rel="noopener noreferrer">GitHub API</a>: dependency tree, known telemetry/analytics SDKs, outbound-call patterns, and how the code's behavior compares to what the docs claim. Unresolved cases are flagged for human review.
                         </p>
                     <div class="flex flex-wrap gap-2">
                         <span
-                            class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 bg-brand-forest/5 border border-brand-forest/10 rounded-full text-brand-forest/70"
+                            class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 bg-brand-forest/5 border border-brand-forest/5 rounded-full text-brand-forest/70"
                             >Static Analysis</span
                         >
                         <span
-                            class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 bg-brand-forest/5 border border-brand-forest/10 rounded-full text-brand-forest/70"
+                            class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 bg-brand-forest/5 border border-brand-forest/5 rounded-full text-brand-forest/70"
                             >Dependency Tree</span
                         >
                         <span
-                            class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 bg-brand-forest/5 border border-brand-forest/10 rounded-full text-brand-forest/70"
+                            class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 bg-brand-forest/5 border border-brand-forest/5 rounded-full text-brand-forest/70"
                             >Claim vs. Code</span
                         >
                     </div>
                 </div>
                 <div
-                    class="bg-white border border-brand-forest/10 rounded-3xl p-8 md:p-10 shadow-sm"
+                    class="bg-white/95 backdrop-blur-sm border border-brand-forest/5 rounded-3xl p-8 md:p-10 shadow-sm shadow-brand-forest/5 transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(27,54,27,0.08)]"
                 >
                     <span
-                        class="inline-flex items-center bg-brand-teal/10 text-brand-teal border border-brand-teal/20 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-[0.1em] mb-5 w-fit"
+                        class="inline-flex items-center bg-accent-green/10 text-accent-green border border-accent-green/20 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-[0.1em] mb-5 w-fit"
                     >
                         Stage 3
                     </span>
@@ -98,24 +99,24 @@
                         Declared Requirements Check
                     </h3>
 <p class="text-brand-forest/80 text-base font-medium mb-5">
-                            Confirm stated RAM/VRAM, OS support, and hardware targets from the repo and docs. Check commit activity and release cadence via <a href="https://pip.pypa.org/en/stable/tools/pip-audit/" class="text-brand-teal hover:underline" target="_blank" rel="noopener noreferrer">pip-audit</a> and <a href="https://github.com/npm/audit" class="text-brand-teal hover:underline" target="_blank" rel="noopener noreferrer">npm audit</a> for known vulnerabilities.
+                            Confirm stated RAM/VRAM, OS support, and hardware targets from the repo and docs. Check commit activity and release cadence via <a href="https://pip.pypa.org/en/stable/tools/pip-audit/" class="text-accent-teal hover:underline font-semibold" target="_blank" rel="noopener noreferrer">pip-audit</a> and <a href="https://github.com/npm/audit" class="text-accent-teal hover:underline font-semibold" target="_blank" rel="noopener noreferrer">npm audit</a> for known vulnerabilities.
                         </p>
                     <div class="flex flex-wrap gap-2">
                         <span
-                            class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 bg-brand-forest/5 border border-brand-forest/10 rounded-full text-brand-forest/70"
+                            class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 bg-brand-forest/5 border border-brand-forest/5 rounded-full text-brand-forest/70"
                             >Health Signals</span
                         >
                         <span
-                            class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 bg-brand-forest/5 border border-brand-forest/10 rounded-full text-brand-forest/70"
+                            class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 bg-brand-forest/5 border border-brand-forest/5 rounded-full text-brand-forest/70"
                             >pip/npm Audit</span
                         >
                     </div>
                 </div>
                 <div
-                    class="bg-white border border-brand-forest/10 rounded-3xl p-8 md:p-10 shadow-sm"
+                    class="bg-white/95 backdrop-blur-sm border border-brand-forest/5 rounded-3xl p-8 md:p-10 shadow-sm shadow-brand-forest/5 transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(27,54,27,0.08)]"
                 >
                     <span
-                        class="inline-flex items-center bg-brand-teal/10 text-brand-teal border border-brand-teal/20 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-[0.1em] mb-5 w-fit"
+                        class="inline-flex items-center bg-accent-teal/10 text-accent-teal border border-accent-teal/20 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-[0.1em] mb-5 w-fit"
                     >
                         Stage 4
                     </span>
@@ -123,19 +124,19 @@
                         Review + Publish
                     </h3>
 <p class="text-brand-forest/80 text-base font-medium mb-5">
-                            Dependency supply chain audit via <a href="https://nvd.nist.gov/" class="text-brand-teal hover:underline" target="_blank" rel="noopener noreferrer">NVD CVE database</a>. Edge cases, ambiguous licenses, unknown network calls — resolved by a human before going live.
+                            Dependency supply chain audit via <a href="https://nvd.nist.gov/" class="text-accent-teal hover:underline font-semibold" target="_blank" rel="noopener noreferrer">NVD CVE database</a>. Edge cases, ambiguous licenses, unknown network calls — resolved by a human before going live.
                         </p>
                     <div class="flex flex-wrap gap-2">
                         <span
-                            class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 bg-brand-forest/5 border border-brand-forest/10 rounded-full text-brand-forest/70"
+                            class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 bg-brand-forest/5 border border-brand-forest/5 rounded-full text-brand-forest/70"
                             >Dependency Scan</span
                         >
                         <span
-                            class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 bg-brand-forest/5 border border-brand-forest/10 rounded-full text-brand-forest/70"
+                            class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 bg-brand-forest/5 border border-brand-forest/5 rounded-full text-brand-forest/70"
                             >CVE Check</span
                         >
                         <span
-                            class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 bg-brand-forest/5 border border-brand-forest/10 rounded-full text-brand-forest/70"
+                            class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 bg-brand-forest/5 border border-brand-forest/5 rounded-full text-brand-forest/70"
                             >Human Review</span
                         >
                     </div>

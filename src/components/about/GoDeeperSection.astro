@@ -1,11 +1,12 @@
     <section
-        class="bg-brand-bg py-20 lg:py-24 border-b border-brand-forest/10"
+        class="relative py-20 lg:py-24 border-b border-brand-forest/5 overflow-hidden"
         id="deep-services"
     >
-        <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
+        <div class="absolute inset-0 bg-linear-to-br from-brand-tealLight/30 via-brand-bg to-accent-green/5"></div>
+        <div class="relative max-w-[1400px] mx-auto px-6 lg:px-12">
             <div class="max-w-3xl mx-auto text-center mb-14">
                 <p
-                    class="text-xs font-bold uppercase tracking-[0.1em] text-brand-teal mb-3"
+                    class="text-xs font-bold uppercase tracking-[0.1em] text-accent-teal mb-3"
                 >
                     Go Deeper
                 </p>
@@ -26,10 +27,10 @@
                 class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 mt-10 mb-10"
             >
                 <div
-                    class="bg-white border border-brand-forest/10 rounded-3xl p-8 md:p-10 shadow-sm"
+                    class="bg-white/95 backdrop-blur-sm border border-brand-forest/5 rounded-3xl p-8 md:p-10 shadow-sm shadow-brand-forest/5 transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(27,54,27,0.08)]"
                 >
                     <div
-                        class="w-12 h-12 bg-brand-tealLight border border-brand-teal/20 rounded-2xl flex items-center justify-center text-2xl mb-5"
+                        class="w-12 h-12 bg-accent-teal/10 border border-accent-teal/20 rounded-2xl flex items-center justify-center text-2xl mb-5"
                     >
                         🔬
                     </div>
@@ -37,14 +38,14 @@
                         Deep Network Audit
                     </h3>
 <p class="text-brand-forest/80 text-base font-medium">
-                            Extended runtime packet capture with <a href="https://mitmproxy.org/" class="text-brand-teal hover:underline" target="_blank" rel="noopener noreferrer">mitmproxy</a> and <a href="https://www.tcpdump.org/" class="text-brand-teal hover:underline" target="_blank" rel="noopener noreferrer">tcpdump</a> across real usage sessions. Every outbound endpoint identified, classified, and documented in a report you keep.
+                            Extended runtime packet capture with <a href="https://mitmproxy.org/" class="text-accent-teal hover:underline font-semibold" target="_blank" rel="noopener noreferrer">mitmproxy</a> and <a href="https://www.tcpdump.org/" class="text-accent-teal hover:underline font-semibold" target="_blank" rel="noopener noreferrer">tcpdump</a> across real usage sessions. Every outbound endpoint identified, classified, and documented in a report you keep.
                         </p>
                 </div>
                 <div
-                    class="bg-white border border-brand-forest/10 rounded-3xl p-8 md:p-10 shadow-sm"
+                    class="bg-white/95 backdrop-blur-sm border border-brand-forest/5 rounded-3xl p-8 md:p-10 shadow-sm shadow-brand-forest/5 transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(27,54,27,0.08)]"
                 >
                     <div
-                        class="w-12 h-12 bg-brand-tealLight border border-brand-teal/20 rounded-2xl flex items-center justify-center text-2xl mb-5"
+                        class="w-12 h-12 bg-accent-yellow/10 border border-accent-yellow/25 rounded-2xl flex items-center justify-center text-2xl mb-5"
                     >
                         📐
                     </div>
@@ -63,7 +64,7 @@
             >
                 <button
                     type="button"
-                    class="open-audit-modal group h-12 px-8 bg-brand-forest text-white rounded-full font-bold text-xs uppercase tracking-wider inline-flex items-center gap-3 shadow-sm hover:bg-black transition-all cursor-pointer"
+                    class="open-audit-modal group h-12 px-8 bg-gradient-cool text-white rounded-full font-bold text-xs uppercase tracking-wider inline-flex items-center gap-3 shadow-md shadow-accent-green/20 hover:shadow-lg hover:shadow-accent-green/30 hover:scale-[1.02] transition-all cursor-pointer"
                 >
                     Request a Deep Audit
                     <svg
@@ -81,7 +82,7 @@
                     href="llm-sizing-calculator"
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="h-12 px-8 bg-white border border-brand-forest/10 text-brand-forest rounded-full font-bold text-xs uppercase tracking-wider inline-flex items-center gap-2 hover:bg-white/80 transition-all"
+                    class="h-12 px-8 bg-white/90 backdrop-blur-sm border border-brand-forest/5 text-brand-forest rounded-full font-bold text-xs uppercase tracking-wider inline-flex items-center gap-2 hover:bg-white hover:shadow-md transition-all"
                 >
                     Open the Calculator
                     <span>&#x2197;</span>

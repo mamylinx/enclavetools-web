@@ -8,8 +8,9 @@ const llmCount = categoryCounts["llm-inference"] || 0;
 const ragCount = categoryCounts["rag-document"] || 0;
 ---
 
-<section id="stay-ahead" class="bg-brand-lightCyan py-20 lg:py-24 border-b border-brand-forest/10">
-  <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
+<section id="stay-ahead" class="relative py-20 lg:py-24 border-b border-brand-forest/5 overflow-hidden">
+  <div class="absolute inset-0 bg-linear-to-br from-brand-tealLight/40 via-brand-bg to-accent-yellow/5"></div>
+  <div class="relative max-w-[1400px] mx-auto px-6 lg:px-12">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
       <div>
         <p class="text-xs font-bold uppercase tracking-[0.1em] text-brand-teal mb-2">Deep Dives</p>
@@ -25,7 +26,7 @@ const ragCount = categoryCounts["rag-document"] || 0;
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <div class="bg-brand-slateTeal border border-brand-forest/10 text-brand-forest rounded-4xl p-8 flex flex-col justify-between min-h-[440px] relative overflow-hidden shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(27,54,27,0.08)]">
+      <div class="bg-white/90 backdrop-blur-sm border border-brand-forest/5 text-brand-forest rounded-4xl p-8 flex flex-col justify-between min-h-[440px] relative overflow-hidden shadow-sm shadow-brand-forest/5 transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(27,54,27,0.08)]">
         <div>
           <div class="flex justify-between items-start mb-6">
             <span class="bg-white text-brand-forest text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full">
@@ -48,7 +49,7 @@ const ragCount = categoryCounts["rag-document"] || 0;
         </div>
       </div>
 
-      <div class="bg-brand-magenta border border-brand-forest/10 text-white rounded-4xl p-8 flex flex-col justify-between min-h-[440px] relative overflow-hidden shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(27,54,27,0.08)]">
+      <div class="bg-gradient-cool text-white rounded-4xl p-8 flex flex-col justify-between min-h-[440px] relative overflow-hidden shadow-md shadow-accent-green/20 transition-all duration-200 hover:-translate-y-1 hover:shadow-xl hover:shadow-accent-green/30">
         <div>
           <div class="flex justify-between items-start mb-6">
             <span class="bg-white text-brand-teal text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full">

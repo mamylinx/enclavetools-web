@@ -9,12 +9,12 @@ const { category, categoryTitle, enrichedTool } = Astro.props;
 ---
 
 <nav class="flex gap-2 text-xs font-bold mb-6 text-brand-muted">
-  <a href="/" class="text-brand-forest hover:text-brand-teal transition-colors"
+  <a href="/" class="text-brand-forest hover:text-accent-teal transition-colors"
     >Home</a
   ><span>/</span
   ><a
     href={`/${category}`}
-    class="text-brand-forest hover:text-brand-teal transition-colors"
+    class="text-brand-forest hover:text-accent-teal transition-colors"
     >{categoryTitle}</a
   ><span>/</span><span>{enrichedTool.title}</span>
 </nav>

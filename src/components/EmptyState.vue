@@ -77,15 +77,15 @@ const iconMap: Record<string, Component> = {
 </script>
 
 <template>
-    <div class="flex flex-col items-center justify-center py-16 text-center px-4 bg-brand-bg/50 border border-dashed border-brand-forest/20">
-        <div v-if="iconComponent" class="text-brand-forest/20 mb-6 w-16 h-16">
+    <div class="flex flex-col items-center justify-center py-16 text-center px-4 bg-linear-to-br from-brand-tealLight/35 via-white/60 to-accent-yellow/8 backdrop-blur-sm border border-dashed border-accent-teal/25 rounded-3xl">
+        <div v-if="iconComponent" class="text-accent-teal/30 mb-6 w-16 h-16">
             <component :is="iconComponent" />
         </div>
         <p v-if="props.message" class="text-lg font-bold text-brand-muted mb-6 max-w-[400px]">{{ props.message }}</p>
-        <a v-if="props.actionText && props.actionHref" :href="props.actionHref" class="inline-flex px-4 h-12 bg-brand-forest text-white font-bold text-xs uppercase tracking-wider no-underline hover:bg-black transition-colors border-none cursor-pointer rounded-full items-center justify-center shadow-sm">
+        <a v-if="props.actionText && props.actionHref" :href="props.actionHref" class="inline-flex px-8 h-12 bg-gradient-cool text-white font-bold text-xs uppercase tracking-wider no-underline hover:shadow-lg hover:shadow-accent-green/30 hover:scale-[1.02] transition-all border-none cursor-pointer rounded-full items-center justify-center shadow-md shadow-accent-green/20">
             {{ props.actionText }}
         </a>
-        <button v-else-if="props.actionText" class="inline-flex px-4 h-12 bg-brand-forest text-white font-bold text-xs uppercase tracking-wider no-underline hover:bg-black transition-colors border-none cursor-pointer rounded-full items-center justify-center shadow-sm" @click="emit('action')">
+        <button v-else-if="props.actionText" class="inline-flex px-8 h-12 bg-gradient-cool text-white font-bold text-xs uppercase tracking-wider no-underline hover:shadow-lg hover:shadow-accent-green/30 hover:scale-[1.02] transition-all border-none cursor-pointer rounded-full items-center justify-center shadow-md shadow-accent-green/20" @click="emit('action')">
             {{ props.actionText }}
         </button>
     </div>

@@ -17,13 +17,13 @@ const formattedStars = computed(() => {
 </script>
 
 <template>
-  <li class="flex items-center gap-3 px-3 py-3 sm:px-4 border-b border-brand-forest/10 last:border-0 hover:bg-brand-tealLight/30 transition-colors">
+  <li class="flex items-center gap-3 px-3 py-3 sm:px-4 border-b border-brand-forest/5 last:border-0 hover:bg-accent-teal/5 transition-colors rounded-xl">
     <div class="min-w-0 flex-1">
       <div class="flex flex-wrap items-center gap-x-2 gap-y-1">
-        <a :href="`/tools/${tool.slug}`" class="text-sm font-bold text-brand-forest hover:text-brand-teal transition-colors">
+        <a :href="`/tools/${tool.slug}`" class="text-sm font-bold text-brand-forest hover:text-accent-teal transition-colors">
           {{ tool.title }}
         </a>
-        <span class="px-2 py-0.5 bg-brand-tealLight border border-brand-teal/20 text-brand-teal text-[10px] font-bold uppercase tracking-wider rounded-full shrink-0">
+         <span class="px-2 py-0.5 bg-accent-teal/10 border border-accent-teal/20 text-accent-teal text-[10px] font-bold uppercase tracking-wider rounded-full shrink-0">
           {{ category }}
         </span>
       </div>
@@ -50,7 +50,7 @@ const formattedStars = computed(() => {
 
     <CompareToggle v-if="tool.slug" :slug="tool.slug" class="shrink-0" />
 
-    <a :href="`/tools/${tool.slug}`" class="shrink-0 text-brand-teal hover:text-brand-forest transition-colors" :aria-label="`Explore ${tool.title}`">
+    <a :href="`/tools/${tool.slug}`" class="shrink-0 text-accent-teal hover:text-brand-forest transition-colors" :aria-label="`Explore ${tool.title}`">
       <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
         <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
       </svg>

@@ -31,8 +31,9 @@ const posts = page.data;
         articlePublishedTime="2026-07-22T00:00:00Z"
     />
 
-    <section class="bg-brand-bg py-20 lg:py-24 border-b border-brand-forest/10">
-        <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
+    <section class="relative py-20 lg:py-24 border-b border-brand-forest/5 overflow-hidden">
+        <div class="absolute inset-0 bg-linear-to-br from-brand-tealLight/30 via-brand-bg to-accent-yellow/5"></div>
+        <div class="relative max-w-[1400px] mx-auto px-6 lg:px-12">
             <div class="max-w-3xl mx-auto text-center mb-14">
                 <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-brand-forest tracking-tight mb-4">
                     Practical AI Privacy &amp; Infrastructure Guidance
@@ -46,9 +47,9 @@ const posts = page.data;
                 {posts.map((post: any) => (
                     <a
                         href={`/blog/${post.id}`}
-                        class="bg-white border border-brand-forest/10 rounded-3xl p-8 md:p-10 shadow-sm hover:shadow-md transition-shadow block no-underline"
+                        class="bg-white/95 backdrop-blur-sm border border-brand-forest/5 rounded-3xl p-8 md:p-10 shadow-sm shadow-brand-forest/5 hover:border-accent-teal/20 hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(27,54,27,0.08)] transition-all duration-200 block no-underline group"
                     >
-                        <p class="text-xs font-bold uppercase tracking-[0.1em] text-brand-teal mb-3">
+                        <p class="text-xs font-bold uppercase tracking-[0.1em] text-accent-teal mb-3">
                             {post.data.date.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
                         </p>
                         <h2 class="text-xl font-extrabold text-brand-forest mb-3">
@@ -57,7 +58,7 @@ const posts = page.data;
                         <p class="text-brand-forest/80 text-base font-medium">
                             {post.data.description}
                         </p>
-                        <span class="inline-flex items-center text-brand-teal text-sm font-bold mt-4">
+                        <span class="inline-flex items-center text-accent-teal text-sm font-bold mt-4 group-hover:gap-1 transition-all">
                             Read more →
                         </span>
                     </a>
@@ -66,13 +67,13 @@ const posts = page.data;
 
             {page.lastPage > 1 && (
                 <div id="ssr-pagination"
-                    class="flex justify-center items-center gap-3 mt-16 pt-12 border-t border-brand-forest/10"
+                    class="flex justify-center items-center gap-3 mt-16 pt-12 border-t border-brand-forest/5"
                 >
                     {
                         page.url.prev ? (
                             <a
                                 href={page.url.prev}
-                                class="inline-flex items-center h-12 px-6 border border-brand-forest/10 text-xs font-bold uppercase tracking-wider text-brand-forest hover:bg-brand-forest hover:text-white transition-all duration-200 no-underline rounded-full"
+                                class="inline-flex items-center h-12 px-6 bg-white/90 backdrop-blur-sm border border-brand-forest/5 text-xs font-bold uppercase tracking-wider text-brand-forest hover:bg-gradient-cool hover:text-white hover:border-transparent hover:shadow-md hover:shadow-accent-green/20 transition-all duration-200 no-underline rounded-full"
                             >
                                 ← Previous
                             </a>
@@ -83,7 +84,7 @@ const posts = page.data;
                         page.url.next ? (
                             <a
                                 href={page.url.next}
-                                class="inline-flex items-center h-12 px-6 border border-brand-forest/10 text-xs font-bold uppercase tracking-wider text-brand-forest hover:bg-brand-forest hover:text-white transition-all duration-200 no-underline rounded-full"
+                                class="inline-flex items-center h-12 px-6 bg-white/90 backdrop-blur-sm border border-brand-forest/5 text-xs font-bold uppercase tracking-wider text-brand-forest hover:bg-gradient-cool hover:text-white hover:border-transparent hover:shadow-md hover:shadow-accent-green/20 transition-all duration-200 no-underline rounded-full"
                             >
                                 Next
                                 <svg class="w-4 h-4 ml-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">

@@ -4,13 +4,14 @@ import siteContent from "../data/site-content.json";
 const c = siteContent as Record<string, string>;
 ---
 
-<footer class="bg-brand-footerBg text-white py-16">
-  <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
+<footer class="relative bg-brand-footerBg text-white py-16 overflow-hidden">
+  <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-brand rounded-t-[1px]"></div>
+  <div class="relative max-w-[1400px] mx-auto px-6 lg:px-12">
     <div class="grid grid-cols-2 md:grid-cols-4 gap-12 mb-12">
       <div class="col-span-2 md:col-span-1">
         <div class="flex items-center gap-3 mb-4">
           <span
-            class="w-8 h-8 bg-brand-teal border border-brand-forest/10 rounded-lg flex items-center justify-center"
+            class="w-8 h-8 bg-gradient-cool rounded-lg flex items-center justify-center shadow-sm shadow-accent-green/30"
           >
             <svg
               class="w-4 h-4 text-white"

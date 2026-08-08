@@ -8,7 +8,7 @@ if (category !== "llm-models") {
 ---
 
 <div
-  class="bg-amber-50 border-2 border-amber-200 p-6 md:p-8 rounded-2xl relative shadow-sm"
+  class="relative bg-linear-to-br from-accent-yellow/12 via-white to-accent-teal/8 backdrop-blur-sm border border-accent-yellow/25 p-6 md:p-8 rounded-3xl shadow-sm shadow-brand-forest/5"
 >
   <div class="absolute -top-4 -right-2 text-4xl drop-shadow-md">🧮</div>
   <h3 class="text-xl font-extrabold text-brand-forest mb-2">
@@ -19,7 +19,7 @@ if (category !== "llm-models") {
   </p>
   <a
     href={`/llm-sizing-calculator?model=${encodeURIComponent(modelKey)}`}
-    class="inline-flex items-center justify-center text-center bg-brand-forest text-white font-bold px-6 py-3 rounded-full hover:bg-brand-teal transition-colors shadow-sm"
+    class="inline-flex items-center justify-center text-center bg-gradient-cool text-white font-bold px-6 py-3 rounded-full hover:shadow-lg hover:shadow-accent-green/30 hover:scale-[1.02] transition-all shadow-md shadow-accent-green/20"
   >
     Calculate Hardware & GPU Sizing →
   </a>

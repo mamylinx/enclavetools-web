@@ -27,7 +27,7 @@ import Layout from "../layouts/Layout.astro";
         id="sponsorForm"
         action="/api/sponsor"
         method="POST"
-        class="bg-white border border-brand-forest/10 rounded-2xl p-6 sm:p-8 shadow-sm"
+        class="bg-white/95 backdrop-blur-sm border border-brand-forest/5 rounded-3xl p-6 sm:p-8 shadow-sm shadow-brand-forest/5 card-accent-border"
       >
         <div class="mb-4">
           <label class="field-label" for="sName">Contact Name</label>
@@ -74,7 +74,7 @@ import Layout from "../layouts/Layout.astro";
 
       <div id="sSuccess" class="hidden text-center py-12">
         <div
-          class="w-16 h-16 bg-brand-teal text-white flex items-center justify-center text-3xl font-extrabold rounded-full mx-auto mb-4"
+          class="w-16 h-16 bg-gradient-cool text-white flex items-center justify-center text-3xl font-extrabold rounded-full mx-auto mb-4 shadow-lg shadow-accent-green/25"
         >
           ✓
         </div>

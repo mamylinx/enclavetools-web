@@ -1,9 +1,10 @@
     <section
-        class="bg-brand-tealLight border-b border-brand-forest/10 py-16 lg:py-20"
+        class="relative border-b border-brand-forest/5 py-16 lg:py-20 overflow-hidden"
     >
-        <div class="max-w-[1400px] mx-auto px-6 lg:px-12 text-center">
-            <p
-                class="text-xs font-bold uppercase tracking-[0.1em] text-brand-teal mb-3"
+    <div class="absolute inset-0 bg-linear-to-br from-brand-tealLight/40 via-brand-bg to-accent-green/5"></div>
+        <div class="relative max-w-[1400px] mx-auto px-6 lg:px-12 text-center">
+                <p
+                class="text-xs font-bold uppercase tracking-[0.1em] text-accent-teal mb-3"
             >
                 Join the Mission
             </p>
@@ -23,7 +24,7 @@
             >
                 <a
                     href="/all"
-                    class="group h-12 px-8 bg-brand-forest text-white rounded-full font-bold text-xs uppercase tracking-wider inline-flex items-center gap-3 shadow-sm hover:bg-black transition-all"
+                    class="group h-12 px-8 bg-gradient-cool text-white rounded-full font-bold text-xs uppercase tracking-wider inline-flex items-center gap-3 shadow-md shadow-accent-green/20 hover:shadow-lg hover:shadow-accent-green/30 hover:scale-[1.02] transition-all"
                 >
                     Browse the Registry
                     <svg
@@ -39,14 +40,14 @@
                 </a>
                 <a
                     href="/blog"
-                    class="h-12 px-8 bg-brand-tealLight border border-brand-teal/20 text-brand-forest rounded-full font-bold text-xs uppercase tracking-wider inline-flex items-center gap-2 hover:bg-white/80 transition-all"
+                     class="h-12 px-8 bg-white/90 backdrop-blur-sm border border-accent-teal/20 text-accent-teal rounded-full font-bold text-xs uppercase tracking-wider inline-flex items-center gap-2 hover:bg-white hover:shadow-md transition-all"
                 >
                     Read the Blog
                     <span>&#x2197;</span>
                 </a>
                 <a
                     href="/submit"
-                    class="h-12 px-8 bg-white border border-brand-forest/10 text-brand-forest rounded-full font-bold text-xs uppercase tracking-wider inline-flex items-center gap-2 hover:bg-white/80 transition-all"
+                     class="h-12 px-8 bg-white/90 backdrop-blur-sm border border-brand-forest/5 text-brand-forest rounded-full font-bold text-xs uppercase tracking-wider inline-flex items-center gap-2 hover:bg-white hover:shadow-md transition-all"
                 >
                     Submit a Tool
                     <span>&#x2197;</span>
