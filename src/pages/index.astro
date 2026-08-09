@@ -114,7 +114,6 @@ const filteredCounts = PERSONA.map(
 
 const categoryTiles = categories
     .filter((cat: any) => cat.category !== "all")
-    .slice(0, 8)
     .map((cat: any) => ({
         ...cat,
         count: categoryCounts.get(cat.category) || 0,
