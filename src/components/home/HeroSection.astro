@@ -26,21 +26,17 @@ const { siteContent: c, totalTools } = Astro.props;
           <span class="font-sans text-brand-forest tracking-normal">— run on</span>
           <span class="inline-block text-gradient-brand px-2 py-2">your hardware</span>
         </h1>
-        <p class="font-sans text-brand-forest/80 text-lg lg:text-xl mb-10 max-w-2xl leading-relaxed">
+        <p class="hidden sm:block font-sans text-brand-forest/80 text-lg lg:text-xl mb-10 max-w-2xl leading-relaxed">
           {c.home_page_tagline || "Stop paying for AI APIs. Everything here runs on your own hardware. Shortlist self-hosted, local, and offline AI software for teams that cannot afford outbound leaks."}
         </p>
         <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto">
           <a href="/all"
             class="group h-12 px-8 bg-gradient-cool text-white rounded-full font-bold text-xs uppercase tracking-wider inline-flex items-center justify-center gap-3 shadow-md shadow-accent-green/20 hover:shadow-lg hover:shadow-accent-green/30 hover:scale-[1.02] transition-all duration-200">
             Browse {totalTools} verified tools
-            <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
           </a>
           <a href="#use-cases"
             class="h-12 px-8 bg-white/90 hover:bg-white text-brand-forest border border-brand-forest/10 rounded-full font-bold text-xs uppercase tracking-wider inline-flex items-center justify-center gap-2 shadow-sm hover:shadow-md transition-all duration-200">
             {c.cta_use_cases || "Find by use case"}
-            <span>👉</span>
           </a>
         </div>
       </div>

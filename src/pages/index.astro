@@ -7,7 +7,7 @@ import HeroSection from "../components/home/HeroSection.astro";
 import StatsBar from "../components/home/StatsBar.astro";
 import CategoryGrid from "../components/home/CategoryGrid.astro";
 import CuratedRegistry from "../components/home/CuratedRegistry.astro";
-import UseCasesTabs from "../components/home/UseCasesTabs.astro";
+import UseCasesCarousel from "../components/home/UseCasesCarousel.astro";
 import StayAheadSection from "../components/home/StayAheadSection.astro";
 import LaunchStacksSection from "../components/home/LaunchStacksSection.astro";
 import SurveySection from "../components/home/SurveySection.astro";
@@ -196,7 +196,7 @@ const useCaseContent: Record<
         siteContent={c}
     />
     <CuratedRegistry {topTools} {categoryTitleMap} {formatScore} {totalTools} />
-    <UseCasesTabs
+    <UseCasesCarousel
         {PERSONA}
         {featuredTools}
         {filteredCounts}

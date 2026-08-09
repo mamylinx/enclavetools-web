@@ -69,7 +69,7 @@ const { topTools, categoryTitleMap, formatScore, totalTools } = Astro.props;
                      <span class="px-2.5 py-1 bg-accent-teal/10 border border-accent-teal/20 text-accent-teal text-xs font-bold uppercase tracking-wider rounded-full">
                       {catBadge}
                     </span>
-                    <span class="text-xs font-bold text-brand-forest flex items-center gap-1">
+                    <span class="hidden sm:flex text-xs font-bold text-brand-forest items-center gap-1">
                       <svg
                         class="w-3.5 h-3.5"
                         fill="none"
@@ -85,10 +85,10 @@ const { topTools, categoryTitleMap, formatScore, totalTools } = Astro.props;
                   </div>
                   <h3 class="text-xl font-bold tracking-tight text-brand-forest mb-2 font-sans flex items-center gap-2">
                     {tool.title}
-                    <span
+                    {/* <span
                       class="w-2.5 h-2.5 bg-brand-lime border border-brand-forest/10 rounded-full"
                       title="Active development"
-                    />
+                    /> */}
                   </h3>
                   <p class="text-brand-muted text-sm leading-relaxed mb-5">
                     {tool.body || tool.plain_description}
