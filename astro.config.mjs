@@ -15,7 +15,10 @@ export default defineConfig({
                 forward: ["dataLayer.push"],
             },
         }),
-        sitemap()
+        sitemap({
+            filter: (page) =>
+                page !== 'https://enclavetools.com/admin'
+        })
     ],
     vite: {
         plugins: [tailwindcss()],

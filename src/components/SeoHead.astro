@@ -43,6 +43,12 @@ const {
   articleAuthor,
   articlePublishedTime,
 } = Astro.props;
+
+let currentPath = Astro.url.pathname;
+if (currentPath.length > 1 && currentPath.endsWith('/')) {
+  currentPath = currentPath.slice(0, -1);
+}
+const finalCanonicalUrl = canonicalUrl || new URL(currentPath, Astro.site || Astro.url.origin).href;
 ---
 
 <meta charset="UTF-8" />
@@ -78,7 +84,7 @@ const {
   href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
   rel="stylesheet"
 />
-{canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+{finalCanonicalUrl && <link rel="canonical" href={finalCanonicalUrl} />}
 {ogTitle && <meta property="og:title" content={ogTitle} />}
 {ogType && <meta property="og:type" content={ogType} />}
 {ogDescription && <meta property="og:description" content={ogDescription} />}
