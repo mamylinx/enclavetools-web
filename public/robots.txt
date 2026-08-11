@@ -29,5 +29,11 @@
 
 User-agent: *
 Content-Signal: ai-train=no, search=yes, ai-input=yes
+Disallow: /saved
+Disallow: /compare
+Disallow: /stack-builder
+Disallow: /admin
+Disallow: /submit
 Allow: /
+Host: enclavetools.com
 Sitemap: https://enclavetools.com/sitemap-index.xml

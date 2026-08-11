@@ -16,8 +16,20 @@ export default defineConfig({
             },
         }),
         sitemap({
-            filter: (page) =>
-                page !== 'https://enclavetools.com/admin'
+            filter: (page) => {
+                const excluded = ['/admin', '/saved', '/submit', '/compare', '/stack-builder'];
+                const urlObj = new URL(page);
+                return !excluded.includes(urlObj.pathname.replace(/\/$/, ''));
+            },
+            serialize(item) {
+                const urlStr = item.url instanceof URL ? item.url.href : item.url;
+                return {
+                    ...item,
+                    lastmod: item.lastmod || new Date().toISOString(),
+                    changefreq: item.changefreq || 'weekly',
+                    priority: item.priority || (urlStr.includes('/tools/') ? 0.8 : 0.5),
+                };
+            },
         })
     ],
     vite: {

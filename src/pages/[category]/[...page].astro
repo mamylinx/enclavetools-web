@@ -57,9 +57,10 @@ const tools = page.data;
     tagline="Stop paying for AI APIs. Everything here runs on your hardware."
     pageTitle={`${categoryTitle} AI Tools`}
     pageDescription={`Browse ${categoryTitle} AI tools — self-hosted, private, and local alternatives to cloud AI APIs.`}
+    canonicalUrl={`https://enclavetools.com/${category}${page.currentPage > 1 ? `?page=${page.currentPage}` : ''}`}
     showSearch={true}
 >
-    <ItemListSchema items={tools} listName={`${categoryTitle} Tools`} />
+    <ItemListSchema items={tools} listName={`${categoryTitle} Tools`} category={category} />
     <BreadcrumbSchema
         items={[
             { name: "Home", url: "https://enclavetools.com" },
@@ -77,6 +78,8 @@ const tools = page.data;
     <div id="ssr-pagination"
         class="flex justify-center items-center gap-3 py-12 px-4 md:px-8 border-t border-brand-forest/5 max-w-[1400px] mx-auto"
     >
+        {page.url.prev && <link rel="prev" href={`https://enclavetools.com${page.url.prev}`} />}
+        {page.url.next && <link rel="next" href={`https://enclavetools.com${page.url.next}`} />}
         {
             page.url.prev ? (
                 <a

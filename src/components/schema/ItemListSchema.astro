@@ -10,9 +10,41 @@ interface Tool {
 interface Props {
     items: Tool[];
     listName: string;
+    category?: string;
 }
 
-const { items, listName } = Astro.props;
+const { items, listName, category } = Astro.props;
+
+const categoryMap: Record<string, string> = {
+    art: "DesignApplication",
+    design: "DesignApplication",
+    photos: "DesignApplication",
+    audio: "MultimediaApplication",
+    music: "MultimediaApplication",
+    video: "MultimediaApplication",
+    code: "DeveloperApplication",
+    developer: "DeveloperApplication",
+    nocode: "DeveloperApplication",
+    productivity: "BusinessApplication",
+    enterprise: "BusinessApplication",
+    legal: "BusinessApplication",
+    copywriting: "BusinessApplication",
+    seo: "BusinessApplication",
+    social: "CommunicationApplication",
+    education: "EducationalApplication",
+    research: "EducationalApplication",
+    llm: "DeveloperApplication",
+    prompts: "DeveloperApplication",
+    gaming: "GameApplication",
+    fashion: "LifestyleApplication",
+    health: "HealthApplication",
+    xtras: "BusinessApplication",
+    all: "BusinessApplication",
+};
+
+const resolvedCategory = category
+    ? categoryMap[category.toLowerCase()] || "BusinessApplication"
+    : "BusinessApplication";
 
 const itemListElements = items.slice(0, 100).map((tool, index) => ({
     "@type": "ListItem",
@@ -22,7 +54,7 @@ const itemListElements = items.slice(0, 100).map((tool, index) => ({
         name: tool.title,
         url: `https://enclavetools.com/tools/${tool.slug}`,
         description: tool.body,
-        applicationCategory: "MultimediaApplication",
+        applicationCategory: resolvedCategory,
     },
 }));
 

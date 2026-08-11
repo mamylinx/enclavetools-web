@@ -1,5 +1,4 @@
 ---
-import { ClientRouter } from "astro:transitions";
 import WebSiteSchema from "./schema/WebSiteSchema.astro";
 
 export interface Props {
@@ -80,10 +79,21 @@ const finalCanonicalUrl = canonicalUrl || new URL(currentPath, Astro.site || Ast
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preconnect" href="https://www.googletagmanager.com" />
+<link rel="preconnect" href="https://www.google-analytics.com" />
+<link rel="preconnect" href="https://challenges.cloudflare.com" />
 <link
+  rel="preload"
   href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
-  rel="stylesheet"
+  as="style"
+  onload="this.onload=null;this.rel='stylesheet'"
 />
+<noscript>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+    rel="stylesheet"
+  />
+</noscript>
 {finalCanonicalUrl && <link rel="canonical" href={finalCanonicalUrl} />}
 {ogTitle && <meta property="og:title" content={ogTitle} />}
 {ogType && <meta property="og:type" content={ogType} />}
@@ -100,5 +110,4 @@ const finalCanonicalUrl = canonicalUrl || new URL(currentPath, Astro.site || Ast
 }
 {twitterImage && <meta name="twitter:image" content={twitterImage} />}
 
-<ClientRouter />
 <WebSiteSchema />

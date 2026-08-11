@@ -28,7 +28,6 @@ const posts = page.data;
         pageDescription="Articles on self-hosted AI, privacy-first infrastructure, and practical guidance for auditing your AI tools."
         keywords={["self-hosted AI blog", "AI privacy", "AI due diligence", "telemetry auditing", "local AI"]}
         articleAuthor="Mamy Rakotomalala"
-        articlePublishedTime="2026-07-22T00:00:00Z"
     />
 
     <section class="relative py-20 lg:py-24 border-b border-brand-forest/5 overflow-hidden">
@@ -69,6 +68,8 @@ const posts = page.data;
                 <div id="ssr-pagination"
                     class="flex justify-center items-center gap-3 mt-16 pt-12 border-t border-brand-forest/5"
                 >
+                    {page.url.prev && <link rel="prev" href={`https://enclavetools.com${page.url.prev}`} />}
+                    {page.url.next && <link rel="next" href={`https://enclavetools.com${page.url.next}`} />}
                     {
                         page.url.prev ? (
                             <a

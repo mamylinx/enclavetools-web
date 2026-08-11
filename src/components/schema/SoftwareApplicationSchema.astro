@@ -6,9 +6,10 @@ interface Props {
     tag?: string;
     dateAdded?: string;
     category?: string;
+    popularityScore?: number;
 }
 
-const { name, description, url, tag, dateAdded, category } = Astro.props;
+const { name, description, url, tag, dateAdded, category, popularityScore } = Astro.props;
 
 // Map tool categories to Schema.org ApplicationCategory values
 const getCategoryMapping = (toolCategory?: string): string => {
@@ -98,6 +99,17 @@ const schema: any = {
 // Add datePublished if available
 if (dateAdded) {
     schema.datePublished = dateAdded;
+}
+
+// Add aggregateRating from popularity_score (GitHub stars)
+if (popularityScore && popularityScore > 0) {
+    const ratingValue = Math.min(5, Math.max(1, Math.round((Math.log10(popularityScore + 1) / 6) * 5 * 10) / 10));
+    schema.aggregateRating = {
+        "@type": "AggregateRating",
+        ratingValue: ratingValue,
+        ratingCount: popularityScore,
+        bestRating: 5,
+    };
 }
 ---
 
