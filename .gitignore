@@ -47,6 +47,9 @@ package-lock.json
 # generated data
 src/data/generated/
 src/data/generated/*
+
+# sensitive outreach / prospect data (PII)
+marketing/
 # python cache
 enclavetools-pipeline/scripts/__pycache__/
 
