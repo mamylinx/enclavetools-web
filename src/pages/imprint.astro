@@ -1,0 +1,136 @@
+---
+import Layout from "../layouts/Layout.astro";
+import BreadcrumbSchema from "../components/schema/BreadcrumbSchema.astro";
+const breadcrumbs = [
+    { name: "Home", url: "https://enclavetools.com" },
+    { name: "Imprint" },
+];
+---
+
+<Layout
+    site="Enclavetools"
+    title="Imprint"
+    tagline="Publisher identification according to § 5 TMG"
+    eyebrow="Last Updated: Aug 15, 2026"
+    pageTitle="Imprint"
+    pageDescription="Publisher, editor, and contact information for Enclavetools."
+    showHero={true}
+>
+    <BreadcrumbSchema items={breadcrumbs} />
+
+    <div class="max-w-[800px] mx-auto px-4 md:px-8 py-16">
+        <div
+            class="bg-white border border-brand-forest/10 p-6 md:p-8 shadow-sm"
+        >
+            <article class="prose prose-gray max-w-none text-brand-forest/80">
+                <h2
+                    class="text-2xl font-extrabold text-brand-forest mt-8 mb-4 tracking-tight uppercase"
+                >
+                    Publisher
+                </h2>
+                <p class="text-base leading-relaxed mb-4 font-medium">
+                    <strong class="text-brand-forest font-extrabold"
+                        >Enclavetools</strong
+                    ><br />
+                    Attn: Mamy Rakotomalala<br />
+                    Lot VD 33 Ter Faliarivo, Ambanidia<br />
+                    Antananarivo, 101, Madagascar<br />
+                    VAT ID: Not applicable (Individual operator, Madagascar)
+                </p>
+
+                <h2
+                    class="text-2xl font-extrabold text-brand-forest mt-8 mb-4 tracking-tight uppercase"
+                >
+                    Contact
+                </h2>
+                <p class="text-base leading-relaxed mb-4 font-medium">
+                    Email: <a
+                        href="mailto:contact@enclavetools.com"
+                        class="text-brand-teal hover:text-brand-forest transition-colors"
+                        >contact@enclavetools.com</a
+                    ><br />
+                    Contact form: <a
+                        href="/contact"
+                        class="text-brand-teal hover:text-brand-forest transition-colors"
+                        >enclavetools.com/contact</a
+                    ><br />
+                    GitHub: <a
+                        href="https://github.com/mamylinx"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="text-brand-teal hover:text-brand-forest transition-colors"
+                        >Enclavetools Organization Handle</a
+                    >
+                    <br />
+                    LinkedIn: <a
+                        href="https://www.linkedin.com/in/mamy-rkt/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="text-brand-teal hover:text-brand-forest transition-colors"
+                        >Enclavetools Founder LinkedIn Profile</a
+                    >
+                </p>
+
+                <h2
+                    class="text-2xl font-extrabold text-brand-forest mt-8 mb-4 tracking-tight uppercase"
+                >
+                    Editorial Responsibility
+                </h2>
+                <p class="text-base leading-relaxed mb-4 font-medium">
+                    Mamy Rakotomalala — Founder and Editor, Enclavetools.
+                </p>
+                <p class="text-base leading-relaxed mb-4 font-medium">
+                    I started Enclavetools to build a directory of AI tools that
+                    answer to no one but you. We carefully review the tools we
+                    list because we believe in verifying functionality and
+                    privacy practices. Please note that our reviews represent
+                    our independent editorial evaluations, not formal security
+                    audits, code certifications, or technical guarantees.
+                </p>
+
+                <h2
+                    class="text-2xl font-extrabold text-brand-forest mt-8 mb-4 tracking-tight uppercase"
+                >
+                    Content & Disclaimer of Liability
+                </h2>
+                <p class="text-base leading-relaxed mb-4 font-medium">
+                    Content on Enclavetools (texts, images, tool descriptions)
+                    is provided by the editorial team and, in the case of
+                    third-party AI tools, by their respective vendors.
+                </p>
+                <p class="text-base leading-relaxed mb-4 font-medium">
+                    All information and directory listings are provided "as is"
+                    without warranty of any kind. Enclavetools is not
+                    responsible for the performance, security, data practices,
+                    or potential damages arising from the use of third-party
+                    tools listed on this site. Users are strongly encouraged to
+                    conduct their own due diligence before installing or relying
+                    on any third-party software.
+                </p>
+
+                <h2
+                    class="text-2xl font-extrabold text-brand-forest mt-8 mb-4 tracking-tight uppercase"
+                >
+                    Hosting
+                </h2>
+                <p class="text-base leading-relaxed mb-4 font-medium">
+                    This website is hosted on Cloudflare Pages (Cloudflare,
+                    Inc., 101 Townsend St, San Francisco, CA, USA).
+                </p>
+
+                <h2
+                    class="text-2xl font-extrabold text-brand-forest mt-8 mb-4 tracking-tight uppercase"
+                >
+                    Consumer Dispute Resolution
+                </h2>
+                <p class="text-base leading-relaxed mb-4 font-medium">
+                    Consumers resident in the European Union are entitled to
+                    seek legal remedies in the courts of their local
+                    jurisdiction. We are not obligated and do not agree to
+                    participate in alternative dispute resolution procedures
+                    before a consumer arbitration board.
+                </p>
+            </article>
+        </div>
+    </div>
+</Layout>
