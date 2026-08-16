@@ -18,42 +18,42 @@ const formattedStars = computed(() => {
 
 <template>
   <li class="flex items-center gap-3 px-3 py-3 sm:px-4 border-b border-brand-forest/5 last:border-0 hover:bg-accent-teal/5 transition-colors rounded-xl">
-    <div class="min-w-0 flex-1">
-      <div class="flex flex-wrap items-center gap-x-2 gap-y-1">
-        <a :href="`/tools/${tool.slug}`" class="text-sm font-bold text-brand-forest hover:text-accent-teal transition-colors">
-          {{ tool.title }}
-        </a>
-         <span class="px-2 py-0.5 bg-accent-teal/10 border border-accent-teal/20 text-accent-teal text-[10px] font-bold uppercase tracking-wider rounded-full shrink-0">
-          {{ category }}
-        </span>
+    <a :href="`/tools/${tool.slug}`" class="flex items-center gap-3 flex-1 min-w-0 group/row" :aria-label="`View ${tool.title}`">
+      <div class="min-w-0 flex-1">
+        <div class="flex flex-wrap items-center gap-x-2 gap-y-1">
+          <span class="text-sm font-bold text-brand-forest group-hover/row:text-accent-teal transition-colors">
+            {{ tool.title }}
+          </span>
+          <span class="px-2 py-0.5 bg-accent-teal/10 border border-accent-teal/20 text-accent-teal text-[10px] font-bold uppercase tracking-wider rounded-full shrink-0">
+            {{ category }}
+          </span>
+        </div>
+        <p class="text-xs text-brand-muted truncate mt-0.5">{{ tool.body }}</p>
+        <div class="flex items-center gap-3 mt-1 sm:hidden text-[11px] text-brand-muted">
+          <span class="font-bold text-brand-forest flex items-center gap-1">
+            <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+            </svg>
+            {{ formattedStars }}
+          </span>
+          <span>{{ tool.license || 'Not specified' }}</span>
+        </div>
       </div>
-      <p class="text-xs text-brand-muted truncate mt-0.5">{{ tool.body }}</p>
-      <div class="flex items-center gap-3 mt-1 sm:hidden text-[11px] text-brand-muted">
-        <span class="font-bold text-brand-forest flex items-center gap-1">
-          <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-          </svg>
-          {{ formattedStars }}
-        </span>
-        <span>{{ tool.license || 'Not specified' }}</span>
-      </div>
-    </div>
 
-    <span class="hidden sm:flex text-xs font-bold text-brand-forest flex items-center gap-1 shrink-0 w-16 justify-end ">
-      <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
-        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-      </svg>
-      {{ formattedStars }}
-    </span>
+      <span class="hidden sm:flex text-xs font-bold text-brand-forest flex items-center gap-1 shrink-0 w-16 justify-end ">
+        <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+        </svg>
+        {{ formattedStars }}
+      </span>
 
-    <span class="text-xs font-medium text-brand-muted shrink-0 w-24 truncate hidden sm:block">{{ tool.license || 'Not specified' }}</span>
+      <span class="text-xs font-medium text-brand-muted shrink-0 w-24 truncate hidden sm:block">{{ tool.license || 'Not specified' }}</span>
 
-    <CompareToggle v-if="tool.slug" :slug="tool.slug" class="shrink-0" />
-
-    <a :href="`/tools/${tool.slug}`" class="shrink-0 text-accent-teal hover:text-brand-forest transition-colors" :aria-label="`Explore ${tool.title}`">
-      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+      <svg class="w-4 h-4 shrink-0 text-accent-teal group-hover/row:text-brand-forest transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
         <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
       </svg>
     </a>
+
+    <CompareToggle v-if="tool.slug" :slug="tool.slug" class="shrink-0" @click.stop />
   </li>
 </template>

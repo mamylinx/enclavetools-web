@@ -16,7 +16,7 @@ function initContactForm() {
   const subject =
     sessionStorage.getItem("contactSubject") ||
     params.get("subject") ||
-    "Hardware Sizing & Benchmark";
+    "";
   const body =
     sessionStorage.getItem("contactBody") || params.get("body") || "";
   const email =
