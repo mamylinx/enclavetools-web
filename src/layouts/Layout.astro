@@ -60,7 +60,7 @@ const {
     {showNav && (
       <>
         <NavHeader showSearch={seoProps.showSearch} searchPlaceholder={seoProps.searchPlaceholder} />
-        <CategoryNav client:load />
+        <CategoryNav client:visible />
       </>
     )}
 
@@ -71,7 +71,7 @@ const {
     </main>
 
     {showFooter && <SiteFooter />}
-    <CookieBanner client:load />
+    <CookieBanner client:idle />
   </body>
 </html>
 

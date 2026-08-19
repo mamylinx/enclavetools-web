@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted, nextTick } from 'vue';
+import { ref, onMounted } from 'vue';
 import categories from '../data/categories.json';
 
 interface NavItem {
@@ -14,22 +14,17 @@ const props = defineProps<{
 
 const navRef = ref<HTMLElement | null>(null);
 const barRef = ref<HTMLElement | null>(null);
-const barHeight = ref(0);
 const showRightFade = ref(true);
 const showBottomSheet = ref(false);
 const activeFilter = ref(props.filter || '');
 
-onMounted(async () => {
+onMounted(() => {
   if (!props.filter) {
     const path = window.location.pathname;
     if (path.startsWith('/') && path !== '/' && !path.startsWith('/tools/') && !path.startsWith('/saved') && !path.startsWith('/privacy') && !path.startsWith('/terms')) {
       const category = path.replace(/^\//, '').split('/')[0];
       if (category) activeFilter.value = category;
     }
-  }
-  await nextTick();
-  if (barRef.value) {
-    barHeight.value = barRef.value.offsetHeight;
   }
 });
 
@@ -62,7 +57,7 @@ const closeBottomSheet = () => {
 </script>
 
 <template>
-  <div class="sm:hidden" :style="{ height: barHeight + 'px' }"></div>
+  <div class="sm:hidden h-14"></div>
 
   <div ref="barRef"
     class="fixed top-20 inset-x-0 w-full max-w-[1400px] mx-auto flex sm:hidden items-center justify-between border-b border-brand-forest/5 bg-white/90 backdrop-blur-sm z-20">

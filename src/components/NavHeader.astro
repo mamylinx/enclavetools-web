@@ -55,7 +55,7 @@ const {
 
     <!-- Desktop Search -->
     <div class="hidden md:block flex-1 max-w-sm mx-8">
-      <SearchInput client:load placeholder={searchPlaceholder} />
+      <SearchInput client:idle placeholder={searchPlaceholder} />
     </div>
 
     <!-- Desktop Links with Mega Dropdown -->
@@ -226,7 +226,7 @@ const {
       id="mobileSearchPanel"
     >
       <div class="px-4 py-4 bg-white border-b border-brand-forest/10">
-      <SearchInput client:load placeholder={searchPlaceholder} />
+      <SearchInput client:idle placeholder={searchPlaceholder} />
       </div>
     </div>
   )
