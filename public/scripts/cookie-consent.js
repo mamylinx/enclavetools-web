@@ -120,6 +120,7 @@
   };
 
   setDefaultConsent();
+  window.gtag("js", new Date());
 
   document.addEventListener("astro:page-load", function () {
     var state = readConsent();
@@ -127,5 +128,9 @@
       updateGTAGConsent(state);
       dispatchConsentEvent(state);
     }
+    
+    window.gtag("config", "G-S9K7BBRYW1", {
+      page_path: window.location.pathname,
+    });
   });
 })();

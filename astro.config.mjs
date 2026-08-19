@@ -42,6 +42,8 @@ export default defineConfig({
             extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.vue'],
         },
     },
+    build: { format: 'file' },
+    trailingSlash: 'never',
     adapter: cloudflare(),
     output: 'static',
 });
