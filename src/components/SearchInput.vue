@@ -115,7 +115,7 @@ onUnmounted(() => {
         </svg>
       </button>
       <kbd v-if="!query"
-        class="absolute right-3.5 top-1/2 -translate-y-1/2 text-xs text-brand-muted bg-brand-tealLight/60 border border-brand-forest/5 rounded-md px-1.5 py-0.5 font-mono pointer-events-none">⌘K</kbd>
+        class="absolute hidden md:block right-3.5 top-1/2 -translate-y-1/2 text-xs text-brand-muted bg-brand-tealLight/60 border border-brand-forest/5 rounded-md px-1.5 py-0.5 font-mono pointer-events-none">⌘K</kbd>
     </div>
 
     <div v-if="isDropdownOpen && searchResults.length > 0"

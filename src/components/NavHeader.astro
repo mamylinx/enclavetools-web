@@ -54,7 +54,7 @@ const {
     </a>
 
     <!-- Desktop Search -->
-    <div class="hidden md:block flex-1 max-w-sm mx-8">
+    <div class="hidden md:flex flex-1 max-w-sm mx-8">
       <SearchInput client:idle placeholder={searchPlaceholder} />
     </div>
 
@@ -175,30 +175,20 @@ const {
     id="mobile-menu"
     class="hidden lg:hidden bg-white border-t border-brand-forest/10"
   >
-    <div class="px-6 py-6 flex flex-col gap-4">
-      <div class="relative mb-2">
-        <label for="mobile-search" class="sr-only">Search tools</label>
-        <input
-          type="text"
-          id="mobile-search"
-          placeholder="Search tools..."
-          class="w-full h-11 pl-10 pr-4 bg-brand-bg border border-brand-forest/5 rounded-full text-sm font-medium placeholder-gray-400 focus:outline-none"
-          aria-label="Search tools"
-        />
-        <svg
-          class="w-4 h-4 text-brand-muted absolute left-3.5 top-3.5"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          stroke-width="2"
-          aria-hidden="true"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-        </svg>
-      </div>
+    <div class="px-6 pb-6 flex flex-col gap-4">
+      <!-- Mobile search panel (when showSearch prop is true) -->
+      {
+        showSearch && (
+          <div
+            class="transition-all duration-200 relative z-30"
+            id="mobileSearchPanel"
+          >
+            <div class="py-4 bg-white border-b border-brand-forest/10">
+              <SearchInput client:idle placeholder={searchPlaceholder} />
+            </div>
+          </div>
+        )
+      }
       <a
         href="/all"
         class="text-xs font-bold text-brand-forest py-1 hover:text-brand-teal uppercase tracking-wider transition-colors"
@@ -217,20 +207,6 @@ const {
     </div>
   </div>
 </nav>
-
-<!-- Mobile search panel (when showSearch prop is true) -->
-{
-  showSearch && (
-    <div
-      class="md:hidden overflow-hidden transition-all duration-200 max-h-0 relative z-30"
-      id="mobileSearchPanel"
-    >
-      <div class="px-4 py-4 bg-white border-b border-brand-forest/10">
-      <SearchInput client:idle placeholder={searchPlaceholder} />
-      </div>
-    </div>
-  )
-}
 
 <script>
   // Mobile navigation toggle
