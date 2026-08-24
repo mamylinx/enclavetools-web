@@ -44,10 +44,15 @@ const {
 } = Astro.props;
 
 let currentPath = Astro.url.pathname;
-if (currentPath.length > 1 && currentPath.endsWith('/')) {
+// Strip index.html and .html extensions created during static file builds
+currentPath = currentPath.replace(/\/index\.html$/, '').replace(/\.html$/, '');
+if (!currentPath) {
+  currentPath = '/';
+} else if (currentPath.length > 1 && currentPath.endsWith('/')) {
   currentPath = currentPath.slice(0, -1);
 }
 const finalCanonicalUrl = canonicalUrl || new URL(currentPath, Astro.site || Astro.url.origin).href;
+const finalOgUrl = ogUrl || finalCanonicalUrl;
 ---
 
 <meta charset="UTF-8" />
@@ -98,7 +103,7 @@ const finalCanonicalUrl = canonicalUrl || new URL(currentPath, Astro.site || Ast
 {ogType && <meta property="og:type" content={ogType} />}
 {ogDescription && <meta property="og:description" content={ogDescription} />}
 {ogImage && <meta property="og:image" content={ogImage} />}
-{ogUrl && <meta property="og:url" content={ogUrl} />}
+{finalOgUrl && <meta property="og:url" content={finalOgUrl} />}
 {ogSiteName && <meta property="og:site_name" content={ogSiteName} />}
 {twitterCard && <meta name="twitter:card" content={twitterCard} />}
 {twitterTitle && <meta name="twitter:title" content={twitterTitle} />}
