@@ -56,3 +56,6 @@ enclavetools-pipeline/scripts/__pycache__/
 
 # wrangler config (may contain bindings/ids)
 wrangler.jsonc
+
+# wrangler folder (migrations/configs)
+wrangler/
