@@ -1,0 +1,73 @@
+{
+  "body": "Qwen3-VL is the multimodal large language model series developed by Qwen team, Alibaba Cloud.",
+  "category": "vision-multimodal",
+  "commercial_use": 1,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Docker",
+    "Cloud"
+  ],
+  "docker_available": 0,
+  "docs_url": "https://help.aliyun.com/zh/model-studio/developer-reference/qwen-vl-api",
+  "featured": false,
+  "features": [
+    "OpenAI-compatible API",
+    "REST API",
+    "Fine-tuning",
+    "Quantization",
+    "GUI/no-code"
+  ],
+  "fine_tuning": 1,
+  "github_url": "https://github.com/QwenLM/Qwen3-VL",
+  "gui_available": 1,
+  "hardware": [
+    "GPU (NVIDIA)"
+  ],
+  "language": [
+    "Jupyter Notebook"
+  ],
+  "last_updated": "2026-01-30",
+  "last_verified": "2026-07-22",
+  "license": "Apache-2.0",
+  "maturity": "Production / Stable",
+  "min_ram_gb": null,
+  "model_format": [],
+  "offline_after_setup": 1,
+  "openai_api": 1,
+  "paid_support": 0,
+  "personas": [
+    "Developer"
+  ],
+  "plain_description": "Qwen3-VL is a vision-language AI that understands images, video, and documents to automate complex business workflows. It extracts text from any image, generates code from visual inputs, and controls computer or mobile interfaces through visual agents. Deploy on your own hardware or via cloud API.",
+  "popularity_score": 19642,
+  "quantization": 1,
+  "recommended_ram_gb": null,
+  "rest_api": 1,
+  "setup_difficulty": "Medium",
+  "slug": "qwen2-5-vl",
+  "tag": "Vision-Language Model",
+  "technical_description": "Qwen3-VL is a multimodal large language model series (Qwen team, Alibaba Cloud) that processes images, video, and text inputs through a unified Transformer architecture. It employs Interleaved-MRoPE positional embeddings, DeepStack multi-level ViT feature fusion, and text–timestamp alignment for temporal video grounding. Available in dense and Mixture-of-Experts configurations from 2B to 235B-A22B parameters with Instruct and Thinking variants. Native context is 256K tokens, expandable to 1M via YaRN scaling. Supported inference runtimes include Hugging Face Transformers, vLLM (≥0.11.0), and SGLang with Flash Attention 2 acceleration and FP8 quantization. Fine-tuning code and AWQ-quantized model variants are available. Exposes an OpenAI-compatible REST API and a Gradio web UI. Docker images are provided for simplified deployment.",
+  "telemetry": "Unknown",
+  "title": "Qwen3-VL",
+  "url": "https://github.com/QwenLM/Qwen2.5-VL",
+  "use_cases": [
+    "Chat Assistant",
+    "Agentic Workflows",
+    "Code Generation",
+    "Document Processing",
+    "Data Extraction",
+    "Fine-Tuning"
+  ],
+  "works_with": [
+    "Hugging Face Transformers",
+    "vLLM",
+    "SGLang",
+    "Flash Attention 2",
+    "ModelScope",
+    "Docker"
+  ]
+}

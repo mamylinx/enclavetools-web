@@ -1,0 +1,63 @@
+{
+  "body": "SoftVC VITS Singing Voice Conversion",
+  "category": "text-to-speech",
+  "commercial_use": 1,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Bare Metal"
+  ],
+  "docker_available": 0,
+  "docs_url": null,
+  "featured": false,
+  "features": [
+    "Fine-tuning"
+  ],
+  "fine_tuning": 1,
+  "github_url": "https://github.com/svc-develop-team/so-vits-svc",
+  "gui_available": 0,
+  "hardware": [
+    "GPU (NVIDIA)",
+    "CPU"
+  ],
+  "language": [
+    "Python"
+  ],
+  "last_updated": "2023-11-11",
+  "last_verified": "2026-07-22",
+  "license": "AGPL-3.0",
+  "maturity": "Inactive / Unmaintained",
+  "min_ram_gb": null,
+  "model_format": [],
+  "offline_after_setup": 1,
+  "openai_api": 0,
+  "paid_support": 0,
+  "personas": [
+    "Developer"
+  ],
+  "plain_description": "Transform any singing voice into another voice while preserving natural pitch, intonation, and expression — no original singer needed. This open-source tool lets creators generate custom vocal performances entirely offline on their own hardware, keeping all data private. The bottom line: anyone with a computer and a voice dataset can create a personalized singing voice model.",
+  "popularity_score": 28149,
+  "quantization": 0,
+  "recommended_ram_gb": null,
+  "rest_api": 0,
+  "setup_difficulty": "Hard",
+  "slug": "so-vits-svc",
+  "tag": "Voice Conversion",
+  "technical_description": "so-vits-svc is an open-source singing voice conversion (SVC) framework built on a modified VITS architecture. It uses a SoftVC content encoder to extract speech features from source audio, feeding them directly into the VITS decoder without intermediate text representation, preserving original pitch and intonation. The vocoder is replaced with NSF HiFiGAN to eliminate sound interruption artifacts. The framework supports multiple speech encoders (ContentVec, hubertsoft, Whisper-PPG, WavLM, DPHuBERT, CNHubert), F0 predictors (crepe, dio, pm, harvest, rmvpe, fcpe), and optional shallow diffusion post-processing. Inference is performed via Python CLI with support for pitch shifting, speaker mixing, feature retrieval, and ONNX export. The project operates fully offline with no telemetry.",
+  "telemetry": "None",
+  "title": "SoftVC VITS Singing Voice Conversion",
+  "url": "https://github.com/svc-develop-team/so-vits-svc",
+  "use_cases": [
+    "Fine-Tuning"
+  ],
+  "works_with": [
+    "PyTorch",
+    "ContentVec",
+    "Whisper",
+    "NSF HiFiGAN",
+    "ONNX"
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "body": "An Easy-to-use, Scalable and High-performance Agentic RL Framework based on Ray (PPO & DAPO & REINFORCE++ &  VLM & TIS & vLLM & Ray & Async  RL)",
+  "category": "fine-tuning-training",
+  "commercial_use": 1,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Docker",
+    "Bare Metal"
+  ],
+  "docker_available": 1,
+  "docs_url": "https://openrlhf.readthedocs.io/",
+  "featured": false,
+  "features": [
+    "OpenAI-compatible API",
+    "Docker available",
+    "REST API",
+    "Fine-tuning",
+    "Quantization"
+  ],
+  "fine_tuning": 1,
+  "github_url": "https://github.com/OpenRLHF/OpenRLHF",
+  "gui_available": 0,
+  "hardware": [
+    "GPU (NVIDIA)"
+  ],
+  "language": [
+    "Python"
+  ],
+  "last_updated": "2026-07-14",
+  "last_verified": "2026-07-22",
+  "license": "Apache-2.0",
+  "maturity": "Production / Stable",
+  "min_ram_gb": null,
+  "model_format": [],
+  "offline_after_setup": 1,
+  "openai_api": 1,
+  "paid_support": 0,
+  "personas": [
+    "Developer"
+  ],
+  "plain_description": "Build better AI assistants that follow instructions, reason effectively, and align with human preferences. OpenRLHF is a production-ready open-source framework that scales reinforcement learning training from human feedback to hundreds of billions of parameters. The bottom line: used by Google, ByteDance, and other leading AI companies to train state-of-the-art language models.",
+  "popularity_score": 9833,
+  "quantization": 1,
+  "recommended_ram_gb": null,
+  "rest_api": 1,
+  "setup_difficulty": "Medium",
+  "slug": "openrlhf",
+  "tag": "Framework",
+  "technical_description": "OpenRLHF is an open-source RLHF framework built on Ray + vLLM distributed architecture with DeepSpeed ZeRO-3 for memory-efficient training. It implements PPO, REINFORCE++, GRPO, and RLOO algorithms decoupled from a unified agent-based execution pipeline supporting both single-turn and multi-turn training. The framework uses hybrid engine scheduling to colocate models and vLLM inference engines across GPUs, enabling training of models up to 70B+ parameters. Production features include async training, checkpoint recovery, Wandb/TensorBoard logging, LoRA/QLoRA support, VLM training, and SLURM multi-node orchestration.",
+  "telemetry": "Unknown",
+  "title": "OpenRLHF",
+  "url": "https://github.com/OpenRLHF/OpenRLHF",
+  "use_cases": [
+    "Fine-Tuning",
+    "Agentic Workflows",
+    "Code Generation"
+  ],
+  "works_with": [
+    "Ray",
+    "vLLM",
+    "DeepSpeed",
+    "HuggingFace Transformers",
+    "NVIDIA CUDA",
+    "SLURM",
+    "Wandb",
+    "TensorBoard"
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "body": "Standardized Distributed Generative and Predictive AI Inference Platform for Scalable, Multi-Framework Deployment on Kubernetes",
+  "category": "deployment",
+  "commercial_use": 1,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Kubernetes",
+    "Serverless"
+  ],
+  "docker_available": 1,
+  "docs_url": "https://kserve.github.io/website/",
+  "featured": false,
+  "features": [
+    "OpenAI-compatible API",
+    "Docker available",
+    "REST API"
+  ],
+  "fine_tuning": 0,
+  "github_url": "https://github.com/kserve/kserve",
+  "gui_available": 0,
+  "hardware": [
+    "CPU",
+    "GPU (NVIDIA)"
+  ],
+  "language": [
+    "Go",
+    "Python"
+  ],
+  "last_updated": "2026-07-21",
+  "last_verified": "2026-07-22",
+  "license": "Apache-2.0",
+  "maturity": "Production / Stable",
+  "min_ram_gb": null,
+  "model_format": [],
+  "offline_after_setup": 0,
+  "openai_api": 1,
+  "paid_support": 0,
+  "personas": [
+    "Developer"
+  ],
+  "plain_description": "KServe is one standardized platform for deploying all your AI models — from LLMs to traditional ML models — on Kubernetes without juggling multiple tools. It handles autoscaling, safe rollouts with traffic splitting, and built-in monitoring so your team can focus on improving models instead of managing infrastructure. The bottom line: faster, safer AI deployments at lower operational cost.",
+  "popularity_score": 5722,
+  "quantization": 0,
+  "recommended_ram_gb": null,
+  "rest_api": 1,
+  "setup_difficulty": null,
+  "slug": "kserve",
+  "tag": "Model Serving",
+  "technical_description": "KServe is a Kubernetes-native inference platform that provides a standardized InferenceService API for deploying generative and predictive AI models at scale. It supports multiple serving runtimes including vLLM for LLMs and native runtimes for TensorFlow, PyTorch, scikit-learn, XGBoost, and ONNX. The platform implements canary rollouts, request-based autoscaling with scale-to-zero, model explainability, payload logging, outlier and drift detection, and InferenceGraph for complex request routing. Client integration is via OpenAI-compatible REST and gRPC protocols. The control plane is implemented in Go with Python serving runtimes.",
+  "telemetry": "Unknown",
+  "title": "KServe",
+  "url": "https://github.com/kserve/kserve",
+  "use_cases": [
+    "Chat Assistant",
+    "Model Serving"
+  ],
+  "works_with": [
+    "Kubernetes",
+    "vLLM",
+    "Hugging Face"
+  ]
+}

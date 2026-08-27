@@ -1,0 +1,74 @@
+{
+  "body": "Open-source developer platform to power your entire infra and turn scripts into webhooks, workflows and UIs. Fastest workflow engine (13x vs Airflow). Open-source alternative to Retool and Temporal.",
+  "category": "workflow-automation",
+  "commercial_use": 0,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Docker",
+    "Kubernetes",
+    "Cloud"
+  ],
+  "docker_available": 1,
+  "docs_url": "https://www.windmill.dev/docs/intro/",
+  "featured": false,
+  "features": [
+    "Docker available",
+    "REST API",
+    "GUI/no-code",
+    "Paid support"
+  ],
+  "fine_tuning": 0,
+  "github_url": "https://github.com/windmill-labs/windmill",
+  "gui_available": 1,
+  "hardware": [],
+  "language": [
+    "Rust",
+    "HTML",
+    "TypeScript",
+    "Svelte"
+  ],
+  "last_updated": "2026-07-22",
+  "last_verified": "2026-07-22",
+  "license": null,
+  "maturity": "Production / Stable",
+  "min_ram_gb": null,
+  "model_format": [],
+  "offline_after_setup": 1,
+  "openai_api": 0,
+  "paid_support": 1,
+  "personas": [
+    "Developer"
+  ],
+  "plain_description": "Windmill lets your engineering team turn scripts into internal tools, APIs, and automated workflows without needing a separate frontend team or multiple platforms. It replaces Retool-like UI builders and Temporal-like workflow engines with a single self-hosted solution. The bottom line: ship internal apps and automations in hours, not weeks.",
+  "popularity_score": 17209,
+  "quantization": 0,
+  "recommended_ram_gb": null,
+  "rest_api": 1,
+  "setup_difficulty": "Easy",
+  "slug": "windmill",
+  "tag": "developer-platform",
+  "technical_description": "Windmill is an open-source developer platform implemented in Rust with a Svelte 5 frontend. It executes scripts written in Python, TypeScript, Go, Bash, SQL, GraphQL, PowerShell, Rust, Java, C#, and PHP, exposing them as auto-generated UIs, REST API endpoints, webhooks, scheduled jobs, or chained multi-step workflows. The platform uses a PostgreSQL-backed job queue with stateless API servers and workers, with sandboxed script execution via nsjail and PID namespace isolation. It supports triggers from Kafka, WebSockets, email, HTTP, and message queues, and integrates with OAuth/SSO providers including Google Workspace and Microsoft Azure. Deployment options include Docker Compose and Kubernetes Helm charts, with support for major cloud providers.",
+  "telemetry": "Unknown",
+  "title": "Windmill",
+  "url": "https://www.windmill.dev/",
+  "use_cases": [
+    "Agentic Workflows"
+  ],
+  "works_with": [
+    "PostgreSQL",
+    "Kafka",
+    "WebSocket",
+    "Slack",
+    "GitHub",
+    "Google Workspace",
+    "AWS",
+    "GCP",
+    "Azure",
+    "Deno",
+    "Bun"
+  ]
+}

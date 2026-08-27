@@ -1,0 +1,56 @@
+{
+  "body": "Audiocraft is a library for audio processing and generation with deep learning. It features the state-of-the-art EnCodec audio compressor / tokenizer, along with MusicGen, a simple and controllable music generation LM with textual and melodic conditioning.",
+  "category": "text-to-speech",
+  "commercial_use": 1,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Bare Metal"
+  ],
+  "docker_available": 0,
+  "docs_url": "https://facebookresearch.github.io/audiocraft/api_docs/audiocraft/index.html",
+  "featured": false,
+  "features": [
+    "Fine-tuning"
+  ],
+  "fine_tuning": 1,
+  "github_url": "https://github.com/facebookresearch/audiocraft",
+  "gui_available": 0,
+  "hardware": [
+    "CPU",
+    "GPU (NVIDIA)"
+  ],
+  "language": [
+    "Jupyter Notebook",
+    "Python"
+  ],
+  "last_updated": "2026-03-03",
+  "last_verified": "2026-07-22",
+  "license": "MIT",
+  "maturity": "Production / Stable",
+  "min_ram_gb": null,
+  "model_format": [],
+  "offline_after_setup": 1,
+  "openai_api": 0,
+  "paid_support": 0,
+  "personas": [
+    "Developer"
+  ],
+  "plain_description": "Generate professional-quality music and audio from simple text descriptions using AudioCraft's AI models. MusicGen creates original compositions for content, advertising, and games; AudioGen produces custom sound effects on demand — without hiring composers or sound engineers. The bottom line: turn text prompts into studio-quality audio in seconds.",
+  "popularity_score": 23510,
+  "quantization": 0,
+  "recommended_ram_gb": null,
+  "rest_api": 0,
+  "setup_difficulty": "Easy",
+  "slug": "audiocraft",
+  "tag": null,
+  "technical_description": "AudioCraft is a PyTorch library for deep learning research and inference in audio generation. It provides training and inference implementations for MusicGen (text-to-music), AudioGen (text-to-sound), EnCodec (neural audio codec), Multi Band Diffusion, MAGNeT, AudioSeal, MusicGen Style, and JASCO. The library is installable via pip with Python 3.9+ and PyTorch 2.1.0, and requires ffmpeg for audio processing. Pretrained model weights are hosted on Hugging Face and downloaded on first use. AudioCraft supports training custom models through its configurable solver and grid-based pipeline system.",
+  "telemetry": "Unknown",
+  "title": "AudioCraft",
+  "url": "https://github.com/facebookresearch/audiocraft",
+  "use_cases": [],
+  "works_with": []
+}

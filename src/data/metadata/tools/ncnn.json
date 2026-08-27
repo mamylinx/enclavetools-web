@@ -1,0 +1,67 @@
+{
+  "body": "ncnn is a high-performance neural network inference framework optimized for the mobile platform",
+  "category": "deployment",
+  "commercial_use": 0,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Bare Metal",
+    "Desktop App",
+    "Mobile"
+  ],
+  "docker_available": 0,
+  "docs_url": "https://deepwiki.com/Tencent/ncnn",
+  "featured": false,
+  "features": [
+    "Quantization"
+  ],
+  "fine_tuning": 0,
+  "github_url": "https://github.com/Tencent/ncnn",
+  "gui_available": 0,
+  "hardware": [
+    "CPU",
+    "GPU (NVIDIA)",
+    "GPU (AMD)",
+    "GPU (Apple Silicon)",
+    "Edge Device"
+  ],
+  "language": [
+    "C++",
+    "C"
+  ],
+  "last_updated": "2026-07-22",
+  "last_verified": "2026-07-22",
+  "license": null,
+  "maturity": "Production / Stable",
+  "min_ram_gb": null,
+  "model_format": [],
+  "offline_after_setup": 1,
+  "openai_api": 0,
+  "paid_support": 0,
+  "personas": [
+    "Developer"
+  ],
+  "plain_description": "Run AI models directly on mobile phones, desktops, and embedded devices without cloud servers. ncnn is the production-proven inference engine behind Tencent apps like WeChat and QQ — it delivers fast on-device AI with no external runtime dependencies. The bottom line: you can deploy deep learning models anywhere your application runs.",
+  "popularity_score": 23564,
+  "quantization": 1,
+  "recommended_ram_gb": null,
+  "rest_api": 0,
+  "setup_difficulty": "Medium",
+  "slug": "ncnn",
+  "tag": "Neural Network Inference Framework",
+  "technical_description": "ncnn is a high-performance neural network inference framework written in C++ with C and Python bindings. It targets mobile, embedded, and desktop platforms with CPU inference (ARM NEON, multi-core scheduling) and Vulkan GPU acceleration. The framework requires no third-party runtime dependencies and provides a low-memory blob/workspace allocator design. Model conversion from PyTorch and ONNX is handled by the bundled pnnx tool, with support for fp16 and int8 quantized inference paths.",
+  "telemetry": "Unknown",
+  "title": "ncnn",
+  "url": "https://github.com/Tencent/ncnn",
+  "use_cases": [
+    "Model Serving"
+  ],
+  "works_with": [
+    "PyTorch",
+    "ONNX",
+    "Vulkan"
+  ]
+}

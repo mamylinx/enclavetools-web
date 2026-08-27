@@ -27,7 +27,7 @@ export function useCardsContainer(
   const promotedAds = ref(m.promoted || [])
   const sponsor = ref(m.sponsors?.[0] || null)
 
-  const activeSort = ref<string>('featured')
+  const activeSort = ref<string>('newest')
   const currentPage = ref(1)
   const oramaResults = ref<ToolWithCategory[]>([])
   const oramaTotal = ref(0)
@@ -40,7 +40,7 @@ export function useCardsContainer(
 
   function hasActiveFilters(filterState: FilterState): boolean {
     return (
-      filterState.sort !== 'featured' ||
+      filterState.sort !== 'newest' ||
       filterState.category.length > 0 ||
       filterState.use_case.length > 0 ||
       filterState.persona.length > 0 ||

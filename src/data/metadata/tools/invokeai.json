@@ -1,0 +1,60 @@
+{
+  "body": "Invoke is a leading creative engine for Stable Diffusion models, empowering professionals, artists, and enthusiasts to generate and create visual media using the latest AI-driven technologies. The solution offers an industry leading WebUI, and serves as the foundation for multiple commercial products.",
+  "category": "image-generation",
+  "commercial_use": 1,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Docker",
+    "Bare Metal"
+  ],
+  "docker_available": 1,
+  "docs_url": "https://invoke.ai/",
+  "featured": false,
+  "features": [
+    "Docker available",
+    "GUI/no-code"
+  ],
+  "fine_tuning": 0,
+  "github_url": "https://github.com/invoke-ai/InvokeAI",
+  "gui_available": 1,
+  "hardware": [
+    "GPU (NVIDIA)",
+    "GPU (AMD)"
+  ],
+  "language": [
+    "Python",
+    "TypeScript"
+  ],
+  "last_updated": "2026-07-21",
+  "last_verified": "2026-07-22",
+  "license": "Apache-2.0",
+  "maturity": "Production / Stable",
+  "min_ram_gb": null,
+  "model_format": [],
+  "offline_after_setup": 1,
+  "openai_api": 0,
+  "paid_support": 0,
+  "personas": [
+    "Developer"
+  ],
+  "plain_description": "Invoke helps businesses produce professional-grade visual assets using the latest AI image generation models — all running on your own hardware with full commercial rights. No per-seat fees, no cloud dependency, and no license restrictions. The bottom line: your team gets unlimited creative iteration with complete ownership of every output.",
+  "popularity_score": 27644,
+  "quantization": 0,
+  "recommended_ram_gb": null,
+  "rest_api": 0,
+  "setup_difficulty": "Easy",
+  "slug": "invokeai",
+  "tag": "Image Generation",
+  "technical_description": "InvokeAI is a self-hosted AI image generation engine supporting multiple model families including SDXL, SD 3.5, Flux.1/2, CogView 4, Z-Image, Anima, and Qwen Image. It provides a Python backend with a React web UI, featuring a node-based workflow composer for building custom generation pipelines, a unified canvas for inpainting/outpainting, and integrated model management for ckpt, diffusers, and GGUF formats. The runtime includes a board and gallery system for asset organization, upscaling tools, and object segmentation. GPU acceleration is supported on NVIDIA and AMD hardware.",
+  "telemetry": "Unknown",
+  "title": "InvokeAI",
+  "url": "https://invoke.ai/",
+  "use_cases": [
+    "Image Generation"
+  ],
+  "works_with": []
+}

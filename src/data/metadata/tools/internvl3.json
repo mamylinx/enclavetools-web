@@ -1,0 +1,72 @@
+{
+  "body": "[CVPR 2024 Oral] InternVL Family: A Pioneering Open-Source Alternative to GPT-4o.  接近GPT-4o表现的开源多模态对话模型",
+  "category": "vision-multimodal",
+  "commercial_use": 1,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Bare Metal",
+    "Cloud"
+  ],
+  "docker_available": 0,
+  "docs_url": "https://internvl.readthedocs.io/en/latest/",
+  "featured": false,
+  "features": [
+    "REST API",
+    "Fine-tuning",
+    "Quantization",
+    "GUI/no-code"
+  ],
+  "fine_tuning": 1,
+  "github_url": "https://github.com/OpenGVLab/InternVL",
+  "gui_available": 1,
+  "hardware": [
+    "GPU (NVIDIA)"
+  ],
+  "language": [
+    "Python",
+    "Jupyter Notebook"
+  ],
+  "last_updated": "2025-09-22",
+  "last_verified": "2026-07-22",
+  "license": "MIT",
+  "maturity": "Production / Stable",
+  "min_ram_gb": null,
+  "model_format": [],
+  "offline_after_setup": 1,
+  "openai_api": 0,
+  "paid_support": 0,
+  "personas": [
+    "Developer"
+  ],
+  "plain_description": "InternVL delivers commercial-grade multimodal AI as a free, open-source model family — matching GPT-4o and GPT-5 on vision, document, and reasoning benchmarks without vendor lock-in. You get image understanding, OCR, chart analysis, video comprehension, and multilingual support that you can run, fine-tune, and deploy on your own infrastructure. No per-token fees, no data sharing required.",
+  "popularity_score": 10098,
+  "quantization": 1,
+  "recommended_ram_gb": null,
+  "rest_api": 1,
+  "setup_difficulty": "Medium",
+  "slug": "internvl3",
+  "tag": "Multimodal LLM",
+  "technical_description": "InternVL is an open-source multimodal large language model (MLLM) family from OpenGVLab, ranging from 1B to 241B parameters. The architecture pairs a vision encoder (InternViT, 300M-6B parameters) with a language backbone (Qwen2.5, InternLM, or Phi-3) via an MLP projector, supporting dynamic high-resolution image processing through variable visual position encoding (V2PE). Models are distributed in PyTorch via HuggingFace Transformers and support AWQ 4-bit quantization via lmdeploy. The codebase provides training, fine-tuning (full-parameter and LoRA), evaluation, and mixed preference optimization (MPO) pipelines. Inference runs locally on NVIDIA GPUs or through a hosted cloud API.",
+  "telemetry": "Unknown",
+  "title": "InternVL",
+  "url": "https://github.com/OpenGVLab/InternVL",
+  "use_cases": [
+    "Chat Assistant",
+    "Agentic Workflows",
+    "Document Processing",
+    "Fine-Tuning",
+    "Model Serving",
+    "Data Extraction",
+    "Translation",
+    "Summarization"
+  ],
+  "works_with": [
+    "PyTorch",
+    "HuggingFace Transformers",
+    "lmdeploy"
+  ]
+}

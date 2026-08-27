@@ -1,0 +1,64 @@
+{
+  "body": "TensorRT LLM provides users with an easy-to-use Python API to define Large Language Models (LLMs) and supports state-of-the-art optimizations to perform inference efficiently on NVIDIA GPUs. TensorRT LLM also contains components to create Python and C++ runtimes that orchestrate the inference execution in a performant way.",
+  "category": "llm-inference",
+  "commercial_use": 0,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Docker",
+    "Bare Metal",
+    "Kubernetes"
+  ],
+  "docker_available": 1,
+  "docs_url": "https://nvidia.github.io/TensorRT-LLM/",
+  "featured": false,
+  "features": [
+    "Docker available"
+  ],
+  "fine_tuning": 0,
+  "github_url": "https://github.com/NVIDIA/TensorRT-LLM",
+  "gui_available": 0,
+  "hardware": [
+    "GPU (NVIDIA)"
+  ],
+  "language": [
+    "Python",
+    "C++"
+  ],
+  "last_updated": "2026-07-22",
+  "last_verified": "2026-07-22",
+  "license": null,
+  "maturity": "Production / Stable",
+  "min_ram_gb": null,
+  "model_format": [],
+  "offline_after_setup": 0,
+  "openai_api": 0,
+  "paid_support": 0,
+  "personas": [
+    "Developer"
+  ],
+  "plain_description": "TensorRT-LLM helps you run large language models and visual generation models faster on NVIDIA GPUs, cutting inference costs while boosting throughput. It gives you a simple Python API to define and optimize models, plus ready-made runtimes for production deployment. The bottom line: get more tokens per second with less hardware.",
+  "popularity_score": 14176,
+  "quantization": 0,
+  "recommended_ram_gb": null,
+  "rest_api": 0,
+  "setup_difficulty": "Hard",
+  "slug": "tensorrt-llm",
+  "tag": "LLM Inference Engine",
+  "technical_description": "TensorRT-LLM is an open-source library that optimizes LLM and visual generation inference on NVIDIA GPUs. It provides custom CUDA kernels for attention, GEMMs, and MoE operations, along with algorithmic runtime optimizations such as Prefill-Decode disaggregation, Wide Expert Parallelism, and Speculative Decoding. The library exposes a high-level Python LLM API built on PyTorch, supporting single-GPU through multi-node deployments with built-in parallelism strategies. It integrates with NVIDIA Dynamo and Triton Inference Server for production serving.",
+  "telemetry": "Opt-out",
+  "title": "TensorRT-LLM",
+  "url": "https://github.com/NVIDIA/TensorRT-LLM",
+  "use_cases": [
+    "Model Serving",
+    "Agentic Workflows",
+    "Image Generation"
+  ],
+  "works_with": [
+    "NVIDIA Dynamo",
+    "Triton Inference Server"
+  ]
+}

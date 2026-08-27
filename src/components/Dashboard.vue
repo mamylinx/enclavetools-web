@@ -57,7 +57,7 @@ function handleRemoveChip(key: keyof typeof filterState, value: string) {
         const idx = arr.indexOf(value);
         if (idx !== -1) arr.splice(idx, 1);
     } else if (key === 'sort') {
-        filterState.sort = 'featured';
+        filterState.sort = 'newest';
     } else if (key === 'commercial_use') {
         filterState.commercial_use = null;
     } else if (key === 'offline_after_setup') {

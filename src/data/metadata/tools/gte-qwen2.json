@@ -1,0 +1,66 @@
+{
+  "body": "sentence-similarity",
+  "category": "embedding-models",
+  "commercial_use": 1,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Docker",
+    "Bare Metal"
+  ],
+  "docker_available": 0,
+  "docs_url": null,
+  "featured": false,
+  "features": [
+    "REST API",
+    "Fine-tuning",
+    "Paid support"
+  ],
+  "fine_tuning": 1,
+  "github_url": null,
+  "gui_available": 0,
+  "hardware": [
+    "GPU (NVIDIA)"
+  ],
+  "language": [],
+  "last_updated": "2025-03-24",
+  "last_verified": "2026-07-22",
+  "license": "Apache-2.0",
+  "maturity": "Production / Stable",
+  "min_ram_gb": 30.5,
+  "model_format": [],
+  "offline_after_setup": 1,
+  "openai_api": 0,
+  "paid_support": 1,
+  "personas": [
+    "Developer"
+  ],
+  "plain_description": "Get top-ranked text embeddings for search, retrieval, and similarity tasks. This model ranks No.1 on the MTEB benchmark for both English and Chinese, making it one of the most accurate embedding models available. It supports multilingual text with up to 32K input tokens and can be used for semantic search, document retrieval, and classification.",
+  "popularity_score": 103937,
+  "quantization": 0,
+  "recommended_ram_gb": 45.8,
+  "rest_api": 1,
+  "setup_difficulty": "Medium",
+  "slug": "gte-qwen2",
+  "tag": "Text Embedding",
+  "technical_description": "GTE-Qwen2-7B-instruct is a 7B-parameter multilingual text embedding model built on the Qwen2-7B LLM with bidirectional attention and instruction tuning applied on the query side. It produces 3584-dimensional embeddings with a maximum input length of 32K tokens. The model is available via the sentence-transformers library and HuggingFace transformers, and can be served through the infinity inference server. It supports retrieval, classification, clustering, reranking, STS, and summarization tasks across English, Chinese, French, and Polish. Fine-tuning is supported via the SWIFT framework.",
+  "telemetry": "Unknown",
+  "title": "GTE-Qwen2-7B-instruct",
+  "url": "https://huggingface.co/Alibaba-NLP/gte-Qwen2-7B-instruct",
+  "use_cases": [
+    "Vector Search",
+    "RAG",
+    "Document Processing",
+    "Summarization"
+  ],
+  "works_with": [
+    "sentence-transformers",
+    "transformers",
+    "SWIFT",
+    "infinity"
+  ],
+  "calculator_model": "7.6|28|28|4|128"
+}

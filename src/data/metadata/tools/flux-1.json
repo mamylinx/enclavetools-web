@@ -1,0 +1,62 @@
+{
+  "body": "Official inference repo for FLUX.1 models",
+  "category": "image-generation",
+  "commercial_use": 1,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Bare Metal"
+  ],
+  "docker_available": 0,
+  "docs_url": "https://docs.bfl.ai/",
+  "featured": false,
+  "features": [
+    "GUI/no-code"
+  ],
+  "fine_tuning": 0,
+  "github_url": "https://github.com/black-forest-labs/flux",
+  "gui_available": 1,
+  "hardware": [
+    "GPU (NVIDIA)"
+  ],
+  "language": [
+    "Python"
+  ],
+  "last_updated": "2025-07-31",
+  "last_verified": "2026-07-22",
+  "license": "Apache-2.0",
+  "maturity": "Production / Stable",
+  "min_ram_gb": null,
+  "model_format": [],
+  "offline_after_setup": 1,
+  "openai_api": 0,
+  "paid_support": 0,
+  "personas": [
+    "Developer",
+    "Business Owner",
+    "Indie Hacker"
+  ],
+  "plain_description": "Generate and edit stunning, high-quality images from text descriptions using FLUX, a leading family of AI image models from Black Forest Labs. You can create custom visuals, edit existing photos with in/out-painting, and control composition — all without a design team. The bottom line: professional-grade image generation and editing that you can run locally or access via API.",
+  "popularity_score": 25760,
+  "quantization": 0,
+  "recommended_ram_gb": null,
+  "rest_api": 0,
+  "setup_difficulty": "Medium",
+  "slug": "flux-1",
+  "tag": "Image Generation",
+  "technical_description": "FLUX is the official inference codebase for Black Forest Labs' FLUX.1 family of flow-matching image generation models. The Python-based pipeline supports multiple model variants including text-to-image, in/out-painting, structural conditioning (Canny edge and depth), image variation, and in-context image editing. Execution uses a Python virtual environment with optional NVIDIA TensorRT acceleration for optimized GPU inference. Models are loaded from HuggingFace as open-weight PyTorch checkpoints. The codebase also provides a CLI interface, Gradio and Streamlit demos, and integration with the BFL REST API for Pro tier model access and commercial usage tracking.",
+  "telemetry": "Unknown",
+  "title": "FLUX",
+  "url": "https://github.com/black-forest-labs/flux",
+  "use_cases": [
+    "Image Generation"
+  ],
+  "works_with": [
+    "HuggingFace",
+    "TensorRT",
+    "BFL API"
+  ]
+}

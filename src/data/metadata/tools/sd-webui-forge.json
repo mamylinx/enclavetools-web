@@ -1,0 +1,61 @@
+{
+  "body": "Platform built on top of Stable Diffusion WebUI to optimize resource management, speed up inference, and support experimental features like Flux and GGUF models.",
+  "category": "image-generation",
+  "commercial_use": 1,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Docker",
+    "Bare Metal"
+  ],
+  "docker_available": 1,
+  "docs_url": null,
+  "featured": false,
+  "features": [
+    "Docker available",
+    "REST API",
+    "Quantization",
+    "GUI/no-code"
+  ],
+  "fine_tuning": 0,
+  "github_url": "https://github.com/lllyasviel/stable-diffusion-webui-forge",
+  "gui_available": 1,
+  "hardware": [
+    "GPU (NVIDIA)"
+  ],
+  "language": [
+    "Python"
+  ],
+  "last_updated": "2025-07-31",
+  "last_verified": "2026-07-22",
+  "license": "AGPL-3.0",
+  "maturity": "Beta",
+  "min_ram_gb": null,
+  "model_format": [],
+  "offline_after_setup": 1,
+  "openai_api": 0,
+  "paid_support": 0,
+  "personas": [
+    "Developer"
+  ],
+  "plain_description": "Generate professional AI images from text descriptions using your own hardware — no cloud subscriptions needed. Stable Diffusion WebUI Forge speeds up image creation and reduces memory usage compared to standard Stable Diffusion WebUI. Run popular models like Flux and SDXL with advanced controls for precise results.",
+  "popularity_score": 12867,
+  "quantization": 1,
+  "recommended_ram_gb": null,
+  "rest_api": 1,
+  "setup_difficulty": "Easy",
+  "slug": "sd-webui-forge",
+  "tag": "Image Generation",
+  "technical_description": "Stable Diffusion WebUI Forge is a platform built on AUTOMATIC1111's Stable Diffusion WebUI and Gradio that provides an optimized runtime for diffusion model inference. It features a GPU memory management system, integrated ControlNet and IP-Adapter support, LoRA loading, and REST API endpoints for txt2img/img2img. The platform supports GGUF-quantized models across multiple diffusion backends including SD1.5, SDXL, SD3, Flux, and Stable Cascade, and provides an extension system for custom pipeline modifications through the Forge UnetPatcher interface.",
+  "telemetry": "Unknown",
+  "title": "Stable Diffusion WebUI Forge",
+  "url": "https://github.com/lllyasviel/stable-diffusion-webui-forge",
+  "use_cases": [
+    "Image Generation",
+    "Model Serving"
+  ],
+  "works_with": []
+}

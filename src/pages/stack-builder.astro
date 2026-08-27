@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import StackBuilder from "../components/StackBuilder.vue";
-import toolsData from "../data/tools.json";
+import toolsData from "../data/generated/tools.json";
 
 const allTools = toolsData.tools.flatMap((cat: any) =>
   cat.content.map((tool: any) => ({

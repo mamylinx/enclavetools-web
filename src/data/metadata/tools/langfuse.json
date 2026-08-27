@@ -1,0 +1,92 @@
+{
+  "body": "🪢 Open source AI engineering platform: LLM evals, observability, metrics, prompt management, playground, datasets. Integrates with OpenTelemetry, LangChain, OpenAI SDK, LiteLLM, and more. 🍊YC W23 ",
+  "category": "monitoring-observability",
+  "commercial_use": 0,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Docker",
+    "Kubernetes",
+    "Cloud"
+  ],
+  "docker_available": 1,
+  "docs_url": "https://langfuse.com/docs",
+  "featured": false,
+  "features": [
+    "OpenAI-compatible API",
+    "Docker available",
+    "REST API",
+    "GUI/no-code"
+  ],
+  "fine_tuning": 0,
+  "github_url": "https://github.com/langfuse/langfuse",
+  "gui_available": 1,
+  "hardware": [
+    "CPU"
+  ],
+  "language": [
+    "TypeScript"
+  ],
+  "last_updated": "2026-07-22",
+  "last_verified": "2026-07-22",
+  "license": null,
+  "maturity": "Production / Stable",
+  "min_ram_gb": null,
+  "model_format": [],
+  "offline_after_setup": 0,
+  "openai_api": 1,
+  "paid_support": 0,
+  "personas": [
+    "Developer",
+    "Business Owner"
+  ],
+  "plain_description": "Langfuse gives you full observability into your LLM applications so you can ship faster with confidence. It helps teams collaboratively develop, monitor, evaluate, and debug AI apps with features like tracing, prompt management, evaluations, and a playground — all in one open-source platform.",
+  "popularity_score": 31627,
+  "quantization": 0,
+  "recommended_ram_gb": null,
+  "rest_api": 1,
+  "setup_difficulty": "Easy",
+  "slug": "langfuse",
+  "tag": "Observability",
+  "technical_description": "Langfuse is an open-source LLM engineering platform that provides observability, evaluation, and prompt management for AI applications. It ingests traces via SDKs (Python, JS/TS), OpenTelemetry, and framework integrations (LangChain, LlamaIndex, OpenAI, LiteLLM, Vercel AI SDK). The platform stores telemetry data in ClickHouse and PostgreSQL, exposes a comprehensive REST API with OpenAPI spec, and offers a web-based UI for inspecting traces, managing prompts, running evaluations, and iterating in a playground. Deployment supports Docker Compose, Kubernetes (Helm), and managed cloud.",
+  "telemetry": "Unknown",
+  "title": "Langfuse",
+  "url": "https://langfuse.com/",
+  "use_cases": [
+    "Model Serving",
+    "RAG",
+    "Agentic Workflows",
+    "Chat Assistant",
+    "Code Generation",
+    "Summarization",
+    "Translation",
+    "Data Extraction",
+    "Fine-Tuning",
+    "Document Processing"
+  ],
+  "works_with": [
+    "LangChain",
+    "LlamaIndex",
+    "OpenAI",
+    "LiteLLM",
+    "Haystack",
+    "Vercel AI SDK",
+    "Mastra",
+    "DSPy",
+    "Ollama",
+    "Amazon Bedrock",
+    "AutoGen",
+    "Flowise",
+    "Langflow",
+    "Dify",
+    "OpenWebUI",
+    "Promptfoo",
+    "LobeChat",
+    "Vapi",
+    "Inferable",
+    "Gradio"
+  ]
+}

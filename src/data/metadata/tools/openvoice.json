@@ -1,0 +1,50 @@
+{
+  "body": "Instant voice cloning by MIT and MyShell. Audio foundation model.",
+  "category": "text-to-speech",
+  "commercial_use": 1,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [],
+  "docker_available": 0,
+  "docs_url": "https://research.myshell.ai/open-voice",
+  "featured": false,
+  "features": [],
+  "fine_tuning": 0,
+  "github_url": "https://github.com/myshell-ai/OpenVoice",
+  "gui_available": 0,
+  "hardware": [],
+  "language": [
+    "Python"
+  ],
+  "last_updated": "2025-04-19",
+  "last_verified": "2026-07-22",
+  "license": "MIT",
+  "maturity": "Production / Stable",
+  "min_ram_gb": null,
+  "model_format": [],
+  "offline_after_setup": 1,
+  "openai_api": 0,
+  "paid_support": 0,
+  "personas": [
+    "Developer"
+  ],
+  "plain_description": "Clone any voice instantly with OpenVoice — generate natural-sounding speech in multiple languages from just a short audio sample. Backed by MIT research and used millions of times on MyShell's platform, it delivers accurate tone reproduction with fine-grained control over emotion and speaking style. The bottom line: high-quality voice cloning that's free for commercial use.",
+  "popularity_score": 36996,
+  "quantization": 0,
+  "recommended_ram_gb": null,
+  "rest_api": 0,
+  "setup_difficulty": null,
+  "slug": "openvoice",
+  "tag": "Voice Cloning",
+  "technical_description": "OpenVoice is an audio foundation model for instant voice cloning developed by MIT and MyShell. It performs zero-shot cross-lingual voice cloning from a reference audio sample and supports granular control over voice styles including emotion, accent, rhythm, pauses, and intonation. Version 2 (V2) improves audio quality and natively supports English, Spanish, French, Chinese, Japanese, and Korean. The implementation builds on TTS, VITS, and VITS2 frameworks. Both V1 and V2 are released under the MIT License.",
+  "telemetry": "Unknown",
+  "title": "OpenVoice",
+  "url": "https://github.com/myshell-ai/OpenVoice",
+  "use_cases": [
+    "Text-to-Speech"
+  ],
+  "works_with": []
+}

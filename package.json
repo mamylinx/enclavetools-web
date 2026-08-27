@@ -4,17 +4,18 @@
   "description": "Stop paying for AI APIs. Everything here runs on your hardware.",
   "type": "module",
   "private": false,
-  "main": "src/data/tools.json",
+  "main": "src/data/generated/tools.json",
   "files": [
-    "src/data/tools.json",
+    "src/data/generated/tools.json",
+    "src/data/metadata/tools/*.json",
     "src/data/generated/tools/*.json",
     "src/data/metadata.json",
     "src/data/generated/slug-map.json",
     "src/data/generated/tool-metadata/*.json"
   ],
   "exports": {
-    ".": "./src/data/tools.json",
-    "./tools": "./src/data/tools.json",
+    ".": "./src/data/generated/tools.json",
+    "./tools": "./src/data/generated/tools.json",
     "./metadata": "./src/data/metadata.json",
     "./slug-map": "./src/data/generated/slug-map.json",
     "./categories/*": "./src/data/generated/tools/*.json",
@@ -22,7 +23,7 @@
   },
   "scripts": {
     "clean": "rm -rf dist .astro src/data/generated",
-    "prepare-data": "bun run scripts/split-data.ts && bun run scripts/generate-slug-map.ts && bun run scripts/generate-tool-metadata.ts && bun run scripts/sync-logos.ts",
+    "prepare-data": "bun run scripts/compile-data.ts && bun run scripts/sync-logos.ts",
     "prepublishOnly": "bun run prepare-data",
     "dev": "bun run prepare-data && astro dev",
     "start": "astro dev",

@@ -1,0 +1,65 @@
+{
+  "body": "Universal LLM Deployment Engine with ML Compilation",
+  "category": "llm-inference",
+  "commercial_use": 1,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Bare Metal",
+    "Mobile",
+    "Desktop App"
+  ],
+  "docker_available": 0,
+  "docs_url": "https://llm.mlc.ai/docs/",
+  "featured": false,
+  "features": [
+    "OpenAI-compatible API",
+    "REST API"
+  ],
+  "fine_tuning": 0,
+  "github_url": "https://github.com/mlc-ai/mlc-llm",
+  "gui_available": 0,
+  "hardware": [
+    "GPU (NVIDIA)",
+    "GPU (AMD)",
+    "GPU (Apple Silicon)"
+  ],
+  "language": [
+    "Python",
+    "C++"
+  ],
+  "last_updated": "2026-07-13",
+  "last_verified": "2026-07-22",
+  "license": "Apache-2.0",
+  "maturity": "Production / Stable",
+  "min_ram_gb": null,
+  "model_format": [],
+  "offline_after_setup": 0,
+  "openai_api": 1,
+  "paid_support": 0,
+  "personas": [
+    "Developer"
+  ],
+  "plain_description": "The big picture: MLC LLM lets you run large language models on nearly any device — laptop, phone, or web browser — without needing a cloud server. Here's why it matters: you get fast, private, on-device AI with OpenAI-compatible APIs. The bottom line: one engine to deploy LLMs everywhere.",
+  "popularity_score": 22977,
+  "quantization": 0,
+  "recommended_ram_gb": null,
+  "rest_api": 1,
+  "setup_difficulty": "Hard",
+  "slug": "mlc-llm",
+  "tag": "LLM Deployment Engine",
+  "technical_description": "MLC LLM is a machine learning compiler and high-performance deployment engine for large language models. It uses MLCEngine, a unified inference runtime that compiles models via TVM and TensorIR for GPU backends including CUDA, ROCm, Vulkan, Metal, OpenCL, and WebGPU. The engine exposes an OpenAI-compatible API through REST, Python, JavaScript, iOS, and Android bindings, enabling cross-platform deployment with a single optimized codebase.",
+  "telemetry": "Unknown",
+  "title": "MLC LLM",
+  "url": "https://github.com/mlc-ai/mlc-llm",
+  "use_cases": [
+    "Model Serving",
+    "Chat Assistant"
+  ],
+  "works_with": [
+    "WebLLM"
+  ]
+}

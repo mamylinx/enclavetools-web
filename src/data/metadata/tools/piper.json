@@ -1,0 +1,53 @@
+{
+  "body": "A fast, local neural text to speech system",
+  "category": "text-to-speech",
+  "commercial_use": 1,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Docker",
+    "Bare Metal"
+  ],
+  "docker_available": 1,
+  "docs_url": null,
+  "featured": false,
+  "features": [
+    "Docker available"
+  ],
+  "fine_tuning": 0,
+  "github_url": "https://github.com/rhasspy/piper",
+  "gui_available": 0,
+  "hardware": [],
+  "language": [
+    "C++"
+  ],
+  "last_updated": "2025-08-26",
+  "last_verified": "2026-07-22",
+  "license": "MIT",
+  "maturity": "Inactive / Unmaintained",
+  "min_ram_gb": null,
+  "model_format": [],
+  "offline_after_setup": 1,
+  "openai_api": 0,
+  "paid_support": 0,
+  "personas": [],
+  "plain_description": "Piper turns text into speech locally on your own machine — no cloud, no data leaving your system. It runs fast on consumer hardware and costs nothing per use. The bottom line: private, offline neural TTS with no ongoing fees.",
+  "popularity_score": 11250,
+  "quantization": 0,
+  "recommended_ram_gb": null,
+  "rest_api": 0,
+  "setup_difficulty": null,
+  "slug": "piper",
+  "tag": "Text-to-Speech",
+  "technical_description": "Piper is a neural text-to-speech inference engine written in C++ that runs entirely on local hardware without cloud dependencies. It is optimized for CPU execution and a Docker image is available for deployment. Development of this repository has moved to the OHF-Voice organization.",
+  "telemetry": "Unknown",
+  "title": "Piper",
+  "url": "https://github.com/rhasspy/piper",
+  "use_cases": [
+    "Text-to-Speech"
+  ],
+  "works_with": []
+}

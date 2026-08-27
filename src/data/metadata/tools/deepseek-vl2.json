@@ -1,0 +1,59 @@
+{
+  "body": "DeepSeek-VL2: Mixture-of-Experts Vision-Language Models for Advanced Multimodal Understanding",
+  "category": "vision-multimodal",
+  "commercial_use": 1,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Bare Metal"
+  ],
+  "docker_available": 0,
+  "docs_url": null,
+  "featured": false,
+  "features": [
+    "GUI/no-code"
+  ],
+  "fine_tuning": 0,
+  "github_url": "https://github.com/deepseek-ai/DeepSeek-VL2",
+  "gui_available": 1,
+  "hardware": [
+    "GPU (NVIDIA)"
+  ],
+  "language": [
+    "Python"
+  ],
+  "last_updated": "2025-02-26",
+  "last_verified": "2026-07-22",
+  "license": "MIT",
+  "maturity": "Production / Stable",
+  "min_ram_gb": 40,
+  "model_format": [],
+  "offline_after_setup": 1,
+  "openai_api": 0,
+  "paid_support": 0,
+  "personas": [
+    "Developer"
+  ],
+  "plain_description": "DeepSeek-VL2 lets your applications see and reason about images, documents, tables, and charts through natural conversation. It handles visual question answering, OCR, and document analysis with advanced accuracy while using fewer compute resources than comparable models. The bottom line: add multimodal understanding to your product efficiently.",
+  "popularity_score": 5316,
+  "quantization": 0,
+  "recommended_ram_gb": 80,
+  "rest_api": 0,
+  "setup_difficulty": "Hard",
+  "slug": "deepseek-vl2",
+  "tag": "Vision-Language Model",
+  "technical_description": "DeepSeek-VL2 is a series of Mixture-of-Experts (MoE) Vision-Language Models implementing multimodal understanding via PyTorch and Hugging Face Transformers. The family comprises three variants — Tiny (1.0B activated params), Small (2.8B), and Full (4.5B) — each processing 4096-token sequences with multi-image and interleaved image-text support. Runtime targets CUDA-capable NVIDIA GPUs; the Tiny variant fits under 40GB VRAM, while Small and Full require 80GB+. An incremental prefilling mechanism reduces peak memory requirements for constrained hardware. Models support visual question answering, OCR, document/table/chart analysis, and visual grounding with bounding-box output. Deployment is bare-metal via Python scripts; a Gradio web demo is included for evaluation.",
+  "telemetry": "Unknown",
+  "title": "DeepSeek-VL2",
+  "url": "https://github.com/deepseek-ai/DeepSeek-VL2",
+  "use_cases": [
+    "Chat Assistant",
+    "Document Processing"
+  ],
+  "works_with": [
+    "Hugging Face Transformers"
+  ]
+}

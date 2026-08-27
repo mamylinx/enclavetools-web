@@ -74,14 +74,14 @@ export function useFilterState() {
     if (ARRAY_KEYS.has(key)) {
       (state[key] as string[]) = [];
     } else if (key === 'sort') {
-      state.sort = 'featured';
+      state.sort = 'newest';
     } else {
       (state[key] as string | null) = null;
     }
   }
 
   function clearAll() {
-    state.sort = 'featured';
+    state.sort = 'newest';
     state.category = [];
     state.use_case = [];
     state.persona = [];

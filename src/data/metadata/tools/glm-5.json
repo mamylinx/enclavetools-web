@@ -1,0 +1,78 @@
+{
+  "body": "text-generation",
+  "category": "llm-models",
+  "commercial_use": 1,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-08-24",
+  "deployment": [
+    "Bare Metal",
+    "Cloud",
+    "Docker"
+  ],
+  "docker_available": 0,
+  "docs_url": "https://docs.zhipuai.cn/",
+  "featured": false,
+  "features": [
+    "OpenAI-compatible API",
+    "REST API",
+    "Fine-tuning",
+    "Quantization"
+  ],
+  "fine_tuning": 1,
+  "github_url": "https://github.com/THUDM/GLM-4",
+  "gui_available": 0,
+  "hardware": [
+    "GPU (NVIDIA)",
+    "GPU (Apple Silicon)"
+  ],
+  "language": [
+    "en",
+    "zh"
+  ],
+  "last_updated": "2026-08-24",
+  "last_verified": "2026-08-24",
+  "license": "MIT",
+  "maturity": "Production / Stable",
+  "min_ram_gb": 1518.0,
+  "model_format": [
+    "safetensors",
+    "GGUF"
+  ],
+  "offline_after_setup": 1,
+  "openai_api": 1,
+  "paid_support": 0,
+  "personas": [
+    "Developer",
+    "Business Owner"
+  ],
+  "plain_description": "GLM-5 is a flagship open-weights foundation model developed by Zhipu AI and THUDM for advanced reasoning, code synthesis, and long-horizon agent workflows. Released under the MIT license, it delivers frontier performance on benchmark suites like SWE-bench and GPQA Diamond with extensive context processing and multi-step tool execution.",
+  "popularity_score": 1850000,
+  "quantization": 1,
+  "recommended_ram_gb": 2277.0,
+  "rest_api": 1,
+  "setup_difficulty": "Hard",
+  "slug": "glm-5",
+  "tag": "Large Language Model",
+  "technical_description": "GLM-5 is an auto-regressive large language model built for enterprise agentic pipelines and repository-scale coding. It features hybrid attention mechanisms, native function calling, and structured JSON generation. The model supports FP8, BF16, and INT4 quantized inference across vLLM, SGLang, and llama.cpp runtimes, exposing OpenAI-compatible REST API endpoints.",
+  "telemetry": "None",
+  "title": "GLM-5",
+  "url": "https://zhipuai.cn/",
+  "use_cases": [
+    "Code Generation",
+    "Agentic Workflows",
+    "Chat Assistant",
+    "RAG",
+    "Model Serving"
+  ],
+  "works_with": [
+    "vLLM",
+    "SGLang",
+    "llama.cpp",
+    "Ollama",
+    "Hugging Face Transformers"
+  ],
+  "calculator_model": "744|78|64|64|192"
+}

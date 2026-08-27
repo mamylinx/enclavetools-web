@@ -1,0 +1,72 @@
+{
+  "body": "Open-source desktop app for local LLMs. Text, vision, tool-calling, OpenAI/Anthropic-compatible API. 100% private.",
+  "category": "chat-interfaces",
+  "commercial_use": 1,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Docker",
+    "Desktop App",
+    "Bare Metal"
+  ],
+  "docker_available": 1,
+  "docs_url": "https://github.com/oobabooga/textgen/wiki",
+  "featured": false,
+  "features": [
+    "OpenAI-compatible API",
+    "Docker available",
+    "REST API",
+    "Fine-tuning",
+    "Quantization",
+    "GUI/no-code"
+  ],
+  "fine_tuning": 1,
+  "github_url": "https://github.com/oobabooga/textgen",
+  "gui_available": 1,
+  "hardware": [
+    "CPU",
+    "GPU (NVIDIA)",
+    "GPU (AMD)",
+    "GPU (Apple Silicon)"
+  ],
+  "language": [
+    "Python"
+  ],
+  "last_updated": "2026-06-02",
+  "last_verified": "2026-07-22",
+  "license": "AGPL-3.0",
+  "maturity": "Production / Stable",
+  "min_ram_gb": null,
+  "model_format": [],
+  "offline_after_setup": 1,
+  "openai_api": 1,
+  "paid_support": 0,
+  "personas": [],
+  "plain_description": "Run powerful AI chatbots, image generators, and document analyzers entirely on your own computer with no data ever leaving your machine. Replace cloud subscriptions with a free, open-source desktop app that works offline, supports private file analysis, and connects to any OpenAI-compatible tool you already use. No telemetry, no account, no ongoing costs.",
+  "popularity_score": 47474,
+  "quantization": 1,
+  "recommended_ram_gb": null,
+  "rest_api": 1,
+  "setup_difficulty": "Easy",
+  "slug": "text-generation-webui",
+  "tag": null,
+  "technical_description": "TextGen is an open-source inference server and desktop application for running large language models on local hardware. It supports multiple inference backends—llama.cpp (GGUF), ExLlamaV3, Hugging Face Transformers (PyTorch), and TensorRT-LLM—with runtime backend switching and model hot-swapping without restart. The application exposes a Gradio-based web interface for chat, instruction-following, and notebook-style generation, plus an OpenAI/Anthropic-compatible REST API providing Chat, Completions, and Messages endpoints with tool-calling and MCP server support. Additional capabilities include multimodal vision via mmproj files, document ingestion (PDF, DOCX, plain text), image generation via diffusers with 4-bit/8-bit quantization, LoRA fine-tuning on multi-turn chat or raw text datasets, and an extension system for TTS, STT, web search, and translation. Deployment options include portable builds bundling all dependencies for Linux, Windows, and macOS with CUDA, Vulkan, ROCm, or CPU-only configurations, as well as Docker Compose and manual Python environment setups.",
+  "telemetry": "None",
+  "title": "TextGen",
+  "url": "https://github.com/oobabooga/textgen",
+  "use_cases": [
+    "Chat Assistant",
+    "Agentic Workflows",
+    "Document Processing",
+    "Image Generation",
+    "Speech-to-Text",
+    "Text-to-Speech",
+    "Fine-Tuning",
+    "Model Serving",
+    "Translation"
+  ],
+  "works_with": []
+}

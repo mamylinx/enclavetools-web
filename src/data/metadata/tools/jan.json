@@ -1,0 +1,74 @@
+{
+  "body": "Jan is an open source alternative to ChatGPT that runs 100% offline on your computer.",
+  "category": "chat-interfaces",
+  "commercial_use": 0,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Desktop App"
+  ],
+  "docker_available": 0,
+  "docs_url": "https://jan.ai/docs",
+  "featured": false,
+  "features": [
+    "OpenAI-compatible API",
+    "REST API",
+    "GUI/no-code"
+  ],
+  "fine_tuning": 0,
+  "github_url": "https://github.com/janhq/jan",
+  "gui_available": 1,
+  "hardware": [
+    "CPU",
+    "GPU (NVIDIA)",
+    "GPU (AMD)",
+    "GPU (Apple Silicon)"
+  ],
+  "language": [
+    "TypeScript",
+    "Rust"
+  ],
+  "last_updated": "2026-07-22",
+  "last_verified": "2026-07-22",
+  "license": null,
+  "maturity": "Production / Stable",
+  "min_ram_gb": 8,
+  "model_format": [],
+  "offline_after_setup": 1,
+  "openai_api": 1,
+  "paid_support": 0,
+  "personas": [
+    "Developer",
+    "Business Owner",
+    "Indie Hacker"
+  ],
+  "plain_description": "Jan gives you a powerful AI assistant that runs completely offline on your computer — no data ever leaves your machine. It works like ChatGPT but keeps your conversations private and under your control. The bottom line: full AI capability with zero privacy compromises.",
+  "popularity_score": 43666,
+  "quantization": 0,
+  "recommended_ram_gb": 16,
+  "rest_api": 1,
+  "setup_difficulty": "Easy",
+  "slug": "jan",
+  "tag": null,
+  "technical_description": "Jan is an open-source desktop application for running large language models locally, built with TypeScript and Rust on the Tauri framework. It supports local inference through llama.cpp (GGUF format) and MLX backends with hardware acceleration for CPU, NVIDIA, AMD, and Apple Silicon GPUs. The application exposes an OpenAI-compatible REST API at localhost:1337 for integration with external tools, includes RAG capabilities via a vector database extension, and supports Model Context Protocol (MCP) for agentic workflows. Remote model providers including OpenAI, Anthropic, Mistral, Groq, and MiniMax are available as optional cloud integrations.",
+  "telemetry": "Unknown",
+  "title": "Jan",
+  "url": "https://jan.ai/",
+  "use_cases": [
+    "Chat Assistant",
+    "RAG",
+    "Agentic Workflows",
+    "Model Serving"
+  ],
+  "works_with": [
+    "OpenAI",
+    "Anthropic",
+    "Mistral",
+    "Groq",
+    "MiniMax",
+    "HuggingFace"
+  ]
+}

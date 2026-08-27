@@ -1,0 +1,58 @@
+{
+  "body": "Diffusion Bee is the easiest way to run Stable Diffusion locally on your M1 Mac. Comes with a one-click installer. No dependencies or technical knowledge needed.",
+  "category": "image-generation",
+  "commercial_use": 1,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Desktop App"
+  ],
+  "docker_available": 0,
+  "docs_url": "https://github.com/divamgupta/diffusionbee-stable-diffusion-ui/blob/master/docs/DOCUMENTATION.md",
+  "featured": false,
+  "features": [
+    "GUI/no-code"
+  ],
+  "fine_tuning": 0,
+  "github_url": "https://github.com/divamgupta/diffusionbee-stable-diffusion-ui",
+  "gui_available": 1,
+  "hardware": [
+    "CPU",
+    "GPU (Apple Silicon)"
+  ],
+  "language": [
+    "JavaScript"
+  ],
+  "last_updated": "2024-10-30",
+  "last_verified": "2026-07-22",
+  "license": "AGPL-3.0",
+  "maturity": "Production / Stable",
+  "min_ram_gb": null,
+  "model_format": [],
+  "offline_after_setup": 1,
+  "openai_api": 0,
+  "paid_support": 0,
+  "personas": [
+    "Developer",
+    "Indie Hacker"
+  ],
+  "plain_description": "The big picture: Diffusion Bee lets anyone generate professional AI images on their own Mac with zero recurring cloud costs. Here's why it matters: it runs fully offline, supports the latest Stable Diffusion models, and installs in one click with no technical skills required. The bottom line: unlimited creative control with complete privacy.",
+  "popularity_score": 13577,
+  "quantization": 0,
+  "recommended_ram_gb": null,
+  "rest_api": 0,
+  "setup_difficulty": "Trivial",
+  "slug": "diffusionbee",
+  "tag": "Image Generation",
+  "technical_description": "Diffusion Bee is a macOS desktop application that wraps Stable Diffusion inference in a native GUI. Built on Electron, it provides inference backends including PyTorch (via Hugging Face Diffusers) and TensorFlow. The application supports SD 1.x, SD 2.x, SD XL, ControlNet, LoRA, inpainting, and outpainting models with text-to-image, image-to-image, AI canvas, and image upscaling workflows. All inference runs locally on Intel and Apple Silicon CPUs/GPUs with Metal Performance Shader optimization for M1/M2. Model weights are downloaded through the application interface and cached locally. No cloud infrastructure is required and no user data is transmitted externally.",
+  "telemetry": "None",
+  "title": "Diffusion Bee",
+  "url": "https://diffusionbee.com/",
+  "use_cases": [
+    "Image Generation"
+  ],
+  "works_with": []
+}

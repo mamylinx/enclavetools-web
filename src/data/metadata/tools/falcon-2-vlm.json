@@ -1,0 +1,60 @@
+{
+  "body": "image-text-to-text",
+  "category": "vision-multimodal",
+  "commercial_use": 0,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [],
+  "docker_available": 0,
+  "docs_url": "https://huggingface.co/blog/falcon",
+  "featured": false,
+  "features": [
+    "Fine-tuning",
+    "Quantization"
+  ],
+  "fine_tuning": 1,
+  "github_url": null,
+  "gui_available": 0,
+  "hardware": [
+    "GPU (NVIDIA)"
+  ],
+  "language": [
+    "en"
+  ],
+  "last_updated": "2024-06-12",
+  "last_verified": "2026-07-22",
+  "license": "unknown",
+  "maturity": "Experimental",
+  "min_ram_gb": 22.9,
+  "model_format": [],
+  "offline_after_setup": 1,
+  "openai_api": 0,
+  "paid_support": 0,
+  "personas": [
+    "Developer"
+  ],
+  "plain_description": "Falcon2-11B-VLM gives computers the ability to see and understand images through natural conversation. It can describe what's in a photo, answer visual questions, and engage in image-based dialogue. The bottom line: it's a research-grade AI purpose-built for teams exploring how vision and language work together.",
+  "popularity_score": 84,
+  "quantization": 1,
+  "recommended_ram_gb": 34.3,
+  "rest_api": 0,
+  "setup_difficulty": "Medium",
+  "slug": "falcon-2-vlm",
+  "tag": "Vision-Language Model",
+  "technical_description": "Falcon2-11B-VLM is an 11-billion parameter causal decoder-only vision-language model developed by TII. It integrates a CLIP ViT-L/14 vision encoder with a Falcon2-11B language model via a multimodal projector trained on 5,000B+ tokens of RefinedWeb and 1.2M image-text instruction pairs. A dynamic high-resolution encoding mechanism enables fine-grained visual perception. Inference requires PyTorch 2.0 and the transformers library on a CUDA-capable GPU with a minimum of 22.9GB VRAM. Fine-tuning and quantization are supported. The model can be served via HuggingFace Text Generation Inference.",
+  "telemetry": "Unknown",
+  "title": "Falcon2-11B-VLM",
+  "url": "https://huggingface.co/tiiuae/falcon-11B-vlm",
+  "use_cases": [
+    "Chat Assistant",
+    "Summarization"
+  ],
+  "works_with": [
+    "transformers",
+    "PyTorch",
+    "Text Generation Inference"
+  ]
+}

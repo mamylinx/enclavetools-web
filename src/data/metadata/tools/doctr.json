@@ -1,0 +1,64 @@
+{
+  "body": "docTR (Document Text Recognition) - a seamless, high-performing & accessible library for OCR-related tasks powered by Deep Learning. Ongoing development and maintenance by t2k.",
+  "category": "rag-document",
+  "commercial_use": 1,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Docker",
+    "Bare Metal"
+  ],
+  "docker_available": 1,
+  "docs_url": "https://mindee.github.io/doctr/",
+  "featured": false,
+  "features": [
+    "Docker available",
+    "REST API",
+    "GUI/no-code",
+    "Paid support"
+  ],
+  "fine_tuning": 0,
+  "github_url": "https://github.com/mindee/doctr",
+  "gui_available": 1,
+  "hardware": [
+    "CPU",
+    "GPU (NVIDIA)"
+  ],
+  "language": [
+    "Python"
+  ],
+  "last_updated": "2026-07-21",
+  "last_verified": "2026-07-22",
+  "license": "Apache-2.0",
+  "maturity": "Production / Stable",
+  "min_ram_gb": null,
+  "model_format": [],
+  "offline_after_setup": 1,
+  "openai_api": 0,
+  "paid_support": 1,
+  "personas": [
+    "Developer",
+    "Business Owner"
+  ],
+  "plain_description": "The big picture: docTR turns documents into structured data with deep-learning OCR that anyone can use — no AI expertise required. Here's why it matters: extract text from PDFs, images, and web pages with state-of-the-art accuracy, then integrate results via a simple API or Docker container. The bottom line: go from paper to searchable, usable data in minutes.",
+  "popularity_score": 6190,
+  "quantization": 0,
+  "recommended_ram_gb": null,
+  "rest_api": 1,
+  "setup_difficulty": "Easy",
+  "slug": "doctr",
+  "tag": "OCR",
+  "technical_description": "docTR is an open-source document text recognition (OCR) library built on PyTorch. It provides a two-stage pipeline combining text detection (localizing words) and text recognition (identifying characters), with support for document layout analysis and key information extraction. The library offers multiple pretrained model architectures for detection (DBNet, LinkNet, FAST) and recognition (CRNN, SAR, MASTER, ViTSTR, PARSeq, VIPTR), deployable via Python API, FastAPI-based REST service, or Docker container with CUDA GPU acceleration.",
+  "telemetry": "Unknown",
+  "title": "docTR",
+  "url": "https://github.com/mindee/doctr",
+  "use_cases": [
+    "Document Processing",
+    "Data Extraction",
+    "Model Serving"
+  ],
+  "works_with": []
+}

@@ -1,0 +1,63 @@
+{
+  "body": "Adding guardrails to large language models.",
+  "category": "privacy-security",
+  "commercial_use": 1,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Docker",
+    "Bare Metal"
+  ],
+  "docker_available": 1,
+  "docs_url": "https://guardrailsai.com/guardrails/docs",
+  "featured": false,
+  "features": [
+    "OpenAI-compatible API",
+    "Docker available",
+    "REST API"
+  ],
+  "fine_tuning": 0,
+  "github_url": "https://github.com/guardrails-ai/guardrails",
+  "gui_available": 0,
+  "hardware": [],
+  "language": [
+    "Python"
+  ],
+  "last_updated": "2026-07-22",
+  "last_verified": "2026-07-22",
+  "license": "Apache-2.0",
+  "maturity": "Production / Stable",
+  "min_ram_gb": null,
+  "model_format": [],
+  "offline_after_setup": 0,
+  "openai_api": 1,
+  "paid_support": 0,
+  "personas": [
+    "Developer"
+  ],
+  "plain_description": "Guardrails protects your AI applications by automatically validating everything your LLM sends and receives. It catches risky content like toxic language, competitor references, or formatting errors before they reach your users, and helps you extract structured data reliably from any LLM. The bottom line: deploy AI with confidence and built-in safety checks.",
+  "popularity_score": 7190,
+  "quantization": 0,
+  "recommended_ram_gb": null,
+  "rest_api": 1,
+  "setup_difficulty": "Easy",
+  "slug": "guardrails-ai",
+  "tag": "LLM Validation",
+  "technical_description": "Guardrails is a Python framework for adding input/output validation guards to LLM-powered applications. It provides a library of pre-built validators via Guardrails Hub that detect and mitigate risks such as toxic language, competitor mentions, regex mismatches, and structural violations. The framework supports structured data extraction from LLMs through Pydantic schema definitions, function calling for OpenAI-compatible models, and prompt optimization. Guardrails can run embedded within an application or as a standalone Flask/Gunicorn server exposing a REST API with OpenAI-compatible endpoints.",
+  "telemetry": "Unknown",
+  "title": "Guardrails",
+  "url": "https://github.com/guardrails-ai/guardrails",
+  "use_cases": [
+    "Data Extraction"
+  ],
+  "works_with": [
+    "OpenAI",
+    "LangChain",
+    "LlamaIndex",
+    "Databricks",
+    "JavaScript"
+  ]
+}

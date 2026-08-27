@@ -1,0 +1,71 @@
+{
+  "body": "text-generation",
+  "category": "llm-models",
+  "commercial_use": 1,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Docker",
+    "Bare Metal",
+    "Cloud"
+  ],
+  "docker_available": 0,
+  "docs_url": null,
+  "featured": false,
+  "features": [
+    "OpenAI-compatible API"
+  ],
+  "fine_tuning": 0,
+  "github_url": null,
+  "gui_available": 0,
+  "hardware": [
+    "CPU",
+    "GPU (NVIDIA)"
+  ],
+  "language": [
+    "en"
+  ],
+  "last_updated": "2025-10-09",
+  "last_verified": "2026-07-22",
+  "license": "Apache-2.0",
+  "maturity": "Inactive / Unmaintained",
+  "min_ram_gb": 27.6,
+  "model_format": [
+    "safetensors",
+    "PyTorch"
+  ],
+  "offline_after_setup": 0,
+  "openai_api": 1,
+  "paid_support": 0,
+  "personas": [
+    "Developer"
+  ],
+  "plain_description": "OLMo gives AI researchers and enterprises a complete open-source stack to train, fine-tune, and deploy state-of-the-art language models from 1B to 32B parameters. It provides the code, configs, and checkpoints needed to reproduce production-grade LLMs without starting from scratch. The bottom line: skip building your own training infrastructure and use a proven, fully open platform.",
+  "popularity_score": 55517,
+  "quantization": 0,
+  "recommended_ram_gb": 41.4,
+  "rest_api": 0,
+  "setup_difficulty": "Medium",
+  "slug": "olmo-allen-ai",
+  "tag": "LLM",
+  "technical_description": "OLMo is a Python library for training, evaluating, and serving large language models using PyTorch and Hugging Face Transformers. It implements a two-stage pretraining pipeline that trains on web-scale data followed by curated high-quality data, with distributed training orchestrated via torchrun and YAML-based configuration files. The library supports model quantization through bitsandbytes, publishes checkpoints in both native and Hugging Face formats, and includes an OpenAI-compatible API server deployable on Modal.com. Inference is available via the Hugging Face transformers API with text-generation pipeline support.",
+  "telemetry": "Unknown",
+  "title": "OLMo",
+  "url": "https://allenai.org/olmo",
+  "use_cases": [
+    "Chat Assistant",
+    "Fine-Tuning",
+    "Model Serving"
+  ],
+  "works_with": [
+    "Hugging Face Transformers",
+    "PyTorch",
+    "bitsandbytes",
+    "Modal.com",
+    "Weights & Biases"
+  ],
+  "calculator_model": "32|64|40|8|128"
+}

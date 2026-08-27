@@ -1,0 +1,95 @@
+{
+  "body": "text-generation",
+  "category": "llm-models",
+  "commercial_use": 1,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Bare Metal",
+    "Cloud",
+    "Mobile"
+  ],
+  "docker_available": 0,
+  "docs_url": "https://qwen.readthedocs.io/",
+  "featured": false,
+  "features": [
+    "OpenAI-compatible API",
+    "REST API",
+    "Fine-tuning",
+    "Quantization",
+    "GUI/no-code"
+  ],
+  "fine_tuning": 1,
+  "github_url": null,
+  "gui_available": 1,
+  "hardware": [
+    "CPU",
+    "GPU (NVIDIA)",
+    "GPU (Apple Silicon)",
+    "NPU",
+    "Edge Device"
+  ],
+  "language": [
+    "en"
+  ],
+  "last_updated": "2025-01-12",
+  "last_verified": "2026-07-22",
+  "license": "Apache-2.0",
+  "maturity": "Production / Stable",
+  "min_ram_gb": 15.2,
+  "model_format": [
+    "safetensors"
+  ],
+  "offline_after_setup": 1,
+  "openai_api": 1,
+  "paid_support": 0,
+  "personas": [
+    "Developer",
+    "Business Owner"
+  ],
+  "plain_description": "Alibaba Cloud's Qwen3 family delivers enterprise-grade AI reasoning, coding, and agent capabilities — all in one open-source model family. It handles complex problem-solving with thinking mode and fast everyday chat without, supporting 100+ languages and tool use out of the box. The bottom line: deploy state-of-the-art LLM performance on your own infrastructure or in the cloud, with models ranging from 0.6B to 235B parameters.",
+  "popularity_score": 11998199,
+  "quantization": 1,
+  "recommended_ram_gb": 22.8,
+  "rest_api": 1,
+  "setup_difficulty": "Medium",
+  "slug": "qwen3-alibaba",
+  "tag": "LLM",
+  "technical_description": "Qwen3 is a family of large language models from Alibaba Cloud's Qwen team offering dense and Mixture-of-Experts (MoE) architectures (0.6B to 235B-A22B parameters). It provides dual-mode inference with thinking (step-by-step reasoning) and non-thinking (fast chat) modes selectable at inference time via chat template parameters. Context windows span 256K tokens, extendable to 1M tokens for long-document understanding. The models are served through Hugging Face Transformers, vLLM, SGLang, TensorRT-LLM, llama.cpp, Ollama, and MLX LM, each exposing OpenAI-compatible REST API endpoints. Deployment targets include NVIDIA GPUs, Apple Silicon, Intel CPUs via OpenVINO, Ascend NPUs via MindIE, and mobile/edge devices via ExecuTorch and MNN. Post-training is supported via Axolotl, UnSloth, LLaMA-Factory, and Swift for SFT, DPO, and GRPO. Tool use and function calling with MCP integration are available through Qwen-Agent.",
+  "telemetry": "Unknown",
+  "title": "Qwen3",
+  "url": "https://qwenlm.github.io/",
+  "use_cases": [
+    "Chat Assistant",
+    "RAG",
+    "Agentic Workflows",
+    "Code Generation",
+    "Document Processing",
+    "Translation",
+    "Summarization",
+    "Fine-Tuning",
+    "Model Serving"
+  ],
+  "works_with": [
+    "Transformers",
+    "vLLM",
+    "SGLang",
+    "TensorRT-LLM",
+    "llama.cpp",
+    "Ollama",
+    "LM Studio",
+    "MLX LM",
+    "OpenVINO",
+    "ExecuTorch",
+    "MNN",
+    "Qwen-Agent",
+    "Axolotl",
+    "UnSloth",
+    "LLaMA-Factory",
+    "Swift"
+  ],
+  "calculator_model": "8|36|32|8|128"
+}

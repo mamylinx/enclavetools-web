@@ -8,7 +8,6 @@ const __dirname = path.dirname(__filename);
 const root = path.join(__dirname, '..');
 
 const datasetPath = path.join(root, 'enclavetools-pipeline/dataset.json');
-const toolsJsonPath = path.join(root, 'src/data/tools.json');
 const categoriesPath = path.join(root, 'src/data/categories.json');
 
 console.log('🔄 Starting dataset sync pipeline...\n');
@@ -23,30 +22,24 @@ const categories: { title: string; category: string }[] = JSON.parse(
   fs.readFileSync(categoriesPath, 'utf-8')
 );
 
-const grouped = new Map<string, any[]>();
-let count = 0;
+const metadataToolsDir = path.join(root, 'src/data/metadata/tools');
 
+if (!fs.existsSync(metadataToolsDir)) {
+  fs.mkdirSync(metadataToolsDir, { recursive: true });
+}
+
+let count = 0;
 for (const tool of dataset) {
-  const cat = tool.category || 'data-utilities';
-  if (!grouped.has(cat)) {
-    grouped.set(cat, []);
+  if (!tool.slug) {
+    console.warn(`⚠️ Skipping tool without slug: ${tool.title}`);
+    continue;
   }
-  grouped.get(cat)!.push(tool);
+  const filePath = path.join(metadataToolsDir, `${tool.slug}.json`);
+  fs.writeFileSync(filePath, JSON.stringify(tool, null, 2) + '\n');
   count++;
 }
 
-const out = {
-  tools: categories
-    .filter((c) => c.category !== 'all')
-    .map((c) => ({
-      title: c.title,
-      category: c.category,
-      content: grouped.get(c.category) || [],
-    })),
-};
-
-fs.writeFileSync(toolsJsonPath, JSON.stringify(out, null, 2) + '\n');
-console.log(`✅ Successfully synced ${count} tools into ${toolsJsonPath}`);
+console.log(`✅ Successfully synced ${count} tools into ${metadataToolsDir}`);
 
 console.log('\n🚀 Running prepare-data to update derived files...');
 try {

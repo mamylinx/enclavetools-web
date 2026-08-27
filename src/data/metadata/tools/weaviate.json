@@ -1,0 +1,79 @@
+{
+  "body": "Weaviate is an open-source vector database that stores both objects and vectors, allowing for the combination of vector search with structured filtering with the fault tolerance and scalability of a cloud-native database​.",
+  "category": "vector-databases",
+  "commercial_use": 1,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Docker",
+    "Kubernetes",
+    "Cloud"
+  ],
+  "docker_available": 1,
+  "docs_url": "https://docs.weaviate.io/",
+  "featured": false,
+  "features": [
+    "Docker available",
+    "REST API",
+    "Quantization"
+  ],
+  "fine_tuning": 0,
+  "github_url": "https://github.com/weaviate/weaviate",
+  "gui_available": 0,
+  "hardware": [
+    "CPU"
+  ],
+  "language": [
+    "Go"
+  ],
+  "last_updated": "2026-07-22",
+  "last_verified": "2026-07-22",
+  "license": "BSD-3-Clause",
+  "maturity": "Production / Stable",
+  "min_ram_gb": null,
+  "model_format": [],
+  "offline_after_setup": 1,
+  "openai_api": 0,
+  "paid_support": 0,
+  "personas": [
+    "Developer"
+  ],
+  "plain_description": "Weaviate is an open-source vector database that lets you build AI applications like semantic search, RAG, and recommendations from a single platform without stitching together separate tools. You get production-grade reliability, built-in multi-tenancy, and cost-efficient scaling out of the box. The bottom line: faster development cycles and simpler operations for teams shipping AI-powered products.",
+  "popularity_score": 16632,
+  "quantization": 1,
+  "recommended_ram_gb": null,
+  "rest_api": 1,
+  "setup_difficulty": "Easy",
+  "slug": "weaviate",
+  "tag": "vector-database",
+  "technical_description": "Weaviate is an open-source vector database written in Go that stores objects alongside their vector embeddings, enabling hybrid vector similarity and keyword (BM25) search in a single query interface. It exposes REST, gRPC, and GraphQL APIs and integrates with multiple embedding model providers (OpenAI, Cohere, HuggingFace, Google) for automatic vectorization at import time, or accepts pre-computed embeddings directly. The database supports horizontal scaling, replication, multi-tenancy, and role-based access control for production deployments. Additional capabilities include built-in retrieval-augmented generation (RAG), reranking, vector compression with quantization, and configurable object time-to-live.",
+  "telemetry": "Unknown",
+  "title": "Weaviate",
+  "url": "https://weaviate.io/",
+  "use_cases": [
+    "Vector Search",
+    "RAG",
+    "Chat Assistant",
+    "Summarization"
+  ],
+  "works_with": [
+    "OpenAI",
+    "Cohere",
+    "HuggingFace",
+    "Google",
+    "AWS",
+    "GCP",
+    "LangChain",
+    "LlamaIndex",
+    "Haystack",
+    "Docker",
+    "Kubernetes",
+    "Python",
+    "TypeScript",
+    "Go",
+    "Java"
+  ]
+}

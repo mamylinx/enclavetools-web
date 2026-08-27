@@ -1,0 +1,64 @@
+{
+  "body": "NeMo Guardrails is an open-source toolkit for easily adding programmable guardrails to LLM-based conversational systems.",
+  "category": "privacy-security",
+  "commercial_use": 0,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Docker",
+    "Bare Metal"
+  ],
+  "docker_available": 1,
+  "docs_url": "https://docs.nvidia.com/nemo/guardrails",
+  "featured": false,
+  "features": [
+    "OpenAI-compatible API",
+    "Docker available",
+    "REST API"
+  ],
+  "fine_tuning": 0,
+  "github_url": "https://github.com/NVIDIA-NeMo/Guardrails",
+  "gui_available": 0,
+  "hardware": [],
+  "language": [
+    "Python"
+  ],
+  "last_updated": "2026-07-22",
+  "last_verified": "2026-07-22",
+  "license": null,
+  "maturity": "Beta",
+  "min_ram_gb": null,
+  "model_format": [],
+  "offline_after_setup": 0,
+  "openai_api": 1,
+  "paid_support": 0,
+  "personas": [
+    "Developer"
+  ],
+  "plain_description": "NeMo Guardrails keeps your AI chatbot safe, compliant, and on-brand by adding programmable safety rules between your app and the LLM. The big picture: it blocks jailbreaks, filters sensitive data, and enforces topic boundaries so your AI stays trustworthy. The bottom line: fewer compliance incidents and faster deployment of customer-facing AI.",
+  "popularity_score": 6768,
+  "quantization": 0,
+  "recommended_ram_gb": null,
+  "rest_api": 1,
+  "setup_difficulty": "Easy",
+  "slug": "nemo-guardrails",
+  "tag": "Guardrails",
+  "technical_description": "NVIDIA NeMo Guardrails is an open-source Python toolkit that adds programmable guardrails to LLM-based conversational applications. The library uses an async-first architecture with a Colang-based configuration language (v1.0 and v2.0) to define five guardrail types: input, dialog, retrieval, execution, and output rails. It integrates with multiple LLM providers including OpenAI, NVIDIA NIM, and Hugging Face models, and optionally supports LangChain as a runtime framework. Deployment options include direct Python library usage via pip or a standalone FastAPI server exposing an OpenAI-compatible REST API at /v1/chat/completions, also available as a Docker container. The built-in guardrails library includes jailbreak detection, injection detection, content safety, topic safety, fact-checking, hallucination detection, sensitive data masking, and integrations with ActiveFence, PolicyAI, and other third-party services.",
+  "telemetry": "Opt-out",
+  "title": "NeMo Guardrails",
+  "url": "https://github.com/NVIDIA-NeMo/Guardrails",
+  "use_cases": [
+    "Chat Assistant",
+    "RAG"
+  ],
+  "works_with": [
+    "OpenAI",
+    "LangChain",
+    "ActiveFence",
+    "PolicyAI",
+    "NVIDIA NIM"
+  ]
+}

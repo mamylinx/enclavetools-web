@@ -1,0 +1,53 @@
+{
+  "body": "AI Agent Framework, the Pydantic way",
+  "category": "agent-frameworks",
+  "commercial_use": 1,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [],
+  "docker_available": 0,
+  "docs_url": "https://ai.pydantic.dev/",
+  "featured": false,
+  "features": [],
+  "fine_tuning": 0,
+  "github_url": "https://github.com/pydantic/pydantic-ai",
+  "gui_available": 0,
+  "hardware": [],
+  "language": [
+    "Python"
+  ],
+  "last_updated": "2026-07-22",
+  "last_verified": "2026-07-22",
+  "license": "MIT",
+  "maturity": "Production / Stable",
+  "min_ram_gb": null,
+  "model_format": [],
+  "offline_after_setup": 0,
+  "openai_api": 0,
+  "paid_support": 0,
+  "personas": [
+    "Developer"
+  ],
+  "plain_description": "The big picture: Ship production-grade AI agents faster with type-safe reliability, without complex infrastructure. Pydantic AI is purpose-built by the team behind Pydantic validation — the validation layer already trusted by OpenAI, Anthropic, and LangChain. Here's why it matters: structured outputs that never fail validation, tools that wire themselves up from your code, and observability out of the box. The bottom line: get from prototype to production without rewriting everything.",
+  "popularity_score": 18727,
+  "quantization": 0,
+  "recommended_ram_gb": null,
+  "rest_api": 0,
+  "setup_difficulty": null,
+  "slug": "pydantic-ai",
+  "tag": "Agent Framework",
+  "technical_description": "Pydantic AI is a Python agent framework for building production-grade Generative AI applications with static type safety. The framework provides agent construction with dependency injection, structured output validation via Pydantic models, and automatic tool-calling from Python function signatures with runtime argument validation. It supports multiple LLM providers through a unified interface including OpenAI, Anthropic, Gemini, DeepSeek, Mistral, Cohere, Grok, and others. Built-in capabilities include web search, reasoning/thinking, MCP integration, human-in-the-loop tool approval, durable execution for fault-tolerant long-running workflows and transient-failure recovery, streaming structured outputs, and graph-based control flow via type-hinted state machines. Agents can be defined declaratively in YAML/JSON configuration files. The framework integrates natively with Pydantic Logfire for OpenTelemetry-based observability, tracing, evals, and cost tracking.",
+  "telemetry": "Unknown",
+  "title": "Pydantic AI",
+  "url": "https://ai.pydantic.dev/",
+  "use_cases": [
+    "Chat Assistant",
+    "Agentic Workflows"
+  ],
+  "works_with": [
+    "Pydantic Logfire"
+  ]
+}

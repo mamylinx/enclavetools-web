@@ -1,0 +1,58 @@
+{
+  "body": "Node-based Visual Programming Toolbox",
+  "category": "vision-multimodal",
+  "commercial_use": 0,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Desktop App",
+    "Bare Metal"
+  ],
+  "docker_available": 0,
+  "docs_url": "https://meshroom-manual.readthedocs.io",
+  "featured": false,
+  "features": [
+    "GUI/no-code"
+  ],
+  "fine_tuning": 0,
+  "github_url": "https://github.com/alicevision/Meshroom",
+  "gui_available": 1,
+  "hardware": [
+    "GPU (NVIDIA)"
+  ],
+  "language": [
+    "Python",
+    "QML"
+  ],
+  "last_updated": "2026-07-21",
+  "last_verified": "2026-07-22",
+  "license": null,
+  "maturity": "Production / Stable",
+  "min_ram_gb": null,
+  "model_format": [],
+  "offline_after_setup": 1,
+  "openai_api": 0,
+  "paid_support": 0,
+  "personas": [
+    "Developer"
+  ],
+  "plain_description": "Meshroom turns ordinary 2D photographs into detailed 3D models without writing code. Connect visual nodes to build custom photogrammetry pipelines for product digitization, cultural heritage preservation, or spatial mapping. Pre-built plugins handle camera tracking, HDR fusion, and panorama stitching out of the box.",
+  "popularity_score": 12844,
+  "quantization": 0,
+  "recommended_ram_gb": null,
+  "rest_api": 0,
+  "setup_difficulty": "Easy",
+  "slug": "meshroom",
+  "tag": "Photogrammetry",
+  "technical_description": "Meshroom is an open-source, node-based visual programming framework for 3D reconstruction and computer vision pipelines. Each node represents a processing operation; output attributes feed into downstream nodes with automatic invalidation and caching of intermediate results upon attribute changes. The Qt/QML-based desktop UI provides a graph editor, attribute inspector, 2D/3D output viewers, and an image gallery. Execution supports both local processing and distributed computation across render farms. The framework is extensible through a Python plugin API; official releases bundle plugins for photogrammetry (AliceVision), semantic segmentation, depth estimation, Gaussian splatting, dense feature matching, and geospatial integration.",
+  "telemetry": "Unknown",
+  "title": "Meshroom",
+  "url": "https://alicevision.org/#meshroom",
+  "use_cases": [],
+  "works_with": [
+    "AliceVision"
+  ]
+}

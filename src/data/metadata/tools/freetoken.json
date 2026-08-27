@@ -1,0 +1,73 @@
+{
+  "body": "Edge-native MoE serving engine designed for running 290B+ frontier models locally on consumer GPUs and CPUs",
+  "category": "llm-inference",
+  "commercial_use": 1,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-08-24",
+  "deployment": [
+    "Bare Metal",
+    "Docker"
+  ],
+  "docker_available": 1,
+  "docs_url": "https://github.com/FlashML-org/FreeToken#readme",
+  "featured": false,
+  "features": [
+    "OpenAI-compatible API",
+    "Docker available",
+    "REST API",
+    "Quantization"
+  ],
+  "fine_tuning": 0,
+  "github_url": "https://github.com/FlashML-org/FreeToken",
+  "gui_available": 0,
+  "hardware": [
+    "CPU",
+    "GPU (NVIDIA)",
+    "GPU (AMD)",
+    "GPU (Apple Silicon)"
+  ],
+  "language": [
+    "Python",
+    "C++"
+  ],
+  "last_updated": "2026-08-24",
+  "last_verified": "2026-08-24",
+  "license": "Apache-2.0",
+  "maturity": "Production / Stable",
+  "min_ram_gb": 16,
+  "model_format": [],
+  "offline_after_setup": 1,
+  "openai_api": 1,
+  "paid_support": 0,
+  "personas": [
+    "Developer",
+    "Indie Hacker"
+  ],
+  "plain_description": "FreeToken lets you run massive 290B+ frontier MoE models locally on consumer PCs and gaming hardware. It pools your GPU, CPU, and host RAM into an elastic inference platform with bandwidth-adaptive execution and smart KV caching — cutting the hardware barrier for frontier-scale open AI.",
+  "popularity_score": 3775,
+  "quantization": 1,
+  "recommended_ram_gb": 32,
+  "rest_api": 1,
+  "setup_difficulty": "Medium",
+  "slug": "freetoken",
+  "tag": "MoE Inference",
+  "technical_description": "FreeToken is an edge-native Mixture-of-Experts (MoE) serving engine that coordinates heterogeneous edge resources (GPUs, CPUs, system RAM, PCIe interconnects). It features bandwidth-adaptive CPU-GPU co-execution (q* policy), full-layer double-buffered prefill streaming, global LRU expert caching, semantic anchor checkpoints for KV state, and the FTW fast weight format with runtime VRAM reallocation.",
+  "telemetry": "None",
+  "title": "FreeToken",
+  "url": "https://www.flashml.ai/",
+  "use_cases": [
+    "Model Serving",
+    "Chat Assistant",
+    "Agentic Workflows"
+  ],
+  "works_with": [
+    "Ollama",
+    "Open WebUI",
+    "HuggingFace",
+    "vLLM",
+    "Docker"
+  ]
+}

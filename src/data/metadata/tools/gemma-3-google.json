@@ -1,0 +1,62 @@
+{
+  "body": "image-text-to-text",
+  "category": "llm-models",
+  "commercial_use": 0,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Bare Metal"
+  ],
+  "docker_available": 0,
+  "docs_url": "https://gemma-llm.readthedocs.io/",
+  "featured": false,
+  "features": [
+    "Fine-tuning"
+  ],
+  "fine_tuning": 1,
+  "github_url": null,
+  "gui_available": 0,
+  "hardware": [
+    "CPU",
+    "GPU (NVIDIA)",
+    "TPU"
+  ],
+  "language": [],
+  "last_updated": "2025-03-21",
+  "last_verified": "2026-07-22",
+  "license": "gemma",
+  "maturity": "Production / Stable",
+  "min_ram_gb": 54.9,
+  "model_format": [
+    "safetensors"
+  ],
+  "offline_after_setup": 1,
+  "openai_api": 0,
+  "paid_support": 0,
+  "personas": [
+    "Developer"
+  ],
+  "plain_description": "Gemma gives you Google-grade open-weights LLMs to build AI into your products without vendor lock-in. It handles multi-modal conversations combining text and images and can be fine-tuned on your own data. Runs on your own infrastructure with no external API dependency.",
+  "popularity_score": 828869,
+  "quantization": 0,
+  "recommended_ram_gb": 82.3,
+  "rest_api": 0,
+  "setup_difficulty": "Easy",
+  "slug": "gemma-3-google",
+  "tag": "LLM",
+  "technical_description": "Gemma is a JAX-based library for using and fine-tuning Google DeepMind's family of open-weights large language models. The Python package provides a ChatSampler API for multi-turn, multi-modal conversations and supports fine-tuning via LoRA adapters. Models are available in multiple sizes (2B to 7B+) and run on CPU, GPU, or TPU hardware. Includes Colab notebooks for sampling, multi-modal inference, and fine-tuning workflows.",
+  "telemetry": "Unknown",
+  "title": "Gemma",
+  "url": "https://ai.google.dev/gemma/",
+  "use_cases": [
+    "Chat Assistant",
+    "Fine-Tuning"
+  ],
+  "works_with": [
+    "JAX"
+  ],
+  "calculator_model": "12|48|16|8|256"
+}

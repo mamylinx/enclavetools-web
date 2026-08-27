@@ -1,0 +1,62 @@
+{
+  "body": "sentence-similarity",
+  "category": "embedding-models",
+  "commercial_use": 1,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Bare Metal"
+  ],
+  "docker_available": 0,
+  "docs_url": null,
+  "featured": false,
+  "features": [
+    "Fine-tuning"
+  ],
+  "fine_tuning": 1,
+  "github_url": null,
+  "gui_available": 0,
+  "hardware": [
+    "CPU",
+    "GPU (NVIDIA)"
+  ],
+  "language": [],
+  "last_updated": "2024-07-03",
+  "last_verified": "2026-07-22",
+  "license": "MIT",
+  "maturity": "Production / Stable",
+  "min_ram_gb": null,
+  "model_format": [],
+  "offline_after_setup": 1,
+  "openai_api": 0,
+  "paid_support": 0,
+  "personas": [
+    "Developer"
+  ],
+  "plain_description": "The big picture: BGE-M3 is a multilingual embedding model that makes search and retrieval dramatically more accurate across 100+ languages. Here's why it matters: It handles short queries and long documents equally well in a single model — no need to maintain separate systems for different search types. The bottom line: Teams using RAG or semantic search get better results with less complexity.",
+  "popularity_score": 35541030,
+  "quantization": 0,
+  "recommended_ram_gb": null,
+  "rest_api": 0,
+  "setup_difficulty": "Easy",
+  "slug": "bge-m3",
+  "tag": "embedding",
+  "technical_description": "BGE-M3 is a multilingual text embedding model from BAAI supporting three retrieval modes — dense embedding, sparse lexical matching, and ColBERT-style multi-vector interaction — within a single unified architecture. The model accepts up to 8,192 tokens per input and outputs 1,024-dimensional embeddings. It is distributed as a PyTorch model via the FlagEmbedding Python library (pip-installable) and also available in ONNX format. Optional FP16 inference accelerates GPU execution. The model supports hybrid retrieval with weighted score fusion across all three modes and can be fine-tuned via provided unified fine-tuning scripts. Integrations with Vespa and Milvus enable production deployment.",
+  "telemetry": "Unknown",
+  "title": "BGE-M3",
+  "url": "https://huggingface.co/BAAI/bge-m3",
+  "use_cases": [
+    "RAG",
+    "Vector Search",
+    "Document Processing",
+    "Fine-Tuning"
+  ],
+  "works_with": [
+    "Vespa",
+    "Milvus"
+  ],
+  "calculator_model": "0.568|24|16|16|64"
+}

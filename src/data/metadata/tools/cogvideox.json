@@ -1,0 +1,65 @@
+{
+  "body": "text and image to video generation: CogVideoX (2024) and CogVideo (ICLR 2023)",
+  "category": "video-generation",
+  "commercial_use": 1,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Bare Metal"
+  ],
+  "docker_available": 0,
+  "docs_url": "https://zhipu-ai.feishu.cn/wiki/DHCjw1TrJiTyeukfc9RceoSRnCh",
+  "featured": false,
+  "features": [
+    "Fine-tuning",
+    "Quantization",
+    "GUI/no-code"
+  ],
+  "fine_tuning": 1,
+  "github_url": "https://github.com/zai-org/CogVideo",
+  "gui_available": 1,
+  "hardware": [
+    "GPU (NVIDIA)"
+  ],
+  "language": [
+    "Python"
+  ],
+  "last_updated": "2025-11-04",
+  "last_verified": "2026-07-22",
+  "license": "Apache-2.0",
+  "maturity": "Production / Stable",
+  "min_ram_gb": null,
+  "model_format": [],
+  "offline_after_setup": 1,
+  "openai_api": 0,
+  "paid_support": 0,
+  "personas": [
+    "Developer"
+  ],
+  "plain_description": "Create professional videos from text or images with CogVideoX — an open-source AI model that runs on a single consumer GPU. Fine-tune it for your brand's unique style without expensive cloud services. The bottom line: high-quality, customized video content at a fraction of the cost.",
+  "popularity_score": 12902,
+  "quantization": 1,
+  "recommended_ram_gb": null,
+  "rest_api": 0,
+  "setup_difficulty": null,
+  "slug": "cogvideox",
+  "tag": "Video Generation",
+  "technical_description": "CogVideoX is a text-to-video and image-to-video generation model built on a diffusion transformer (DiT) architecture. The project provides inference and fine-tuning code via the Hugging Face Diffusers library and the SwissArmyTransformer (SAT) framework. Models are available at 2B and 5B parameter scales and support BF16, FP16, INT8, and FP8 precision modes. Integration is supported through Python API, CLI, Gradio web UI, and third-party frameworks including ComfyUI and xDiT.",
+  "telemetry": "None",
+  "title": "CogVideoX",
+  "url": "https://github.com/THUDM/CogVideo",
+  "use_cases": [
+    "Fine-Tuning",
+    "Model Serving"
+  ],
+  "works_with": [
+    "Hugging Face Diffusers",
+    "ComfyUI",
+    "Gradio",
+    "SwissArmyTransformer",
+    "xDiT"
+  ]
+}

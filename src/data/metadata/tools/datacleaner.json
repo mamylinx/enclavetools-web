@@ -1,0 +1,52 @@
+{
+  "body": "The premier open source Data Quality solution",
+  "category": "data-utilities",
+  "commercial_use": 1,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Desktop App"
+  ],
+  "docker_available": 0,
+  "docs_url": "https://datacleaner.github.io",
+  "featured": false,
+  "features": [
+    "GUI/no-code"
+  ],
+  "fine_tuning": 0,
+  "github_url": "https://github.com/datacleaner/DataCleaner",
+  "gui_available": 1,
+  "hardware": [],
+  "language": [
+    "Java"
+  ],
+  "last_updated": "2026-06-30",
+  "last_verified": "2026-07-22",
+  "license": "LGPL-3.0",
+  "maturity": "Mature / Maintenance",
+  "min_ram_gb": null,
+  "model_format": [],
+  "offline_after_setup": 0,
+  "openai_api": 0,
+  "paid_support": 0,
+  "personas": [
+    "Developer"
+  ],
+  "plain_description": "The premier open source Data Quality solution. Profile, correct, and enrich your data to improve accuracy and trust. Use it for ad-hoc analysis, recurring cleansing, and Master Data Management.",
+  "popularity_score": 651,
+  "quantization": 0,
+  "recommended_ram_gb": null,
+  "rest_api": 0,
+  "setup_difficulty": null,
+  "slug": "datacleaner",
+  "tag": "data-quality",
+  "technical_description": "DataCleaner is a Java-based data quality toolkit for profiling, correcting, and enriching datasets. The modular architecture provides an engine core, a public API for custom extensions, and a Swing-based desktop UI. It supports job-based execution with configurable components for filtering, transforming, and analyzing data across databases, CSV, Excel, Hadoop, and other datastores.",
+  "telemetry": "Unknown",
+  "title": "DataCleaner",
+  "url": "https://github.com/datacleaner/DataCleaner",
+  "use_cases": [],
+  "works_with": []
+}

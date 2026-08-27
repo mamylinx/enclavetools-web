@@ -1,0 +1,59 @@
+{
+  "body": "Silero VAD: pre-trained enterprise-grade Voice Activity Detector",
+  "category": "speech-to-text",
+  "commercial_use": 1,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Bare Metal"
+  ],
+  "docker_available": 0,
+  "docs_url": null,
+  "featured": false,
+  "features": [],
+  "fine_tuning": 0,
+  "github_url": "https://github.com/snakers4/silero-vad",
+  "gui_available": 0,
+  "hardware": [
+    "CPU",
+    "GPU (NVIDIA)"
+  ],
+  "language": [
+    "Python"
+  ],
+  "last_updated": "2026-07-16",
+  "last_verified": "2026-07-22",
+  "license": "MIT",
+  "maturity": "Production / Stable",
+  "min_ram_gb": 1,
+  "model_format": [],
+  "offline_after_setup": 1,
+  "openai_api": 0,
+  "paid_support": 0,
+  "personas": [
+    "Developer"
+  ],
+  "plain_description": "Silero VAD reliably detects when a person is speaking in any audio stream or recording — a critical building block for voice bots, call center automation, and voice-enabled products. It works across 6,000+ languages and runs efficiently on standard CPUs with no cloud dependency, no API keys, and no recurring fees. The bottom line: add accurate voice activity detection to your product in minutes with zero vendor lock-in.",
+  "popularity_score": 9640,
+  "quantization": 0,
+  "recommended_ram_gb": null,
+  "rest_api": 0,
+  "setup_difficulty": "Easy",
+  "slug": "silero-vad",
+  "tag": "Voice Activity Detection",
+  "technical_description": "Silero VAD is a pre-trained Voice Activity Detection (VAD) model that identifies speech segments in audio streams. It is implemented in PyTorch and also distributed as an ONNX model with safetensors weights, supporting CPU inference using AVX instructions and optional GPU acceleration via CUDA. The JIT model footprint is approximately 2 MB and processes 30 ms audio chunks in under 1 ms on a single CPU thread. Integration is available via pip (silero-vad), torch.hub, or ONNX Runtime, with community examples in C++, Rust, Go, Java, C#, and browser JavaScript using ONNX Runtime Web.",
+  "telemetry": "None",
+  "title": "Silero VAD",
+  "url": "https://github.com/snakers4/silero-vad",
+  "use_cases": [
+    "Speech-to-Text"
+  ],
+  "works_with": [
+    "PyTorch",
+    "ONNX Runtime",
+    "torchaudio"
+  ]
+}

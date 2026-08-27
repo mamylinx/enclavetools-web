@@ -1,0 +1,63 @@
+{
+  "body": "🦉 Data Versioning and ML Experiments",
+  "category": "data-utilities",
+  "commercial_use": 1,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Bare Metal",
+    "Docker"
+  ],
+  "docker_available": 1,
+  "docs_url": "https://dvc.org/doc",
+  "featured": false,
+  "features": [
+    "Docker available",
+    "GUI/no-code"
+  ],
+  "fine_tuning": 0,
+  "github_url": "https://github.com/treeverse/dvc",
+  "gui_available": 1,
+  "hardware": [
+    "CPU"
+  ],
+  "language": [
+    "Python"
+  ],
+  "last_updated": "2026-07-21",
+  "last_verified": "2026-07-22",
+  "license": "Apache-2.0",
+  "maturity": "Production / Stable",
+  "min_ram_gb": null,
+  "model_format": [],
+  "offline_after_setup": 1,
+  "openai_api": 0,
+  "paid_support": 0,
+  "personas": [
+    "Developer"
+  ],
+  "plain_description": "DVC lets your team version data and ML models the same way you version code. Track experiments, build reproducible pipelines that only re-run changed steps, and share results using Git plus your existing cloud storage — no servers needed.",
+  "popularity_score": 15770,
+  "quantization": 0,
+  "recommended_ram_gb": null,
+  "rest_api": 0,
+  "setup_difficulty": "Easy",
+  "slug": "dvc",
+  "tag": "Data Version Control",
+  "technical_description": "DVC is an open-source command-line tool for data version control and ML experiment management. It stores data and model artifacts in a content-addressable cache outside of Git, using DVC metafiles as placeholders within the repository. DVC pipelines define computational graphs that connect code, data, and model outputs, supporting incremental execution where only changed steps are re-run. The tool integrates with any cloud or on-premise storage (S3, Azure, GCS, SSH) and provides local experiment tracking with Git-based versioning, hyperparameter comparison, and visualization.",
+  "telemetry": "Unknown",
+  "title": "DVC",
+  "url": "https://dvc.org/",
+  "use_cases": [],
+  "works_with": [
+    "Git",
+    "VS Code",
+    "Amazon S3",
+    "Azure",
+    "Google Cloud",
+    "SSH"
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "body": "🤗 smolagents: a barebones library for agents that think in code.",
+  "category": "agent-frameworks",
+  "commercial_use": 1,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Bare Metal",
+    "Docker"
+  ],
+  "docker_available": 0,
+  "docs_url": "https://huggingface.co/docs/smolagents/index",
+  "featured": false,
+  "features": [
+    "OpenAI-compatible API",
+    "REST API"
+  ],
+  "fine_tuning": 0,
+  "github_url": "https://github.com/huggingface/smolagents",
+  "gui_available": 0,
+  "hardware": [],
+  "language": [
+    "Python"
+  ],
+  "last_updated": "2026-07-21",
+  "last_verified": "2026-07-22",
+  "license": "Apache-2.0",
+  "maturity": "Production / Stable",
+  "min_ram_gb": null,
+  "model_format": [],
+  "offline_after_setup": 1,
+  "openai_api": 1,
+  "paid_support": 0,
+  "personas": [
+    "Developer"
+  ],
+  "plain_description": "smolagents lets you build AI agents that can browse the web, process information, and automate tasks using just a few lines of Python code. It works with any major AI model — from OpenAI and Anthropic to open-source models — and integrates with your existing tools. The bottom line: deploy powerful agentic workflows without heavy framework overhead.",
+  "popularity_score": 28484,
+  "quantization": 0,
+  "recommended_ram_gb": null,
+  "rest_api": 1,
+  "setup_difficulty": "Easy",
+  "slug": "smolagents",
+  "tag": "agent-framework",
+  "technical_description": "smolagents is a lightweight Python library for building and deploying AI agents that use code execution as their primary action mechanism. It implements a ReAct-style loop where LLM-generated Python code is parsed and executed, supporting both CodeAgent (code-based actions) and ToolCallingAgent (JSON/tool-calling actions). The library provides model-agnostic integrations via LiteLLM, Hugging Face Inference Providers, OpenAI-compatible APIs, local transformers models, and cloud provider SDKs (AWS Bedrock, Azure). Agents can be equipped with tools from MCP servers, LangChain, Hugging Face Spaces, or custom Python functions. Code execution supports sandboxed environments including E2B, Modal, Blaxel, and Docker for security isolation.",
+  "telemetry": "Unknown",
+  "title": "smolagents",
+  "url": "https://github.com/huggingface/smolagents",
+  "use_cases": [
+    "Agentic Workflows",
+    "Code Generation",
+    "Chat Assistant"
+  ],
+  "works_with": [
+    "OpenAI",
+    "Anthropic",
+    "LiteLLM",
+    "Hugging Face",
+    "Azure",
+    "Amazon Bedrock",
+    "Together AI",
+    "OpenRouter",
+    "E2B",
+    "Modal",
+    "Blaxel",
+    "Docker",
+    "LangChain"
+  ]
+}

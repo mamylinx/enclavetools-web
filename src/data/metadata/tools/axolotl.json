@@ -1,0 +1,68 @@
+{
+  "body": "Go ahead and axolotl questions",
+  "category": "fine-tuning-training",
+  "commercial_use": 1,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Docker",
+    "Bare Metal",
+    "Cloud"
+  ],
+  "docker_available": 1,
+  "docs_url": "https://docs.axolotl.ai/",
+  "featured": false,
+  "features": [
+    "Docker available",
+    "Fine-tuning",
+    "Quantization",
+    "Paid support"
+  ],
+  "fine_tuning": 1,
+  "github_url": "https://github.com/axolotl-ai-cloud/axolotl",
+  "gui_available": 0,
+  "hardware": [
+    "GPU (NVIDIA)",
+    "GPU (AMD)"
+  ],
+  "language": [
+    "Python"
+  ],
+  "last_updated": "2026-07-21",
+  "last_verified": "2026-07-22",
+  "license": "Apache-2.0",
+  "maturity": "Production / Stable",
+  "min_ram_gb": null,
+  "model_format": [],
+  "offline_after_setup": 1,
+  "openai_api": 0,
+  "paid_support": 1,
+  "personas": [
+    "Developer"
+  ],
+  "plain_description": "Axolotl lets you fine-tune the best open-source LLMs on your own data — no vendor lock-in, no per-seat fees. Get production-quality custom models using your existing GPU hardware with one-click Docker deployment and built-in support for the latest training techniques. Train faster, cheaper, and keep full control of your intellectual property.",
+  "popularity_score": 12231,
+  "quantization": 1,
+  "recommended_ram_gb": null,
+  "rest_api": 0,
+  "setup_difficulty": "Medium",
+  "slug": "axolotl",
+  "tag": "Fine-tuning Framework",
+  "technical_description": "Axolotl is an open-source CLI framework for fine-tuning and post-training large language models. Built on PyTorch, it supports full fine-tuning, LoRA/QLoRA, preference tuning (DPO, KTO, ORPO), reinforcement learning (GRPO, GDPO), and quantization (GPTQ, QAT, NVFP4). It integrates with Hugging Face Hub for datasets and models, supports multi-GPU and multi-node training via FSDP1/FSDP2, DeepSpeed, and torchrun, and ships as both a PyPI package and a Docker image. Key capabilities include Flash Attention 2/3/4, multipacking, sequence parallelism, and custom kernel integrations (Liger, Cut Cross Entropy, ScatterMoE, SonicMoE) for maximizing throughput on NVIDIA and AMD GPUs.",
+  "telemetry": "Opt-out",
+  "title": "Axolotl",
+  "url": "https://github.com/axolotl-ai-cloud/axolotl",
+  "use_cases": [
+    "Fine-Tuning"
+  ],
+  "works_with": [
+    "Hugging Face Hub",
+    "DeepSpeed",
+    "FSDP",
+    "PyTorch",
+    "Docker"
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "body": "The open source codebase powering HuggingChat",
+  "category": "chat-interfaces",
+  "commercial_use": 1,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Docker",
+    "Bare Metal",
+    "Cloud"
+  ],
+  "docker_available": 1,
+  "docs_url": null,
+  "featured": false,
+  "features": [
+    "OpenAI-compatible API",
+    "Docker available",
+    "REST API",
+    "GUI/no-code"
+  ],
+  "fine_tuning": 0,
+  "github_url": "https://github.com/huggingface/chat-ui",
+  "gui_available": 1,
+  "hardware": [
+    "CPU"
+  ],
+  "language": [
+    "TypeScript",
+    "Svelte"
+  ],
+  "last_updated": "2026-07-21",
+  "last_verified": "2026-07-22",
+  "license": "Apache-2.0",
+  "maturity": "Production / Stable",
+  "min_ram_gb": null,
+  "model_format": [],
+  "offline_after_setup": 0,
+  "openai_api": 1,
+  "paid_support": 0,
+  "personas": [
+    "Developer"
+  ],
+  "plain_description": "Deploy a production-ready AI chat interface in minutes — the same open-source engine that powers HuggingChat. Connect it to any OpenAI-compatible provider and give your team a polished web chat experience with no vendor lock-in. MCP tool support, smart model routing, and customizable branding included.",
+  "popularity_score": 10834,
+  "quantization": 0,
+  "recommended_ram_gb": null,
+  "rest_api": 1,
+  "setup_difficulty": "Easy",
+  "slug": "huggingface-chat-ui",
+  "tag": "Chat",
+  "technical_description": "Chat UI is a SvelteKit web application that provides a browser-based chat interface for large language models. It communicates exclusively through OpenAI-compatible REST API endpoints (/v1/chat/completions, /models), supporting any backend that implements this protocol — including llama.cpp server, Ollama, OpenRouter, and Hugging Face Inference Providers. Data persistence (conversation history, user settings, files, and statistics) uses MongoDB, with an embedded fallback for local development. The application includes an optional heuristic-based LLM Router for model selection, MCP (Model Context Protocol) tool support via OpenAI function calling, and environment-variable-driven theming. Deployment options include bare metal (npm), Docker (ghcr.io/huggingface/chat-ui-db), or any SvelteKit adapter for cloud platforms.",
+  "telemetry": "Unknown",
+  "title": "Chat UI",
+  "url": "https://github.com/huggingface/chat-ui",
+  "use_cases": [
+    "Chat Assistant",
+    "Agentic Workflows"
+  ],
+  "works_with": [
+    "OpenAI API",
+    "Hugging Face Inference Providers",
+    "llama.cpp",
+    "Ollama",
+    "OpenRouter",
+    "Poe",
+    "MongoDB",
+    "MCP"
+  ]
+}

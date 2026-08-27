@@ -1,0 +1,81 @@
+{
+  "body": "A high-throughput and memory-efficient inference and serving engine for LLMs",
+  "category": "llm-inference",
+  "commercial_use": 1,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Docker",
+    "Bare Metal",
+    "Kubernetes",
+    "Cloud"
+  ],
+  "docker_available": 1,
+  "docs_url": "https://docs.vllm.ai",
+  "featured": false,
+  "features": [
+    "OpenAI-compatible API",
+    "Docker available",
+    "REST API",
+    "Quantization"
+  ],
+  "fine_tuning": 0,
+  "github_url": "https://github.com/vllm-project/vllm",
+  "gui_available": 0,
+  "hardware": [
+    "CPU",
+    "GPU (NVIDIA)",
+    "GPU (AMD)",
+    "GPU (Apple Silicon)",
+    "TPU",
+    "NPU"
+  ],
+  "language": [
+    "Python"
+  ],
+  "last_updated": "2026-07-22",
+  "last_verified": "2026-07-22",
+  "license": "Apache-2.0",
+  "maturity": "Production / Stable",
+  "min_ram_gb": null,
+  "model_format": [],
+  "offline_after_setup": 1,
+  "openai_api": 1,
+  "paid_support": 0,
+  "personas": [
+    "Developer",
+    "Business Owner"
+  ],
+  "plain_description": "vLLM is the fastest and most cost-effective way to serve large language models at scale. It slashes inference costs through state-of-the-art throughput and smarter memory management with PagedAttention. The bottom line: deploy any LLM in production with lower latency and lower infrastructure bills.",
+  "popularity_score": 86847,
+  "quantization": 1,
+  "recommended_ram_gb": null,
+  "rest_api": 1,
+  "setup_difficulty": "Easy",
+  "slug": "vllm",
+  "tag": "LLM Serving",
+  "technical_description": "vLLM is a high-throughput, memory-efficient inference and serving engine for large language models. It implements PagedAttention for efficient KV-cache management, continuous batching, chunked prefill, and prefix caching. The engine supports distributed inference via tensor, pipeline, data, expert, and context parallelism across NVIDIA, AMD, and Intel GPUs as well as CPUs, TPUs, and NPUs. It provides an OpenAI-compatible API server, Anthropic Messages API, and gRPC endpoints. vLLM supports 200+ model architectures from HuggingFace, multiple quantization formats (FP8, INT4/8, GPTQ, AWQ, GGUF), speculative decoding (EAGLE, DFlash), structured output generation via xgrammar or guidance, and multi-LoRA serving.",
+  "telemetry": "Unknown",
+  "title": "vLLM",
+  "url": "https://github.com/vllm-project/vllm",
+  "use_cases": [
+    "Model Serving",
+    "Chat Assistant",
+    "RAG",
+    "Agentic Workflows",
+    "Speech-to-Text"
+  ],
+  "works_with": [
+    "HuggingFace",
+    "OpenAI",
+    "Anthropic",
+    "Docker",
+    "Kubernetes",
+    "Ray",
+    "SageMaker",
+    "FlashAttention"
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "body": "text-generation",
+  "category": "llm-models",
+  "commercial_use": 1,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Cloud",
+    "Mobile",
+    "Bare Metal"
+  ],
+  "docker_available": 0,
+  "docs_url": "https://github.com/microsoft/Phi-3CookBook",
+  "featured": false,
+  "features": [
+    "Fine-tuning",
+    "Quantization",
+    "GUI/no-code"
+  ],
+  "fine_tuning": 1,
+  "github_url": null,
+  "gui_available": 1,
+  "hardware": [
+    "GPU (NVIDIA)",
+    "CPU"
+  ],
+  "language": [
+    "en"
+  ],
+  "last_updated": "2025-12-10",
+  "last_verified": "2026-07-22",
+  "license": "MIT",
+  "maturity": "Production / Stable",
+  "min_ram_gb": 7.6,
+  "model_format": [
+    "safetensors"
+  ],
+  "offline_after_setup": 1,
+  "openai_api": 0,
+  "paid_support": 0,
+  "personas": [
+    "Developer",
+    "Business Owner"
+  ],
+  "plain_description": "The big picture: Phi-3 Mini brings enterprise-grade AI language capabilities to your applications without requiring massive infrastructure — it is a compact model that delivers strong reasoning, coding, and long-context analysis on cost-effective hardware. Why it matters: At 3.8 billion parameters, it outperforms many larger models while using significantly less computing power and memory. The bottom line: Get production-ready AI with lower costs and simpler deployment.",
+  "popularity_score": 247591,
+  "quantization": 1,
+  "recommended_ram_gb": 11.4,
+  "rest_api": 0,
+  "setup_difficulty": "Medium",
+  "slug": "phi-3-microsoft",
+  "tag": "text-generation",
+  "technical_description": "Phi-3-Mini-128K-Instruct is a 3.8 billion-parameter, dense decoder-only Transformer model for text generation. It supports up to 128K tokens of context and has been post-trained via supervised fine-tuning (SFT) and direct preference optimization (DPO) for instruction-following and safety alignment. The model integrates with HuggingFace Transformers (v4.41.3+) and is distributed in safetensors format with ONNX, GGUF, and PyTorch variants available. It uses Flash Attention for inference on NVIDIA GPUs (A100, A6000, H100) and can run on CPU and mobile devices via ONNX Runtime. The model supports chat-format prompting with system, user, and assistant roles, and is capable of code generation, long-document understanding, reasoning, and structured output. Fine-tuning is supported via TRL and Accelerate; int4 quantization (AWQ, RTN) is available through ONNX-format models.",
+  "telemetry": "Unknown",
+  "title": "Phi-3 Mini 128K Instruct",
+  "url": "https://huggingface.co/microsoft/Phi-3-mini-128k-instruct",
+  "use_cases": [
+    "Chat Assistant",
+    "Code Generation",
+    "Summarization",
+    "RAG",
+    "Fine-Tuning",
+    "Document Processing"
+  ],
+  "works_with": [
+    "HuggingFace Transformers",
+    "PyTorch",
+    "ONNX Runtime",
+    "Flash Attention",
+    "Azure AI Studio",
+    "TRL",
+    "Accelerate"
+  ],
+  "calculator_model": "3.8|32|32|32|96"
+}

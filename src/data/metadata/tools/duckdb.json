@@ -1,0 +1,60 @@
+{
+  "body": "DuckDB is an analytical in-process SQL database management system",
+  "category": "data-utilities",
+  "commercial_use": 1,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Desktop App",
+    "Bare Metal"
+  ],
+  "docker_available": 0,
+  "docs_url": "https://duckdb.org/docs/current/",
+  "featured": false,
+  "features": [],
+  "fine_tuning": 0,
+  "github_url": "https://github.com/duckdb/duckdb",
+  "gui_available": 0,
+  "hardware": [
+    "CPU"
+  ],
+  "language": [
+    "C++"
+  ],
+  "last_updated": "2026-07-22",
+  "last_verified": "2026-07-22",
+  "license": "MIT",
+  "maturity": "Production / Stable",
+  "min_ram_gb": null,
+  "model_format": [],
+  "offline_after_setup": 1,
+  "openai_api": 0,
+  "paid_support": 0,
+  "personas": [
+    "Developer"
+  ],
+  "plain_description": "DuckDB lets you run fast, powerful SQL analytics directly on your data files without setting up a separate database server. Just embed it in your app or use the command-line tool to query CSV, Parquet, and JSON instantly. The bottom line: enterprise-grade analytics with zero infrastructure.",
+  "popularity_score": 39606,
+  "quantization": 0,
+  "recommended_ram_gb": null,
+  "rest_api": 0,
+  "setup_difficulty": "Easy",
+  "slug": "duckdb",
+  "tag": "Analytical Database",
+  "technical_description": "DuckDB is an in-process, columnar SQL OLAP database engine implemented in C++17 with no external server dependency. It embeds as a library accessible via C, Python, R, Java, Swift, and Wasm bindings, executing vectorized queries directly against CSV, Parquet, JSON, and native storage formats. The engine features a full SQL:2011 dialect with window functions, complex nested types (arrays, structs, maps), nested correlated subqueries, and a pluggable extension system for Parquet, JSON, ICU, and full-text search. Integration supports zero-copy Arrow interchange and direct query pushdown.",
+  "telemetry": "Unknown",
+  "title": "DuckDB",
+  "url": "https://duckdb.org/",
+  "use_cases": [],
+  "works_with": [
+    "pandas",
+    "dplyr",
+    "Python",
+    "R",
+    "Java",
+    "Wasm"
+  ]
+}

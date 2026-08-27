@@ -1,0 +1,65 @@
+{
+  "body": "llama and other  large language models on iOS and MacOS offline using GGML library.",
+  "category": "chat-interfaces",
+  "commercial_use": 1,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Desktop App",
+    "Mobile"
+  ],
+  "docker_available": 0,
+  "docs_url": "https://llmfarm.tech/docs",
+  "featured": false,
+  "features": [
+    "Quantization",
+    "GUI/no-code"
+  ],
+  "fine_tuning": 0,
+  "github_url": "https://github.com/guinmoon/LLMFarm",
+  "gui_available": 1,
+  "hardware": [
+    "CPU",
+    "GPU (Apple Silicon)",
+    "Edge Device"
+  ],
+  "language": [
+    "C",
+    "Swift",
+    "C++"
+  ],
+  "last_updated": "2026-01-30",
+  "last_verified": "2026-07-22",
+  "license": "MIT",
+  "maturity": "Production / Stable",
+  "min_ram_gb": null,
+  "model_format": [],
+  "offline_after_setup": 1,
+  "openai_api": 0,
+  "paid_support": 0,
+  "personas": [
+    "Developer",
+    "Indie Hacker"
+  ],
+  "plain_description": "The big picture: Run powerful AI language models directly on your iPhone, iPad, or Mac — completely offline with no internet connection needed. Here's why it matters: You can test, compare, and run dozens of models privately on your own device without sending data to the cloud. The bottom line: private, on-device AI that works anywhere.",
+  "popularity_score": 2049,
+  "quantization": 1,
+  "recommended_ram_gb": null,
+  "rest_api": 0,
+  "setup_difficulty": null,
+  "slug": "llmfarm",
+  "tag": "LLM",
+  "technical_description": "LLMFarm is a native iOS and macOS application for running large language models (LLMs) locally using the ggml library and llama.cpp. It supports multiple model architectures including LLaMA, Gemma, Phi, Falcon, Mamba, RWKV, and multimodal models such as LLaVA and BakLLaVA. Inference is accelerated via Metal on Apple Silicon and runs entirely on-device with no cloud dependency. The application provides configurable sampling methods (temperature, top-k, top-p, tail-free sampling, Mirostat, grammar-based sampling), persistent context state management, Apple Shortcuts integration, and a built-in RAG (Retrieval-Augmented Generation) system. Models are loaded in GGML and GGUF formats.",
+  "telemetry": "Unknown",
+  "title": "LLMFarm",
+  "url": "https://github.com/guinmoon/LLMFarm",
+  "use_cases": [
+    "Chat Assistant",
+    "RAG",
+    "Model Serving"
+  ],
+  "works_with": []
+}

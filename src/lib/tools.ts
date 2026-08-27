@@ -1,4 +1,4 @@
-import toolsData from '../data/tools.json';
+import toolsData from '../data/generated/tools.json';
 import { categoryValue, type ToolWithCategory } from '../utils/toolModel';
 
 interface ToolsConfig {

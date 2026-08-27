@@ -1,0 +1,65 @@
+{
+  "body": "HunyuanVideo: A Systematic Framework For Large Video Generation Model",
+  "category": "video-generation",
+  "commercial_use": 0,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Docker",
+    "Bare Metal"
+  ],
+  "docker_available": 1,
+  "docs_url": null,
+  "featured": false,
+  "features": [
+    "Docker available",
+    "Quantization",
+    "GUI/no-code"
+  ],
+  "fine_tuning": 0,
+  "github_url": "https://github.com/Tencent-Hunyuan/HunyuanVideo",
+  "gui_available": 1,
+  "hardware": [
+    "GPU (NVIDIA)"
+  ],
+  "language": [
+    "Python"
+  ],
+  "last_updated": "2026-06-29",
+  "last_verified": "2026-07-22",
+  "license": null,
+  "maturity": "Production / Stable",
+  "min_ram_gb": 60,
+  "model_format": [],
+  "offline_after_setup": 1,
+  "openai_api": 0,
+  "paid_support": 0,
+  "personas": [
+    "Developer"
+  ],
+  "plain_description": "Generate high-quality videos from text descriptions with HunyuanVideo, Tencent's open-source foundation model that outperforms leading commercial alternatives like Runway Gen-3 and Luma 1.6. It handles everything from simple prompts to complex scenes with superior motion quality and visual fidelity. The bottom line: create production-ready video content without the cost of closed-source solutions.",
+  "popularity_score": 12355,
+  "quantization": 1,
+  "recommended_ram_gb": 80,
+  "rest_api": 0,
+  "setup_difficulty": "Hard",
+  "slug": "hunyuanvideo",
+  "tag": "Video Generation",
+  "technical_description": "HunyuanVideo is an open-source video generation framework implementing a diffusion transformer architecture with over 13 billion parameters. It operates on a spatial-temporally compressed latent space via a Causal 3D VAE and uses a Dual-stream to Single-stream hybrid transformer design with Full Attention. Text conditioning employs a finetuned Multimodal Large Language Model with bidirectional token refinement. The runtime requires an NVIDIA GPU with CUDA, minimum 45 GB GPU memory (60 GB for 720p), and supports Docker deployment, Gradio web interface, FP8 quantization, and parallel multi-GPU inference via xDiT with Unified Sequence Parallelism.",
+  "telemetry": "Unknown",
+  "title": "HunyuanVideo",
+  "url": "https://github.com/Tencent/HunyuanVideo",
+  "use_cases": [
+    "Image Generation"
+  ],
+  "works_with": [
+    "ComfyUI",
+    "Diffusers",
+    "Gradio",
+    "xDiT",
+    "Hugging Face"
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "body": "The best OSS video generation models, created by Genmo",
+  "category": "video-generation",
+  "commercial_use": 1,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Bare Metal"
+  ],
+  "docker_available": 0,
+  "docs_url": null,
+  "featured": false,
+  "features": [
+    "Fine-tuning",
+    "GUI/no-code"
+  ],
+  "fine_tuning": 1,
+  "github_url": "https://github.com/genmoai/mochi",
+  "gui_available": 1,
+  "hardware": [
+    "GPU (NVIDIA)"
+  ],
+  "language": [
+    "Python"
+  ],
+  "last_updated": "2025-11-14",
+  "last_verified": "2026-07-22",
+  "license": "Apache-2.0",
+  "maturity": "Beta",
+  "min_ram_gb": 60,
+  "model_format": [],
+  "offline_after_setup": 1,
+  "openai_api": 0,
+  "paid_support": 0,
+  "personas": [
+    "Developer"
+  ],
+  "plain_description": "The big picture: Genmo's Mochi 1 brings high-quality video generation to open source, letting you create custom videos on your own hardware with no per-generation fees. Fine-tune it on your own footage using LoRA adapters, and run it through a simple web interface or programmatic API. The bottom line: professional video generation without vendor lock-in or recurring API costs.",
+  "popularity_score": 3701,
+  "quantization": 0,
+  "recommended_ram_gb": 80,
+  "rest_api": 0,
+  "setup_difficulty": "Medium",
+  "slug": "mochi-1",
+  "tag": "Text-to-Video",
+  "technical_description": "Mochi 1 is a 10-billion-parameter open-source diffusion model for text-to-video generation, built on the Asymmetric Diffusion Transformer (AsymmDiT) architecture with 48 layers, 24 attention heads, and separate MLP streams for visual (3072-dim) and text (1536-dim) tokens. The accompanying AsymmVAE provides causal 128x spatiotemporal compression via an asymmetric encoder-decoder design. Inference runs through PyTorch with optional flash attention, requiring approximately 60 GB VRAM for single-GPU operation with support for multi-GPU model parallelism. The repository exposes a composable Python pipeline API, a CLI for batch generation, and a Gradio web interface. LoRA fine-tuning is supported on H100 or A100 80 GB GPUs via a dedicated trainer, with safetensors checkpoint format.",
+  "telemetry": "Unknown",
+  "title": "Mochi 1",
+  "url": "https://github.com/genmoai/models",
+  "use_cases": [
+    "Fine-Tuning"
+  ],
+  "works_with": [
+    "ComfyUI"
+  ]
+}

@@ -5,15 +5,26 @@ if (category === "llm-models" || category === "embedding-models") {
   return null;
 }
 ---
-  <div class="relative bg-linear-to-br from-accent-red/8 via-white to-accent-yellow/10 backdrop-blur-sm border border-accent-red/20 p-6 md:p-8 rounded-3xl shadow-sm shadow-brand-forest/5">
-  <div class="absolute -top-4 -right-2 text-4xl drop-shadow-md">🛡️</div>
-  <h3 class="text-xl font-extrabold text-brand-forest mb-2">
-    Deploying {toolName} in production?
-  </h3>
-  <p class="text-brand-muted mb-4">
-    Stop silent telemetry leaks before they trigger an unintended data leak. Get our <strong>Airgap Certainty Blueprint</strong> for <strong>{toolName}</strong>.
-  </p>
-  <a href={`/privacy-offer?tool=${encodeURIComponent(toolName)}&env=Docker%20Container`} class="inline-flex items-center justify-center text-center bg-gradient-warm text-white font-bold px-6 py-3 rounded-full hover:shadow-lg hover:shadow-accent-red/30 hover:scale-[1.02] transition-all shadow-md shadow-accent-red/20">
-    Request Privacy and Telemetry Audit
-  </a>
-</div>
+
+<section id="setup" class="py-12 border-b border-brand-forest/5">
+  <div
+    class="relative bg-linear-to-br from-accent-red/8 via-white to-accent-yellow/10 backdrop-blur-sm border border-accent-red/20 p-6 md:p-8 rounded-3xl shadow-sm shadow-brand-forest/5"
+  >
+    <div class="absolute -top-4 -right-2 text-4xl drop-shadow-md">🛡️</div>
+    <h3 class="text-xl font-extrabold text-brand-forest mb-2">
+      Deploying {toolName} in production?
+    </h3>
+    <p class="text-brand-muted mb-4">
+      Stop silent telemetry leaks before they trigger an unintended data leak.
+      Get our <strong>Airgap Certainty Blueprint</strong> for <strong
+        >{toolName}</strong
+      >.
+    </p>
+    <a
+      href={`/privacy-offer?tool=${encodeURIComponent(toolName)}&env=Docker%20Container`}
+      class="inline-flex items-center justify-center text-center bg-gradient-warm text-white font-bold px-6 py-3 rounded-full hover:shadow-lg hover:shadow-accent-red/30 hover:scale-[1.02] transition-all shadow-md shadow-accent-red/20"
+    >
+      Request Privacy and Telemetry Audit
+    </a>
+  </div>
+</section>

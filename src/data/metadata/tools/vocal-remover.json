@@ -1,0 +1,55 @@
+{
+  "body": "Vocal Remover using Deep Neural Networks",
+  "category": "data-utilities",
+  "commercial_use": 1,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Bare Metal"
+  ],
+  "docker_available": 0,
+  "docs_url": null,
+  "featured": false,
+  "features": [
+    "Fine-tuning"
+  ],
+  "fine_tuning": 1,
+  "github_url": "https://github.com/tsurumeso/vocal-remover",
+  "gui_available": 0,
+  "hardware": [
+    "CPU",
+    "GPU (NVIDIA)"
+  ],
+  "language": [
+    "Python"
+  ],
+  "last_updated": "2024-07-23",
+  "last_verified": "2026-07-22",
+  "license": "MIT",
+  "maturity": "Production / Stable",
+  "min_ram_gb": null,
+  "model_format": [],
+  "offline_after_setup": 1,
+  "openai_api": 0,
+  "paid_support": 0,
+  "personas": [
+    "Developer"
+  ],
+  "plain_description": "Extract clean instrumental tracks from any song using AI — no studio required. Remove vocals from audio files for karaoke, video production, or music analysis with a single command. The tool runs entirely on your own machine, keeping your audio private and secure.",
+  "popularity_score": 1751,
+  "quantization": 0,
+  "recommended_ram_gb": null,
+  "rest_api": 0,
+  "setup_difficulty": "Medium",
+  "slug": "vocal-remover",
+  "tag": "Audio Processing",
+  "technical_description": "vocal-remover separates mixed audio into instrumental and vocal tracks using deep neural networks implemented in PyTorch. The tool uses a deep U-Net convolutional architecture for audio source separation. It runs inference on CPU or NVIDIA GPU, with optional test-time augmentation and a post-processing mask for improved separation quality. The package includes a training pipeline for users to train custom models on their own instrument/mixture datasets. The tool is distributed as a Python CLI application with dependencies managed through pip.",
+  "telemetry": "Unknown",
+  "title": "Vocal Remover",
+  "url": "https://github.com/tsurumeso/vocal-remover",
+  "use_cases": [],
+  "works_with": []
+}

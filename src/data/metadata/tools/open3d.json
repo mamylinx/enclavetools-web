@@ -1,0 +1,66 @@
+{
+  "body": "Open3D: A Modern Library for 3D Data Processing",
+  "category": "vision-multimodal",
+  "commercial_use": 0,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Docker",
+    "Bare Metal",
+    "Desktop App"
+  ],
+  "docker_available": 1,
+  "docs_url": "https://www.open3d.org/docs",
+  "featured": false,
+  "features": [
+    "Docker available",
+    "GUI/no-code"
+  ],
+  "fine_tuning": 0,
+  "github_url": "https://github.com/isl-org/Open3D",
+  "gui_available": 1,
+  "hardware": [
+    "CPU",
+    "GPU (NVIDIA)"
+  ],
+  "language": [
+    "C++"
+  ],
+  "last_updated": "2026-07-21",
+  "last_verified": "2026-07-22",
+  "license": null,
+  "maturity": "Production / Stable",
+  "min_ram_gb": null,
+  "model_format": [],
+  "offline_after_setup": 1,
+  "openai_api": 0,
+  "paid_support": 0,
+  "personas": [
+    "Developer"
+  ],
+  "plain_description": "Open3D gives your team a complete, production-ready toolkit for building 3D data applications — from point cloud processing to scene reconstruction — without building complex 3D math from scratch. It works in both Python and C++ with GPU acceleration and a large open-source community behind it. The bottom line: ship 3D features faster with fewer resources.",
+  "popularity_score": 13813,
+  "quantization": 0,
+  "recommended_ram_gb": null,
+  "rest_api": 0,
+  "setup_difficulty": "Easy",
+  "slug": "open3d",
+  "tag": "3D Data Processing",
+  "technical_description": "Open3D is an open-source library for 3D data processing, providing optimized data structures and algorithms in C++ and Python via pybind11 bindings. The backend is parallelized for CPU and GPU (CUDA) execution. Core modules include geometry processing, scene reconstruction, SLAM, registration, physically based rendering, and 3D visualization. The library integrates with PyTorch and TensorFlow for 3D machine learning tasks through the Open3D-ML extension. Deployment options include pip packages (Linux, macOS, Windows), C++ CMake integration, Docker containers, and a standalone desktop viewer application.",
+  "telemetry": "Unknown",
+  "title": "Open3D",
+  "url": "http://www.open3d.org/",
+  "use_cases": [],
+  "works_with": [
+    "Python",
+    "C++",
+    "PyTorch",
+    "TensorFlow",
+    "CMake",
+    "CUDA",
+    "Open3D-ML"
+  ]
+}

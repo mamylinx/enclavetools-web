@@ -1,0 +1,63 @@
+{
+  "body": "The community repository for the Draw Things app.",
+  "category": "image-generation",
+  "commercial_use": 1,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Docker",
+    "Bare Metal",
+    "Desktop App",
+    "Mobile"
+  ],
+  "docker_available": 1,
+  "docs_url": null,
+  "featured": false,
+  "features": [
+    "Docker available"
+  ],
+  "fine_tuning": 0,
+  "github_url": "https://github.com/drawthingsai/draw-things-community",
+  "gui_available": 0,
+  "hardware": [
+    "CPU",
+    "GPU (NVIDIA)",
+    "GPU (Apple Silicon)"
+  ],
+  "language": [
+    "C"
+  ],
+  "last_updated": "2026-07-21",
+  "last_verified": "2026-07-22",
+  "license": "GPL-3.0",
+  "maturity": "Production / Stable",
+  "min_ram_gb": null,
+  "model_format": [],
+  "offline_after_setup": 0,
+  "openai_api": 0,
+  "paid_support": 0,
+  "personas": [
+    "Developer"
+  ],
+  "plain_description": "Run professional AI image generation on your own infrastructure — Apple devices, Linux GPU servers, or both. No cloud dependency, no per-image fees, full control over your data and models. Also supports LoRA fine-tuning and model serving for production workflows.",
+  "popularity_score": 520,
+  "quantization": 0,
+  "recommended_ram_gb": null,
+  "rest_api": 0,
+  "setup_difficulty": "Medium",
+  "slug": "draw-things",
+  "tag": "Image Generation",
+  "technical_description": "Draw Things Community is the open-source repository containing the core inference, training, and serving components of the Draw Things application. It provides re-implementations of diffusion model architectures and samplers, a gRPC server (gRPCServerCLI) for headless GPU-accelerated inference on Linux and macOS, and a CLI tool for local generation and LoRA fine-tuning. The server supports NVIDIA CUDA acceleration on Linux via Docker or bare-metal deployment, while the macOS toolchain leverages CoreML and Apple Silicon. Builds are managed with Bazel or Swift Package Manager, with pre-built binaries available for both platforms.",
+  "telemetry": "Unknown",
+  "title": "Draw Things Community",
+  "url": "https://drawthings.ai/",
+  "use_cases": [
+    "Image Generation",
+    "Fine-Tuning",
+    "Model Serving"
+  ],
+  "works_with": []
+}

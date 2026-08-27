@@ -1,0 +1,72 @@
+{
+  "body": "CodeGeeX: An Open Multilingual Code Generation Model (KDD 2023)",
+  "category": "code-assistants",
+  "commercial_use": 1,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Docker",
+    "Bare Metal"
+  ],
+  "docker_available": 1,
+  "docs_url": null,
+  "featured": false,
+  "features": [
+    "Docker available",
+    "Fine-tuning",
+    "Quantization",
+    "GUI/no-code"
+  ],
+  "fine_tuning": 1,
+  "github_url": "https://github.com/zai-org/CodeGeeX",
+  "gui_available": 1,
+  "hardware": [
+    "GPU (NVIDIA)",
+    "NPU"
+  ],
+  "language": [
+    "Python"
+  ],
+  "last_updated": "2024-08-13",
+  "last_verified": "2026-07-22",
+  "license": "Apache-2.0",
+  "maturity": "Mature / Maintenance",
+  "min_ram_gb": null,
+  "model_format": [],
+  "offline_after_setup": 1,
+  "openai_api": 0,
+  "paid_support": 0,
+  "personas": [
+    "Developer"
+  ],
+  "plain_description": "CodeGeeX boosts developer productivity by automatically generating, translating, and explaining code across 20+ programming languages. Deploy it as a VS Code or JetBrains extension for instant AI-powered code suggestions without leaving your editor. The open-source model runs on your own infrastructure or cloud GPUs, keeping your code data private.",
+  "popularity_score": 8800,
+  "quantization": 1,
+  "recommended_ram_gb": null,
+  "rest_api": 0,
+  "setup_difficulty": "Medium",
+  "slug": "codegeex",
+  "tag": "Code Generation",
+  "technical_description": "CodeGeeX is a 13-billion parameter autoregressive decoder-only transformer for multilingual code generation. The model contains 40 transformer layers with 5,120 hidden dimensions and 20,480 feed-forward dimensions, supporting 2,048-token sequences. It was pre-trained on 850 billion tokens across 23 programming languages on 1,536 Ascend 910 processors. CodeGeeX provides inference on NVIDIA GPUs (V100, A100) and Ascend 910, with quantization reducing GPU memory from 27 GB to 15 GB and INT8 acceleration achieving sub-15ms/token. It integrates with VS Code and JetBrains IDEs via extensions and supports containerized deployment through Docker.",
+  "telemetry": "Unknown",
+  "title": "CodeGeeX",
+  "url": "https://github.com/THUDM/CodeGeeX",
+  "use_cases": [
+    "Code Generation",
+    "Translation",
+    "Summarization",
+    "Fine-Tuning"
+  ],
+  "works_with": [
+    "PyTorch",
+    "MindSpore",
+    "DeepSpeed",
+    "Megatron-LM",
+    "VS Code",
+    "JetBrains",
+    "Docker"
+  ]
+}

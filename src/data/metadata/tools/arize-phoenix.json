@@ -1,0 +1,81 @@
+{
+  "body": "AI Observability & Evaluation",
+  "category": "monitoring-observability",
+  "commercial_use": 0,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Docker",
+    "Kubernetes",
+    "Cloud"
+  ],
+  "docker_available": 1,
+  "docs_url": "https://arize.com/docs/phoenix/",
+  "featured": false,
+  "features": [
+    "Docker available",
+    "REST API",
+    "GUI/no-code"
+  ],
+  "fine_tuning": 0,
+  "github_url": "https://github.com/Arize-ai/phoenix",
+  "gui_available": 1,
+  "hardware": [],
+  "language": [
+    "Python",
+    "TypeScript"
+  ],
+  "last_updated": "2026-07-22",
+  "last_verified": "2026-07-22",
+  "license": null,
+  "maturity": "Production / Stable",
+  "min_ram_gb": null,
+  "model_format": [],
+  "offline_after_setup": 1,
+  "openai_api": 0,
+  "paid_support": 0,
+  "personas": [
+    "Developer"
+  ],
+  "plain_description": "Make your AI applications reliable and observable. Phoenix is an open-source platform that lets you trace, evaluate, and debug LLM-powered features — from chatbots to agent workflows. The big picture: ship AI with confidence by catching issues before they reach users.",
+  "popularity_score": 10671,
+  "quantization": 0,
+  "recommended_ram_gb": null,
+  "rest_api": 1,
+  "setup_difficulty": "Easy",
+  "slug": "arize-phoenix",
+  "tag": "AI Observability",
+  "technical_description": "Phoenix is an open-source AI observability platform built on OpenTelemetry. It provides tracing, evaluation, experimentation, and prompt management for LLM applications. The platform ingests OpenTelemetry traces via OpenInference instrumentation, supports a REST API and GraphQL API for programmatic access, and includes a web-based UI for visualization, debugging, and prompt engineering. It supports Python, TypeScript, Java, and Go clients, integrates with major LLM providers and agent frameworks, and can be deployed locally via pip, in Docker containers, on Kubernetes with Helm, or on cloud platforms.",
+  "telemetry": "Opt-out",
+  "title": "Phoenix",
+  "url": "https://github.com/Arize-ai/phoenix",
+  "use_cases": [
+    "RAG",
+    "Agentic Workflows",
+    "Fine-Tuning"
+  ],
+  "works_with": [
+    "OpenAI",
+    "LangChain",
+    "LlamaIndex",
+    "Anthropic",
+    "LangGraph",
+    "CrewAI",
+    "DSPy",
+    "Haystack",
+    "Vercel AI SDK",
+    "LiteLLM",
+    "AWS Bedrock",
+    "Google GenAI",
+    "MistralAI",
+    "OpenTelemetry",
+    "Mastra",
+    "Docker",
+    "Kubernetes",
+    "Spring AI",
+    "OpenInference"
+  ]
+}

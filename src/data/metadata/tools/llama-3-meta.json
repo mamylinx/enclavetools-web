@@ -1,0 +1,60 @@
+{
+  "body": "text-generation",
+  "category": "llm-models",
+  "commercial_use": 0,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Bare Metal"
+  ],
+  "docker_available": 0,
+  "docs_url": null,
+  "featured": false,
+  "features": [],
+  "fine_tuning": 0,
+  "github_url": null,
+  "gui_available": 0,
+  "hardware": [
+    "GPU (NVIDIA)"
+  ],
+  "language": [
+    "en"
+  ],
+  "last_updated": "2025-06-18",
+  "last_verified": "2026-07-22",
+  "license": "llama3",
+  "maturity": "Inactive / Unmaintained",
+  "min_ram_gb": 16.1,
+  "model_format": [
+    "safetensors"
+  ],
+  "offline_after_setup": 0,
+  "openai_api": 0,
+  "paid_support": 0,
+  "personas": [
+    "Developer"
+  ],
+  "plain_description": "The big picture: Meta's Llama 3 gives businesses and creators access to powerful large language models (8B to 70B parameters) for building AI applications. Here's why it matters: you can run pre-trained and instruction-tuned models locally for text generation and chat, with model weights and inference code provided. The bottom line: this repo is deprecated in favor of the newer Llama 3.1 / Llama Stack ecosystem.",
+  "popularity_score": 1617716,
+  "quantization": 0,
+  "recommended_ram_gb": 24.2,
+  "rest_api": 0,
+  "setup_difficulty": "Medium",
+  "slug": "llama-3-meta",
+  "tag": "Large Language Model",
+  "technical_description": "This repository provides model weights and inference code for Meta Llama 3, a family of auto-regressive language models ranging from 8B to 70B parameters. It supports pre-trained (base) and instruction-tuned variants with sequence lengths up to 8192 tokens. Inference requires PyTorch with CUDA and uses torchrun with model parallelism (MP=1 for 8B, MP=8 for 70B). The codebase includes example scripts for text completion and chat completion with a specific chat format using special tokens. Models are distributed as native weights downloadable via a signed URL or Hugging Face, and the repo is deprecated in favor of the consolidated Llama Stack repositories.",
+  "telemetry": "Unknown",
+  "title": "Llama 3",
+  "url": "https://ai.meta.com/llama/",
+  "use_cases": [
+    "Chat Assistant",
+    "Text-to-Speech"
+  ],
+  "works_with": [
+    "Hugging Face Transformers"
+  ],
+  "calculator_model": "8|32|32|8|128"
+}

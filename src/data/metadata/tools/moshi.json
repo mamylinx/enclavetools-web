@@ -1,0 +1,64 @@
+{
+  "body": "Moshi is a speech-text foundation model and full-duplex spoken dialogue framework. It uses Mimi, a state-of-the-art streaming neural audio codec.",
+  "category": "text-to-speech",
+  "commercial_use": 1,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Docker",
+    "Desktop App",
+    "Mobile",
+    "Bare Metal"
+  ],
+  "docker_available": 1,
+  "docs_url": null,
+  "featured": false,
+  "features": [
+    "Docker available",
+    "GUI/no-code"
+  ],
+  "fine_tuning": 0,
+  "github_url": "https://github.com/kyutai-labs/moshi",
+  "gui_available": 1,
+  "hardware": [
+    "GPU (NVIDIA)",
+    "GPU (Apple Silicon)"
+  ],
+  "language": [
+    "Python",
+    "Rust"
+  ],
+  "last_updated": "2026-05-16",
+  "last_verified": "2026-07-22",
+  "license": "Apache-2.0",
+  "maturity": "Beta",
+  "min_ram_gb": null,
+  "model_format": [],
+  "offline_after_setup": 0,
+  "openai_api": 0,
+  "paid_support": 0,
+  "personas": [
+    "Developer"
+  ],
+  "plain_description": "Moshi enables real-time voice conversations with AI by processing speech and text simultaneously. It understands what you say and responds in under 200 milliseconds while you are still talking, making interactions feel natural. Run it on your own infrastructure with Docker or deploy on Apple devices with MLX acceleration.",
+  "popularity_score": 10653,
+  "quantization": 0,
+  "recommended_ram_gb": null,
+  "rest_api": 0,
+  "setup_difficulty": "Medium",
+  "slug": "moshi",
+  "tag": null,
+  "technical_description": "Moshi is a 7B-parameter speech-text foundation model implementing full-duplex spoken dialogue. It uses the Mimi streaming neural audio codec (12.5 Hz frame rate, 1.1 kbps bandwidth, 80 ms latency) to process 24 kHz audio. The architecture combines a Depth Transformer for inter-codebook dependencies with a Temporal Transformer for temporal modeling. Three implementations are available: PyTorch (research, requires 24 GB GPU), MLX (Apple Silicon on-device inference), and Rust/Candle (production, CUDA or Metal acceleration). Deployment options include Docker Compose, pip-installable packages, and a web UI with echo cancellation.",
+  "telemetry": "Unknown",
+  "title": "Moshi",
+  "url": "https://moshi.chat/",
+  "use_cases": [
+    "Chat Assistant",
+    "Speech-to-Text",
+    "Text-to-Speech"
+  ],
+  "works_with": []
+}

@@ -1,0 +1,93 @@
+{
+  "body": "Get up and running with Kimi-K2.6, GLM-5.2, MiniMax, DeepSeek, gpt-oss, Qwen, Gemma and other models.",
+  "category": "llm-inference",
+  "commercial_use": 1,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Docker",
+    "Bare Metal",
+    "Kubernetes",
+    "Cloud",
+    "Desktop App"
+  ],
+  "docker_available": 1,
+  "docs_url": "https://docs.ollama.com",
+  "featured": false,
+  "features": [
+    "OpenAI-compatible API",
+    "Docker available",
+    "REST API",
+    "Quantization",
+    "GUI/no-code"
+  ],
+  "fine_tuning": 0,
+  "github_url": "https://github.com/ollama/ollama",
+  "gui_available": 1,
+  "hardware": [
+    "CPU",
+    "GPU (NVIDIA)",
+    "GPU (Apple Silicon)"
+  ],
+  "language": [
+    "Go",
+    "C"
+  ],
+  "last_updated": "2026-07-22",
+  "last_verified": "2026-07-22",
+  "license": "MIT",
+  "maturity": "Production / Stable",
+  "min_ram_gb": null,
+  "model_format": [],
+  "offline_after_setup": 1,
+  "openai_api": 1,
+  "paid_support": 0,
+  "personas": [
+    "Developer",
+    "Indie Hacker"
+  ],
+  "plain_description": "Run hundreds of open-source AI models on your own hardware with zero cloud dependency. The big picture: download, install, and start chatting with models like Gemma, DeepSeek, Qwen, and Llama in minutes. Here's why it matters: no subscription, no API keys, and full data privacy — everything runs locally on your machine. The bottom line: a single binary that handles model management, inference, and API access so you and your team can experiment with AI without vendor lock-in.",
+  "popularity_score": 176623,
+  "quantization": 1,
+  "recommended_ram_gb": null,
+  "rest_api": 1,
+  "setup_difficulty": "Easy",
+  "slug": "ollama",
+  "tag": "LLM Runtime",
+  "technical_description": "Ollama bundles a local LLM server, CLI, and model distribution into a single Go binary. It uses llama.cpp as its core inference backend with GGUF model format, providing CPU and GPU acceleration via NVIDIA CUDA and Apple Silicon Metal. The server exposes a REST API on localhost:11434 for chat, generation, embedding, and model lifecycle management, with official Python and JavaScript client libraries. Deployment options include bare-metal installers for macOS, Windows, and Linux, a Docker image on Docker Hub, and Kubernetes via a Helm chart. The project supports image generation via an experimental sub-system and offers OpenAI-compatible API endpoints through the openai/ package.",
+  "telemetry": "Unknown",
+  "title": "Ollama",
+  "url": "https://ollama.com/",
+  "use_cases": [
+    "Chat Assistant",
+    "Model Serving",
+    "Code Generation",
+    "RAG",
+    "Agentic Workflows"
+  ],
+  "works_with": [
+    "Claude Code",
+    "OpenClaw",
+    "OpenCode",
+    "Codex",
+    "Copilot",
+    "LangChain",
+    "LlamaIndex",
+    "Haystack",
+    "LiteLLM",
+    "Open WebUI",
+    "Docker",
+    "Continue",
+    "Cline",
+    "crewAI",
+    "pgai",
+    "Google Cloud",
+    "Fly.io",
+    "Discord",
+    "AutoGPT",
+    "Open Interpreter"
+  ]
+}

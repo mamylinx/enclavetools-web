@@ -3,7 +3,7 @@ import Layout from "../../layouts/Layout.astro";
 import Dashboard from "../../components/Dashboard.vue";
 import ItemListSchema from "../../components/schema/ItemListSchema.astro";
 import BreadcrumbSchema from "../../components/schema/BreadcrumbSchema.astro";
-import toolsData from "../../data/tools.json";
+import toolsData from "../../data/generated/tools.json";
 
 export function getStaticPaths({ paginate }: any) {
     const categories = toolsData.tools.map((cat: any) => cat.category);

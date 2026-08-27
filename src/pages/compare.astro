@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import CompareView from "../components/CompareView.vue";
 import CompareTray from "../components/CompareTray.vue";
-import toolsData from "../data/tools.json";
+import toolsData from "../data/generated/tools.json";
 
 const allTools = toolsData.tools.flatMap((cat: any) =>
   cat.content.map((tool: any) => ({

@@ -1,0 +1,57 @@
+{
+  "body": "Code for the paper Hybrid Spectrogram and Waveform Source Separation",
+  "category": "data-utilities",
+  "commercial_use": 1,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Docker",
+    "Desktop App"
+  ],
+  "docker_available": 0,
+  "docs_url": null,
+  "featured": false,
+  "features": [],
+  "fine_tuning": 0,
+  "github_url": "https://github.com/facebookresearch/demucs",
+  "gui_available": 0,
+  "hardware": [
+    "GPU (NVIDIA)",
+    "CPU"
+  ],
+  "language": [
+    "Python"
+  ],
+  "last_updated": "2024-04-24",
+  "last_verified": "2026-07-22",
+  "license": "MIT",
+  "maturity": "Inactive / Unmaintained",
+  "min_ram_gb": 3,
+  "model_format": [],
+  "offline_after_setup": 0,
+  "openai_api": 0,
+  "paid_support": 0,
+  "personas": [
+    "Developer",
+    "Indie Hacker"
+  ],
+  "plain_description": "Demucs separates any song into its individual components — drums, bass, vocals, and other instruments — with state-of-the-art accuracy. Musicians and producers can isolate stems for remixing, karaoke, or audio cleanup without needing a studio. The big picture: it's a free, open-source tool that delivers professional-grade source separation on a standard computer.",
+  "popularity_score": 10341,
+  "quantization": 0,
+  "recommended_ram_gb": 7,
+  "rest_api": 0,
+  "setup_difficulty": "Medium",
+  "slug": "demucs",
+  "tag": "Audio Separation",
+  "technical_description": "Demucs is a music source separation library implementing Hybrid Transformer Demucs (v4), a U-Net convolutional architecture with cross-domain Transformer encoders operating on both spectrogram and waveform representations. It provides a CLI tool and Python API for separating audio into drums, bass, vocals, and accompaniment stems. The model supports GPU acceleration (minimum 3 GB VRAM) and CPU fallback, with processing time roughly 1.5x track duration on CPU. Pre-trained models include htdemucs, htdemucs_ft, htdemucs_6s, hdemucs_mmi, and MDX variants. Installation is via pip, with optional conda environments for training. The project is released under the MIT license and is no longer actively maintained.",
+  "telemetry": "Unknown",
+  "title": "Demucs Music Source Separation",
+  "url": "https://github.com/facebookresearch/demucs",
+  "use_cases": [
+    "Model Serving"
+  ],
+  "works_with": []
+}

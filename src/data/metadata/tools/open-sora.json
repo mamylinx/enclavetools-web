@@ -1,0 +1,65 @@
+{
+  "body": "Open-Sora: Democratizing Efficient Video Production for All",
+  "category": "video-generation",
+  "commercial_use": 1,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Bare Metal"
+  ],
+  "docker_available": 0,
+  "docs_url": null,
+  "featured": false,
+  "features": [
+    "OpenAI-compatible API",
+    "Fine-tuning",
+    "GUI/no-code"
+  ],
+  "fine_tuning": 1,
+  "github_url": "https://github.com/hpcaitech/Open-Sora",
+  "gui_available": 1,
+  "hardware": [
+    "GPU (NVIDIA)"
+  ],
+  "language": [
+    "Python"
+  ],
+  "last_updated": "2026-04-09",
+  "last_verified": "2026-07-22",
+  "license": "Apache-2.0",
+  "maturity": "Production / Stable",
+  "min_ram_gb": null,
+  "model_format": [],
+  "offline_after_setup": 1,
+  "openai_api": 1,
+  "paid_support": 0,
+  "personas": [
+    "Developer"
+  ],
+  "plain_description": "The big picture: Open-Sora gives you professional-quality AI video generation from text prompts — without the six-figure licensing fees of proprietary tools. Here's why it matters: it handles text-to-video, image-to-video, and video editing in one open-source platform that rivals commercial solutions. The bottom line: production-grade video generation at a fraction of the enterprise cost.",
+  "popularity_score": 29211,
+  "quantization": 0,
+  "recommended_ram_gb": null,
+  "rest_api": 0,
+  "setup_difficulty": "Hard",
+  "slug": "open-sora",
+  "tag": "Video Generation",
+  "technical_description": "Open-Sora is an open-source video generation framework built on diffusion transformer (DiT) architecture. The 11B-parameter v2.0 model supports text-to-video and image-to-video generation at up to 768px resolution using 3D-VAE encoding, rectified flow, and score conditioning. Inference runs via torchrun on single or multi-GPU NVIDIA H100/H800 clusters, accelerated by ColossalAI tensor and sequence parallelism. Training and fine-tuning scripts are provided for custom model development. Additional capabilities include motion score control, prompt refinement through OpenAI API integration, and variable aspect ratio generation. The project is distributed as a Python package via pip with CUDA-dependent runtime requirements.",
+  "telemetry": "Unknown",
+  "title": "Open-Sora",
+  "url": "https://github.com/hpcaitech/Open-Sora",
+  "use_cases": [
+    "Image Generation",
+    "Fine-Tuning"
+  ],
+  "works_with": [
+    "HuggingFace",
+    "ModelScope",
+    "ColossalAI",
+    "OpenAI",
+    "Flux"
+  ]
+}

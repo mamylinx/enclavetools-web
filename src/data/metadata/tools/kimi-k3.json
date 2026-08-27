@@ -1,0 +1,72 @@
+{
+  "body": "text-generation",
+  "category": "llm-models",
+  "commercial_use": 1,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-08-24",
+  "deployment": [
+    "Bare Metal",
+    "Cloud"
+  ],
+  "docker_available": 0,
+  "docs_url": "https://platform.moonshot.cn/docs",
+  "featured": false,
+  "features": [
+    "OpenAI-compatible API",
+    "REST API",
+    "Quantization"
+  ],
+  "fine_tuning": 0,
+  "github_url": "https://github.com/MoonshotAI/Kimi-k3",
+  "gui_available": 0,
+  "hardware": [
+    "GPU (NVIDIA)"
+  ],
+  "language": [
+    "en",
+    "zh"
+  ],
+  "last_updated": "2026-08-24",
+  "last_verified": "2026-08-24",
+  "license": "Apache-2.0",
+  "maturity": "Production / Stable",
+  "min_ram_gb": 2040.0,
+  "model_format": [
+    "safetensors"
+  ],
+  "offline_after_setup": 1,
+  "openai_api": 1,
+  "paid_support": 0,
+  "personas": [
+    "Developer",
+    "Business Owner"
+  ],
+  "plain_description": "Kimi K3 is an open-weight Mixture-of-Experts (MoE) foundation model from Moonshot AI featuring a 1-million-token context window and native visual understanding. Engineered specifically for complex agentic workflows, it enables deep document synthesis, autonomous tool invocation, and multi-turn planning at enterprise scale.",
+  "popularity_score": 2400000,
+  "quantization": 1,
+  "recommended_ram_gb": 3060.0,
+  "rest_api": 1,
+  "setup_difficulty": "Hard",
+  "slug": "kimi-k3",
+  "tag": "Large Language Model",
+  "technical_description": "Kimi K3 is a sparse Mixture-of-Experts model offering ultra-long context processing (up to 1M tokens) with native multimodal vision integration. It uses specialized routing and sparse activation layers to keep inference latency low while handling massive document contexts and agent state trees. It integrates seamlessly with vLLM and SGLang distributed inference engines.",
+  "telemetry": "None",
+  "title": "Kimi K3",
+  "url": "https://kimi.ai/",
+  "use_cases": [
+    "Agentic Workflows",
+    "RAG",
+    "Document Processing",
+    "Chat Assistant",
+    "Code Generation"
+  ],
+  "works_with": [
+    "vLLM",
+    "SGLang",
+    "Hugging Face Transformers"
+  ],
+  "calculator_model": "1000|61|64|64|112"
+}

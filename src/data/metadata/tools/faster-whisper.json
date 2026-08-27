@@ -1,0 +1,64 @@
+{
+  "body": "Faster Whisper transcription with CTranslate2",
+  "category": "speech-to-text",
+  "commercial_use": 1,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Bare Metal",
+    "Docker"
+  ],
+  "docker_available": 1,
+  "docs_url": null,
+  "featured": false,
+  "features": [
+    "Docker available",
+    "Quantization"
+  ],
+  "fine_tuning": 0,
+  "github_url": "https://github.com/SYSTRAN/faster-whisper",
+  "gui_available": 0,
+  "hardware": [
+    "CPU",
+    "GPU (NVIDIA)"
+  ],
+  "language": [
+    "Python"
+  ],
+  "last_updated": "2025-11-19",
+  "last_verified": "2026-07-22",
+  "license": "MIT",
+  "maturity": "Production / Stable",
+  "min_ram_gb": null,
+  "model_format": [],
+  "offline_after_setup": 1,
+  "openai_api": 0,
+  "paid_support": 0,
+  "personas": [
+    "Developer"
+  ],
+  "plain_description": "Transcribe audio up to 4x faster while using less memory than OpenAI's Whisper. This reimplementation cuts compute costs and hardware requirements without sacrificing accuracy. It runs on CPU and NVIDIA GPU, supports int8 quantization for further efficiency, and integrates with a broad ecosystem of speech tools.",
+  "popularity_score": 24436,
+  "quantization": 1,
+  "recommended_ram_gb": null,
+  "rest_api": 0,
+  "setup_difficulty": "Medium",
+  "slug": "faster-whisper",
+  "tag": "Transcription",
+  "technical_description": "faster-whisper is a Python library that reimplements OpenAI's Whisper speech-to-text model using the CTranslate2 inference engine. It provides a programmatic API for transcribing audio with configurable model sizes (e.g. large-v3, distil-large-v3), beam search, word-level timestamps, and batched inference. GPU acceleration uses CUDA 12 with fp16 or int8 precision; CPU execution supports int8 quantization. Audio is decoded via PyAV (bundled FFmpeg). Optional Silero VAD filters non-speech segments. Models are automatically downloaded from Hugging Face Hub or loaded from local directories.",
+  "telemetry": "Unknown",
+  "title": "Faster Whisper",
+  "url": "https://github.com/SYSTRAN/faster-whisper",
+  "use_cases": [
+    "Speech-to-Text"
+  ],
+  "works_with": [
+    "CTranslate2",
+    "Hugging Face Hub",
+    "Silero VAD",
+    "PyAV"
+  ]
+}

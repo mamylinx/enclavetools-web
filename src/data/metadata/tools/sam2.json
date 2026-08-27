@@ -1,0 +1,62 @@
+{
+  "body": "The repository provides code for running inference with the Meta Segment Anything Model 2 (SAM 2), links for downloading the trained model checkpoints, and example notebooks that show how to use the model.",
+  "category": "vision-multimodal",
+  "commercial_use": 1,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Docker",
+    "Bare Metal"
+  ],
+  "docker_available": 1,
+  "docs_url": "https://ai.meta.com/sam2",
+  "featured": false,
+  "features": [
+    "Docker available",
+    "Fine-tuning",
+    "GUI/no-code"
+  ],
+  "fine_tuning": 1,
+  "github_url": "https://github.com/facebookresearch/sam2",
+  "gui_available": 1,
+  "hardware": [
+    "GPU (NVIDIA)"
+  ],
+  "language": [
+    "Jupyter Notebook"
+  ],
+  "last_updated": "2026-05-30",
+  "last_verified": "2026-07-22",
+  "license": "Apache-2.0",
+  "maturity": "Production / Stable",
+  "min_ram_gb": null,
+  "model_format": [],
+  "offline_after_setup": 1,
+  "openai_api": 0,
+  "paid_support": 0,
+  "personas": [
+    "Developer"
+  ],
+  "plain_description": "Automatically identify and isolate any object in images and videos with a single click — no manual masking or custom training needed. SAM 2 powers faster content moderation, visual search, video editing, and AR workflows. The bottom line: turn hours of manual pixel-level editing into seconds of automated segmentation.",
+  "popularity_score": 19572,
+  "quantization": 0,
+  "recommended_ram_gb": null,
+  "rest_api": 0,
+  "setup_difficulty": "Medium",
+  "slug": "sam2",
+  "tag": "Computer Vision",
+  "technical_description": "SAM 2 is a foundation model for promptable visual segmentation in images and videos from Meta FAIR. The architecture uses a hierarchical Hiera vision transformer encoder and a mask decoder, extended with streaming memory for real-time video processing and multi-object tracking across frames. The model is implemented in PyTorch with custom CUDA kernels and supports torch.compile for inference optimization. Checkpoints are released in four sizes (tiny 38.9M, small 46M, base_plus 80.8M, large 224.4M parameters) as PyTorch .pt files. The Python API provides SAM2ImagePredictor for image prompting and automatic mask generation, and SAM2VideoPredictor for video segmentation with point, box, and mask prompts. Models can also be loaded from Hugging Face via from_pretrained(). Training and fine-tuning code is included for custom image and video datasets.",
+  "telemetry": "Unknown",
+  "title": "SAM 2",
+  "url": "https://github.com/facebookresearch/sam2",
+  "use_cases": [
+    "Fine-Tuning"
+  ],
+  "works_with": [
+    "Hugging Face",
+    "PyTorch"
+  ]
+}

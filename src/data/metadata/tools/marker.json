@@ -1,0 +1,77 @@
+{
+  "body": "Convert PDF to markdown + JSON quickly with high accuracy",
+  "category": "rag-document",
+  "commercial_use": 1,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Docker",
+    "Bare Metal",
+    "Cloud"
+  ],
+  "docker_available": 0,
+  "docs_url": "https://documentation.datalab.to",
+  "featured": false,
+  "features": [
+    "REST API",
+    "GUI/no-code",
+    "Paid support"
+  ],
+  "fine_tuning": 0,
+  "github_url": "https://github.com/datalab-to/marker",
+  "gui_available": 1,
+  "hardware": [
+    "CPU",
+    "GPU (NVIDIA)",
+    "GPU (Apple Silicon)"
+  ],
+  "language": [
+    "Python"
+  ],
+  "last_updated": "2026-07-20",
+  "last_verified": "2026-07-22",
+  "license": "Apache-2.0",
+  "maturity": "Production / Stable",
+  "min_ram_gb": null,
+  "model_format": [],
+  "offline_after_setup": 1,
+  "openai_api": 0,
+  "paid_support": 1,
+  "personas": [
+    "Developer"
+  ],
+  "plain_description": "Save thousands of hours by automatically converting PDFs, Word docs, Excel sheets, and more into clean, usable formats. Marker preserves tables, equations, images, and document structure — so your team processes documents in seconds instead of hours. The bottom line: faster document workflows mean more time for analysis, not formatting.",
+  "popularity_score": 37742,
+  "quantization": 0,
+  "recommended_ram_gb": null,
+  "rest_api": 1,
+  "setup_difficulty": "Medium",
+  "slug": "marker",
+  "tag": "Document Processing",
+  "technical_description": "Marker is a Python-based document conversion pipeline that transforms PDF, DOCX, PPTX, XLSX, HTML, EPUB, and image files into markdown, JSON, HTML, or chunk-based output. It uses the surya VLM for layout detection and OCR, served by a local inference server (vLLM on NVIDIA GPU, llama.cpp on CPU/Apple Silicon), alongside lightweight CPU models for text extraction and layout analysis. The pipeline optionally integrates LLMs (Gemini, Claude, OpenAI, Ollama, etc.) for enhanced accuracy on complex layouts, tables, and inline math. Marker is extensible through custom processors, renderers, and providers, and includes a FastAPI-based REST API server for remote conversion.",
+  "telemetry": "Unknown",
+  "title": "Marker",
+  "url": "https://github.com/VikParuchuri/marker",
+  "use_cases": [
+    "Document Processing",
+    "Data Extraction",
+    "RAG"
+  ],
+  "works_with": [
+    "surya",
+    "vllm",
+    "llama.cpp",
+    "Gemini",
+    "Google Vertex",
+    "Claude",
+    "OpenAI",
+    "Azure OpenAI",
+    "Ollama",
+    "OpenRouter",
+    "Modal",
+    "Streamlit"
+  ]
+}

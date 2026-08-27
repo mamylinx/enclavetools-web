@@ -10,16 +10,14 @@ const { scorecard } = Astro.props;
   <p class="text-xs font-bold uppercase mb-4 text-brand-muted tracking-wider">
     Technical scorecard
   </p>
-  <div class="bg-white/95 backdrop-blur-sm border border-brand-forest/5 rounded-3xl overflow-hidden border-b-0 shadow-sm shadow-brand-forest/5">
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
     {
       scorecard.map(([label, value]) => (
-        <div class="grid grid-cols-[minmax(180px,0.8fr)_1.2fr] border-b border-brand-forest/5">
-          <>
-            <span class="p-6 text-sm text-brand-muted border-r border-brand-forest/5">
-              {label}
-            </span>
-            <strong class="p-6 text-sm font-bold">{value}</strong>
-          </>
+        <div class="flex flex-col bg-white/95 backdrop-blur-sm border border-brand-forest/5 rounded-3xl p-6 shadow-sm shadow-brand-forest/5 transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(27,54,27,0.08)]">
+          <h2 class="text-sm font-bold text-accent-teal">{label}</h2>
+          <p class="text-sm leading-relaxed font-bold text-brand-forest/80 mt-auto pt-3 border-t-2" style="border-image: linear-gradient(to right, #05B2A3, #EA4335) 1;">
+            {value}
+          </p>
         </div>
       ))
     }

@@ -1,0 +1,75 @@
+{
+  "body": "Fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code, self-host or cloud, 400+ integrations.",
+  "category": "workflow-automation",
+  "commercial_use": 0,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Bare Metal",
+    "Docker",
+    "Cloud"
+  ],
+  "docker_available": 1,
+  "docs_url": "https://docs.n8n.io",
+  "featured": false,
+  "features": [
+    "Docker available",
+    "GUI/no-code",
+    "Paid support"
+  ],
+  "fine_tuning": 0,
+  "github_url": "https://github.com/n8n-io/n8n",
+  "gui_available": 1,
+  "hardware": [
+    "CPU"
+  ],
+  "language": [
+    "TypeScript"
+  ],
+  "last_updated": "2026-07-22",
+  "last_verified": "2026-07-22",
+  "license": null,
+  "maturity": "Production / Stable",
+  "min_ram_gb": null,
+  "model_format": [],
+  "offline_after_setup": 0,
+  "openai_api": 0,
+  "paid_support": 1,
+  "personas": [
+    "Developer",
+    "Business Owner"
+  ],
+  "plain_description": "Automate complex workflows and deploy AI agents without writing everything from scratch. n8n's visual canvas connects 1500+ apps and AI models so you can build automations that your business can trust. Deploy self-hosted or in the cloud and go from prototype to production fast.",
+  "popularity_score": 197418,
+  "quantization": 0,
+  "recommended_ram_gb": null,
+  "rest_api": 0,
+  "setup_difficulty": "Easy",
+  "slug": "n8n",
+  "tag": "Workflow Automation",
+  "technical_description": "n8n is a fair-code workflow automation platform with native AI agent capabilities built in TypeScript on Node.js. It provides a visual node-based editor for constructing multi-step workflows that integrate JavaScript, Python, and 1500+ external services through a modular node system. The platform supports self-hosted deployment via Docker or npm and a managed cloud offering. Key capabilities include AI agent orchestration with support for multiple LLM providers (OpenAI, Anthropic, Google, open-source models via Ollama), RAG pipelines with vector stores, document processing, MCP client/server integration, and enterprise features including RBAC, audit trails, source control, and log streaming.",
+  "telemetry": "Unknown",
+  "title": "n8n",
+  "url": "https://n8n.io/",
+  "use_cases": [
+    "Chat Assistant",
+    "Agentic Workflows",
+    "Code Generation",
+    "Document Processing",
+    "RAG",
+    "Vector Search",
+    "Data Extraction",
+    "Summarization"
+  ],
+  "works_with": [
+    "OpenAI",
+    "Anthropic",
+    "Google",
+    "LangChain",
+    "Docker",
+    "Node.js"
+  ]
+}

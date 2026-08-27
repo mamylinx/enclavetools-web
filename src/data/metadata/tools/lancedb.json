@@ -1,0 +1,71 @@
+{
+  "body": "Developer-friendly OSS embedded retrieval library for multimodal AI. Search More; Manage Less.",
+  "category": "vector-databases",
+  "commercial_use": 1,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Docker",
+    "Bare Metal",
+    "Cloud"
+  ],
+  "docker_available": 1,
+  "docs_url": "https://docs.lancedb.com",
+  "featured": false,
+  "features": [
+    "Docker available",
+    "REST API",
+    "Paid support"
+  ],
+  "fine_tuning": 0,
+  "github_url": "https://github.com/lancedb/lancedb",
+  "gui_available": 0,
+  "hardware": [
+    "CPU",
+    "GPU (NVIDIA)"
+  ],
+  "language": [
+    "HTML",
+    "Rust",
+    "Python"
+  ],
+  "last_updated": "2026-07-22",
+  "last_verified": "2026-07-22",
+  "license": "Apache-2.0",
+  "maturity": "Production / Stable",
+  "min_ram_gb": null,
+  "model_format": [],
+  "offline_after_setup": 1,
+  "openai_api": 0,
+  "paid_support": 1,
+  "personas": [
+    "Developer"
+  ],
+  "plain_description": "LanceDB lets you build AI applications that search across text, images, and video — all in one place. It handles billions of vectors in milliseconds so your team can focus on product features instead of managing database infrastructure. The bottom line: faster AI development with zero operations overhead.",
+  "popularity_score": 10952,
+  "quantization": 0,
+  "recommended_ram_gb": null,
+  "rest_api": 1,
+  "setup_difficulty": "Easy",
+  "slug": "lancedb",
+  "tag": "Vector Database",
+  "technical_description": "LanceDB is an open-source embedded vector database built on the Lance columnar format. It provides vector similarity search, full-text search, and SQL query capabilities over multimodal data. The library offers Python, TypeScript, Rust, and REST API bindings with native integrations for LangChain, LlamaIndex, Pandas, Polars, and DuckDB. It supports GPU-accelerated index building, automatic data versioning with zero-copy semantics, and can run embedded locally or connect to the managed LanceDB Cloud service.",
+  "telemetry": "Unknown",
+  "title": "LanceDB",
+  "url": "https://www.lancedb.com/",
+  "use_cases": [
+    "RAG",
+    "Vector Search"
+  ],
+  "works_with": [
+    "LangChain",
+    "LlamaIndex",
+    "Apache-Arrow",
+    "Pandas",
+    "Polars",
+    "DuckDB"
+  ]
+}

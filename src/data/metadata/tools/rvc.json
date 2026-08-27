@@ -1,0 +1,69 @@
+{
+  "body": "Easily train a good VC model with voice data <= 10 mins!",
+  "category": "text-to-speech",
+  "commercial_use": 1,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Bare Metal"
+  ],
+  "docker_available": 0,
+  "docs_url": null,
+  "featured": false,
+  "features": [
+    "Fine-tuning",
+    "GUI/no-code"
+  ],
+  "fine_tuning": 1,
+  "github_url": "https://github.com/RVC-Project/Retrieval-based-Voice-Conversion-WebUI",
+  "gui_available": 1,
+  "hardware": [
+    "CPU",
+    "GPU (NVIDIA)",
+    "GPU (AMD)"
+  ],
+  "language": [
+    "Python"
+  ],
+  "last_updated": "2026-07-21",
+  "last_verified": "2026-07-22",
+  "license": "MIT",
+  "maturity": "Production / Stable",
+  "min_ram_gb": null,
+  "model_format": [],
+  "offline_after_setup": 1,
+  "openai_api": 0,
+  "paid_support": 0,
+  "personas": [
+    "Developer"
+  ],
+  "plain_description": "Train a convincing voice conversion model with only 10 minutes of speech data and run it in real time on your own computer — no cloud fees or AI expertise required. The web interface lets you transform any source voice into any target voice with sub-200ms latency. This open-source tool is MIT-licensed, free to use commercially, and runs on everything from gaming GPUs to integrated laptop chips.",
+  "popularity_score": 36542,
+  "quantization": 0,
+  "recommended_ram_gb": null,
+  "rest_api": 0,
+  "setup_difficulty": "Medium",
+  "slug": "rvc",
+  "tag": "Voice Conversion",
+  "technical_description": "RVC is a Python-based framework for retrieval-based voice conversion that uses a top-1 feature retrieval mechanism to replace source speaker embeddings with training-set features, eliminating timbre leakage. The pipeline combines a HuBERT content encoder for semantic feature extraction, RMVPE for F0 pitch extraction, and a HiFi-GAN vocoder for waveform synthesis. It provides a Gradio-based WebUI with separate interfaces for model training and real-time voice changing, supporting end-to-end latencies as low as 90ms with ASIO audio drivers. Training requires as little as 10 minutes of clean speech data and runs on NVIDIA GPUs (CUDA 11.8/12.8), AMD and Intel GPUs via DirectML on Windows, or CPU-only mode.",
+  "telemetry": "Unknown",
+  "title": "Retrieval-based-Voice-Conversion-WebUI",
+  "url": "https://github.com/RVC-Project/Retrieval-based-Voice-Conversion-WebUI",
+  "use_cases": [
+    "Fine-Tuning",
+    "Model Serving"
+  ],
+  "works_with": [
+    "Hugging Face",
+    "Gradio",
+    "FFmpeg",
+    "UVR5",
+    "RMVPE",
+    "PyTorch",
+    "ModelScope",
+    "AutoDL"
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "body": "Official repository for LTX-Video",
+  "category": "video-generation",
+  "commercial_use": 1,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Bare Metal",
+    "Desktop App"
+  ],
+  "docker_available": 0,
+  "docs_url": "https://docs.ltx.video",
+  "featured": false,
+  "features": [
+    "GUI/no-code"
+  ],
+  "fine_tuning": 0,
+  "github_url": "https://github.com/Lightricks/LTX-Video",
+  "gui_available": 1,
+  "hardware": [
+    "GPU (NVIDIA)",
+    "GPU (Apple Silicon)"
+  ],
+  "language": [
+    "Python"
+  ],
+  "last_updated": "2026-01-05",
+  "last_verified": "2026-07-22",
+  "license": "Apache-2.0",
+  "maturity": "Production / Stable",
+  "min_ram_gb": null,
+  "model_format": [],
+  "offline_after_setup": 0,
+  "openai_api": 0,
+  "paid_support": 0,
+  "personas": [
+    "Developer"
+  ],
+  "plain_description": "Generate high-quality, realistic videos with synchronized audio from text or images. LTX-Video is a powerful video generation model that creates up to 4K resolution footage at 50 FPS, with built-in audio synchronization and multiple creative controls.",
+  "popularity_score": 10721,
+  "quantization": 0,
+  "recommended_ram_gb": null,
+  "rest_api": 0,
+  "setup_difficulty": "Medium",
+  "slug": "ltx-video",
+  "tag": "Video Generation",
+  "technical_description": "LTX-Video is a DiT-based video generation foundation model supporting text-to-video, image-to-video, multi-keyframe conditioning, video extension, and video-to-video transformations. It uses a latent diffusion architecture with spatiotemporal guidance and supports multiple model variants (2B and 13B parameters) with distilled and FP8 quantized versions for reduced VRAM usage and faster inference. The model is implemented in Python with PyTorch, integrates with ComfyUI and HuggingFace Diffusers, and provides a Python library API via `ltx_video.inference`. Inference requires NVIDIA GPUs with CUDA 12.2+ or Apple Silicon via MPS, with optional FP8 kernel support for Ada-generation GPUs.",
+  "telemetry": "Unknown",
+  "title": "LTX-Video",
+  "url": "https://github.com/Lightricks/LTX-Video",
+  "use_cases": [
+    "Image Generation",
+    "Model Serving"
+  ],
+  "works_with": [
+    "ComfyUI",
+    "Diffusers"
+  ]
+}

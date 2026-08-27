@@ -1,0 +1,62 @@
+{
+  "body": "Open-source vector similarity search for Postgres",
+  "category": "vector-databases",
+  "commercial_use": 0,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Docker",
+    "Bare Metal",
+    "Cloud"
+  ],
+  "docker_available": 1,
+  "docs_url": null,
+  "featured": false,
+  "features": [
+    "Docker available"
+  ],
+  "fine_tuning": 0,
+  "github_url": "https://github.com/pgvector/pgvector",
+  "gui_available": 0,
+  "hardware": [
+    "CPU"
+  ],
+  "language": [
+    "C",
+    "Perl"
+  ],
+  "last_updated": "2026-07-11",
+  "last_verified": "2026-07-22",
+  "license": null,
+  "maturity": "Production / Stable",
+  "min_ram_gb": null,
+  "model_format": [],
+  "offline_after_setup": 1,
+  "openai_api": 0,
+  "paid_support": 0,
+  "personas": [
+    "Developer"
+  ],
+  "plain_description": "Add high-performance vector similarity search directly inside PostgreSQL — no separate database, no new infrastructure. Your team keeps using the same SQL tools, ACID guarantees, and operational practices they already know. Scale from prototypes to production with replication, point-in-time recovery, and the full Postgres ecosystem.",
+  "popularity_score": 22303,
+  "quantization": 0,
+  "recommended_ram_gb": null,
+  "rest_api": 0,
+  "setup_difficulty": "Medium",
+  "slug": "pgvector",
+  "tag": "vector-search",
+  "technical_description": "pgvector is an open-source PostgreSQL extension that implements vector similarity search as native data types and index access methods. It supports exact nearest neighbor search by default and approximate search via HNSW (hierarchical navigable small world) and IVFFlat (inverted file with flat compression) indexes, with distance functions for L2, inner product, cosine, L1, Hamming, and Jaccard distances. Vectors are stored as first-class Postgres types (vector, halfvec, bit, sparsevec) supporting up to 16,000 dimensions and queried using standard SQL operators. The extension integrates with Postgres query planning, WAL-based replication, parallel index builds, and is accessible from any language with a Postgres client library.",
+  "telemetry": "Unknown",
+  "title": "pgvector",
+  "url": "https://github.com/pgvector/pgvector",
+  "use_cases": [
+    "Vector Search",
+    "RAG"
+  ],
+  "works_with": [
+    "PostgreSQL"
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "body": "Stop renting your intelligence. Own it with AnythingLLM. Everything you need for a powerful local-first agent experience ",
+  "category": "chat-interfaces",
+  "commercial_use": 1,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Docker",
+    "Bare Metal",
+    "Kubernetes",
+    "Cloud",
+    "Desktop App"
+  ],
+  "docker_available": 1,
+  "docs_url": "https://docs.anythingllm.com",
+  "featured": false,
+  "features": [
+    "OpenAI-compatible API",
+    "Docker available",
+    "REST API",
+    "GUI/no-code"
+  ],
+  "fine_tuning": 0,
+  "github_url": "https://github.com/Mintplex-Labs/anything-llm",
+  "gui_available": 1,
+  "hardware": [
+    "CPU"
+  ],
+  "language": [
+    "JavaScript"
+  ],
+  "last_updated": "2026-07-21",
+  "last_verified": "2026-07-22",
+  "license": "MIT",
+  "maturity": "Production / Stable",
+  "min_ram_gb": null,
+  "model_format": [],
+  "offline_after_setup": 1,
+  "openai_api": 1,
+  "paid_support": 0,
+  "personas": [
+    "Developer",
+    "Business Owner"
+  ],
+  "plain_description": "AnythingLLM gives you a private AI assistant without monthly per-seat fees or vendor lock-in. Chat with your documents, automate complex workflows with AI agents, and deploy on your own terms—locally, in Docker, or in the cloud. Set up in minutes, scale as you grow.",
+  "popularity_score": 63676,
+  "quantization": 0,
+  "recommended_ram_gb": null,
+  "rest_api": 1,
+  "setup_difficulty": "Easy",
+  "slug": "anythingllm",
+  "tag": "AI Application",
+  "technical_description": "AnythingLLM is an open-source, local-first AI application platform that provides a complete alternative to managed AI services. The monorepo consists of a Node.js/Express API server, a React/ViteJS frontend, and a separate document collector service. It supports a wide range of LLM providers (OpenAI, Anthropic, AWS Bedrock, Ollama, LM Studio, and 30+ others), embedding models, and vector databases (LanceDB, PGVector, Pinecone, Chroma, Qdrant, Weaviate, Milvus). Core capabilities include RAG-based document chat, AI agent workflows with MCP compatibility, multi-user access control with role-based permissions, scheduled job execution, model routing, and a full REST API for custom integrations. The application can be deployed via Docker, Kubernetes, bare metal, or cloud platforms, and desktop clients are available for Mac, Windows, and Linux.",
+  "telemetry": "Opt-out",
+  "title": "AnythingLLM",
+  "url": "https://anythingllm.com/",
+  "use_cases": [
+    "Chat Assistant",
+    "RAG",
+    "Agentic Workflows",
+    "Document Processing",
+    "Speech-to-Text",
+    "Text-to-Speech",
+    "Vector Search"
+  ],
+  "works_with": [
+    "OpenAI",
+    "Anthropic",
+    "AWS Bedrock",
+    "Google Gemini",
+    "Ollama",
+    "LM Studio",
+    "LocalAI",
+    "Azure OpenAI",
+    "Mistral",
+    "Groq",
+    "DeepSeek",
+    "LanceDB",
+    "PGVector",
+    "Pinecone",
+    "Chroma",
+    "Weaviate",
+    "Qdrant",
+    "Milvus"
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "body": "text-generation",
+  "category": "llm-models",
+  "commercial_use": 1,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Docker"
+  ],
+  "docker_available": 0,
+  "docs_url": null,
+  "featured": false,
+  "features": [
+    "Fine-tuning"
+  ],
+  "fine_tuning": 1,
+  "github_url": null,
+  "gui_available": 0,
+  "hardware": [
+    "CPU",
+    "GPU (NVIDIA)"
+  ],
+  "language": [
+    "en"
+  ],
+  "last_updated": "2025-04-21",
+  "last_verified": "2026-07-22",
+  "license": "Apache-2.0",
+  "maturity": "Production / Stable",
+  "min_ram_gb": 3.4,
+  "model_format": [
+    "safetensors",
+    "ONNX"
+  ],
+  "offline_after_setup": 1,
+  "openai_api": 0,
+  "paid_support": 0,
+  "personas": [
+    "Developer"
+  ],
+  "plain_description": "SmolLM gives you powerful, compact AI models for text and vision that run efficiently on everyday devices, not just expensive cloud GPUs. SmolLM3 outperforms larger competitors like Llama 3.2 3B while staying fully open and customizable. The bottom line: enterprise-grade language and vision AI with complete control over deployment and data.",
+  "popularity_score": 161911,
+  "quantization": 0,
+  "recommended_ram_gb": 5.1,
+  "rest_api": 0,
+  "setup_difficulty": "Easy",
+  "slug": "smollm",
+  "tag": null,
+  "technical_description": "SmolLM is an open-source family of small language and vision-language models from Hugging Face, built on the Transformer architecture and distributed via the Hugging Face Hub. SmolLM3, the latest 3B language model, supports dual-mode reasoning (think/no_think), multilingual inference across 6 languages, and 128K-token context windows. SmolVLM extends to multimodal tasks including visual QA and multi-image reasoning. Models are loaded through the Transformers AutoModel API and run on CPU or NVIDIA GPU hardware.",
+  "telemetry": "Unknown",
+  "title": "SmolLM",
+  "url": "https://huggingface.co/blog/smollm",
+  "use_cases": [
+    "Chat Assistant",
+    "Fine-Tuning"
+  ],
+  "works_with": [
+    "Hugging Face Transformers",
+    "PyTorch"
+  ],
+  "calculator_model": "1.7|24|32|32|64"
+}

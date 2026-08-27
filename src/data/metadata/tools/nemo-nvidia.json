@@ -1,0 +1,63 @@
+{
+  "body": "A scalable generative AI framework built for researchers and developers working on Large Language Models, Multimodal, and Speech AI (Automatic Speech Recognition and Text-to-Speech)",
+  "category": "speech-to-text",
+  "commercial_use": 1,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Docker",
+    "Bare Metal"
+  ],
+  "docker_available": 1,
+  "docs_url": "https://docs.nvidia.com/nemo/speech/nightly/",
+  "featured": false,
+  "features": [
+    "Docker available"
+  ],
+  "fine_tuning": 0,
+  "github_url": "https://github.com/NVIDIA-NeMo/Speech",
+  "gui_available": 0,
+  "hardware": [
+    "GPU (NVIDIA)"
+  ],
+  "language": [
+    "Python",
+    "Jupyter Notebook"
+  ],
+  "last_updated": "2026-07-22",
+  "last_verified": "2026-07-22",
+  "license": "Apache-2.0",
+  "maturity": "Production / Stable",
+  "min_ram_gb": null,
+  "model_format": [],
+  "offline_after_setup": 0,
+  "openai_api": 0,
+  "paid_support": 0,
+  "personas": [
+    "Developer"
+  ],
+  "plain_description": "NVIDIA NeMo Speech lets you build, customize, and deploy speech AI models — ASR, TTS, and Speech LLMs — using pre-trained checkpoints and existing code. The big picture: researchers and developers can go from idea to production faster without reinventing the wheel. Here's why it matters: you get NVIDIA-optimized performance on GPU infrastructure with Docker or pip install.",
+  "popularity_score": 17807,
+  "quantization": 0,
+  "recommended_ram_gb": null,
+  "rest_api": 0,
+  "setup_difficulty": "Medium",
+  "slug": "nemo-nvidia",
+  "tag": "Speech AI Framework",
+  "technical_description": "NVIDIA NeMo Speech is a PyTorch-based framework for building, fine-tuning, and deploying speech AI models including Automatic Speech Recognition (ASR), Text-to-Speech (TTS), and Speech LLMs. It provides pre-trained model checkpoints, modular model collections (ASR, TTS, audio, speechlm2), and inference pipelines with streaming support. The framework installs via pip (nemo-toolkit[asr,tts]) or Docker, requires Python ≥3.12 and PyTorch ≥2.7, and depends on NVIDIA GPU + CUDA for training. It includes tools for dataset processing, forced alignment, speech data exploration, and voice agent construction using the Pipecat framework.",
+  "telemetry": "Unknown",
+  "title": "NVIDIA NeMo Speech",
+  "url": "https://github.com/NVIDIA/NeMo",
+  "use_cases": [
+    "Speech-to-Text",
+    "Text-to-Speech",
+    "Translation",
+    "Model Serving"
+  ],
+  "works_with": [
+    "Hugging Face"
+  ]
+}

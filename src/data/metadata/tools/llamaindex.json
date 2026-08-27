@@ -1,0 +1,74 @@
+{
+  "body": "LlamaIndex is the leading document agent and OCR platform",
+  "category": "agent-frameworks",
+  "commercial_use": 1,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Docker",
+    "Bare Metal",
+    "Cloud"
+  ],
+  "docker_available": 1,
+  "docs_url": "https://developers.llamaindex.ai/python/framework/",
+  "featured": false,
+  "features": [
+    "Docker available",
+    "Fine-tuning",
+    "Paid support"
+  ],
+  "fine_tuning": 1,
+  "github_url": "https://github.com/run-llama/llama_index",
+  "gui_available": 0,
+  "hardware": [
+    "CPU"
+  ],
+  "language": [
+    "Python",
+    "Jupyter Notebook"
+  ],
+  "last_updated": "2026-07-21",
+  "last_verified": "2026-07-22",
+  "license": "MIT",
+  "maturity": "Production / Stable",
+  "min_ram_gb": null,
+  "model_format": [],
+  "offline_after_setup": 1,
+  "openai_api": 0,
+  "paid_support": 1,
+  "personas": [
+    "Developer"
+  ],
+  "plain_description": "LlamaIndex helps businesses turn their documents and data into intelligent AI agents that can answer questions, extract information, and automate workflows. The big picture: Connect your data to AI so you can ask questions in plain language and get answers instantly. The bottom line: Faster decisions, automated document processing, and AI-powered insights from your existing files.",
+  "popularity_score": 51000,
+  "quantization": 0,
+  "recommended_ram_gb": null,
+  "rest_api": 0,
+  "setup_difficulty": "Easy",
+  "slug": "llamaindex",
+  "tag": "LLM Framework",
+  "technical_description": "LlamaIndex is a Python data framework for building LLM-powered applications with retrieval-augmented generation (RAG), agentic workflows, and document processing. The framework provides data connectors for ingesting content from 130+ formats, indexing and graph structures for organizing data, and a query interface for retrieval and response synthesis. It supports over 300 integration packages for LLMs, embedding models, and vector stores, enabling flexible deployments with local or cloud-based providers. LlamaIndex includes modular components for document parsing, structured extraction, and agent orchestration via its workflow system.",
+  "telemetry": "Unknown",
+  "title": "LlamaIndex",
+  "url": "https://www.llamaindex.ai/",
+  "use_cases": [
+    "RAG",
+    "Agentic Workflows",
+    "Document Processing",
+    "Data Extraction",
+    "Vector Search",
+    "Chat Assistant",
+    "Summarization"
+  ],
+  "works_with": [
+    "LangChain",
+    "Flask",
+    "Docker",
+    "OpenAI",
+    "Ollama",
+    "HuggingFace"
+  ]
+}

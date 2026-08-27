@@ -1,0 +1,65 @@
+{
+  "body": "MLX: An array framework for Apple silicon",
+  "category": "llm-inference",
+  "commercial_use": 1,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Bare Metal"
+  ],
+  "docker_available": 0,
+  "docs_url": "https://ml-explore.github.io/mlx/build/html/index.html",
+  "featured": false,
+  "features": [],
+  "fine_tuning": 0,
+  "github_url": "https://github.com/ml-explore/mlx",
+  "gui_available": 0,
+  "hardware": [
+    "GPU (Apple Silicon)",
+    "CPU",
+    "GPU (NVIDIA)"
+  ],
+  "language": [
+    "C++",
+    "Python"
+  ],
+  "last_updated": "2026-07-22",
+  "last_verified": "2026-07-22",
+  "license": "MIT",
+  "maturity": "Production / Stable",
+  "min_ram_gb": null,
+  "model_format": [],
+  "offline_after_setup": 0,
+  "openai_api": 0,
+  "paid_support": 0,
+  "personas": [
+    "Developer"
+  ],
+  "plain_description": "MLX lets you build and run machine learning models on Apple silicon with minimal code changes. It offers familiar NumPy-like APIs, unified memory across CPU and GPU, and supports training and deploying models efficiently on Mac hardware.",
+  "popularity_score": 27644,
+  "quantization": 0,
+  "recommended_ram_gb": null,
+  "rest_api": 0,
+  "setup_difficulty": "Medium",
+  "slug": "mlx-apple",
+  "tag": "Machine Learning Framework",
+  "technical_description": "MLX is an array framework for machine learning on Apple silicon, developed by Apple machine learning research. It provides Python, C++, C, and Swift APIs with NumPy-like semantics, along with higher-level packages (mlx.nn, mlx.optimizers) that mirror PyTorch. The framework features lazy computation with dynamic graph construction, composable function transformations (automatic differentiation, vectorization, graph optimization), and a unified memory model that allows operations on CPU or GPU without data transfer. MLX supports multi-device execution (CPU and GPU) and includes a CUDA backend for Linux. It is available via pip on macOS and Linux.",
+  "telemetry": "Unknown",
+  "title": "MLX",
+  "url": "https://github.com/ml-explore/mlx",
+  "use_cases": [
+    "Model Serving",
+    "Fine-Tuning",
+    "Image Generation",
+    "Speech-to-Text",
+    "Text-to-Speech",
+    "Code Generation"
+  ],
+  "works_with": [
+    "PyTorch",
+    "NumPy"
+  ]
+}

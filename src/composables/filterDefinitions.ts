@@ -11,7 +11,7 @@ export interface FilterDefinition<K extends keyof FilterState = keyof FilterStat
 
 /** Single source of truth for all filter fields — drives serialization, counting, display, and API params. */
 export const FILTER_DEFINITIONS: FilterDefinition[] = [
-  { key: 'sort', param: 'sort', type: 'sort', label: 'Sort', defaultValue: 'featured' },
+  { key: 'sort', param: 'sort', type: 'sort', label: 'Sort', defaultValue: 'newest' },
   { key: 'category', param: 'cat', type: 'multi', label: 'Category', defaultValue: [] },
   { key: 'use_case', param: 'use', type: 'multi', label: 'Use Case', defaultValue: [] },
   { key: 'persona', param: 'persona', type: 'multi', label: 'Persona', defaultValue: [] },

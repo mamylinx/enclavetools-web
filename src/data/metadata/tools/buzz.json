@@ -1,0 +1,63 @@
+{
+  "body": "Buzz transcribes and translates audio offline on your personal computer. Powered by OpenAI's Whisper.",
+  "category": "speech-to-text",
+  "commercial_use": 1,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Desktop App"
+  ],
+  "docker_available": 0,
+  "docs_url": "https://chidiwilliams.github.io/buzz/",
+  "featured": false,
+  "features": [
+    "GUI/no-code"
+  ],
+  "fine_tuning": 0,
+  "github_url": "https://github.com/chidiwilliams/buzz",
+  "gui_available": 1,
+  "hardware": [
+    "CPU",
+    "GPU (NVIDIA)",
+    "GPU (AMD)",
+    "GPU (Apple Silicon)"
+  ],
+  "language": [
+    "Python"
+  ],
+  "last_updated": "2026-07-17",
+  "last_verified": "2026-07-22",
+  "license": "MIT",
+  "maturity": "Production / Stable",
+  "min_ram_gb": null,
+  "model_format": [],
+  "offline_after_setup": 1,
+  "openai_api": 0,
+  "paid_support": 0,
+  "personas": [],
+  "plain_description": "Buzz gives you accurate transcripts and translations from any audio or video — entirely offline on your own computer, no cloud fees or privacy worries. It handles recordings, YouTube links, and even live microphone input. The bottom line: get professional-quality transcripts powered by OpenAI's Whisper without sending your data anywhere.",
+  "popularity_score": 20280,
+  "quantization": 0,
+  "recommended_ram_gb": null,
+  "rest_api": 0,
+  "setup_difficulty": null,
+  "slug": "buzz",
+  "tag": "Transcription",
+  "technical_description": "Buzz is a cross-platform desktop application for offline speech-to-text transcription and translation using OpenAI's Whisper model. It supports multiple Whisper backends (OpenAI Whisper, Whisper.cpp) with GPU acceleration via CUDA (NVIDIA), Apple Silicon, and Vulkan (most GPUs including integrated). The application provides a Qt-based graphical interface and a command-line interface. Capabilities include file transcription (audio, video, YouTube links), real-time microphone capture with a presentation view, speaker identification, speech separation, watch-folder automation, and export to TXT, SRT, and VTT. An extensible plugin system provides AI summary generation and automated transcript resizing.",
+  "telemetry": "Unknown",
+  "title": "Buzz",
+  "url": "https://github.com/chidiwilliams/buzz",
+  "use_cases": [
+    "Speech-to-Text",
+    "Translation",
+    "Summarization"
+  ],
+  "works_with": [
+    "OpenAI Whisper",
+    "Whisper.cpp",
+    "YouTube"
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "body": "OCR, layout analysis, reading order, table recognition in 90+ languages",
+  "category": "rag-document",
+  "commercial_use": 1,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Docker",
+    "Bare Metal"
+  ],
+  "docker_available": 0,
+  "docs_url": "https://documentation.datalab.to",
+  "featured": false,
+  "features": [
+    "OpenAI-compatible API",
+    "Fine-tuning",
+    "GUI/no-code"
+  ],
+  "fine_tuning": 1,
+  "github_url": "https://github.com/datalab-to/surya",
+  "gui_available": 1,
+  "hardware": [
+    "CPU",
+    "GPU (NVIDIA)",
+    "GPU (Apple Silicon)"
+  ],
+  "language": [
+    "Python"
+  ],
+  "last_updated": "2026-07-21",
+  "last_verified": "2026-07-22",
+  "license": "Apache-2.0",
+  "maturity": "Production / Stable",
+  "min_ram_gb": null,
+  "model_format": [],
+  "offline_after_setup": 1,
+  "openai_api": 1,
+  "paid_support": 0,
+  "personas": [
+    "Developer"
+  ],
+  "plain_description": "Extract text, layout, and tables from any document in 90+ languages with state-of-the-art accuracy. The big picture: Surya turns messy PDFs, scans, and images into clean, structured data — without needing a massive GPU cluster. It handles dense academic papers, handwritten forms, multilingual documents, and complex tables in a single pass. The bottom line: you get production-grade OCR at 5 pages per second on a single GPU, with output you can feed directly into downstream systems.",
+  "popularity_score": 21132,
+  "quantization": 0,
+  "recommended_ram_gb": null,
+  "rest_api": 0,
+  "setup_difficulty": "Medium",
+  "slug": "surya",
+  "tag": "OCR",
+  "technical_description": "Surya is a 650M-parameter vision-language model for document OCR, layout analysis, reading-order detection, and table recognition. It runs a single shared VLM served by vllm (NVIDIA GPU) or llama.cpp (CPU/Apple Silicon), with a separate torch-based text-line detection model. The Python library provides CLI commands (surya_ocr, surya_layout, surya_table, surya_detect) and a programmatic API via SuryaInferenceManager with RecognitionPredictor, LayoutPredictor, TableRecPredictor, and DetectionPredictor classes. Output is returned as structured JSON with per-block polygons, bboxes, confidence scores, and HTML content (including <math> tags for equations and <table> for recognized tables). The inference manager auto-spawns the backend server or can attach to a pre-running OpenAI-compatible endpoint via SURYA_INFERENCE_URL. A streamlit-based GUI is included for interactive exploration.",
+  "telemetry": "Unknown",
+  "title": "Surya",
+  "url": "https://github.com/datalab-to/surya",
+  "use_cases": [
+    "Document Processing",
+    "Data Extraction"
+  ],
+  "works_with": [
+    "marker",
+    "vllm",
+    "llama.cpp",
+    "streamlit"
+  ]
+}

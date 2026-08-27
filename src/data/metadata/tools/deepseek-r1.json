@@ -1,0 +1,67 @@
+{
+  "body": "text-generation",
+  "category": "llm-models",
+  "commercial_use": 1,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Cloud",
+    "Bare Metal"
+  ],
+  "docker_available": 0,
+  "docs_url": null,
+  "featured": false,
+  "features": [
+    "OpenAI-compatible API",
+    "REST API",
+    "GUI/no-code"
+  ],
+  "fine_tuning": 0,
+  "github_url": null,
+  "gui_available": 1,
+  "hardware": [
+    "GPU (NVIDIA)"
+  ],
+  "language": [],
+  "last_updated": "2025-03-27",
+  "last_verified": "2026-07-22",
+  "license": "MIT",
+  "maturity": "Production / Stable",
+  "min_ram_gb": 1369.1,
+  "model_format": [
+    "safetensors"
+  ],
+  "offline_after_setup": 0,
+  "openai_api": 1,
+  "paid_support": 0,
+  "personas": [
+    "Developer"
+  ],
+  "plain_description": "DeepSeek-R1 delivers OpenAI-o1-class reasoning performance in math, code, and logic tasks — now open-source and MIT-licensed. It uses reinforcement learning to teach models to think step-by-step, and distilled versions run on hardware as small as 1.5B parameters. The bottom line: production-grade reasoning without the proprietary price tag.",
+  "popularity_score": 9244864,
+  "quantization": 0,
+  "recommended_ram_gb": 2053.6,
+  "rest_api": 1,
+  "setup_difficulty": "Hard",
+  "slug": "deepseek-r1",
+  "tag": "LLM",
+  "technical_description": "DeepSeek-R1 is a first-generation reasoning LLM trained via large-scale reinforcement learning (RL) on a Mixture-of-Experts (MoE) base model (DeepSeek-V3-Base, 671B total / 37B activated parameters, 128K context). The pipeline alternates two RL stages (reasoning-pattern discovery and human-preference alignment) with two SFT stages (seed data for reasoning and non-reasoning capabilities). The model exposes an OpenAI-compatible REST API at platform.deepseek.com and a chat UI at chat.deepseek.com. Distilled dense variants (1.5B–70B) based on Qwen2.5 and Llama-3 are provided for local inference via vLLM or SGLang. Recommended temperature is 0.5–0.7; system prompts should be avoided.",
+  "telemetry": "Unknown",
+  "title": "DeepSeek-R1",
+  "url": "https://github.com/deepseek-ai/DeepSeek-R1",
+  "use_cases": [
+    "Chat Assistant",
+    "Code Generation",
+    "Summarization",
+    "Translation"
+  ],
+  "works_with": [
+    "vLLM",
+    "SGLang",
+    "Hugging Face Transformers"
+  ],
+  "calculator_model": "671|61|128|128|128"
+}

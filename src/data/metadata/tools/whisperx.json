@@ -1,0 +1,62 @@
+{
+  "body": "WhisperX:  Automatic Speech Recognition with Word-level Timestamps (& Diarization)",
+  "category": "speech-to-text",
+  "commercial_use": 1,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [],
+  "docker_available": 0,
+  "docs_url": null,
+  "featured": false,
+  "features": [
+    "Quantization"
+  ],
+  "fine_tuning": 0,
+  "github_url": "https://github.com/m-bain/whisperX",
+  "gui_available": 0,
+  "hardware": [
+    "CPU",
+    "GPU (NVIDIA)"
+  ],
+  "language": [
+    "Python"
+  ],
+  "last_updated": "2026-07-13",
+  "last_verified": "2026-07-22",
+  "license": "BSD-2-Clause",
+  "maturity": "Production / Stable",
+  "min_ram_gb": null,
+  "model_format": [],
+  "offline_after_setup": 1,
+  "openai_api": 0,
+  "paid_support": 0,
+  "personas": [
+    "Developer"
+  ],
+  "plain_description": "WhisperX turns spoken audio into accurate, timestamped text faster than real time. It automatically identifies who said what with speaker labels, making it ideal for transcribing meetings, interviews, and podcasts. No manual editing needed for timing or speaker attribution.",
+  "popularity_score": 23176,
+  "quantization": 1,
+  "recommended_ram_gb": null,
+  "rest_api": 0,
+  "setup_difficulty": "Medium",
+  "slug": "whisperx",
+  "tag": "ASR",
+  "technical_description": "WhisperX is a Python library and CLI tool for automatic speech recognition (ASR) with word-level timestamps and speaker diarization. It builds on OpenAI's Whisper model using a faster-whisper CTranslate2 backend, achieving up to 70x realtime transcription on GPU. The pipeline employs wav2vec2.0-based forced phoneme alignment for accurate word-level timestamps and pyannote-audio for speaker diarization. It supports batched inference, voice activity detection (VAD) preprocessing, and runs on both NVIDIA GPU (CUDA) and CPU with configurable compute precision (float16, int8).",
+  "telemetry": "Unknown",
+  "title": "WhisperX",
+  "url": "https://github.com/m-bain/whisperX",
+  "use_cases": [
+    "Speech-to-Text"
+  ],
+  "works_with": [
+    "OpenAI Whisper",
+    "faster-whisper",
+    "pyannote-audio",
+    "wav2vec2.0",
+    "silero-vad",
+    "CTranslate2"
+  ]
+}

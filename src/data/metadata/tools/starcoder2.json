@@ -1,0 +1,50 @@
+{
+  "body": "text-generation",
+  "category": "code-assistants",
+  "commercial_use": 0,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [],
+  "docker_available": 0,
+  "docs_url": null,
+  "featured": false,
+  "features": [],
+  "fine_tuning": 0,
+  "github_url": null,
+  "gui_available": 0,
+  "hardware": [
+    "GPU (NVIDIA)"
+  ],
+  "language": [],
+  "last_updated": "2024-06-05",
+  "last_verified": "2026-07-22",
+  "license": "bigcode-openrail-m",
+  "maturity": "Production / Stable",
+  "min_ram_gb": 63.8,
+  "model_format": [],
+  "offline_after_setup": 0,
+  "openai_api": 0,
+  "paid_support": 0,
+  "personas": [
+    "Developer"
+  ],
+  "plain_description": "Generate high-quality code across 600+ programming languages with a model trained on 4+ trillion tokens. It handles code completion, infilling, and generation tasks out of the box. The bottom line: get production-ready code suggestions without building your own model.",
+  "popularity_score": 7881,
+  "quantization": 0,
+  "recommended_ram_gb": 95.7,
+  "rest_api": 0,
+  "setup_difficulty": "Medium",
+  "slug": "starcoder2",
+  "tag": "Code Generation",
+  "technical_description": "StarCoder2-15B is a 15-billion-parameter causal language model trained on The Stack v2 dataset using the Fill-in-the-Middle objective. It implements a transformer decoder architecture with grouped-query attention and a 16,384-token context window with 4,096-token sliding window attention. The model is distributed via Hugging Face Transformers, supports CPU and GPU inference, and offers quantized inference through bitsandbytes (8-bit and 4-bit). It was trained with the NVIDIA NeMo Framework on 1024 H100 GPUs.",
+  "telemetry": "Unknown",
+  "title": "StarCoder2",
+  "url": "https://huggingface.co/bigcode/starcoder2-15b",
+  "use_cases": [
+    "Code Generation"
+  ],
+  "works_with": []
+}

@@ -1,0 +1,73 @@
+{
+  "body": "GPT4All: Run Local LLMs on Any Device. Open-source and available for commercial use.",
+  "category": "chat-interfaces",
+  "commercial_use": 1,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Desktop App",
+    "Bare Metal"
+  ],
+  "docker_available": 0,
+  "docs_url": "https://docs.gpt4all.io",
+  "featured": false,
+  "features": [
+    "OpenAI-compatible API",
+    "REST API",
+    "Quantization",
+    "GUI/no-code"
+  ],
+  "fine_tuning": 0,
+  "github_url": "https://github.com/nomic-ai/gpt4all",
+  "gui_available": 1,
+  "hardware": [
+    "CPU",
+    "GPU (NVIDIA)",
+    "GPU (AMD)",
+    "GPU (Apple Silicon)"
+  ],
+  "language": [
+    "C++",
+    "QML"
+  ],
+  "last_updated": "2025-05-27",
+  "last_verified": "2026-07-22",
+  "license": "MIT",
+  "maturity": "Production / Stable",
+  "min_ram_gb": null,
+  "model_format": [],
+  "offline_after_setup": 1,
+  "openai_api": 1,
+  "paid_support": 0,
+  "personas": [
+    "Developer",
+    "Business Owner",
+    "Indie Hacker"
+  ],
+  "plain_description": "GPT4All lets you run powerful AI chatbots entirely on your own computer — no internet connection, cloud fees, or GPU required. Your data stays private on your machine with no API calls ever sent to third parties. The bottom line: enterprise-grade LLM capabilities at zero recurring cost, with full commercial use rights.",
+  "popularity_score": 77397,
+  "quantization": 1,
+  "recommended_ram_gb": null,
+  "rest_api": 1,
+  "setup_difficulty": "Easy",
+  "slug": "gpt4all",
+  "tag": "Local LLM",
+  "technical_description": "GPT4All is an open-source ecosystem for local inference of large language models on consumer hardware. It provides a cross-platform desktop chat application (Windows, macOS, Linux), Python bindings wrapping llama.cpp for GGUF-format models, and a Docker-based OpenAI-compatible HTTP API server. The project supports CPU-only inference plus GPU acceleration via Nomic Vulkan on NVIDIA and AMD GPUs, with optimized performance on Apple Silicon. LocalDocs enables retrieval-augmented generation (RAG) by indexing local files for private, offline document chat.",
+  "telemetry": "Unknown",
+  "title": "GPT4All",
+  "url": "https://www.nomic.ai/gpt4all",
+  "use_cases": [
+    "Chat Assistant",
+    "RAG",
+    "Code Generation",
+    "Model Serving"
+  ],
+  "works_with": [
+    "Langchain",
+    "Weaviate",
+    "OpenLIT"
+  ]
+}

@@ -15,7 +15,7 @@ import ToolRelated from "../../components/tool/ToolRelated.astro";
 import ToolShareButtons from "../../components/tool/ToolShareButtons.astro";
 import ToolPrivacyAuditCta from "../../components/tool/ToolPrivacyAuditCta.astro";
 import ToolLlmSizingCta from "../../components/tool/ToolLlmSizingCta.astro";
-import toolsData from "../../data/tools.json";
+import toolsData from "../../data/generated/tools.json";
 import { getWorksWith } from "../../utils/toolModel";
 
 export function getStaticPaths() {
@@ -166,7 +166,7 @@ const featureBadges = [
     <article class="grid grid-cols-1 lg:grid-cols-[220px_minmax(0,1fr)]">
       <ToolSidebar />
 
-      <div class="flex flex-col gap-8">
+      <div class="flex flex-col">
         <ToolOverview {enrichedTool} {featureBadges} />
         <ToolTechnical {scorecard} />
         <ToolPrivacy {enrichedTool} {formatDate} />

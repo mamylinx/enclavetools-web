@@ -1,0 +1,84 @@
+{
+  "body": "Unified Efficient Fine-Tuning of 100+ LLMs & VLMs (ACL 2024)",
+  "category": "fine-tuning-training",
+  "commercial_use": 1,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Docker",
+    "Bare Metal",
+    "Cloud"
+  ],
+  "docker_available": 1,
+  "docs_url": "https://llamafactory.readthedocs.io/en/latest/",
+  "featured": false,
+  "features": [
+    "OpenAI-compatible API",
+    "Docker available",
+    "REST API",
+    "Fine-tuning",
+    "Quantization",
+    "GUI/no-code"
+  ],
+  "fine_tuning": 1,
+  "github_url": "https://github.com/hiyouga/LlamaFactory",
+  "gui_available": 1,
+  "hardware": [
+    "GPU (NVIDIA)",
+    "GPU (AMD)",
+    "NPU"
+  ],
+  "language": [
+    "Python"
+  ],
+  "last_updated": "2026-07-17",
+  "last_verified": "2026-07-22",
+  "license": "Apache-2.0",
+  "maturity": "Production / Stable",
+  "min_ram_gb": 4,
+  "model_format": [],
+  "offline_after_setup": 1,
+  "openai_api": 1,
+  "paid_support": 0,
+  "personas": [
+    "Developer"
+  ],
+  "plain_description": "LLaMA Factory lets businesses fine-tune 100+ leading open-source AI models without writing code. Use the CLI or Web UI to adapt models like Llama, Qwen, and DeepSeek to your specific domain — no ML expertise required. The bottom line: you get custom AI assistants faster and cheaper than building from scratch.",
+  "popularity_score": 73438,
+  "quantization": 1,
+  "recommended_ram_gb": 16,
+  "rest_api": 1,
+  "setup_difficulty": "Medium",
+  "slug": "llama-factory",
+  "tag": "Fine-tuning",
+  "technical_description": "LLaMA Factory is a unified PyTorch-based framework for efficient fine-tuning of large language and vision-language models. It supports 100+ model architectures including Llama, Qwen, DeepSeek, Gemma, and GLM through a single training interface. The framework implements multiple parameter-efficient fine-tuning methods (LoRA, QLoRA, OFT, DoRA, PiSSA), full-parameter training, and advanced optimizers (GaLore, BAdam, APOLLO, Adam-mini, Muon). It provides a Gradio-based Web UI for zero-code training, an OpenAI-compatible REST API for model serving via vLLM or SGLang backends, and supports distributed training with DeepSpeed and FSDP. Integration includes Hugging Face Transformers, PEFT, TRL, FlashAttention-2, and bitsandbytes for quantization down to 2-bit precision.",
+  "telemetry": "Unknown",
+  "title": "LLaMA Factory",
+  "url": "https://github.com/hiyouga/LLaMA-Factory",
+  "use_cases": [
+    "Fine-Tuning",
+    "Model Serving",
+    "Chat Assistant",
+    "Agentic Workflows"
+  ],
+  "works_with": [
+    "vLLM",
+    "SGLang",
+    "FlashAttention-2",
+    "DeepSpeed",
+    "Unsloth",
+    "Liger Kernel",
+    "KTransformers",
+    "Megatron",
+    "bitsandbytes",
+    "PEFT",
+    "TRL",
+    "Transformers",
+    "WandB",
+    "Ollama",
+    "Docker"
+  ]
+}

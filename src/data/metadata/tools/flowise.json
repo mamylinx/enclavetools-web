@@ -1,0 +1,64 @@
+{
+  "body": "Build AI Agents, Visually",
+  "category": "workflow-automation",
+  "commercial_use": 0,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Docker",
+    "Bare Metal",
+    "Cloud"
+  ],
+  "docker_available": 1,
+  "docs_url": "https://docs.flowiseai.com/",
+  "featured": false,
+  "features": [
+    "Docker available",
+    "REST API",
+    "GUI/no-code"
+  ],
+  "fine_tuning": 0,
+  "github_url": "https://github.com/FlowiseAI/Flowise",
+  "gui_available": 1,
+  "hardware": [
+    "CPU"
+  ],
+  "language": [
+    "TypeScript",
+    "JavaScript"
+  ],
+  "last_updated": "2026-07-22",
+  "last_verified": "2026-07-22",
+  "license": null,
+  "maturity": "Production / Stable",
+  "min_ram_gb": null,
+  "model_format": [],
+  "offline_after_setup": 0,
+  "openai_api": 0,
+  "paid_support": 0,
+  "personas": [
+    "Developer"
+  ],
+  "plain_description": "Flowise lets anyone build AI agents and chatbots without writing code. Drag and drop components to connect language models, data sources, and business tools into automated workflows. Launch production-ready AI assistants in minutes on your own infrastructure or through the cloud.",
+  "popularity_score": 54824,
+  "quantization": 0,
+  "recommended_ram_gb": null,
+  "rest_api": 1,
+  "setup_difficulty": "Easy",
+  "slug": "flowise",
+  "tag": "No-Code AI",
+  "technical_description": "Flowise is an open-source, low-code platform for building LLM applications and AI agents through a visual node-based editor. It consists of a Node.js/Express server exposing REST APIs with auto-generated Swagger documentation, and a React frontend. The modular component architecture integrates with 100+ LLM providers (OpenAI, Anthropic, Ollama, etc.), vector databases (Pinecone, Chroma, Weaviate), document loaders, and agent frameworks. The server provides chat message handling, document storage, vector search, execution monitoring, and enterprise features. Deployment options include Docker, npm, and managed cloud hosting.",
+  "telemetry": "Unknown",
+  "title": "Flowise",
+  "url": "https://flowiseai.com/",
+  "use_cases": [
+    "Chat Assistant",
+    "Agentic Workflows",
+    "RAG",
+    "Document Processing"
+  ],
+  "works_with": []
+}

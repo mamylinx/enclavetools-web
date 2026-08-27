@@ -1,0 +1,64 @@
+{
+  "body": "The most powerful and modular diffusion model GUI, api and backend with a graph/nodes interface.",
+  "category": "image-generation",
+  "commercial_use": 1,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Desktop App",
+    "Bare Metal",
+    "Cloud"
+  ],
+  "docker_available": 0,
+  "docs_url": "https://docs.comfy.org/",
+  "featured": false,
+  "features": [
+    "REST API",
+    "GUI/no-code"
+  ],
+  "fine_tuning": 0,
+  "github_url": "https://github.com/Comfy-Org/ComfyUI",
+  "gui_available": 1,
+  "hardware": [
+    "CPU",
+    "GPU (NVIDIA)",
+    "GPU (AMD)",
+    "GPU (Apple Silicon)",
+    "NPU"
+  ],
+  "language": [
+    "Python"
+  ],
+  "last_updated": "2026-07-22",
+  "last_verified": "2026-07-22",
+  "license": "GPL-3.0",
+  "maturity": "Production / Stable",
+  "min_ram_gb": null,
+  "model_format": [],
+  "offline_after_setup": 1,
+  "openai_api": 0,
+  "paid_support": 0,
+  "personas": [
+    "Developer"
+  ],
+  "plain_description": "ComfyUI is an AI creation engine that gives creative professionals complete control over every model, parameter, and output through a visual node-graph interface. Generate images, videos, 3D models, and audio using the latest open-source AI models—all running locally on your hardware. Complex workflows can be packaged as simple apps, and production pipelines integrate via API endpoints.",
+  "popularity_score": 121764,
+  "quantization": 0,
+  "recommended_ram_gb": null,
+  "rest_api": 1,
+  "setup_difficulty": "Easy",
+  "slug": "comfyui",
+  "tag": "AI Content Creation",
+  "technical_description": "ComfyUI is a modular, graph-based AI inference engine and GUI for generative content creation. It provides a node-graph interface for composing diffusion model workflows, supporting image, video, audio, and 3D generation with models such as Stable Diffusion, Flux, Hunyuan, and Wan. The runtime features an asynchronous queue system, smart memory management with automatic GPU offloading (supports as low as 1GB VRAM), and incremental graph execution that only recomputes changed nodes. It supports safetensors and PyTorch checkpoint formats, LoRA adapters, ControlNet, and embeddings. Integration is available through REST API endpoints, and optional API nodes provide access to external paid model services.",
+  "telemetry": "Unknown",
+  "title": "ComfyUI",
+  "url": "https://github.com/comfyanonymous/ComfyUI",
+  "use_cases": [
+    "Image Generation",
+    "Model Serving"
+  ],
+  "works_with": []
+}

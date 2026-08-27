@@ -1,0 +1,79 @@
+{
+  "body": "Run GGUF models easily with a KoboldAI UI. One File. Zero Install.",
+  "category": "llm-inference",
+  "commercial_use": 1,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Docker",
+    "Desktop App"
+  ],
+  "docker_available": 1,
+  "docs_url": "https://github.com/LostRuins/koboldcpp/wiki",
+  "featured": false,
+  "features": [
+    "OpenAI-compatible API",
+    "Docker available",
+    "REST API",
+    "GUI/no-code"
+  ],
+  "fine_tuning": 0,
+  "github_url": "https://github.com/LostRuins/koboldcpp",
+  "gui_available": 1,
+  "hardware": [
+    "CPU",
+    "GPU (NVIDIA)",
+    "GPU (AMD)",
+    "GPU (Apple Silicon)"
+  ],
+  "language": [
+    "C++"
+  ],
+  "last_updated": "2026-07-21",
+  "last_verified": "2026-07-22",
+  "license": "AGPL-3.0",
+  "maturity": "Production / Stable",
+  "min_ram_gb": null,
+  "model_format": [],
+  "offline_after_setup": 0,
+  "openai_api": 1,
+  "paid_support": 0,
+  "personas": [
+    "Developer",
+    "Business Owner",
+    "Indie Hacker"
+  ],
+  "plain_description": "Run powerful AI models locally on your own computer with zero installation. KoboldCpp bundles everything into a single file that works on Windows, Mac, and Linux — just download and run. It handles text generation, image creation, speech recognition, and more, all without needing an internet connection or cloud subscription.",
+  "popularity_score": 11137,
+  "quantization": 0,
+  "recommended_ram_gb": null,
+  "rest_api": 1,
+  "setup_difficulty": "Easy",
+  "slug": "koboldcpp",
+  "tag": "AI Text Generation",
+  "technical_description": "KoboldCpp is a self-contained AI inference server built on llama.cpp, supporting GGML and GGUF model formats for LLM text generation. It provides multiple API endpoints including a KoboldAI-compatible API, an OpenAI-compatible API at /v1, and additional endpoints for image generation (Stable Diffusion 1.5, SDXL, SD3, Flux), speech-to-text (Whisper), text-to-speech (Qwen3TTS, Kokoro, OuteTTS), and video generation (WAN 2.2). The single-file executable bundles all dependencies and runs on CPU with optional GPU offloading via CUDA, Vulkan, Metal, or HIPBLAS. It includes a bundled KoboldAI Lite web UI with chat, adventure, instruct, and storywriter modes, MCP server support, tool calling, RAG via TextDB, and Tavern character card loading.",
+  "telemetry": "Unknown",
+  "title": "koboldcpp",
+  "url": "https://github.com/LostRuins/koboldcpp",
+  "use_cases": [
+    "Chat Assistant",
+    "RAG",
+    "Agentic Workflows",
+    "Code Generation",
+    "Document Processing",
+    "Image Generation",
+    "Speech-to-Text",
+    "Text-to-Speech",
+    "Model Serving",
+    "Translation",
+    "Summarization"
+  ],
+  "works_with": [
+    "llama.cpp",
+    "Stable Diffusion",
+    "Whisper"
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "body": "A programming framework for agentic AI",
+  "category": "agent-frameworks",
+  "commercial_use": 0,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Bare Metal"
+  ],
+  "docker_available": 1,
+  "docs_url": "https://microsoft.github.io/autogen/",
+  "featured": false,
+  "features": [
+    "Docker available",
+    "GUI/no-code"
+  ],
+  "fine_tuning": 0,
+  "github_url": "https://github.com/microsoft/autogen",
+  "gui_available": 1,
+  "hardware": [],
+  "language": [
+    "Python",
+    "C#"
+  ],
+  "last_updated": "2026-04-15",
+  "last_verified": "2026-07-22",
+  "license": "CC-BY-4.0",
+  "maturity": "Mature / Maintenance",
+  "min_ram_gb": null,
+  "model_format": [],
+  "offline_after_setup": 0,
+  "openai_api": 0,
+  "paid_support": 0,
+  "personas": [
+    "Developer"
+  ],
+  "plain_description": "AutoGen enables you to build AI applications that coordinate multiple specialized agents to work together autonomously or with human oversight. You can create assistants, automated workflows, and code-generation agents with minimal setup, and prototype interactively using AutoGen Studio's no-code interface. Note: AutoGen is now in maintenance mode; Microsoft recommends its successor, Microsoft Agent Framework, for new production deployments.",
+  "popularity_score": 59899,
+  "quantization": 0,
+  "recommended_ram_gb": null,
+  "rest_api": 0,
+  "setup_difficulty": "Easy",
+  "slug": "autogen-microsoft",
+  "tag": "Framework",
+  "technical_description": "AutoGen is a multi-agent AI framework with a three-layer architecture: Core API provides event-driven message passing, distributed runtime, and cross-language support for Python and .NET via gRPC; AgentChat API offers an opinionated high-level interface for rapid prototyping of multi-agent patterns (group chat, two-agent chat, tool use); Extensions API enables pluggable integrations for LLM providers (OpenAI, Anthropic, Azure, Gemini, Ollama), code execution (Docker, local, Jupyter), MCP tools, web browsing, and file handling. AutoGen Studio provides a no-code web GUI for prototyping, and Magentic-One delivers a pre-built multi-agent team for complex tasks. The framework is in maintenance mode; its successor is Microsoft Agent Framework.",
+  "telemetry": "Unknown",
+  "title": "AutoGen",
+  "url": "https://github.com/microsoft/autogen",
+  "use_cases": [
+    "Chat Assistant",
+    "Agentic Workflows",
+    "Code Generation"
+  ],
+  "works_with": [
+    "OpenAI",
+    "Anthropic",
+    "Azure",
+    "Gemini",
+    "Ollama",
+    "MCP",
+    "Semantic Kernel"
+  ]
+}

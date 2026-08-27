@@ -1,0 +1,57 @@
+{
+  "body": "Offline speech recognition API for Android, iOS, Raspberry Pi and servers with Python, Java, C# and Node",
+  "category": "speech-to-text",
+  "commercial_use": 1,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Mobile",
+    "Bare Metal"
+  ],
+  "docker_available": 0,
+  "docs_url": "https://alphacephei.com/vosk",
+  "featured": false,
+  "features": [],
+  "fine_tuning": 0,
+  "github_url": "https://github.com/alphacep/vosk-api",
+  "gui_available": 0,
+  "hardware": [
+    "CPU",
+    "Edge Device"
+  ],
+  "language": [
+    "Jupyter Notebook"
+  ],
+  "last_updated": "2026-07-02",
+  "last_verified": "2026-07-22",
+  "license": "Apache-2.0",
+  "maturity": null,
+  "min_ram_gb": null,
+  "model_format": [],
+  "offline_after_setup": 1,
+  "openai_api": 0,
+  "paid_support": 0,
+  "personas": [
+    "Developer"
+  ],
+  "plain_description": "Vosk gives you accurate offline speech recognition across 20+ languages, right on your device — no cloud dependency required. Models are tiny (50 MB) yet deliver real-time transcription, speaker identification, and customizable vocabulary. Works on Android, iOS, Raspberry Pi, and servers.",
+  "popularity_score": 14972,
+  "quantization": 0,
+  "recommended_ram_gb": null,
+  "rest_api": 0,
+  "setup_difficulty": null,
+  "slug": "vosk",
+  "tag": "Speech Recognition",
+  "technical_description": "Vosk is an offline, open-source speech recognition toolkit providing real-time transcription via a streaming API with zero-latency response. It ships pre-trained acoustic models (~50 MB per language) covering 20+ languages with continuous large-vocabulary recognition. The toolkit exposes native bindings for Python, Java, Node.js, C#, C++, Rust, and Go, with platform support spanning Android, iOS, Linux, macOS, and Windows on ARM and x86 architectures. It includes speaker identification, reconfigurable vocabulary, and scales from edge devices to server clusters.",
+  "telemetry": "Unknown",
+  "title": "Vosk Speech Recognition Toolkit",
+  "url": "https://github.com/alphacep/vosk-api",
+  "use_cases": [
+    "Speech-to-Text",
+    "Chat Assistant"
+  ],
+  "works_with": []
+}

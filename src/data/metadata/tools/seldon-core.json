@@ -1,0 +1,61 @@
+{
+  "body": "An MLOps framework to package, deploy, monitor and manage thousands of production machine learning models",
+  "category": "deployment",
+  "commercial_use": 0,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Kubernetes",
+    "Docker",
+    "Cloud"
+  ],
+  "docker_available": 1,
+  "docs_url": "https://docs.seldon.ai/seldon-core-2",
+  "featured": false,
+  "features": [
+    "Docker available",
+    "REST API",
+    "Paid support"
+  ],
+  "fine_tuning": 0,
+  "github_url": "https://github.com/SeldonIO/seldon-core",
+  "gui_available": 0,
+  "hardware": [],
+  "language": [
+    "Go",
+    "Jupyter Notebook"
+  ],
+  "last_updated": "2026-03-23",
+  "last_verified": "2026-07-22",
+  "license": null,
+  "maturity": "Production / Stable",
+  "min_ram_gb": null,
+  "model_format": [],
+  "offline_after_setup": 0,
+  "openai_api": 0,
+  "paid_support": 1,
+  "personas": [
+    "Developer"
+  ],
+  "plain_description": "Seldon Core 2 gives you a standardized way to deploy and manage AI systems on Kubernetes, from single models to complex modular applications. The big picture: deploy across model types, on-prem or in any cloud, production-ready out of the box. Here's why it matters: save infrastructure costs with multi-model serving and overcommit, run A/B experiments, and build composable pipelines with realtime data streaming.",
+  "popularity_score": 4763,
+  "quantization": 0,
+  "recommended_ram_gb": null,
+  "rest_api": 1,
+  "setup_difficulty": null,
+  "slug": "seldon-core",
+  "tag": "MLOps",
+  "technical_description": "Seldon Core 2 is an open-source MLOps and LLMOps framework for deploying, managing, and scaling AI applications on Kubernetes. It provides a unified control plane with a scheduler, model gateway, pipeline gateway, and dataflow engine that orchestrate model serving and inference pipelines. The framework leverages Apache Kafka for realtime data streaming between composable pipeline components and supports multi-model serving on shared inference servers with autoscaling and overcommit capabilities. Integration is via Kubernetes custom resources (CRDs), a CLI, and the V2 Dataplane inference protocol. Additional capabilities include experiment management for A/B testing and shadow deployments, drift and outlier detection, and custom component integration through a plug-in architecture.",
+  "telemetry": "Unknown",
+  "title": "Seldon Core 2",
+  "url": "https://github.com/SeldonIO/seldon-core",
+  "use_cases": [
+    "Model Serving"
+  ],
+  "works_with": [
+    "Kafka"
+  ]
+}

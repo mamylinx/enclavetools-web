@@ -1,5 +1,5 @@
 import { create, insert, save } from '@orama/orama'
-import toolsData from '../data/tools.json'
+import toolsData from '../data/generated/tools.json'
 import type { Tool, Category } from '../interfaces/tool'
 
 const SCHEMA = {

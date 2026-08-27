@@ -1,0 +1,71 @@
+{
+  "body": "text-generation",
+  "category": "llm-models",
+  "commercial_use": 0,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Bare Metal"
+  ],
+  "docker_available": 0,
+  "docs_url": "https://arxiv.org/pdf/2412.19437",
+  "featured": false,
+  "features": [
+    "OpenAI-compatible API",
+    "GUI/no-code"
+  ],
+  "fine_tuning": 0,
+  "github_url": null,
+  "gui_available": 1,
+  "hardware": [
+    "GPU (NVIDIA)",
+    "GPU (AMD)",
+    "NPU"
+  ],
+  "language": [],
+  "last_updated": "2025-03-27",
+  "last_verified": "2026-07-22",
+  "license": null,
+  "maturity": "Production / Stable",
+  "min_ram_gb": 1369.1,
+  "model_format": [
+    "safetensors"
+  ],
+  "offline_after_setup": 0,
+  "openai_api": 1,
+  "paid_support": 0,
+  "personas": [
+    "Developer"
+  ],
+  "plain_description": "DeepSeek-V3 is a state-of-the-art open-source language model that delivers performance rivaling the best closed-source models at a fraction of the training cost. It excels at reasoning, coding, math, and multilingual tasks, making it a powerful foundation for building AI applications.",
+  "popularity_score": 1155192,
+  "quantization": 0,
+  "recommended_ram_gb": 2053.6,
+  "rest_api": 0,
+  "setup_difficulty": "Hard",
+  "slug": "deepseek-v3",
+  "tag": "Large Language Model",
+  "technical_description": "DeepSeek-V3 is a 671B-parameter Mixture-of-Experts (MoE) language model with 37B activated parameters per token, using Multi-head Latent Attention (MLA) and DeepSeekMoE architectures. It employs an auxiliary-loss-free load balancing strategy and a Multi-Token Prediction (MTP) training objective. The model was pre-trained on 14.8 trillion tokens using an FP8 mixed precision training framework. Inference is supported via multiple community frameworks including SGLang, vLLM, LMDeploy, TensorRT-LLM, and LightLLM, with support for FP8, BF16, and INT4/8 quantization. The model supports a 128K context window and is available as both a base and chat variant.",
+  "telemetry": "Unknown",
+  "title": "DeepSeek-V3",
+  "url": "https://deepseek.com/",
+  "use_cases": [
+    "Chat Assistant",
+    "Code Generation",
+    "Translation",
+    "Summarization",
+    "Model Serving"
+  ],
+  "works_with": [
+    "SGLang",
+    "vLLM",
+    "LMDeploy",
+    "TensorRT-LLM",
+    "LightLLM",
+    "DeepSeek-Infer"
+  ],
+  "calculator_model": "671|61|128|128|128"
+}

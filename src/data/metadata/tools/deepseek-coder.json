@@ -1,0 +1,64 @@
+{
+  "body": "DeepSeek Coder: Let the Code Write Itself",
+  "category": "code-assistants",
+  "commercial_use": 1,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Docker"
+  ],
+  "docker_available": 1,
+  "docs_url": null,
+  "featured": false,
+  "features": [
+    "Docker available",
+    "GUI/no-code"
+  ],
+  "fine_tuning": 0,
+  "github_url": "https://github.com/deepseek-ai/DeepSeek-Coder",
+  "gui_available": 1,
+  "hardware": [
+    "GPU (NVIDIA)"
+  ],
+  "language": [
+    "Python"
+  ],
+  "last_updated": "2025-11-11",
+  "last_verified": "2026-07-22",
+  "license": "MIT",
+  "maturity": "Production / Stable",
+  "min_ram_gb": null,
+  "model_format": [],
+  "offline_after_setup": 0,
+  "openai_api": 0,
+  "paid_support": 0,
+  "personas": [
+    "Developer"
+  ],
+  "plain_description": "DeepSeek Coder is a family of AI models that write, complete, and debug code across nearly 100 programming languages. It helps developers ship faster with state-of-the-art code generation, project-level autocomplete, and a chat interface for programming questions.",
+  "popularity_score": 23933,
+  "quantization": 0,
+  "recommended_ram_gb": null,
+  "rest_api": 0,
+  "setup_difficulty": "Medium",
+  "slug": "deepseek-coder",
+  "tag": "Code Generation",
+  "technical_description": "DeepSeek Coder is a series of code language models (1B to 33B parameters) pre-trained from scratch on 2T tokens (87% code, 13% natural language in English and Chinese). Models use a 16K-token window and a fill-in-the-blank training objective for project-level code completion and infilling. Inference runs via the HuggingFace Transformers library with PyTorch and CUDA, or via vLLM for high-throughput serving. The repository provides scripts for fine-tuning with DeepSpeed and supports GGUF quantization via llama.cpp and GPTQ via exllamav2. A demo is available on Hugging Face Spaces and can be run locally.",
+  "telemetry": "Unknown",
+  "title": "DeepSeek-Coder",
+  "url": "https://github.com/deepseek-ai/DeepSeek-Coder",
+  "use_cases": [
+    "Code Generation",
+    "Fine-Tuning",
+    "Model Serving"
+  ],
+  "works_with": [
+    "Hugging Face Transformers",
+    "vLLM",
+    "DeepSpeed",
+    "llama.cpp"
+  ]
+}

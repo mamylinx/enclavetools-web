@@ -1,0 +1,63 @@
+{
+  "body": "Distribute and run LLMs with a single file.",
+  "category": "llm-inference",
+  "commercial_use": 0,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Bare Metal"
+  ],
+  "docker_available": 0,
+  "docs_url": "https://docs.mozilla.ai/llamafile",
+  "featured": false,
+  "features": [
+    "Quantization"
+  ],
+  "fine_tuning": 0,
+  "github_url": "https://github.com/mozilla-ai/llamafile",
+  "gui_available": 0,
+  "hardware": [
+    "CPU"
+  ],
+  "language": [
+    "C++"
+  ],
+  "last_updated": "2026-07-20",
+  "last_verified": "2026-07-22",
+  "license": null,
+  "maturity": "Production / Stable",
+  "min_ram_gb": null,
+  "model_format": [],
+  "offline_after_setup": 1,
+  "openai_api": 0,
+  "paid_support": 0,
+  "personas": [
+    "Developer"
+  ],
+  "plain_description": "Run any open-source LLM on your own computer with a single executable file — no setup, no cloud dependency, no installation required. Just download, make it executable, and run. It also includes a built-in speech-to-text tool (whisperfile) for audio transcription and translation from the same single-file package.",
+  "popularity_score": 25422,
+  "quantization": 1,
+  "recommended_ram_gb": null,
+  "rest_api": 0,
+  "setup_difficulty": "Trivial",
+  "slug": "llamafile",
+  "tag": "LLM Runtime",
+  "technical_description": "llamafile packages LLM inference (via llama.cpp), model weights (GGUF format), and an HTTP server into a single cross-platform executable using Cosmopolitan Libc. It runs natively on x86_64 and ARM64 systems across Windows, macOS, Linux, FreeBSD, and OpenBSD with no runtime dependencies. The executable supports CPU and GPU acceleration, includes a built-in server for model serving, and bundles whisperfile for speech-to-text transcription and translation. Quantized models (e.g., Q8_0) are supported out of the box.",
+  "telemetry": "Unknown",
+  "title": "llamafile",
+  "url": "https://github.com/Mozilla-Ocho/llamafile",
+  "use_cases": [
+    "Chat Assistant",
+    "Model Serving",
+    "Speech-to-Text",
+    "Translation"
+  ],
+  "works_with": [
+    "llama.cpp",
+    "whisper.cpp",
+    "Cosmopolitan Libc"
+  ]
+}

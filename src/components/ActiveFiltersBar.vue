@@ -68,7 +68,7 @@ function getLabel(group: keyof FilterState, value: string): string {
 const chips = computed(() => {
     const result: Array<{ group: keyof FilterState; value: string; label: string }> = [];
 
-    if (props.state.sort !== 'featured') {
+    if (props.state.sort !== 'newest') {
         result.push({ group: 'sort', value: props.state.sort, label: getLabel('sort', props.state.sort) });
     }
     props.state.category.forEach((v) => result.push({ group: 'category', value: v, label: getLabel('category', v) }));

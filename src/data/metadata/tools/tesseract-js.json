@@ -1,0 +1,55 @@
+{
+  "body": "Pure Javascript OCR for more than 100 Languages 📖🎉🖥",
+  "category": "rag-document",
+  "commercial_use": 1,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Bare Metal"
+  ],
+  "docker_available": 0,
+  "docs_url": null,
+  "featured": false,
+  "features": [],
+  "fine_tuning": 0,
+  "github_url": "https://github.com/naptha/tesseract.js",
+  "gui_available": 0,
+  "hardware": [
+    "CPU"
+  ],
+  "language": [
+    "JavaScript"
+  ],
+  "last_updated": "2026-05-17",
+  "last_verified": "2026-07-22",
+  "license": "Apache-2.0",
+  "maturity": "Production / Stable",
+  "min_ram_gb": null,
+  "model_format": [],
+  "offline_after_setup": 0,
+  "openai_api": 0,
+  "paid_support": 0,
+  "personas": [
+    "Developer"
+  ],
+  "plain_description": "Extract text from images in over 100 languages with a pure JavaScript library that runs anywhere — no server or GPU required. Add OCR to your web app or Node service with a single npm install or script tag. The big picture: bring the power of Tesseract to your frontend or backend without any native dependencies.",
+  "popularity_score": 38551,
+  "quantization": 0,
+  "recommended_ram_gb": null,
+  "rest_api": 0,
+  "setup_difficulty": "Easy",
+  "slug": "tesseract-js",
+  "tag": "OCR",
+  "technical_description": "Tesseract.js is a JavaScript library that ports the Tesseract OCR engine to the browser and Node.js by wrapping a WebAssembly port (tesseract.js-core). It provides a worker-based async API for recognizing text from images, supporting over 100 languages and multiple output formats (plain text, hOCR, word/symbol blocks). The library can be installed via npm/yarn for Node.js or loaded via CDN script tag or ESM import for browser use. It offers parallel processing via schedulers, rotation preprocessing, and works with common image formats. It does not support PDF input or modify the underlying Tesseract recognition model.",
+  "telemetry": "Unknown",
+  "title": "Tesseract.js",
+  "url": "https://tesseract.projectnaptha.com/",
+  "use_cases": [
+    "Document Processing",
+    "Data Extraction"
+  ],
+  "works_with": []
+}

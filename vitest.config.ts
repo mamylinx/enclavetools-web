@@ -4,7 +4,7 @@ export default defineConfig({
     test: {
         environment: 'jsdom',
         globals: true,
-        include: ['src/**/*.test.{ts,js}'],
+        include: ['src/**/*.test.{ts,js}', 'scripts/**/*.test.{ts,js}'],
         coverage: {
             provider: 'v8',
             reporter: ['text', 'html'],

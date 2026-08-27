@@ -1,0 +1,74 @@
+{
+  "body": "Open Source alternative to Algolia + Pinecone and an Easier-to-Use alternative to ElasticSearch ⚡ 🔍 ✨ Fast, typo tolerant, in-memory fuzzy Search Engine for building delightful search experiences",
+  "category": "vector-databases",
+  "commercial_use": 1,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-07-22",
+  "deployment": [
+    "Docker",
+    "Bare Metal",
+    "Cloud"
+  ],
+  "docker_available": 1,
+  "docs_url": "https://typesense.org/docs/",
+  "featured": false,
+  "features": [
+    "Docker available",
+    "REST API",
+    "Paid support"
+  ],
+  "fine_tuning": 0,
+  "github_url": "https://github.com/typesense/typesense",
+  "gui_available": 0,
+  "hardware": [
+    "CPU"
+  ],
+  "language": [
+    "C++"
+  ],
+  "last_updated": "2026-07-18",
+  "last_verified": "2026-07-22",
+  "license": "GPL-3.0",
+  "maturity": "Production / Stable",
+  "min_ram_gb": null,
+  "model_format": [],
+  "offline_after_setup": 1,
+  "openai_api": 0,
+  "paid_support": 1,
+  "personas": [
+    "Developer"
+  ],
+  "plain_description": "Typesense is an open-source search engine that delivers fast, typo-tolerant search for your users without the cost and complexity of Algolia or Elasticsearch. It runs as a single binary with no runtime dependencies, so your team can set it up in minutes and scale effortlessly. The bottom line: you get a premium search experience with minimal engineering investment.",
+  "popularity_score": 26341,
+  "quantization": 0,
+  "recommended_ram_gb": null,
+  "rest_api": 1,
+  "setup_difficulty": "Easy",
+  "slug": "typesense",
+  "tag": "Search Engine",
+  "technical_description": "Typesense is a fast, typo-tolerant search engine implemented in C++ with an in-memory, single-binary architecture. It exposes a RESTful HTTP/JSON API for indexing and searching, supporting faceted filtering, geospatial queries, vector search, and built-in semantic/hybrid search with optional integration of external LLM APIs for conversational search (RAG). Typesense runs as a standalone daemon with no runtime dependencies, supports Raft-based clustering for high availability, and is deployable via Docker or direct binary packages on Linux and macOS.",
+  "telemetry": "Unknown",
+  "title": "Typesense",
+  "url": "https://typesense.org/",
+  "use_cases": [
+    "Chat Assistant",
+    "RAG",
+    "Vector Search"
+  ],
+  "works_with": [
+    "Laravel",
+    "Firebase",
+    "Gatsby",
+    "WordPress",
+    "WooCommerce",
+    "Symfony",
+    "Docusaurus",
+    "Craft CMS",
+    "InstantSearch",
+    "OpenAI",
+    "PaLM API"
+  ]
+}
