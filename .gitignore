@@ -53,3 +53,6 @@ marketing/
 # python cache
 enclavetools-pipeline/scripts/__pycache__/
 
+
+# wrangler config (may contain bindings/ids)
+wrangler.jsonc
