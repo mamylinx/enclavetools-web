@@ -1,0 +1,81 @@
+{
+  "body": "llmfit is a hardware-aware local LLM recommender that detects your CPU, RAM, and GPU/VRAM to tell you which open-source models will actually run well on your machine.",
+  "category": "data-utilities",
+  "commercial_use": 1,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-09-09",
+  "deployment": [
+    "Bare Metal",
+    "Docker",
+    "Desktop App"
+  ],
+  "docker_available": 1,
+  "docs_url": "https://github.com/AlexsJones/llmfit",
+  "featured": false,
+  "features": [
+    "REST API",
+    "GUI/no-code",
+    "Quantization"
+  ],
+  "fine_tuning": 0,
+  "github_url": "https://github.com/AlexsJones/llmfit",
+  "gui_available": 1,
+  "hardware": [
+    "CPU",
+    "GPU (NVIDIA)",
+    "GPU (AMD)",
+    "GPU (Apple Silicon)",
+    "GPU (Intel)"
+  ],
+  "language": [
+    "Rust",
+    "Python"
+  ],
+  "last_updated": "2026-09-07",
+  "last_verified": "2026-09-09",
+  "license": "MIT",
+  "maturity": "Production / Stable",
+  "min_ram_gb": null,
+  "model_format": [
+    "GGUF",
+    "AWQ",
+    "GPTQ",
+    "EXL2"
+  ],
+  "offline_after_setup": 1,
+  "openai_api": 0,
+  "paid_support": 0,
+  "personas": [
+    "Developer",
+    "Indie Hacker"
+  ],
+  "plain_description": "The big picture: llmfit turns the guessing game of \"will this model run on my machine?\" into a single command. It inspects your CPU cores, system RAM, GPUs, VRAM, and unified-memory setup, then ranks hundreds of open-source models by fit, speed, quality, and context. Here's why it matters: you don't waste hours downloading a 70B quant that will never fit, and you don't settle for a tiny model when your hardware could handle better. The bottom line: the right model, at the right quantization, for your exact hardware — entirely locally, with nothing sent anywhere unless you ask it to.",
+  "popularity_score": 35316,
+  "quantization": 1,
+  "recommended_ram_gb": null,
+  "rest_api": 1,
+  "setup_difficulty": "Easy",
+  "slug": "llmfit",
+  "tag": "MIT",
+  "technical_description": "llmfit is a Rust project (workspace crates llmfit-core, llmfit-tui, llmfit-desktop, plus separate llmfit-python binding and web dashboard) for local LLM hardware profiling and model selection. Hardware detection reads RAM/CPU via sysinfo and probes GPUs: NVIDIA via nvidia-smi (multi-GPU VRAM aggregation), AMD via rocm-smi, Intel Arc discrete via sysfs / integrated via lspci, Apple Silicon unified memory via system_profiler (VRAM = system RAM), Ascend via npu-smi, with automatic backend detection (CUDA, Metal, ROCm, SYCL, CPU ARM/x86, Ascend). Overrides: --memory/--ram/--cpu-cores, --profile hardware-profile JSON, --max-context cap. Its engine loads a curated Hugging Face catalog (llmfit-core/data/hf_models.json, hundreds of families — Llama, Qwen, Gemma, Phi, DeepSeek, Granite, OLMo, Grok, GLM, Kimi + coding/reasoning/VL/embedding subsets) with MoE auto-detection (num_local_experts / arch map; e.g. Mixtral 8x7B 46.7B total / ~12.9B active). Dynamic quantization walks Q8_0 down to Q2_K picking the best quality that fits, retrying at half context if needed. Scoring is 0–100 across Quality (params + family reputation + quant penalty + use_case_benchmarks.json task alignment), Speed (bandwidth formula (bandwidth_GB_s / model_size_GB) × 0.55, ~80-GPU lookup else backend constants CUDA 220 / Metal 160 / ROCm 180 / SYCL 100 / CPU-ARM 90 / CPU-x86 70 / Ascend 390; MoE uses active params; prefill/TTFT only when gpu_compute_tflops_fp16 known else null), Fit (pool utilization ≤60% Perfect / ≤85% Good / ≤98% Marginal / >98% Too Tight; GPU keeps verdict, MoE/CPU+GPU/CPU cap at Good), Context, combined into use-case-weighted composite (General/Coding/Reasoning/Chat/Multimodal/Embedding; e.g. Chat Speed 0.35, Reasoning Quality 0.55) with estimate_confidence (measured_local > measured_community > calibrated > estimated > unsupported). Run modes: GPU / MoE-offload / CPU+GPU / CPU. Interfaces: Ratatui TUI (llmfit, tabs Models/System/Benchmark, Tab, j/k, /, f/a filters, s sort, d download with provider picker, p plan mode, t themes, A advanced config), CLI (system, doctor, list, search, info, recommend, fit, plan --context --quant --target-tps, bench, hardware list/show/validate/path, --cli, --json, --force-runtime mlx|llamacpp|vllm), REST (serve --host --port → GET /health, /api/v1/system, /api/v1/models, /api/v1/models/top with limit/min_fit/runtime/use_case/provider/search/sort/include_too_tight/max_context/force_runtime). Providers: Ollama (:11434, OLLAMA_HOST), llama.cpp (llama-cli/llama-server + HF GGUF cache, LLAMA_CPP_PATH), MLX (mlx-community/* cache), Docker Model Runner (:12434, DOCKER_MODEL_RUNNER_HOST), LM Studio (127.0.0.1:1234, LMSTUDIO_HOST/LMSTUDIO_API_KEY). bench [--all] [--share [--dry-run --yes]] measures tok/s vs Ollama/vLLM/MLX/llama-server, saves to ~/.local/share/llmfit/benchmarks/pending/ (LLMFIT_BENCH_STORE override), calibrates local estimates, and optionally forks+PRs results to llmfit-core/data/community/<hardware>/ via GitHub device flow (GITHUB_TOKEN/GH_TOKEN or baked OAuth client id) for inclusion in the next release. Install: brew install llmfit (or AlexsJones/llmfit/llmfit), scoop install llmfit, port install llmfit, curl -fsSL https://llmfit.axjns.dev/install.sh | sh, uv tool install -U llmfit / uvx llmfit, ghcr.io/alexsjones/llmfit, or cargo build --release. MIT.",
+  "telemetry": "Unknown",
+  "title": "llmfit",
+  "url": "https://www.llmfit.org/",
+  "use_cases": [
+    "Chat Assistant",
+    "Code Generation",
+    "Model Serving",
+    "Data Extraction"
+  ],
+  "works_with": [
+    "Ollama",
+    "llama.cpp",
+    "MLX",
+    "LM Studio",
+    "Docker Model Runner",
+    "Hugging Face"
+  ]
+}

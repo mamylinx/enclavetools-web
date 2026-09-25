@@ -1,0 +1,75 @@
+{
+  "body": "Local-first screen and audio memory that records what you see and hear, then lets you and your AI agents search it with natural language.",
+  "category": "rag-document",
+  "commercial_use": 0,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-09-24",
+  "deployment": [
+    "Desktop App",
+    "Bare Metal"
+  ],
+  "docker_available": 0,
+  "docs_url": "https://docs.screenpi.pe",
+  "featured": false,
+  "features": [
+    "REST API",
+    "GUI/no-code",
+    "Paid support"
+  ],
+  "fine_tuning": 0,
+  "github_url": "https://github.com/screenpipe/screenpipe",
+  "gui_available": 1,
+  "hardware": [
+    "CPU",
+    "GPU (NVIDIA)",
+    "GPU (Apple Silicon)",
+    "NPU"
+  ],
+  "language": [
+    "Rust",
+    "TypeScript"
+  ],
+  "last_updated": "2026-09-24",
+  "last_verified": "2026-09-24",
+  "license": "Screenpipe Commercial License",
+  "maturity": "Production / Stable",
+  "min_ram_gb": null,
+  "model_format": [],
+  "offline_after_setup": 1,
+  "openai_api": 0,
+  "paid_support": 1,
+  "personas": [
+    "Developer",
+    "Business Owner"
+  ],
+  "plain_description": "Screenpipe gives you a searchable memory of everything you see and hear on your computer, so you never lose a meeting detail, tab, or idea again. It quietly records your screen and audio on your own machine, then answers plain questions like what you worked on today or what was said in a call. It is free for personal use, while businesses and teams need a paid plan.",
+  "popularity_score": 21683,
+  "quantization": 0,
+  "recommended_ram_gb": null,
+  "rest_api": 1,
+  "setup_difficulty": "Medium",
+  "slug": "screenpipe",
+  "tag": "AI Memory",
+  "technical_description": "Screenpipe is a Rust and TypeScript desktop app built with Tauri that captures screen and audio locally into SQLite with full-text search. Event-driven capture stores screenshots with the OS accessibility tree and falls back to OCR, while Whisper runs on-device for transcription with speaker diarization. A local REST API, MCP server, and JavaScript SDK let agents like Claude Code or Cursor query history, and markdown pipes run scheduled automations with deterministic per-pipe data permissions. Privacy filters redact passwords and PII at rest with optional encryption. Product analytics and crash diagnostics are on by default and can be switched off in settings. The source is source-available for personal and non-commercial use, and any commercial or production use needs a paid license.",
+  "telemetry": "Opt-out",
+  "title": "Screenpipe",
+  "url": "https://screenpi.pe",
+  "use_cases": [
+    "RAG",
+    "Document Processing",
+    "Speech-to-Text"
+  ],
+  "works_with": [
+    "Claude Code",
+    "Ollama",
+    "Whisper",
+    "SQLite",
+    "Obsidian",
+    "Notion",
+    "Cursor",
+    "MCP"
+  ]
+}
