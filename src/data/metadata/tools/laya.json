@@ -1,0 +1,78 @@
+{
+  "body": "Fast multilingual decision engine that turns any text into typed choice, score, and yes/no answers in a single forward pass.",
+  "category": "decision-models",
+  "commercial_use": 1,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-09-24",
+  "deployment": [
+    "Docker",
+    "Bare Metal"
+  ],
+  "docker_available": 1,
+  "docs_url": "https://nandhakishorm.github.io/laya/",
+  "featured": false,
+  "features": [
+    "Docker available",
+    "REST API",
+    "Fine-tuning",
+    "GUI/no-code"
+  ],
+  "fine_tuning": 1,
+  "github_url": "https://github.com/NandhaKishorM/laya",
+  "gui_available": 1,
+  "hardware": [
+    "CPU",
+    "GPU (NVIDIA)",
+    "GPU (Apple Silicon)"
+  ],
+  "language": [
+    "Python",
+    "TypeScript"
+  ],
+  "last_updated": "2026-09-24",
+  "last_verified": "2026-09-24",
+  "license": "Apache-2.0",
+  "maturity": "Beta",
+  "min_ram_gb": null,
+  "model_format": [
+    "safetensors",
+    "PyTorch",
+    "ONNX"
+  ],
+  "offline_after_setup": 1,
+  "openai_api": 0,
+  "paid_support": 0,
+  "personas": [
+    "Developer"
+  ],
+  "plain_description": "Laya helps your app make quick, confident decisions from everyday text like tickets, emails, or chat messages. Tell it what to decide — which team should handle a request, how urgent it feels, or whether a message looks risky — and it answers in milliseconds with a clear probability you can trust. It understands more than 100 languages, runs privately on your own machine once set up, and fits neatly into support triage, moderation, and AI safety workflows.",
+  "popularity_score": 22065,
+  "quantization": 0,
+  "recommended_ram_gb": null,
+  "rest_api": 1,
+  "setup_difficulty": "Easy",
+  "slug": "laya",
+  "tag": "Decision Engine",
+  "technical_description": "Laya is a non-autoregressive decision engine in Python with a TypeScript client, built on ModernBERT-large for English and mmBERT-base for multilingual input. A dependency-free Router detects script and language in under a millisecond and dispatches each request to one of three safetensors checkpoints on Hugging Face Hub. All questions share one forward pass with calibrated choice, score, and yes/no outputs, plus batch mode, prediction hooks, and schema-driven decisions. It ships as a PyPI package with CLI, FastAPI server exposing a Jev-compatible REST API, MCP server, LangChain and LangGraph integrations, ONNX Runtime support, and an optional TileLang CUDA fast path. Deployment is via pip, Docker and Compose, or Nix, on CPU, NVIDIA CUDA, and Apple Silicon.",
+  "telemetry": "Unknown",
+  "title": "Laya",
+  "url": "https://huggingface.co/convaiinnovations/laya",
+  "use_cases": [
+    "Agentic Workflows",
+    "Data Extraction",
+    "Document Processing"
+  ],
+  "works_with": [
+    "Hugging Face Hub",
+    "PyTorch",
+    "Transformers",
+    "Docker",
+    "FastAPI",
+    "LangChain",
+    "LangGraph",
+    "ONNX"
+  ]
+}

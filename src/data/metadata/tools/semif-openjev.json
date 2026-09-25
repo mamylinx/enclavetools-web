@@ -1,0 +1,73 @@
+{
+  "body": "Open baseline for semantic ifs that reads typed option probabilities straight from open models with no text generation.",
+  "category": "decision-models",
+  "commercial_use": 1,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-09-24",
+  "deployment": [
+    "Bare Metal"
+  ],
+  "docker_available": 0,
+  "docs_url": "https://github.com/TheoLeeCJ/SemIf-OpenJev/tree/master/docs",
+  "featured": false,
+  "features": [
+    "GUI/no-code",
+    "Quantization"
+  ],
+  "fine_tuning": 0,
+  "github_url": "https://github.com/TheoLeeCJ/SemIf-OpenJev",
+  "gui_available": 1,
+  "hardware": [
+    "CPU",
+    "GPU (NVIDIA)",
+    "GPU (Apple Silicon)"
+  ],
+  "language": [
+    "Python",
+    "JavaScript"
+  ],
+  "last_updated": "2026-09-23",
+  "last_verified": "2026-09-24",
+  "license": "MIT",
+  "maturity": "Experimental",
+  "min_ram_gb": null,
+  "model_format": [
+    "safetensors",
+    "PyTorch",
+    "GGUF",
+    "MLX"
+  ],
+  "offline_after_setup": 1,
+  "openai_api": 0,
+  "paid_support": 0,
+  "personas": [
+    "Developer"
+  ],
+  "plain_description": "SemIf helps your agent make small everyday calls — route this request, retry that step, or check whether the evidence supports a claim — without waiting for a chatbot to write out an answer. It looks directly at what an open model already believes about your options and turns that into clear probabilities you can branch on. It runs at home on a single GPU, on Apple Silicon, or entirely in your browser, so you can test fast local decisions with nothing locked away.",
+  "popularity_score": 4185,
+  "quantization": 1,
+  "recommended_ram_gb": null,
+  "rest_api": 0,
+  "setup_difficulty": "Medium",
+  "slug": "semif-openjev",
+  "tag": "Semantic Ifs",
+  "technical_description": "SemIf is a Python decision-scoring baseline with JavaScript browser demos that evaluates runtime-defined questions against frozen open models like Qwen3.5-4B and MiniCPM5-2B. One forward pass reads native option logits into typed probabilities with prompt hashes, pinned revisions, and per-workload temperature calibration, avoiding sampling, JSON repair, or decoding loops. Execution modes cover direct scoring, serial prefix reuse, and parallel shared-state suffixes, with backends for CUDA Torch, llama.cpp GGUF on CPU, MLX and MPS on Apple Silicon, EXL3 quantized runners, and WebGPU via wllama and Vue. Results, fixtures, timings, and checksums are committed for audit, and input states may be plain text or structured JSON.",
+  "telemetry": "Unknown",
+  "title": "SemIf",
+  "url": "https://openjev.com",
+  "use_cases": [
+    "Agentic Workflows",
+    "Data Extraction"
+  ],
+  "works_with": [
+    "Hugging Face Hub",
+    "PyTorch",
+    "Qwen",
+    "llama.cpp",
+    "MLX",
+    "WebGPU"
+  ]
+}

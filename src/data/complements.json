@@ -29,6 +29,11 @@
     "vector-databases",
     "rag-document"
   ],
+  "decision-models": [
+    "agent-frameworks",
+    "workflow-automation",
+    "monitoring-observability"
+  ],
   "fine-tuning-training": [
     "llm-models",
     "deployment",

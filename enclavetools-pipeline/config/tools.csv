@@ -162,3 +162,5 @@ whisper-cpp,whisper.cpp,ggml-org,whisper.cpp,https://github.com/ggerganov/whispe
 whisper-webui,Whisper WebUI,jhj0517,Whisper-WebUI,https://github.com/jhj0517/Whisper-WebUI,https://github.com/jhj0517/Whisper-WebUI,speech-to-text
 whisperx,WhisperX,m-bain,whisperX,https://github.com/m-bain/whisperX,https://github.com/m-bain/whisperX,speech-to-text
 windmill,Windmill Engine,windmill-labs,windmill,https://www.windmill.dev/,https://github.com/windmill-labs/windmill,workflow-automation
+laya,Laya,NandhaKishorM,laya,https://huggingface.co/convaiinnovations/laya,https://github.com/NandhaKishorM/laya,decision-models
+semif-openjev,SemIf,TheoLeeCJ,SemIf-OpenJev,https://openjev.com,https://github.com/TheoLeeCJ/SemIf-OpenJev,decision-models

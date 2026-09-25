@@ -12,6 +12,7 @@
   "monitoring-observability": "activity",
   "privacy-security": "shield",
   "embedding-models": "layers",
+  "decision-models": "scale",
   "deployment": "server",
   "workflow-automation": "git-branch",
   "video-generation": "video",

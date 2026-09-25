@@ -132,4 +132,4 @@ export const FILTER_GROUPS: FilterGroupConfig[] = [
 ];
 
 /** Categories that should show the model-format filter. */
-export const MODEL_FORMAT_CATEGORIES = ['llm-models', 'embedding-models'];
+export const MODEL_FORMAT_CATEGORIES = ['llm-models', 'embedding-models', 'decision-models'];
