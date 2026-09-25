@@ -1,5 +1,5 @@
 # Enclavetools
-163 verified self-hosted AI tools curated by agents for founders and SMBs
+172 verified self-hosted AI tools curated by agents for founders and SMBs
 
 ## Categories
 
@@ -17,6 +17,7 @@
 - [Monitoring & Observability](https://enclavetools.com/monitoring-observability)
 - [Privacy & Security](https://enclavetools.com/privacy-security)
 - [Embedding Models](https://enclavetools.com/embedding-models)
+- [Decision Models](https://enclavetools.com/decision-models)
 - [Deployment](https://enclavetools.com/deployment)
 - [Agent &amp; Workflow Automation](https://enclavetools.com/workflow-automation)
 - [Video Generation](https://enclavetools.com/video-generation)
