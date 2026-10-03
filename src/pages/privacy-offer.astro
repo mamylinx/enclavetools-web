@@ -4,111 +4,125 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout
   site="Enclavetools"
-  title="Airgap Certainty Blueprint | Deep AI Telemetry Audit & Privacy Verification"
-  pageTitle="Airgap Certainty Blueprint"
-  pageDescription="Eliminate silent data leaks in self-hosted AI stacks. Get a personalized Airgap Certainty Blueprint: runtime packet capture matrices, static AST source code audits, zero-trust Docker firewall policies, continuous eBPF telemetry watchdogs, and an executive privacy report. $2,497 (total value $8,500) backed by a 100% Airgap Guarantee."
+  title="See What Your Software Actually Sends | rpaudit Early Access"
+  tagline="rpaudit shows every outbound connection on your machine or server — join the early-access list."
+  pageTitle="See What Your Software Actually Sends | rpaudit Early Access"
+  pageDescription="rpaudit shows every outbound connection on your machine or server, which program made it, and where it went. No packet-capture skills needed. Join the early-access list."
   canonicalUrl="https://enclavetools.com/privacy-offer"
   showSearch={false}
   showNav={false}
   showFooter={false}
-  ogTitle="Airgap Certainty Blueprint: AI Telemetry Audit & Privacy Verification"
-  ogDescription="Complete runtime packet capture, AST source scan, zero-trust firewall scripts, and executive privacy report for your self-hosted AI stack. $2,497 (value $8,500)."
-  ogImage="https://enclavetools.com/og-privacy-blueprint.png"
+  ogTitle="See What Your Software Actually Sends | rpaudit Early Access"
+  ogDescription="rpaudit shows every outbound connection on your machine or server, which program made it, and where it went. Join the early-access list."
+  ogImage="https://enclavetools.com/og-rpaudit-early-access.png"
   ogUrl="https://enclavetools.com/privacy-offer"
-  ogType="product"
+  ogType="website"
   ogSiteName="Enclavetools"
   twitterCard="summary_large_image"
-  twitterTitle="Airgap Certainty Blueprint: AI Telemetry Audit & Verification"
-  twitterDescription="Eliminate silent telemetry & data leaks in your self-hosted AI stack. Complete audit matrix, zero-trust firewall scripts & executive report. $2,497."
-  twitterImage="https://enclavetools.com/og-privacy-blueprint.png"
+  twitterTitle="See What Your Software Actually Sends | rpaudit Early Access"
+  twitterDescription="rpaudit shows every outbound connection on your machine or server, which program made it, and where it went. Join the early-access list."
+  twitterImage="https://enclavetools.com/og-rpaudit-early-access.png"
   keywords={[
-    "AI telemetry audit",
-    "AI privacy due diligence",
-    "self-hosted AI security",
-    "airgap AI deployment",
-    "packet capture audit",
-    "eBPF container monitoring",
-    "zero telemetry verification",
-    "data leak prevention"
+    "rpaudit",
+    "outbound connection audit",
+    "AI telemetry",
+    "vendor risk",
+    "software phone home",
+    "network traffic evidence",
+    "privacy audit tool",
+    "early access",
   ]}
   robots="index, follow"
 >
   <div class="max-w-4xl mx-auto px-4 py-12 lg:py-16">
     <div id="app">
-      <!-- HEADER -->
+      <!-- BRAND -->
+      <p
+        class="flex items-center gap-2 font-bold text-brand-forest text-lg mb-8"
+      >
+        <span aria-hidden="true">🛡️</span> rpaudit
+      </p>
+
+      <!-- HERO -->
       <h1
         class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-brand-forest tracking-tight mb-6 leading-tight text-center md:text-left"
       >
-        Stop Silent Telemetry Leaks in <span
-          class="text-brand-teal"
-          id="displayTool">Your AI Stack</span
-        >.<br />
-        Before They Trigger an <span class="text-amber-500">Unintended Data Leak</span>.
+        Software Says It's Private. <span class="text-brand-teal"
+          >See What It Actually Sends.</span
+        >
       </h1>
 
-      <div
-        class="text-lg md:text-xl text-brand-muted border-l-4 border-amber-500 pl-5 mb-8 font-medium"
-        id="subheadline"
+      <p class="text-lg md:text-xl text-brand-muted mb-8 max-w-2xl">
+        rpaudit shows every outbound connection on your machine or server, which
+        program made it, and where it went. No packet-capture skills needed.
+        Join the early-access list.
+      </p>
+
+      <!-- HERO FORM -->
+      <form
+        id="earlyAccessHeroForm"
+        data-early-access-form="hero"
+        action="/api/contact"
+        method="POST"
+        class="bg-white border-2 border-brand-teal/30 p-6 md:p-8 rounded-3xl mb-6 shadow-md"
+        novalidate
       >
-        Auditing <strong class="text-brand-forest" id="displayToolSub">Your AI Stack</strong> in <strong class="text-brand-forest" id="displayEnv">Docker Container</strong> mode for <strong class="text-brand-forest" id="displayTarget">Zero Outbound Telemetry</strong>.
-      </div>
-
-      <!-- AUDIT TARGET CONFIGURATOR CARD -->
-      <div class="bg-white border-2 border-brand-teal/30 p-6 md:p-8 rounded-3xl mb-10 shadow-md">
-        <h2 class="text-xl font-extrabold text-brand-forest mb-2 flex items-center gap-2">
-          <span>🎯</span> Tell Us What to Audit
-        </h2>
-        <p class="text-sm text-brand-muted mb-5">
-          Select the AI tool you want us to check and how you run it:
-        </p>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-5">
-          <div class="md:col-span-3">
-            <label for="cfgToolInput" class="block text-xs font-bold uppercase tracking-wider text-brand-forest/70 mb-2">Which AI Tool?</label>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+          <div>
+            <label
+              for="heroEmail"
+              class="block text-xs font-bold uppercase tracking-wider text-brand-forest/70 mb-2"
+              >Work email</label
+            >
             <input
-              type="text"
-              id="cfgToolInput"
-              class="w-full bg-brand-forest/5 border border-brand-forest/15 rounded-xl px-4 py-3 text-brand-forest font-semibold focus:outline-none focus:border-brand-teal transition-colors"
-              placeholder="e.g. Open WebUI, Ollama, ComfyUI, Dify..."
-              value=""
+              type="email"
+              id="heroEmail"
+              name="email"
+              required
+              autocomplete="email"
+              placeholder="you@company.com"
+              class="w-full bg-brand-forest/5 border border-brand-forest/15 rounded-xl px-4 h-[52px] text-brand-forest font-semibold focus:outline-none focus:border-brand-teal transition-colors"
             />
           </div>
           <div>
-            <label for="cfgEnvSelect" class="block text-xs font-bold uppercase tracking-wider text-brand-forest/70 mb-2">How Do You Run It?</label>
-            <select
-              id="cfgEnvSelect"
-              class="w-full bg-brand-forest/5 border border-brand-forest/15 rounded-xl px-4 py-3 text-brand-forest font-semibold focus:outline-none focus:border-brand-teal transition-colors"
+            <label
+              for="heroStack"
+              class="block text-xs font-bold uppercase tracking-wider text-brand-forest/70 mb-2"
+              >What do you want to check?</label
             >
-              <option value="Docker Container">Docker Container</option>
-              <option value="Directly on Server">Directly on a Server (no containers)</option>
-              <option value="Kubernetes Cluster">Kubernetes Cluster</option>
-              <option value="Isolated Local Network">Isolated Local Network (no internet access)</option>
-            </select>
-          </div>
-          <div class="md:col-span-2">
-            <label for="cfgTargetSelect" class="block text-xs font-bold uppercase tracking-wider text-brand-forest/70 mb-2">What Do You Need?</label>
             <select
-              id="cfgTargetSelect"
-              class="w-full bg-brand-forest/5 border border-brand-forest/15 rounded-xl px-4 py-3 text-brand-forest font-semibold focus:outline-none focus:border-brand-teal transition-colors"
+              id="heroStack"
+              name="stack"
+              class="w-full bg-brand-forest/5 border border-brand-forest/15 rounded-xl px-4 h-[52px] text-brand-forest font-semibold focus:outline-none focus:border-brand-teal transition-colors"
             >
-              <option value="Zero External Telemetry">Block all outbound connections (full offline mode)</option>
-              <option value="Strict Prompt & IP Isolation">Keep prompts and data on-premise (no third-party calls)</option>
-              <option value="Offline Verification Audit">Verify the software is safe to install offline</option>
+              <option value="">What do you want to check?</option>
+              <option>Vendor / third-party software</option>
+              <option>AI tools and agents</option>
+              <option>Servers and containers</option>
+              <option>Desktop apps</option>
+              <option>Dev tools and dependencies</option>
+              <option>Something else</option>
             </select>
           </div>
         </div>
-
-        <div>
-          <span class="text-xs font-bold uppercase tracking-wider text-brand-forest/60 block mb-2">Quick Presets:</span>
-          <div class="flex flex-wrap gap-2" id="presetChips">
-            <button type="button" data-preset="Open WebUI" class="preset-chip px-3.5 py-1.5 rounded-full text-xs font-bold bg-brand-forest/5 text-brand-forest border border-brand-forest/10 hover:bg-brand-teal hover:text-white transition-colors">Open WebUI</button>
-            <button type="button" data-preset="Ollama" class="preset-chip px-3.5 py-1.5 rounded-full text-xs font-bold bg-brand-forest/5 text-brand-forest border border-brand-forest/10 hover:bg-brand-teal hover:text-white transition-colors">Ollama</button>
-            <button type="button" data-preset="ComfyUI" class="preset-chip px-3.5 py-1.5 rounded-full text-xs font-bold bg-brand-forest/5 text-brand-forest border border-brand-forest/10 hover:bg-brand-teal hover:text-white transition-colors">ComfyUI</button>
-            <button type="button" data-preset="Dify" class="preset-chip px-3.5 py-1.5 rounded-full text-xs font-bold bg-brand-forest/5 text-brand-forest border border-brand-forest/10 hover:bg-brand-teal hover:text-white transition-colors">Dify</button>
-            <button type="button" data-preset="vLLM Inference Cluster" class="preset-chip px-3.5 py-1.5 rounded-full text-xs font-bold bg-brand-forest/5 text-brand-forest border border-brand-forest/10 hover:bg-brand-teal hover:text-white transition-colors">vLLM Cluster</button>
-            <button type="button" data-preset="Custom LLM Stack" class="preset-chip px-3.5 py-1.5 rounded-full text-xs font-bold bg-brand-forest/5 text-brand-forest border border-brand-forest/10 hover:bg-brand-teal hover:text-white transition-colors">Custom LLM Stack</button>
-          </div>
-        </div>
+        <button
+          type="submit"
+          data-submit-btn
+          class="btn-primary block w-full text-base px-8 py-3"
+        >
+          Get early access
+        </button>
+        <p class="text-brand-muted text-sm mt-3">
+          Free to join. Early members get first access and a say in what we
+          build.
+        </p>
+      </form>
+      <div
+        data-success="hero"
+        class="hidden bg-emerald-50 border border-emerald-200 text-emerald-800 px-6 py-4 rounded-2xl mb-6 max-w-2xl font-medium"
+      >
+        ✅ <strong>You're on the list.</strong> Check your inbox for the Software
+        Phone-Home Checklist.
       </div>
 
       <!-- SPEC BADGE GRID -->
@@ -118,283 +132,521 @@ import Layout from "../layouts/Layout.astro";
         <div
           class="bg-white px-4 py-2 rounded-full text-sm font-medium text-brand-muted border border-brand-forest/10 shadow-sm"
         >
-          🛠️ Target Tool: <span class="text-brand-forest font-bold" id="badgeTool">Open WebUI / Self-Hosted Stack</span>
+          🛠️ Runs on: <span class="text-brand-forest font-bold"
+            >Baremetal, K8s, container, VM</span
+          >
         </div>
         <div
           class="bg-white px-4 py-2 rounded-full text-sm font-medium text-brand-muted border border-brand-forest/10 shadow-sm"
         >
-          📦 Environment: <span class="text-brand-forest font-bold" id="badgeEnv">Docker Container</span>
+          🔒 Goal: <span class="text-brand-forest font-bold"
+            >Know what leaves</span
+          >
         </div>
         <div
           class="bg-white px-4 py-2 rounded-full text-sm font-medium text-brand-muted border border-brand-forest/10 shadow-sm"
         >
-          🔒 Target Goal: <span class="text-brand-forest font-bold" id="badgeTarget">Zero External Telemetry</span>
-        </div>
-        <div
-          class="bg-white px-4 py-2 rounded-full text-sm font-medium text-brand-muted border border-brand-forest/10 shadow-sm"
-        >
-          📡 Scope: <span class="text-brand-forest font-bold" id="badgeScope">Network Traffic + Source Code Review</span>
+          📡 Scope: <span class="text-brand-forest font-bold"
+            >Any program you point it at</span
+          >
         </div>
         <div
           class="bg-brand-forest text-white px-4 py-2 rounded-full text-sm font-bold shadow-sm"
         >
-          ⏱️ Turnaround: <span class="text-white" id="badgeTurnaround">5-Business-Day Delivery</span>
+          ⏱️ Setup: Minutes
         </div>
       </div>
 
-      <!-- AGITATION -->
+      <!-- ONE QUESTION -->
       <h2 class="text-2xl md:text-3xl font-bold text-brand-forest mt-12 mb-4">
-        The <span class="text-amber-500">$250,000 "Shadow Telemetry" Trap</span>
+        It usually starts with <span class="text-amber-500">one question.</span>
       </h2>
-
       <p class="text-lg text-brand-muted mb-4">
-        Deploying an open-source AI project or downloading a pre-packaged Docker container behind your firewall gives teams a false sense of security: <em>"It's running on our hardware, so it must be private."</em>
+        Procurement asks it before approving a vendor. A client asks it before
+        signing. An auditor puts it in writing.
       </p>
-
-      <p class="text-lg text-brand-muted mb-4">
-        Here is what standard code reviews consistently miss:
-      </p>
-
-      <ul class="list-disc pl-8 mb-4 text-lg text-brand-muted space-y-3">
-        <li>
-          <strong class="text-red-600">Hidden Analytics & Crash Reporters:</strong> Tracking tools (PostHog, Segment, Sentry, Google Analytics) baked into the code that quietly send usage data the moment the software starts, processes a prompt, or hits an error.
-        </li>
-        <li>
-          <strong class="text-red-600">Silent Auto-Updaters:</strong> Background requests that check for new versions or download model files — leaking your internal IP address, system info, and timestamps to external servers without asking.
-        </li>
-        <li>
-          <strong class="text-red-600">Hidden Fallback Connections:</strong> Add-on libraries that silently call public servers when a local resource is missing — even in tools that claim to work offline.
-        </li>
-      </ul>
-
       <blockquote
-        class="text-lg text-brand-muted font-medium my-6 border-l-4 border-amber-500 pl-5"
+        class="text-xl md:text-2xl text-brand-forest font-medium my-6 border-l-4 border-amber-500 pl-5"
       >
-        Assuming your AI tool is private just because you didn't enter an API key is like locking your front door while leaving every window wide open.
+        "Does this software send our data anywhere?"
       </blockquote>
-
-      <p class="text-lg text-brand-muted font-medium">
-        You don't need vendor promises. You need recorded proof of every connection your software makes, a line-by-line review of the source code, and ready-to-use firewall rules that shut it all down.
+      <p class="text-lg text-brand-muted mb-4">
+        The vendor says no. The privacy policy says no. But policies describe
+        intentions. Network traffic shows behavior — and only one of those
+        survives an audit.
       </p>
 
-      <!-- OFFER -->
-      <h2 class="text-2xl md:text-3xl font-bold text-brand-forest mt-12 mb-2">
-        The <span class="text-amber-500">Complete Airgap Certainty Blueprint</span>
-      </h2>
-      <p class="text-brand-muted mb-6 text-lg">
-        Built specifically for <strong class="text-brand-forest" id="offerTool">Open WebUI / Self-Hosted Stack</strong> and your privacy requirements. Conducted by experienced engineers on dedicated test hardware.
-      </p>
-
-      <table class="w-full text-left border-collapse my-8">
-        <thead>
-          <tr class="bg-brand-forest/10">
-            <th
-              class="p-4 border border-brand-forest/10 font-bold text-brand-forest"
-              >#</th
-            >
-            <th
-              class="p-4 border border-brand-forest/10 font-bold text-brand-forest"
-              >Deliverable</th
-            >
-            <th
-              class="p-4 border border-brand-forest/10 font-bold text-brand-forest"
-              >Value</th
-            >
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="p-4 border border-brand-forest/10 text-brand-muted">1</td>
-            <td class="p-4 border border-brand-forest/10 text-brand-muted"
-              ><strong class="text-brand-forest"
-                >Live Network Traffic Recording</strong
-              > — We run your AI tool through real-world usage sessions while recording every network connection it makes. You get a complete log of every server it contacts, what data it sends, and when.</td
-            >
-            <td
-              class="p-4 border border-brand-forest/10 text-brand-muted font-bold"
-              >$3,500</td
-            >
-          </tr>
-          <tr>
-            <td class="p-4 border border-brand-forest/10 text-brand-muted">2</td>
-            <td class="p-4 border border-brand-forest/10 text-brand-muted"
-              ><strong class="text-brand-forest"
-                >Source Code & Dependency Review</strong
-              > — We read through the actual source code and every add-on library it uses, tracing hidden network calls, tracking code, update checks, and external download links that could leak data.</td
-            >
-            <td
-              class="p-4 border border-brand-forest/10 text-brand-muted font-bold"
-              >$3,000</td
-            >
-          </tr>
-          <tr>
-            <td class="p-4 border border-brand-forest/10 text-brand-muted">3</td>
-            <td class="p-4 border border-brand-forest/10 text-brand-muted"
-              ><strong class="text-brand-forest"
-                >Ready-to-Use Lockdown Rules</strong
-              > — Copy-paste firewall rules, network isolation configs, DNS blocklists, and settings overrides that block all outbound connections. Works out of the box with your setup.</td
-            >
-            <td
-              class="p-4 border border-brand-forest/10 text-brand-muted font-bold"
-              >$2,500</td
-            >
-          </tr>
-          <tr>
-            <td class="p-4 border border-brand-forest/10 text-brand-muted">4</td>
-            <td class="p-4 border border-brand-forest/10 text-brand-muted"
-              ><strong class="text-brand-forest"
-                >Executive Privacy Report</strong
-              > — A clear, signed PDF report with network diagrams, a risk-scored list of every connection found, and a plain-language privacy summary your leadership team can actually read.</td
-            >
-            <td
-              class="p-4 border border-brand-forest/10 text-brand-muted font-bold"
-              >$2,000</td
-            >
-          </tr>
-          <tr>
-            <td class="p-4 border border-brand-forest/10 text-brand-muted">5</td>
-            <td class="p-4 border border-brand-forest/10 text-brand-muted"
-              ><strong class="text-brand-forest"
-                >Bonus #1: Ongoing Connection Monitor Script</strong
-              > — A lightweight script you run on your own server that watches for any new outbound connection attempts and alerts your team instantly — so nothing slips through after a software update.</td
-            >
-            <td
-              class="p-4 border border-brand-forest/10 text-brand-muted font-bold"
-              >$900</td
-            >
-          </tr>
-          <tr>
-            <td class="p-4 border border-brand-forest/10 text-brand-muted">6</td>
-            <td class="p-4 border border-brand-forest/10 text-brand-muted"
-              ><strong class="text-brand-forest"
-                >Bonus #2: 5-Min Video Walkthrough</strong
-              > — A pre-recorded video explaining exactly what we found and how to apply the lockdown rules — so your whole team gets up to speed in 5 minutes without scheduling a meeting.</td
-            >
-            <td
-              class="p-4 border border-brand-forest/10 text-brand-muted font-bold"
-              >$600</td
-            >
-          </tr>
-        </tbody>
-      </table>
-
-      <p class="text-brand-muted font-bold text-lg mt-2">
-        Total Stack Value: <span class="text-amber-500">$12,500</span>
-      </p>
-
-      <!-- PRICE -->
-      <div class="text-center my-10">
-        <h3 class="text-2xl md:text-3xl font-bold text-brand-forest mb-2">
-          Today's Investment
-        </h3>
-        <div class="flex items-center justify-center gap-3">
-          <span class="text-2xl text-brand-muted line-through">$7,997</span>
-          <p class="text-4xl md:text-5xl font-extrabold text-amber-500">$3,997</p>
-        </div>
-        <p class="text-brand-muted mt-3 italic">
-          A single avoided privacy incident or prompt leak pays for this entire audit 10x over on day one.
-        </p>
-      </div>
-
-      <!-- SOCIAL PROOF -->
-      <!-- <div
-        class="bg-brand-forest/5 border border-brand-forest/10 p-6 md:p-8 rounded-2xl my-8 italic text-brand-muted relative"
-      >
-        <div
-          class="absolute text-8xl text-amber-500/20 -top-4 left-4 font-serif"
-        >
-          "
-        </div>
-        <p class="relative z-10 text-lg">
-          "We were preparing to deploy a local LLM assistant across our engineering team. Enclavetools ran a deep packet audit on our container stack and uncovered two third-party telemetry calls to analytics servers firing on startup. Their lockdown blueprint fixed it in under an hour."
-        </p>
-        <span class="block mt-4 font-semibold text-brand-teal not-italic"
-          >— Chief Information Security Officer, Enterprise Tech Provider</span
-        >
-      </div>
-
-      <div
-        class="bg-brand-forest/5 border border-brand-forest/10 p-6 md:p-8 rounded-2xl my-6 italic text-brand-muted relative"
-      >
-        <div class="absolute text-8xl text-amber-500/20 -top-4 left-4 font-serif">"</div>
-        <p class="relative z-10 text-lg">
-          "Before deploying Dify for our legal research team, we needed proof it wasn't sending document snippets anywhere. The audit report confirmed three update-check calls to external servers we didn't know about — and the lockdown rules removed all of them cleanly."
-        </p>
-        <span class="block mt-4 font-semibold text-brand-teal not-italic"
-          >— Director of IT Operations, Regional Law Firm</span
-        >
-      </div>
-
-      <div
-        class="bg-brand-forest/5 border border-brand-forest/10 p-6 md:p-8 rounded-2xl my-6 italic text-brand-muted relative"
-      >
-        <div class="absolute text-8xl text-amber-500/20 -top-4 left-4 font-serif">"</div>
-        <p class="relative z-10 text-lg">
-          "Our compliance officer required written evidence that our self-hosted Ollama instance was not exfiltrating any data before we could process clinical notes with it. The Executive Privacy Report was exactly what she needed — signed, structured, and readable by non-engineers."
-        </p>
-        <span class="block mt-4 font-semibold text-brand-teal not-italic"
-          >— Lead AI Engineer, Healthcare Analytics Provider</span
-        >
-      </div> -->
-
-      <!-- GUARANTEE -->
+      <!-- TRAFFIC IS EVIDENCE -->
       <h2 class="text-2xl md:text-3xl font-bold text-brand-forest mt-12 mb-4">
-        The <span class="text-amber-500">100% Money-Back & Free Remediation</span> Guarantee
+        A promise isn't proof. <span class="text-amber-500"
+          >Traffic is evidence.</span
+        >
       </h2>
-      <p class="text-brand-muted mb-4 text-lg">
-        When you hire us for privacy due diligence, you are paying for absolute certainty. We guarantee our audit will uncover <strong>every single outbound connection, tracker, and silent network call</strong> hidden in your AI stack.
+      <p class="text-lg text-brand-muted mb-6">
+        Even well-run projects can ship with outbound reporting on. vLLM's docs
+        say it collects usage data by default, and you opt out with an
+        environment variable. That's disclosed, but only useful if someone read
+        it
       </p>
-
-      <div class="bg-amber-50 border-2 border-amber-200 p-6 md:p-8 rounded-2xl mt-8 relative shadow-sm">
-        <div class="absolute -top-5 -right-2 md:-right-5 text-5xl drop-shadow-md">🛡️</div>
-        <h3 class="text-xl font-extrabold text-brand-forest mb-3">
-          Our Unconditional Risk-Reversal Promise:
-        </h3>
-        <p class="text-brand-muted text-lg mb-6">
-          If your internal security team, a third-party auditor, or anyone else discovers a telemetry beacon, hidden API call, or crash reporter in the <strong>exact software version and configuration</strong> we audited that we failed to document in our Executive Privacy Report...
-        </p>
-        <div class="border-l-4 border-amber-500 pl-5 py-2">
-          <p class="text-brand-forest font-bold text-xl mb-0">
-            We will refund 100% of your audit fee, AND immediately provide updated lockdown rules for free to secure your stack.
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div
+          class="bg-white border border-brand-forest/10 p-6 rounded-2xl shadow-sm"
+        >
+          <span class="text-2xl block mb-2" aria-hidden="true">📦</span>
+          <h3 class="font-bold text-brand-forest text-lg mb-1">
+            Bundled libraries and SDKs
+          </h3>
+          <p class="text-brand-muted mb-0">
+            Code your vendor didn't write, reporting to servers you never heard
+            of.
+          </p>
+        </div>
+        <div
+          class="bg-white border border-brand-forest/10 p-6 rounded-2xl shadow-sm"
+        >
+          <span class="text-2xl block mb-2" aria-hidden="true">📊</span>
+          <h3 class="font-bold text-brand-forest text-lg mb-1">
+            Analytics and crash reports
+          </h3>
+          <p class="text-brand-muted mb-0">
+            Small, frequent, and easy to miss in a code review.
+          </p>
+        </div>
+        <div
+          class="bg-white border border-brand-forest/10 p-6 rounded-2xl shadow-sm"
+        >
+          <span class="text-2xl block mb-2" aria-hidden="true">🏠</span>
+          <h3 class="font-bold text-brand-forest text-lg mb-1">
+            Vendors phoning home
+          </h3>
+          <p class="text-brand-muted mb-0">
+            Products inside your own network that send usage data back to their
+            maker.
+          </p>
+        </div>
+        <div
+          class="bg-white border border-brand-forest/10 p-6 rounded-2xl shadow-sm"
+        >
+          <span class="text-2xl block mb-2" aria-hidden="true">🤖</span>
+          <h3 class="font-bold text-brand-forest text-lg mb-1">
+            AI tools and agents
+          </h3>
+          <p class="text-brand-muted mb-0">
+            Assistants and plugins that send prompts, files or context to cloud
+            models.
+          </p>
+        </div>
+        <div
+          class="bg-white border border-brand-forest/10 p-6 rounded-2xl shadow-sm sm:col-span-2"
+        >
+          <span class="text-2xl block mb-2" aria-hidden="true">🧟</span>
+          <h3 class="font-bold text-brand-forest text-lg mb-1">
+            Software you forgot about
+          </h3>
+          <p class="text-brand-muted mb-0">
+            Trials and retired tools that still talk after the evaluation ends.
           </p>
         </div>
       </div>
 
-      <p class="text-brand-muted mt-5 text-sm font-medium italic">
-        * Guarantee applies exclusively to the specific version tag (e.g., v2.4.1), commit hash, and deployment configuration documented in your final report. New telemetry introduced by the vendor in subsequent software updates is naturally not covered.
-      </p>
-
-      <!-- SCARCITY / CAPACITY -->
-      <div class="text-center my-8">
+      <!-- THREE STEPS -->
+      <h2 class="text-2xl md:text-3xl font-bold text-brand-forest mt-12 mb-4">
+        Three steps. <span class="text-amber-500">Minutes, not weeks.</span>
+      </h2>
+      <div class="grid grid-cols-1 gap-4">
         <div
-          class="bg-emerald-50 text-emerald-800 px-6 py-3 rounded-full inline-block font-bold border border-emerald-200 shadow-sm"
+          class="bg-white border border-brand-forest/10 p-6 rounded-2xl shadow-sm flex gap-4 items-start"
         >
-          📋 <span id="slotCount">3</span> audit engagements open for this monthly cohort.
+          <span
+            class="shrink-0 w-9 h-9 rounded-full bg-brand-teal text-white grid place-items-center font-bold"
+            >1</span
+          >
+          <div>
+            <h3 class="font-bold text-brand-forest text-lg mb-1">Install</h3>
+            <p class="text-brand-muted mb-0">
+              Add rpaudit to the machine, server, VM, container, or K8s cluster
+              you want to check.
+            </p>
+          </div>
         </div>
-        <p class="text-brand-muted text-xs mt-2 italic" id="slotUpdated"></p>
-        <p class="text-brand-muted text-sm mt-3">
-          Each audit requires dedicated test hardware, hands-on source code review, and real-time network recording across multiple usage sessions. To maintain 5-day delivery turnaround, we accept a maximum of <strong id="slotCount2">3 clients per monthly cohort</strong>.
-        </p>
+        <div
+          class="bg-white border border-brand-forest/10 p-6 rounded-2xl shadow-sm flex gap-4 items-start"
+        >
+          <span
+            class="shrink-0 w-9 h-9 rounded-full bg-brand-teal text-white grid place-items-center font-bold"
+            >2</span
+          >
+          <div>
+            <h3 class="font-bold text-brand-forest text-lg mb-1">
+              Use the software normally
+            </h3>
+            <p class="text-brand-muted mb-0">
+              Open the app, run the workflow, process the files. rpaudit watches
+              in the background.
+            </p>
+          </div>
+        </div>
+        <div
+          class="bg-white border border-brand-forest/10 p-6 rounded-2xl shadow-sm flex gap-4 items-start"
+        >
+          <span
+            class="shrink-0 w-9 h-9 rounded-full bg-brand-teal text-white grid place-items-center font-bold"
+            >3</span
+          >
+          <div>
+            <h3 class="font-bold text-brand-forest text-lg mb-1">
+              See what leaves
+            </h3>
+            <p class="text-brand-muted mb-0">
+              Every connection appears by program, destination and time, with
+              known analytics, update, crash and cloud-AI endpoints labeled in
+              plain English.
+            </p>
+          </div>
+        </div>
       </div>
 
-      <!-- CTA -->
-      <div class="text-center mb-8">
-        <a
-          href="/contact"
-          id="contactCtaBtn"
-          class="btn-primary block w-full md:w-auto md:inline-block text-xl font-bold px-8 py-5 shadow-xl hover:scale-105 transition-transform text-center mx-auto"
+      <!-- ANSWERS NOT LOGS -->
+      <h2 class="text-2xl md:text-3xl font-bold text-brand-forest mt-12 mb-4">
+        You walk away with <span class="text-amber-500">answers, not logs.</span
         >
-          🛡️ YES — Reserve My Audit &amp; Lock Down My Stack
-        </a>
-        <p class="text-brand-muted text-sm mt-4">
-          Takes 90 seconds to submit your stack details. Delivered within 5 business days.
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div
+          class="bg-white border border-brand-forest/10 p-6 rounded-2xl shadow-sm"
+        >
+          <span class="text-2xl block mb-2" aria-hidden="true">🗺️</span>
+          <h3 class="font-bold text-brand-forest text-lg mb-1">
+            A map of who talks to whom
+          </h3>
+          <p class="text-brand-muted mb-0">
+            Names and reasons instead of raw packets.
+          </p>
+        </div>
+        <div
+          class="bg-white border border-brand-forest/10 p-6 rounded-2xl shadow-sm"
+        >
+          <span class="text-2xl block mb-2" aria-hidden="true">📄</span>
+          <h3 class="font-bold text-brand-forest text-lg mb-1">
+            An evidence report
+          </h3>
+          <p class="text-brand-muted mb-0">
+            Dated and version-specific, for an auditor, client or vendor review.
+          </p>
+        </div>
+        <div
+          class="bg-white border border-brand-forest/10 p-6 rounded-2xl shadow-sm"
+        >
+          <span class="text-2xl block mb-2" aria-hidden="true">🧱</span>
+          <h3 class="font-bold text-brand-forest text-lg mb-1">
+            Block rules you can copy
+          </h3>
+          <p class="text-brand-muted mb-0">
+            For connections you decide shouldn't exist.
+          </p>
+        </div>
+        <div
+          class="bg-white border border-brand-forest/10 p-6 rounded-2xl shadow-sm"
+        >
+          <span class="text-2xl block mb-2" aria-hidden="true">🔔</span>
+          <h3 class="font-bold text-brand-forest text-lg mb-1">
+            Alerts on new destinations
+          </h3>
+          <p class="text-brand-muted mb-0">
+            Know when an update starts sending somewhere new.
+          </p>
+        </div>
+      </div>
+
+      <!-- ACCOUNTABLE -->
+      <h2 class="text-2xl md:text-3xl font-bold text-brand-forest mt-12 mb-4">
+        Made for people <span class="text-amber-500"
+          >accountable for the answer.</span
+        >
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div
+          class="bg-white border border-brand-forest/10 p-6 rounded-2xl shadow-sm"
+        >
+          <span class="text-2xl block mb-2" aria-hidden="true">🏛️</span>
+          <h3 class="font-bold text-brand-forest text-lg mb-1">
+            Security, IT and compliance leads
+          </h3>
+          <p class="text-brand-muted mb-0">
+            You need evidence for regulators and auditors, not assurances.
+          </p>
+        </div>
+        <div
+          class="bg-white border border-brand-forest/10 p-6 rounded-2xl shadow-sm"
+        >
+          <span class="text-2xl block mb-2" aria-hidden="true">🧾</span>
+          <h3 class="font-bold text-brand-forest text-lg mb-1">
+            Procurement and vendor risk
+          </h3>
+          <p class="text-brand-muted mb-0">
+            You approve software and need to see what it does before you sign.
+          </p>
+        </div>
+        <div
+          class="bg-white border border-brand-forest/10 p-6 rounded-2xl shadow-sm"
+        >
+          <span class="text-2xl block mb-2" aria-hidden="true">🤝</span>
+          <h3 class="font-bold text-brand-forest text-lg mb-1">
+            Agencies, MSPs and consultants
+          </h3>
+          <p class="text-brand-muted mb-0">
+            You install tools for clients and answer for what they send.
+          </p>
+        </div>
+        <div
+          class="bg-white border border-brand-forest/10 p-6 rounded-2xl shadow-sm"
+        >
+          <span class="text-2xl block mb-2" aria-hidden="true">💻</span>
+          <h3 class="font-bold text-brand-forest text-lg mb-1">
+            Developers and privacy-minded teams
+          </h3>
+          <p class="text-brand-muted mb-0">
+            You want to check tools, dependencies and AI assistants before
+            trusting them.
+          </p>
+        </div>
+      </div>
+
+      <!-- BLIND TRUST -->
+      <h2 class="text-2xl md:text-3xl font-bold text-brand-forest mt-12 mb-4">
+        A privacy tool that <span class="text-amber-500"
+          >doesn't ask for blind trust.</span
+        >
+      </h2>
+      <div
+        class="bg-brand-forest/5 border border-brand-forest/10 rounded-2xl p-6 md:p-8 flex gap-5 items-start"
+      >
+        <span class="text-4xl shrink-0" aria-hidden="true">🔐</span>
+        <div>
+          <p class="text-brand-forest font-bold text-lg mb-2">
+            It runs on your machine and works offline. It sends nothing out, and
+            you can verify that with the tool itself.
+          </p>
+          <p class="text-brand-muted mb-0">
+            No account needed to run it. Built by the Enclavetools founder.
+          </p>
+        </div>
+      </div>
+
+      <!-- MAGNET / CHECKLIST -->
+      <h2 class="text-2xl md:text-3xl font-bold text-brand-forest mt-12 mb-4">
+        Not ready yet? <span class="text-amber-500"
+          >Start with the checklist.</span
+        >
+      </h2>
+      <div
+        class="bg-white border-2 border-dashed border-brand-teal/50 p-6 md:p-8 rounded-3xl grid grid-cols-1 md:grid-cols-2 gap-6 items-center shadow-sm"
+      >
+        <div>
+          <h3 class="font-bold text-brand-forest text-xl mb-2">
+            The Software Phone-Home Checklist
+          </h3>
+          <p class="text-brand-muted mb-0">
+            The Software Phone-Home Checklist: what to look for in any app's
+            outbound traffic, which endpoint types signal analytics, updates and
+            crash reporting, and how to move from a one-time check to continuous
+            monitoring.
+          </p>
+        </div>
+        <div>
+          <form
+            id="earlyAccessMagnetForm"
+            data-early-access-form="magnet"
+            action="/api/contact"
+            method="POST"
+            novalidate
+          >
+            <label
+              for="magnetEmail"
+              class="block text-xs font-bold uppercase tracking-wider text-brand-forest/70 mb-2"
+              >Email</label
+            >
+            <input
+              type="email"
+              id="magnetEmail"
+              name="email"
+              required
+              autocomplete="email"
+              placeholder="you@company.com"
+              class="w-full bg-brand-forest/5 border border-brand-forest/15 rounded-xl px-4 h-[52px] text-brand-forest font-semibold focus:outline-none focus:border-brand-teal transition-colors mb-3"
+            />
+            <button
+              type="submit"
+              data-submit-btn
+              class="btn-primary block w-full text-base px-8 py-3"
+            >
+              Send me the checklist
+            </button>
+          </form>
+          <div
+            data-success="magnet"
+            class="hidden bg-emerald-50 border border-emerald-200 text-emerald-800 px-6 py-4 rounded-2xl font-medium"
+          >
+            ✅ Sent. Check your inbox.
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ -->
+      <h2 class="text-2xl md:text-3xl font-bold text-brand-forest mt-12 mb-4">
+        Questions
+      </h2>
+      <div
+        class="bg-white border border-brand-forest/10 rounded-2xl px-6 shadow-sm divide-y divide-brand-forest/10"
+      >
+        <details class="py-4">
+          <summary
+            class="cursor-pointer font-semibold text-brand-forest text-lg"
+            >Is this a firewall?</summary
+          >
+          <p class="text-brand-muted mt-2 mb-0">
+            No. It shows you what's happening first. When you decide to block
+            something, you get rules to do it.
+          </p>
+        </details>
+        <details class="py-4">
+          <summary
+            class="cursor-pointer font-semibold text-brand-forest text-lg"
+            >How is it different from Wireshark or an application firewall?</summary
+          >
+          <p class="text-brand-muted mt-2 mb-0">
+            Packet tools show raw traffic you have to decode, and firewalls
+            interrupt you with prompts. rpaudit explains each connection in
+            plain language and turns the findings into a report you can hand to
+            someone else.
+          </p>
+        </details>
+        <details class="py-4">
+          <summary
+            class="cursor-pointer font-semibold text-brand-forest text-lg"
+            >Does it only work for AI tools?</summary
+          >
+          <p class="text-brand-muted mt-2 mb-0">
+            No. AI tools are one use case. It checks any software on the machine
+            or server you point it at.
+          </p>
+        </details>
+        <details class="py-4">
+          <summary
+            class="cursor-pointer font-semibold text-brand-forest text-lg"
+            >What will early access cost?</summary
+          >
+          <p class="text-brand-muted mt-2 mb-0">
+            Joining the list is free. Early members get first access and a say
+            in what we build.
+          </p>
+        </details>
+        <details class="py-4">
+          <summary
+            class="cursor-pointer font-semibold text-brand-forest text-lg"
+            >When is launch, and on which platforms?</summary
+          >
+          <p class="text-brand-muted mt-2 mb-0">
+            Early access opens to the list first — starting with Baremetal and
+            container/VM installs, with K8s support following. List members hear
+            first.
+          </p>
+        </details>
+      </div>
+
+      <!-- FINAL CTA -->
+      <div class="text-center mt-12">
+        <h2 class="text-2xl md:text-3xl font-bold text-brand-forest mb-4">
+          Next time someone asks, <span class="text-amber-500"
+            >you'll know.</span
+          >
+        </h2>
+        <p class="text-lg text-brand-muted mb-6 max-w-2xl mx-auto">
+          Early access opens to the list first. Join now rather than waiting for
+          the question to come from someone else.
         </p>
+        <form
+          id="earlyAccessFinalForm"
+          data-early-access-form="final"
+          action="/api/contact"
+          method="POST"
+          class="bg-white border-2 border-brand-teal/30 p-6 md:p-8 rounded-3xl shadow-md max-w-2xl mx-auto text-left"
+          novalidate
+        >
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+            <div>
+              <label
+                for="finalEmail"
+                class="block text-xs font-bold uppercase tracking-wider text-brand-forest/70 mb-2"
+                >Work email</label
+              >
+              <input
+                type="email"
+                id="finalEmail"
+                name="email"
+                required
+                autocomplete="email"
+                placeholder="you@company.com"
+                class="w-full bg-brand-forest/5 border border-brand-forest/15 rounded-xl px-4 h-[52px] text-brand-forest font-semibold focus:outline-none focus:border-brand-teal transition-colors"
+              />
+            </div>
+            <div>
+              <label
+                for="finalStack"
+                class="block text-xs font-bold uppercase tracking-wider text-brand-forest/70 mb-2"
+                >What do you want to check?</label
+              >
+              <select
+                id="finalStack"
+                name="stack"
+                class="w-full bg-brand-forest/5 border border-brand-forest/15 rounded-xl px-4 h-[52px] text-brand-forest font-semibold focus:outline-none focus:border-brand-teal transition-colors"
+              >
+                <option value="">What do you want to check?</option>
+                <option>Vendor / third-party software</option>
+                <option>AI tools and agents</option>
+                <option>Servers and containers</option>
+                <option>Desktop apps</option>
+                <option>Dev tools and dependencies</option>
+                <option>Something else</option>
+              </select>
+            </div>
+          </div>
+          <button
+            type="submit"
+            data-submit-btn
+            class="btn-primary block w-full text-base px-8 py-3"
+          >
+            Get early access
+          </button>
+        </form>
+        <div
+          data-success="final"
+          class="hidden bg-emerald-50 border border-emerald-200 text-emerald-800 px-6 py-4 rounded-2xl mt-4 max-w-2xl mx-auto font-medium text-left"
+        >
+          ✅ <strong>You're on the list.</strong> Check your inbox for the checklist.
+        </div>
       </div>
 
       <!-- PS -->
       <div class="border-t border-brand-forest/10 pt-8 mt-10 text-brand-muted">
-        <strong class="text-amber-600">P.S.</strong> The cost of waiting: a single hidden tracking tool can quietly leak your confidential prompts or internal server data to outside servers. <strong id="psSlots">Only 3 cohort openings available.</strong> Reserve your audit today.
+        <strong class="text-amber-600">P.S.</strong> Every program on your network
+        was written by someone else and updated by someone else. Ten minutes to see
+        what it sends is a small price for certainty.
       </div>
+
+      <!-- FOOTER -->
+      <footer
+        class="border-t border-brand-forest/10 mt-8 pt-6 text-brand-muted text-sm flex flex-wrap gap-x-2 gap-y-1"
+      >
+        <span>© rpaudit.</span>
+        <a href="/privacy" class="text-brand-teal font-semibold hover:underline"
+          >Privacy policy</a
+        >
+        <span aria-hidden="true">·</span>
+        <a href="/contact" class="text-brand-teal font-semibold hover:underline"
+          >Contact</a
+        >
+      </footer>
     </div>
   </div>
 

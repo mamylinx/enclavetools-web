@@ -29,6 +29,33 @@ export const POST: APIRoute = async (context) => {
 <pre>${text || 'No message provided'}</pre>
     `.trim();
 
+    // Best-effort D1 persistence for rpaudit early-access signups.
+    // Reuses the existing `waitlist` table (see wrangler/d1/migrations/
+    // 004_create_waitlist_table.sql) — no new migration needed. Regular
+    // contact messages are Telegram-only, as before.
+    const earlyAccessMatch = typeof subject === 'string'
+      ? /rpaudit early access \((\w+)\)/i.exec(subject)
+      : null;
+    if (earlyAccessMatch && typeof email === 'string') {
+      const normalized = email.trim().toLowerCase();
+      if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(normalized)) {
+        const source = `rpaudit-early-access-${earlyAccessMatch[1].toLowerCase()}`;
+        try {
+          const db = (env as any)?.enclavetools_db;
+          if (db) {
+            await db
+              .prepare("INSERT OR IGNORE INTO waitlist (email, source) VALUES (?, ?)")
+              .bind(normalized, source)
+              .run();
+          } else {
+            console.warn("D1 database not bound; skipping waitlist insert.");
+          }
+        } catch (dbErr) {
+          console.error("Waitlist insert error (non-fatal):", dbErr);
+        }
+      }
+    }
+
     const telegramPromise = sendTelegramMessage(env, message);
 
     // waitUntil is only available in the Cloudflare Workers runtime, not in local Vite dev

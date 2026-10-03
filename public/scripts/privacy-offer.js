@@ -1,120 +1,166 @@
 /**
- * Privacy offer page initialiser.
- * External file so it bypasses the strict hash-based CSP.
+ * rpaudit early-access page initialiser.
+ * External file so it bypasses the strict hash-based CSP (no inline scripts).
+ *
+ * Handles all three inline forms (hero / magnet / final):
+ * - query-param prefill (?email, ?stack / ?tool)
+ * - email validation
+ * - direct POST of {name, company, email, subject, text} to /api/contact
+ *   (same mechanism as the contact form: rate-limited, Telegram + D1)
+ * - "Sending..." button state + success message swap
+ * - staggered reveal of the illustrative outbound-log rows
+ *
+ * Timing: astro:page-load fires on window "load" for initial visits AND after
+ * View Transitions swaps, so one listener covers all cases (no double-init
+ * thanks to the per-form dataset guard + node cloning pattern).
  */
-function initPrivacyCalculator() {
+
+var EARLY_ACCESS_STACK_OPTIONS = [
+  "Vendor / third-party software",
+  "AI tools and agents",
+  "Servers and containers",
+  "Desktop apps",
+  "Dev tools and dependencies",
+  "Something else",
+];
+
+function initRpauditEarlyAccess() {
   var params = new URLSearchParams(window.location.search);
-  var initialTool = params.get("tool") || params.get("name") || "";
-  var initialEnv = params.get("env") || "Docker Container";
-  var initialTarget = params.get("target") || params.get("sensitivity") || "Zero External Telemetry";
+  var prefillEmail = params.get("email") || "";
+  var prefillStack = params.get("stack") || params.get("tool") || "";
 
-  // Guard: only run on the privacy-offer page
-  if (!document.getElementById("cfgToolInput") && !document.getElementById("displayTool")) return;
+  var forms = document.querySelectorAll("form[data-early-access-form]");
 
-  if (initialTarget.includes("HIPAA") || initialTarget.includes("GDPR") || initialTarget.includes("Enterprise")) {
-    initialTarget = "Zero External Telemetry";
-  }
+  // Guard: only run on the privacy-offer / early-access page.
+  if (!forms.length && !document.getElementById("outboundLog")) return;
+  // Avoid double-init when astro:page-load re-fires on the same DOM.
+  if (document.documentElement.dataset.rpauditInit === "1") return;
+  document.documentElement.dataset.rpauditInit = "1";
 
-  var el = function (id) { return document.getElementById(id); };
-  var toolInput = el("cfgToolInput");
-  var envSelect = el("cfgEnvSelect");
-  var targetSelect = el("cfgTargetSelect");
-  var presetChips = document.querySelectorAll(".preset-chip");
-
-  if (initialTool && toolInput) {
-    toolInput.value = initialTool;
-  }
-  if (initialEnv && envSelect) {
-    envSelect.value = initialEnv;
-  }
-  if (initialTarget && targetSelect) {
-    targetSelect.value = initialTarget;
-  }
-
-  function updatePage() {
-    var tInput = el("cfgToolInput");
-    var eSelect = el("cfgEnvSelect");
-    var tgSelect = el("cfgTargetSelect");
-
-    var currentTool = tInput && tInput.value.trim() ? tInput.value.trim() : "Your AI Stack";
-    var currentEnv = eSelect ? eSelect.value : "Docker Container";
-    var currentTarget = tgSelect ? tgSelect.value : "Zero External Telemetry";
-
-    var displayTool = el("displayTool");
-    if (displayTool) displayTool.textContent = currentTool;
-
-    var displayToolSub = el("displayToolSub");
-    if (displayToolSub) displayToolSub.textContent = currentTool;
-
-    var displayEnv = el("displayEnv");
-    if (displayEnv) displayEnv.textContent = currentEnv;
-
-    var displayTarget = el("displayTarget");
-    if (displayTarget) displayTarget.textContent = currentTarget;
-
-    var badgeTool = el("badgeTool");
-    if (badgeTool) badgeTool.textContent = currentTool;
-
-    var badgeEnv = el("badgeEnv");
-    if (badgeEnv) badgeEnv.textContent = currentEnv;
-
-    var badgeTarget = el("badgeTarget");
-    if (badgeTarget) badgeTarget.textContent = currentTarget;
-
-    var offerTool = el("offerTool");
-    if (offerTool) offerTool.textContent = currentTool;
-
-    var userEmail = params.get("email") || "";
-
-    var bodyText = "Task: Airgap Certainty Blueprint (Privacy & Telemetry Audit) for " + currentTool + ".\n";
-    bodyText += "- Target Tool / AI Stack: " + currentTool + "\n";
-    bodyText += "- Environment: " + currentEnv + "\n";
-    bodyText += "- Privacy & Telemetry Goal: " + currentTarget + "\n";
-    if (userEmail) {
-      bodyText += "- Work Email: " + userEmail + "\n";
-    }
-
-    var ctaBtn = el("contactCtaBtn");
-    if (ctaBtn) {
-      // Clone to drop any previously attached listeners (View Transitions re-runs)
-      var fresh = ctaBtn.cloneNode(true);
-      ctaBtn.parentNode.replaceChild(fresh, ctaBtn);
-      fresh.addEventListener("click", function (e) {
-        e.preventDefault();
-        sessionStorage.setItem("contactSubject", "Airgap Certainty Blueprint Audit for " + currentTool);
-        sessionStorage.setItem("contactBody", bodyText);
-        if (userEmail) {
-          sessionStorage.setItem("contactEmail", userEmail);
-        }
-        window.location.href = "/contact";
-      });
-    }
-  }
-
-  if (toolInput) toolInput.addEventListener("input", updatePage);
-  if (envSelect) envSelect.addEventListener("change", updatePage);
-  if (targetSelect) targetSelect.addEventListener("change", updatePage);
-
-  presetChips.forEach(function (chip) {
-    chip.addEventListener("click", function () {
-      var toolName = chip.getAttribute("data-preset");
-      var tInput = el("cfgToolInput");
-      if (toolName && tInput) {
-        tInput.value = toolName;
-        updatePage();
+  function matchStackOption(select, wanted) {
+    if (!select || !wanted) return;
+    var needle = wanted.trim().toLowerCase();
+    for (var i = 0; i < select.options.length; i++) {
+      if (select.options[i].text.trim().toLowerCase() === needle) {
+        select.selectedIndex = i;
+        return;
       }
+    }
+  }
+
+  function isValidEmail(value) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+  }
+
+  forms.forEach(function (form) {
+    // Clone to drop any previously attached listeners (View Transitions re-runs).
+    var fresh = form.cloneNode(true);
+    form.parentNode.replaceChild(fresh, form);
+
+    var emailInput = fresh.querySelector('input[name="email"]');
+    var stackSelect = fresh.querySelector('select[name="stack"]');
+    var submitBtn = fresh.querySelector("[data-submit-btn]");
+
+    if (emailInput && prefillEmail && !emailInput.value) {
+      emailInput.value = prefillEmail;
+    }
+    if (stackSelect && prefillStack) {
+      matchStackOption(stackSelect, prefillStack);
+    }
+
+    fresh.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      var email = emailInput ? emailInput.value.trim() : "";
+      if (!isValidEmail(email)) {
+        if (emailInput) {
+          emailInput.focus();
+          try {
+            emailInput.setCustomValidity("Enter a valid email address.");
+            emailInput.reportValidity();
+            emailInput.addEventListener(
+              "input",
+              function () {
+                emailInput.setCustomValidity("");
+              },
+              { once: true }
+            );
+          } catch (err) {
+            /* reportValidity unsupported — focus is enough */
+          }
+        }
+        return;
+      }
+
+      var source = fresh.getAttribute("data-early-access-form") || "hero";
+      var stack =
+        stackSelect && stackSelect.value
+          ? stackSelect.value
+          : source === "magnet"
+            ? "Software Phone-Home Checklist"
+            : "not specified";
+
+      var payload = {
+        name: "rpaudit early access",
+        company: "",
+        email: email,
+        subject: "rpaudit early access (" + source + ")",
+        text:
+          "Source: privacy-offer / " +
+          source +
+          "\nEmail: " +
+          email +
+          "\nWants to check: " +
+          stack,
+      };
+
+      var originalText = submitBtn ? submitBtn.textContent : "";
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Sending...";
+      }
+
+      fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      })
+        .then(function (res) {
+          if (!res.ok) throw new Error("Request failed: " + res.status);
+          fresh.classList.add("hidden");
+          var ok =
+            fresh.parentElement.querySelector('[data-success="' + source + '"]') ||
+            fresh.nextElementSibling;
+          if (ok) ok.classList.remove("hidden");
+          if (ok && ok.scrollIntoView) {
+            ok.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          }
+        })
+        .catch(function (err) {
+          console.error("Early-access signup error:", err);
+          alert("Failed to send. Please try again later.");
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalText;
+          }
+        });
     });
   });
 
-  updatePage();
-
-  var slotUpdated = el("slotUpdated");
-  if (slotUpdated) {
-    var now = new Date();
-    var label = now.toLocaleString("en-US", { month: "long", year: "numeric" });
-    slotUpdated.textContent = "Cycle updated: " + label;
+  // Staggered reveal of the illustrative log rows (progressive enhancement:
+  // rows are visible by default when JS is off).
+  var rows = document.querySelectorAll("[data-log-row]");
+  if (rows.length && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    rows.forEach(function (row, i) {
+      row.style.opacity = "0";
+      row.style.transition = "opacity 0.35s ease";
+      setTimeout(function () {
+        row.style.opacity = "1";
+      }, 400 + i * 550);
+    });
   }
 }
 
-// astro:page-load fires on window "load" for initial visits AND after View Transitions swaps
-document.addEventListener("astro:page-load", initPrivacyCalculator);
+// astro:page-load fires on window "load" for initial visits AND after
+// View Transitions swaps — one listener covers all cases.
+document.addEventListener("astro:page-load", initRpauditEarlyAccess);
