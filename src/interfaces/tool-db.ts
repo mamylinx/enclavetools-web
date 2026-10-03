@@ -22,6 +22,8 @@ export interface D1Tool {
   plain_description: string | null;
   technical_description: string | null;
   commercial_use: number | null;
+  commercial_use_note: string | null;
+  commercial_use_url: string | null;
   setup_difficulty: string | null;
   use_cases: string | null;
   personas: string | null;
@@ -34,6 +36,9 @@ export interface D1Tool {
   recommended_ram_gb: number | null;
   telemetry: string | null;
   offline_after_setup: number | null;
+  offline_note_short: string | null;
+  offline_note: string | null;
+  history_note: string | null;
   paid_support: number | null;
   gui_available: number | null;
   docker_available: number | null;

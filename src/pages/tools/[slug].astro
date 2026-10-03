@@ -92,9 +92,11 @@ const xShareUrl = `https://x.com/intent/post?text=${encodedShareText}&url=${enco
 const linkedinShareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodedCanonicalUrl}`;
 
 const yesNo = (value: boolean) => (value ? "Yes" : "No");
+const commercialLabel = (t: any) => t.commercial_use_note ?? yesNo(t.commercial_use);
+const offlineLabel = (t: any) => t.offline_note_short ?? yesNo(t.offline_after_setup);
 const scorecard = [
   ["License", enrichedTool.license || "Not specified"],
-  ["Commercial use", yesNo(enrichedTool.commercial_use)],
+  ["Commercial use", commercialLabel(enrichedTool)],
   ["OpenAI-compatible API", yesNo(enrichedTool.openai_api)],
   ["REST API", yesNo(enrichedTool.rest_api)],
   ["Fine-tuning support", yesNo(enrichedTool.fine_tuning)],
@@ -107,7 +109,7 @@ const scorecard = [
   ["Docker available", yesNo(enrichedTool.docker_available)],
   ["GUI / no-code available", yesNo(enrichedTool.gui_available)],
   ["Telemetry", enrichedTool.telemetry],
-  ["Offline after setup", yesNo(enrichedTool.offline_after_setup)],
+  ["Offline after setup", offlineLabel(enrichedTool)],
 ];
 
 const featureBadges = [

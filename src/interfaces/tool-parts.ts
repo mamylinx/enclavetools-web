@@ -28,11 +28,16 @@ export interface ToolDiscovery {
   features: string[];
   works_with: string[];
   commercial_use: boolean;
+  commercial_use_note?: string | null;
+  commercial_use_url?: string | null;
 }
 
 export interface ToolCapabilities {
   telemetry: 'None' | 'Optional' | 'On by default' | string;
   offline_after_setup: boolean;
+  offline_note_short?: string | null;
+  offline_note?: string | null;
+  history_note?: string | null;
   paid_support: boolean;
   gui_available: boolean;
   docker_available: boolean;

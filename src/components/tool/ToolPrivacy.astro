@@ -16,19 +16,16 @@ const { enrichedTool, formatDate } = Astro.props;
       <h2 class="text-xl font-bold mb-2">
         Does it send data online?
       </h2><p class="text-sm leading-relaxed text-brand-forest/80">
-        {
-          enrichedTool.offline_after_setup
-            ? "After setup, this listing is marked as usable offline. Confirm network behavior against the upstream project before regulated deployment."
-            : "This listing is not marked offline after setup."
-        }
+        {enrichedTool.offline_note ?? (enrichedTool.offline_after_setup
+          ? "After setup, this listing is marked as usable offline. Confirm network behavior against the upstream project before regulated deployment."
+          : "This listing is not marked offline after setup.")}
       </p>
     </div>
     <div class="bg-white/95 backdrop-blur-sm border border-brand-forest/5 rounded-3xl p-6 shadow-sm shadow-brand-forest/5 transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(27,54,27,0.08)]">
       <h2 class="text-xl font-bold mb-2">Does it store history?</h2><p
         class="text-sm leading-relaxed text-brand-forest/80"
       >
-        Not verified in this directory yet. Review the upstream docs for
-        persistence, logs, and workspace storage.
+        {enrichedTool.history_note ?? "Not verified in this directory yet. Review the upstream docs for persistence, logs, and workspace storage."}
       </p>
     </div>
     <div class="bg-white/95 backdrop-blur-sm border border-brand-forest/5 rounded-3xl p-6 shadow-sm shadow-brand-forest/5 transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(27,54,27,0.08)]">
@@ -36,10 +33,20 @@ const { enrichedTool, formatDate } = Astro.props;
         class="text-sm leading-relaxed text-brand-forest/80"
       >
         {
-          enrichedTool.commercial_use
+          enrichedTool.commercial_use_note ?? (enrichedTool.commercial_use
             ? "Commercial use is marked as allowed or likely allowed by the listed license."
-            : "The listed license needs review before commercial use."
+            : "The listed license needs review before commercial use.")
         }
+        {enrichedTool.commercial_use_url && (
+          <>
+            {" "}<a class="underline" href={enrichedTool.commercial_use_url}>Commercial license details</a>
+          </>
+        )}
+        {enrichedTool.license === "Screenpipe Commercial License" && (
+          <>
+            {" "}<a class="underline" href="https://github.com/screenpipe/screenpipe/blob/main/LICENSE.md">Source license</a>
+          </>
+        )}
       </p>
     </div>
     <div class="bg-white/95 backdrop-blur-sm border border-brand-forest/5 rounded-3xl p-6 shadow-sm shadow-brand-forest/5 transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(27,54,27,0.08)]">
