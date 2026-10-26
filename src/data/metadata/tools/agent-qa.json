@@ -1,0 +1,62 @@
+{
+  "slug": "agent-qa",
+  "title": "agent-qa",
+  "category": "workflow-automation",
+  "body": "Natural-language application testing with persistent memory and validated self-improvement.",
+  "plain_description": "Test web, Android and iOS apps using natural-language tasks. agent-qa reuses validated testing experience through persistent memory and self-improvement, with CLI, dashboard and MCP access.",
+  "technical_description": "A TypeScript application-testing agent requiring Node.js 24 or newer and a configured model. It supports local OpenAI-compatible model servers, including LM Studio and Ollama, as well as optional cloud providers. Local-model hardware needs depend on the selected model and server. Application targets may need network access; end-to-end offline operation and telemetry behavior have not been independently verified for this listing.",
+  "tag": "Application QA",
+  "url": "https://vostride.com/?ref=enclavetools.com",
+  "github_url": "https://github.com/vostride/agent-qa",
+  "docs_url": "https://vostride.com/docs/agent-qa/configuration/models",
+  "date-added": "2026-10-26",
+  "last_updated": "2026-10-24",
+  "last_verified": "2026-10-26",
+  "license": "FSL-1.1-ALv2",
+  "setup_difficulty": "Medium",
+  "featured": false,
+  "popularity_score": 895,
+  "hardware": [],
+  "deployment": [
+    "Bare Metal"
+  ],
+  "language": [
+    "TypeScript"
+  ],
+  "model_format": [],
+  "use_cases": [
+    "Agentic Workflows"
+  ],
+  "personas": [
+    "Developer"
+  ],
+  "features": [
+    "CLI",
+    "Dashboard",
+    "MCP",
+    "Persistent memory",
+    "Validated self-improvement",
+    "Local model support"
+  ],
+  "works_with": [
+    "LM Studio",
+    "Ollama",
+    "OpenAI-compatible model servers"
+  ],
+  "commercial_use": null,
+  "telemetry": "Unknown",
+  "offline_after_setup": null,
+  "paid_support": null,
+  "gui_available": true,
+  "docker_available": null,
+  "openai_api": null,
+  "rest_api": null,
+  "fine_tuning": null,
+  "quantization": null,
+  "min_ram_gb": null,
+  "recommended_ram_gb": null,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "community_guides": [],
+  "community_guides_count": 0
+}
