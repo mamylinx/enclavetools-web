@@ -6,13 +6,14 @@
   "community_guides_count": 0,
   "community_notes": [],
   "community_notes_count": 0,
-  "date-added": "2026-07-22",
+  "date-added": "2026-11-24",
   "deployment": [
     "Docker",
-    "Bare Metal"
+    "Bare Metal",
+    "Cloud"
   ],
   "docker_available": 1,
-  "docs_url": "https://github.com/jhj0517/Whisper-WebUI/wiki/Command-Line-Arguments",
+  "docs_url": null,
   "featured": false,
   "features": [
     "Docker available",
@@ -30,30 +31,44 @@
     "Python"
   ],
   "last_updated": "2025-12-29",
-  "last_verified": "2026-07-22",
+  "last_verified": "2026-11-24",
   "license": "Apache-2.0",
   "maturity": null,
   "min_ram_gb": null,
   "model_format": [],
-  "offline_after_setup": 1,
+  "offline_after_setup": 0,
   "openai_api": 0,
   "paid_support": 0,
-  "personas": [],
-  "plain_description": "Whisper WebUI lets you generate accurate subtitles and transcriptions from audio and video files using AI — no technical expertise required. It supports multiple languages, identifies different speakers, and removes background noise for cleaner results. Run it locally, in Docker, or on Google Colab.",
-  "popularity_score": 2839,
+  "personas": [
+    "Developer",
+    "Business Owner"
+  ],
+  "plain_description": "**Turn audio and video into subtitles and translated text with a browser-based tool.** Generate subtitles from files, YouTube, or a microphone, then translate subtitle files or add speaker labels.",
+  "popularity_score": 2901,
   "quantization": 0,
   "recommended_ram_gb": null,
   "rest_api": 1,
-  "setup_difficulty": null,
+  "setup_difficulty": "Medium",
   "slug": "whisper-webui",
-  "tag": "Subtitle Generator",
-  "technical_description": "Whisper WebUI is a Gradio-based browser interface for OpenAI's Whisper speech recognition model that provides subtitle generation from files, YouTube URLs, and microphone input. The application supports multiple Whisper inference backends — openai/whisper, faster-whisper (default), and insanely-fast-whisper — with faster-whisper providing reduced VRAM usage and improved transcription speed via CTranslate2. Audio pre-processing capabilities include Silero VAD for voice activity detection and UVR for background music separation. Post-processing supports speaker diarization via pyannote models. Text translation is available through Facebook NLLB models and DeepL API. Deployment options include Docker Compose, local Python environment, Pinokio, and Google Colab. A FastAPI-based REST API backend is available for service-oriented deployment.",
+  "tag": "Speech-to-text",
+  "technical_description": "A Gradio browser interface for Whisper transcription, using faster-whisper by default, with options for openai/whisper and insanely-fast-whisper. It supports SRT, WebVTT, and plain text output; speech-to-text translation into English; subtitle translation with NLLB or DeepL; and optional Silero VAD, UVR background music separation, and pyannote speaker diarization. The README also describes Docker and local installation, plus a separate REST API in the backend.",
   "telemetry": "Unknown",
-  "title": "Whisper WebUI",
+  "title": "Whisper-WebUI",
   "url": "https://github.com/jhj0517/Whisper-WebUI",
   "use_cases": [
     "Speech-to-Text",
     "Translation"
   ],
-  "works_with": []
+  "works_with": [
+    "Whisper",
+    "faster-whisper",
+    "insanely-fast-whisper",
+    "NLLB",
+    "DeepL API",
+    "Silero VAD",
+    "UVR",
+    "pyannote",
+    "Docker",
+    "Gradio"
+  ]
 }

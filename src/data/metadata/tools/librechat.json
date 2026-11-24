@@ -6,80 +6,73 @@
   "community_guides_count": 0,
   "community_notes": [],
   "community_notes_count": 0,
-  "date-added": "2026-07-22",
+  "date-added": "2026-11-24",
   "deployment": [
     "Docker",
-    "Kubernetes",
+    "Bare Metal",
     "Cloud"
   ],
   "docker_available": 1,
-  "docs_url": "https://docs.librechat.ai/",
+  "docs_url": "https://docs.librechat.ai",
   "featured": false,
   "features": [
+    "OpenAI-compatible API",
     "Docker available",
     "REST API",
     "GUI/no-code"
   ],
   "fine_tuning": 0,
-  "github_url": "https://github.com/danny-avila/LibreChat",
+  "github_url": "https://github.com/LibreChat-AI/LibreChat",
   "gui_available": 1,
-  "hardware": [
-    "CPU"
-  ],
+  "hardware": [],
   "language": [
-    "TypeScript",
-    "JavaScript"
+    "TypeScript"
   ],
-  "last_updated": "2026-07-22",
-  "last_verified": "2026-07-22",
+  "last_updated": "2026-11-24",
+  "last_verified": "2026-11-24",
   "license": "MIT",
   "maturity": "Production / Stable",
   "min_ram_gb": null,
   "model_format": [],
-  "offline_after_setup": 1,
-  "openai_api": 0,
+  "offline_after_setup": 0,
+  "openai_api": 1,
   "paid_support": 0,
   "personas": [
     "Developer",
-    "Business Owner",
-    "Indie Hacker"
+    "Business Owner"
   ],
-  "plain_description": "LibreChat gives you one self-hosted platform to unify every major AI model under a single, privacy-controlled interface. Your team gets a ChatGPT-like experience for Anthropic, OpenAI, Google, and dozens of other providers — no more juggling tabs or exposing data to third parties. You control the infrastructure, your users get a seamless AI assistant.",
-  "popularity_score": 41104,
+  "plain_description": "**Bring conversations with major AI providers into one self-hosted chat platform.** Create AI assistants, search conversations, and work with files, images, and code. Manage users and access through a browser-based admin panel.",
+  "popularity_score": 47473,
   "quantization": 0,
   "recommended_ram_gb": null,
   "rest_api": 1,
-  "setup_difficulty": "Easy",
+  "setup_difficulty": "Medium",
   "slug": "librechat",
-  "tag": "Chat Platform",
-  "technical_description": "LibreChat is an open-source, self-hosted AI chat platform built on Node.js/TypeScript with a React client. It provides a unified API gateway to 20+ AI providers including OpenAI, Anthropic, AWS Bedrock, Google Vertex AI, and local models via Ollama. The architecture consists of a Node.js REST API server, a React frontend with multilingual support, MongoDB for persistence, and optional Redis for resumable streams and horizontal scaling. Key capabilities include multi-user authentication (OAuth2, LDAP, email), role-based access control, a browser-based admin panel, customizable AI agents with MCP tool integration, a sandboxed code interpreter supporting multiple languages, generative UI artifacts, and searchable conversation history.",
+  "tag": "Chat interface",
+  "technical_description": "LibreChat is an open-source, self-hosted AI chat platform with a browser-based interface for connecting to multiple AI providers. It supports agents, MCP tools, code execution, image generation, file interactions, conversation search, and multi-user authentication. It can run locally or in the cloud.",
   "telemetry": "Unknown",
   "title": "LibreChat",
   "url": "https://www.librechat.ai/",
   "use_cases": [
     "Chat Assistant",
-    "RAG",
     "Agentic Workflows",
     "Code Generation",
     "Document Processing",
     "Image Generation",
     "Speech-to-Text",
-    "Text-to-Speech"
+    "Text-to-Speech",
+    "Model Serving",
+    "RAG"
   ],
   "works_with": [
-    "Anthropic",
-    "AWS",
-    "Azure",
-    "Cohere",
-    "DeepSeek",
-    "ElevenLabs",
-    "Google",
-    "Groq",
-    "Mistral",
-    "Ollama",
     "OpenAI",
-    "OpenRouter",
-    "Perplexity",
-    "Vertex AI"
+    "Anthropic",
+    "AWS Bedrock",
+    "Azure OpenAI",
+    "Google",
+    "Vertex AI",
+    "Ollama",
+    "MCP",
+    "Langfuse"
   ]
 }

@@ -52,6 +52,20 @@ const {
     <SeoHead {...seoProps} />
     <ClientRouter />
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-S9K7BBRYW1"></script>
+    <!-- Google Preferred Sources badge -->
+    <script
+      is:inline
+      async
+      src="https://news.google.com/swg/js/v1/publisher.js"
+    ></script>
+    <script is:inline>
+      // Render the badge again after Astro's client-side page navigations.
+      document.addEventListener("astro:page-load", () => {
+        (self.PREFERRED_SOURCE = self.PREFERRED_SOURCE || []).push(
+          (preferredSource) => preferredSource.init(),
+        );
+      });
+    </script>
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     <script src="/scripts/cookie-consent.js" defer></script>
   </head>

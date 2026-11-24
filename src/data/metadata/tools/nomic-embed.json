@@ -6,10 +6,9 @@
   "community_guides_count": 0,
   "community_notes": [],
   "community_notes_count": 0,
-  "date-added": "2026-07-22",
+  "date-added": "2026-11-24",
   "deployment": [
-    "Bare Metal",
-    "Cloud"
+    "Bare Metal"
   ],
   "docker_available": 0,
   "docs_url": null,
@@ -126,37 +125,39 @@
     "hy"
   ],
   "last_updated": "2025-04-01",
-  "last_verified": "2026-07-22",
+  "last_verified": "2026-11-24",
   "license": "Apache-2.0",
-  "maturity": "Production / Stable",
+  "maturity": null,
   "min_ram_gb": 1.9,
-  "model_format": [],
+  "model_format": [
+    "safetensors"
+  ],
   "offline_after_setup": 1,
   "openai_api": 0,
   "paid_support": 0,
   "personas": [
-    "Developer"
+    "Developer",
+    "Business Owner"
   ],
-  "plain_description": "Nomic Embed v2 delivers accurate multilingual search across ~100 languages, making your RAG and vector search applications work globally. It matches the performance of models twice its size while cutting storage costs by 3x through flexible embedding dimensions. The bottom line: better search accuracy with lower infrastructure costs, all in one open-source model.",
-  "popularity_score": 1620294,
+  "plain_description": "**Create multilingual text embeddings to power search and retrieval across your content.** Supports about 100 languages and flexible embedding sizes. Use it to find relevant documents for queries.",
+  "popularity_score": 584244,
   "quantization": 0,
   "recommended_ram_gb": 2.8,
   "rest_api": 0,
-  "setup_difficulty": null,
+  "setup_difficulty": "Medium",
   "slug": "nomic-embed",
-  "tag": "Embeddings",
-  "technical_description": "nomic-embed-text-v2-moe is a 475M-parameter Mixture of Experts (MoE) text embedding model with 305M active parameters during inference. It uses an 8-expert top-2 routing architecture and supports flexible embedding dimensions from 768 to 256 via Matryoshka representation learning. The model handles up to 512 tokens per input and supports approximately 100 languages. It integrates with HuggingFace Transformers and SentenceTransformers libraries, requiring trust_remote_code=True and task-specific instruction prefixes (search_query: for queries, search_document: for documents). The model is distributed in safetensors format and can be deployed in Python applications or on AWS SageMaker.",
+  "tag": "Embedding",
+  "technical_description": "Nomic Embed v2 is a multilingual mixture-of-experts text embedding model with 475M total parameters and 305M active during inference. It supports embedding dimensions from 768 down to 256 using Matryoshka representations, and accepts inputs up to 512 tokens. The README provides usage through Transformers and SentenceTransformers, with search_query: and search_document: prefixes.",
   "telemetry": "Unknown",
-  "title": "nomic-embed-text-v2-moe",
+  "title": "Nomic Embed v2",
   "url": "https://huggingface.co/nomic-ai/nomic-embed-text-v2-moe",
   "use_cases": [
-    "RAG",
-    "Vector Search"
+    "Vector Search",
+    "RAG"
   ],
   "works_with": [
-    "SentenceTransformers",
     "Transformers",
-    "AWS SageMaker"
-  ],
-  "calculator_model": "0.305|12|12|12|64"
+    "SentenceTransformers",
+    "PyTorch"
+  ]
 }

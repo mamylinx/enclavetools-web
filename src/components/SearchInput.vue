@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue';
 import { searchDropdown } from '../composables/useOrama';
+import { stripBold } from '../utils/renderBold';
 
 const props = defineProps<{
   placeholder?: string;
@@ -133,7 +134,7 @@ onUnmounted(() => {
               </div>
               <div class="text-xs text-brand-muted capitalize leading-tight mb-0.5">{{ result.category.replace(/-/g,
                 ' ') }}</div>
-              <div class="text-xs leading-snug text-brand-muted/80 m-0 line-clamp-1">{{ result.plain_description }}
+              <div class="text-xs leading-snug text-brand-muted/80 m-0 line-clamp-1">{{ stripBold(result.plain_description) }}
               </div>
             </div>
           </a>

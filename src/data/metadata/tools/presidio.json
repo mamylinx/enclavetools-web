@@ -6,9 +6,10 @@
   "community_guides_count": 0,
   "community_notes": [],
   "community_notes_count": 0,
-  "date-added": "2026-07-22",
+  "date-added": "2026-11-24",
   "deployment": [
     "Docker",
+    "Bare Metal",
     "Kubernetes"
   ],
   "docker_available": 1,
@@ -20,36 +21,47 @@
   "fine_tuning": 0,
   "github_url": "https://github.com/data-privacy-stack/presidio",
   "gui_available": 0,
-  "hardware": [],
+  "hardware": [
+    "CPU"
+  ],
   "language": [
     "Python"
   ],
-  "last_updated": "2026-07-22",
-  "last_verified": "2026-07-22",
+  "last_updated": "2026-11-23",
+  "last_verified": "2026-11-24",
   "license": "MIT",
-  "maturity": "Production / Stable",
+  "maturity": null,
   "min_ram_gb": null,
   "model_format": [],
-  "offline_after_setup": 0,
+  "offline_after_setup": 1,
   "openai_api": 0,
   "paid_support": 0,
   "personas": [
-    "Developer"
+    "Developer",
+    "Business Owner",
+    "Legal",
+    "Healthcare"
   ],
-  "plain_description": "Presidio automatically detects and removes sensitive personal data (PII) from text and images, helping organizations meet data privacy compliance requirements. It works out of the box with built-in recognizers for credit card numbers, names, locations, and more, and can be customized for your specific needs. Deploy it in minutes via Python, Docker, or Kubernetes.",
-  "popularity_score": 10115,
+  "plain_description": "**Detect and de-identify sensitive information to help protect your organization’s data.** Presidio can identify and redact personal information in text and images. Customize detection rules for your business needs.",
+  "popularity_score": 12022,
   "quantization": 0,
   "recommended_ram_gb": null,
   "rest_api": 0,
-  "setup_difficulty": "Easy",
+  "setup_difficulty": "Medium",
   "slug": "presidio",
-  "tag": "Data Privacy",
-  "technical_description": "Presidio is a modular Python framework for context-aware PII identification and de-identification in text and images. It provides an Analyzer leveraging Named Entity Recognition, regex patterns, rule-based logic, and checksum validation to detect sensitive entities, and an Anonymizer that applies redaction, masking, or replacement operators. The framework supports custom recognizers, external NLP model integration, and deployment as a containerized microservice via Docker or Kubernetes with PySpark support for distributed processing.",
+  "tag": "Privacy & Security",
+  "technical_description": "An open-source framework for identifying and anonymizing personally identifiable information in text and images. It includes predefined and custom recognizers using named entity recognition, regular expressions, rules, checksums, and contextual analysis across multiple languages. Presidio supports Python and PySpark workloads, Docker, and Kubernetes, and includes image redaction for standard and DICOM medical images.",
   "telemetry": "Unknown",
   "title": "Presidio",
   "url": "https://github.com/microsoft/presidio",
   "use_cases": [
+    "Document Processing",
     "Data Extraction"
   ],
-  "works_with": []
+  "works_with": [
+    "Python",
+    "PySpark",
+    "Docker",
+    "Kubernetes"
+  ]
 }

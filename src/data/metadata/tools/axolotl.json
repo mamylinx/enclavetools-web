@@ -6,14 +6,14 @@
   "community_guides_count": 0,
   "community_notes": [],
   "community_notes_count": 0,
-  "date-added": "2026-07-22",
+  "date-added": "2026-11-24",
   "deployment": [
     "Docker",
     "Bare Metal",
     "Cloud"
   ],
   "docker_available": 1,
-  "docs_url": "https://docs.axolotl.ai/",
+  "docs_url": "https://docs.axolotl.ai/docs/",
   "featured": false,
   "features": [
     "Docker available",
@@ -31,27 +31,32 @@
   "language": [
     "Python"
   ],
-  "last_updated": "2026-07-21",
-  "last_verified": "2026-07-22",
+  "last_updated": "2026-11-20",
+  "last_verified": "2026-11-24",
   "license": "Apache-2.0",
-  "maturity": "Production / Stable",
+  "maturity": null,
   "min_ram_gb": null,
-  "model_format": [],
-  "offline_after_setup": 1,
+  "model_format": [
+    "GGUF",
+    "safetensors",
+    "PyTorch"
+  ],
+  "offline_after_setup": 0,
   "openai_api": 0,
   "paid_support": 1,
   "personas": [
-    "Developer"
+    "Developer",
+    "Business Owner"
   ],
-  "plain_description": "Axolotl lets you fine-tune the best open-source LLMs on your own data — no vendor lock-in, no per-seat fees. Get production-quality custom models using your existing GPU hardware with one-click Docker deployment and built-in support for the latest training techniques. Train faster, cheaper, and keep full control of your intellectual property.",
-  "popularity_score": 12231,
+  "plain_description": "**Fine-tune large language models for your business needs.** Use a shared configuration to prepare data, train, evaluate, and quantize models. Supports local hardware and cloud platforms.",
+  "popularity_score": 12747,
   "quantization": 1,
   "recommended_ram_gb": null,
   "rest_api": 0,
-  "setup_difficulty": "Medium",
+  "setup_difficulty": "Hard",
   "slug": "axolotl",
-  "tag": "Fine-tuning Framework",
-  "technical_description": "Axolotl is an open-source CLI framework for fine-tuning and post-training large language models. Built on PyTorch, it supports full fine-tuning, LoRA/QLoRA, preference tuning (DPO, KTO, ORPO), reinforcement learning (GRPO, GDPO), and quantization (GPTQ, QAT, NVFP4). It integrates with Hugging Face Hub for datasets and models, supports multi-GPU and multi-node training via FSDP1/FSDP2, DeepSpeed, and torchrun, and ships as both a PyPI package and a Docker image. Key capabilities include Flash Attention 2/3/4, multipacking, sequence parallelism, and custom kernel integrations (Liger, Cut Cross Entropy, ScatterMoE, SonicMoE) for maximizing throughput on NVIDIA and AMD GPUs.",
+  "tag": "Fine-tuning",
+  "technical_description": "Axolotl is an open-source framework for post-training and fine-tuning large language models. It supports full fine-tuning, LoRA, QLoRA, preference tuning, reinforcement learning, reward modeling, and quantization-aware training. A YAML configuration can cover dataset preprocessing, training, evaluation, quantization, and inference. It supports NVIDIA and AMD GPUs, distributed training, Docker, and cloud platforms.",
   "telemetry": "Opt-out",
   "title": "Axolotl",
   "url": "https://github.com/axolotl-ai-cloud/axolotl",
@@ -60,9 +65,15 @@
   ],
   "works_with": [
     "Hugging Face Hub",
-    "DeepSpeed",
-    "FSDP",
     "PyTorch",
-    "Docker"
+    "DeepSpeed",
+    "FSDP2",
+    "Ray",
+    "S3",
+    "Azure",
+    "GCP",
+    "OCI",
+    "llama.cpp",
+    "Ollama"
   ]
 }

@@ -6,60 +6,61 @@
   "community_guides_count": 0,
   "community_notes": [],
   "community_notes_count": 0,
-  "date-added": "2026-07-22",
+  "date-added": "2026-11-24",
   "deployment": [
     "Bare Metal"
   ],
   "docker_available": 0,
   "docs_url": "https://docs.garak.ai/",
   "featured": false,
-  "features": [],
+  "features": [
+    "OpenAI-compatible API",
+    "REST API"
+  ],
   "fine_tuning": 0,
   "github_url": "https://github.com/NVIDIA/garak",
   "gui_available": 0,
-  "hardware": [
-    "CPU",
-    "GPU (NVIDIA)"
-  ],
+  "hardware": [],
   "language": [
     "Python",
     "HTML"
   ],
-  "last_updated": "2026-07-21",
-  "last_verified": "2026-07-22",
+  "last_updated": "2026-11-23",
+  "last_verified": "2026-11-24",
   "license": "Apache-2.0",
-  "maturity": "Production / Stable",
+  "maturity": null,
   "min_ram_gb": null,
-  "model_format": [],
-  "offline_after_setup": 1,
-  "openai_api": 0,
+  "model_format": [
+    "GGUF",
+    "GGML"
+  ],
+  "offline_after_setup": 0,
+  "openai_api": 1,
   "paid_support": 0,
   "personas": [
     "Developer"
   ],
-  "plain_description": "Garak protects your business by automatically stress-testing LLM applications for security vulnerabilities before attackers can exploit them. It probes for jailbreaks, data leaks, prompt injection, hallucination, and dozens of other failure modes in a single automated scan. The bottom line: catch weaknesses early with the industry-standard penetration testing toolkit for language models.",
-  "popularity_score": 8526,
+  "plain_description": "**Find weaknesses in LLM applications before they cause problems.** Scan for issues such as prompt injection, data leakage, hallucinations, and harmful outputs. Review reports showing which probes found vulnerabilities.",
+  "popularity_score": 10155,
   "quantization": 0,
   "recommended_ram_gb": null,
-  "rest_api": 0,
-  "setup_difficulty": "Easy",
+  "rest_api": 1,
+  "setup_difficulty": "Medium",
   "slug": "garak",
   "tag": "Security",
-  "technical_description": "Garak is a command-line framework for security probing of large language models. It configures a generator (the LLM under test), runs probes that generate adversarial inputs, and evaluates responses using specialized detectors. The architecture is plugin-based with categories for probes, detectors, generators, evaluators, and harnesses, each inheriting from base classes. Supported generator backends include Hugging Face Transformers (local and Inference API), OpenAI API, AWS Bedrock Converse API, Replicate, LiteLLM, GGUF/llama.cpp, GGML, Cohere, Groq, and NIM endpoints, plus arbitrary REST endpoints via configurable YAML. Probes cover prompt injection, encoding-based jailbreaks, DAN attacks, hallucination (snowball), toxicity, data leakage, malware generation, package hallucination, XSS, and adaptive attack generation. Results output as structured JSONL reports with per-probe failure rates. Runtime is Python 3.10+ with pip-based installation.",
+  "technical_description": "garak is a command-line tool for red-teaming and assessing LLM-backed applications. It runs static, dynamic, and adaptive probes against a selected model, then uses detectors to identify undesirable behavior and reports results. The README lists support for Hugging Face, OpenAI, Replicate, AWS Bedrock, LiteLLM, REST endpoints, and GGUF models such as llama.cpp.",
   "telemetry": "Unknown",
-  "title": "garak",
+  "title": "garak, LLM vulnerability scanner",
   "url": "https://github.com/leondz/garak",
   "use_cases": [],
   "works_with": [
-    "Hugging Face Hub",
-    "Replicate",
+    "Hugging Face",
     "OpenAI API",
+    "Replicate",
     "AWS Bedrock",
     "LiteLLM",
     "REST",
-    "GGUF / llama.cpp",
-    "Cohere",
-    "Groq",
-    "NIM"
+    "llama.cpp",
+    "NVIDIA NIM"
   ]
 }

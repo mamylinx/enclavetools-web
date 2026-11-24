@@ -3,7 +3,7 @@
 pipeline.py — runs the full Enclavetools collection pipeline end to end:
 
   1. fetch_github.py     (Lane A: deterministic GitHub facts)
-  2. run_extractor.py    (Lane B: Opencode-grounded extraction)
+  2. run_extractor.py    (Lane B: Codex extraction)
   3. merge_and_validate.py (merge, Lane A wins on overlap, schema-validate)
   4. build_dataset.py    (concatenate into dataset.json)
 
@@ -52,10 +52,12 @@ def main():
     ap.add_argument("--out", type=Path, default=Path("dataset.json"))
     ap.add_argument("--slug", default=None)
     ap.add_argument("--force", action="store_true", help="Force Lane B re-extraction even if unchanged")
-    ap.add_argument("--agent", default="extractor")
     ap.add_argument("--model", default=None)
+    ap.add_argument("--jobs", type=int, default=1, help="Maximum concurrent Codex extractions (default: 1)")
     ap.add_argument("--skip-fetch", action="store_true", help="Skip Lane A (reuse existing raw/ data)")
     args = ap.parse_args()
+    if args.jobs < 1:
+        ap.error("--jobs must be at least 1")
 
     py = sys.executable
 
@@ -64,11 +66,13 @@ def main():
         if args.slug:
             cmd += ["--slug", args.slug]
         if not run_stage("fetch_github", cmd):
+            if args.slug:
+                sys.exit(1)
             log.warning("Lane A had failures — check raw/_failures.jsonl. "
                         "Continuing with whatever succeeded (per-tool fault isolation).")
 
     cmd = [py, str(SCRIPTS / "run_extractor.py"), "--tools", str(args.tools),
-           "--raw-dir", str(args.raw_dir), "--agent", args.agent]
+           "--raw-dir", str(args.raw_dir), "--jobs", str(args.jobs)]
     if args.model:
         cmd += ["--model", args.model]
     if args.slug:
@@ -76,6 +80,8 @@ def main():
     if args.force:
         cmd += ["--force"]
     if not run_stage("run_extractor", cmd):
+        if args.slug:
+            sys.exit(1)
         log.warning("Lane B had failures — check raw/_manual_review.jsonl. Continuing.")
 
     cmd = [py, str(SCRIPTS / "merge_and_validate.py"), "--tools", str(args.tools),
@@ -83,6 +89,8 @@ def main():
     if args.slug:
         cmd += ["--slug", args.slug]
     if not run_stage("merge_and_validate", cmd):
+        if args.slug:
+            sys.exit(1)
         log.warning("Merge had failures for some tools — they will be missing from the build. Continuing.")
 
     if not run_stage("build_dataset", [py, str(SCRIPTS / "build_dataset.py"),

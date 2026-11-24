@@ -6,10 +6,11 @@
   "community_guides_count": 0,
   "community_notes": [],
   "community_notes_count": 0,
-  "date-added": "2026-07-22",
+  "date-added": "2026-11-24",
   "deployment": [
     "Docker",
-    "Bare Metal"
+    "Bare Metal",
+    "Desktop App"
   ],
   "docker_available": 1,
   "docs_url": null,
@@ -31,42 +32,43 @@
     "Python"
   ],
   "last_updated": "2024-08-13",
-  "last_verified": "2026-07-22",
+  "last_verified": "2026-11-24",
   "license": "Apache-2.0",
-  "maturity": "Mature / Maintenance",
-  "min_ram_gb": null,
-  "model_format": [],
+  "maturity": null,
+  "min_ram_gb": 15,
+  "model_format": [
+    "PyTorch"
+  ],
   "offline_after_setup": 1,
   "openai_api": 0,
   "paid_support": 0,
   "personas": [
     "Developer"
   ],
-  "plain_description": "CodeGeeX boosts developer productivity by automatically generating, translating, and explaining code across 20+ programming languages. Deploy it as a VS Code or JetBrains extension for instant AI-powered code suggestions without leaving your editor. The open-source model runs on your own infrastructure or cloud GPUs, keeping your code data private.",
-  "popularity_score": 8800,
+  "plain_description": "**Help developers generate and translate code across multiple programming languages.** CodeGeeX also offers code completion, explanation, and summarization through IDE extensions.",
+  "popularity_score": 8804,
   "quantization": 1,
-  "recommended_ram_gb": null,
+  "recommended_ram_gb": 27,
   "rest_api": 0,
-  "setup_difficulty": "Medium",
+  "setup_difficulty": "Hard",
   "slug": "codegeex",
-  "tag": "Code Generation",
-  "technical_description": "CodeGeeX is a 13-billion parameter autoregressive decoder-only transformer for multilingual code generation. The model contains 40 transformer layers with 5,120 hidden dimensions and 20,480 feed-forward dimensions, supporting 2,048-token sequences. It was pre-trained on 850 billion tokens across 23 programming languages on 1,536 Ascend 910 processors. CodeGeeX provides inference on NVIDIA GPUs (V100, A100) and Ascend 910, with quantization reducing GPU memory from 27 GB to 15 GB and INT8 acceleration achieving sub-15ms/token. It integrates with VS Code and JetBrains IDEs via extensions and supports containerized deployment through Docker.",
+  "tag": "Code assistants",
+  "technical_description": "A 13-billion-parameter, transformer-based multilingual code generation model trained on code from more than 20 programming languages. It supports code generation and cross-language translation, with a VS Code and JetBrains programming assistant. The README describes inference on Ascend and NVIDIA GPUs, with PyTorch and MindSpore implementations, and provides quantized inference options.",
   "telemetry": "Unknown",
-  "title": "CodeGeeX",
+  "title": "CodeGeeX: A Multilingual Code Generation Model",
   "url": "https://github.com/THUDM/CodeGeeX",
   "use_cases": [
     "Code Generation",
     "Translation",
-    "Summarization",
-    "Fine-Tuning"
+    "Summarization"
   ],
   "works_with": [
+    "Python",
     "PyTorch",
     "MindSpore",
-    "DeepSpeed",
     "Megatron-LM",
+    "OneFlow",
     "VS Code",
-    "JetBrains",
-    "Docker"
+    "JetBrains"
   ]
 }

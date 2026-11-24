@@ -6,18 +6,19 @@
   "community_guides_count": 0,
   "community_notes": [],
   "community_notes_count": 0,
-  "date-added": "2026-07-22",
+  "date-added": "2026-11-24",
   "deployment": [
-    "Bare Metal"
+    "Bare Metal",
+    "Cloud"
   ],
   "docker_available": 0,
   "docs_url": "https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki",
   "featured": false,
   "features": [
-    "REST API",
+    "Fine-tuning",
     "GUI/no-code"
   ],
-  "fine_tuning": 0,
+  "fine_tuning": 1,
   "github_url": "https://github.com/AUTOMATIC1111/stable-diffusion-webui",
   "gui_available": 1,
   "hardware": [
@@ -31,35 +32,47 @@
     "Python"
   ],
   "last_updated": "2026-03-02",
-  "last_verified": "2026-07-22",
+  "last_verified": "2026-11-24",
   "license": "AGPL-3.0",
-  "maturity": "Production / Stable",
-  "min_ram_gb": 8,
-  "model_format": [],
+  "maturity": null,
+  "min_ram_gb": null,
+  "model_format": [
+    "safetensors"
+  ],
   "offline_after_setup": 0,
   "openai_api": 0,
   "paid_support": 0,
   "personas": [
     "Developer",
-    "Business Owner",
     "Indie Hacker"
   ],
-  "plain_description": "Generate high-quality images from text descriptions with a powerful, easy-to-use web interface. This tool gives you complete control over image creation, from simple prompts to advanced techniques like inpainting, upscaling, and custom model training — all without writing code.",
-  "popularity_score": 164290,
+  "plain_description": "**Create and edit images from text prompts using a web interface.** Generate variations, inpaint or outpaint images, and upscale results. A training tab supports embeddings, hypernetworks, and LoRAs.",
+  "popularity_score": 165373,
   "quantization": 0,
-  "recommended_ram_gb": 16,
-  "rest_api": 1,
+  "recommended_ram_gb": null,
+  "rest_api": 0,
   "setup_difficulty": "Medium",
   "slug": "stable-diffusion-webui",
-  "tag": "Image Generation",
-  "technical_description": "Stable Diffusion web UI is a Gradio-based browser interface for Stable Diffusion image generation models. It supports txt2img and img2img pipelines, inpainting, outpainting, upscaling (ESRGAN, SwinIR, LDSR), face restoration (GFPGAN, CodeFormer), and CLIP interrogator. The application runs as a local Python server with a REST API, supports checkpoint merging, LoRA, hypernetworks, Textual Inversion embeddings, and custom script extensions. It operates on NVIDIA, AMD, Apple Silicon, Intel, and Ascend NPU hardware via command-line flags.",
+  "tag": "Image generation",
+  "technical_description": "A Gradio-based web interface for Stable Diffusion with txt2img and img2img generation, image editing, upscaling, prompt tools, checkpoint management, and training features. The README documents Windows, Linux, and Apple Silicon installation paths, with support for NVIDIA and AMD GPUs, Intel CPUs and GPUs, and Ascend NPUs. It also lists an API and safetensors checkpoint loading.",
   "telemetry": "Unknown",
   "title": "Stable Diffusion web UI",
   "url": "https://github.com/AUTOMATIC1111/stable-diffusion-webui",
   "use_cases": [
-    "Image Generation"
+    "Image Generation",
+    "Fine-Tuning"
   ],
   "works_with": [
-    "Stable Diffusion"
+    "Stable Diffusion",
+    "Gradio",
+    "GFPGAN",
+    "CodeFormer",
+    "RealESRGAN",
+    "ESRGAN",
+    "SwinIR",
+    "Swin2SR",
+    "LDSR",
+    "xformers",
+    "LoRA"
   ]
 }

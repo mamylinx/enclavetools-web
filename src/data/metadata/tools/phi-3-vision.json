@@ -6,12 +6,13 @@
   "community_guides_count": 0,
   "community_notes": [],
   "community_notes_count": 0,
-  "date-added": "2026-07-22",
+  "date-added": "2026-11-24",
   "deployment": [
+    "Bare Metal",
     "Cloud"
   ],
   "docker_available": 0,
-  "docs_url": "https://github.com/microsoft/Phi-3CookBook",
+  "docs_url": "https://aka.ms/phi3-tech-report",
   "featured": false,
   "features": [
     "Fine-tuning"
@@ -26,37 +27,38 @@
     "multilingual"
   ],
   "last_updated": "2025-12-10",
-  "last_verified": "2026-07-22",
+  "last_verified": "2026-11-24",
   "license": "MIT",
-  "maturity": "Production / Stable",
+  "maturity": null,
   "min_ram_gb": 8.3,
-  "model_format": [],
+  "model_format": [
+    "safetensors"
+  ],
   "offline_after_setup": 1,
   "openai_api": 0,
   "paid_support": 0,
   "personas": [
-    "Developer"
+    "Developer",
+    "Business Owner"
   ],
-  "plain_description": "Phi-3-Vision-128K-Instruct is a lightweight AI model that can analyze images and text together, making it ideal for cost-sensitive computer vision and document processing tasks. It understands charts, tables, handwriting, and general imagery with a large 128K token context window while running on modest hardware. The bottom line: you get multimodal AI capabilities without the infrastructure bill.",
-  "popularity_score": 247300,
+  "plain_description": "**Help your team analyze images and understand the text alongside them.** Use it for image understanding, OCR, and chart or table analysis. It can run in compute constrained environments.",
+  "popularity_score": 37427,
   "quantization": 0,
   "recommended_ram_gb": 12.5,
   "rest_api": 0,
-  "setup_difficulty": "Medium",
+  "setup_difficulty": "Hard",
   "slug": "phi-3-vision",
-  "tag": "multimodal",
-  "technical_description": "Phi-3-Vision-128K-Instruct is a 4.2B parameter multimodal language model that processes image and text inputs to generate text outputs. The architecture comprises an image encoder, connector, projector, and the Phi-3 Mini language model with a 128K token context window. The model is loaded via Hugging Face transformers with trust_remote_code=True and requires PyTorch, flash-attention, and NVIDIA GPUs (A100, A6000, H100). Training data includes 500B vision and text tokens, and the model supports supervised fine-tuning.",
+  "tag": "Vision",
+  "technical_description": "Phi-3-Vision-128K-Instruct is a 4.2B parameter multimodal model that accepts text and image inputs and generates text responses. It supports a 128K-token context and is integrated with Transformers. The README recommends GPU use and lists NVIDIA A100, A6000, and H100 as tested hardware.",
   "telemetry": "Unknown",
-  "title": "Phi-3-Vision-128K-Instruct",
+  "title": "Phi-3.5 Vision Instruct",
   "url": "https://huggingface.co/microsoft/Phi-3-vision-128k-instruct",
   "use_cases": [
-    "Chat Assistant",
-    "Code Generation",
     "Document Processing",
     "Data Extraction"
   ],
   "works_with": [
-    "transformers",
+    "Transformers",
     "PyTorch",
     "Flash-Attention",
     "Azure AI Studio"

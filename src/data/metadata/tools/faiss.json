@@ -6,16 +6,16 @@
   "community_guides_count": 0,
   "community_notes": [],
   "community_notes_count": 0,
-  "date-added": "2026-07-22",
+  "date-added": "2026-11-24",
   "deployment": [
-    "Bare Metal",
-    "Docker"
+    "Bare Metal"
   ],
   "docker_available": 1,
-  "docs_url": "https://faiss.ai/",
+  "docs_url": "https://github.com/facebookresearch/faiss/wiki",
   "featured": false,
   "features": [
-    "Docker available"
+    "Docker available",
+    "Quantization"
   ],
   "fine_tuning": 0,
   "github_url": "https://github.com/facebookresearch/faiss",
@@ -29,10 +29,10 @@
     "C++",
     "Python"
   ],
-  "last_updated": "2026-07-22",
-  "last_verified": "2026-07-22",
+  "last_updated": "2026-11-24",
+  "last_verified": "2026-11-24",
   "license": "MIT",
-  "maturity": "Production / Stable",
+  "maturity": null,
   "min_ram_gb": null,
   "model_format": [],
   "offline_after_setup": 1,
@@ -41,15 +41,15 @@
   "personas": [
     "Developer"
   ],
-  "plain_description": "Faiss lets you search through billions of vectors in milliseconds to find the most similar ones. It's the industry standard for similarity search and clustering, powering AI applications from recommendation engines to document retrieval. Runs on CPU or GPU and scales from a laptop to a data center.",
-  "popularity_score": 40565,
-  "quantization": 0,
+  "plain_description": "**Search large collections of vectors quickly to find the closest matches.** Supports exact and approximate search, with options to trade search speed and quality for memory use.",
+  "popularity_score": 41900,
+  "quantization": 1,
   "recommended_ram_gb": null,
   "rest_api": 0,
-  "setup_difficulty": "Easy",
+  "setup_difficulty": "Medium",
   "slug": "faiss",
-  "tag": "Vector Search",
-  "technical_description": "Faiss is a C++ library with Python bindings for efficient similarity search and clustering of dense vectors. It provides multiple indexing structures — exact search, IVF, HNSW, NSG, and product quantization — with configurable trade-offs between search speed, accuracy, and memory usage. Supports L2 distance, dot product, and cosine similarity, with optional GPU acceleration via CUDA or AMD ROCm. Indexes scale to billions of vectors on a single server using compressed-domain representations that do not require keeping the original vectors in memory.",
+  "tag": "Vector database",
+  "technical_description": "Faiss is a C++ library with Python/NumPy wrappers for similarity search and clustering of dense vectors. It supports L2, dot-product, and cosine similarity; index structures including exact search, HNSW, and NSG; and compressed representations for scaling to billions of vectors in main memory. Optional GPU implementations support NVIDIA CUDA and AMD ROCm, with single- and multi-GPU use.",
   "telemetry": "Unknown",
   "title": "Faiss",
   "url": "https://github.com/facebookresearch/faiss",
@@ -57,10 +57,12 @@
     "Vector Search"
   ],
   "works_with": [
+    "C++",
     "Python",
-    "numpy",
+    "NumPy",
+    "BLAS",
     "CUDA",
-    "ROCm",
-    "BLAS"
+    "AMD ROCm",
+    "cuVS"
   ]
 }

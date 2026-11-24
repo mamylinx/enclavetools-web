@@ -6,10 +6,11 @@
   "community_guides_count": 0,
   "community_notes": [],
   "community_notes_count": 0,
-  "date-added": "2026-07-22",
+  "date-added": "2026-11-24",
   "deployment": [
-    "Docker",
-    "Kubernetes"
+    "Bare Metal",
+    "Kubernetes",
+    "Cloud"
   ],
   "docker_available": 1,
   "docs_url": "https://spark.apache.org/documentation.html",
@@ -20,12 +21,14 @@
   "fine_tuning": 0,
   "github_url": "https://github.com/apache/spark",
   "gui_available": 0,
-  "hardware": [],
+  "hardware": [
+    "CPU"
+  ],
   "language": [
     "Scala"
   ],
-  "last_updated": "2026-07-22",
-  "last_verified": "2026-07-22",
+  "last_updated": "2026-11-24",
+  "last_verified": "2026-11-24",
   "license": "Apache-2.0",
   "maturity": "Production / Stable",
   "min_ram_gb": null,
@@ -34,27 +37,35 @@
   "openai_api": 0,
   "paid_support": 0,
   "personas": [
-    "Developer"
+    "Developer",
+    "Business Owner"
   ],
-  "plain_description": "Apache Spark processes massive datasets at lightning speed, turning raw data into actionable business insights. It handles SQL analytics, machine learning, real-time stream processing, and graph analysis in a single unified platform. The bottom line: Make faster, data-driven decisions without waiting hours for batch jobs to finish.",
-  "popularity_score": 43670,
+  "plain_description": "**Process large volumes of data and turn them into useful analysis.** Use Spark for SQL, machine learning, graph processing, and streaming workloads. Work through APIs in Scala, Java, Python, or R.",
+  "popularity_score": 44609,
   "quantization": 0,
   "recommended_ram_gb": null,
   "rest_api": 0,
-  "setup_difficulty": "Medium",
+  "setup_difficulty": "Hard",
   "slug": "apache-spark",
-  "tag": "Analytics Engine",
-  "technical_description": "Apache Spark is a distributed computing framework and unified analytics engine for large-scale data processing. It provides high-level APIs in Scala, Java, Python, and R, backed by an optimized DAG execution engine that supports general computation graphs. Spark includes Spark SQL for structured data processing with DataFrames, MLlib for scalable machine learning, GraphX for graph processing, and Structured Streaming for real-time stream processing. It runs on Apache Hadoop YARN, Kubernetes, or in standalone mode, and integrates with HDFS, Hive, and other Hadoop ecosystem storage systems.",
+  "tag": "Data utilities",
+  "technical_description": "Apache Spark is a unified analytics engine for large-scale data processing. It provides high-level APIs in Scala, Java, Python, and R, with tools for SQL and DataFrames, pandas workloads, machine learning, graph processing, and stream processing.",
   "telemetry": "Unknown",
   "title": "Apache Spark",
   "url": "https://spark.apache.org/",
-  "use_cases": [],
+  "use_cases": [
+    "Document Processing",
+    "Data Extraction",
+    "Model Serving",
+    "Vector Search"
+  ],
   "works_with": [
-    "Hadoop",
+    "Scala",
+    "Java",
+    "Python",
+    "R",
+    "Apache Hadoop",
     "YARN",
-    "Kubernetes",
-    "Hive",
     "HDFS",
-    "Apache Maven"
+    "Kubernetes"
   ]
 }

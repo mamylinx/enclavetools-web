@@ -6,13 +6,14 @@
   "community_guides_count": 0,
   "community_notes": [],
   "community_notes_count": 0,
-  "date-added": "2026-07-22",
+  "date-added": "2026-11-24",
   "deployment": [
     "Docker",
-    "Bare Metal"
+    "Bare Metal",
+    "Cloud"
   ],
   "docker_available": 1,
-  "docs_url": null,
+  "docs_url": "https://huggingface.co/docs/diffusers/main/api/pipelines/hunyuan_video",
   "featured": false,
   "features": [
     "Docker available",
@@ -28,38 +29,42 @@
   "language": [
     "Python"
   ],
-  "last_updated": "2026-06-29",
-  "last_verified": "2026-07-22",
+  "last_updated": "2026-10-08",
+  "last_verified": "2026-11-24",
   "license": null,
-  "maturity": "Production / Stable",
-  "min_ram_gb": 60,
-  "model_format": [],
+  "maturity": null,
+  "min_ram_gb": null,
+  "model_format": [
+    "PyTorch"
+  ],
   "offline_after_setup": 1,
   "openai_api": 0,
   "paid_support": 0,
   "personas": [
-    "Developer"
+    "Developer",
+    "Business Owner"
   ],
-  "plain_description": "Generate high-quality videos from text descriptions with HunyuanVideo, Tencent's open-source foundation model that outperforms leading commercial alternatives like Runway Gen-3 and Luma 1.6. It handles everything from simple prompts to complex scenes with superior motion quality and visual fidelity. The bottom line: create production-ready video content without the cost of closed-source solutions.",
-  "popularity_score": 12355,
+  "plain_description": "**Generate videos from text prompts for creative and business projects.** The project includes inference code, pretrained weights, and a web demo. It can also generate images.",
+  "popularity_score": 12826,
   "quantization": 1,
-  "recommended_ram_gb": 80,
+  "recommended_ram_gb": null,
   "rest_api": 0,
   "setup_difficulty": "Hard",
   "slug": "hunyuanvideo",
-  "tag": "Video Generation",
-  "technical_description": "HunyuanVideo is an open-source video generation framework implementing a diffusion transformer architecture with over 13 billion parameters. It operates on a spatial-temporally compressed latent space via a Causal 3D VAE and uses a Dual-stream to Single-stream hybrid transformer design with Full Attention. Text conditioning employs a finetuned Multimodal Large Language Model with bidirectional token refinement. The runtime requires an NVIDIA GPU with CUDA, minimum 45 GB GPU memory (60 GB for 720p), and supports Docker deployment, Gradio web interface, FP8 quantization, and parallel multi-GPU inference via xDiT with Unified Sequence Parallelism.",
+  "tag": "Video generation",
+  "technical_description": "Open-source video foundation model with PyTorch definitions, pretrained weights, and inference and sampling code. It generates videos from text prompts and supports image and video generation, a Gradio web demo, multi-GPU inference, and FP8 quantized weights. The README reports NVIDIA GPU memory requirements of 45 GB for 544×960×129-frame generation and 60 GB for 720×1280×129-frame generation; 80 GB is recommended.",
   "telemetry": "Unknown",
-  "title": "HunyuanVideo",
+  "title": "HunyuanVideo: A Systematic Framework For Large Video Generation Model",
   "url": "https://github.com/Tencent/HunyuanVideo",
   "use_cases": [
     "Image Generation"
   ],
   "works_with": [
-    "ComfyUI",
+    "PyTorch",
+    "CUDA",
     "Diffusers",
-    "Gradio",
+    "ComfyUI",
     "xDiT",
-    "Hugging Face"
+    "Gradio"
   ]
 }

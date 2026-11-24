@@ -1,20 +1,22 @@
 {
-  "body": "Fast multilingual decision engine that turns any text into typed choice, score, and yes/no answers in a single forward pass.",
+  "body": "Non-autoregressive System 1 decision engine. Typed choice, score and yes/no decisions over any text in a single forward pass, in 100+ languages, with a router that picks the right checkpoint per request.",
   "category": "decision-models",
   "commercial_use": 1,
   "community_guides": [],
   "community_guides_count": 0,
   "community_notes": [],
   "community_notes_count": 0,
-  "date-added": "2026-09-24",
+  "date-added": "2026-11-24",
   "deployment": [
+    "Bare Metal",
     "Docker",
-    "Bare Metal"
+    "Cloud"
   ],
   "docker_available": 1,
   "docs_url": "https://nandhakishorm.github.io/laya/",
   "featured": false,
   "features": [
+    "OpenAI-compatible API",
     "Docker available",
     "REST API",
     "Fine-tuning",
@@ -29,50 +31,50 @@
     "GPU (Apple Silicon)"
   ],
   "language": [
-    "Python",
-    "TypeScript"
+    "Python"
   ],
-  "last_updated": "2026-09-24",
-  "last_verified": "2026-09-24",
+  "last_updated": "2026-11-23",
+  "last_verified": "2026-11-24",
   "license": "Apache-2.0",
-  "maturity": "Beta",
+  "maturity": null,
   "min_ram_gb": null,
   "model_format": [
     "safetensors",
-    "PyTorch",
-    "ONNX"
+    "ONNX",
+    "PyTorch"
   ],
   "offline_after_setup": 1,
-  "openai_api": 0,
+  "openai_api": 1,
   "paid_support": 0,
   "personas": [
-    "Developer"
+    "Developer",
+    "Business Owner"
   ],
-  "plain_description": "Laya helps your app make quick, confident decisions from everyday text like tickets, emails, or chat messages. Tell it what to decide — which team should handle a request, how urgent it feels, or whether a message looks risky — and it answers in milliseconds with a clear probability you can trust. It understands more than 100 languages, runs privately on your own machine once set up, and fits neatly into support triage, moderation, and AI safety workflows.",
-  "popularity_score": 22065,
+  "plain_description": "**Turn text and other inputs into fast, structured decisions for your business.** Route requests, score urgency, or flag risks across 100+ languages. Teach it from confirmed answers on your own machine.",
+  "popularity_score": 35892,
   "quantization": 0,
   "recommended_ram_gb": null,
   "rest_api": 1,
-  "setup_difficulty": "Easy",
+  "setup_difficulty": "Medium",
   "slug": "laya",
-  "tag": "Decision Engine",
-  "technical_description": "Laya is a non-autoregressive decision engine in Python with a TypeScript client, built on ModernBERT-large for English and mmBERT-base for multilingual input. A dependency-free Router detects script and language in under a millisecond and dispatches each request to one of three safetensors checkpoints on Hugging Face Hub. All questions share one forward pass with calibrated choice, score, and yes/no outputs, plus batch mode, prediction hooks, and schema-driven decisions. It ships as a PyPI package with CLI, FastAPI server exposing a Jev-compatible REST API, MCP server, LangChain and LangGraph integrations, ONNX Runtime support, and an optional TileLang CUDA fast path. Deployment is via pip, Docker and Compose, or Nix, on CPU, NVIDIA CUDA, and Apple Silicon.",
+  "tag": "Decision models",
+  "technical_description": "Laya is an open-source, multilingual decision engine for typed choice, score, and yes/no decisions. It processes text, images, audio, and video, with routing across checkpoints and optional learning from confirmed answers. It provides Python and other language SDKs, a CLI, an optional web playground and JSON API, and self-hosted HTTP and MCP servers. Fine-tuning is also available.",
   "telemetry": "Unknown",
   "title": "Laya",
   "url": "https://huggingface.co/convaiinnovations/laya",
   "use_cases": [
     "Agentic Workflows",
     "Data Extraction",
-    "Document Processing"
+    "Fine-Tuning"
   ],
   "works_with": [
-    "Hugging Face Hub",
-    "PyTorch",
-    "Transformers",
-    "Docker",
-    "FastAPI",
+    "Python",
+    "TypeScript",
+    "Node.js",
     "LangChain",
     "LangGraph",
-    "ONNX"
+    "CrewAI",
+    "LlamaIndex",
+    "MCP"
   ]
 }

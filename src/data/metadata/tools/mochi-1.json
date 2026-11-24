@@ -6,7 +6,7 @@
   "community_guides_count": 0,
   "community_notes": [],
   "community_notes_count": 0,
-  "date-added": "2026-07-22",
+  "date-added": "2026-11-24",
   "deployment": [
     "Bare Metal"
   ],
@@ -26,34 +26,42 @@
   "language": [
     "Python"
   ],
-  "last_updated": "2025-11-14",
-  "last_verified": "2026-07-22",
+  "last_updated": "2026-10-22",
+  "last_verified": "2026-11-24",
   "license": "Apache-2.0",
-  "maturity": "Beta",
-  "min_ram_gb": 60,
-  "model_format": [],
+  "maturity": "Alpha",
+  "min_ram_gb": null,
+  "model_format": [
+    "safetensors",
+    "PyTorch"
+  ],
   "offline_after_setup": 1,
   "openai_api": 0,
   "paid_support": 0,
   "personas": [
     "Developer"
   ],
-  "plain_description": "The big picture: Genmo's Mochi 1 brings high-quality video generation to open source, letting you create custom videos on your own hardware with no per-generation fees. Fine-tune it on your own footage using LoRA adapters, and run it through a simple web interface or programmatic API. The bottom line: professional video generation without vendor lock-in or recurring API costs.",
-  "popularity_score": 3701,
+  "plain_description": "**Create videos from text prompts with an open video generation model.** Try it in the included playground or generate videos from the command line. Fine-tune it on your own videos with LoRA.",
+  "popularity_score": 3767,
   "quantization": 0,
-  "recommended_ram_gb": 80,
+  "recommended_ram_gb": null,
   "rest_api": 0,
-  "setup_difficulty": "Medium",
+  "setup_difficulty": "Hard",
   "slug": "mochi-1",
-  "tag": "Text-to-Video",
-  "technical_description": "Mochi 1 is a 10-billion-parameter open-source diffusion model for text-to-video generation, built on the Asymmetric Diffusion Transformer (AsymmDiT) architecture with 48 layers, 24 attention heads, and separate MLP streams for visual (3072-dim) and text (1536-dim) tokens. The accompanying AsymmVAE provides causal 128x spatiotemporal compression via an asymmetric encoder-decoder design. Inference runs through PyTorch with optional flash attention, requiring approximately 60 GB VRAM for single-GPU operation with support for multi-GPU model parallelism. The repository exposes a composable Python pipeline API, a CLI for batch generation, and a Gradio web interface. LoRA fine-tuning is supported on H100 or A100 80 GB GPUs via a dedicated trainer, with safetensors checkpoint format.",
+  "tag": "Video generation",
+  "technical_description": "Mochi 1 is Genmo’s open text-to-video model, with a 10-billion-parameter Asymmetric Diffusion Transformer and an accompanying video autoencoder. The repository provides a Gradio UI, command-line generation, a programmatic Python API, and LoRA fine-tuning. It requires Python 3.11 or newer; the README recommends at least one H100 GPU and says single-GPU inference needs approximately 60 GB of VRAM.",
   "telemetry": "Unknown",
   "title": "Mochi 1",
   "url": "https://github.com/genmoai/models",
   "use_cases": [
+    "Image Generation",
     "Fine-Tuning"
   ],
   "works_with": [
-    "ComfyUI"
+    "Gradio",
+    "T5-XXL",
+    "ComfyUI",
+    "FFmpeg",
+    "Hugging Face"
   ]
 }

@@ -6,10 +6,10 @@
   "community_guides_count": 0,
   "community_notes": [],
   "community_notes_count": 0,
-  "date-added": "2026-07-22",
+  "date-added": "2026-11-24",
   "deployment": [
-    "Docker",
-    "Bare Metal"
+    "Bare Metal",
+    "Docker"
   ],
   "docker_available": 1,
   "docs_url": "https://docs.nerf.studio/",
@@ -28,41 +28,45 @@
     "Python"
   ],
   "last_updated": "2025-07-29",
-  "last_verified": "2026-07-22",
+  "last_verified": "2026-11-24",
   "license": "Apache-2.0",
-  "maturity": "Production / Stable",
+  "maturity": null,
   "min_ram_gb": null,
-  "model_format": [],
-  "offline_after_setup": 1,
+  "model_format": [
+    "PyTorch"
+  ],
+  "offline_after_setup": 0,
   "openai_api": 0,
   "paid_support": 0,
   "personas": [
     "Developer"
   ],
-  "plain_description": "Nerfstudio turns ordinary photos and videos into photorealistic 3D scenes you can explore, edit, and share — no 3D expertise required. It removes the technical complexity of neural radiance fields so any team can digitize real-world objects and spaces. The bottom line: capture any scene with a standard camera and get a production-ready 3D model.",
-  "popularity_score": 11833,
+  "plain_description": "**Create, train, and test neural 3D scenes with a guided workflow.** Use the web viewer to explore scenes, plan camera paths, and render videos or point clouds. Bring in your own images or video to build a 3D render.",
+  "popularity_score": 12250,
   "quantization": 0,
   "recommended_ram_gb": null,
   "rest_api": 0,
-  "setup_difficulty": "Medium",
+  "setup_difficulty": "Hard",
   "slug": "nerfstudio",
-  "tag": "3D Reconstruction",
-  "technical_description": "Nerfstudio is a modular Python framework for neural radiance field (NeRF) development, providing a complete pipeline from data ingestion through training to export. It supports multiple NeRF architectures (nerfacto, instant-ngp, vanilla NeRF) with a pluggable component system for fields, encodings, and model components. The framework includes a real-time web-based viewer with WebSocket streaming, CLI tools for dataset processing and model training, and integrations with COLMAP, Polycam, Record3D, and other capture pipelines. Runtime requires NVIDIA GPU with CUDA 11.7+ and leverages PyTorch with tiny-cuda-nn for accelerated rendering.",
+  "tag": "3D vision",
+  "technical_description": "Nerfstudio is a modular Python framework for creating, training, and testing Neural Radiance Fields (NeRFs). It provides training and export commands, data processing for custom captures, and a web-based viewer for visualizing training, interacting with scenes, and rendering camera paths. The README requires an NVIDIA GPU with CUDA for setup.",
   "telemetry": "Unknown",
-  "title": "nerfstudio",
+  "title": "Nerfstudio",
   "url": "https://docs.nerf.studio/",
   "use_cases": [
-    "Image Generation"
+    "Image Generation",
+    "Model Serving"
   ],
   "works_with": [
+    "PyTorch",
+    "CUDA",
     "COLMAP",
     "Polycam",
     "KIRI Engine",
     "Record3D",
-    "Spectacular AI",
     "Metashape",
     "RealityCapture",
-    "ODM",
+    "OpenDroneMap",
     "TensorBoard",
     "Weights & Biases",
     "Comet"

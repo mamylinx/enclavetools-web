@@ -4,7 +4,11 @@ interface Props {
   featureBadges: string[];
 }
 
+import { renderBold } from '../../utils/renderBold';
+
 const { enrichedTool, featureBadges } = Astro.props;
+
+const descriptionHtml = renderBold(enrichedTool.plain_description);
 ---
 
 <div class="flex flex-wrap gap-2 mt-8">
@@ -24,8 +28,7 @@ const { enrichedTool, featureBadges } = Astro.props;
   <div class="grid grid-cols-1 gap-6">
     <div class="bg-white/95 backdrop-blur-sm border border-brand-forest/5 rounded-3xl p-6 shadow-sm shadow-brand-forest/5 transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(27,54,27,0.08)]">
       <h2 class="text-xl font-bold mb-2">Description</h2>
-      <p class="text-sm leading-relaxed text-brand-forest/80">
-        {enrichedTool.plain_description}
+      <p class="text-sm leading-relaxed text-brand-forest/80" set:html={descriptionHtml}>
       </p>
     </div>
   </div>

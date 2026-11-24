@@ -1,5 +1,6 @@
 ---
 import siteContent from "../data/site-content.json";
+import PreferredSourceBadge from "./PreferredSourceBadge.astro";
 
 const c = siteContent as Record<string, string>;
 ---
@@ -140,9 +141,12 @@ const c = siteContent as Record<string, string>;
       </div>
     </div>
     <div
-      class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-bold text-white/40"
+      class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4"
     >
-      <p>{c.footer_copyright || "© 2026 Enclavetools. All rights reserved."}</p>
+      <p class="text-xs font-bold text-white/40">
+        {c.footer_copyright || "© 2026 Enclavetools. All rights reserved."}
+      </p>
+      <PreferredSourceBadge theme="dark" />
     </div>
   </div>
 </footer>

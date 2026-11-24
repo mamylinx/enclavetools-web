@@ -6,90 +6,60 @@
   "community_guides_count": 0,
   "community_notes": [],
   "community_notes_count": 0,
-  "date-added": "2026-07-22",
+  "date-added": "2026-11-24",
   "deployment": [
     "Bare Metal",
-    "Cloud",
-    "Mobile"
+    "Cloud"
   ],
   "docker_available": 0,
-  "docs_url": "https://qwen.readthedocs.io/",
+  "docs_url": "https://qwen.readthedocs.io/en/latest/",
   "featured": false,
-  "features": [
-    "OpenAI-compatible API",
-    "REST API",
-    "Fine-tuning",
-    "Quantization",
-    "GUI/no-code"
-  ],
-  "fine_tuning": 1,
+  "features": [],
+  "fine_tuning": 0,
   "github_url": null,
-  "gui_available": 1,
+  "gui_available": 0,
   "hardware": [
     "CPU",
-    "GPU (NVIDIA)",
-    "GPU (Apple Silicon)",
-    "NPU",
-    "Edge Device"
+    "GPU (NVIDIA)"
   ],
   "language": [
     "en"
   ],
   "last_updated": "2025-01-12",
-  "last_verified": "2026-07-22",
+  "last_verified": "2026-11-24",
   "license": "Apache-2.0",
-  "maturity": "Production / Stable",
+  "maturity": null,
   "min_ram_gb": 15.2,
   "model_format": [
     "safetensors"
   ],
   "offline_after_setup": 1,
-  "openai_api": 1,
+  "openai_api": 0,
   "paid_support": 0,
   "personas": [
     "Developer",
     "Business Owner"
   ],
-  "plain_description": "Alibaba Cloud's Qwen3 family delivers enterprise-grade AI reasoning, coding, and agent capabilities — all in one open-source model family. It handles complex problem-solving with thinking mode and fast everyday chat without, supporting 100+ languages and tool use out of the box. The bottom line: deploy state-of-the-art LLM performance on your own infrastructure or in the cloud, with models ranging from 0.6B to 235B parameters.",
-  "popularity_score": 11998199,
-  "quantization": 1,
+  "plain_description": "**Use Qwen2.5-7B-Instruct to generate helpful answers, code, and structured text for your business.** It follows instructions, supports long inputs, and works across many languages.",
+  "popularity_score": 6559411,
+  "quantization": 0,
   "recommended_ram_gb": 22.8,
-  "rest_api": 1,
+  "rest_api": 0,
   "setup_difficulty": "Medium",
   "slug": "qwen3-alibaba",
   "tag": "LLM",
-  "technical_description": "Qwen3 is a family of large language models from Alibaba Cloud's Qwen team offering dense and Mixture-of-Experts (MoE) architectures (0.6B to 235B-A22B parameters). It provides dual-mode inference with thinking (step-by-step reasoning) and non-thinking (fast chat) modes selectable at inference time via chat template parameters. Context windows span 256K tokens, extendable to 1M tokens for long-document understanding. The models are served through Hugging Face Transformers, vLLM, SGLang, TensorRT-LLM, llama.cpp, Ollama, and MLX LM, each exposing OpenAI-compatible REST API endpoints. Deployment targets include NVIDIA GPUs, Apple Silicon, Intel CPUs via OpenVINO, Ascend NPUs via MindIE, and mobile/edge devices via ExecuTorch and MNN. Post-training is supported via Axolotl, UnSloth, LLaMA-Factory, and Swift for SFT, DPO, and GRPO. Tool use and function calling with MCP integration are available through Qwen-Agent.",
+  "technical_description": "An instruction-tuned 7.61B-parameter causal language model in the Qwen2.5 series. The README demonstrates loading it with Hugging Face Transformers and generating text with a chat template. It supports up to 131,072 tokens of context with configuration for long-text use, and recommends vLLM for deployment.",
   "telemetry": "Unknown",
-  "title": "Qwen3",
+  "title": "Qwen2.5-7B-Instruct",
   "url": "https://qwenlm.github.io/",
   "use_cases": [
     "Chat Assistant",
-    "RAG",
-    "Agentic Workflows",
     "Code Generation",
-    "Document Processing",
-    "Translation",
     "Summarization",
-    "Fine-Tuning",
-    "Model Serving"
+    "Data Extraction"
   ],
   "works_with": [
-    "Transformers",
-    "vLLM",
-    "SGLang",
-    "TensorRT-LLM",
-    "llama.cpp",
-    "Ollama",
-    "LM Studio",
-    "MLX LM",
-    "OpenVINO",
-    "ExecuTorch",
-    "MNN",
-    "Qwen-Agent",
-    "Axolotl",
-    "UnSloth",
-    "LLaMA-Factory",
-    "Swift"
-  ],
-  "calculator_model": "8|36|32|8|128"
+    "Hugging Face Transformers",
+    "vLLM"
+  ]
 }

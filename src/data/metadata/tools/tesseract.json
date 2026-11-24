@@ -6,25 +6,25 @@
   "community_guides_count": 0,
   "community_notes": [],
   "community_notes_count": 0,
-  "date-added": "2026-07-22",
+  "date-added": "2026-11-24",
   "deployment": [
     "Bare Metal"
   ],
   "docker_available": 0,
-  "docs_url": "https://tesseract-ocr.github.io/tessdoc/",
+  "docs_url": "https://tesseract-ocr.github.io/",
   "featured": false,
-  "features": [
-    "Fine-tuning"
-  ],
-  "fine_tuning": 1,
+  "features": [],
+  "fine_tuning": 0,
   "github_url": "https://github.com/tesseract-ocr/tesseract",
   "gui_available": 0,
-  "hardware": [],
+  "hardware": [
+    "CPU"
+  ],
   "language": [
     "C++"
   ],
-  "last_updated": "2026-07-21",
-  "last_verified": "2026-07-22",
+  "last_updated": "2026-11-23",
+  "last_verified": "2026-11-24",
   "license": "Apache-2.0",
   "maturity": "Production / Stable",
   "min_ram_gb": null,
@@ -33,17 +33,18 @@
   "openai_api": 0,
   "paid_support": 0,
   "personas": [
-    "Developer"
+    "Developer",
+    "Business Owner"
   ],
-  "plain_description": "Tesseract is a free open-source OCR engine that extracts text from scanned documents, PDFs, and images so you never need to retype a single word. It supports over 100 languages out of the box and exports to plain text, searchable PDF, HTML, and more. The bottom line: automate document digitization and eliminate manual data entry.",
-  "popularity_score": 75496,
+  "plain_description": "**Turn images into searchable text and documents your business can use.** Recognizes text in more than 100 languages and can produce text, PDF, and structured output formats. It can also be trained to recognize other languages.",
+  "popularity_score": 77632,
   "quantization": 0,
   "recommended_ram_gb": null,
   "rest_api": 0,
-  "setup_difficulty": "Easy",
+  "setup_difficulty": "Medium",
   "slug": "tesseract",
-  "tag": "OCR",
-  "technical_description": "Tesseract is an open-source OCR engine that provides libtesseract, a C/C++ library, and a command-line tool for optical character recognition. The engine implements a legacy character-pattern recognizer alongside an LSTM-based neural network for line-level recognition. It supports Unicode (UTF-8), over 100 languages, multiple image input formats (PNG, JPEG, TIFF), and output formats including plain text, hOCR (HTML), PDF, TSV, ALTO, and PAGE. Integration is via the C API (capi.h) or C++ API (baseapi.h) with community-maintained bindings for other languages. The engine uses Leptonica for image input and supports training custom character sets for the neural net recognizer.",
+  "tag": "Document OCR",
+  "technical_description": "Tesseract is an open-source OCR engine provided as the libtesseract library and a command-line program. Its current stable major version uses an LSTM-based engine for line recognition and also supports the legacy engine. It reads image formats including PNG, JPEG, and TIFF, and can output plain text, hOCR, PDF, TSV, ALTO, and PAGE. It supports UTF-8 and requires traineddata files.",
   "telemetry": "Unknown",
   "title": "Tesseract OCR",
   "url": "https://github.com/tesseract-ocr/tesseract",

@@ -6,18 +6,17 @@
   "community_guides_count": 0,
   "community_notes": [],
   "community_notes_count": 0,
-  "date-added": "2026-07-22",
+  "date-added": "2026-11-24",
   "deployment": [],
   "docker_available": 0,
-  "docs_url": null,
+  "docs_url": "https://arxiv.org/pdf/2402.05672",
   "featured": false,
   "features": [],
   "fine_tuning": 0,
   "github_url": null,
   "gui_available": 0,
   "hardware": [
-    "CPU",
-    "GPU (NVIDIA)"
+    "CPU"
   ],
   "language": [
     "multilingual",
@@ -116,37 +115,38 @@
     "zh"
   ],
   "last_updated": "2026-04-02",
-  "last_verified": "2026-07-22",
+  "last_verified": "2026-11-24",
   "license": "MIT",
-  "maturity": "Production / Stable",
+  "maturity": null,
   "min_ram_gb": 2.2,
-  "model_format": [],
+  "model_format": [
+    "safetensors",
+    "PyTorch",
+    "ONNX"
+  ],
   "offline_after_setup": 1,
   "openai_api": 0,
   "paid_support": 0,
   "personas": [
     "Developer"
   ],
-  "plain_description": "Multilingual E5 Large generates high-quality text embeddings that let your applications understand text meaning across 100 languages. Built by Microsoft Research, it powers multilingual search, semantic matching, and RAG pipelines with a single pre-trained model. The bottom line: drop in a state-of-the-art embedding model and improve search and retrieval across all your multilingual content.",
-  "popularity_score": 12081286,
+  "plain_description": "**Turn text in many languages into embeddings for search and similarity matching.** Use the vectors to retrieve relevant passages or compare the meaning of text.",
+  "popularity_score": 7379287,
   "quantization": 0,
   "recommended_ram_gb": 3.3,
   "rest_api": 0,
-  "setup_difficulty": "Easy",
+  "setup_difficulty": "Medium",
   "slug": "e5-microsoft",
-  "tag": "Text Embeddings",
-  "technical_description": "Multilingual E5 Large is a sentence transformer model initialized from XLM-RoBERTa-large with 24 layers and 1024-dimensional embeddings. It employs two-stage training: contrastive pre-training on 5B+ weakly supervised text pairs across 100 languages, followed by supervised fine-tuning on multilingual retrieval datasets including MS MARCO, Mr. TyDi, and MIRACL. Input text requires 'query:' or 'passage:' prefixes for asymmetric retrieval tasks. The model is available in safetensors, PyTorch, and ONNX formats through Hugging Face Transformers and Sentence Transformers libraries. Max sequence length is 512 tokens.",
+  "tag": "Embedding model",
+  "technical_description": "A multilingual text embedding model with 24 layers and 1024-dimensional embeddings. Inputs are prefixed with “query: ” or “passage: ” depending on the task, tokenized to a maximum of 512 tokens, and mean pooled with attention masks before normalization. The model supports 100 languages; low-resource languages may see lower performance. Usage examples are provided for Transformers and Sentence Transformers.",
   "telemetry": "Unknown",
-  "title": "Multilingual E5 Large",
+  "title": "Multilingual-E5-large",
   "url": "https://huggingface.co/intfloat/multilingual-e5-large",
   "use_cases": [
-    "Vector Search",
-    "RAG"
+    "Vector Search"
   ],
   "works_with": [
-    "Hugging Face Transformers",
-    "Sentence Transformers",
-    "PyTorch"
-  ],
-  "calculator_model": "0.56|24|16|16|64"
+    "Transformers",
+    "Sentence Transformers"
+  ]
 }

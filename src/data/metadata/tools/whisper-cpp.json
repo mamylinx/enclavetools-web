@@ -6,12 +6,12 @@
   "community_guides_count": 0,
   "community_notes": [],
   "community_notes_count": 0,
-  "date-added": "2026-07-22",
+  "date-added": "2026-11-24",
   "deployment": [
     "Docker",
     "Bare Metal",
-    "Desktop App",
-    "Mobile"
+    "Mobile",
+    "Cloud"
   ],
   "docker_available": 1,
   "docs_url": null,
@@ -20,12 +20,11 @@
     "OpenAI-compatible API",
     "Docker available",
     "REST API",
-    "Quantization",
-    "GUI/no-code"
+    "Quantization"
   ],
   "fine_tuning": 0,
   "github_url": "https://github.com/ggml-org/whisper.cpp",
-  "gui_available": 1,
+  "gui_available": 0,
   "hardware": [
     "CPU",
     "GPU (NVIDIA)",
@@ -38,47 +37,46 @@
     "C++",
     "C"
   ],
-  "last_updated": "2026-07-11",
-  "last_verified": "2026-07-22",
+  "last_updated": "2026-11-24",
+  "last_verified": "2026-11-24",
   "license": "MIT",
-  "maturity": "Production / Stable",
-  "min_ram_gb": 0.5,
-  "model_format": [],
+  "maturity": null,
+  "min_ram_gb": 0.273,
+  "model_format": [
+    "GGML"
+  ],
   "offline_after_setup": 1,
   "openai_api": 1,
   "paid_support": 0,
   "personas": [
     "Developer",
+    "Business Owner",
     "Indie Hacker"
   ],
-  "plain_description": "The big picture: Turn speech into text on any device without sending audio to the cloud. Run entirely offline on phones, laptops, or servers — no internet needed, no per-minute API costs. Works everywhere from Raspberry Pis to data center GPUs, with a single portable C/C++ implementation.",
-  "popularity_score": 52118,
+  "plain_description": "**Turn audio into text with a fast, self-hosted speech recognition tool.** Run transcription on your own computer or device. It supports offline use across desktop, mobile, and browser projects.",
+  "popularity_score": 55466,
   "quantization": 1,
-  "recommended_ram_gb": 4,
+  "recommended_ram_gb": 3.9,
   "rest_api": 1,
-  "setup_difficulty": "Medium",
+  "setup_difficulty": "Hard",
   "slug": "whisper-cpp",
-  "tag": "ASR",
-  "technical_description": "High-performance inference engine for OpenAI's Whisper ASR model implemented in plain C/C++ with zero runtime dependencies. The core library provides a stable C-style API for model loading, transcription, and translation, backed by the ggml tensor library. Supports CPU (ARM NEON, x86 AVX, POWER VSX), GPU (NVIDIA CUDA, AMD ROCm, Apple Metal, Vulkan), and NPU (Ascend CANN, OpenVINO) backends with automatic backend selection. Features include mixed F16/F32 precision, integer quantization, Core ML and OpenVINO encoder acceleration, voice activity detection via Silero-VAD, and an HTTP server with OpenAI-compatible API. Ships as a library with CLI tools, WebAssembly builds, and bindings for Rust, Go, Python, Java, Ruby, JavaScript, .NET, and Swift.",
-  "telemetry": "None",
+  "tag": "Speech-to-text",
+  "technical_description": "whisper.cpp is a C/C++ implementation for running OpenAI Whisper speech recognition models. It supports CPU inference and acceleration on NVIDIA and AMD GPUs, Apple Silicon, and several NPUs. It includes command-line transcription, streaming, an HTTP transcription server with an OAI-like API, and bindings and examples for multiple platforms. Models use a custom GGML format, with integer quantization support.",
+  "telemetry": "Unknown",
   "title": "whisper.cpp",
   "url": "https://github.com/ggerganov/whisper.cpp",
   "use_cases": [
     "Speech-to-Text",
     "Translation",
-    "Model Serving",
-    "Chat Assistant",
-    "Data Extraction"
+    "Model Serving"
   ],
   "works_with": [
     "OpenAI Whisper",
-    "ggml",
-    "LLaMA",
+    "GGML",
+    "Docker",
     "FFmpeg",
-    "Core ML",
     "OpenVINO",
-    "CUDA",
-    "ROCm",
-    "Vulkan"
+    "VitisAI",
+    "Core ML"
   ]
 }

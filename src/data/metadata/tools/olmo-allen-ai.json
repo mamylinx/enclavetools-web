@@ -6,66 +6,62 @@
   "community_guides_count": 0,
   "community_notes": [],
   "community_notes_count": 0,
-  "date-added": "2026-07-22",
+  "date-added": "2026-11-24",
   "deployment": [
-    "Docker",
-    "Bare Metal",
-    "Cloud"
+    "Bare Metal"
   ],
   "docker_available": 0,
   "docs_url": null,
   "featured": false,
   "features": [
-    "OpenAI-compatible API"
+    "Fine-tuning",
+    "Quantization"
   ],
-  "fine_tuning": 0,
+  "fine_tuning": 1,
   "github_url": null,
   "gui_available": 0,
   "hardware": [
-    "CPU",
-    "GPU (NVIDIA)"
+    "GPU (NVIDIA)",
+    "GPU (AMD)"
   ],
   "language": [
     "en"
   ],
   "last_updated": "2025-10-09",
-  "last_verified": "2026-07-22",
+  "last_verified": "2026-11-24",
   "license": "Apache-2.0",
-  "maturity": "Inactive / Unmaintained",
+  "maturity": null,
   "min_ram_gb": 27.6,
   "model_format": [
     "safetensors",
     "PyTorch"
   ],
   "offline_after_setup": 0,
-  "openai_api": 1,
+  "openai_api": 0,
   "paid_support": 0,
   "personas": [
     "Developer"
   ],
-  "plain_description": "OLMo gives AI researchers and enterprises a complete open-source stack to train, fine-tune, and deploy state-of-the-art language models from 1B to 32B parameters. It provides the code, configs, and checkpoints needed to reproduce production-grade LLMs without starting from scratch. The bottom line: skip building your own training infrastructure and use a proven, fully open platform.",
-  "popularity_score": 55517,
-  "quantization": 0,
+  "plain_description": "**Use OLMo to generate English text for language modeling and other applications.** The model is available for inference and fine-tuning. Check generated facts, as the README warns that they may be inaccurate.",
+  "popularity_score": 4306,
+  "quantization": 1,
   "recommended_ram_gb": 41.4,
   "rest_api": 0,
-  "setup_difficulty": "Medium",
+  "setup_difficulty": "Hard",
   "slug": "olmo-allen-ai",
   "tag": "LLM",
-  "technical_description": "OLMo is a Python library for training, evaluating, and serving large language models using PyTorch and Hugging Face Transformers. It implements a two-stage pretraining pipeline that trains on web-scale data followed by curated high-quality data, with distributed training orchestrated via torchrun and YAML-based configuration files. The library supports model quantization through bitsandbytes, publishes checkpoints in both native and Hugging Face formats, and includes an OpenAI-compatible API server deployable on Modal.com. Inference is available via the Hugging Face transformers API with text-generation pipeline support.",
+  "technical_description": "OLMo 7B is an autoregressive Transformer language model developed by the Allen Institute for AI and trained on the Dolma dataset. The README provides Hugging Face inference and fine-tuning instructions and describes model checkpoints and revisions. The code and model are released under Apache 2.0.",
   "telemetry": "Unknown",
-  "title": "OLMo",
+  "title": "OLMo 7B",
   "url": "https://allenai.org/olmo",
   "use_cases": [
     "Chat Assistant",
-    "Fine-Tuning",
-    "Model Serving"
+    "Fine-Tuning"
   ],
   "works_with": [
     "Hugging Face Transformers",
     "PyTorch",
-    "bitsandbytes",
-    "Modal.com",
-    "Weights & Biases"
-  ],
-  "calculator_model": "32|64|40|8|128"
+    "ai2-olmo",
+    "bitsandbytes"
+  ]
 }

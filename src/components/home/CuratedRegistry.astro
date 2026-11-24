@@ -1,6 +1,7 @@
 ---
 import SearchInput from "../SearchInput.vue";
 import CompareToggle from "../CompareToggle.vue";
+import { stripBold } from "../../utils/renderBold";
 
 interface Props {
   topTools: any[];
@@ -91,7 +92,7 @@ const { topTools, categoryTitleMap, formatScore, totalTools } = Astro.props;
                     /> */}
                   </h3>
                   <p class="text-brand-muted text-sm leading-relaxed mb-5">
-                    {tool.body || tool.plain_description}
+                    {stripBold(tool.body || tool.plain_description)}
                   </p>
                   <div class="grid grid-cols-2 gap-2 border-t border-brand-forest/10 pt-4 text-xs">
                     <p class="font-bold text-brand-muted uppercase tracking-wider">

@@ -6,10 +6,11 @@
   "community_guides_count": 0,
   "community_notes": [],
   "community_notes_count": 0,
-  "date-added": "2026-07-22",
+  "date-added": "2026-11-24",
   "deployment": [
+    "Bare Metal",
     "Docker",
-    "Bare Metal"
+    "Cloud"
   ],
   "docker_available": 1,
   "docs_url": "https://www.jaided.ai/easyocr/documentation",
@@ -17,12 +18,11 @@
   "features": [
     "Docker available",
     "Fine-tuning",
-    "GUI/no-code",
     "Paid support"
   ],
   "fine_tuning": 1,
   "github_url": "https://github.com/JaidedAI/EasyOCR",
-  "gui_available": 1,
+  "gui_available": 0,
   "hardware": [
     "CPU",
     "GPU (NVIDIA)"
@@ -30,12 +30,14 @@
   "language": [
     "Python"
   ],
-  "last_updated": "2025-12-05",
-  "last_verified": "2026-07-22",
+  "last_updated": "2026-11-13",
+  "last_verified": "2026-11-24",
   "license": "Apache-2.0",
-  "maturity": "Production / Stable",
+  "maturity": "Mature / Maintenance",
   "min_ram_gb": null,
-  "model_format": [],
+  "model_format": [
+    "PyTorch"
+  ],
   "offline_after_setup": 1,
   "openai_api": 0,
   "paid_support": 1,
@@ -43,15 +45,15 @@
     "Developer",
     "Business Owner"
   ],
-  "plain_description": "The big picture: extract text from images in 80+ languages with a single line of Python — no machine learning expertise needed. Here's why it matters: automate document processing, receipt scanning, and data entry for any business workflow. The bottom line: turn any image into searchable, usable text data instantly.",
-  "popularity_score": 29805,
+  "plain_description": "**Extract text from images in more than 80 languages.** Use it to turn image text into readable text with confidence scores. Run it from Python or the command line, and choose CPU-only mode if needed.",
+  "popularity_score": 30163,
   "quantization": 0,
   "recommended_ram_gb": null,
   "rest_api": 0,
-  "setup_difficulty": "Easy",
+  "setup_difficulty": "Medium",
   "slug": "easyocr",
   "tag": "OCR",
-  "technical_description": "EasyOCR is a Python library for optical character recognition (OCR) supporting 80+ languages and multiple writing scripts. It uses a PyTorch-based deep learning pipeline with CRAFT for text detection and CRNN (ResNet/VGG + LSTM + CTC) for recognition. The library provides a simple Python API and command-line interface, auto-downloads pretrained models from a model hub, and runs on CPU or NVIDIA GPU via CUDA. Installation is through pip, with a Dockerfile available for containerized deployment.",
+  "technical_description": "EasyOCR is a ready-to-use OCR library supporting more than 80 languages and common writing scripts. It detects text in images and returns bounding boxes, recognized text, and confidence scores. It supports Python and command-line use, can run in CPU-only mode, and can download model weights automatically or use manually downloaded weights.",
   "telemetry": "Unknown",
   "title": "EasyOCR",
   "url": "https://github.com/JaidedAI/EasyOCR",
@@ -60,9 +62,9 @@
     "Data Extraction"
   ],
   "works_with": [
+    "Python",
     "PyTorch",
-    "Hugging Face",
-    "Gradio",
-    "OpenCV"
+    "OpenCV",
+    "NumPy"
   ]
 }

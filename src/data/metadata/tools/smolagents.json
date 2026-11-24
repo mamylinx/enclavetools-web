@@ -6,67 +6,69 @@
   "community_guides_count": 0,
   "community_notes": [],
   "community_notes_count": 0,
-  "date-added": "2026-07-22",
+  "date-added": "2026-11-24",
   "deployment": [
     "Bare Metal",
+    "Cloud",
     "Docker"
   ],
   "docker_available": 0,
-  "docs_url": "https://huggingface.co/docs/smolagents/index",
+  "docs_url": "https://huggingface.co/docs/smolagents",
   "featured": false,
   "features": [
-    "OpenAI-compatible API",
-    "REST API"
+    "OpenAI-compatible API"
   ],
   "fine_tuning": 0,
   "github_url": "https://github.com/huggingface/smolagents",
   "gui_available": 0,
-  "hardware": [],
+  "hardware": [
+    "CPU",
+    "GPU (NVIDIA)"
+  ],
   "language": [
     "Python"
   ],
-  "last_updated": "2026-07-21",
-  "last_verified": "2026-07-22",
+  "last_updated": "2026-11-23",
+  "last_verified": "2026-11-24",
   "license": "Apache-2.0",
-  "maturity": "Production / Stable",
+  "maturity": null,
   "min_ram_gb": null,
-  "model_format": [],
-  "offline_after_setup": 1,
+  "model_format": [
+    "GGUF",
+    "PyTorch"
+  ],
+  "offline_after_setup": 0,
   "openai_api": 1,
   "paid_support": 0,
   "personas": [
     "Developer"
   ],
-  "plain_description": "smolagents lets you build AI agents that can browse the web, process information, and automate tasks using just a few lines of Python code. It works with any major AI model — from OpenAI and Anthropic to open-source models — and integrates with your existing tools. The bottom line: deploy powerful agentic workflows without heavy framework overhead.",
-  "popularity_score": 28484,
+  "plain_description": "**Build AI agents that can carry out multi-step tasks using the models and tools you choose.** Create agents in a few lines of Python and share them through Hugging Face Hub. Supports code-driven and tool-calling agents, with optional sandboxed execution.",
+  "popularity_score": 30505,
   "quantization": 0,
   "recommended_ram_gb": null,
-  "rest_api": 1,
-  "setup_difficulty": "Easy",
+  "rest_api": 0,
+  "setup_difficulty": "Medium",
   "slug": "smolagents",
-  "tag": "agent-framework",
-  "technical_description": "smolagents is a lightweight Python library for building and deploying AI agents that use code execution as their primary action mechanism. It implements a ReAct-style loop where LLM-generated Python code is parsed and executed, supporting both CodeAgent (code-based actions) and ToolCallingAgent (JSON/tool-calling actions). The library provides model-agnostic integrations via LiteLLM, Hugging Face Inference Providers, OpenAI-compatible APIs, local transformers models, and cloud provider SDKs (AWS Bedrock, Azure). Agents can be equipped with tools from MCP servers, LangChain, Hugging Face Spaces, or custom Python functions. Code execution supports sandboxed environments including E2B, Modal, Blaxel, and Docker for security isolation.",
+  "tag": "Agent framework",
+  "technical_description": "smolagents is a Python library for building model-agnostic agents. Its CodeAgent writes actions as Python code, while ToolCallingAgent uses structured tool calls. It integrates with Hugging Face inference providers, LiteLLM, OpenAI-compatible services, local Transformers and llama.cpp models, MCP servers, LangChain tools, and Hub tools. Agents can use text, vision, video, and audio inputs. Code execution can run in managed cloud sandboxes or Docker; the built-in LocalPythonExecutor is not a security boundary.",
   "telemetry": "Unknown",
   "title": "smolagents",
   "url": "https://github.com/huggingface/smolagents",
   "use_cases": [
-    "Agentic Workflows",
-    "Code Generation",
-    "Chat Assistant"
+    "Agentic Workflows"
   ],
   "works_with": [
-    "OpenAI",
-    "Anthropic",
+    "Hugging Face Inference Providers",
     "LiteLLM",
-    "Hugging Face",
-    "Azure",
-    "Amazon Bedrock",
-    "Together AI",
-    "OpenRouter",
-    "E2B",
-    "Modal",
-    "Blaxel",
+    "OpenAI-compatible APIs",
+    "Transformers",
+    "llama.cpp",
+    "MCP",
+    "LangChain",
     "Docker",
-    "LangChain"
+    "E2B",
+    "Blaxel",
+    "Modal"
   ]
 }

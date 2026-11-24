@@ -1,23 +1,23 @@
 {
-  "body": "Event Driven Orchestration & Scheduling Platform for Mission Critical Applications",
+  "body": "Orchestrate everything, everywhere. The open-source control plane for workflows across data, infrastructure, business processes and AI agents. Declarative YAML, event-driven, any language, Git-versioned, scalable to millions of executions.",
   "category": "workflow-automation",
   "commercial_use": 1,
   "community_guides": [],
   "community_guides_count": 0,
   "community_notes": [],
   "community_notes_count": 0,
-  "date-added": "2026-07-22",
+  "date-added": "2026-11-24",
   "deployment": [
     "Docker",
+    "Bare Metal",
     "Kubernetes",
     "Cloud"
   ],
   "docker_available": 1,
-  "docs_url": "https://kestra.io/docs/quickstart",
+  "docs_url": "https://kestra.io/docs/installation",
   "featured": false,
   "features": [
     "Docker available",
-    "REST API",
     "GUI/no-code"
   ],
   "fine_tuning": 0,
@@ -27,46 +27,59 @@
     "CPU"
   ],
   "language": [
-    "Java"
+    "Java",
+    "TypeScript"
   ],
-  "last_updated": "2026-07-22",
-  "last_verified": "2026-07-22",
+  "last_updated": "2026-11-24",
+  "last_verified": "2026-11-24",
   "license": "Apache-2.0",
-  "maturity": "Production / Stable",
+  "maturity": null,
   "min_ram_gb": null,
   "model_format": [],
   "offline_after_setup": 0,
   "openai_api": 0,
   "paid_support": 0,
   "personas": [
-    "Developer"
+    "Developer",
+    "Business Owner"
   ],
-  "plain_description": "Kestra unifies data, AI, and infrastructure workflows into a single event-driven platform. Build reliable pipelines visually or in YAML, schedule them, and react to real-time events — all from one intuitive interface. The bottom line: replace brittle scripts and cron jobs with workflows you can see, manage, and scale.",
-  "popularity_score": 27429,
+  "plain_description": "**Automate data, AI, and infrastructure workflows from one place.** Build scheduled or event-driven processes in the UI or with YAML. Connect tools and services through Kestra’s plugin ecosystem.",
+  "popularity_score": 30326,
   "quantization": 0,
   "recommended_ram_gb": null,
-  "rest_api": 1,
-  "setup_difficulty": "Easy",
+  "rest_api": 0,
+  "setup_difficulty": "Medium",
   "slug": "kestra",
-  "tag": "Orchestration",
-  "technical_description": "Kestra is an open-source, event-driven orchestration platform for data, AI, and infrastructure workflows. It uses a declarative YAML DSL to define directed acyclic graph (DAG) workflows composed of modular tasks with built-in scheduling, event triggers, error handling, retry policies, and subflow composition. The platform is implemented in Java on the JVM using the Micronaut framework and exposes a REST API alongside a web-based UI for workflow authoring, topology visualization, execution monitoring, and debugging. It supports multiple deployment topologies — standalone, worker-executor, and Kubernetes-native — with persistent backends for PostgreSQL, MySQL, and H2, and extends capabilities through a plugin ecosystem covering cloud services, databases, messaging systems, and scripting languages.",
+  "tag": "Workflow automation",
+  "technical_description": "Kestra is an open-source, event-driven orchestration platform for data, AI, and infrastructure workflows. It supports declarative YAML, a no-code editor, an AI Copilot, scheduled and event triggers, and plugins for scripts, databases, cloud services, and APIs. Workflows can be version controlled and run locally, remotely, in Docker, Kubernetes, or cloud environments. It includes AI agent and RAG workflow capabilities and a built-in MCP server.",
   "telemetry": "Unknown",
   "title": "Kestra",
   "url": "https://kestra.io/",
   "use_cases": [
-    "Data Extraction"
+    "Agentic Workflows",
+    "RAG",
+    "Model Serving"
   ],
   "works_with": [
+    "Python",
+    "Node.js",
+    "R",
+    "Go",
+    "Shell",
     "Docker",
     "Kubernetes",
     "AWS",
     "Google Cloud",
     "Azure",
-    "Git",
+    "OpenAI",
+    "Anthropic",
+    "Google Gemini",
+    "Amazon Bedrock",
+    "Ollama",
     "Terraform",
+    "Git",
     "Slack",
-    "Python",
-    "Node.js",
-    "Apache Spark"
+    "Apache Spark",
+    "Google BigQuery"
   ]
 }

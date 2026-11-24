@@ -34,8 +34,8 @@
     "Rust",
     "TypeScript"
   ],
-  "last_updated": "2026-09-24",
-  "last_verified": "2026-09-26",
+  "last_updated": "2026-11-24",
+  "last_verified": "2026-11-24",
   "license": "Screenpipe Commercial License",
   "maturity": "Production / Stable",
   "min_ram_gb": null,
@@ -51,7 +51,7 @@
     "Business Owner"
   ],
   "plain_description": "Screenpipe gives you a searchable memory of everything you see and hear on your computer, so you never lose a meeting detail, tab, or idea again. It quietly records your screen and audio on your own machine, then answers plain questions like what you worked on today or what was said in a call. Source code is available for specified personal non-commercial uses; commercial or production use, including official desktop builds, requires a paid plan — see https://screenpipe.com/onboarding.",
-  "popularity_score": 21683,
+  "popularity_score": 22523,
   "quantization": 0,
   "recommended_ram_gb": null,
   "rest_api": 1,

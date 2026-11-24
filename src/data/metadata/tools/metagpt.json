@@ -6,66 +6,62 @@
   "community_guides_count": 0,
   "community_notes": [],
   "community_notes_count": 0,
-  "date-added": "2026-07-22",
+  "date-added": "2026-11-24",
   "deployment": [
-    "Docker",
-    "Bare Metal"
+    "Bare Metal",
+    "Cloud"
   ],
   "docker_available": 1,
   "docs_url": "https://docs.deepwisdom.ai/main/en/",
   "featured": false,
   "features": [
     "OpenAI-compatible API",
-    "Docker available",
-    "GUI/no-code"
+    "Docker available"
   ],
   "fine_tuning": 0,
   "github_url": "https://github.com/FoundationAgents/MetaGPT",
-  "gui_available": 1,
-  "hardware": [
-    "CPU"
-  ],
+  "gui_available": 0,
+  "hardware": [],
   "language": [
     "Python"
   ],
   "last_updated": "2026-01-21",
-  "last_verified": "2026-07-22",
+  "last_verified": "2026-11-24",
   "license": "MIT",
-  "maturity": "Production / Stable",
+  "maturity": null,
   "min_ram_gb": null,
   "model_format": [],
   "offline_after_setup": 0,
   "openai_api": 1,
   "paid_support": 0,
   "personas": [
-    "Developer"
+    "Developer",
+    "Business Owner"
   ],
-  "plain_description": "Turn a single sentence requirement into a complete software project. MetaGPT automates the entire software development lifecycle using AI agents that act as product managers, architects, and engineers. Get user stories, competitive analysis, data models, APIs, and production code from one prompt — reducing weeks of planning work to minutes.",
-  "popularity_score": 69468,
+  "plain_description": "**Turn a one-line idea into a structured software project.** MetaGPT can produce user stories, requirements, designs, APIs, and code. Its agents take on roles such as product manager, architect, and engineer.",
+  "popularity_score": 71457,
   "quantization": 0,
   "recommended_ram_gb": null,
   "rest_api": 0,
   "setup_difficulty": "Medium",
   "slug": "metagpt",
-  "tag": "Multi-Agent Framework",
-  "technical_description": "MetaGPT is a Python-based multi-agent orchestration framework that simulates a full software company using LLM agents. It decomposes a natural-language requirement into structured outputs — user stories, competitive analysis, requirements specs, data schemas, API definitions, and source code — by routing sub-tasks through specialized agent roles (product manager, architect, project manager, engineer) governed by configurable SOPs. The framework supports OpenAI, Azure, Ollama, and Groq as LLM backends, runs via CLI or as a Python library, and is installable via pip or Docker. Extensions include Data Interpreter for analytical coding, debate scenarios, and research agents.",
+  "tag": "Agent Framework",
+  "technical_description": "MetaGPT is a Python multi-agent framework that coordinates LLM-based roles using software development processes. It accepts natural-language requirements and can generate project artifacts including user stories, competitive analysis, requirements, data structures, APIs, documents, and code. It can also run data analysis through its Data Interpreter. The README documents CLI and library usage and configuration for OpenAI, Azure, Ollama, Groq, and other providers.",
   "telemetry": "Unknown",
-  "title": "MetaGPT",
+  "title": "MetaGPT: The Multi-Agent Framework",
   "url": "https://github.com/FoundationAgents/MetaGPT",
   "use_cases": [
     "Agentic Workflows",
     "Code Generation",
-    "Document Processing",
-    "Data Extraction",
-    "Chat Assistant",
-    "Summarization",
-    "RAG",
-    "Translation"
+    "Data Extraction"
   ],
   "works_with": [
     "OpenAI",
     "Azure",
     "Ollama",
-    "Groq"
+    "Groq",
+    "Python",
+    "Node.js",
+    "pnpm"
   ]
 }

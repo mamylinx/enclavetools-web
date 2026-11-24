@@ -6,7 +6,7 @@
   "community_guides_count": 0,
   "community_notes": [],
   "community_notes_count": 0,
-  "date-added": "2026-07-22",
+  "date-added": "2026-11-24",
   "deployment": [
     "Docker",
     "Bare Metal",
@@ -17,60 +17,62 @@
   "docs_url": "https://docs.sglang.io/",
   "featured": false,
   "features": [
-    "OpenAI-compatible API",
-    "Docker available",
-    "REST API",
-    "Quantization",
-    "Paid support"
+    "Docker available"
   ],
   "fine_tuning": 0,
   "github_url": "https://github.com/sgl-project/sglang",
   "gui_available": 0,
   "hardware": [
+    "CPU",
     "GPU (NVIDIA)",
     "GPU (AMD)",
-    "CPU",
+    "GPU (Apple Silicon)",
     "TPU",
-    "NPU"
+    "NPU",
+    "Edge Device"
   ],
   "language": [
     "Python"
   ],
-  "last_updated": "2026-07-22",
-  "last_verified": "2026-07-22",
+  "last_updated": "2026-11-24",
+  "last_verified": "2026-11-24",
   "license": "Apache-2.0",
   "maturity": "Production / Stable",
   "min_ram_gb": null,
   "model_format": [],
-  "offline_after_setup": 1,
-  "openai_api": 1,
-  "paid_support": 1,
+  "offline_after_setup": 0,
+  "openai_api": 0,
+  "paid_support": 0,
   "personas": [
     "Developer",
     "Business Owner"
   ],
-  "plain_description": "SGLang is a high-performance serving framework that powers trillions of tokens daily for leading AI companies across 400,000+ GPUs. It handles large language models and multimodal models on any hardware—NVIDIA, AMD, Intel, Google TPU, or Ascend NPU. The bottom line: production-tested inference at scale, trusted by xAI, NVIDIA, AMD, and more.",
-  "popularity_score": 30613,
-  "quantization": 1,
+  "plain_description": "**Serve large language and multimodal models for your business applications.** Use SGLang for high performance inference, agentic workloads, and large scale serving. It also includes tools for generating images, video, audio, and actions.",
+  "popularity_score": 39003,
+  "quantization": 0,
   "recommended_ram_gb": null,
-  "rest_api": 1,
-  "setup_difficulty": null,
+  "rest_api": 0,
+  "setup_difficulty": "Hard",
   "slug": "sglang",
-  "tag": "Inference Engine",
-  "technical_description": "SGLang is an open-source serving framework for large language models (LLMs) and multimodal models. It provides a Python runtime with RadixAttention for efficient prefix caching, a zero-overhead CPU scheduler, prefill-decode disaggregation, speculative decoding, and structured output generation. The runtime exposes an OpenAI-compatible API and supports tensor, pipeline, expert, and data parallelism across distributed GPU clusters. It integrates with Hugging Face, supports AWQ and GPTQ quantization, and runs on NVIDIA GPUs, AMD GPUs, Intel Xeon CPUs, Google TPUs, and Ascend NPUs.",
+  "tag": "LLM inference",
+  "technical_description": "SGLang is an open-source inference framework for large language, vision-language, and diffusion models, optimized for agentic workloads, large-scale serving, and reinforcement learning rollouts. Its built-in SGLang Diffusion engine supports image, video, audio, and action generation. The README describes Docker and Python installation, broad GPU, TPU, NPU, CPU, and Apple Silicon support, and deployment integrations.",
   "telemetry": "Unknown",
   "title": "SGLang",
   "url": "https://github.com/sgl-project/sglang",
   "use_cases": [
     "Model Serving",
-    "Chat Assistant",
-    "Image Generation"
+    "Agentic Workflows",
+    "Image Generation",
+    "Speech-to-Text",
+    "Text-to-Speech"
   ],
   "works_with": [
-    "Llama",
-    "DeepSeek",
-    "Qwen",
-    "Mistral",
-    "Hugging Face"
+    "Docker",
+    "Python",
+    "uv",
+    "Ray Serve",
+    "NVIDIA Dynamo",
+    "Google TPU",
+    "MLX"
   ]
 }

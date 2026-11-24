@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { categoryValue, type ToolWithCategory } from '../../utils/toolModel';
+import { renderBold } from '../../utils/renderBold';
 
 defineProps<{
   tools: ToolWithCategory[];
@@ -20,7 +21,7 @@ const emit = defineEmits<{
           <span
             class="inline-block px-2.5 py-1 bg-accent-teal/10 text-accent-teal border border-accent-teal/20 text-xs uppercase tracking-wider font-bold rounded-full mb-2">{{
             categoryValue(tool) }}</span>
-          <p class="text-sm text-brand-muted m-0">{{ tool.plain_description || tool.body }}</p>
+          <p class="text-sm text-brand-muted m-0" v-html="renderBold(tool.plain_description || tool.body)"></p>
         </div>
         <button type="button" @click="$emit('add', tool.slug)"
           class="shrink-0 px-4 h-10 bg-gradient-cool text-white font-bold border-none hover:shadow-md hover:shadow-accent-green/30 hover:scale-[1.02] transition-all cursor-pointer inline-flex items-center justify-center gap-2 text-sm rounded-full shadow-sm shadow-accent-green/20">

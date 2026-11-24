@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import SeoHead from "../../components/SeoHead.astro";
+import PreferredSourceBadge from "../../components/PreferredSourceBadge.astro";
 import { getCollection } from "astro:content";
 
 export async function getStaticPaths({ paginate }: any) {
@@ -40,6 +41,9 @@ const posts = page.data;
                 <p class="text-brand-forest/80 text-base sm:text-lg font-medium">
                     Deep dives into self-hosted AI, telemetry auditing, and due diligence — from the engineers who verify every tool listed on the directory.
                 </p>
+                <div class="mt-8 flex justify-center">
+                    <PreferredSourceBadge copy="Make Enclavetools a preferred source in Google Search" />
+                </div>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">

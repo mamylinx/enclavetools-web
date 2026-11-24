@@ -6,12 +6,12 @@
   "community_guides_count": 0,
   "community_notes": [],
   "community_notes_count": 0,
-  "date-added": "2026-07-22",
+  "date-added": "2026-11-24",
   "deployment": [
     "Bare Metal"
   ],
   "docker_available": 0,
-  "docs_url": "https://animatediff.github.io/",
+  "docs_url": null,
   "featured": false,
   "features": [
     "Fine-tuning",
@@ -27,26 +27,28 @@
     "Python"
   ],
   "last_updated": "2024-07-31",
-  "last_verified": "2026-07-22",
+  "last_verified": "2026-11-24",
   "license": "Apache-2.0",
   "maturity": "Beta",
   "min_ram_gb": null,
-  "model_format": [],
+  "model_format": [
+    "PyTorch"
+  ],
   "offline_after_setup": 1,
   "openai_api": 0,
   "paid_support": 0,
   "personas": [
     "Developer"
   ],
-  "plain_description": "Turn any AI image model into an animation generator with zero extra training. AnimateDiff plugs into your existing Stable Diffusion workflow to add motion, creating smooth videos from still images. The bottom line: bring your AI-generated visuals to life in minutes.",
-  "popularity_score": 12193,
+  "plain_description": "**Turn text-to-image models into animation generators without additional training.** Create animations with community models, or guide them using motion controls, images, and sketches. A Gradio demo is included.",
+  "popularity_score": 12302,
   "quantization": 0,
   "recommended_ram_gb": null,
   "rest_api": 0,
-  "setup_difficulty": "Easy",
+  "setup_difficulty": "Medium",
   "slug": "animatediff",
-  "tag": "Animation",
-  "technical_description": "AnimateDiff is a PyTorch-based motion module for Stable Diffusion that enables text-to-video generation by inserting learnable temporal layers into frozen text-to-image models. The architecture supports multiple model versions (v1–v3, SDXL-beta) with extended control via MotionLoRA for camera movements and SparseCtrl encoders for RGB/sketch conditioning. Inference runs locally through Python scripts or a Gradio interface, with checkpoint caching for offline operation. Training pipelines are included for custom motion module and MotionLoRA development. The codebase integrates with the HuggingFace Diffusers library.",
+  "tag": "Video generation",
+  "technical_description": "AnimateDiff is a plug-and-play module that adds motion to community text-to-image models in the Stable Diffusion family. The repository provides scripts for animation generation, MotionLoRA camera movement controls, and SparseCtrl conditioning from RGB images or sketches. It includes a Gradio demo and describes training domain adapters, motion modules, and optional MotionLoRA modules. The README notes that inference with the SDXL beta usually requires about 13 GB of VRAM, depending on the selected models and settings.",
   "telemetry": "Unknown",
   "title": "AnimateDiff",
   "url": "https://github.com/guoyww/AnimateDiff",
@@ -54,6 +56,9 @@
     "Image Generation"
   ],
   "works_with": [
-    "Stable Diffusion"
+    "Stable Diffusion",
+    "Stable Diffusion XL",
+    "Diffusers",
+    "Gradio"
   ]
 }

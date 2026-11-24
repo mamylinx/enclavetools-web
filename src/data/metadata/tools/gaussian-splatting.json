@@ -6,13 +6,13 @@
   "community_guides_count": 0,
   "community_notes": [],
   "community_notes_count": 0,
-  "date-added": "2026-07-22",
+  "date-added": "2026-11-24",
   "deployment": [
     "Bare Metal",
     "Desktop App"
   ],
   "docker_available": 0,
-  "docs_url": "https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/",
+  "docs_url": "https://sibr.gitlabpages.inria.fr/",
   "featured": false,
   "features": [
     "GUI/no-code"
@@ -27,9 +27,9 @@
     "Python"
   ],
   "last_updated": "2025-10-17",
-  "last_verified": "2026-07-22",
+  "last_verified": "2026-11-24",
   "license": null,
-  "maturity": "Mature / Maintenance",
+  "maturity": null,
   "min_ram_gb": null,
   "model_format": [],
   "offline_after_setup": 1,
@@ -38,20 +38,27 @@
   "personas": [
     "Developer"
   ],
-  "plain_description": "Transform ordinary photographs into photorealistic 3D scenes you can explore in real time — no expensive 3D modeling or manual work required. The technology renders immersive walkthroughs at 30+ frames per second on standard GPU hardware, making high-quality 3D capture practical for the first time. Originally a research breakthrough, it is now the foundation for a wave of new 3D visualization and digital twin products.",
-  "popularity_score": 22733,
+  "plain_description": "**Create detailed 3D scenes from photos or video and render new viewpoints in real time.** Train a scene model from COLMAP or synthetic NeRF data, then inspect it with interactive viewers.",
+  "popularity_score": 24535,
   "quantization": 0,
   "recommended_ram_gb": null,
   "rest_api": 0,
   "setup_difficulty": "Hard",
   "slug": "gaussian-splatting",
-  "tag": "3D Rendering",
-  "technical_description": "The official PyTorch reference implementation of 3D Gaussian Splatting for real-time novel-view synthesis. The system accepts multi-view image sets, runs COLMAP for Structure-from-Motion camera calibration, and optimizes a scene as a set of anisotropic 3D Gaussians with interleaved densification and adaptive density control. Training requires a CUDA-capable NVIDIA GPU (Compute Capability 7.0+) with ~24 GB VRAM for reference quality and uses a custom CUDA rasterizer for differentiable rendering. The trained representation renders at ≥30 fps at 1080p resolution via the SIBR OpenGL-based real-time viewer. The codebase includes the PyTorch optimizer, a network viewer for training monitoring, a standalone real-time viewer, and a COLMAP-based image-to-dataset conversion pipeline. Optional features: accelerated fused rasterizer (>2× training speedup), monocular depth regularization, per-image exposure compensation, and EWA anti-aliasing filtering.",
+  "tag": "3D vision",
+  "technical_description": "Official research implementation for 3D Gaussian Splatting. It trains a scene representation from COLMAP or synthetic NeRF datasets using a PyTorch optimizer and CUDA extensions, then renders novel views with an OpenGL viewer. Includes tools for dataset conversion, evaluation, and interactive inspection; training requires a CUDA-ready GPU.",
   "telemetry": "Unknown",
-  "title": "3D Gaussian Splatting",
+  "title": "3D Gaussian Splatting for Real-Time Radiance Field Rendering",
   "url": "https://repo-sam.inria.fr/gspd/gaussian-splatting/",
-  "use_cases": [],
+  "use_cases": [
+    "Image Generation"
+  ],
   "works_with": [
-    "COLMAP"
+    "PyTorch",
+    "CUDA",
+    "COLMAP",
+    "NeRF",
+    "SIBR",
+    "OpenGL"
   ]
 }

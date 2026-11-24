@@ -6,12 +6,11 @@
   "community_guides_count": 0,
   "community_notes": [],
   "community_notes_count": 0,
-  "date-added": "2026-07-22",
+  "date-added": "2026-11-24",
   "deployment": [
     "Docker",
     "Bare Metal",
-    "Cloud",
-    "Desktop App"
+    "Cloud"
   ],
   "docker_available": 1,
   "docs_url": null,
@@ -24,40 +23,49 @@
   "github_url": "https://github.com/lllyasviel/Fooocus",
   "gui_available": 1,
   "hardware": [
+    "CPU",
     "GPU (NVIDIA)",
     "GPU (AMD)",
-    "GPU (Apple Silicon)",
-    "CPU"
+    "GPU (Apple Silicon)"
   ],
   "language": [
     "Python"
   ],
   "last_updated": "2025-12-01",
-  "last_verified": "2026-07-22",
+  "last_verified": "2026-11-24",
   "license": "GPL-3.0",
   "maturity": "Mature / Maintenance",
   "min_ram_gb": 8,
-  "model_format": [],
+  "model_format": [
+    "safetensors",
+    "PyTorch"
+  ],
   "offline_after_setup": 1,
   "openai_api": 0,
   "paid_support": 0,
   "personas": [
-    "Developer"
+    "Developer",
+    "Business Owner"
   ],
-  "plain_description": "Fooocus generates professional-quality images from simple text descriptions — no complex settings or prompt engineering needed. It runs completely free and offline on your own computer, with an install that takes less than three clicks. Anyone can create beautiful visuals without a subscription or deep technical expertise.",
-  "popularity_score": 51142,
+  "plain_description": "**Create high quality images from prompts with minimal setup and tweaking.** Generate text to image art, variations, and upscales, or edit images with inpainting and outpainting. Runs offline after setup.",
+  "popularity_score": 53966,
   "quantization": 0,
-  "recommended_ram_gb": null,
+  "recommended_ram_gb": 16,
   "rest_api": 0,
-  "setup_difficulty": "Easy",
+  "setup_difficulty": "Medium",
   "slug": "fooocus",
-  "tag": "Image Generation",
-  "technical_description": "Fooocus is an offline, open-source image generation application built on the Stable Diffusion XL (SDXL) architecture. It provides a Gradio-based web UI for text-to-image generation and supports image-to-image workflows including inpainting, outpainting, upscaling, and variation. The application incorporates an offline GPT-2-based prompt expansion engine for automatic prompt enhancement and uses custom sampling algorithms for improved output quality. It supports multiple model presets (General, Realistic, Anime), LoRA and embedding integration, ControlNet-based image prompting, and InsightFace-based face swapping. Runtime is on local hardware with Nvidia GPU (min 4GB VRAM), AMD GPUs via DirectML/ROCm, Apple Silicon via MPS, or CPU-only mode.",
-  "telemetry": "Opt-out",
+  "tag": "Image generation",
+  "technical_description": "Fooocus is an offline image generation application based on Stable Diffusion XL. It provides text-to-image generation, image variation and upscaling, inpainting and outpainting, image prompts, face swap, and image description through a Gradio interface. The project is in limited long-term support with bug fixes only. The README documents local Windows, Linux, and Mac setup, Docker, and Colab; minimum requirements include 4 GB Nvidia GPU memory and 8 GB system memory for supported configurations.",
+  "telemetry": "Unknown",
   "title": "Fooocus",
   "url": "https://github.com/lllyasviel/Fooocus",
   "use_cases": [
     "Image Generation"
   ],
-  "works_with": []
+  "works_with": [
+    "Stable Diffusion XL",
+    "Gradio",
+    "PyTorch",
+    "Civitai"
+  ]
 }

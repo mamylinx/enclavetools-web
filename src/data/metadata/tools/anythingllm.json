@@ -6,13 +6,13 @@
   "community_guides_count": 0,
   "community_notes": [],
   "community_notes_count": 0,
-  "date-added": "2026-07-22",
+  "date-added": "2026-11-24",
   "deployment": [
     "Docker",
     "Bare Metal",
-    "Kubernetes",
     "Cloud",
-    "Desktop App"
+    "Desktop App",
+    "Kubernetes"
   ],
   "docker_available": 1,
   "docs_url": "https://docs.anythingllm.com",
@@ -27,33 +27,37 @@
   "github_url": "https://github.com/Mintplex-Labs/anything-llm",
   "gui_available": 1,
   "hardware": [
-    "CPU"
+    "CPU",
+    "GPU (NVIDIA)",
+    "GPU (AMD)"
   ],
   "language": [
     "JavaScript"
   ],
-  "last_updated": "2026-07-21",
-  "last_verified": "2026-07-22",
+  "last_updated": "2026-11-23",
+  "last_verified": "2026-11-24",
   "license": "MIT",
-  "maturity": "Production / Stable",
+  "maturity": null,
   "min_ram_gb": null,
-  "model_format": [],
-  "offline_after_setup": 1,
+  "model_format": [
+    "GGUF"
+  ],
+  "offline_after_setup": 0,
   "openai_api": 1,
   "paid_support": 0,
   "personas": [
     "Developer",
     "Business Owner"
   ],
-  "plain_description": "AnythingLLM gives you a private AI assistant without monthly per-seat fees or vendor lock-in. Chat with your documents, automate complex workflows with AI agents, and deploy on your own terms—locally, in Docker, or in the cloud. Set up in minutes, scale as you grow.",
-  "popularity_score": 63676,
+  "plain_description": "**Chat with your documents and automate workflows using AI agents in a private, configurable AI app.** Connect local or cloud AI models and start in minutes. Run it locally or support multiple users with controlled access.",
+  "popularity_score": 68579,
   "quantization": 0,
   "recommended_ram_gb": null,
   "rest_api": 1,
   "setup_difficulty": "Easy",
   "slug": "anythingllm",
-  "tag": "AI Application",
-  "technical_description": "AnythingLLM is an open-source, local-first AI application platform that provides a complete alternative to managed AI services. The monorepo consists of a Node.js/Express API server, a React/ViteJS frontend, and a separate document collector service. It supports a wide range of LLM providers (OpenAI, Anthropic, AWS Bedrock, Ollama, LM Studio, and 30+ others), embedding models, and vector databases (LanceDB, PGVector, Pinecone, Chroma, Qdrant, Weaviate, Milvus). Core capabilities include RAG-based document chat, AI agent workflows with MCP compatibility, multi-user access control with role-based permissions, scheduled job execution, model routing, and a full REST API for custom integrations. The application can be deployed via Docker, Kubernetes, bare metal, or cloud platforms, and desktop clients are available for Mac, Windows, and Linux.",
+  "tag": "Chat interfaces",
+  "technical_description": "AnythingLLM is an all-in-one AI application for chatting with documents and building AI agent workflows. It supports local and cloud language models, document ingestion and pipelines, multiple users and permissions, vector databases, and a developer API. It offers desktop and Docker deployments, plus cloud deployment options.",
   "telemetry": "Opt-out",
   "title": "AnythingLLM",
   "url": "https://anythingllm.com/",
@@ -62,28 +66,29 @@
     "RAG",
     "Agentic Workflows",
     "Document Processing",
-    "Speech-to-Text",
-    "Text-to-Speech",
+    "Model Serving",
     "Vector Search"
   ],
   "works_with": [
     "OpenAI",
-    "Anthropic",
+    "Azure OpenAI",
     "AWS Bedrock",
+    "Anthropic",
     "Google Gemini",
     "Ollama",
     "LM Studio",
     "LocalAI",
-    "Azure OpenAI",
+    "Together AI",
+    "Fireworks AI",
+    "Perplexity",
+    "OpenRouter",
+    "DeepSeek",
     "Mistral",
     "Groq",
-    "DeepSeek",
+    "Cohere",
     "LanceDB",
     "PGVector",
     "Pinecone",
-    "Chroma",
-    "Weaviate",
-    "Qdrant",
-    "Milvus"
+    "Chroma"
   ]
 }

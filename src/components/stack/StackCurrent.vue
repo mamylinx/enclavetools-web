@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { ToolWithCategory } from '../../utils/toolModel';
+import { renderBold } from '../../utils/renderBold';
 
 defineProps<{
   groupedStack: [string, ToolWithCategory[]][];
@@ -20,7 +21,7 @@ const emit = defineEmits<{
         class="flex flex-col sm:flex-row justify-between items-start sm:items-center p-6 bg-white/95 backdrop-blur-sm border border-brand-forest/5 shadow-sm shadow-brand-forest/5 mb-4 gap-4 transition-all duration-200 hover:border-accent-teal/20 hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(27,54,27,0.08)] rounded-3xl">
         <div class="flex-1">
           <strong class="block text-xl font-bold text-brand-forest mb-1">{{ tool.title }}</strong>
-          <p class="text-sm text-brand-muted m-0">{{ tool.plain_description || tool.body }}</p>
+          <p class="text-sm text-brand-muted m-0" v-html="renderBold(tool.plain_description || tool.body)"></p>
         </div>
         <button type="button" @click="$emit('remove', tool.slug)"
           class="shrink-0 px-4 h-10 bg-white/90 border border-brand-forest/5 text-brand-forest font-bold hover:bg-accent-red hover:text-white hover:border-accent-red hover:shadow-md transition-all cursor-pointer inline-flex items-center justify-center gap-2 text-sm rounded-full">

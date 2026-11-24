@@ -6,55 +6,65 @@
   "community_guides_count": 0,
   "community_notes": [],
   "community_notes_count": 0,
-  "date-added": "2026-07-22",
-  "deployment": [],
+  "date-added": "2026-11-24",
+  "deployment": [
+    "Bare Metal",
+    "Cloud"
+  ],
   "docker_available": 0,
   "docs_url": "https://docs.crewai.com",
   "featured": false,
   "features": [
+    "OpenAI-compatible API",
     "Paid support"
   ],
   "fine_tuning": 0,
   "github_url": "https://github.com/crewAIInc/crewAI",
   "gui_available": 0,
-  "hardware": [],
+  "hardware": [
+    "CPU"
+  ],
   "language": [
     "Python"
   ],
-  "last_updated": "2026-07-21",
-  "last_verified": "2026-07-22",
+  "last_updated": "2026-11-24",
+  "last_verified": "2026-11-24",
   "license": "MIT",
   "maturity": "Production / Stable",
   "min_ram_gb": null,
   "model_format": [],
   "offline_after_setup": 0,
-  "openai_api": 0,
+  "openai_api": 1,
   "paid_support": 1,
   "personas": [
-    "Developer"
+    "Developer",
+    "Business Owner"
   ],
-  "plain_description": "CrewAI lets you orchestrate teams of AI agents that collaborate autonomously on complex business workflows — no need to hand-code every interaction. The big picture: define roles, goals, and tools, then let agents research, analyze, and produce deliverables with human oversight where needed. The bottom line: move from single-purpose chatbots to production-grade multi-agent automation.",
-  "popularity_score": 55945,
+  "plain_description": "**Coordinate AI agents to automate complex business workflows.** Assign agents specialized roles and tasks, then combine their work in event-driven processes. Connect tools, add human review, and keep control over how work runs.",
+  "popularity_score": 61219,
   "quantization": 0,
   "recommended_ram_gb": null,
   "rest_api": 0,
-  "setup_difficulty": "Easy",
+  "setup_difficulty": "Medium",
   "slug": "crewai",
-  "tag": "AI Agent Framework",
-  "technical_description": "CrewAI is an open-source Python framework for orchestrating autonomous AI agents in production multi-agent workflows. It provides two core primitives: Crews for role-based agent collaboration with autonomous task delegation, and Flows for event-driven workflow control with state management, conditional branching, and routing. Features include a CLI for project scaffolding, YAML-based agent/task configuration, multi-provider LLM support (OpenAI, Anthropic, Google Gemini, Amazon Bedrock, Azure, Ollama), built-in RAG with configurable embedding providers, MCP and A2A protocol support, memory management, structured output via Pydantic, human-in-the-loop workflows, async execution, and checkpointing. The library integrates with 50+ tools through crewai-tools and supports enterprise deployment via CrewAI AMP with observability and governance.",
+  "tag": "Agent framework",
+  "technical_description": "CrewAI is an open-source Python framework for building multi-agent workflows. Crews coordinate autonomous, role-based agents, while Flows provide event-driven execution with state, branching, and routing. The framework supports tools, memory, knowledge, checkpointing, async execution, MCP/A2A, and connections to hosted or local language models.",
   "telemetry": "Opt-out",
   "title": "CrewAI",
   "url": "https://www.crewai.com/open-source",
   "use_cases": [
-    "Agentic Workflows"
+    "Agentic Workflows",
+    "Chat Assistant",
+    "Document Processing",
+    "Data Extraction",
+    "Summarization"
   ],
   "works_with": [
+    "Python",
     "OpenAI",
-    "Anthropic",
-    "Google Gemini",
-    "Amazon Bedrock",
-    "Azure",
     "Ollama",
-    "Serper.dev"
+    "LM Studio",
+    "MCP",
+    "A2A"
   ]
 }

@@ -6,16 +6,23 @@
   "community_guides_count": 0,
   "community_notes": [],
   "community_notes_count": 0,
-  "date-added": "2026-07-22",
-  "deployment": [],
+  "date-added": "2026-11-24",
+  "deployment": [
+    "Bare Metal"
+  ],
   "docker_available": 0,
-  "docs_url": null,
+  "docs_url": "https://huggingface.co/docs/transformers.js",
   "featured": false,
-  "features": [],
+  "features": [
+    "Quantization"
+  ],
   "fine_tuning": 0,
   "github_url": null,
   "gui_available": 0,
-  "hardware": [],
+  "hardware": [
+    "CPU",
+    "GPU (NVIDIA)"
+  ],
   "language": [
     "af",
     "ar",
@@ -93,35 +100,42 @@
     "zh"
   ],
   "last_updated": "2025-07-28",
-  "last_verified": "2026-07-22",
+  "last_verified": "2026-11-24",
   "license": "Apache-2.0",
   "maturity": null,
   "min_ram_gb": 2.3,
-  "model_format": [],
+  "model_format": [
+    "safetensors",
+    "ONNX"
+  ],
   "offline_after_setup": 1,
   "openai_api": 0,
   "paid_support": 0,
   "personas": [
-    "Developer"
+    "Developer",
+    "Business Owner"
   ],
-  "plain_description": "Snowflake Arctic Embed turns text into searchable vectors so your AI applications can find the right information instantly. It powers smarter search, more accurate RAG responses, and better recommendations. The bottom line: better retrieval means better AI.",
-  "popularity_score": 1595255,
-  "quantization": 0,
+  "plain_description": "**Improve multilingual search so people can find the most relevant information across your content.** Generate text embeddings for search and retrieval, with support for English and many other languages. The README describes efficient inference and compact embeddings.",
+  "popularity_score": 4974468,
+  "quantization": 1,
   "recommended_ram_gb": 3.4,
   "rest_api": 0,
-  "setup_difficulty": null,
+  "setup_difficulty": "Medium",
   "slug": "snowflake-arctic-embed",
-  "tag": "sentence-similarity",
-  "technical_description": "A sentence transformer model from Snowflake that generates dense vector embeddings optimized for semantic similarity, information retrieval, and text classification. Available in safetensors and ONNX formats. Integrates with the sentence-transformers ecosystem and ONNX-compatible runtimes. Evaluated across MTEB benchmarks covering retrieval, classification, clustering, reranking, and STS tasks.",
+  "tag": "Embedding models",
+  "technical_description": "A multilingual sentence embedding model optimized for retrieval performance and inference efficiency. It supports an 8192-token context window and Matryoshka Representation Learning at 256 dimensions; the README describes combining vector truncation with 4-bit quantization for 128-byte embeddings. Example usage is provided with Sentence Transformers, Hugging Face Transformers, and Transformers.js.",
   "telemetry": "Unknown",
-  "title": "Snowflake Arctic Embed",
+  "title": "Snowflake's Arctic-embed-l-v2.0",
   "url": "https://huggingface.co/Snowflake/snowflake-arctic-embed-l-v2.0",
   "use_cases": [
-    "RAG",
-    "Vector Search"
+    "Vector Search",
+    "RAG"
   ],
   "works_with": [
-    "sentence-transformers"
-  ],
-  "calculator_model": "0.335|24|16|16|64"
+    "Sentence Transformers",
+    "Hugging Face Transformers",
+    "Transformers.js",
+    "PyTorch",
+    "FAISS"
+  ]
 }

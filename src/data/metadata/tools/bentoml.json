@@ -6,19 +6,18 @@
   "community_guides_count": 0,
   "community_notes": [],
   "community_notes_count": 0,
-  "date-added": "2026-07-22",
+  "date-added": "2026-11-24",
   "deployment": [
     "Docker",
     "Kubernetes",
-    "Cloud"
+    "Bare Metal"
   ],
   "docker_available": 1,
   "docs_url": "https://docs.bentoml.com",
   "featured": false,
   "features": [
     "Docker available",
-    "REST API",
-    "Paid support"
+    "REST API"
   ],
   "fine_tuning": 0,
   "github_url": "https://github.com/bentoml/BentoML",
@@ -30,40 +29,45 @@
   "language": [
     "Python"
   ],
-  "last_updated": "2026-07-20",
-  "last_verified": "2026-07-22",
+  "last_updated": "2026-11-17",
+  "last_verified": "2026-11-24",
   "license": "Apache-2.0",
   "maturity": "Production / Stable",
   "min_ram_gb": null,
   "model_format": [],
   "offline_after_setup": 0,
   "openai_api": 0,
-  "paid_support": 1,
+  "paid_support": 0,
   "personas": [
-    "Developer"
+    "Developer",
+    "Business Owner"
   ],
-  "plain_description": "Ship AI models as production-ready APIs in minutes. BentoML turns any model into a scalable REST or gRPC endpoint with just a few lines of Python — no infrastructure expertise required. The bottom line: you focus on model logic, BentoML handles serving, batching, Docker packaging, and cloud deployment.",
-  "popularity_score": 8730,
+  "plain_description": "**Turn AI models into services your business can run.** Build inference APIs and deploy models in Docker or Kubernetes. BentoML also helps manage dependencies and improve serving efficiency.",
+  "popularity_score": 8950,
   "quantization": 0,
   "recommended_ram_gb": null,
   "rest_api": 1,
-  "setup_difficulty": "Easy",
+  "setup_difficulty": "Medium",
   "slug": "bentoml",
-  "tag": "Model Serving",
-  "technical_description": "BentoML is a Python framework for building and serving AI/ML model inference APIs. It provides a decorator-based SDK to define services with standard Python type hints, automatically generating REST and gRPC endpoints with OpenAPI documentation. The framework includes built-in serving optimizations such as dynamic batching, model parallelism, multi-stage pipelines, and multi-model inference-graph orchestration. Services are packaged into standardized deployable artifacts called Bentos, which bundle code, models, and dependency configurations. BentoML generates Docker container images from Bentos and supports deployment to Kubernetes, BentoCloud, or any container orchestration platform. It integrates with any ML framework and inference runtime, and provides HTTP and gRPC clients for service interaction.",
+  "tag": "Deployment",
+  "technical_description": "BentoML is a Python library for building online serving systems for AI applications and model inference. It turns model inference code into REST API servers, packages code, models, and dependencies into deployable Bentos, and supports Docker and Kubernetes deployment. Serving features include dynamic batching, model parallelism, multi-stage pipelines, and multi-model inference graphs.",
   "telemetry": "Opt-out",
   "title": "BentoML",
   "url": "https://github.com/bentoml/BentoML",
   "use_cases": [
     "Model Serving",
-    "RAG",
-    "Chat Assistant",
-    "Agentic Workflows",
+    "Summarization",
     "Image Generation",
     "Speech-to-Text",
-    "Text-to-Speech",
-    "Document Processing",
-    "Summarization"
+    "Agentic Workflows"
   ],
-  "works_with": []
+  "works_with": [
+    "PyTorch",
+    "Transformers",
+    "Llama",
+    "Mistral",
+    "Stable Diffusion",
+    "LangGraph",
+    "CrewAI"
+  ]
 }

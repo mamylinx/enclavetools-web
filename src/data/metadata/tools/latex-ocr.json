@@ -6,10 +6,10 @@
   "community_guides_count": 0,
   "community_notes": [],
   "community_notes_count": 0,
-  "date-added": "2026-07-22",
+  "date-added": "2026-11-24",
   "deployment": [
-    "Docker",
-    "Desktop App"
+    "Bare Metal",
+    "Docker"
   ],
   "docker_available": 1,
   "docs_url": "https://pix2tex.readthedocs.io/",
@@ -22,37 +22,46 @@
   "fine_tuning": 1,
   "github_url": "https://github.com/lukas-blecher/LaTeX-OCR",
   "gui_available": 1,
-  "hardware": [],
+  "hardware": [
+    "CPU"
+  ],
   "language": [
     "Python"
   ],
   "last_updated": "2025-01-18",
-  "last_verified": "2026-07-22",
+  "last_verified": "2026-11-24",
   "license": "MIT",
-  "maturity": "Beta",
+  "maturity": null,
   "min_ram_gb": null,
-  "model_format": [],
-  "offline_after_setup": 1,
+  "model_format": [
+    "PyTorch"
+  ],
+  "offline_after_setup": 0,
   "openai_api": 0,
   "paid_support": 0,
   "personas": [
-    "Developer"
+    "Developer",
+    "Business Owner"
   ],
-  "plain_description": "Turn screenshots of math equations into LaTeX code instantly — no more manual equation typing. Researchers, students, and technical writers save hours by snapping a picture or screenshot and getting accurate LaTeX output. The tool works from your clipboard, files, or a simple desktop GUI.",
-  "popularity_score": 16502,
+  "plain_description": "**Turn images of math formulas into LaTeX code.** Use the command line, Python, or a graphical interface to convert screenshots and image files. Copy the recognized code to your clipboard from the GUI.",
+  "popularity_score": 16632,
   "quantization": 0,
   "recommended_ram_gb": null,
   "rest_api": 0,
-  "setup_difficulty": "Easy",
+  "setup_difficulty": "Medium",
   "slug": "latex-ocr",
   "tag": "OCR",
-  "technical_description": "pix2tex is a Python-based OCR system that converts images of mathematical equations into LaTeX code. It uses a Vision Transformer (ViT) encoder with a ResNet backbone paired with a Transformer decoder to generate token sequences. The package provides multiple interfaces: a CLI tool, a GUI application (latexocr) for screenshot-based capture, a Python API, and a Streamlit web demo. Docker images are available for containerized deployment. Pre-trained model checkpoints are downloaded automatically. Training is supported via a custom dataset pipeline using XeLaTeX-rendered images and a configurable tokenizer.",
+  "technical_description": "pix2tex uses a learning based system with a ViT encoder, ResNet backbone, and Transformer decoder to convert images of mathematical formulas into LaTeX. It can be used through a command line tool, Python package, GUI, or an API with a Streamlit demo. The README also describes training the model with paired formula images and LaTeX labels.",
   "telemetry": "Unknown",
-  "title": "LaTeX OCR",
+  "title": "pix2tex - LaTeX OCR",
   "url": "https://github.com/lukas-blecher/LaTeX-OCR",
   "use_cases": [
-    "Document Processing",
     "Data Extraction"
   ],
-  "works_with": []
+  "works_with": [
+    "Python",
+    "PyTorch",
+    "Streamlit",
+    "MathJax"
+  ]
 }

@@ -6,7 +6,7 @@
   "community_guides_count": 0,
   "community_notes": [],
   "community_notes_count": 0,
-  "date-added": "2026-07-22",
+  "date-added": "2026-11-24",
   "deployment": [
     "Docker",
     "Bare Metal",
@@ -17,6 +17,7 @@
   "docs_url": "https://developer.nvidia.com/nvidia-triton-inference-server",
   "featured": false,
   "features": [
+    "OpenAI-compatible API",
     "Docker available",
     "REST API",
     "Paid support"
@@ -33,27 +34,32 @@
     "Python",
     "Shell"
   ],
-  "last_updated": "2026-07-22",
-  "last_verified": "2026-07-22",
+  "last_updated": "2026-11-24",
+  "last_verified": "2026-11-24",
   "license": "BSD-3-Clause",
   "maturity": "Production / Stable",
   "min_ram_gb": null,
-  "model_format": [],
+  "model_format": [
+    "ONNX",
+    "PyTorch",
+    "TensorFlow"
+  ],
   "offline_after_setup": 1,
-  "openai_api": 0,
+  "openai_api": 1,
   "paid_support": 1,
   "personas": [
-    "Developer"
+    "Developer",
+    "Business Owner"
   ],
-  "plain_description": "The big picture: Deploy and serve any AI model in production with optimized performance across cloud, data center, and edge. Here's why it matters: Triton supports models from all major frameworks (PyTorch, ONNX, TensorRT, and more) on NVIDIA GPUs, CPUs, or AWS Inferentia. The bottom line: It handles real-time, batched, and streaming inference with built-in dynamic batching and model pipelining — no infrastructure rewrites needed.",
-  "popularity_score": 10862,
+  "plain_description": "**Deploy AI models for inference across cloud, data center, edge, and embedded environments.** Supports models from multiple machine learning frameworks and serves real-time, batched, and streaming requests.",
+  "popularity_score": 11162,
   "quantization": 0,
   "recommended_ram_gb": null,
   "rest_api": 1,
-  "setup_difficulty": "Medium",
+  "setup_difficulty": "Hard",
   "slug": "triton-inference-server",
-  "tag": "Inference Server",
-  "technical_description": "Triton Inference Server is an open-source inference serving solution providing a unified serving infrastructure for AI models across multiple frameworks and hardware platforms. It exposes HTTP/REST and gRPC endpoints based on the KServe protocol, supporting concurrent model execution, dynamic and sequence batching, model ensembles, and Business Logic Scripting (BLS). The server runs in Docker containers with backends for TensorRT, PyTorch, ONNX, OpenVINO, Python, and RAPIDS FIL, and includes model management APIs, GPU utilization and latency metrics, response caching, and client libraries in C++, Python, and Java.",
+  "tag": "deployment",
+  "technical_description": "Open-source inference serving software for models built with frameworks including TensorRT, PyTorch, ONNX, OpenVINO, and Python. Supports NVIDIA GPUs, x86 and ARM CPUs, and AWS Inferentia; provides HTTP/REST and gRPC protocols, dynamic and sequence batching, concurrent execution, and model ensembles.",
   "telemetry": "Unknown",
   "title": "Triton Inference Server",
   "url": "https://github.com/triton-inference-server/server",
@@ -65,14 +71,12 @@
     "PyTorch",
     "ONNX",
     "OpenVINO",
+    "Python",
     "RAPIDS FIL",
-    "Kubernetes",
-    "KServe",
-    "Model Analyzer",
-    "Performance Analyzer",
-    "NVIDIA AI Enterprise",
-    "Jetson",
     "AWS Inferentia",
-    "MLflow"
+    "HTTP/REST",
+    "gRPC",
+    "Kubernetes",
+    "Helm"
   ]
 }

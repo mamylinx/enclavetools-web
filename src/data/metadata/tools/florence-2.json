@@ -6,8 +6,10 @@
   "community_guides_count": 0,
   "community_notes": [],
   "community_notes_count": 0,
-  "date-added": "2026-07-22",
-  "deployment": [],
+  "date-added": "2026-11-24",
+  "deployment": [
+    "Bare Metal"
+  ],
   "docker_available": 0,
   "docs_url": "https://arxiv.org/abs/2311.06242",
   "featured": false,
@@ -18,38 +20,44 @@
   "github_url": null,
   "gui_available": 0,
   "hardware": [
-    "GPU (NVIDIA)",
-    "CPU"
+    "CPU",
+    "GPU (NVIDIA)"
   ],
   "language": [],
   "last_updated": "2025-08-04",
-  "last_verified": "2026-07-22",
+  "last_verified": "2026-11-24",
   "license": "MIT",
-  "maturity": "Experimental",
+  "maturity": null,
   "min_ram_gb": 1.6,
-  "model_format": [],
-  "offline_after_setup": 1,
+  "model_format": [
+    "safetensors",
+    "PyTorch"
+  ],
+  "offline_after_setup": 0,
   "openai_api": 0,
   "paid_support": 0,
   "personas": [
-    "Developer"
+    "Developer",
+    "Business Owner"
   ],
-  "plain_description": "Florence-2 lets your applications understand images — describing scenes, detecting objects, and reading text — with a single unified AI model from Microsoft. Instead of maintaining separate tools for OCR, object detection, and image captioning, you get one system that handles them all. The bottom line: fewer integrations, simpler maintenance, and consistent vision capabilities across your products.",
-  "popularity_score": 787758,
+  "plain_description": "**Analyze images to create captions, detect and locate objects, and read text.** Use one model for a range of vision tasks by changing the prompt. It supports both zero-shot use and fine-tuning.",
+  "popularity_score": 323586,
   "quantization": 0,
   "recommended_ram_gb": 2.4,
   "rest_api": 0,
-  "setup_difficulty": null,
+  "setup_difficulty": "Medium",
   "slug": "florence-2",
-  "tag": "vision",
-  "technical_description": "Florence-2 is a sequence-to-sequence vision foundation model from Microsoft that performs captioning, object detection, OCR, region segmentation, and visual grounding from text prompts. The model uses a transformer-based encoder-decoder architecture with 0.77B parameters, trained on the FLD-5B dataset containing 5.4 billion annotations across 126 million images. It integrates through HuggingFace's transformers library, accepting images paired with task-specific prompt tokens and generating structured outputs including bounding boxes, text strings, and region labels. The model runs on NVIDIA CUDA GPUs or CPU with float16 precision, supports beam search decoding, and can be fine-tuned for downstream task specialization.",
+  "tag": "Vision",
+  "technical_description": "Florence-2 is a prompt-based vision foundation model with a sequence-to-sequence architecture for vision and vision-language tasks. The README demonstrates inference with Hugging Face Transformers and PyTorch, and lists image captioning, object detection, segmentation, region proposals, phrase grounding, and OCR tasks. The snapshot identifies safetensors and PyTorch formats and estimates 1.6 GB minimum and 2.4 GB recommended RAM.",
   "telemetry": "Unknown",
-  "title": "Florence-2",
+  "title": "Florence-2: Advancing a Unified Representation for a Variety of Vision Tasks",
   "url": "https://huggingface.co/microsoft/Florence-2-large",
   "use_cases": [
-    "Data Extraction",
     "Document Processing",
-    "Summarization"
+    "Data Extraction"
   ],
-  "works_with": []
+  "works_with": [
+    "Hugging Face Transformers",
+    "PyTorch"
+  ]
 }

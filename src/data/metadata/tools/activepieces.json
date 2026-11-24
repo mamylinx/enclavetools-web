@@ -6,63 +6,59 @@
   "community_guides_count": 0,
   "community_notes": [],
   "community_notes_count": 0,
-  "date-added": "2026-07-22",
+  "date-added": "2026-11-24",
   "deployment": [
-    "Docker",
-    "Kubernetes"
+    "Bare Metal",
+    "Cloud"
   ],
   "docker_available": 1,
   "docs_url": "https://www.activepieces.com/docs",
   "featured": false,
   "features": [
     "Docker available",
-    "GUI/no-code",
-    "Paid support"
+    "GUI/no-code"
   ],
   "fine_tuning": 0,
   "github_url": "https://github.com/activepieces/activepieces",
   "gui_available": 1,
-  "hardware": [
-    "CPU"
-  ],
+  "hardware": [],
   "language": [
     "TypeScript"
   ],
-  "last_updated": "2026-07-22",
-  "last_verified": "2026-07-22",
+  "last_updated": "2026-11-24",
+  "last_verified": "2026-11-24",
   "license": null,
   "maturity": "Production / Stable",
   "min_ram_gb": null,
   "model_format": [],
   "offline_after_setup": 1,
   "openai_api": 0,
-  "paid_support": 1,
+  "paid_support": 0,
   "personas": [
     "Developer",
     "Business Owner"
   ],
-  "plain_description": "Activepieces is an open-source replacement for Zapier that lets you automate workflows and build AI agents without writing code. The big picture: connect 200+ apps through a visual drag-and-drop builder, with built-in AI capabilities and human-in-the-loop approvals. Here's why it matters: non-technical team members can create powerful automations, while developers can extend everything with custom TypeScript integrations.",
-  "popularity_score": 23368,
+  "plain_description": "**Automate business tasks by connecting apps and building AI powered workflows.** Use a visual builder to create flows with hundreds of integrations. Self-host the platform and customize integrations with TypeScript.",
+  "popularity_score": 25697,
   "quantization": 0,
   "recommended_ram_gb": null,
   "rest_api": 0,
-  "setup_difficulty": null,
+  "setup_difficulty": "Medium",
   "slug": "activepieces",
-  "tag": "Automation",
-  "technical_description": "Activepieces is an open-source automation platform written in TypeScript that provides a visual workflow builder for creating AI-powered automations and integrations. It uses a pieces framework where each integration is an npm package, supporting hot reloading for local development. The platform exposes 280+ integrations as MCP (Model Context Protocol) servers for use with LLM clients. It supports self-hosted deployment via Docker or Kubernetes (Helm), with enterprise features including SCIM, audit logs, and RBAC. Native AI pieces support multiple providers, and the platform includes human-in-the-loop approval steps, chat interfaces, and form inputs. Flows are fully versioned with support for loops, branches, auto-retries, and custom code with NPM.",
+  "tag": "Workflow automation",
+  "technical_description": "Activepieces is an open source workflow automation platform with a visual flow builder, AI features, and a TypeScript framework for creating integrations called pieces. The README says pieces can be used as MCP servers with LLMs such as Claude Desktop, Cursor, and Windsurf. It supports self-hosted deployment and network-gapped operation.",
   "telemetry": "Unknown",
   "title": "Activepieces",
   "url": "https://www.activepieces.com/",
   "use_cases": [
-    "Agentic Workflows",
-    "Chat Assistant"
+    "Agentic Workflows"
   ],
   "works_with": [
     "Claude Desktop",
     "Cursor",
     "Windsurf",
-    "OpenAI",
     "Google Sheets",
+    "OpenAI",
     "Discord",
     "RSS"
   ]

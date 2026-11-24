@@ -6,13 +6,12 @@
   "community_guides_count": 0,
   "community_notes": [],
   "community_notes_count": 0,
-  "date-added": "2026-07-22",
+  "date-added": "2026-11-24",
   "deployment": [
-    "Docker",
     "Bare Metal"
   ],
   "docker_available": 1,
-  "docs_url": "https://llava-vl.github.io/",
+  "docs_url": "https://github.com/haotian-liu/LLaVA/blob/main/docs/MODEL_ZOO.md",
   "featured": false,
   "features": [
     "Docker available",
@@ -32,39 +31,46 @@
     "Python"
   ],
   "last_updated": "2024-08-12",
-  "last_verified": "2026-07-22",
+  "last_verified": "2026-11-24",
   "license": "Apache-2.0",
-  "maturity": "Production / Stable",
+  "maturity": null,
   "min_ram_gb": null,
-  "model_format": [],
-  "offline_after_setup": 1,
+  "model_format": [
+    "PyTorch"
+  ],
+  "offline_after_setup": 0,
   "openai_api": 0,
   "paid_support": 0,
   "personas": [
-    "Developer"
+    "Developer",
+    "Business Owner"
   ],
-  "plain_description": "LLaVA gives your business GPT-4 level vision AI — build assistants that can see, understand images, and answer questions about visual content. Fine-tune on your own data and deploy through a chat interface or API. Add vision capabilities to your products without building a model from scratch.",
-  "popularity_score": 24936,
+  "plain_description": "**Help teams analyze images through natural, visual question-and-answer conversations.** Run a local web demo or command-line interface, and fine-tune the model on custom data.",
+  "popularity_score": 25092,
   "quantization": 1,
   "recommended_ram_gb": null,
   "rest_api": 0,
-  "setup_difficulty": "Medium",
+  "setup_difficulty": "Hard",
   "slug": "llava",
-  "tag": "Vision-Language Model",
-  "technical_description": "LLaVA (Large Language and Vision Assistant) is an open-source visual instruction tuning framework that connects a frozen CLIP vision encoder to a large language model via a trainable two-layer MLP projection. Training proceeds in two stages: feature alignment pretraining on 558K image-caption pairs with a frozen vision encoder and LLM, followed by visual instruction tuning on 665K multimodal instruction-following and VQA data using DeepSpeed ZeRO-2/3. Inference supports 4-bit and 8-bit quantized inference, LoRA fine-tuning, and deployment via a Gradio web UI, SGLang backend for high-throughput serving, or CLI. Checkpoints are available in PyTorch on HuggingFace with community ports to GGUF via llama.cpp.",
+  "tag": "Multimodal AI",
+  "technical_description": "LLaVA is a visual instruction tuning project for large language and vision models. It provides pretrained checkpoints, image chat via a Gradio web interface or CLI, model serving workers, evaluation tools, and scripts for pretraining and fine-tuning, including LoRA. The README documents GPU-based inference and training, with Apple M1/M2 MPS support and quantized 4-bit or 8-bit inference.",
   "telemetry": "Unknown",
-  "title": "LLaVA",
+  "title": "LLaVA: Large Language and Vision Assistant",
   "url": "https://github.com/haotian-liu/LLaVA",
   "use_cases": [
     "Chat Assistant",
+    "Image Generation",
     "Fine-Tuning",
     "Model Serving"
   ],
   "works_with": [
-    "HuggingFace",
-    "DeepSpeed",
+    "Hugging Face",
     "Gradio",
     "SGLang",
-    "llama.cpp"
+    "DeepSpeed",
+    "LoRA",
+    "llama.cpp",
+    "Vicuna",
+    "CLIP"
   ]
 }

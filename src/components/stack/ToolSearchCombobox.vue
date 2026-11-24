@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { ToolWithCategory } from '../../utils/toolModel';
+import { stripBold } from '../../utils/renderBold';
 
 defineProps<{
   query: string;
@@ -84,7 +85,7 @@ const emit = defineEmits<{
             <span class="font-bold text-sm leading-tight">{{ tool.title }}</span>
             <span
               :class="['text-xs leading-snug truncate', isHighlighted(tool.slug) ? 'text-white/80' : 'text-brand-muted']"
-            >{{ (tool.plain_description || tool.body || '').slice(0, 80) }}</span>
+            >{{ stripBold((tool.plain_description || tool.body || '')).slice(0, 80) }}</span>
           </button>
         </template>
       </div>

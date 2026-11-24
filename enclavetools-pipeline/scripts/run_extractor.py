@@ -2,56 +2,27 @@
 """
 run_extractor.py — Lane B orchestrator for the Enclavetools dataset pipeline.
 
-Invokes the locked-down `extractor` Opencode subagent (.opencode/agent/extractor.md)
-once per tool, feeding it ONLY that tool's raw/<slug>/github.json and readme.md.
-The agent's permissions (read + StructuredOutput only; bash/edit/write/webfetch
-all denied) mean it cannot touch anything outside what you hand it.
-
-Reliability mechanisms:
-  - Validates every response against schema/extractor_output.schema.json before
-    accepting it. Nothing unvalidated reaches disk as a final artifact.
-  - Self-repair loop: on schema validation failure, re-invokes the agent with the
-    validator's error message appended, up to --max-retries times.
-  - Content-hash caching: skips re-running the (slow, costly) LLM step if the
-    tool's README + GitHub description haven't changed since the last successful
-    extraction, unless --force is passed.
-  - Hard subprocess timeout per tool; one tool's failure/hang never blocks the batch.
-  - Failures and permanently-invalid outputs go to raw/_manual_review.jsonl with
-    the full transcript, instead of being silently dropped or silently wrong.
-
-IMPORTANT — verify before production use:
-  This script parses `opencode run --format json` output defensively, because the
-  exact NDJSON event shape can change between Opencode versions and was not
-  something I could execute end-to-end in the environment this was written in
-  (no Opencode install / provider credentials available there). Run with
-  --debug-raw once against a real tool first: it dumps the full stdout to
-  raw/<slug>/_opencode_raw_stdout.txt so you can confirm `extract_structured_payload()`
-  below is finding the right event for YOUR installed version. The schema
-  validation gate means a parsing miss fails loudly (goes to manual review)
-  rather than shipping bad data either way — but confirm it's actually finding
-  the payload, not just correctly rejecting nothing.
-
-Usage:
-    python3 scripts/run_extractor.py --tools config/tools.csv --raw-dir raw/ \
-        --agent extractor --timeout 180 --max-retries 2
-    python3 scripts/run_extractor.py --tools config/tools.csv --raw-dir raw/ \
-        --slug anythingllm --debug-raw
+Runs Codex on cached repository metadata and the README for each tool.
+Validates the final JSON, retries invalid responses, and reuses cached
+extractions when the README and repository description are unchanged.
 """
 
 from __future__ import annotations
 
 import argparse
+import csv
 import hashlib
 import json
-import re
 import logging
 import os
 import subprocess
 import sys
-import time
+from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any, Optional
+from tempfile import TemporaryDirectory
+from threading import Lock
+from typing import Optional
 
 try:
     import jsonschema
@@ -60,12 +31,14 @@ except ImportError:
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 SCHEMA_PATH = REPO_ROOT / "schema" / "extractor_output.schema.json"
+PROMPT_PATH = REPO_ROOT / "config" / "extractor_prompt.md"
 
 logging.basicConfig(
     level=os.environ.get("LOG_LEVEL", "INFO"),
     format="%(asctime)s %(levelname)-7s %(message)s",
 )
 log = logging.getLogger("run_extractor")
+review_lock = Lock()
 
 
 class ExtractionFailed(Exception):
@@ -84,194 +57,28 @@ def content_hash(*texts: str) -> str:
     return h.hexdigest()[:16]
 
 
-def build_prompt(tool_name: str, retry_error: Optional[str] = None) -> str:
-    base = (
-        f"Extract metadata for the project \"{tool_name}\" from the attached "
-        f"github.json and readme.md. Follow every rule in your system prompt. "
-        f"Output ONLY a single raw JSON object — no markdown fences, no prose "
-        f"before or after, no commentary."
-    )
-    if retry_error:
-        base += (
-            f"\n\nYour previous response failed schema validation with this "
-            f"error:\n{retry_error}\n"
-            f"Correct the output and resubmit. Do not repeat the same mistake."
-        )
-    return base
+def run_codex(prompt: str, timeout: int, model: Optional[str]) -> tuple[subprocess.CompletedProcess, str]:
+    with TemporaryDirectory(prefix="enclavetools-codex-") as work_dir:
+        result_path = Path(work_dir) / "result.json"
+        cmd = [
+            "codex", "exec", "--sandbox", "read-only", "--skip-git-repo-check",
+            "--ephemeral", "--ignore-user-config", "--disable", "shell_tool",
+            "--disable", "unified_exec", "--disable", "apps",
+            "-c", 'approval_policy="never"', "-c", 'web_search="disabled"',
+            "--color", "never", "--output-last-message", str(result_path),
+        ]
+        if model:
+            cmd += ["--model", model]
+        try:
+            proc = subprocess.run(
+                [*cmd, "-"], input=prompt, cwd=work_dir, capture_output=True,
+                encoding="utf-8", timeout=timeout, check=False,
+            )
+        except FileNotFoundError as e:
+            raise ExtractionFailed("Codex CLI is missing from PATH. Install it and run codex login.") from e
 
-
-def run_opencode(agent: str, prompt: str, files: list[Path], timeout: int,
-                  model: Optional[str], cwd: Path) -> subprocess.CompletedProcess:
-    # The prompt is placed BEFORE the --file flags because opencode's `--file`
-    # array option greedily consumes trailing positionals as additional file
-    # arguments (otherwise the message is misread as a file path).
-    cmd = ["opencode", "run", "--agent", agent, "--format", "json"]
-    if model:
-        cmd += ["--model", model]
-    cmd.append(prompt)
-    for f in files:
-        cmd += ["--file", str(f)]
-    log.debug("Running: %s", " ".join(cmd))
-    try:
-        return subprocess.run(
-            cmd, cwd=str(cwd), capture_output=True, text=True,
-            timeout=timeout, check=False,
-        )
-    except subprocess.TimeoutExpired as e:
-        raise ExtractionFailed(f"opencode run timed out after {timeout}s") from e
-    except FileNotFoundError as e:
-        raise ExtractionFailed(
-            "`opencode` binary not found on PATH. Install it "
-            "(see https://opencode.ai) and confirm `opencode --version` works."
-        ) from e
-
-
-def _try_parse_json(text: str) -> Optional[Any]:
-    try:
-        return json.loads(text)
-    except (json.JSONDecodeError, TypeError):
-        return None
-
-
-def _unwrap_task_result(text: str) -> str:
-    """A delegated subagent returns its JSON wrapped in <task_result>...</task_result>
-    XML inside the task tool's output string. Strip that wrapper if present."""
-    m = re.search(r"<task_result>\s*(\{.*\})\s*</task_result>", text, re.DOTALL)
-    return m.group(1) if m else text
-
-
-def _extract_balanced_json_objects(text: str) -> list[str]:
-    """Find all top-level {...} substrings via brace balancing. Cheap fallback
-    for when the payload is embedded in prose/markdown fences rather than
-    being a clean event."""
-    candidates = []
-    depth = 0
-    start = None
-    for i, ch in enumerate(text):
-        if ch == "{":
-            if depth == 0:
-                start = i
-            depth += 1
-        elif ch == "}":
-            if depth > 0:
-                depth -= 1
-                if depth == 0 and start is not None:
-                    candidates.append(text[start:i + 1])
-    return candidates
-
-
-def _extract_json_from_text(text: str) -> list[Any]:
-    """Try to extract JSON object(s) from a text string that may contain
-    prose, markdown fences, or other wrapping.
-
-    Strategies tried in order:
-      1. Direct JSON parse (text is already bare JSON).
-      2. Strip markdown fences (```json … ```) and re-parse.
-      3. Balanced-brace scan for top-level {...} blocks.
-    Returns a list of parsed objects (may be empty).
-    """
-    candidates = []
-
-    # Strategy A: direct parse
-    parsed = _try_parse_json(text)
-    if parsed is not None:
-        candidates.append(parsed)
-        return candidates
-
-    # Strategy B: strip markdown fences
-    fence_stripped = re.sub(
-        r"^\s*```(?:json)?\s*\n?(.*?)\n?\s*```\s*$",
-        r"\1", text, count=1, flags=re.DOTALL,
-    )
-    if fence_stripped != text:
-        parsed = _try_parse_json(fence_stripped)
-        if parsed is not None:
-            candidates.append(parsed)
-            return candidates
-
-    # Strategy C: find any top-level {...} block via brace balancing
-    for blob in _extract_balanced_json_objects(text):
-        parsed = _try_parse_json(blob)
-        if parsed is not None:
-            candidates.append(parsed)
-
-    return candidates
-
-
-def extract_structured_payload(stdout: str, schema: dict) -> Optional[dict]:
-    """
-    Multi-strategy extraction, gated by schema validation at every step so a
-    wrong guess can never silently pass:
-
-      1. Parse stdout as NDJSON (one JSON value per line, `opencode run --format
-         json` emits raw JSON events). For each event, look for common shapes
-         that would carry a tool's structured result (a `tool` name match, an
-         `input`/`output`/`arguments` payload, or a `text` part that itself
-         parses as JSON) and validate immediately when found.
-      2. If nothing in the event stream validates, fall back to scanning the
-         raw stdout for balanced {...} blocks (handles markdown-fenced JSON or
-         a single non-NDJSON JSON blob) and validate each candidate.
-
-    Returns the first candidate that validates against `schema`, or None.
-    """
-    validator = jsonschema.Draft202012Validator(schema)
-
-    def is_valid(obj) -> bool:
-        if not isinstance(obj, dict):
-            return False
-        # Normalize first so recoverable near-misses (missing required booleans,
-        # over-long arrays, free-text telemetry) count as valid candidates.
-        return validator.is_valid(normalize_payload(obj, schema))
-
-    # Strategy 1: NDJSON event stream
-    for line in stdout.splitlines():
-        line = line.strip()
-        if not line:
-            continue
-        evt = _try_parse_json(line)
-        if evt is None:
-            continue
-        candidates = []
-        if isinstance(evt, dict):
-            for key in ("input", "output", "arguments", "state"):
-                v = evt.get(key)
-                if isinstance(v, dict):
-                    candidates.append(v)
-                elif isinstance(v, str):
-                    parsed = _try_parse_json(v)
-                    if parsed is not None:
-                        candidates.append(parsed)
-            # Strategy 1b: a delegated subagent's structured result is returned
-            # inside a `task` tool event as part.state.output — a string that
-            # wraps the JSON in <task_result>...</task_result> XML.
-            part = evt.get("part") if isinstance(evt.get("part"), dict) else {}
-            state = part.get("state") if isinstance(part.get("state"), dict) else {}
-            tool_out = state.get("output")
-            if isinstance(tool_out, str):
-                unwrapped = _unwrap_task_result(tool_out)
-                parsed = _try_parse_json(unwrapped)
-                if parsed is not None:
-                    candidates.append(parsed)
-            # opencode emits text in part.text ({"type":"text","part":{"text":...}})
-            text_val = evt.get("text")
-            if not isinstance(text_val, str):
-                part = evt.get("part") if isinstance(evt.get("part"), dict) else {}
-                text_val = part.get("text") if isinstance(part.get("text"), str) else None
-            if isinstance(text_val, str):
-                candidates.extend(_extract_json_from_text(text_val))
-            if is_valid(evt):
-                candidates.append(evt)
-        for c in candidates:
-            if is_valid(c):
-                return c
-
-    # Strategy 2: balanced-brace scan over the whole stdout
-    for blob in _extract_balanced_json_objects(stdout):
-        parsed = _try_parse_json(blob)
-        if is_valid(parsed):
-            return parsed
-
-    return None
+        response = result_path.read_text(encoding="utf-8") if result_path.is_file() else ""
+        return proc, response
 
 
 # Field-level corrections applied after the agent returns a near-valid object.
@@ -334,7 +141,7 @@ def normalize_payload(payload: dict, schema: dict) -> dict:
 
 
 def extract_one(slug: str, tool_name: str, raw_dir: Path, schema: dict,
-                 agent: str, timeout: int, max_retries: int,
+                 instructions: str, timeout: int, max_retries: int,
                  model: Optional[str], debug_raw: bool, force: bool) -> dict:
     tool_dir = raw_dir / slug
     github_json_path = tool_dir / "github.json"
@@ -345,11 +152,11 @@ def extract_one(slug: str, tool_name: str, raw_dir: Path, schema: dict,
         raise ExtractionFailed(f"{github_json_path} missing — run fetch_github.py first")
 
     readme_text = readme_path.read_text(encoding="utf-8") if readme_path.exists() else ""
-    github_desc = ""
     try:
-        github_desc = json.loads(github_json_path.read_text()).get("fields", {}).get("body", "") or ""
-    except (json.JSONDecodeError, OSError):
-        pass
+        github_data = json.loads(github_json_path.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError) as e:
+        raise ExtractionFailed(f"{github_json_path}: {e}") from e
+    github_desc = github_data.get("fields", {}).get("body", "") or ""
     src_hash = content_hash(readme_text, github_desc)
 
     if not force and output_path.exists():
@@ -361,35 +168,42 @@ def extract_one(slug: str, tool_name: str, raw_dir: Path, schema: dict,
         except (json.JSONDecodeError, OSError):
             pass
 
-    retry_error = None
-    last_stdout = ""
+    request = json.dumps({
+        "schema": schema,
+        "source_data": {"tool_name": tool_name, "github.json": github_data, "readme.md": readme_text},
+    }, ensure_ascii=False)
+    validator = jsonschema.Draft202012Validator(schema)
+    base_prompt = f"{instructions}\n\nRequest (JSON):\n{request}"
+    prompt = base_prompt
+    failure = None
+    response = ""
     for attempt in range(1, max_retries + 2):  # initial attempt + retries
-        prompt = build_prompt(tool_name, retry_error)
-        proc = run_opencode(agent, prompt, [github_json_path, readme_path], timeout, model, REPO_ROOT)
-        last_stdout = proc.stdout or ""
+        try:
+            proc, response = run_codex(prompt, timeout, model)
+        except subprocess.TimeoutExpired:
+            failure = f"Codex timed out after {timeout}s"
+            log.warning("[%s] attempt %d/%d: %s", slug, attempt, max_retries + 1, failure)
+            continue
 
         if debug_raw:
-            (tool_dir / "_opencode_raw_stdout.txt").write_text(last_stdout, encoding="utf-8")
-            (tool_dir / "_opencode_raw_stderr.txt").write_text(proc.stderr or "", encoding="utf-8")
+            (tool_dir / "_codex_raw_stdout.txt").write_text(proc.stdout, encoding="utf-8")
+            (tool_dir / "_codex_raw_stderr.txt").write_text(proc.stderr, encoding="utf-8")
 
         if proc.returncode != 0:
-            retry_error = f"opencode exited {proc.returncode}: {(proc.stderr or '')[-800:]}"
-            log.warning("[%s] attempt %d/%d: %s", slug, attempt, max_retries + 1, retry_error)
+            failure = f"Codex exited {proc.returncode}: {proc.stderr.strip()[-800:]}"
+            log.warning("[%s] attempt %d/%d: %s", slug, attempt, max_retries + 1, failure)
             continue
 
-        payload = extract_structured_payload(last_stdout, schema)
-        if payload is None:
-            retry_error = "Could not find a schema-valid JSON object in the agent's output."
-            log.warning("[%s] attempt %d/%d: %s", slug, attempt, max_retries + 1, retry_error)
-            continue
-
-        payload = normalize_payload(payload, schema)
         try:
-            jsonschema.Draft202012Validator(schema).validate(payload)
-        except jsonschema.ValidationError as e:
-            retry_error = str(e)
-            log.warning("[%s] attempt %d/%d: schema validation failed: %s",
-                        slug, attempt, max_retries + 1, retry_error)
+            payload = json.loads(response)
+            if not isinstance(payload, dict):
+                raise ValueError("Expected a JSON object.")
+            payload = normalize_payload(payload, schema)
+            validator.validate(payload)
+        except (ValueError, jsonschema.ValidationError) as e:
+            failure = e.message if isinstance(e, jsonschema.ValidationError) else str(e)
+            log.warning("[%s] attempt %d/%d: %s", slug, attempt, max_retries + 1, failure)
+            prompt = f"{base_prompt}\n\nThe previous answer was invalid. Correct this error: {failure}"
             continue
 
         record = {
@@ -397,7 +211,7 @@ def extract_one(slug: str, tool_name: str, raw_dir: Path, schema: dict,
             "_meta": {
                 "source_hash": src_hash,
                 "extracted_at": datetime.now(timezone.utc).isoformat(),
-                "agent": agent,
+                "agent": "codex",
                 "attempts": attempt,
             },
         }
@@ -407,28 +221,29 @@ def extract_one(slug: str, tool_name: str, raw_dir: Path, schema: dict,
 
     # Exhausted retries — route to manual review, never ship an unvalidated guess.
     review_path = raw_dir / "_manual_review.jsonl"
-    with review_path.open("a", encoding="utf-8") as f:
+    with review_lock, review_path.open("a", encoding="utf-8") as f:
         f.write(json.dumps({
-            "slug": slug, "reason": retry_error, "raw_stdout_tail": last_stdout[-2000:],
+            "slug": slug, "reason": failure, "raw_stdout_tail": response[-2000:],
             "at": datetime.now(timezone.utc).isoformat(),
         }) + "\n")
-    raise ExtractionFailed(f"[{slug}] exhausted {max_retries + 1} attempts: {retry_error}")
+    raise ExtractionFailed(f"[{slug}] exhausted {max_retries + 1} attempts: {failure}")
 
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--tools", type=Path, required=True)
     ap.add_argument("--raw-dir", type=Path, default=Path("raw"))
-    ap.add_argument("--agent", default="extractor")
-    ap.add_argument("--model", default=None, help="Override provider/model, e.g. anthropic/claude-sonnet-4-5")
+    ap.add_argument("--model", default=None, help="Override the Codex model")
+    ap.add_argument("--jobs", type=int, default=1, help="Maximum concurrent tool extractions (default: 1)")
     ap.add_argument("--timeout", type=int, default=180)
     ap.add_argument("--max-retries", type=int, default=2)
     ap.add_argument("--slug", default=None, help="Only process this one slug")
     ap.add_argument("--force", action="store_true", help="Re-extract even if source hash is unchanged")
-    ap.add_argument("--debug-raw", action="store_true", help="Dump raw opencode stdout/stderr per tool")
+    ap.add_argument("--debug-raw", action="store_true", help="Dump Codex stdout and stderr per tool")
     args = ap.parse_args()
+    if args.jobs < 1:
+        ap.error("--jobs must be at least 1")
 
-    import csv
     with args.tools.open(newline="", encoding="utf-8") as f:
         rows = list(csv.DictReader(f))
     if args.slug:
@@ -437,15 +252,32 @@ def main():
             raise SystemExit(f"No tool with slug={args.slug!r} in {args.tools}")
 
     schema = load_schema()
-    ok, failed = 0, 0
-    for row in rows:
-        try:
-            extract_one(row["slug"], row["name"], args.raw_dir, schema, args.agent,
-                        args.timeout, args.max_retries, args.model, args.debug_raw, args.force)
-            ok += 1
-        except ExtractionFailed as e:
-            failed += 1
-            log.error(str(e))
+    instructions = PROMPT_PATH.read_text(encoding="utf-8")
+    def process_rows(tool_rows: list[dict[str, str]]) -> int:
+        succeeded = 0
+        for row in tool_rows:
+            try:
+                extract_one(row["slug"], row["name"], args.raw_dir, schema, instructions,
+                            args.timeout, args.max_retries, args.model, args.debug_raw, args.force)
+                succeeded += 1
+            except ExtractionFailed as e:
+                log.error("%s", e)
+        return succeeded
+
+    if args.jobs == 1:
+        ok = process_rows(rows)
+    else:
+        # Rows sharing a slug write to the same files, so process them in order.
+        rows_by_slug: dict[str, list[dict[str, str]]] = {}
+        for row in rows:
+            rows_by_slug.setdefault(row["slug"], []).append(row)
+        with ThreadPoolExecutor(max_workers=args.jobs) as executor:
+            try:
+                ok = sum(executor.map(process_rows, rows_by_slug.values()))
+            except KeyboardInterrupt:
+                executor.shutdown(wait=False, cancel_futures=True)
+                raise
+    failed = len(rows) - ok
 
     log.info("Done. %d ok, %d failed/queued-for-review.", ok, failed)
     if failed and not ok:

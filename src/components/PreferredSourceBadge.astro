@@ -1,0 +1,38 @@
+---
+export interface Props {
+  theme?: "light" | "dark";
+  lang?: string;
+  copy?: string;
+  align?: "start" | "center";
+  class?: string;
+}
+
+const {
+  theme = "light",
+  lang,
+  copy,
+  align = "center",
+  class: className = "",
+} = Astro.props;
+
+const alignment =
+  align === "center" ? "items-center text-center" : "items-start text-left";
+const copyColor =
+  theme === "dark" ? "text-white/60" : "text-brand-forest/60";
+---
+
+<div class:list={["flex flex-col gap-3", alignment, className]}>
+  {
+    copy && (
+      <p
+        class:list={[
+          "text-xs font-bold uppercase tracking-[0.1em]",
+          copyColor,
+        ]}
+      >
+        {copy}
+      </p>
+    )
+  }
+  <div google-add-preferred-source-btn data-theme={theme} data-lang={lang}></div>
+</div>

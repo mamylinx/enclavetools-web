@@ -1,22 +1,23 @@
 {
-  "body": "🤯 LobeHub is your Chief Agent Operator, organizing your agents into 7×24 operations by hiring, scheduling, and reporting on your entire AI team.",
+  "body": "🤯 LobeHub - Super-Agents on Your Team. Add super-agents to the chats your team already uses.They take on work by themselves and get better every week.",
   "category": "chat-interfaces",
   "commercial_use": 0,
   "community_guides": [],
   "community_guides_count": 0,
   "community_notes": [],
   "community_notes_count": 0,
-  "date-added": "2026-07-22",
+  "date-added": "2026-11-24",
   "deployment": [
     "Docker",
-    "Cloud"
+    "Cloud",
+    "Desktop App",
+    "Mobile"
   ],
   "docker_available": 1,
   "docs_url": "https://lobehub.com/docs/usage/start",
   "featured": false,
   "features": [
     "Docker available",
-    "REST API",
     "GUI/no-code"
   ],
   "fine_tuning": 0,
@@ -26,10 +27,10 @@
   "language": [
     "TypeScript"
   ],
-  "last_updated": "2026-07-22",
-  "last_verified": "2026-07-22",
+  "last_updated": "2026-11-24",
+  "last_verified": "2026-11-24",
   "license": null,
-  "maturity": "Production / Stable",
+  "maturity": "Beta",
   "min_ram_gb": null,
   "model_format": [],
   "offline_after_setup": 0,
@@ -39,22 +40,39 @@
     "Developer",
     "Business Owner"
   ],
-  "plain_description": "LobeHub is your Chief Agent Operator — it hires, schedules, and reports on your entire AI team so you stay in charge without staying online. The big picture: treat agents as the unit of work, bringing all your AI teammates under one roof with shared context, personal memory, and scheduled runs. The bottom line: more productivity, fewer tools, and agents that learn from how you work.",
-  "popularity_score": 80656,
+  "plain_description": "**Put AI agents to work in your team’s chats.** They can take on tasks, work in parallel, and build expertise over time. Self-host it or use LobeHub Cloud.",
+  "popularity_score": 86078,
   "quantization": 0,
   "recommended_ram_gb": null,
-  "rest_api": 1,
-  "setup_difficulty": "Easy",
+  "rest_api": 0,
+  "setup_difficulty": "Medium",
   "slug": "lobechat",
-  "tag": "Agent Platform",
-  "technical_description": "LobeHub is an open-source multi-agent orchestration platform that treats agents as the unit of work. It provides a full-stack architecture with a Next.js + Vite SPA frontend and a Hono-based server backend. The platform supports agent creation via an Agent Builder, agent groups for parallel collaboration, personal memory with structured white-box storage, scheduled task execution, and an IM Gateway for multi-platform messaging (Discord, Slack, Telegram, WeChat, etc.). It exposes a REST API and integrates with over 10,000 tools and MCP-compatible plugins. Deployment options include Docker, Vercel, Zeabur, Sealos, Alibaba Cloud, and bare metal.",
+  "tag": "Chat interfaces",
+  "technical_description": "LobeHub is an AI agent workspace that connects agents, models, and messaging apps. It supports agents working together on tasks, a marketplace for agents, MCP servers, and skills, and self-hosting with Docker Compose or deployment platforms such as Vercel. The README also lists web, desktop, and mobile apps.",
   "telemetry": "Unknown",
   "title": "LobeHub",
   "url": "https://github.com/lobehub/lobehub",
   "use_cases": [
-    "Agentic Workflows",
     "Chat Assistant",
-    "Model Serving"
+    "Agentic Workflows",
+    "Code Generation",
+    "Image Generation",
+    "Speech-to-Text",
+    "Text-to-Speech"
   ],
-  "works_with": []
+  "works_with": [
+    "Discord",
+    "Slack",
+    "Telegram",
+    "LINE",
+    "QQ",
+    "WeChat",
+    "Feishu",
+    "Lark",
+    "Claude Code",
+    "Codex",
+    "OpenClaw",
+    "Hermes",
+    "40+ model providers"
+  ]
 }

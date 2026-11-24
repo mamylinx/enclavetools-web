@@ -6,7 +6,7 @@
   "community_guides_count": 0,
   "community_notes": [],
   "community_notes_count": 0,
-  "date-added": "2026-07-22",
+  "date-added": "2026-11-24",
   "deployment": [
     "Bare Metal",
     "Cloud"
@@ -21,38 +21,39 @@
   "hardware": [
     "CPU",
     "GPU (NVIDIA)",
-    "GPU (Apple Silicon)",
     "Edge Device"
   ],
   "language": [
     "Python"
   ],
   "last_updated": "2026-04-20",
-  "last_verified": "2026-07-22",
+  "last_verified": "2026-11-24",
   "license": "Apache-2.0",
-  "maturity": "Production / Stable",
+  "maturity": null,
   "min_ram_gb": null,
   "model_format": [],
-  "offline_after_setup": 0,
+  "offline_after_setup": 1,
   "openai_api": 0,
   "paid_support": 0,
   "personas": [
     "Developer"
   ],
-  "plain_description": "Moondream is a tiny but powerful vision language model that runs anywhere — from cloud servers to edge devices. It lets you add image understanding (captioning, visual Q&A, object detection) to your applications without massive infrastructure. The big picture: a 2B parameter model that punches above its weight, plus a 0.5B variant for resource-constrained hardware.",
-  "popularity_score": 9874,
+  "plain_description": "**Understand images with a small vision model that can run on devices or in the cloud.** Use it to caption images, answer visual questions, and detect objects. A compact 0.5B variant is designed for resource-constrained devices.",
+  "popularity_score": 10173,
   "quantization": 0,
   "recommended_ram_gb": null,
   "rest_api": 0,
-  "setup_difficulty": "Medium",
+  "setup_difficulty": null,
   "slug": "moondream",
-  "tag": "Vision Language Model",
-  "technical_description": "Moondream is an open-source vision language model (VLM) available in two sizes: a 2-billion-parameter primary model and a 0.5-billion-parameter variant optimized for edge deployment. It supports captioning, visual question answering, and object detection. The model can be run locally or in the cloud via Python, with example integrations for Modal serverless compute. Inference is available through a Python library with a simple API, and the project provides quickstart examples in Python, Node.js, and bash.",
+  "tag": "Vision",
+  "technical_description": "Moondream is an open-source vision language model with 2B and 0.5B parameter variants. It supports image captioning, visual question answering, and object detection, and can run locally or in the cloud.",
   "telemetry": "Unknown",
-  "title": "moondream",
+  "title": "Moondream",
   "url": "https://moondream.ai/",
   "use_cases": [
-    "Image Generation"
+    "Document Processing"
   ],
-  "works_with": []
+  "works_with": [
+    "Modal"
+  ]
 }

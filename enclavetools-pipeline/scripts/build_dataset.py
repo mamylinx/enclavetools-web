@@ -61,11 +61,13 @@ def main():
         for name, msg in bad:
             log.error("  %s: %s", name, msg)
 
+    if not records:
+        log.error("No valid records in %s. No dataset was written to %s.", args.dataset_dir, args.out)
+        sys.exit(1)
+
     records.sort(key=lambda r: r["slug"])
     args.out.write_text(json.dumps(records, indent=2, ensure_ascii=False))
     log.info("Wrote %d records to %s (%d excluded).", len(records), args.out, len(bad))
-    if bad and not records:
-        sys.exit(1)
 
 
 if __name__ == "__main__":

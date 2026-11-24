@@ -165,3 +165,4 @@ windmill,Windmill Engine,windmill-labs,windmill,https://www.windmill.dev/,https:
 laya,Laya,NandhaKishorM,laya,https://huggingface.co/convaiinnovations/laya,https://github.com/NandhaKishorM/laya,decision-models
 semif-openjev,SemIf,TheoLeeCJ,SemIf-OpenJev,https://openjev.com,https://github.com/TheoLeeCJ/SemIf-OpenJev,decision-models
 screenpipe,Screenpipe,screenpipe,screenpipe,https://screenpi.pe,https://github.com/screenpipe/screenpipe,rag-document
+hol-guard,Hol Guard,hashgraph-online,hol-guard,https://hol.org/guard,https://github.com/hashgraph-online/hol-guard,privacy-security

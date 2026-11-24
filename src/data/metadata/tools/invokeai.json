@@ -1,18 +1,17 @@
 {
-  "body": "Invoke is a leading creative engine for Stable Diffusion models, empowering professionals, artists, and enthusiasts to generate and create visual media using the latest AI-driven technologies. The solution offers an industry leading WebUI, and serves as the foundation for multiple commercial products.",
+  "body": "Invoke is a leading creative engine that uses image and video generation models to empower professionals, artists, and enthusiasts to generate and create visual media using the latest AI-driven technologies. The solution offers an industry-leading application interface, and serves as the foundation for multiple commercial products.",
   "category": "image-generation",
   "commercial_use": 1,
   "community_guides": [],
   "community_guides_count": 0,
   "community_notes": [],
   "community_notes_count": 0,
-  "date-added": "2026-07-22",
+  "date-added": "2026-11-24",
   "deployment": [
-    "Docker",
     "Bare Metal"
   ],
   "docker_available": 1,
-  "docs_url": "https://invoke.ai/",
+  "docs_url": "https://invoke.ai/start-here/installation/",
   "featured": false,
   "features": [
     "Docker available",
@@ -21,40 +20,56 @@
   "fine_tuning": 0,
   "github_url": "https://github.com/invoke-ai/InvokeAI",
   "gui_available": 1,
-  "hardware": [
-    "GPU (NVIDIA)",
-    "GPU (AMD)"
-  ],
+  "hardware": [],
   "language": [
-    "Python",
-    "TypeScript"
+    "TypeScript",
+    "Python"
   ],
-  "last_updated": "2026-07-21",
-  "last_verified": "2026-07-22",
+  "last_updated": "2026-11-24",
+  "last_verified": "2026-11-24",
   "license": "Apache-2.0",
-  "maturity": "Production / Stable",
+  "maturity": null,
   "min_ram_gb": null,
-  "model_format": [],
-  "offline_after_setup": 1,
+  "model_format": [
+    "GGUF"
+  ],
+  "offline_after_setup": 0,
   "openai_api": 0,
   "paid_support": 0,
   "personas": [
-    "Developer"
+    "Developer",
+    "Business Owner"
   ],
-  "plain_description": "Invoke helps businesses produce professional-grade visual assets using the latest AI image generation models — all running on your own hardware with full commercial rights. No per-seat fees, no cloud dependency, and no license restrictions. The bottom line: your team gets unlimited creative iteration with complete ownership of every output.",
-  "popularity_score": 27644,
+  "plain_description": "**Create and refine AI-generated images and videos for your creative work.** Use the canvas to edit and iterate, and build reusable workflows to support production needs.",
+  "popularity_score": 29151,
   "quantization": 0,
   "recommended_ram_gb": null,
   "rest_api": 0,
-  "setup_difficulty": "Easy",
+  "setup_difficulty": "Medium",
   "slug": "invokeai",
-  "tag": "Image Generation",
-  "technical_description": "InvokeAI is a self-hosted AI image generation engine supporting multiple model families including SDXL, SD 3.5, Flux.1/2, CogView 4, Z-Image, Anima, and Qwen Image. It provides a Python backend with a React web UI, featuring a node-based workflow composer for building custom generation pipelines, a unified canvas for inpainting/outpainting, and integrated model management for ckpt, diffusers, and GGUF formats. The runtime includes a board and gallery system for asset organization, upscaling tools, and object segmentation. GPU acceleration is supported on NVIDIA and AMD hardware.",
+  "tag": "Image generation",
+  "technical_description": "Invoke is a locally hosted web server and React UI for generating and refining visual media with AI models. It includes a unified canvas with inpainting and brush tools, workflow and node management, and a gallery for organizing and remixing content. The README lists support for many image models and some GGUF models; Nano Banana, GPT Image, and Wan are listed as API-only.",
   "telemetry": "Unknown",
-  "title": "InvokeAI",
+  "title": "Invoke - Professional Creative AI Tools for Visual Media",
   "url": "https://invoke.ai/",
   "use_cases": [
     "Image Generation"
   ],
-  "works_with": []
+  "works_with": [
+    "SD 1.5",
+    "SD 2.0",
+    "SDXL",
+    "SD 3.5",
+    "CogView 4",
+    "Flux",
+    "Z-Image",
+    "Krea 2",
+    "Anima",
+    "Qwen Image",
+    "Ideogram 4",
+    "ERNIE-Image",
+    "Nano Banana",
+    "GPT Image",
+    "Wan"
+  ]
 }

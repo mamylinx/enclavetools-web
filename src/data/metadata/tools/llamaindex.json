@@ -1,74 +1,68 @@
 {
-  "body": "LlamaIndex is the leading document agent and OCR platform",
+  "body": "LlamaIndex is the document processing platform for AI",
   "category": "agent-frameworks",
   "commercial_use": 1,
   "community_guides": [],
   "community_guides_count": 0,
   "community_notes": [],
   "community_notes_count": 0,
-  "date-added": "2026-07-22",
-  "deployment": [
-    "Docker",
-    "Bare Metal",
-    "Cloud"
-  ],
+  "date-added": "2026-11-24",
+  "deployment": [],
   "docker_available": 1,
-  "docs_url": "https://developers.llamaindex.ai/python/framework/",
+  "docs_url": "https://developers.llamaindex.ai/python/framework/?utm_medium=li_github&utm_source=github&utm_campaign=2026--",
   "featured": false,
   "features": [
+    "OpenAI-compatible API",
     "Docker available",
-    "Fine-tuning",
-    "Paid support"
+    "Fine-tuning"
   ],
   "fine_tuning": 1,
   "github_url": "https://github.com/run-llama/llama_index",
   "gui_available": 0,
-  "hardware": [
-    "CPU"
-  ],
+  "hardware": [],
   "language": [
     "Python",
     "Jupyter Notebook"
   ],
-  "last_updated": "2026-07-21",
-  "last_verified": "2026-07-22",
+  "last_updated": "2026-11-20",
+  "last_verified": "2026-11-24",
   "license": "MIT",
-  "maturity": "Production / Stable",
+  "maturity": null,
   "min_ram_gb": null,
   "model_format": [],
-  "offline_after_setup": 1,
-  "openai_api": 0,
-  "paid_support": 1,
+  "offline_after_setup": 0,
+  "openai_api": 1,
+  "paid_support": 0,
   "personas": [
-    "Developer"
+    "Developer",
+    "Business Owner"
   ],
-  "plain_description": "LlamaIndex helps businesses turn their documents and data into intelligent AI agents that can answer questions, extract information, and automate workflows. The big picture: Connect your data to AI so you can ask questions in plain language and get answers instantly. The bottom line: Faster decisions, automated document processing, and AI-powered insights from your existing files.",
-  "popularity_score": 51000,
+  "plain_description": "**Build AI tools that can find and use information in your business documents.** Connect data sources and formats, then create apps that retrieve relevant context and answer questions. Use a broad set of integrations to fit your needs.",
+  "popularity_score": 52989,
   "quantization": 0,
   "recommended_ram_gb": null,
   "rest_api": 0,
-  "setup_difficulty": "Easy",
+  "setup_difficulty": null,
   "slug": "llamaindex",
-  "tag": "LLM Framework",
-  "technical_description": "LlamaIndex is a Python data framework for building LLM-powered applications with retrieval-augmented generation (RAG), agentic workflows, and document processing. The framework provides data connectors for ingesting content from 130+ formats, indexing and graph structures for organizing data, and a query interface for retrieval and response synthesis. It supports over 300 integration packages for LLMs, embedding models, and vector stores, enabling flexible deployments with local or cloud-based providers. LlamaIndex includes modular components for document parsing, structured extraction, and agent orchestration via its workflow system.",
+  "tag": "Agent frameworks",
+  "technical_description": "An open-source Python framework for building agentic applications and LLM apps. It provides data connectors, tools to structure data, and retrieval and query interfaces that return relevant context and knowledge-augmented output. Developers can use its core package with integrations for LLMs, embeddings, and vector stores; the README demonstrates document ingestion and vector indexing with OpenAI or Ollama.",
   "telemetry": "Unknown",
-  "title": "LlamaIndex",
+  "title": "LlamaIndex Framework",
   "url": "https://www.llamaindex.ai/",
   "use_cases": [
     "RAG",
     "Agentic Workflows",
     "Document Processing",
     "Data Extraction",
-    "Vector Search",
-    "Chat Assistant",
-    "Summarization"
+    "Vector Search"
   ],
   "works_with": [
+    "OpenAI",
+    "Ollama",
+    "Hugging Face",
     "LangChain",
     "Flask",
     "Docker",
-    "OpenAI",
-    "Ollama",
-    "HuggingFace"
+    "ChatGPT"
   ]
 }

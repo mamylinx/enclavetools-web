@@ -6,13 +6,12 @@
   "community_guides_count": 0,
   "community_notes": [],
   "community_notes_count": 0,
-  "date-added": "2026-07-22",
+  "date-added": "2026-11-24",
   "deployment": [
-    "Docker",
     "Bare Metal"
   ],
   "docker_available": 1,
-  "docs_url": "https://huggingface.co/docs/peft/en/index",
+  "docs_url": "https://huggingface.co/docs/peft/main/en/index",
   "featured": false,
   "features": [
     "Docker available",
@@ -25,48 +24,47 @@
   "hardware": [
     "CPU",
     "GPU (NVIDIA)",
+    "GPU (AMD)",
     "GPU (Apple Silicon)",
     "TPU"
   ],
   "language": [
     "Python"
   ],
-  "last_updated": "2026-07-21",
-  "last_verified": "2026-07-22",
+  "last_updated": "2026-11-24",
+  "last_verified": "2026-11-24",
   "license": "Apache-2.0",
-  "maturity": "Production / Stable",
+  "maturity": null,
   "min_ram_gb": null,
-  "model_format": [],
-  "offline_after_setup": 1,
+  "model_format": [
+    "PyTorch"
+  ],
+  "offline_after_setup": 0,
   "openai_api": 0,
   "paid_support": 0,
   "personas": [
     "Developer"
   ],
-  "plain_description": "The big picture: PEFT dramatically cuts the cost of customizing large AI models by fine-tuning only a tiny fraction of parameters instead of the entire model. Here's why it matters: You can adapt massive models like 12B-parameter LLMs on a single consumer GPU, saving gigabytes of memory and compute compared to full fine-tuning. The bottom line: PEFT makes enterprise-grade model customization accessible without expensive infrastructure.",
-  "popularity_score": 21432,
+  "plain_description": "**Adapt large pretrained models to your business tasks with less compute and storage.** PEFT fine-tunes a small number of extra parameters instead of changing the entire model. Its adapters can be used with Hugging Face Transformers, Diffusers, and Accelerate.",
+  "popularity_score": 21915,
   "quantization": 1,
   "recommended_ram_gb": null,
   "rest_api": 0,
-  "setup_difficulty": "Easy",
+  "setup_difficulty": "Medium",
   "slug": "peft-huggingface",
-  "tag": "Fine-Tuning",
-  "technical_description": "PEFT is a Python library that implements parameter-efficient fine-tuning methods for large pretrained models. It wraps Transformers, Diffusers, and other HuggingFace models, applying techniques such as LoRA, prefix tuning, and prompt tuning that train only a small subset of parameters while the base model remains frozen. The library provides get_peft_model() and PeftModel APIs for training and inference, with support for mixed adapter management via add_adapter, load_adapter, and set_adapter methods. Integrates with Accelerate for distributed training across GPUs, TPUs, and Apple Silicon, and supports quantization (QLoRA, 8-bit) for reduced memory footprint. Written in Python, distributed via pip, and includes Docker images for CPU and GPU environments.",
+  "tag": "Fine-tuning",
+  "technical_description": "PEFT is a Python library of parameter-efficient fine-tuning methods for adapting pretrained models by training a small subset of additional parameters. It integrates with Transformers for training and inference, Diffusers for managing adapters, and Accelerate for distributed training and inference. Methods include LoRA and support combining PEFT with quantization.",
   "telemetry": "Unknown",
-  "title": "PEFT",
+  "title": "🤗 PEFT",
   "url": "https://github.com/huggingface/peft",
   "use_cases": [
-    "Fine-Tuning",
-    "Chat Assistant",
-    "Image Generation",
-    "Speech-to-Text",
-    "Model Serving"
+    "Fine-Tuning"
   ],
   "works_with": [
     "Transformers",
     "Diffusers",
     "Accelerate",
     "TRL",
-    "DeepSpeed"
+    "PyTorch"
   ]
 }

@@ -6,7 +6,7 @@
   "community_guides_count": 0,
   "community_notes": [],
   "community_notes_count": 0,
-  "date-added": "2026-07-22",
+  "date-added": "2026-11-24",
   "deployment": [
     "Docker",
     "Bare Metal"
@@ -29,40 +29,39 @@
     "Python"
   ],
   "last_updated": "2024-08-16",
-  "last_verified": "2026-07-22",
+  "last_verified": "2026-11-24",
   "license": "MPL-2.0",
-  "maturity": "Production / Stable",
+  "maturity": null,
   "min_ram_gb": null,
-  "model_format": [],
+  "model_format": [
+    "PyTorch"
+  ],
   "offline_after_setup": 1,
   "openai_api": 0,
   "paid_support": 0,
   "personas": [
-    "Developer"
+    "Developer",
+    "Business Owner"
   ],
-  "plain_description": "The big picture: generate natural-sounding speech from text with a production-ready toolkit that supports over 1,100 languages. Here's why it matters: you can fine-tune existing models or train custom voices for your specific use case without building a TTS engine from scratch. The bottom line: add realistic voice synthesis to your product quickly and reliably.",
-  "popularity_score": 45791,
+  "plain_description": "**Turn written content into natural sounding speech for multilingual products and services.** Use ready made models or train and fine tune models for your needs. Convert voices and curate speech datasets.",
+  "popularity_score": 46272,
   "quantization": 0,
   "recommended_ram_gb": null,
   "rest_api": 0,
-  "setup_difficulty": "Easy",
+  "setup_difficulty": "Medium",
   "slug": "coqui-tts",
   "tag": "Text-to-Speech",
-  "technical_description": "🐸TTS is an open-source deep learning library for Text-to-Speech synthesis. It implements multiple model architectures including Tacotron2, Glow-TTS, VITS, and XTTS for spectrogram generation and end-to-end synthesis, paired with vocoders such as HiFiGAN, WaveGrad, and WaveRNN for waveform generation. The library provides a Python API and CLI for inference, multi-speaker voice cloning, voice conversion, and model fine-tuning. Models are implemented in PyTorch and support inference on CPU and NVIDIA GPU. Deployment is available via pip install or Docker images that include an HTTP server for remote inference.",
+  "technical_description": "A Python library for text to speech generation with pretrained models, training and fine tuning tools, dataset analysis utilities, and voice conversion. It includes command line and Python APIs, supports multi speaker and multilingual synthesis, and can run a server in Docker.",
   "telemetry": "Unknown",
-  "title": "TTS",
+  "title": "Coqui TTS",
   "url": "https://github.com/coqui-ai/TTS",
   "use_cases": [
     "Text-to-Speech",
-    "Fine-Tuning",
-    "Model Serving"
+    "Fine-Tuning"
   ],
   "works_with": [
+    "Python",
     "PyTorch",
-    "CUDA",
-    "Docker",
-    "Tensorboard",
-    "Hugging Face",
-    "Fairseq"
+    "Docker"
   ]
 }

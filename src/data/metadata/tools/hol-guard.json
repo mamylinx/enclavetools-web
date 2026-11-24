@@ -1,0 +1,78 @@
+{
+  "body": "Open-source antivirus and firewall for AI agents: block risky tools, secret access, prompt injection, malicious packages, MCP servers, plugins, and skills at runtime.",
+  "category": "privacy-security",
+  "commercial_use": 1,
+  "community_guides": [],
+  "community_guides_count": 0,
+  "community_notes": [],
+  "community_notes_count": 0,
+  "date-added": "2026-11-24",
+  "deployment": [
+    "Bare Metal",
+    "Docker"
+  ],
+  "docker_available": 1,
+  "docs_url": "https://github.com/hashgraph-online/hol-guard/blob/main/docs/guard/get-started.md",
+  "featured": false,
+  "features": [
+    "Docker available",
+    "GUI/no-code"
+  ],
+  "fine_tuning": 0,
+  "github_url": "https://github.com/hashgraph-online/hol-guard",
+  "gui_available": 1,
+  "hardware": [
+    "CPU"
+  ],
+  "language": [
+    "Rust",
+    "Python"
+  ],
+  "last_updated": "2026-11-24",
+  "last_verified": "2026-11-24",
+  "license": "Apache-2.0",
+  "maturity": null,
+  "min_ram_gb": null,
+  "model_format": [],
+  "offline_after_setup": 1,
+  "openai_api": 0,
+  "paid_support": 0,
+  "personas": [
+    "Developer",
+    "Business Owner"
+  ],
+  "plain_description": "**Protect AI agent workflows by stopping risky actions before they compromise a machine.** HOL Guard reviews supported commands, file access, package installs, and tool calls, then allows, blocks, or requests approval. A local dashboard helps manage protection and review decisions.",
+  "popularity_score": 1121,
+  "quantization": 0,
+  "recommended_ram_gb": null,
+  "rest_api": 0,
+  "setup_difficulty": "Medium",
+  "slug": "hol-guard",
+  "tag": "Security",
+  "technical_description": "HOL Guard is a local-first security layer for AI agents. It reviews supported shell commands, file access, package installs, MCP tool calls, plugins, and skills for risks including secret exposure, destructive operations, prompt injection, and supply-chain threats. Policy determines whether an action is allowed, blocked, or sent for approval. It includes a CLI and local dashboard; optional Guard Cloud adds shared history, team policy, and fleet management. The repository also ships Plugin Scanner for checking agent plugin packages.",
+  "telemetry": "Unknown",
+  "title": "HOL Guard",
+  "url": "https://hol.org/guard",
+  "use_cases": [
+    "Agentic Workflows"
+  ],
+  "works_with": [
+    "Codex",
+    "Claude Code",
+    "GitHub Copilot CLI",
+    "Cursor",
+    "Cline",
+    "Gemini CLI",
+    "Grok",
+    "Hermes",
+    "Kimi Code",
+    "Pi",
+    "oh-my-pi",
+    "OpenClaw",
+    "OpenCode",
+    "Antigravity",
+    "ZCode",
+    "Devin",
+    "MCP"
+  ]
+}

@@ -6,14 +6,15 @@
   "community_guides_count": 0,
   "community_notes": [],
   "community_notes_count": 0,
-  "date-added": "2026-07-22",
+  "date-added": "2026-11-24",
   "deployment": [
     "Bare Metal"
   ],
   "docker_available": 0,
-  "docs_url": null,
+  "docs_url": "https://github.com/theroyallab/tabbyAPI/wiki/1.-Getting-Started",
   "featured": false,
   "features": [
+    "OpenAI-compatible API",
     "Quantization"
   ],
   "fine_tuning": 0,
@@ -26,26 +27,29 @@
     "Python"
   ],
   "last_updated": "2026-03-04",
-  "last_verified": "2026-07-22",
+  "last_verified": "2026-11-24",
   "license": "MIT",
   "maturity": "Inactive / Unmaintained",
   "min_ram_gb": null,
-  "model_format": [],
+  "model_format": [
+    "GPTQ",
+    "ExLlama"
+  ],
   "offline_after_setup": 1,
-  "openai_api": 0,
+  "openai_api": 1,
   "paid_support": 0,
   "personas": [
     "Developer"
   ],
-  "plain_description": "Run large language models on your own NVIDIA GPU with fast inference speeds. ExLlamaV2 lets you deploy chatbots and AI applications locally using GPTQ and EXL2 quantized models, making LLM inference practical on consumer-class hardware. No cloud dependence required.",
-  "popularity_score": 4589,
+  "plain_description": "**Run large language models locally at high speed on consumer GPUs.** Generate text through a Python library or use a compatible server or web interface. Supports batch generation and custom model quantization.",
+  "popularity_score": 4656,
   "quantization": 1,
   "recommended_ram_gb": null,
   "rest_api": 0,
-  "setup_difficulty": "Medium",
+  "setup_difficulty": "Hard",
   "slug": "exllamav2",
-  "tag": "Inference Library",
-  "technical_description": "ExLlamaV2 is a high-performance LLM inference library optimized for NVIDIA GPUs via CUDA. It supports GPTQ and the proprietary EXL2 quantization formats (2-8 bits per weight), enabling models from 1.1B to 70B parameters to run on consumer GPUs with 8-24 GB VRAM. The dynamic generator provides paged attention via Flash Attention 2.5.7+, dynamic batching, smart prompt caching, and K/V cache deduplication. Integration is through a Python API with support for synchronous, batched, and async streamed generation. The library serves as the backend for OpenAI-compatible APIs and web UIs through separate companion projects.",
+  "tag": "LLM inference",
+  "technical_description": "ExLlamaV2 is an inference library for running local LLMs on modern consumer GPUs. It provides Python APIs for single, batched, and streamed text generation, supports speculative decoding and GPTQ and EXL2 quantized models, and requires CUDA and PyTorch. The project is archived; its README points to TabbyAPI as the recommended backend server.",
   "telemetry": "Unknown",
   "title": "ExLlamaV2",
   "url": "https://github.com/turboderp-org/exllamav2",
@@ -53,5 +57,13 @@
     "Chat Assistant",
     "Model Serving"
   ],
-  "works_with": []
+  "works_with": [
+    "CUDA",
+    "PyTorch",
+    "TabbyAPI",
+    "SillyTavern",
+    "ExUI",
+    "text-generation-webui",
+    "lollms-webui"
+  ]
 }

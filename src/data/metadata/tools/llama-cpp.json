@@ -6,21 +6,22 @@
   "community_guides_count": 0,
   "community_notes": [],
   "community_notes_count": 0,
-  "date-added": "2026-07-22",
+  "date-added": "2026-11-24",
   "deployment": [
     "Docker",
     "Bare Metal",
-    "Kubernetes",
+    "Cloud",
     "Desktop App",
     "Mobile"
   ],
   "docker_available": 1,
-  "docs_url": "https://github.com/ggml-org/llama.cpp/blob/master/docs/ops.md",
+  "docs_url": null,
   "featured": false,
   "features": [
     "OpenAI-compatible API",
     "Docker available",
     "REST API",
+    "Quantization",
     "GUI/no-code"
   ],
   "fine_tuning": 0,
@@ -31,19 +32,20 @@
     "GPU (NVIDIA)",
     "GPU (AMD)",
     "GPU (Apple Silicon)",
-    "NPU",
     "Edge Device"
   ],
   "language": [
     "C++"
   ],
-  "last_updated": "2026-07-22",
-  "last_verified": "2026-07-22",
+  "last_updated": "2026-11-24",
+  "last_verified": "2026-11-24",
   "license": "MIT",
   "maturity": "Production / Stable",
   "min_ram_gb": null,
-  "model_format": [],
-  "offline_after_setup": 0,
+  "model_format": [
+    "GGUF"
+  ],
+  "offline_after_setup": 1,
   "openai_api": 1,
   "paid_support": 0,
   "personas": [
@@ -51,47 +53,27 @@
     "Business Owner",
     "Indie Hacker"
   ],
-  "plain_description": "Run powerful AI models on your own hardware — no cloud subscription needed. llama.cpp lets you chat with, serve, and experiment with hundreds of open-source LLMs locally on almost any device, from laptops to servers. The big picture: private, offline AI inference that's fast, free, and under your control.",
-  "popularity_score": 121242,
-  "quantization": 0,
+  "plain_description": "**Run large language models locally or in the cloud with minimal setup.** Use the command line or built-in chat app to interact with models. Serve models through an OpenAI-compatible API.",
+  "popularity_score": 136118,
+  "quantization": 1,
   "recommended_ram_gb": null,
   "rest_api": 1,
   "setup_difficulty": "Medium",
   "slug": "llama-cpp",
-  "tag": "LLM Inference Engine",
-  "technical_description": "llama.cpp is a C/C++ inference engine for large language models (LLMs) that runs on CPU, GPU (NVIDIA CUDA, AMD HIP, Apple Metal, Vulkan, SYCL, Intel OpenVINO, Qualcomm Hexagon, and more). It loads models in the GGUF format and provides a CLI tool (llama-cli), an OpenAI-compatible HTTP server (llama-server), and a WebUI. The server exposes REST endpoints for chat completions, embeddings, reranking, and supports speculative decoding, grammar-constrained generation, and multimodal inputs. Quantization from 1.5-bit to 8-bit reduces memory footprint. Bindings exist for Python, Node.js, Go, Rust, Java, C#, Swift, and others.",
+  "tag": "LLM inference",
+  "technical_description": "llama.cpp enables LLM and multimodal LLM inference with minimal setup and performance across a wide range of hardware, locally and in the cloud. It is built on ggml and offers command-line tools, a built-in chat app, and an OpenAI-compatible API server.",
   "telemetry": "Unknown",
   "title": "llama.cpp",
   "url": "https://github.com/ggml-org/llama.cpp",
   "use_cases": [
     "Chat Assistant",
-    "RAG",
-    "Agentic Workflows",
-    "Code Generation",
     "Model Serving",
-    "Vector Search",
-    "Data Extraction",
-    "Translation",
-    "Summarization",
-    "Document Processing"
+    "Speech-to-Text",
+    "Text-to-Speech",
+    "Image Generation"
   ],
   "works_with": [
-    "llama.vscode",
-    "llama.vim",
-    "Ollama",
-    "LocalAI",
-    "LM Studio",
-    "GPT4All",
-    "text-generation-webui",
-    "Jan",
-    "KoboldCPP",
-    "LLMFarm",
-    "LLMUnity",
-    "MindMac",
-    "PocketPal AI",
-    "llamafile",
-    "GPUStack",
-    "LLMKube",
-    "llmaz"
+    "ggml",
+    "Hugging Face"
   ]
 }

@@ -6,7 +6,7 @@
   "community_guides_count": 0,
   "community_notes": [],
   "community_notes_count": 0,
-  "date-added": "2026-07-22",
+  "date-added": "2026-11-24",
   "deployment": [
     "Docker",
     "Bare Metal"
@@ -16,49 +16,52 @@
   "featured": false,
   "features": [
     "OpenAI-compatible API",
-    "Docker available",
-    "REST API"
+    "Docker available"
   ],
   "fine_tuning": 0,
   "github_url": "https://github.com/theroyallab/tabbyAPI",
   "gui_available": 0,
   "hardware": [
-    "GPU (NVIDIA)"
+    "GPU (NVIDIA)",
+    "GPU (AMD)"
   ],
   "language": [
     "Python"
   ],
-  "last_updated": "2026-07-18",
-  "last_verified": "2026-07-22",
+  "last_updated": "2026-11-14",
+  "last_verified": "2026-11-24",
   "license": "AGPL-3.0",
   "maturity": "Alpha",
   "min_ram_gb": null,
-  "model_format": [],
-  "offline_after_setup": 1,
+  "model_format": [
+    "PyTorch"
+  ],
+  "offline_after_setup": 0,
   "openai_api": 1,
   "paid_support": 0,
   "personas": [
     "Developer"
   ],
-  "plain_description": "TabbyAPI lets you run powerful open-source LLMs on your own hardware with a simple API that works just like OpenAI's. It's built specifically for ExLlama models, giving you fast inference with features like tool calling, structured output, and concurrent users. The bottom line: get private, low-latency AI without depending on external services.",
-  "popularity_score": 1282,
+  "plain_description": "**Run fast local language models through an API for your applications.** Load and manage models, download them from Hugging Face, and serve concurrent requests. Docker images are available for NVIDIA and AMD GPUs.",
+  "popularity_score": 1533,
   "quantization": 0,
   "recommended_ram_gb": null,
-  "rest_api": 1,
+  "rest_api": 0,
   "setup_difficulty": "Medium",
   "slug": "tabbyapi",
-  "tag": "Model Serving",
-  "technical_description": "TabbyAPI is a FastAPI-based inference server for ExLlamaV3 models that exposes an OpenAI-compatible API endpoint for text generation and embeddings. It uses a continuous batching engine with paged attention for concurrent request handling on NVIDIA Ampere+ GPUs. The server supports speculative decoding via draft models, JSON schema / Regex / EBNF constrained generation, and OAI-style tool/function calling with Jinja2 template support. Deployment is available via Docker (CUDA image on GHCR) or bare metal, with model loading from HuggingFace or local storage.",
-  "telemetry": "None",
+  "tag": "LLM inference",
+  "technical_description": "A FastAPI-based inference server and the official API backend for ExllamaV3. It supports OpenAI-compatible chat completions and tool/function calling, model loading and unloading, Hugging Face downloads, embeddings, speculative decoding, and concurrent inference. Supported model types include Exl3 and FP16/BF16.",
+  "telemetry": "Unknown",
   "title": "TabbyAPI",
   "url": "https://github.com/theroyallab/tabbyAPI",
   "use_cases": [
     "Chat Assistant",
-    "Model Serving",
-    "Vector Search",
-    "Agentic Workflows"
+    "Model Serving"
   ],
   "works_with": [
-    "AI Horde"
+    "ExllamaV3",
+    "Hugging Face",
+    "FastAPI",
+    "OpenAI-compatible clients"
   ]
 }

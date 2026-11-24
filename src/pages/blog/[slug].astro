@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import SeoHead from "../../components/SeoHead.astro";
+import PreferredSourceBadge from "../../components/PreferredSourceBadge.astro";
 import { getCollection, render } from "astro:content";
 
 export async function getStaticPaths() {
@@ -68,6 +69,12 @@ const articleSchema = {
                 </p>
                 <div class="text-brand-forest/80 text-base sm:text-lg font-medium leading-relaxed prose max-w-none">
                     <Content />
+                </div>
+                <div class="mt-12 pt-8 border-t border-brand-forest/10">
+                    <PreferredSourceBadge
+                        align="start"
+                        copy="Make Enclavetools a preferred source in Google Search"
+                    />
                 </div>
             </article>
             <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />

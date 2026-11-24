@@ -1,21 +1,21 @@
 {
-  "body": "Open baseline for semantic ifs that reads typed option probabilities straight from open models with no text generation.",
+  "body": "Semantic ifs from open models, on a 3090 at home. Independent; not affiliated with Jev or TypeSafe.",
   "category": "decision-models",
   "commercial_use": 1,
   "community_guides": [],
   "community_guides_count": 0,
   "community_notes": [],
   "community_notes_count": 0,
-  "date-added": "2026-09-24",
+  "date-added": "2026-11-24",
   "deployment": [
-    "Bare Metal"
+    "Bare Metal",
+    "Browser Extension"
   ],
   "docker_available": 0,
-  "docs_url": "https://github.com/TheoLeeCJ/SemIf-OpenJev/tree/master/docs",
+  "docs_url": null,
   "featured": false,
   "features": [
-    "GUI/no-code",
-    "Quantization"
+    "GUI/no-code"
   ],
   "fine_tuning": 0,
   "github_url": "https://github.com/TheoLeeCJ/SemIf-OpenJev",
@@ -26,35 +26,34 @@
     "GPU (Apple Silicon)"
   ],
   "language": [
-    "Python",
-    "JavaScript"
+    "Python"
   ],
   "last_updated": "2026-09-23",
-  "last_verified": "2026-09-24",
+  "last_verified": "2026-11-24",
   "license": "MIT",
   "maturity": "Experimental",
   "min_ram_gb": null,
   "model_format": [
-    "safetensors",
-    "PyTorch",
     "GGUF",
+    "PyTorch",
     "MLX"
   ],
   "offline_after_setup": 1,
   "openai_api": 0,
   "paid_support": 0,
   "personas": [
-    "Developer"
+    "Developer",
+    "Business Owner"
   ],
-  "plain_description": "SemIf helps your agent make small everyday calls — route this request, retry that step, or check whether the evidence supports a claim — without waiting for a chatbot to write out an answer. It looks directly at what an open model already believes about your options and turns that into clear probabilities you can branch on. It runs at home on a single GPU, on Apple Silicon, or entirely in your browser, so you can test fast local decisions with nothing locked away.",
-  "popularity_score": 4185,
-  "quantization": 1,
+  "plain_description": "**Make fast, structured decisions with open models, without waiting for a generated answer.** Supply a state, criteria, and options to get probabilities for each option. Run the browser demo or use the Python scoring tools.",
+  "popularity_score": 4976,
+  "quantization": 0,
   "recommended_ram_gb": null,
   "rest_api": 0,
-  "setup_difficulty": "Medium",
+  "setup_difficulty": "Hard",
   "slug": "semif-openjev",
-  "tag": "Semantic Ifs",
-  "technical_description": "SemIf is a Python decision-scoring baseline with JavaScript browser demos that evaluates runtime-defined questions against frozen open models like Qwen3.5-4B and MiniCPM5-2B. One forward pass reads native option logits into typed probabilities with prompt hashes, pinned revisions, and per-workload temperature calibration, avoiding sampling, JSON repair, or decoding loops. Execution modes cover direct scoring, serial prefix reuse, and parallel shared-state suffixes, with backends for CUDA Torch, llama.cpp GGUF on CPU, MLX and MPS on Apple Silicon, EXL3 quantized runners, and WebGPU via wllama and Vue. Results, fixtures, timings, and checksums are committed for audit, and input states may be plain text or structured JSON.",
+  "tag": "Decision models",
+  "technical_description": "SemIf reads typed option probabilities directly from open language models for runtime-defined decisions. It supports Python scoring with CUDA, Apple Silicon MPS and MLX, or CPU via llama.cpp and local GGUF checkpoints. A browser demo runs models with WebGPU. Includes state reuse, calibration, benchmarks, and reproducible evaluation artifacts.",
   "telemetry": "Unknown",
   "title": "SemIf",
   "url": "https://openjev.com",
@@ -63,11 +62,15 @@
     "Data Extraction"
   ],
   "works_with": [
-    "Hugging Face Hub",
-    "PyTorch",
-    "Qwen",
-    "llama.cpp",
+    "Python",
+    "CUDA",
+    "Apple Silicon",
     "MLX",
+    "PyTorch/MPS",
+    "llama.cpp",
+    "GGUF",
+    "Qwen",
+    "MiniCPM5",
     "WebGPU"
   ]
 }
