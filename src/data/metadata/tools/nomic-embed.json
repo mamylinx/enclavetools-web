@@ -1,5 +1,5 @@
 {
-  "body": "sentence-similarity",
+  "body": "A multilingual mixture-of-experts embedding model for semantic search and text retrieval.",
   "category": "embedding-models",
   "commercial_use": 1,
   "community_guides": [],
@@ -149,7 +149,7 @@
   "tag": "Embedding",
   "technical_description": "Nomic Embed v2 is a multilingual mixture-of-experts text embedding model with 475M total parameters and 305M active during inference. It supports embedding dimensions from 768 down to 256 using Matryoshka representations, and accepts inputs up to 512 tokens. The README provides usage through Transformers and SentenceTransformers, with search_query: and search_document: prefixes.",
   "telemetry": "Unknown",
-  "title": "Nomic Embed v2",
+  "title": "nomic-embed-text-v2-moe",
   "url": "https://huggingface.co/nomic-ai/nomic-embed-text-v2-moe",
   "use_cases": [
     "Vector Search",

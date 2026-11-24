@@ -1,5 +1,5 @@
 {
-  "body": "Focus on prompting and generating",
+  "body": "An image generation interface that simplifies prompting and running Stable Diffusion models locally.",
   "category": "image-generation",
   "commercial_use": 1,
   "community_guides": [],

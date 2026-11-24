@@ -1,5 +1,5 @@
 {
-  "body": "sentence-similarity",
+  "body": "An instruction-tuned text embedding model for multilingual retrieval and semantic similarity.",
   "category": "embedding-models",
   "commercial_use": 1,
   "community_guides": [],

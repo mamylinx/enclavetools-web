@@ -1,5 +1,5 @@
 {
-  "body": "Robust Speech Recognition via Large-Scale Weak Supervision",
+  "body": "A speech recognition model for multilingual transcription and translation into English.",
   "category": "speech-to-text",
   "commercial_use": 1,
   "community_guides": [],

@@ -1,5 +1,5 @@
 {
-  "body": "🐸💬 - a deep learning toolkit for Text-to-Speech, battle-tested in research and production",
+  "body": "A deep learning toolkit for training and running text-to-speech models.",
   "category": "text-to-speech",
   "commercial_use": 1,
   "community_guides": [],

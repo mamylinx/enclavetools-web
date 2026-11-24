@@ -1,5 +1,5 @@
 {
-  "body": "Natively multimodal model with a 12B parameter decoder and 400M parameter vision encoder, supporting variable image sizes and 128k context length.",
+  "body": "A multimodal model with a 12B-parameter text decoder, support for variable image sizes, and a 128K context window.",
   "category": "vision-multimodal",
   "commercial_use": 1,
   "community_guides": [],

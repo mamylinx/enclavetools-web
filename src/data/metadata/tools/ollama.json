@@ -1,5 +1,5 @@
 {
-  "body": "Get up and running with Kimi, GLM, MiniMax, DeepSeek, gpt-oss, Qwen, Gemma and other models.",
+  "body": "Run open models locally or in the cloud, chat with them, or integrate them into applications through an API.",
   "category": "llm-inference",
   "commercial_use": 1,
   "community_guides": [],

@@ -1,5 +1,5 @@
 {
-  "body": "Ray is an AI compute engine. Ray consists of a core distributed runtime and a set of AI Libraries for accelerating ML workloads.",
+  "body": "A scalable model serving library for building online inference APIs.",
   "category": "deployment",
   "commercial_use": 1,
   "community_guides": [],
@@ -56,7 +56,7 @@
   "tag": "deployment",
   "technical_description": "Ray is a framework for scaling Python and AI applications. It combines a distributed runtime with libraries for scalable datasets, distributed training, hyperparameter tuning, reinforcement learning, and programmable serving. Ray runs on machines, clusters, cloud providers, and Kubernetes; it can be installed with `pip install ray`.",
   "telemetry": "Unknown",
-  "title": "Ray",
+  "title": "Ray Serve",
   "url": "https://docs.ray.io/en/latest/serve/index.html",
   "use_cases": [
     "Model Serving"

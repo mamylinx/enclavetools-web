@@ -50,7 +50,7 @@
   "tag": "3D data processing",
   "technical_description": "Open3D is an open-source C++ and Python library for 3D data processing. It provides data structures and algorithms for scene reconstruction, surface alignment, visualization, physically based rendering, and 3D machine learning with PyTorch and TensorFlow. Core 3D operations support GPU acceleration.",
   "telemetry": "Unknown",
-  "title": "Open3D: A Modern Library for 3D Data Processing",
+  "title": "Open3D",
   "url": "http://www.open3d.org/",
   "use_cases": [
     "Image Generation"

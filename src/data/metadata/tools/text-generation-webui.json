@@ -1,5 +1,5 @@
 {
-  "body": "Open-source desktop app for local LLMs. Text, vision, tool-calling, OpenAI/Anthropic-compatible API. 100% private.",
+  "body": "An open-source desktop app for local LLMs with text, vision, tool calling, and API access.",
   "category": "chat-interfaces",
   "commercial_use": 1,
   "community_guides": [],

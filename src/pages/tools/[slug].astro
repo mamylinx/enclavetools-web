@@ -41,7 +41,7 @@ const allTools = toolsData.tools.flatMap((cat: any) =>
 
 const tool = allTools.find((t: any) => t.slug === slug);
 if (!tool) {
-  return Astro.redirect("/404");
+  return Astro.rewrite("/404");
 }
 
 const category = tool.category;

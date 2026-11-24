@@ -1,5 +1,5 @@
 {
-  "body": "feature-extraction",
+  "body": "A multilingual text embedding model for semantic search and passage retrieval.",
   "category": "embedding-models",
   "commercial_use": 1,
   "community_guides": [],
@@ -140,7 +140,7 @@
   "tag": "Embedding model",
   "technical_description": "A multilingual text embedding model with 24 layers and 1024-dimensional embeddings. Inputs are prefixed with “query: ” or “passage: ” depending on the task, tokenized to a maximum of 512 tokens, and mean pooled with attention masks before normalization. The model supports 100 languages; low-resource languages may see lower performance. Usage examples are provided for Transformers and Sentence Transformers.",
   "telemetry": "Unknown",
-  "title": "Multilingual-E5-large",
+  "title": "multilingual-e5-large",
   "url": "https://huggingface.co/intfloat/multilingual-e5-large",
   "use_cases": [
     "Vector Search"

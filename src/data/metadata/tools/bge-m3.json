@@ -1,5 +1,5 @@
 {
-  "body": "sentence-similarity",
+  "body": "A multilingual embedding model for dense, sparse, and multi-vector text retrieval.",
   "category": "embedding-models",
   "commercial_use": 1,
   "community_guides": [],

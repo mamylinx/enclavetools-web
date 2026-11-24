@@ -1,5 +1,5 @@
 {
-  "body": "text-generation",
+  "body": "An 8-billion-parameter instruction-tuned language model for dialogue and text generation.",
   "category": "llm-models",
   "commercial_use": 0,
   "community_guides": [],
@@ -41,7 +41,7 @@
   "tag": "LLM",
   "technical_description": "The repository metadata identifies a text-generation model using the Transformers library and safetensors format. The README is empty, so the supplied sources do not establish its capabilities, setup, deployment options, or API support.",
   "telemetry": "Unknown",
-  "title": "Meta Llama 3 8B Instruct",
+  "title": "Meta-Llama-3-8B-Instruct",
   "url": "https://ai.meta.com/llama/",
   "use_cases": [],
   "works_with": [

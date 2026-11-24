@@ -1,5 +1,5 @@
 {
-  "body": "Qdrant - High-performance, massive-scale Vector Database and Vector Search Engine for the next generation of AI. Also available in the cloud https://cloud.qdrant.io/",
+  "body": "A vector database and search engine for large-scale similarity search.",
   "category": "vector-databases",
   "commercial_use": 1,
   "community_guides": [],

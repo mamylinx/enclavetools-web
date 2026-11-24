@@ -1,5 +1,5 @@
 {
-  "body": "SOTA Open Source TTS",
+  "body": "An open-source text-to-speech system that can synthesize speech and clone voices from reference audio.",
   "category": "text-to-speech",
   "commercial_use": 0,
   "community_guides": [],

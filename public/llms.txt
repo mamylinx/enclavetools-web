@@ -1,30 +1,75 @@
 # Enclavetools
-172 verified self-hosted AI tools curated by agents for founders and SMBs
 
-## Categories
+> Enclavetools is a curated directory of self-hosted AI software for people and teams running models on their own hardware. It covers local LLMs, inference engines, document search, AI agents, and deployment tools, with listings that document hardware requirements, licensing, offline operation, and telemetry.
 
-- [All Tools](https://enclavetools.com/all)
-- [LLM Inference Engines](https://enclavetools.com/llm-inference)
-- [LLM Models](https://enclavetools.com/llm-models)
-- [Vector Databases](https://enclavetools.com/vector-databases)
-- [Agent Frameworks](https://enclavetools.com/agent-frameworks)
-- [Chat Interfaces](https://enclavetools.com/chat-interfaces)
-- [RAG & Document Processing](https://enclavetools.com/rag-document)
-- [Speech to Text](https://enclavetools.com/speech-to-text)
-- [Text to Speech](https://enclavetools.com/text-to-speech)
-- [Image Generation](https://enclavetools.com/image-generation)
-- [Fine-tuning & Training](https://enclavetools.com/fine-tuning-training)
-- [Monitoring & Observability](https://enclavetools.com/monitoring-observability)
-- [Privacy & Security](https://enclavetools.com/privacy-security)
-- [Embedding Models](https://enclavetools.com/embedding-models)
-- [Decision Models](https://enclavetools.com/decision-models)
-- [Deployment](https://enclavetools.com/deployment)
-- [Agent &amp; Workflow Automation](https://enclavetools.com/workflow-automation)
-- [Video Generation](https://enclavetools.com/video-generation)
-- [Vision & Multimodal](https://enclavetools.com/vision-multimodal)
-- [Code Assistants](https://enclavetools.com/code-assistants)
-- [Data Utilities](https://enclavetools.com/data-utilities)
+Use individual tool profiles for setup instructions, supported platforms, compatibility, and verification dates. Offline operation after setup, outbound telemetry, and commercial-use terms are documented separately because they can vary by tool, version, and configuration.
 
-## About
+## Directory and methodology
 
-Enclavetools is the directory of self-hosted AI tools that run on your own hardware. Every tool is audited for zero data leakage — no APIs, no surveillance, no vendor lock-in.
+- [Browse all self-hosted AI tools](https://enclavetools.com/all): Find and filter tools by category, hardware, deployment method, license, and offline capability.
+- [Enclavetools review methodology](https://enclavetools.com/about#methodology): How the directory reviews source code, telemetry, hardware requirements, and project health before publishing listings.
+- [LLM Sizing Calculator](https://enclavetools.com/llm-sizing-calculator): Estimate memory and hardware requirements for running a local LLM.
+- [Enclavetools blog](https://enclavetools.com/blog): Research and practical guides on local AI privacy, hardware, deployment, and costs.
+
+## Tool categories
+
+- [LLM Inference Engines](https://enclavetools.com/llm-inference): Runtimes and serving software for running language models locally.
+- [LLM Models](https://enclavetools.com/llm-models): Language models that can run on self-managed hardware.
+- [Chat Interfaces](https://enclavetools.com/chat-interfaces): Desktop and web interfaces for local LLM chat.
+- [RAG & Document Processing](https://enclavetools.com/rag-document): Tools for document ingestion, parsing, and retrieval-augmented generation.
+- [Vector Databases](https://enclavetools.com/vector-databases): Self-hosted vector storage and similarity search.
+- [Embedding Models](https://enclavetools.com/embedding-models): Models for turning data into vectors for search and retrieval.
+- [Agent Frameworks](https://enclavetools.com/agent-frameworks): Frameworks for building AI agents and coordinating tool calls.
+- [Agent & Workflow Automation](https://enclavetools.com/workflow-automation): Tools for composing and running automated AI workflows.
+- [Code Assistants](https://enclavetools.com/code-assistants): Local AI tools for code completion, chat, and development workflows.
+- [Speech to Text](https://enclavetools.com/speech-to-text): Local audio transcription and speech recognition.
+- [Text to Speech](https://enclavetools.com/text-to-speech): Self-hosted speech synthesis.
+- [Image Generation](https://enclavetools.com/image-generation): Local image generation models and interfaces.
+- [Video Generation](https://enclavetools.com/video-generation): Self-hosted tools and models for generating video.
+- [Vision & Multimodal](https://enclavetools.com/vision-multimodal): Models and tools that process images alongside other inputs.
+- [Decision Models](https://enclavetools.com/decision-models): Models and frameworks for decision-making and action selection.
+- [Fine-tuning & Training](https://enclavetools.com/fine-tuning-training): Tools for adapting and training AI models on your own infrastructure.
+- [Deployment](https://enclavetools.com/deployment): Tools for packaging, deploying, and operating self-hosted AI applications.
+- [Monitoring & Observability](https://enclavetools.com/monitoring-observability): Tools for tracing, evaluating, and monitoring AI applications.
+- [Privacy & Security](https://enclavetools.com/privacy-security): Tools for protecting data and assessing local AI security.
+- [Data Utilities](https://enclavetools.com/data-utilities): Utilities for preparing and working with data in local AI workflows.
+
+## Selected tool profiles
+
+- [Ollama](https://enclavetools.com/tools/ollama): Local model runner with a command-line interface and API.
+- [llama.cpp](https://enclavetools.com/tools/llama-cpp): Local inference engine for GGUF models with CPU and GPU support.
+- [vLLM](https://enclavetools.com/tools/vllm): LLM serving engine designed for high-throughput inference.
+- [LocalAI](https://enclavetools.com/tools/localai): Self-hosted AI server with an OpenAI-compatible API.
+- [Open WebUI](https://enclavetools.com/tools/open-webui): Self-hosted browser interface for chatting with LLMs.
+- [GPT4All](https://enclavetools.com/tools/gpt4all): Desktop application for running language models locally.
+- [AnythingLLM](https://enclavetools.com/tools/anythingllm): Local chat and retrieval-augmented generation with document workspaces.
+- [Qdrant](https://enclavetools.com/tools/qdrant): Vector database for similarity search and retrieval.
+- [Whisper](https://enclavetools.com/tools/whisper): Speech recognition and transcription model.
+- [ComfyUI](https://enclavetools.com/tools/comfyui): Node-based interface for local generative AI workflows.
+
+## Privacy, telemetry, and offline deployment
+
+- [How We Audit Local AI Telemetry](https://enclavetools.com/blog/how-we-audit-ai-tool-telemetry): Methods for reviewing source and observing outbound network behavior.
+- [12-Point Audit for Local LLM Telemetry](https://enclavetools.com/blog/hidden-telemetry-checklist): Checklist for background telemetry, update checks, and cloud dependencies.
+- [Verify Vendor No-Telemetry Claims Yourself](https://enclavetools.com/blog/how-to-verify-vendor-no-telemetry-claim): Independent checks using packet captures and binary inspection.
+- [Ollama vs LM Studio vs GPT4All Offline](https://enclavetools.com/blog/ollama-vs-lm-studio-vs-gpt4all-offline): Comparison of offline operation and telemetry.
+- [Privacy Tradeoffs of Local RAG](https://enclavetools.com/blog/local-llm-tools-built-in-rag-privacy): Privacy considerations for document parsing, embeddings, and vector storage.
+- [Air-Gapped LLMs](https://enclavetools.com/blog/air-gapped-llm-deployment-what-breaks): Network dependencies that can break disconnected deployments.
+- [Docker and Offline AI Deployment](https://enclavetools.com/blog/docker-and-offline-ai-deployment): Preparing containers, model weights, and dependencies for offline use.
+- [GDPR and HIPAA Considerations for Local LLMs](https://enclavetools.com/blog/gdpr-hipaa-local-llms-compliance): Data protection and operational controls to consider alongside local hosting.
+
+## Hardware, inference, and cost
+
+- [VRAM Cheat Sheet for Local LLMs](https://enclavetools.com/blog/how-much-vram-do-you-actually-need): How parameter count and quantization affect memory requirements.
+- [llama.cpp vs vLLM vs LocalAI](https://enclavetools.com/blog/choosing-inference-engine-llamacpp-vllm-localai): Compare memory efficiency, throughput, and API compatibility.
+- [CPU-Only LLM Inference](https://enclavetools.com/blog/cpu-only-inference-2026): Performance and memory bandwidth when running without a GPU.
+- [Apple Silicon vs NVIDIA for Local LLMs](https://enclavetools.com/blog/apple-silicon-vs-nvidia-local-llm): Compare unified memory, discrete VRAM, and inference performance.
+- [Multi-GPU Setups for Local LLMs](https://enclavetools.com/blog/multi-gpu-setups-for-local-llms): When to split inference across GPUs using tensor or pipeline parallelism.
+- [Sizing LLM Hardware for 50 Users](https://enclavetools.com/blog/sizing-on-prem-llm-server-50-person-team): Worked example for sizing GPUs, VRAM, RAM, and a server.
+- [Fine-Tuning vs Inference Hardware Limits](https://enclavetools.com/blog/fine-tuning-vs-inference-hardware-requirements): Compare compute, VRAM, and memory bandwidth requirements.
+- [Self-Hosting vs API Break-Even Analysis](https://enclavetools.com/blog/true-cost-self-hosting-vs-api-calls): Compare local infrastructure costs with cloud API token prices.
+
+## Optional
+
+- [Enclavetools homepage](https://enclavetools.com/): Overview of the directory and its tools.
+- [XML sitemap index](https://enclavetools.com/sitemap-index.xml): Find the full set of sitemap-listed pages, including individual tool profiles and blog posts.

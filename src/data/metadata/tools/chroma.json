@@ -1,5 +1,5 @@
 {
-  "body": "Search infrastructure for AI",
+  "body": "Search infrastructure for AI applications that stores and retrieves embeddings and documents.",
   "category": "vector-databases",
   "commercial_use": 1,
   "community_guides": [],

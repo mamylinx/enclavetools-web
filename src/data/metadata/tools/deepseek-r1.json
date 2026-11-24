@@ -1,5 +1,5 @@
 {
-  "body": "text-generation",
+  "body": "An open-weight reasoning model for math, coding, and other multi-step problems.",
   "category": "llm-models",
   "commercial_use": 1,
   "community_guides": [],

@@ -1,5 +1,5 @@
 {
-  "body": "[NeurIPS'23 Oral] Visual Instruction Tuning (LLaVA) built towards GPT-4V level capabilities and beyond.",
+  "body": "A vision-language model that follows instructions and answers questions about images.",
   "category": "vision-multimodal",
   "commercial_use": 1,
   "community_guides": [],
@@ -55,7 +55,7 @@
   "tag": "Multimodal AI",
   "technical_description": "LLaVA is a visual instruction tuning project for large language and vision models. It provides pretrained checkpoints, image chat via a Gradio web interface or CLI, model serving workers, evaluation tools, and scripts for pretraining and fine-tuning, including LoRA. The README documents GPU-based inference and training, with Apple M1/M2 MPS support and quantized 4-bit or 8-bit inference.",
   "telemetry": "Unknown",
-  "title": "LLaVA: Large Language and Vision Assistant",
+  "title": "LLaVA",
   "url": "https://github.com/haotian-liu/LLaVA",
   "use_cases": [
     "Chat Assistant",

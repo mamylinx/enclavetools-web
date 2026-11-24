@@ -1,5 +1,5 @@
 {
-  "body": "The most powerful and modular diffusion model GUI, api and backend with a graph/nodes interface. The fastest local inference engine in the world.",
+  "body": "A node-based interface, API, and engine for running local generative AI workflows.",
   "category": "image-generation",
   "commercial_use": 1,
   "community_guides": [],

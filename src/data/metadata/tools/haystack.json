@@ -1,5 +1,5 @@
 {
-  "body": "Open-source LLM orchestration framework for building customizable, production-ready AI agents and RAG pipelines.",
+  "body": "An open-source Python framework for building modular AI agents, retrieval pipelines, and search applications.",
   "category": "agent-frameworks",
   "commercial_use": 1,
   "community_guides": [],

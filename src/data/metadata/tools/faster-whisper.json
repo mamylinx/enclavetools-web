@@ -49,7 +49,7 @@
   "tag": "Speech-to-text",
   "technical_description": "A Python reimplementation of OpenAI Whisper using CTranslate2 for audio transcription. Supports CPU and NVIDIA GPU inference, batched transcription, word-level timestamps, voice activity detection, and 8-bit quantization. Whisper models can be converted to CTranslate2 format, including user fine-tuned models.",
   "telemetry": "Unknown",
-  "title": "Faster Whisper transcription with CTranslate2",
+  "title": "Faster Whisper",
   "url": "https://github.com/SYSTRAN/faster-whisper",
   "use_cases": [
     "Speech-to-Text"

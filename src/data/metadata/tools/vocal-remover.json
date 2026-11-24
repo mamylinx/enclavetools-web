@@ -48,7 +48,7 @@
   "tag": "Data utilities",
   "technical_description": "A Python deep-learning tool that separates an input audio file into instrumental and vocal WAV tracks. It supports CPU and GPU inference, optional test-time augmentation and postprocessing, and training on a user-provided dataset. Installation requires PyTorch and the packages in requirements.txt.",
   "telemetry": "Unknown",
-  "title": "Vocal Remover",
+  "title": "vocal-remover",
   "url": "https://github.com/tsurumeso/vocal-remover",
   "use_cases": [
     "Document Processing",

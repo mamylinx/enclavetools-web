@@ -1,5 +1,5 @@
 {
-  "body": "A collaboration friendly studio for NeRFs",
+  "body": "A toolkit for training, viewing, and exporting neural radiance fields.",
   "category": "vision-multimodal",
   "commercial_use": 1,
   "community_guides": [],

@@ -1,5 +1,5 @@
 {
-  "body": "TensorRT LLM provides users with an easy-to-use Python API to define Large Language Models (LLMs) and supports state-of-the-art optimizations to perform inference efficiently on NVIDIA GPUs. TensorRT LLM also contains components to create Python and C++ runtimes that orchestrate the inference execution in a performant way.",
+  "body": "An NVIDIA library and runtime for optimizing and serving large language models on GPUs.",
   "category": "llm-inference",
   "commercial_use": 0,
   "community_guides": [],

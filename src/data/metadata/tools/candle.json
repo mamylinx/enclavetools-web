@@ -58,7 +58,7 @@
   "tag": "LLM inference",
   "technical_description": "Candle is a minimalist Rust machine learning framework with tensor operations, neural network tools, datasets, transformer utilities, and model examples. It supports optimized CPU execution, NVIDIA CUDA GPUs, Apple Accelerate, and WebAssembly. It can load safetensors, npz, ggml, and PyTorch files, and includes quantization support and ONNX model evaluation.",
   "telemetry": "Unknown",
-  "title": "Candle",
+  "title": "candle",
   "url": "https://github.com/huggingface/candle",
   "use_cases": [
     "Fine-Tuning",

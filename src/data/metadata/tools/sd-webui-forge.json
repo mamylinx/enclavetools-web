@@ -1,5 +1,5 @@
 {
-  "body": "Platform built on top of Stable Diffusion WebUI to optimize resource management, speed up inference, and support experimental features like Flux and GGUF models.",
+  "body": "A version of Stable Diffusion WebUI that improves memory use and inference speed and supports experimental models.",
   "category": "image-generation",
   "commercial_use": 1,
   "community_guides": [],

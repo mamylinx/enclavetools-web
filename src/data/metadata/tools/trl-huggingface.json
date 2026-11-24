@@ -52,7 +52,7 @@
   "tag": "Fine-tuning",
   "technical_description": "TRL is a Python library for post-training transformer foundation models. It provides trainers for supervised fine-tuning, GRPO, DPO, KTO, and reward modeling, plus a CLI. It builds on Transformers and supports distributed training through Accelerate, DDP, DeepSpeed, and FSDP. PEFT integration supports LoRA/QLoRA, and AsyncGRPOTrainer can use a vLLM server for generation.",
   "telemetry": "Unknown",
-  "title": "TRL - Transformers Reinforcement Learning",
+  "title": "TRL",
   "url": "https://github.com/huggingface/trl",
   "use_cases": [
     "Fine-Tuning"

@@ -49,7 +49,7 @@
   "tag": "Speech-to-Text",
   "technical_description": "An open source offline speech recognition toolkit with models around 50 MB, continuous large-vocabulary transcription, streaming responses, configurable vocabulary, and speaker identification. Provides bindings for Python, Java, Node.js, C#, C++, Rust, Go, and other languages, and supports Android, iOS, Raspberry Pi, and servers.",
   "telemetry": "Unknown",
-  "title": "Vosk Speech Recognition Toolkit",
+  "title": "Vosk API",
   "url": "https://github.com/alphacep/vosk-api",
   "use_cases": [
     "Speech-to-Text",

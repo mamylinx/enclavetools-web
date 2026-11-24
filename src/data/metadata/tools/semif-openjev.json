@@ -1,5 +1,5 @@
 {
-  "body": "Semantic ifs from open models, on a 3090 at home. Independent; not affiliated with Jev or TypeSafe.",
+  "body": "Evaluate semantic conditions with local language models to make decisions in code.",
   "category": "decision-models",
   "commercial_use": 1,
   "community_guides": [],

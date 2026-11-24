@@ -1,5 +1,5 @@
 {
-  "body": "Orchestrate everything, everywhere. The open-source control plane for workflows across data, infrastructure, business processes and AI agents. Declarative YAML, event-driven, any language, Git-versioned, scalable to millions of executions.",
+  "body": "An open-source platform for orchestrating event-driven workflows across data, infrastructure, and AI.",
   "category": "workflow-automation",
   "commercial_use": 1,
   "community_guides": [],

@@ -1,5 +1,5 @@
 {
-  "body": "An Easy-to-use, Scalable and High-performance Agentic RL Framework based on Ray (PPO & DAPO & REINFORCE++ &  VLM & TIS & vLLM & Ray & Async  RL)",
+  "body": "A distributed framework for reinforcement learning and preference tuning of large language models.",
   "category": "fine-tuning-training",
   "commercial_use": 1,
   "community_guides": [],

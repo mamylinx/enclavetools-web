@@ -1,5 +1,5 @@
 {
-  "body": "text-generation",
+  "body": "A 7-billion-parameter language model released with training data, code, and checkpoints.",
   "category": "llm-models",
   "commercial_use": 1,
   "community_guides": [],
@@ -52,7 +52,7 @@
   "tag": "LLM",
   "technical_description": "OLMo 7B is an autoregressive Transformer language model developed by the Allen Institute for AI and trained on the Dolma dataset. The README provides Hugging Face inference and fine-tuning instructions and describes model checkpoints and revisions. The code and model are released under Apache 2.0.",
   "telemetry": "Unknown",
-  "title": "OLMo 7B",
+  "title": "OLMo-7B",
   "url": "https://allenai.org/olmo",
   "use_cases": [
     "Chat Assistant",

@@ -1,5 +1,5 @@
 {
-  "body": "Build Agentic workflows, RAG pipelines, with rich AI model and tool support on one collaborative workspace. Deploy on cloud, VPC, or self-hosted, so teams move from prototype to production without rebuilding the stack.",
+  "body": "A platform for building and deploying AI agent workflows and retrieval-augmented generation pipelines.",
   "category": "workflow-automation",
   "commercial_use": 0,
   "community_guides": [],

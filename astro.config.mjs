@@ -17,20 +17,18 @@ export default defineConfig({
         }),
         sitemap({
             filter: (page) => {
-                const excluded = ['/admin', '/saved', '/submit', '/compare', '/stack-builder'];
+                const excluded = ['/404', '/admin', '/benchmark-waitlist', '/saved', '/submit', '/compare', '/stack-builder'];
                 const urlObj = new URL(page);
                 return !excluded.includes(urlObj.pathname.replace(/\/$/, ''));
             },
             serialize(item) {
-                const urlStr = item.url instanceof URL ? item.url.href : item.url;
-                // Ensure sitemap URLs don't have trailing slashes to match the canonical URL structure
-                const noSlashUrl = urlStr.endsWith('/') && urlStr.length > 'https://enclavetools.com/'.length ? urlStr.slice(0, -1) : urlStr;
+                const url = new URL(item.url);
+                if (url.pathname !== '/') {
+                    url.pathname = url.pathname.replace(/\/$/, '');
+                }
                 return {
                     ...item,
-                    url: noSlashUrl,
-                    lastmod: item.lastmod || new Date().toISOString(),
-                    changefreq: item.changefreq || 'weekly',
-                    priority: item.priority || (urlStr.includes('/tools/') ? 0.8 : 0.5),
+                    url: url.href,
                 };
             },
         })

@@ -1,5 +1,5 @@
 {
-  "body": "llmfit is a hardware-aware local LLM recommender that detects your CPU, RAM, and GPU/VRAM to tell you which open-source models will actually run well on your machine.",
+  "body": "A command-line tool that checks your hardware and identifies language models it can run.",
   "category": "data-utilities",
   "commercial_use": 1,
   "community_guides": [],

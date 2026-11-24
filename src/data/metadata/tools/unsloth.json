@@ -1,5 +1,5 @@
 {
-  "body": "Local UI to run and train LLMs and diffusion models. Supports GGUF, MLX, Qwen3.8, DeepSeek-V4.1, MiniMax-H3, Gemma 4, FLUX and more.",
+  "body": "A local interface and toolkit for running and fine-tuning language and diffusion models.",
   "category": "fine-tuning-training",
   "commercial_use": 1,
   "community_guides": [],

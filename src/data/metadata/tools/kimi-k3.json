@@ -1,5 +1,5 @@
 {
-  "body": "text-generation",
+  "body": "An open-weight multimodal model for coding and reasoning with a one-million-token context window.",
   "category": "llm-models",
   "commercial_use": 1,
   "community_guides": [],

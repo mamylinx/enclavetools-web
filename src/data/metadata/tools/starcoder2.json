@@ -1,5 +1,5 @@
 {
-  "body": "text-generation",
+  "body": "A 15-billion-parameter code model for generating and completing code across hundreds of programming languages.",
   "category": "code-assistants",
   "commercial_use": 0,
   "community_guides": [],
@@ -49,7 +49,7 @@
   "tag": "Code assistants",
   "technical_description": "StarCoder2-15B is a 15-billion-parameter text generation model trained on more than 4 trillion tokens from The Stack v2 and other selected sources. It uses a fill-in-the-middle objective and supports a 16,384-token context window. The README shows loading it with Transformers on CPU or GPU and describes 8-bit and 4-bit quantization through bitsandbytes. It is not an instruction model, and generated code may contain bugs or exploits.",
   "telemetry": "Unknown",
-  "title": "StarCoder2",
+  "title": "StarCoder2-15B",
   "url": "https://huggingface.co/bigcode/starcoder2-15b",
   "use_cases": [
     "Code Generation"

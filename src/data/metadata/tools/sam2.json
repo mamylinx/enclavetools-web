@@ -1,5 +1,5 @@
 {
-  "body": "The repository provides code for running inference with the Meta Segment Anything Model 2 (SAM 2), links for downloading the trained model checkpoints, and example notebooks that show how to use the model.",
+  "body": "A foundation model for promptable visual segmentation in images and videos.",
   "category": "vision-multimodal",
   "commercial_use": 1,
   "community_guides": [],
@@ -51,7 +51,7 @@
   "tag": "Computer vision",
   "technical_description": "SAM 2 is a promptable visual segmentation model for images and videos. The repository provides PyTorch inference APIs for image prediction, automatic mask generation, and video segmentation and tracking, plus model checkpoints, training and fine-tuning code, example notebooks, and a locally deployable web demo. Installation requires Python 3.10+, PyTorch 2.5.1+, and TorchVision 0.20.1+; a GPU machine and CUDA toolkit are recommended for installation and inference.",
   "telemetry": "Unknown",
-  "title": "SAM 2: Segment Anything in Images and Videos",
+  "title": "SAM 2",
   "url": "https://github.com/facebookresearch/sam2",
   "use_cases": [
     "Image Generation",

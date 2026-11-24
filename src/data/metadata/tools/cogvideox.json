@@ -1,5 +1,5 @@
 {
-  "body": "text and image to video generation: CogVideoX (2024) and CogVideo (ICLR 2023)",
+  "body": "A video generation model family that creates clips from text prompts or images.",
   "category": "video-generation",
   "commercial_use": 1,
   "community_guides": [],
@@ -52,7 +52,7 @@
   "tag": "Video Generation",
   "technical_description": "Open-source video generation models with inference and fine-tuning code. The repository supports SAT and Diffusers workflows, provides Gradio demos, and includes quantized inference options. Model versions vary in resolution, duration, memory use, and supported tasks; documented runs use NVIDIA GPUs.",
   "telemetry": "Unknown",
-  "title": "CogVideo & CogVideoX",
+  "title": "CogVideoX",
   "url": "https://github.com/THUDM/CogVideo",
   "use_cases": [
     "Image Generation",

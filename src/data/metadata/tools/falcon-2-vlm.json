@@ -1,5 +1,5 @@
 {
-  "body": "image-text-to-text",
+  "body": "An 11-billion-parameter vision-language model that generates text from images and prompts.",
   "category": "vision-multimodal",
   "commercial_use": 0,
   "community_guides": [],

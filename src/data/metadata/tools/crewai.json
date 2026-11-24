@@ -1,5 +1,5 @@
 {
-  "body": "Framework for orchestrating role-playing, autonomous AI agents. By fostering collaborative intelligence, CrewAI empowers agents to work together seamlessly, tackling complex tasks.",
+  "body": "A framework for orchestrating teams of role-based AI agents and coordinating their work in workflows.",
   "category": "agent-frameworks",
   "commercial_use": 1,
   "community_guides": [],

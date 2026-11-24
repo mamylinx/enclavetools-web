@@ -1,5 +1,5 @@
 {
-  "body": "text-generation",
+  "body": "A compact multimodal model for image understanding and text reasoning with a 128K-token context window.",
   "category": "vision-multimodal",
   "commercial_use": 1,
   "community_guides": [],
@@ -51,7 +51,7 @@
   "tag": "Vision",
   "technical_description": "Phi-3-Vision-128K-Instruct is a 4.2B parameter multimodal model that accepts text and image inputs and generates text responses. It supports a 128K-token context and is integrated with Transformers. The README recommends GPU use and lists NVIDIA A100, A6000, and H100 as tested hardware.",
   "telemetry": "Unknown",
-  "title": "Phi-3.5 Vision Instruct",
+  "title": "Phi-3-Vision-128K-Instruct",
   "url": "https://huggingface.co/microsoft/Phi-3-vision-128k-instruct",
   "use_cases": [
     "Document Processing",

@@ -1,5 +1,5 @@
 {
-  "body": "sentence-similarity",
+  "body": "A multilingual text embedding model for retrieval with compressed vector support.",
   "category": "embedding-models",
   "commercial_use": 1,
   "community_guides": [],
@@ -125,7 +125,7 @@
   "tag": "Embedding models",
   "technical_description": "A multilingual sentence embedding model optimized for retrieval performance and inference efficiency. It supports an 8192-token context window and Matryoshka Representation Learning at 256 dimensions; the README describes combining vector truncation with 4-bit quantization for 128-byte embeddings. Example usage is provided with Sentence Transformers, Hugging Face Transformers, and Transformers.js.",
   "telemetry": "Unknown",
-  "title": "Snowflake's Arctic-embed-l-v2.0",
+  "title": "snowflake-arctic-embed-l-v2.0",
   "url": "https://huggingface.co/Snowflake/snowflake-arctic-embed-l-v2.0",
   "use_cases": [
     "Vector Search",

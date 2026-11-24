@@ -49,7 +49,7 @@
   "tag": "text-to-speech",
   "technical_description": "An offline framework for singing voice conversion. It extracts speech features from source audio with a SoftVC encoder and feeds them into VITS without converting them to text, preserving pitch and intonation. Users prepare datasets, train models, and run inference; optional features include shallow diffusion, feature retrieval, timbre mixing, and ONNX export. It does not include models or work as a standalone synthesis tool.",
   "telemetry": "None",
-  "title": "SoftVC VITS Singing Voice Conversion",
+  "title": "so-vits-svc",
   "url": "https://github.com/svc-develop-team/so-vits-svc",
   "use_cases": [
     "Speech-to-Text"

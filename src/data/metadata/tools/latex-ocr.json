@@ -53,7 +53,7 @@
   "tag": "OCR",
   "technical_description": "pix2tex uses a learning based system with a ViT encoder, ResNet backbone, and Transformer decoder to convert images of mathematical formulas into LaTeX. It can be used through a command line tool, Python package, GUI, or an API with a Streamlit demo. The README also describes training the model with paired formula images and LaTeX labels.",
   "telemetry": "Unknown",
-  "title": "pix2tex - LaTeX OCR",
+  "title": "pix2tex",
   "url": "https://github.com/lukas-blecher/LaTeX-OCR",
   "use_cases": [
     "Data Extraction"

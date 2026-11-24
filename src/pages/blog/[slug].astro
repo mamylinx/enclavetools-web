@@ -1,6 +1,5 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import SeoHead from "../../components/SeoHead.astro";
 import PreferredSourceBadge from "../../components/PreferredSourceBadge.astro";
 import { getCollection, render } from "astro:content";
 
@@ -41,20 +40,13 @@ const articleSchema = {
     site="Enclavetools"
     title={title}
     tagline={description}
-    pageTitle={`${title} — Enclavetools Blog`}
+    pageTitle={title}
     pageDescription={description}
     keywords={["self-hosted AI", "AI privacy", "telemetry auditing", "AI infrastructure"]}
     articleAuthor={author}
+    articlePublishedTime={date.toISOString()}
+    ogType="article"
 >
-    <SeoHead
-        pageTitle={title}
-        pageDescription={description}
-        keywords={["self-hosted AI", "AI privacy", "telemetry auditing", "AI infrastructure"]}
-        articleAuthor={author}
-        articlePublishedTime={date ? date.toISOString() : "2026-07-22T00:00:00Z"}
-        ogType="article"
-    />
-
     <section class="bg-brand-bg py-20 lg:py-24 border-b border-brand-forest/10">
         <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
             <article class="max-w-3xl mx-auto">

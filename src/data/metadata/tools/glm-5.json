@@ -1,5 +1,5 @@
 {
-  "body": "text-generation",
+  "body": "An open-weight language model for complex coding, reasoning, and multi-step agent tasks.",
   "category": "llm-models",
   "commercial_use": 1,
   "community_guides": [],

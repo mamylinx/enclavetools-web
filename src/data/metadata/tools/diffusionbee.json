@@ -1,5 +1,5 @@
 {
-  "body": "Diffusion Bee is the easiest way to run Stable Diffusion locally on your M1 Mac. Comes with a one-click installer. No dependencies or technical knowledge needed.",
+  "body": "A desktop app for running Stable Diffusion locally on macOS.",
   "category": "image-generation",
   "commercial_use": 1,
   "community_guides": [],
@@ -48,7 +48,7 @@
   "tag": "Image Generation",
   "technical_description": "A macOS GUI for running Stable Diffusion locally on Intel and Apple Silicon Macs. It supports text-to-image and image-to-image generation, inpainting, outpainting, ControlNet, LoRA, image upscaling, and model downloads through the app. The README states that data stays on the computer unless the user uploads an image; downloading model weights requires a network request.",
   "telemetry": "None",
-  "title": "Diffusion Bee",
+  "title": "DiffusionBee",
   "url": "https://diffusionbee.com/",
   "use_cases": [
     "Image Generation"

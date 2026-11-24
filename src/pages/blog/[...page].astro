@@ -1,6 +1,5 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import SeoHead from "../../components/SeoHead.astro";
 import PreferredSourceBadge from "../../components/PreferredSourceBadge.astro";
 import { getCollection } from "astro:content";
 
@@ -19,18 +18,11 @@ const posts = page.data;
     site="Enclavetools"
     title="Blog"
     tagline="Insights on self-hosted AI, privacy, and due diligence"
-    pageTitle={page.currentPage > 1 ? `Blog — Page ${page.currentPage} — Enclavetools` : "Blog — Enclavetools"}
+    pageTitle={page.currentPage > 1 ? `Blog — Page ${page.currentPage}` : "Blog"}
     pageDescription="Articles on self-hosted AI, privacy-first infrastructure, and practical guidance for auditing your AI tools."
     keywords={["self-hosted AI blog", "AI privacy", "AI due diligence", "telemetry auditing", "local AI"]}
     articleAuthor="Mamy Rakotomalala"
 >
-    <SeoHead
-        pageTitle={page.currentPage > 1 ? `Blog — Page ${page.currentPage}` : "Blog"}
-        pageDescription="Articles on self-hosted AI, privacy-first infrastructure, and practical guidance for auditing your AI tools."
-        keywords={["self-hosted AI blog", "AI privacy", "AI due diligence", "telemetry auditing", "local AI"]}
-        articleAuthor="Mamy Rakotomalala"
-    />
-
     <section class="relative py-20 lg:py-24 border-b border-brand-forest/5 overflow-hidden">
         <div class="absolute inset-0 bg-linear-to-br from-brand-tealLight/30 via-brand-bg to-accent-yellow/5"></div>
         <div class="relative max-w-[1400px] mx-auto px-6 lg:px-12">

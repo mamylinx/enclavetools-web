@@ -1,5 +1,5 @@
 {
-  "body": "text-generation",
+  "body": "An open-weight mixture-of-experts language model for general-purpose text generation, coding, and reasoning.",
   "category": "llm-models",
   "commercial_use": 0,
   "community_guides": [],

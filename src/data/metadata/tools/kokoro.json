@@ -1,5 +1,5 @@
 {
-  "body": "https://hf.co/hexgrad/Kokoro-82M",
+  "body": "An inference library for Kokoro-82M, a lightweight open-weight text-to-speech model.",
   "category": "text-to-speech",
   "commercial_use": 1,
   "community_guides": [],

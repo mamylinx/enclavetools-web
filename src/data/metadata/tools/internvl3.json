@@ -1,5 +1,5 @@
 {
-  "body": "[CVPR 2024 Oral] InternVL Family: A Pioneering Open-Source Alternative to GPT-4o.  接近GPT-4o表现的开源多模态对话模型",
+  "body": "An open-source family of multimodal models for image and video understanding, visual chat, and retrieval.",
   "category": "vision-multimodal",
   "commercial_use": 1,
   "community_guides": [],
@@ -53,7 +53,7 @@
   "tag": "Vision / Multimodal",
   "technical_description": "InternVL is an open source family of multimodal models for visual perception, image text retrieval, and image and video chat. The repository provides model checkpoints, inference examples, training and fine tuning code, evaluation tools, and a Streamlit chat demo. Models are used through Python and Hugging Face Transformers; the README shows CUDA execution and multi GPU loading.",
   "telemetry": "Unknown",
-  "title": "InternVL Family",
+  "title": "InternVL",
   "url": "https://github.com/OpenGVLab/InternVL",
   "use_cases": [
     "Chat Assistant",

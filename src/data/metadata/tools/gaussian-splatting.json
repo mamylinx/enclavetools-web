@@ -48,7 +48,7 @@
   "tag": "3D vision",
   "technical_description": "Official research implementation for 3D Gaussian Splatting. It trains a scene representation from COLMAP or synthetic NeRF datasets using a PyTorch optimizer and CUDA extensions, then renders novel views with an OpenGL viewer. Includes tools for dataset conversion, evaluation, and interactive inspection; training requires a CUDA-ready GPU.",
   "telemetry": "Unknown",
-  "title": "3D Gaussian Splatting for Real-Time Radiance Field Rendering",
+  "title": "3D Gaussian Splatting",
   "url": "https://repo-sam.inria.fr/gspd/gaussian-splatting/",
   "use_cases": [
     "Image Generation"

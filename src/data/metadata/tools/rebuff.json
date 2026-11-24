@@ -45,7 +45,7 @@
   "tag": "Privacy & Security",
   "technical_description": "Rebuff is a prototype prompt injection detector with layered defenses: input heuristics, LLM-based detection, vector database comparisons against prior attacks, and canary tokens for detecting prompt leakage. It provides JavaScript/TypeScript and Python SDKs. The README shows setup with OpenAI and Pinecone; self-hosting the playground also uses Supabase and a vector database.",
   "telemetry": "Unknown",
-  "title": "Rebuff.ai",
+  "title": "Rebuff",
   "url": "https://github.com/protectai/rebuff",
   "use_cases": [
     "Data Extraction"

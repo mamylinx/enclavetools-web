@@ -46,7 +46,7 @@
   "tag": "Document OCR",
   "technical_description": "Tesseract is an open-source OCR engine provided as the libtesseract library and a command-line program. Its current stable major version uses an LSTM-based engine for line recognition and also supports the legacy engine. It reads image formats including PNG, JPEG, and TIFF, and can output plain text, hOCR, PDF, TSV, ALTO, and PAGE. It supports UTF-8 and requires traineddata files.",
   "telemetry": "Unknown",
-  "title": "Tesseract OCR",
+  "title": "Tesseract",
   "url": "https://github.com/tesseract-ocr/tesseract",
   "use_cases": [
     "Document Processing",

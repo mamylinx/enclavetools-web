@@ -1,5 +1,5 @@
 {
-  "body": "The community repository for the Draw Things app.",
+  "body": "An app for generating and editing images locally with AI.",
   "category": "image-generation",
   "commercial_use": 1,
   "community_guides": [],
@@ -51,7 +51,7 @@
   "tag": "Image generation",
   "technical_description": "Community repository for public-facing code used by the Draw Things app. It includes implementations of image generation models, samplers, data models, and training, along with a local inference and LoRA training CLI and a self-hosted gRPC server CLI. The README documents building and running these tools on macOS and CUDA-capable Linux, including Docker deployment for the server.",
   "telemetry": "Unknown",
-  "title": "Draw Things Community",
+  "title": "Draw Things",
   "url": "https://drawthings.ai/",
   "use_cases": [
     "Image Generation",

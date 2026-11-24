@@ -1,5 +1,5 @@
 {
-  "body": "Test your prompts, agents, and RAGs. Red teaming/pentesting/vulnerability scanning for AI. Compare performance of GPT, Claude, Gemini, DeepSeek, and more. Simple declarative configs with command line and CI/CD integration.  Used by OpenAI and Anthropic.",
+  "body": "A tool for testing and comparing LLM prompts, agents, and retrieval-augmented generation systems.",
   "category": "privacy-security",
   "commercial_use": 1,
   "community_guides": [],

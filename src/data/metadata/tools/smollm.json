@@ -1,5 +1,5 @@
 {
-  "body": "text-generation",
+  "body": "A compact instruction-tuned language model for text generation, summarization, and question answering.",
   "category": "llm-models",
   "commercial_use": 1,
   "community_guides": [],
@@ -50,7 +50,7 @@
   "tag": "LLM",
   "technical_description": "SmolLM2 is a family of compact language models, with 135M, 360M, and 1.7B parameter variants. The 1.7B Instruct model supports text generation, rewriting, summarization, and function calling. It can be loaded with Transformers or Transformers.js and run on CPU or GPU; the README also provides a TRL terminal chat example. Available formats listed in the repository metadata are safetensors and ONNX.",
   "telemetry": "Unknown",
-  "title": "SmolLM2",
+  "title": "SmolLM2-1.7B-Instruct",
   "url": "https://huggingface.co/blog/smollm",
   "use_cases": [
     "Chat Assistant",

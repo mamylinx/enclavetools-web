@@ -1,5 +1,5 @@
 {
-  "body": "Non-autoregressive System 1 decision engine. Typed choice, score and yes/no decisions over any text in a single forward pass, in 100+ languages, with a router that picks the right checkpoint per request.",
+  "body": "A decision engine that returns typed choices, scores, or yes/no answers from text in a single forward pass.",
   "category": "decision-models",
   "commercial_use": 1,
   "community_guides": [],

@@ -1,5 +1,5 @@
 {
-  "body": "Weaviate is an open-source vector database that stores both objects and vectors, allowing for the combination of vector search with structured filtering with the fault tolerance and scalability of a cloud-native database​.",
+  "body": "An open-source vector database that stores objects and embeddings and combines vector search with filters.",
   "category": "vector-databases",
   "commercial_use": 0,
   "community_guides": [],

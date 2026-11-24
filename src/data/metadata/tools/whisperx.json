@@ -1,5 +1,5 @@
 {
-  "body": "WhisperX:  Automatic Speech Recognition with Word-level Timestamps (& Diarization)",
+  "body": "Automatic speech recognition with word-level timestamps and speaker diarization.",
   "category": "speech-to-text",
   "commercial_use": 1,
   "community_guides": [],

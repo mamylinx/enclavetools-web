@@ -1,5 +1,5 @@
 {
-  "body": "An open-source framework for detecting, redacting, masking, and anonymizing sensitive data (PII) across text, images, and structured data. Supports NLP, pattern matching, and customizable pipelines.",
+  "body": "An open-source framework for detecting and anonymizing personal information in text, images, and structured data.",
   "category": "privacy-security",
   "commercial_use": 1,
   "community_guides": [],

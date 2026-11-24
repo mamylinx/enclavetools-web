@@ -1,5 +1,5 @@
 {
-  "body": "HunyuanVideo: A Systematic Framework For Large Video Generation Model",
+  "body": "A video generation model and inference framework for creating clips from text prompts.",
   "category": "video-generation",
   "commercial_use": 0,
   "community_guides": [],
@@ -54,7 +54,7 @@
   "tag": "Video generation",
   "technical_description": "Open-source video foundation model with PyTorch definitions, pretrained weights, and inference and sampling code. It generates videos from text prompts and supports image and video generation, a Gradio web demo, multi-GPU inference, and FP8 quantized weights. The README reports NVIDIA GPU memory requirements of 45 GB for 544×960×129-frame generation and 60 GB for 720×1280×129-frame generation; 80 GB is recommended.",
   "telemetry": "Unknown",
-  "title": "HunyuanVideo: A Systematic Framework For Large Video Generation Model",
+  "title": "HunyuanVideo",
   "url": "https://github.com/Tencent/HunyuanVideo",
   "use_cases": [
     "Image Generation"

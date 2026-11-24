@@ -55,7 +55,7 @@
   "tag": "Code assistants",
   "technical_description": "A 13-billion-parameter, transformer-based multilingual code generation model trained on code from more than 20 programming languages. It supports code generation and cross-language translation, with a VS Code and JetBrains programming assistant. The README describes inference on Ascend and NVIDIA GPUs, with PyTorch and MindSpore implementations, and provides quantized inference options.",
   "telemetry": "Unknown",
-  "title": "CodeGeeX: A Multilingual Code Generation Model",
+  "title": "CodeGeeX",
   "url": "https://github.com/THUDM/CodeGeeX",
   "use_cases": [
     "Code Generation",

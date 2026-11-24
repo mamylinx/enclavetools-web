@@ -1,5 +1,5 @@
 {
-  "body": "The best OSS video generation models, created by Genmo",
+  "body": "An open-weight text-to-video generation model from Genmo.",
   "category": "video-generation",
   "commercial_use": 1,
   "community_guides": [],

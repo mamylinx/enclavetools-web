@@ -1,5 +1,5 @@
 {
-  "body": "Wan: Open and Advanced Large-Scale Video Generative Models",
+  "body": "A suite of video generation models for text-to-video, image-to-video, and video editing.",
   "category": "video-generation",
   "commercial_use": 1,
   "community_guides": [],

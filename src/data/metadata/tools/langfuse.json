@@ -1,5 +1,5 @@
 {
-  "body": "🪢 Open source AI engineering platform: AI Gateway, agent observability, evals, and prompt/skill management, built on OpenTelemetry. One open platform for every AI call and every agent. Self-host or use Langfuse Cloud.",
+  "body": "An open-source platform for tracing, evaluating, and managing prompts for AI agents and LLM applications.",
   "category": "monitoring-observability",
   "commercial_use": 0,
   "community_guides": [],

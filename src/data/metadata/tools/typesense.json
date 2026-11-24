@@ -1,5 +1,5 @@
 {
-  "body": "Open Source alternative to Algolia + Pinecone and an Easier-to-Use alternative to ElasticSearch ⚡ 🔍 ✨ Fast, typo tolerant, in-memory fuzzy Search Engine for building delightful search experiences",
+  "body": "An open-source search engine with typo-tolerant text search and vector search.",
   "category": "vector-databases",
   "commercial_use": 1,
   "community_guides": [],

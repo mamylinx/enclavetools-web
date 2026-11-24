@@ -1,5 +1,5 @@
 {
-  "body": "🌟 The Multi-Agent Framework: First AI Software Company, Towards Natural Language Programming",
+  "body": "A multi-agent framework that coordinates AI agents in software development workflows.",
   "category": "agent-frameworks",
   "commercial_use": 1,
   "community_guides": [],
@@ -48,7 +48,7 @@
   "tag": "Agent Framework",
   "technical_description": "MetaGPT is a Python multi-agent framework that coordinates LLM-based roles using software development processes. It accepts natural-language requirements and can generate project artifacts including user stories, competitive analysis, requirements, data structures, APIs, documents, and code. It can also run data analysis through its Data Interpreter. The README documents CLI and library usage and configuration for OpenAI, Azure, Ollama, Groq, and other providers.",
   "telemetry": "Unknown",
-  "title": "MetaGPT: The Multi-Agent Framework",
+  "title": "MetaGPT",
   "url": "https://github.com/FoundationAgents/MetaGPT",
   "use_cases": [
     "Agentic Workflows",

@@ -1,5 +1,5 @@
 {
-  "body": "Official repository for LTX-Video",
+  "body": "A video generation model for creating or extending footage from text, images, and keyframes.",
   "category": "video-generation",
   "commercial_use": 1,
   "community_guides": [],
@@ -54,7 +54,7 @@
   "tag": "Video generation",
   "technical_description": "LTX-Video is an open video-generation model for text-to-video and image-to-video, with support for keyframe conditioning, video extension, video-to-video transformations, and controlled generation. The repository provides local inference through Python and integrations with ComfyUI and Diffusers. It includes FP8 and 8-bit quantized model variants and can be fine-tuned through the separate LTX-Video-Trainer project. The README says this repository is no longer under active development and is retained for its original v0.9.x models.",
   "telemetry": "Unknown",
-  "title": "LTX-Video (Legacy)",
+  "title": "LTX-Video",
   "url": "https://github.com/Lightricks/LTX-Video",
   "use_cases": [],
   "works_with": [

@@ -1,5 +1,5 @@
 {
-  "body": "docTR (Document Text Recognition) - a seamless, high-performing & accessible library for OCR-related tasks powered by Deep Learning. Ongoing development and maintenance by t2k.",
+  "body": "A deep learning library for detecting and recognizing text in documents and images.",
   "category": "rag-document",
   "commercial_use": 1,
   "community_guides": [],

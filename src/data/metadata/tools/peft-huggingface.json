@@ -1,5 +1,5 @@
 {
-  "body": "🤗 PEFT: State-of-the-art Parameter-Efficient Fine-Tuning.",
+  "body": "A library for adapting pretrained models by training only a small subset of their parameters.",
   "category": "fine-tuning-training",
   "commercial_use": 1,
   "community_guides": [],
@@ -55,7 +55,7 @@
   "tag": "Fine-tuning",
   "technical_description": "PEFT is a Python library of parameter-efficient fine-tuning methods for adapting pretrained models by training a small subset of additional parameters. It integrates with Transformers for training and inference, Diffusers for managing adapters, and Accelerate for distributed training and inference. Methods include LoRA and support combining PEFT with quantization.",
   "telemetry": "Unknown",
-  "title": "🤗 PEFT",
+  "title": "PEFT",
   "url": "https://github.com/huggingface/peft",
   "use_cases": [
     "Fine-Tuning"

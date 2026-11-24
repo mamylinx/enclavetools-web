@@ -1,5 +1,5 @@
 {
-  "body": "Build resilient agents.",
+  "body": "A framework for orchestrating long-running, stateful AI agents.",
   "category": "agent-frameworks",
   "commercial_use": 1,
   "community_guides": [],

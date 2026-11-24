@@ -1,5 +1,5 @@
 {
-  "body": "feature-extraction",
+  "body": "A multilingual text embedding model with task-specific adapters for retrieval and other language tasks.",
   "category": "embedding-models",
   "commercial_use": 0,
   "community_guides": [],
@@ -148,7 +148,7 @@
   "tag": "Embedding model",
   "technical_description": "A multilingual, multi-task text embedding model based on Jina-XLM-RoBERTa. Supports up to 8,192 tokens, five task-specific LoRA adapters, and Matryoshka embedding dimensions from 32 to 1,024. Usable through Transformers, SentenceTransformers, ONNX Runtime, or the Jina Embedding API; supports task-specific fine-tuning.",
   "telemetry": "Unknown",
-  "title": "jina-embeddings-v3: Multilingual Embeddings With Task LoRA",
+  "title": "jina-embeddings-v3",
   "url": "https://huggingface.co/jinaai/jina-embeddings-v3",
   "use_cases": [
     "RAG",

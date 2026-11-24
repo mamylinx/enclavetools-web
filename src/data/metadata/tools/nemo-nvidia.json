@@ -1,5 +1,5 @@
 {
-  "body": "A scalable generative AI framework built for researchers and developers working on Large Language Models, Multimodal, and Speech AI (Automatic Speech Recognition and Text-to-Speech)",
+  "body": "A framework for building and adapting models for speech recognition, text-to-speech, and spoken dialogue.",
   "category": "speech-to-text",
   "commercial_use": 1,
   "community_guides": [],

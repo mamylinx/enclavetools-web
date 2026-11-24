@@ -1,5 +1,5 @@
 {
-  "body": "Fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code, self-host or cloud, 400+ integrations.",
+  "body": "A workflow automation platform that combines visual editing, custom code, integrations, and AI capabilities.",
   "category": "workflow-automation",
   "commercial_use": 0,
   "community_guides": [],
@@ -52,7 +52,7 @@
   "tag": "Workflow automation",
   "technical_description": "Fair-code platform for building and deploying AI agents and workflows. Combines a visual editor with JavaScript, Python, and npm packages, and supports integrations with OpenAI, Anthropic, Google, and open-source models. Can run self-hosted or in the cloud; Docker installation is documented.",
   "telemetry": "Unknown",
-  "title": "n8n – The Platform for AI Agents and Workflow Automation",
+  "title": "n8n",
   "url": "https://n8n.io/",
   "use_cases": [
     "Agentic Workflows",

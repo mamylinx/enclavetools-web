@@ -1,5 +1,5 @@
 {
-  "body": "text-generation",
+  "body": "A compact instruction-tuned language model for text generation and reasoning with a 128K-token context window.",
   "category": "llm-models",
   "commercial_use": 1,
   "community_guides": [],
@@ -57,7 +57,7 @@
   "tag": "LLM",
   "technical_description": "A 3.8 billion-parameter, decoder-only Transformer language model trained for text generation and instruction following. It supports 128K-token context, is available through Hugging Face Transformers, and has ONNX variants for CPU, GPU, and mobile inference. The README provides a multi-GPU fine-tuning example.",
   "telemetry": "Unknown",
-  "title": "Phi-3-Mini-128K-Instruct",
+  "title": "Phi-3-mini-128k-instruct",
   "url": "https://huggingface.co/microsoft/Phi-3-mini-128k-instruct",
   "use_cases": [
     "Chat Assistant",

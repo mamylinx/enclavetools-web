@@ -1,5 +1,5 @@
 {
-  "body": "Edge-native MoE serving engine designed for running 290B+ frontier models locally on consumer GPUs and CPUs",
+  "body": "A desktop inference engine for running large mixture-of-experts models on consumer GPUs and CPUs.",
   "category": "llm-inference",
   "commercial_use": 1,
   "community_guides": [],

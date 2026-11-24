@@ -1,5 +1,5 @@
 {
-  "body": "A Web UI for easy subtitle using whisper model.",
+  "body": "A web interface for generating subtitles with Whisper.",
   "category": "speech-to-text",
   "commercial_use": 1,
   "community_guides": [],

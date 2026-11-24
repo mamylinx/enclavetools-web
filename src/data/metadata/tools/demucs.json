@@ -1,5 +1,5 @@
 {
-  "body": "Code for the paper Hybrid Spectrogram and Waveform Source Separation",
+  "body": "Separate music into vocals, drums, bass, and other tracks using a neural network.",
   "category": "data-utilities",
   "commercial_use": 1,
   "community_guides": [],
@@ -53,7 +53,7 @@
   "tag": "Audio",
   "technical_description": "Demucs is a Python music source separation tool. Its v4 Hybrid Transformer Demucs model combines spectrogram and waveform processing to separate audio into stems; available models also support six sources, including guitar and piano. It runs on CPU or GPU, accepts formats supported by torchaudio, and can save separated tracks as WAV or MP3. The README also describes Python APIs and model training.",
   "telemetry": "Unknown",
-  "title": "Demucs Music Source Separation",
+  "title": "Demucs",
   "url": "https://github.com/facebookresearch/demucs",
   "use_cases": [
     "Speech-to-Text"

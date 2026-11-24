@@ -1,5 +1,5 @@
 {
-  "body": "Open-source antivirus and firewall for AI agents: block risky tools, secret access, prompt injection, malicious packages, MCP servers, plugins, and skills at runtime.",
+  "body": "An open-source firewall that helps protect AI agents from unsafe tool calls, secret access, and prompt injection.",
   "category": "privacy-security",
   "commercial_use": 1,
   "community_guides": [],

@@ -50,7 +50,7 @@
   "tag": "Security",
   "technical_description": "garak is a command-line tool for red-teaming and assessing LLM-backed applications. It runs static, dynamic, and adaptive probes against a selected model, then uses detectors to identify undesirable behavior and reports results. The README lists support for Hugging Face, OpenAI, Replicate, AWS Bedrock, LiteLLM, REST endpoints, and GGUF models such as llama.cpp.",
   "telemetry": "Unknown",
-  "title": "garak, LLM vulnerability scanner",
+  "title": "garak",
   "url": "https://github.com/leondz/garak",
   "use_cases": [],
   "works_with": [

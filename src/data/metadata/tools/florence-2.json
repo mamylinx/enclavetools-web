@@ -1,5 +1,5 @@
 {
-  "body": "image-text-to-text",
+  "body": "A prompt-based vision model for image captioning, object detection, segmentation, and text recognition.",
   "category": "vision-multimodal",
   "commercial_use": 1,
   "community_guides": [],
@@ -50,7 +50,7 @@
   "tag": "Vision",
   "technical_description": "Florence-2 is a prompt-based vision foundation model with a sequence-to-sequence architecture for vision and vision-language tasks. The README demonstrates inference with Hugging Face Transformers and PyTorch, and lists image captioning, object detection, segmentation, region proposals, phrase grounding, and OCR tasks. The snapshot identifies safetensors and PyTorch formats and estimates 1.6 GB minimum and 2.4 GB recommended RAM.",
   "telemetry": "Unknown",
-  "title": "Florence-2: Advancing a Unified Representation for a Variety of Vision Tasks",
+  "title": "Florence-2-large",
   "url": "https://huggingface.co/microsoft/Florence-2-large",
   "use_cases": [
     "Document Processing",

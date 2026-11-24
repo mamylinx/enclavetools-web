@@ -1,5 +1,5 @@
 {
-  "body": "Moshi is a speech-text foundation model and full-duplex spoken dialogue framework. It uses Mimi, a state-of-the-art streaming neural audio codec.",
+  "body": "A speech-text model and framework for real-time spoken dialogue that can listen and speak simultaneously.",
   "category": "text-to-speech",
   "commercial_use": 1,
   "community_guides": [],

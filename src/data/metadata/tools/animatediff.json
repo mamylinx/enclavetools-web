@@ -1,5 +1,5 @@
 {
-  "body": "Official implementation of AnimateDiff.",
+  "body": "Animate existing text-to-image diffusion models to generate short video clips from text prompts.",
   "category": "video-generation",
   "commercial_use": 1,
   "community_guides": [],

@@ -1,5 +1,5 @@
 {
-  "body": "Invoke is a leading creative engine that uses image and video generation models to empower professionals, artists, and enthusiasts to generate and create visual media using the latest AI-driven technologies. The solution offers an industry-leading application interface, and serves as the foundation for multiple commercial products.",
+  "body": "A creative toolkit for generating and editing visual media with image and video models.",
   "category": "image-generation",
   "commercial_use": 1,
   "community_guides": [],
@@ -50,7 +50,7 @@
   "tag": "Image generation",
   "technical_description": "Invoke is a locally hosted web server and React UI for generating and refining visual media with AI models. It includes a unified canvas with inpainting and brush tools, workflow and node management, and a gallery for organizing and remixing content. The README lists support for many image models and some GGUF models; Nano Banana, GPT Image, and Wan are listed as API-only.",
   "telemetry": "Unknown",
-  "title": "Invoke - Professional Creative AI Tools for Visual Media",
+  "title": "Invoke",
   "url": "https://invoke.ai/",
   "use_cases": [
     "Image Generation"

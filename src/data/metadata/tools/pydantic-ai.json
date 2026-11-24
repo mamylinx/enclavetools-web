@@ -1,5 +1,5 @@
 {
-  "body": "How Python does AI. Agents, realtime voice, image generation, embeddings. Every model, every interface, typed end to end.",
+  "body": "A typed Python framework for building AI agents and working with text, voice, images, and embeddings.",
   "category": "agent-frameworks",
   "commercial_use": 1,
   "community_guides": [],

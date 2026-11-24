@@ -1,5 +1,5 @@
 {
-  "body": "🦉 Data Versioning and ML Experiments",
+  "body": "Data Versioning and ML Experiments",
   "category": "data-utilities",
   "commercial_use": 1,
   "community_guides": [],
@@ -50,7 +50,7 @@
   "tag": "Data utilities",
   "technical_description": "DVC is a command-line tool for versioning data and models, defining lightweight pipelines, tracking experiments locally in Git, and comparing data, code, parameters, metrics, and plots. It supports remote storage including cloud and on-premise options, and has a VS Code extension for experiment tracking and data management.",
   "telemetry": "Unknown",
-  "title": "Data Version Control",
+  "title": "DVC",
   "url": "https://dvc.org/",
   "use_cases": [
     "Data Extraction"

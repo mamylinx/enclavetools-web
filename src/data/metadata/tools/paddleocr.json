@@ -1,5 +1,5 @@
 {
-  "body": "Turn any PDF or image document into structured data for your AI. A powerful, lightweight OCR toolkit that bridges the gap between images/PDFs and LLMs. Supports 100+ languages.",
+  "body": "Extract text and structured data from images and PDFs in more than 100 languages.",
   "category": "rag-document",
   "commercial_use": 1,
   "community_guides": [],

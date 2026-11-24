@@ -1,5 +1,5 @@
 {
-  "body": "Flexible and powerful data analysis / manipulation library for Python, providing labeled data structures similar to R data.frame objects, statistical functions, and much more",
+  "body": "A Python library with labeled data structures and tools for manipulating and analyzing data.",
   "category": "data-utilities",
   "commercial_use": 1,
   "community_guides": [],
